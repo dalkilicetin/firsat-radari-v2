@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fırsat Radarı</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0C111B">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Fırsat Radarı">
+<style>
+  :root{
+    --bg:#0C111B; --card:#141B29; --edge:#1F2A3E; --text:#E8EDF5; --dim:#8A96AB;
+    --green:#3DD68C; --amber:#F2B441; --red:#E5484D; --blue:#5B8DEF; --purple:#B08DEF;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  body{margin:0 auto; background:var(--bg); color:var(--text);
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif; padding:16px 12px 70px; max-width:540px;}
+  .eyebrow{font-size:11px; letter-spacing:2.5px; color:var(--dim); font-weight:600;}
+  h1{font-size:20px; margin:2px 0 10px; letter-spacing:-.3px;}
+  h2{font-size:15px; margin:0 0 8px;}
+  .card{background:var(--card); border:1px solid var(--edge); border-radius:14px; padding:14px; margin-bottom:12px;}
+  input,select{background:#101724; border:1px solid var(--edge); color:var(--text);
+    border-radius:10px; padding:9px 11px; font-size:13.5px; width:100%;}
+  textarea{width:100%; min-height:70px; background:#101724; border:1px solid var(--edge);
+    color:var(--text); border-radius:10px; padding:10px; font-size:12px; font-family:ui-monospace,monospace;}
+  button.primary{width:100%; background:var(--blue); color:#fff; border:none; border-radius:10px;
+    padding:11px; font-size:14px; font-weight:700; cursor:pointer; margin-top:8px;}
+  button.ghost{background:transparent; border:1px solid var(--edge); color:var(--dim);
+    border-radius:10px; padding:7px 11px; font-size:12px; cursor:pointer;}
+  .row{display:flex; justify-content:space-between; align-items:center; gap:8px;}
+  .muted{font-size:11.5px; color:var(--dim); line-height:1.55;}
+  .warn{font-size:11.5px; color:var(--amber); line-height:1.5; background:#33280F55;
+    border:1px solid #7A622255; border-radius:10px; padding:8px 10px; margin-bottom:10px;}
+  .danger{color:var(--red); background:#3a151855; border-color:#7a222a55;}
+  .stock{padding:10px 12px; border-bottom:1px solid #10182688;}
+  .stock:last-child{border-bottom:none;}
+  .l1{display:flex; align-items:baseline; gap:9px;}
+  .tick{font-weight:800; font-size:14.5px; min-width:58px; letter-spacing:.3px;}
+  .price{font-size:12.5px; color:var(--dim); flex:1;}
+  .chg{font-size:13px; font-weight:700; min-width:60px; text-align:right;}
+  .l2{display:flex; gap:5px; margin-top:4px; font-size:10.5px; color:var(--dim); flex-wrap:wrap;}
+  .chip{padding:2px 7px; border-radius:6px; background:#101724; border:1px solid var(--edge); white-space:nowrap;}
+  .chip.g{background:#16281F; border-color:#2A6A4E; color:var(--green); font-weight:700;}
+  .chip.a{background:#33280F; border-color:#7A6222; color:var(--amber); font-weight:700;}
+  .chip.r{background:#3a1518; border-color:#7a222a; color:var(--red); font-weight:700;}
+  .chip.b{background:#151E33; border-color:#2E4270; color:#9DB8F5; font-weight:700;}
+  .chip.p{background:#241a38; border-color:#4e3a78; color:var(--purple); font-weight:700;}
+  .news{margin-top:5px; font-size:11px; color:#B9C4D6; line-height:1.45; padding-left:8px; border-left:2px solid var(--blue);}
+  .news.rumor{border-left-color:var(--purple);}
+  .news small{color:var(--dim);}
+  .badge{font-size:10px; font-weight:800; letter-spacing:.6px; padding:4px 9px; border-radius:7px;}
+  .progress{height:5px; background:#0F1522; border-radius:3px; overflow:hidden; margin-top:8px;}
+  .progress > div{height:100%; background:var(--blue); width:0%; transition:width .3s;}
+  nav{position:fixed; bottom:0; left:0; right:0; background:#0E1420F2; backdrop-filter:blur(8px);
+    border-top:1px solid var(--edge); display:flex; overflow-x:auto; padding:6px 6px calc(6px + env(safe-area-inset-bottom)); gap:4px; z-index:50;}
+  nav button{flex:0 0 auto; background:transparent; border:none; color:var(--dim); font-size:11px;
+    font-weight:600; padding:8px 10px; border-radius:9px; cursor:pointer;}
+  nav button.active{background:#1A2233; color:var(--text);}
+  .verdict{font-size:18px; font-weight:800; letter-spacing:1px;}
+  .bignum{font-size:26px; font-weight:800;}
+  table.mini{width:100%; border-collapse:collapse; font-size:12px;}
+  table.mini td{padding:6px 4px; border-bottom:1px solid #10182688;}
+  table.mini td:last-child{text-align:right; font-weight:700;}
+  details summary{cursor:pointer; font-size:13px; font-weight:700; color:var(--dim);}
+  .fab{margin-top:8px;}
+  .del{color:var(--red); background:none; border:none; font-size:12px; cursor:pointer; padding:4px;}
+  section{display:none;} section.active{display:block;}
+  .pulse{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--green);
+    margin-right:6px; animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+  @media (prefers-reduced-motion: reduce){.pulse{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div>
+    <div class="eyebrow">FIRSAT RADARI • v4</div>
+    <h1 id="pageTitle">Genel Durum</h1>
+  </div>
+  <button class="ghost" onclick="show('ayar')">Ayarlar</button>
+</div>
+
+<!-- global status -->
+<div class="card" id="statusCard" style="display:none; padding:10px 14px;">
+  <div class="row">
+    <div style="font-size:12.5px;"><span class="pulse"></span><span id="statusText">Hazır</span></div>
+    <button class="ghost" onclick="refreshAll()">Yenile</button>
+  </div>
+  <div class="progress"><div id="bar"></div></div>
+</div>
+
+<!-- ======== AYAR / KURULUM ======== -->
+<section id="sec-ayar">
+  <div class="card">
+    <h2>API Anahtarları (tek seferlik)</h2>
+    <div class="muted" style="margin-bottom:8px;">
+      1. <b>finnhub.io</b> → ücretsiz kayıt → API key<br>
+      2. <b>twelvedata.com</b> → ücretsiz kayıt → API key (pattern motoru için geçmiş fiyat)<br>
+      Anahtarlar sadece bu cihazda saklanır.
+    </div>
+    <input type="password" id="fhKey" placeholder="Finnhub API anahtarı" style="margin-bottom:6px;">
+    <input type="password" id="tdKey" placeholder="Twelve Data API anahtarı">
+    <button class="primary" onclick="saveKeys()">Kaydet</button>
+  </div>
+  <div class="card">
+    <h2>Listeler</h2>
+    <div class="muted">Büyük firmalar (Nasdaq-100 + eklediklerin):</div>
+    <textarea id="bigList"></textarea>
+    <div class="muted" style="margin-top:8px;">Diğer firmalar (anlaşma takibi yapılanlar):</div>
+    <textarea id="otherList"></textarea>
+    <div class="muted" style="margin-top:8px;">Keşif — mikro-kap (spekülatif bölme):</div>
+    <textarea id="microList"></textarea>
+    <div class="muted" style="margin-top:8px;">Spin-off etiketli (sağlam firma filtresi bunlarda devre dışı):</div>
+    <input type="text" id="spinList" placeholder="örn: SNDK, KLC">
+    <button class="primary" onclick="saveLists()">Listeleri Kaydet</button>
+  </div>
+  <div class="card">
+    <div class="muted">Evrensel tarama: 586 hisselik ABD evreni haftada bir Finnhub'la ön elenir (~12 dk), filtreyi geçen adaylara Twelve Data'dan 5 yıllık derin veri çekilir. İlk tam tarama ~20-25 dk sürer (ücretsiz API hız limitleri; Twelve Data dakikada 8 istek). Veriler günlük önbelleğe alınır — gün içi yenilemeler yalnızca canlı fiyat çeker (~2 dk). Tarama yarıda kalırsa kaldığı yerden devam eder.</div>
+  </div>
+</section>
+
+<!-- ======== DURUM ======== -->
+<section id="sec-durum">
+  <div class="card" id="vixCard">
+    <div class="row">
+      <div>
+        <div class="muted">VIX (FRED, günlük)</div>
+        <div class="bignum" id="vixVal">—</div>
+      </div>
+      <div id="verdictBadge" class="badge" style="background:#1A2233; color:var(--dim);">BEKLİYOR</div>
+    </div>
+    <div class="muted" id="vixNote" style="margin-top:6px;"></div>
+    <div id="vixManual" style="display:none; margin-top:8px;">
+      <div class="muted">Otomatik VIX alınamadı — Google'a "VIX" yazıp değeri gir:</div>
+      <input type="number" step="0.1" id="vixInput" placeholder="örn 18.5" onchange="manualVix(this.value)">
+    </div>
+  </div>
+  <div class="card">
+    <div class="row">
+      <div>
+        <div class="muted">PİYASA NABZI (büyük liste ort. günlük)</div>
+        <div class="bignum" id="pulseVal">—</div>
+      </div>
+      <div id="pulseBadge" class="badge" style="background:#1A2233; color:var(--dim);">—</div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Bugünün özeti</h2>
+    <div id="summaryBox" class="muted">Tarama sonrası: pattern yakalayan hisse sayıları, uyarılar ve yaklaşan bilançolar burada.</div>
+  </div>
+  <div class="card"><div class="muted">Bu panel analiz gösterir, "kesin" hükmü vermez. FIRSAT: VAR etiketi VIX kuralının mekanik çıktısıdır, alım emri değildir. Son karar katmanı sensin.</div></div>
+</section>
+
+
+<!-- ======== ÖZET ======== -->
+<section id="sec-ozet">
+  <div class="warn">"Alınabilir" = <b>aday</b> demektir, alım emri değil. Bu sayfa tüm sekmelerin sinyallerini hisse başına birleştirir; en az 2 olumlu sinyali kesişenler listelenir. Son karar katmanı sensin.</div>
+  <div class="card" style="padding:4px 2px;" id="ozetList"><div class="stock muted" style="padding:14px;">Tarama bekleniyor…</div></div>
+</section>
+
+<!-- ======== TREND ======== -->
+<section id="sec-trend">
+  <div class="card">
+    <h2>Tematik ETF sıralaması</h2>
+    <div class="muted" style="margin-bottom:6px;">Sermaye hangi temaya akıyor — 3 aylık getiriye göre sıralı.</div>
+    <div id="themeTable" class="muted">Veri bekleniyor…</div>
+  </div>
+  <div class="card">
+    <h2>Bölgesel güç/zayıflık</h2>
+    <div class="muted" style="margin-bottom:6px;">Northvolt dersi: aynı temada zayıf bölgeden uzak dur.</div>
+    <div id="regionTable" class="muted">Veri bekleniyor…</div>
+  </div>
+  <div class="card"><div class="muted">Lider temanın hisselerini Ayarlar'dan "Diğer firmalar" listesine ekle — pattern motoru + anlaşma takibi otomatik başlar. Tema lideri pahalıysa ucuz takipçisini araştır (NVDA→AMD ilişkisi).</div></div>
+</section>
+
+<!-- ======== BÜYÜK ======== -->
+<section id="sec-buyuk">
+  <div class="tabsWrap" style="display:flex; gap:6px; overflow-x:auto; padding-bottom:6px;" id="patTabs"></div>
+  <div class="muted" id="patDesc" style="margin:0 2px 8px;"></div>
+  <div class="card" style="padding:4px 2px;" id="bigStockList"><div class="stock muted" style="padding:14px;">Tarama bekleniyor…</div></div>
+  <div class="card"><div class="muted" id="poolCounter">Aday havuzu hatırlatması: bu profildeki adayların hepsi kazanmaz — tarihsel isabet kabaca 10 adaydan 3-5'i. Sistem havuzu iyileştirir, garantiyi değil.</div></div>
+</section>
+
+<!-- ======== DİĞER ======== -->
+<section id="sec-diger">
+  <div class="card" style="padding:4px 2px;" id="otherStockList"><div class="stock muted" style="padding:14px;">Ayarlar'dan "Diğer firmalar" listesine hisse ekle.</div></div>
+</section>
+
+<!-- ======== KEŞİF ======== -->
+<section id="sec-kesif">
+  <div class="warn danger"><b>SPEKÜLATİF BÖLME:</b> Sağlam firma filtresi burada KAPALI. Bu havuz portföyün %0-5'i içindir; pozisyon = kaybetmeyi göze aldığın para. Vurgu için çift teyit şartı: pattern + (insider VEYA teyitli anlaşma). Beklenti kalibrasyonu: bu havuzda 20 adaydan ~1'i 10x yapar, ~5'i sıfırlanır — pozisyon boyutunu buna göre seç.</div>
+  <div class="card" style="padding:4px 2px;" id="microStockList"><div class="stock muted" style="padding:14px;">Ayarlar'dan "Keşif" listesine hisse ekle.</div></div>
+</section>
+
+<!-- ======== METAL ======== -->
+<section id="sec-metal">
+  <div class="card" style="padding:4px 2px;" id="metalList"><div class="stock muted" style="padding:14px;">Veri bekleniyor…</div></div>
+  <div class="card">
+    <h2>Talep sürücüleri</h2>
+    <div class="muted">
+      <b>Gümüş:</b> güneş paneli + elektronik — sanayi talebi arz açığı yaratıyor.<br>
+      <b>Platin/Paladyum:</b> otomotiv katalizörü + hidrojen elektrolizi.<br>
+      <b>Bakır:</b> elektrifikasyon, şebeke, veri merkezi — "yeni petrol" tezi.<br>
+      <b>Altın:</b> merkez bankası alımları + reel faiz + jeopolitik sigorta.
+    </div>
+  </div>
+</section>
+
+<!-- ======== FON ======== -->
+<section id="sec-fon">
+  <div class="card">
+    <h2>Mevduat faizi (yıllık %)</h2>
+    <input type="number" step="0.1" id="depositRate" placeholder="örn 45" onchange="saveFunds()">
+  </div>
+  <div class="card">
+    <h2>Fon ekle (TEFAS'tan elle, ayda bir)</h2>
+    <input type="text" id="fundName" placeholder="Fon adı/kodu" style="margin-bottom:6px;">
+    <div style="display:flex; gap:6px;">
+      <input type="number" step="0.1" id="fund1y" placeholder="1 yıl %">
+      <input type="number" step="0.1" id="fund3m" placeholder="3 ay %">
+    </div>
+    <select id="fundCat" style="margin-top:6px;">
+      <option>Hisse</option><option>Borçlanma</option><option>Katılım</option>
+      <option>Tematik/Teknoloji</option><option>Kıymetli Maden</option><option>Karma</option><option>Para Piyasası</option>
+    </select>
+    <button class="primary" onclick="addFund()">Ekle</button>
+  </div>
+  <div class="card" style="padding:4px 2px;" id="fundList"></div>
+</section>
+
+<!-- ======== TAKVİM ======== -->
+<section id="sec-takvim">
+  <div class="card" style="padding:4px 2px;" id="calList"><div class="stock muted" style="padding:14px;">Tarama sonrası izleme listenin yaklaşan bilançoları burada.</div></div>
+</section>
+
+<!-- ======== GÜNLÜK ======== -->
+<section id="sec-gunluk">
+  <div class="card">
+    <h2>Yeni karar kaydı</h2>
+    <input type="text" id="jSym" placeholder="Hisse (örn SWK)" style="margin-bottom:6px;">
+    <input type="text" id="jThesis" placeholder="Tez — tek cümle" style="margin-bottom:6px;">
+    <input type="text" id="jKill" placeholder="Beni haksız çıkaracak sinyal">
+    <button class="primary" onclick="addJournal()">Kaydet</button>
+  </div>
+  <div class="card" style="padding:4px 2px;" id="journalList"></div>
+</section>
+
+<nav id="navBar"></nav>
+<script src="app.js"></script>
+</body>
+</html>
