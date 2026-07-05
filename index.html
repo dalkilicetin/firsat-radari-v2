@@ -115,12 +115,15 @@
     <textarea id="otherList"></textarea>
     <div class="muted" style="margin-top:8px;">Keşif — mikro-kap (spekülatif bölme):</div>
     <textarea id="microList"></textarea>
+    <label class="muted" style="display:flex; gap:8px; align-items:center; margin-top:10px; cursor:pointer;">
+      <input type="checkbox" id="useRussell" style="width:auto;" onchange="localStorage.setItem('fr4_useRussell', JSON.stringify(this.checked))"> Russell 1000'i evrene dahil et (evren ~1000+ hisseye çıkar; haftalık tarama ~20 dk sürer)
+    </label>
     <div class="muted" style="margin-top:8px;">Spin-off etiketli (sağlam firma filtresi bunlarda devre dışı):</div>
     <input type="text" id="spinList" placeholder="örn: SNDK, KLC">
     <button class="primary" onclick="saveLists()">Listeleri Kaydet</button>
   </div>
   <div class="card">
-    <div class="muted">Evrensel tarama: 586 hisselik ABD evreni haftada bir Finnhub'la ön elenir (~12 dk), filtreyi geçen adaylara Twelve Data'dan 5 yıllık derin veri çekilir. İlk tam tarama ~20-25 dk sürer (ücretsiz API hız limitleri; Twelve Data dakikada 8 istek). Veriler günlük önbelleğe alınır — gün içi yenilemeler yalnızca canlı fiyat çeker (~2 dk). Tarama yarıda kalırsa kaldığı yerden devam eder.</div>
+    <div class="muted">Evrensel tarama: evren haftada bir Wikipedia endeks listelerinden (S&P 500 + Nasdaq-100 + ops. Russell 1000) otomatik güncellenir — yeni endeks girişleri ve spin-off'lar kendiliğinden kapsama girer; liste alınamazsa gömülü 586'lık yedek devreye girer. Evren haftada bir Finnhub'la ön elenir (~12 dk), filtreyi geçen adaylara Twelve Data'dan 5 yıllık derin veri çekilir. İlk tam tarama ~20-25 dk sürer (ücretsiz API hız limitleri; Twelve Data dakikada 8 istek). Veriler günlük önbelleğe alınır — gün içi yenilemeler yalnızca canlı fiyat çeker (~2 dk). Tarama yarıda kalırsa kaldığı yerden devam eder.</div>
   </div>
 </section>
 

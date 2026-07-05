@@ -1,7 +1,7 @@
 "use strict";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
-const UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
+const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
 const THEMES = [["QTUM","Quantum"],["BOTZ","Robotik/AI"],["SMH","Yarı iletken"],["ICLN","Temiz enerji"],["URA","Uranyum/Nükleer"],["ARKG","Genomik"],["XBI","Biotech"],["ITA","Savunma"],["LIT","Batarya/Lityum"],["KWEB","Çin internet"],["XLE","Enerji"],["XLF","Finans"],["IGV","Yazılım"],["PAVE","Altyapı"],["JETS","Havacılık"],["REMX","Nadir toprak"]];
 const REGIONS = [["SPY","ABD"],["VGK","Avrupa"],["MCHI","Çin"],["EWJ","Japonya"],["EEM","Gelişen P."]];
 const METALS = [["XAU/USD","Altın"],["XAG/USD","Gümüş"],["XPT/USD","Platin"],["XPD/USD","Paladyum"],["CPER","Bakır (ETF)"]];
@@ -27,6 +27,8 @@ let series = store.get("series", {});       // sym -> {closes:[newest..], date}
 let fin = store.get("fin", {});             // sym -> {mcap, pe, ps, high52, low52, insBuyers, industry, news:[], scandal, epsSurprise, date}
 let firstSeen = store.get("firstSeen", {}); // sym -> isoDate (değer tuzağı sayacı)
 let earnCal = store.get("earnCal", {list:[], date:""});
+let dynUni = store.get("dynUni", {list:[], date:null, src:""});
+function universe(){ return (dynUni.list && dynUni.list.length>=300) ? dynUni.list : EMBEDDED_UNIVERSE; }
 let screen = store.get("screen", {}); // sym -> {mtd,r13w,r52w,hi52,pe,ps,mcap,date}
 let vix = store.get("vix", {val:null, date:"", manual:false});
 let running = false;
@@ -113,6 +115,7 @@ async function refreshAll(){
   $("statusCard").style.display = "block";
   try{
     await phaseVix();
+    await phaseUniverse();
     await phaseScreen();
     await phaseQuotes();
     await phaseSeries();
@@ -129,24 +132,40 @@ async function refreshAll(){
 }
 
 async function phaseVix(){
-  if(vix.date===today() && vix.val!==null){ return; }
+  if(vix.date===today() && vix.val!==null) return;
   setStatus("VIX çekiliyor…");
+  const plausible = v => typeof v==="number" && isFinite(v) && v>=5 && v<=90; // VIX tarihi aralığı (rekor ~89)
+  // Kaynak 1: FRED CSV — satır formatı sıkı doğrulanır: YYYY-MM-DD,sayı
   try{
     const r = await fetch("https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS");
     const txt = await r.text();
-    const lines = txt.trim().split("\n").reverse();
-    for(const ln of lines){
-      const v = parseFloat(ln.split(",")[1]);
-      if(!isNaN(v)){ vix = {val:v, date:today(), manual:false}; store.set("vix", vix); renderDurum(); return; }
+    if(txt.slice(0,200).toUpperCase().includes("DATE")){ // gerçekten CSV mi?
+      const lines = txt.trim().split("\n").reverse();
+      for(const ln of lines){
+        const m = ln.match(/^(\d{4}-\d{2}-\d{2}),\s*([0-9.]+)\s*$/);
+        if(m){
+          const v = parseFloat(m[2]);
+          if(plausible(v)){ vix={val:v, date:today(), manual:false}; store.set("vix",vix); renderDurum(); return; }
+        }
+      }
     }
-    throw new Error("nodata");
-  }catch(e){
-    $("vixManual").style.display = "block";
-    if(vix.val===null) renderDurum();
-  }
+  }catch(e){}
+  // Kaynak 2: stooq CSV (^VIX günlük kapanış)
+  try{
+    const r = await fetch("https://stooq.com/q/l/?s=%5Evix&f=sd2t2ohlcv&h&e=csv");
+    const txt = await r.text();
+    const row = txt.trim().split("\n")[1] || "";
+    const cells = row.split(",");
+    const v = parseFloat(cells[6]); // close kolonu
+    if(plausible(v)){ vix={val:v, date:today(), manual:false}; store.set("vix",vix); renderDurum(); return; }
+  }catch(e){}
+  // Kaynak 3: manuel giriş
+  $("vixManual").style.display = "block";
+  if(vix.val!==null && !plausible(vix.val)){ vix={val:null, date:"", manual:false}; store.set("vix",vix); } // bozuk eski değeri temizle
+  renderDurum();
 }
 function manualVix(v){
-  const x = parseFloat(v); if(isNaN(x)) return;
+  const x = parseFloat(v); if(isNaN(x) || x<5 || x>90){ alert("VIX 5-90 aralığında olmalı."); return; }
   vix = {val:x, date:today(), manual:true}; store.set("vix", vix); renderDurum();
 }
 
@@ -171,7 +190,7 @@ function stage1(s){ // ön eleme pattern adayları
 }
 function candidates(){ // Core: ≥2 milyar $ + kârlı
   const c = [];
-  for(const s of UNIVERSE){
+  for(const s of universe()){
     const pats = stage1(s);
     if(pats.length && solidScreen(s)) c.push(s);
   }
@@ -179,16 +198,52 @@ function candidates(){ // Core: ≥2 milyar $ + kârlı
 }
 function discCandidates(){ // Discovery: 300M–2 milyar $ — sadece Keşif bölmesine akar (çift teyit şartıyla vurgulanır)
   const c = [];
-  for(const s of UNIVERSE){
+  for(const s of universe()){
     const x = screen[s]; if(!x) continue;
     if((x.mcap||0)>=300 && (x.mcap||0)<2000 && stage1(s).length) c.push(s);
   }
   return c;
 }
+
+async function wikiTickers(page){
+  const r = await fetch("https://en.wikipedia.org/w/api.php?action=parse&format=json&origin=*&prop=wikitext&page="+encodeURIComponent(page));
+  const j = await r.json();
+  const txt = j && j.parse && j.parse.wikitext ? j.parse.wikitext["*"] : "";
+  const out = new Set();
+  // {{NYSE|XXX}} / {{Nasdaq|XXX}} şablonları
+  for(const m of txt.matchAll(/\{\{\s*(?:NYSE|NASDAQ|Nasdaq|nyse|nasdaq)[^|}]*\|\s*([A-Z]{1,5}(?:\.[A-Z])?)\s*\}\}/g)) out.add(m[1]);
+  // düz tablo hücresi: | MMM  veya  ||MMM||
+  for(const m of txt.matchAll(/\|\|?\s*([A-Z]{1,5}(?:\.[A-Z])?)\s*(?:\|\||\n)/g)) out.add(m[1]);
+  return out;
+}
+async function phaseUniverse(){
+  if(dynUni.date && (Date.now()-new Date(dynUni.date).getTime()) < 7*86400000 && dynUni.list.length>=300) return;
+  setStatus("Evren güncelleniyor (Wikipedia endeks listeleri)…");
+  try{
+    const merged = new Set(EMBEDDED_UNIVERSE); // gömülü liste taban — kaybolan olmaz
+    const sp = await wikiTickers("List of S%26P 500 companies");
+    sp.forEach(t=>merged.add(t));
+    const ndx = await wikiTickers("Nasdaq-100");
+    ndx.forEach(t=>merged.add(t));
+    let srcs = "S&P500 ✓ NDX ✓";
+    if(store.get("useRussell", true)){
+      try{ const ru = await wikiTickers("Russell 1000 Index"); if(ru.size>200){ ru.forEach(t=>merged.add(t)); srcs += " Russell ✓"; } }catch(e){}
+    }
+    // gürültü temizliği: 1 harfli semboller sadece bilinenler
+    const ONE_OK = new Set(["A","C","D","F","K","L","O","T","V","U"]);
+    const list = [...merged].filter(t=>/^[A-Z]{1,5}(\.[A-Z])?$/.test(t) && (t.length>1 || ONE_OK.has(t)));
+    if(list.length>=300){
+      dynUni = {list, date: iso(new Date()), src: srcs};
+      store.set("dynUni", dynUni);
+      setStatus("Evren: "+list.length+" hisse ("+srcs+")");
+    }
+  }catch(e){ /* fallback: gömülü liste */ }
+}
+
 async function phaseScreen(){
-  const need = UNIVERSE.filter(s => !screen[s] || weekOld(screen[s].date));
+  const need = universe().filter(s => !screen[s] || weekOld(screen[s].date));
   if(!need.length) return;
-  setStatus("Evrensel tarama (haftalık, "+need.length+" hisse)… ~"+Math.ceil(need.length*FH_GAP/60000)+" dk");
+  setStatus("Evrensel tarama (evren: "+universe().length+", yeni: "+need.length+")… ~"+Math.ceil(need.length*FH_GAP/60000)+" dk");
   let i=0;
   for(const s of need){
     try{
@@ -382,6 +437,7 @@ function stockHtml(sym, opts={}){
 }
 
 function renderDurum(){
+  if(vix.val===null){ $("vixVal").textContent="—"; $("verdictBadge").textContent="VERİ YOK"; }
   if(vix.val!==null){
     $("vixVal").textContent = vix.val.toFixed(1) + (vix.manual?" (elle)":"");
     const b = $("verdictBadge");
@@ -654,6 +710,7 @@ function init(){
   $("otherList").value = otherList().join(", ");
   $("microList").value = microList().join(", ");
   $("spinList").value = spinList().join(", ");
+  const rc = document.getElementById("useRussell"); if(rc) rc.checked = store.get("useRussell", true);
   const haveKeys = store.get("fhKey","") && store.get("tdKey","");
   show(haveKeys ? "durum" : "ayar");
   if(haveKeys){ $("statusCard").style.display="block"; renderAll(); refreshAll(); }
