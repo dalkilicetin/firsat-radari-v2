@@ -1,4 +1,5 @@
 "use strict";
+const APP_VERSION = "4.9";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
@@ -29,7 +30,8 @@ let firstSeen = store.get("firstSeen", {}); // sym -> isoDate (değer tuzağı s
 let earnCal = store.get("earnCal", {list:[], date:""});
 let dynUni = store.get("dynUni", {list:[], date:null, src:""});
 function universe(){ return (dynUni.list && dynUni.list.length>=300) ? dynUni.list : EMBEDDED_UNIVERSE; }
-let screen = store.get("screen", {}); // sym -> {mtd,r13w,r52w,hi52,pe,ps,mcap,date}
+let screen = store.get("screen", {});
+let prof = store.get("prof", {}); // sym -> {name, ind, date} (30 gün önbellek) // sym -> {mtd,r13w,r52w,hi52,pe,ps,mcap,date}
 let vix = store.get("vix", {val:null, date:"", manual:false});
 let running = false;
 let curSec = "durum", patTab = "hepsi";
@@ -114,13 +116,15 @@ async function refreshAll(){
   if(running) return; running = true;
   $("statusCard").style.display = "block";
   try{
-    await phaseVix();
-    await phaseUniverse();
-    await phaseScreen();
-    await phaseQuotes();
+    await phaseVix();          // saniyeler
+    await phaseQuotesFast();    // ~1-2 dk: senin listelerin + nabız örneklemi — uygulama kullanılır hale gelir
+    await phaseEtfMetal();      // ~3-4 dk: Trend + Metal sekmeleri dolar
+    await phaseUniverse();      // saniyeler (haftalık)
+    await phaseScreen();        // ~12 dk (haftalık) — arka planda
+    await phaseProfiles();      // ~6 dk (aylık) — arka planda
+    await phaseQuotes();        // adayların fiyatları
     await phaseSeries();
     await phaseFin();
-    await phaseEtfMetal();
     await phaseCalendar();
     setStatus("Güncel • " + new Date().toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"}));
     renderAll();
@@ -134,34 +138,38 @@ async function refreshAll(){
 async function phaseVix(){
   if(vix.date===today() && vix.val!==null) return;
   setStatus("VIX çekiliyor…");
-  const plausible = v => typeof v==="number" && isFinite(v) && v>=5 && v<=90; // VIX tarihi aralığı (rekor ~89)
-  // Kaynak 1: FRED CSV — satır formatı sıkı doğrulanır: YYYY-MM-DD,sayı
+  const plausible = v => typeof v==="number" && isFinite(v) && v>=5 && v<=90;
+  const accept = (v, manual=false) => { vix={val:v, date:today(), manual}; store.set("vix",vix); renderDurum(); };
+
+  // Kaynak 1: Twelve Data (anahtar zaten var; VIX endeksi planda varsa tek istekte gelir)
   try{
-    const r = await fetch("https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS");
+    const j = await td("/price?symbol=VIX");
+    const v = j && j.price ? parseFloat(j.price) : NaN;
+    if(plausible(v)) return accept(v);
+  }catch(e){}
+  // Kaynak 2: FRED CSV — CORS aracı üzerinden (yalnızca halka açık URL geçer, kişisel veri gitmez)
+  try{
+    const r = await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent("https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS"));
     const txt = await r.text();
-    if(txt.slice(0,200).toUpperCase().includes("DATE")){ // gerçekten CSV mi?
+    if(txt.slice(0,200).toUpperCase().includes("DATE")){
       const lines = txt.trim().split("\n").reverse();
       for(const ln of lines){
         const m = ln.match(/^(\d{4}-\d{2}-\d{2}),\s*([0-9.]+)\s*$/);
-        if(m){
-          const v = parseFloat(m[2]);
-          if(plausible(v)){ vix={val:v, date:today(), manual:false}; store.set("vix",vix); renderDurum(); return; }
-        }
+        if(m && plausible(parseFloat(m[2]))) return accept(parseFloat(m[2]));
       }
     }
   }catch(e){}
-  // Kaynak 2: stooq CSV (^VIX günlük kapanış)
+  // Kaynak 3: stooq CSV — aynı araçla
   try{
-    const r = await fetch("https://stooq.com/q/l/?s=%5Evix&f=sd2t2ohlcv&h&e=csv");
+    const r = await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent("https://stooq.com/q/l/?s=%5Evix&f=sd2t2ohlcv&h&e=csv"));
     const txt = await r.text();
-    const row = txt.trim().split("\n")[1] || "";
-    const cells = row.split(",");
-    const v = parseFloat(cells[6]); // close kolonu
-    if(plausible(v)){ vix={val:v, date:today(), manual:false}; store.set("vix",vix); renderDurum(); return; }
+    const cells = (txt.trim().split("\n")[1]||"").split(",");
+    const v = parseFloat(cells[6]);
+    if(plausible(v)) return accept(v);
   }catch(e){}
-  // Kaynak 3: manuel giriş
+  // Kaynak 4: manuel
   $("vixManual").style.display = "block";
-  if(vix.val!==null && !plausible(vix.val)){ vix={val:null, date:"", manual:false}; store.set("vix",vix); } // bozuk eski değeri temizle
+  if(vix.val!==null && !plausible(vix.val)){ vix={val:null, date:"", manual:false}; store.set("vix",vix); }
   renderDurum();
 }
 function manualVix(v){
@@ -240,6 +248,25 @@ async function phaseUniverse(){
   }catch(e){ /* fallback: gömülü liste */ }
 }
 
+
+function monthOld(d){ return !d || (Date.now()-new Date(d).getTime()) > 30*86400000; }
+async function phaseProfiles(){
+  const need = universe().filter(s => !prof[s] || monthOld(prof[s].date)).slice(0, 300); // koşu başına tavan, kaldığı yerden sürer
+  if(!need.length) return;
+  setStatus("Şirket isimleri/sektörler… ("+need.length+")");
+  let i=0;
+  for(const s of need){
+    try{
+      const p = await fh("/stock/profile2?symbol="+encodeURIComponent(s));
+      prof[s] = {name: (p && p.name) || "", ind: (p && p.finnhubIndustry) || "", date: iso(new Date())};
+    }catch(e){ if(e.message==="auth-fh") throw e; prof[s]={name:"",ind:"",date:iso(new Date())}; }
+    i++; setBar(i, need.length);
+    if(i%25===0) store.set("prof", prof);
+    await sleep(FH_GAP);
+  }
+  store.set("prof", prof); renderAll();
+}
+
 async function phaseScreen(){
   const need = universe().filter(s => !screen[s] || weekOld(screen[s].date));
   if(!need.length) return;
@@ -268,8 +295,22 @@ async function phaseScreen(){
 }
 
 function activeSyms(){ return [...new Set([...otherList(), ...microList(), ...candidates(), ...discCandidates().slice(0,25)])]; }
+
+async function phaseQuotesFast(){
+  const syms = [...new Set([...otherList(), ...microList(), ...NDX.slice(0,35)])];
+  setStatus("Öncelikli fiyatlar… (~"+Math.ceil(syms.length*FH_GAP/60000)+" dk)");
+  let i=0;
+  for(const s of syms){
+    try{ const q = await fh("/quote?symbol="+s); if(q && q.c) quotes[s]={price:q.c, chgPct:q.dp}; }catch(e){ if(e.message==="auth-fh") throw e; }
+    i++; setBar(i, syms.length);
+    if(i%8===0){ store.set("quotes", quotes); renderAll(); }
+    await sleep(FH_GAP);
+  }
+  store.set("quotes", quotes); renderAll();
+}
+
 async function phaseQuotes(){
-  const syms = [...new Set([...activeSyms(), ...NDX.slice(0,35)])]; // 35 NDX = piyasa nabzı örneklemi
+  const syms = [...new Set([...activeSyms(), ...NDX.slice(0,35)])].filter(s=>!quotes[s]); // fast fazında çekilenler atlanır
   setStatus("Fiyatlar… (~"+Math.ceil(syms.length*FH_GAP/60000)+" dk)");
   let i=0;
   for(const s of syms){
@@ -321,7 +362,7 @@ async function phaseFin(){
     }catch(e){ if(e.message==="auth-fh") throw e; } i++; setBar(i,total); await sleep(FH_GAP);
     try{
       const p = await fh("/stock/profile2?symbol="+s);
-      if(p){ rec.mcap=p.marketCapitalization||null; rec.industry=(p.finnhubIndustry||"").toLowerCase(); }
+      if(p){ rec.mcap=p.marketCapitalization||null; rec.industry=(p.finnhubIndustry||"").toLowerCase(); rec.name=p.name||""; }
     }catch(e){} i++; setBar(i,total); await sleep(FH_GAP);
     try{
       const ins = await fh("/stock/insider-transactions?symbol="+s+"&from="+from30);
@@ -394,6 +435,14 @@ async function phaseCalendar(){
 }
 
 // -------- renderers --------
+function nameLine(sym){
+  const p = prof[sym]||{}, f = fin[sym]||{};
+  const nm = p.name || f.name || "";
+  const ind = p.ind || (f.industry? f.industry : "");
+  if(!nm && !ind) return "";
+  return '<div class="muted" style="margin-top:1px; font-size:10.5px;">'+
+    (nm? nm.slice(0,34) : "") + (ind? ' <span class="chip" style="padding:1px 6px;">'+ind.slice(0,22)+'</span>' : "") + '</div>';
+}
 function chipRow(sym){
   const f = fin[sym]||{}, q = quotes[sym], p = patterns(sym);
   const chips = [];
@@ -433,7 +482,7 @@ function stockHtml(sym, opts={}){
     news = f.news.map(n=>'<div class="news'+(n.type==="rumor"?' rumor':'')+'">'+(n.type==="rumor"?"[DEDİKODU] ":"")+n.h+'… <small>('+n.dt+')</small></div>').join("");
   return '<div class="stock"><div class="l1"><div class="tick">'+sym+'</div><div class="price">$'+q.price.toFixed(2)+'</div>'+
     '<div class="chg" style="color:'+chgCol+'">'+(q.chgPct>=0?"+":"")+(q.chgPct||0).toFixed(1)+'%</div></div>'+
-    '<div class="l2">'+chips.join("")+'</div>'+news+'</div>';
+    nameLine(sym)+'<div class="l2">'+chips.join("")+'</div>'+news+'</div>';
 }
 
 function renderDurum(){
@@ -668,7 +717,7 @@ function renderOzet(){
     const [tl,tc] = tierOf(conviction);
     return '<div class="stock"><div class="l1"><div class="tick">'+s+'</div>'+
       (q?'<div class="price">$'+q.price.toFixed(2)+'</div>':'')+
-      '<span class="badge" style="background:#101724;color:'+tc+'">'+tl+' • '+conviction+'</span>'+
+      '<span class="badge" style="background:#101724;color:'+tc+'">'+tl+' • '+conviction+'</span>'+'</div>'+nameLine(s)+'<div>'+
       (otherList().includes(s)?'':'<button class="ghost" style="padding:4px 9px;font-size:11px;" onclick="addToOther(\''+s+'\')">+ Takip</button>')+'</div>'+
       '<div class="muted" style="margin-top:5px;"><span style="color:var(--green);font-weight:700;">Sinyaller:</span> '+pros.join("; ")+'.'+
       (cons.length?'<br><span style="color:var(--amber);font-weight:700;">Dikkat:</span> '+cons.join("; ")+'.':'')+'</div></div>';
@@ -703,8 +752,67 @@ function saveLists(){
   alert("Kaydedildi."); renderAll();
 }
 
+
+// -------- yedek & tanılama --------
+const PRIVATE_KEYS = ["fr4_fhKey","fr4_tdKey"];
+function exportBackup(){
+  const data = {};
+  for(let i=0;i<localStorage.length;i++){
+    const k = localStorage.key(i);
+    if(k && k.startsWith("fr4_") && !PRIVATE_KEYS.includes(k)) data[k] = localStorage.getItem(k);
+  }
+  const blob = new Blob([JSON.stringify({app:"firsat-radari", v:APP_VERSION, date:new Date().toISOString(), data})], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "firsat-radari-yedek-"+iso(new Date())+".json";
+  a.click();
+}
+function importBackup(inp){
+  const f = inp.files && inp.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try{
+      const j = JSON.parse(r.result);
+      if(!j.data) throw new Error("format");
+      for(const [k,v] of Object.entries(j.data)) if(k.startsWith("fr4_") && !PRIVATE_KEYS.includes(k)) localStorage.setItem(k, v);
+      alert("İçe aktarıldı. Sayfa yenileniyor."); location.reload();
+    }catch(e){ alert("Dosya okunamadı — geçerli bir yedek değil."); }
+  };
+  r.readAsText(f);
+}
+function diagReport(){
+  const uni = universe();
+  const nQ = Object.keys(quotes).length, nS = Object.keys(series).length,
+        nF = Object.keys(fin).length, nSc = Object.values(screen).filter(x=>x && x.mcap!==undefined).length;
+  const cands = candidates(), disc = discCandidates();
+  const patCount = {};
+  for(const s of cands){ const src = series[s] ? patterns(s).list.map(p=>p[0]) : stage1(s); for(const p of src) patCount[p]=(patCount[p]||0)+1; }
+  const lines = [];
+  lines.push("FIRSAT RADARI TANILAMA — " + new Date().toLocaleString("tr-TR"));
+  lines.push("Evren: " + uni.length + " hisse (" + (dynUni.src||"gömülü yedek") + ", tarih: " + (dynUni.date||"-") + ")");
+  lines.push("VIX: " + (vix.val===null?"VERİ YOK":vix.val + (vix.manual?" (elle)":"")) + " | tarih: " + vix.date);
+  lines.push("Veri kapsaması: fiyat " + nQ + " | ekran(mcap) " + nSc + "/" + uni.length + " | 5y seri " + nS + " | derin " + nF);
+  lines.push("Aday: Core " + cands.length + " | Discovery " + disc.length);
+  lines.push("Pattern dağılımı: " + (Object.entries(patCount).map(([k,v])=>k+":"+v).join(" ")||"yok"));
+  lines.push("Takvim kaydı: " + (earnCal.list||[]).length + " | Diğer listesi: " + otherList().join(",")||"-");
+  lines.push("--- ÖZET İLK 15 ---");
+  const pool = [...new Set([...cands, ...otherList(), ...microList()])];
+  const rows = [];
+  for(const s of pool){ const r = reasonsFor(s); if(r && r.pros.length>=2 && r.conviction>=2) rows.push({s, ...r}); }
+  rows.sort((a,b)=>b.conviction-a.conviction);
+  for(const {s,pros,cons,conviction} of rows.slice(0,15))
+    lines.push(s + " [" + conviction + "] + " + pros.join("; ") + (cons.length? " | ! " + cons.join("; ") : ""));
+  if(!rows.length) lines.push("(özet adayı yok)");
+  const txt = lines.join("\n");
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(()=>alert("Rapor panoya kopyalandı — sohbete yapıştırabilirsin."),
+      ()=>{ prompt("Kopyalanamadı, elle seç:", txt); });
+  } else prompt("Raporu elle kopyala:", txt);
+}
+
 // -------- init & PWA --------
 function init(){
+  const eb = document.querySelector('.eyebrow'); if(eb) eb.textContent = 'FIRSAT RADARI • v'+APP_VERSION;
   $("navBar").innerHTML = SECTIONS.map(([id,l])=>'<button data-s="'+id+'" onclick="show(\''+id+'\')">'+l+'</button>').join("");
   $("bigList").value = bigList().join(", ");
   $("otherList").value = otherList().join(", ");

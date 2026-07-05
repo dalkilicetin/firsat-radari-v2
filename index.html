@@ -123,6 +123,13 @@
     <button class="primary" onclick="saveLists()">Listeleri Kaydet</button>
   </div>
   <div class="card">
+    <h2>Yedek & Rapor</h2>
+    <button class="primary" onclick="diagReport()">Tanılama Raporu Kopyala (Claude'a atmak için)</button>
+    <button class="primary" style="background:#1A2233;" onclick="exportBackup()">Tüm Veriyi Yedekle (JSON indir)</button>
+    <label class="muted" style="display:block; margin-top:8px; cursor:pointer;">İçe aktar: <input type="file" accept=".json" style="width:auto;" onchange="importBackup(this)"></label>
+    <div class="muted" style="margin-top:6px;">API anahtarların yedeğe ve rapora dahil EDİLMEZ — cihazından çıkmaz.</div>
+  </div>
+  <div class="card">
     <div class="muted">Evrensel tarama: evren haftada bir Wikipedia endeks listelerinden (S&P 500 + Nasdaq-100 + ops. Russell 1000) otomatik güncellenir — yeni endeks girişleri ve spin-off'lar kendiliğinden kapsama girer; liste alınamazsa gömülü 586'lık yedek devreye girer. Evren haftada bir Finnhub'la ön elenir (~12 dk), filtreyi geçen adaylara Twelve Data'dan 5 yıllık derin veri çekilir. İlk tam tarama ~20-25 dk sürer (ücretsiz API hız limitleri; Twelve Data dakikada 8 istek). Veriler günlük önbelleğe alınır — gün içi yenilemeler yalnızca canlı fiyat çeker (~2 dk). Tarama yarıda kalırsa kaldığı yerden devam eder.</div>
   </div>
 </section>
