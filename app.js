@@ -7,6 +7,7 @@ const REGIONS = [["SPY","ABD"],["VGK","Avrupa"],["MCHI","Çin"],["EWJ","Japonya"
 const METALS = [["XAU/USD","Altın"],["XAG/USD","Gümüş"],["XPT/USD","Platin"],["XPD/USD","Paladyum"],["CPER","Bakır (ETF)"]];
 const CONF_WORDS = ["contract","awarded","award","agreement","signs","signed","partnership","order from","supply deal","procure","government","pentagon","defense","nasa","chips act","subsidy","acquisition of","acquires","stake in"];
 const RUMOR_WORDS = ["talks","rumor","rumour","in discussions","reportedly","considering","exploring","potential deal","sources say"];
+const CATALYST_WORDS = ["new ceo","ceo appoint","spin-off","spinoff","cost cutting","restructuring","new product","launches","fda approval","fda clear","ai ","artificial intelligence","datacenter","data center","hyperscaler","capacity expansion","factory","fab ","expands production","record backlog","guidance raise","raises guidance"];
 const SCANDAL_WORDS = ["fraud","investigation","sec probe","accounting","short report","short seller","subpoena","lawsuit alleging","restatement"];
 const FIN_INDUSTRIES = ["bank","banking","financial services","insurance","capital markets"];
 
@@ -76,6 +77,13 @@ function patterns(sym){
   const r = rets(sym); if(!r) return {list:[], r};
   const f = fin[sym]||{};
   const out = [];
+  if(spinList().includes(sym)){ // SPIN-OFF MODU: 5y verisi anlamsız — A-E kapalı, momentum+insider+anlaşma esas
+    out.push(["SPIN-MODU","İlk 18 ay: klasik patternler kapalı; insider + anlaşma + görece güç izlenir","p"]);
+    if(r.r3m>0.10) out.push(["SPIN-MOM","3 aylık momentum pozitif","g"]);
+    if(f.gmT!==null && f.gm5!==null && f.gmT > f.gm5 + 2) out.push(["MARJ","Brüt marj genişliyor","p"]);
+    return {list:out, r};
+  }
+  if((f.roe||0)>15 && (f.revG||0)>8) out.push(["KALİTE","ROE>15 + gelir büyümesi >%8","g"]);
   if(r.r12m>=0.20 && r.r1m<=-0.05 && r.r1m>=-0.15) out.push(["A","Trend içi düzeltme","g"]);
   if(r.r60m!==null && r.r60m<=-0.50 && Math.abs(r.r12m)<=0.10 && r.r3m>0) out.push(["B","Kaybedenin dönüşü","g"]);
   if(r.r60m!==null && r.r60m>=1.00 && r.r1m<=-0.20) out.push(["C","Şampiyonun kötü günü — olayı incele","a"]);
@@ -161,11 +169,19 @@ function stage1(s){ // ön eleme pattern adayları
   if(x.r13w>0 && x.pe && x.pe<15 && x.hi52 && x.r52w<0) out.push("ERKEN+UCUZ?");
   return out;
 }
-function candidates(){ // evrensel taramadan sağlam-firma filtresini geçen adaylar
+function candidates(){ // Core: ≥2 milyar $ + kârlı
   const c = [];
   for(const s of UNIVERSE){
     const pats = stage1(s);
     if(pats.length && solidScreen(s)) c.push(s);
+  }
+  return c;
+}
+function discCandidates(){ // Discovery: 300M–2 milyar $ — sadece Keşif bölmesine akar (çift teyit şartıyla vurgulanır)
+  const c = [];
+  for(const s of UNIVERSE){
+    const x = screen[s]; if(!x) continue;
+    if((x.mcap||0)>=300 && (x.mcap||0)<2000 && stage1(s).length) c.push(s);
   }
   return c;
 }
@@ -185,7 +201,8 @@ async function phaseScreen(){
           r52w: M["52WeekPriceReturnDaily"] ?? null,
           hi52: M["52WeekHigh"] ?? null, pe: M["peBasicExclExtraTTM"] || M["peNormalizedAnnual"] || null,
           ps: M["psTTM"] ?? null, mcap: M["marketCapitalization"] ?? null,
-          gmT: M["grossMarginTTM"] ?? null, gm5: M["grossMargin5Y"] ?? null };
+          gmT: M["grossMarginTTM"] ?? null, gm5: M["grossMargin5Y"] ?? null,
+          roe: M["roeTTM"] ?? null, revG: M["revenueGrowthTTMYoy"] ?? null, avgVol: M["10DayAverageTradingVolume"] ?? null };
       } else screen[s] = {date: iso(new Date())};
     }catch(e){ if(e.message==="auth-fh") throw e; }
     i++; setBar(i, need.length);
@@ -195,7 +212,7 @@ async function phaseScreen(){
   store.set("screen", screen); renderAll();
 }
 
-function activeSyms(){ return [...new Set([...otherList(), ...microList(), ...candidates()])]; }
+function activeSyms(){ return [...new Set([...otherList(), ...microList(), ...candidates(), ...discCandidates().slice(0,25)])]; }
 async function phaseQuotes(){
   const syms = [...new Set([...activeSyms(), ...NDX.slice(0,35)])]; // 35 NDX = piyasa nabzı örneklemi
   setStatus("Fiyatlar… (~"+Math.ceil(syms.length*FH_GAP/60000)+" dk)");
@@ -244,6 +261,7 @@ async function phaseFin(){
         rec.pe=m.metric["peBasicExclExtraTTM"]||m.metric["peNormalizedAnnual"]||null;
         rec.ps=m.metric["psTTM"]||null;
         rec.gmT=m.metric["grossMarginTTM"]??null; rec.gm5=m.metric["grossMargin5Y"]??null;
+        rec.roe=m.metric["roeTTM"]??null; rec.revG=m.metric["revenueGrowthTTMYoy"]??null; rec.avgVol=m.metric["10DayAverageTradingVolume"]??null;
       }
     }catch(e){ if(e.message==="auth-fh") throw e; } i++; setBar(i,total); await sleep(FH_GAP);
     try{
@@ -267,6 +285,7 @@ async function phaseFin(){
           for(const a of n){
             const h = (a.headline||"").toLowerCase(); if(!h) continue;
             if(SCANDAL_WORDS.some(w=>h.includes(w))) rec.scandal = true;
+            if(CATALYST_WORDS.some(w=>h.includes(w))) rec.catN = (rec.catN||0)+1;
             const conf = CONF_WORDS.some(w=>h.includes(w)), rum = RUMOR_WORDS.some(w=>h.includes(w));
             if((conf||rum) && rec.news.length<4)
               rec.news.push({h:a.headline.slice(0,105), dt:new Date(a.datetime*1000).toLocaleDateString("tr-TR"), type: conf?"conf":"rumor"});
@@ -337,6 +356,12 @@ function chipRow(sym){
   if(f.pe) chips.push('<span class="chip'+(f.pe<15?' g':'')+'">F/K '+f.pe.toFixed(1)+'</span>');
   const confN = (f.news||[]).filter(n=>n.type==="conf").length;
   if(confN>=2) chips.push('<span class="chip b">ANLAŞMA AKIŞI '+confN+'</span>');
+  if((f.catN||0)>=2) chips.push('<span class="chip p">KATALİZÖR '+f.catN+'</span>');
+  const av = f.avgVol ?? (screen[sym]||{}).avgVol;
+  if(av!==null && av!==undefined && av < 0.3) chips.push('<span class="chip a">LİKİDİTE DÜŞÜK</span>');
+  const e = (earnCal.list||[]).find(x=>x.s===sym);
+  if(e){ const days = Math.round((new Date(e.d)-new Date())/86400000);
+    if(days>=0 && days<=7) chips.push('<span class="chip a">BİLANÇO '+days+' gün</span>'); }
   return {chips, p, f, q};
 }
 function stockHtml(sym, opts={}){
@@ -430,7 +455,7 @@ function renderOther(){
     '<div class="stock muted" style="padding:14px;">Liste boş veya veri bekleniyor.</div>';
 }
 function renderMicro(){
-  const syms = microList().filter(s=>quotes[s]);
+  const syms = [...new Set([...microList(), ...discCandidates()])].filter(s=>quotes[s]||screen[s]);
   $("microStockList").innerHTML = syms.length ? syms.map(s=>stockHtml(s,{news:true, micro:true})).join("") :
     '<div class="stock muted" style="padding:14px;">Liste boş — Ayarlar\'dan ekle (örn AEHR, AXT profili).</div>';
 }
@@ -439,9 +464,11 @@ function renderTrend(){
   const rows = THEMES.map(([s,n])=>({s,n,d:etf[s]})).filter(r=>r.d);
   if(rows.length){
     rows.sort((a,b)=>b.d.r3m-a.d.r3m);
+    const spy3 = (etf["SPY"]||{}).r3m ?? null;
     $("themeTable").innerHTML = '<table class="mini">'+rows.map((r,i)=>{
       const col = r.d.r3m>0.08?"var(--green)":r.d.r3m<0?"var(--red)":"var(--text)";
-      return '<tr><td>'+(i+1)+'. '+r.n+' <span class="muted">('+r.s+')</span></td><td style="color:'+col+'">3a '+(100*r.d.r3m).toFixed(1)+'% • 1y '+(100*r.d.r12m).toFixed(0)+'%</td></tr>';
+      const rs = spy3!==null ? ' • RS '+(100*(r.d.r3m-spy3)).toFixed(1) : '';
+      return '<tr><td>'+(i+1)+'. '+r.n+' <span class="muted">('+r.s+')</span></td><td style="color:'+col+'">3a '+(100*r.d.r3m).toFixed(1)+'%'+rs+'</td></tr>';
     }).join("")+'</table>';
   }
   const reg = REGIONS.map(([s,n])=>({s,n,d:etf[s]})).filter(r=>r.d);
@@ -537,42 +564,57 @@ function reasonsFor(s){
   const f = fin[s]||{}, x = screen[s]||{};
   const deep = !!series[s];
   const pros = [], cons = [];
-  const pats = deep ? patterns(s).list : stage1(s).map(p=>[p.replace("?",""), "", p.includes("?")?"ön":""]);
-  const NAME = {A:"trend içi düzeltme (1y güçlü, ay zayıf)", B:"kaybedenin dönüşü (5y dipte, dönüş başlamış)",
-    C:"olay bazlı sert düşüş — geçiciyse fırsat", D:"momentum devamı (zirveye yakın + güçlü yıl)",
-    E:"bilanço sürprizi sonrası drift penceresi", "DÖNÜŞ":"5y zirvesinden −%50+ sonrası 3 ay pozitif",
-    "MARJ":"brüt marjı genişliyor — fiyatlama gücü/darboğaz sinyali", "ERKEN+UCUZ":"momentum başlamış + hâlâ ucuz"};
+  let conv = 0;
+  const W = {A:2,B:2,C:1,D:2,E:3,"DÖNÜŞ":2,"MARJ":2,"KALİTE":2,"ERKEN+UCUZ":2,"SPIN-MOM":1};
+  const NAME = {A:"trend içi düzeltme", B:"kaybedenin dönüşü (5y dip + dönüş başladı)",
+    C:"olay bazlı sert düşüş — geçiciyse fırsat", D:"momentum devamı (zirveye yakın)",
+    E:"bilanço sürprizi drift penceresi", "DÖNÜŞ":"5y zirvesinden −%50+ sonrası 3 ay pozitif",
+    "MARJ":"brüt marj genişliyor (fiyatlama gücü)", "ERKEN+UCUZ":"momentum başladı + hâlâ ucuz",
+    "KALİTE":"kalite: ROE>15 + gelir büyüyor", "SPIN-MOM":"spin-off momentumu pozitif"};
+  const pats = deep ? patterns(s).list : stage1(s).map(p=>[p.replace("?",""), "", ""]);
   for(const [code] of pats){
-    if(code==="BIÇAK") return null; // özetten tamamen dışla
-    if(code==="TUZAK") cons.push("12+ aydır ucuz ve hâlâ düşüyor — değer tuzağı riski");
-    else if(code==="PAHALI") cons.push("F/S > 30 — değerleme çok yüklü");
-    else if(NAME[code]) pros.push(NAME[code]);
+    if(code==="BIÇAK") return null;
+    if(code==="TUZAK"){ cons.push("değer tuzağı: 12+ aydır ucuz, hâlâ düşüyor"); conv -= 4; }
+    else if(code==="PAHALI"){ cons.push("F/S > 30 — değerleme yüklü"); conv -= 1; }
+    else if(code==="SPIN-MODU"){ pros.push("spin-off modu: klasik patternler kapalı, insider+anlaşma esas"); }
+    else if(NAME[code]){ pros.push(NAME[code]); conv += (W[code]||1); }
   }
-  if((f.insBuyers||0)>=3) pros.push("küme insider alımı ("+f.insBuyers+" yönetici, son 30 gün)");
-  else if((f.insBuyers||0)>=1) pros.push("insider alımı var ("+f.insBuyers+")");
+  if((f.insBuyers||0)>=3){ pros.push("küme insider alımı ("+f.insBuyers+" yönetici)"); conv += 3; }
+  else if((f.insBuyers||0)>=1){ pros.push("insider alımı ("+f.insBuyers+")"); conv += 1; }
   const confN = (f.news||[]).filter(n=>n.type==="conf").length;
-  if(confN>=2) pros.push("anlaşma akışı canlı ("+confN+" teyitli haber / 90 gün)");
+  if(confN>=2){ pros.push("anlaşma akışı ("+confN+" teyitli/90g)"); conv += 1; }
+  if((f.catN||0)>=2){ pros.push("katalizör haber kümesi ("+f.catN+")"); conv += 2; }
   const pe = f.pe||x.pe;
-  if(pe && pe<15) pros.push("F/K "+pe.toFixed(1)+" — düşük değerleme");
-  if(f.scandal) cons.push("skandal/soruşturma haberi — OLAY İNCELE");
-  if(f.industry && FIN_INDUSTRIES.some(w=>(f.industry||"").includes(w))) cons.push("finans sektörü — pattern bilanço krizini göremez");
-  if(!deep) cons.push("henüz ön eleme — derin veri doğrulaması sırada");
-  return {pros, cons, score: pros.length - cons.length*0.5};
+  if(pe && pe<15){ pros.push("F/K "+pe.toFixed(1)); conv += 1; }
+  if(f.scandal){ cons.push("skandal/soruşturma — OLAY İNCELE"); conv -= 4; }
+  if(f.industry && FIN_INDUSTRIES.some(w=>(f.industry||"").includes(w))){ cons.push("finans — pattern bilanço krizini göremez"); conv -= 1; }
+  const av = f.avgVol ?? x.avgVol;
+  if(av!==null && av!==undefined && av<0.3){ cons.push("likidite düşük"); conv -= 1; }
+  if(!deep){ cons.push("ön eleme — derin doğrulama sırada"); conv -= 1; }
+  return {pros, cons, conviction: conv};
+}
+function tierOf(c){
+  if(c>=7) return ["🟢 GÜÇLÜ ADAY","var(--green)"];
+  if(c>=4) return ["🟡 İZLENMELİ","var(--amber)"];
+  if(c>=2) return ["⚪ ÖN İZLEME","var(--dim)"];
+  return ["🔴 RİSK BASKIN","var(--red)"];
 }
 function renderOzet(){
   const pool = [...new Set([...candidates(), ...otherList(), ...microList()])];
   const rows = [];
   for(const s of pool){
     const r = reasonsFor(s);
-    if(r && r.pros.length>=2) rows.push({s, ...r});
+    if(r && r.pros.length>=2 && r.conviction>=2) rows.push({s, ...r});
   }
-  rows.sort((a,b)=>b.score-a.score);
-  $("ozetList").innerHTML = rows.length ? rows.slice(0,15).map(({s,pros,cons})=>{
+  rows.sort((a,b)=>b.conviction-a.conviction);
+  $("ozetList").innerHTML = rows.length ? rows.slice(0,15).map(({s,pros,cons,conviction})=>{
     const q = quotes[s];
+    const [tl,tc] = tierOf(conviction);
     return '<div class="stock"><div class="l1"><div class="tick">'+s+'</div>'+
       (q?'<div class="price">$'+q.price.toFixed(2)+'</div>':'')+
+      '<span class="badge" style="background:#101724;color:'+tc+'">'+tl+' • '+conviction+'</span>'+
       (otherList().includes(s)?'':'<button class="ghost" style="padding:4px 9px;font-size:11px;" onclick="addToOther(\''+s+'\')">+ Takip</button>')+'</div>'+
-      '<div class="muted" style="margin-top:5px;"><span style="color:var(--green);font-weight:700;">Alınabilir (aday) çünkü:</span> '+pros.join("; ")+'.'+
+      '<div class="muted" style="margin-top:5px;"><span style="color:var(--green);font-weight:700;">Sinyaller:</span> '+pros.join("; ")+'.'+
       (cons.length?'<br><span style="color:var(--amber);font-weight:700;">Dikkat:</span> '+cons.join("; ")+'.':'')+'</div></div>';
   }).join("") : '<div class="stock muted" style="padding:14px;">En az 2 olumlu sinyali birleşen aday yok — tarama sürüyor olabilir.</div>';
 }
