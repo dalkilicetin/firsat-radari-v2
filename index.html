@@ -90,6 +90,7 @@
   <div class="row">
     <div style="font-size:12.5px;"><span class="pulse"></span><span id="statusText">Hazır</span></div>
     <button class="ghost" onclick="refreshAll()">Yenile</button>
+      <button class="ghost" style="border-color:var(--blue);color:var(--text);" onclick="dispatchScan()">GitHub'da Tara</button>
   </div>
   <div class="progress"><div id="bar"></div></div>
 </div>
@@ -121,6 +122,14 @@
     <div class="muted" style="margin-top:8px;">Spin-off etiketli (sağlam firma filtresi bunlarda devre dışı):</div>
     <input type="text" id="spinList" placeholder="örn: SNDK, KLC">
     <button class="primary" onclick="saveLists()">Listeleri Kaydet</button>
+  </div>
+  <div class="card">
+    <h2>GitHub Gece Taramasi (v5)</h2>
+    <div class="muted" style="margin-bottom:8px;">Tarama GitHub sunucusunda calisir: her gece otomatik + istediginde "GitHub'da Tara" butonuyla. Telefonu acik tutmana gerek yok - uygulama acilinca hazir sonucu saniyeler icinde yukler. Kurulum: README-KURULUM.md.</div>
+    <input type="text" id="ghRepo" placeholder="kullaniciadi/repo" style="margin-bottom:6px;">
+    <input type="password" id="ghToken" placeholder="GitHub token (fine-grained, sadece bu repo, Actions: read-write)">
+    <button class="primary" onclick="saveGh()">GitHub Ayarlarini Kaydet</button>
+    <div class="muted" style="margin-top:6px;">Token sadece bu cihazda saklanir, yalnizca tarama tetiklemede kullanilir.</div>
   </div>
   <div class="card">
     <h2>Yedek & Rapor</h2>

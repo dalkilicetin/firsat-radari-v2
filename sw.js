@@ -1,4 +1,4 @@
-const CACHE = "firsat-radari-v4.9";
+const CACHE = "firsat-radari-v5.0";
 const SHELL = [
   "./",
   "./index.html",
@@ -27,6 +27,11 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
 
+  // Gece taramasi sonucu: her zaman agdan
+  if (url.pathname.includes("/data/sonuclar.json")) {
+    e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+    return;
+  }
   // Finnhub API: her zaman ağdan (canlı veri asla cache'lenmez)
   if (url.hostname.includes("finnhub.io")) {
     e.respondWith(fetch(e.request));

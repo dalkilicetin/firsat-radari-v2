@@ -1,5 +1,5 @@
 "use strict";
-const APP_VERSION = "4.9";
+const APP_VERSION = "5.0";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
@@ -112,10 +112,63 @@ function patterns(sym){
 function setStatus(t){ $("statusText").textContent = t; }
 function setBar(d,t){ $("bar").style.width = Math.min(100, Math.round(100*d/Math.max(1,t)))+"%"; }
 
+
+// -------- v5: gece taramasi sonucunu yukle --------
+async function loadRemote(){
+  try{
+    const r = await fetch("./data/sonuclar.json?ts=" + Date.now(), {cache:"no-store"});
+    if(!r.ok) return false;
+    const j = await r.json();
+    if(!j || j.app!=="firsat-radari" || !j.generatedAt) return false;
+    const ageH = (Date.now() - new Date(j.generatedAt).getTime())/3600000;
+    if(ageH > 30){ setStatus("Gece taramasi bayat ("+ageH.toFixed(0)+" saat) - cihazda taranacak"); return false; }
+    if(j.vix && j.vix.val){ vix = {val:j.vix.val, date:today(), manual:false, src:(j.vix.src||"Actions")}; store.set("vix",vix); }
+    if(j.dynUni){ dynUni = j.dynUni; store.set("dynUni", dynUni); }
+    Object.assign(screen, j.screen||{});  store.set("screen", screen);
+    Object.assign(prof, j.prof||{});      store.set("prof", prof);
+    Object.assign(quotes, j.quotes||{});  store.set("quotes", quotes);
+    Object.assign(series, j.series||{});  store.set("series", series);
+    Object.assign(fin, j.fin||{});        store.set("fin", fin);
+    Object.assign(etf, j.etf||{});        store.set("etf", etf);
+    if(j.earnCal && j.earnCal.list){ earnCal = {date:today(), list:j.earnCal.list}; store.set("earnCal", earnCal); }
+    const t = new Date(j.generatedAt).toLocaleString("tr-TR",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+    setStatus("Gece taramasi yuklendi ("+t+") - anında hazir");
+    setBar(1,1); renderAll();
+    return true;
+  }catch(e){ return false; }
+}
+async function dispatchScan(){
+  const repo = store.get("ghRepo",""), tok = store.get("ghToken","");
+  if(!repo || !tok){ alert("Ayarlar'dan GitHub repo (kullanici/repo) ve token gir."); show("ayar"); return; }
+  try{
+    const r = await fetch("https://api.github.com/repos/"+repo+"/actions/workflows/tarama.yml/dispatches", {
+      method:"POST",
+      headers:{ "Authorization":"Bearer "+tok, "Accept":"application/vnd.github+json" },
+      body: JSON.stringify({ref:"main"})
+    });
+    if(r.status===204){
+      setStatus("Tarama GitHub'da basladi - uygulamayi kapatabilirsin. ~40-50 dk sonra ac.");
+      alert("Tarama GitHub sunucusunda basladi. Telefonu kapatabilirsin; tarama orada devam eder. 40-50 dk sonra uygulamayi acman yeterli.");
+    } else if(r.status===404) alert("Bulunamadi: repo adi dogru mu, tarama.yml main dalinda mi?");
+    else if(r.status===401 || r.status===403) alert("Token reddedildi - Actions (read&write) izni olan token gerekli.");
+    else alert("Beklenmeyen yanit: "+r.status);
+  }catch(e){ alert("Istek atilamadi - internet var mi?"); }
+}
+function saveGh(){
+  store.set("ghRepo", document.getElementById("ghRepo").value.trim());
+  store.set("ghToken", document.getElementById("ghToken").value.trim());
+  alert("Kaydedildi.");
+}
+
 async function refreshAll(){
   if(running) return; running = true;
   $("statusCard").style.display = "block";
   try{
+    const remoteOk = await loadRemote();
+    if(remoteOk){
+      if(store.get("fhKey","")) await phaseQuotesFast();
+      renderAll(); return;
+    }
     await phaseVix();          // saniyeler
     await phaseQuotesFast();    // ~1-2 dk: senin listelerin + nabız örneklemi — uygulama kullanılır hale gelir
     await phaseEtfMetal();      // ~3-4 dk: Trend + Metal sekmeleri dolar
@@ -139,42 +192,44 @@ async function phaseVix(){
   if(vix.date===today() && vix.val!==null) return;
   setStatus("VIX çekiliyor…");
   const plausible = v => typeof v==="number" && isFinite(v) && v>=5 && v<=90;
-  const accept = (v, manual=false) => { vix={val:v, date:today(), manual}; store.set("vix",vix); renderDurum(); };
+  const accept = (v, src) => { vix={val:v, date:today(), manual:src==="elle", src}; store.set("vix",vix); renderDurum(); };
 
-  // Kaynak 1: Twelve Data (anahtar zaten var; VIX endeksi planda varsa tek istekte gelir)
+  // Kaynak 1: Cboe resmi CDN (VIX'in sahibi; tarayıcıya açık JSON)
+  try{
+    const r = await fetch("https://cdn.cboe.com/api/global/delayed_quotes/quotes/_VIX.json");
+    const j = await r.json();
+    const d = j && j.data ? j.data : {};
+    const v = parseFloat(d.current_price ?? d.close ?? d.last ?? NaN);
+    if(plausible(v)) return accept(v, "Cboe");
+  }catch(e){}
+  // Kaynak 2: Twelve Data (plan endeks içeriyorsa)
   try{
     const j = await td("/price?symbol=VIX");
     const v = j && j.price ? parseFloat(j.price) : NaN;
-    if(plausible(v)) return accept(v);
+    if(plausible(v)) return accept(v, "TwelveData");
   }catch(e){}
-  // Kaynak 2: FRED CSV — CORS aracı üzerinden (yalnızca halka açık URL geçer, kişisel veri gitmez)
-  try{
-    const r = await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent("https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS"));
-    const txt = await r.text();
-    if(txt.slice(0,200).toUpperCase().includes("DATE")){
+  // Kaynak 3-4: FRED CSV, iki farklı CORS aracısıyla
+  const fred = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS";
+  for(const proxy of ["https://api.allorigins.win/raw?url=", "https://corsproxy.io/?url="]){
+    try{
+      const r = await fetch(proxy + encodeURIComponent(fred));
+      const txt = await r.text();
+      if(!txt.slice(0,200).toUpperCase().includes("DATE")) continue;
       const lines = txt.trim().split("\n").reverse();
       for(const ln of lines){
         const m = ln.match(/^(\d{4}-\d{2}-\d{2}),\s*([0-9.]+)\s*$/);
-        if(m && plausible(parseFloat(m[2]))) return accept(parseFloat(m[2]));
+        if(m && plausible(parseFloat(m[2]))) return accept(parseFloat(m[2]), "FRED");
       }
-    }
-  }catch(e){}
-  // Kaynak 3: stooq CSV — aynı araçla
-  try{
-    const r = await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent("https://stooq.com/q/l/?s=%5Evix&f=sd2t2ohlcv&h&e=csv"));
-    const txt = await r.text();
-    const cells = (txt.trim().split("\n")[1]||"").split(",");
-    const v = parseFloat(cells[6]);
-    if(plausible(v)) return accept(v);
-  }catch(e){}
-  // Kaynak 4: manuel
+    }catch(e){}
+  }
+  // Kaynak 5: manuel
   $("vixManual").style.display = "block";
   if(vix.val!==null && !plausible(vix.val)){ vix={val:null, date:"", manual:false}; store.set("vix",vix); }
   renderDurum();
 }
 function manualVix(v){
   const x = parseFloat(v); if(isNaN(x) || x<5 || x>90){ alert("VIX 5-90 aralığında olmalı."); return; }
-  vix = {val:x, date:today(), manual:true}; store.set("vix", vix); renderDurum();
+  vix = {val:x, date:today(), manual:true, src:"elle"}; store.set("vix", vix); renderDurum();
 }
 
 
@@ -488,7 +543,7 @@ function stockHtml(sym, opts={}){
 function renderDurum(){
   if(vix.val===null){ $("vixVal").textContent="—"; $("verdictBadge").textContent="VERİ YOK"; }
   if(vix.val!==null){
-    $("vixVal").textContent = vix.val.toFixed(1) + (vix.manual?" (elle)":"");
+    $("vixVal").textContent = vix.val.toFixed(1) + (vix.src? " · "+vix.src : (vix.manual?" (elle)":""));
     const b = $("verdictBadge");
     if(vix.val>=40){ b.textContent="FIRSAT: VAR"; b.style.background="#16281F"; b.style.color="var(--green)";
       $("vixNote").textContent="Tarihsel panik bölgesi — endeks için 12 aylık pencere tarihsel olarak güçlü. Plana sadık kal, kademeli al."; }
@@ -819,9 +874,11 @@ function init(){
   $("microList").value = microList().join(", ");
   $("spinList").value = spinList().join(", ");
   const rc = document.getElementById("useRussell"); if(rc) rc.checked = store.get("useRussell", true);
+  const gh = document.getElementById("ghRepo"); if(gh) gh.value = store.get("ghRepo","");
   const haveKeys = store.get("fhKey","") && store.get("tdKey","");
-  show(haveKeys ? "durum" : "ayar");
-  if(haveKeys){ $("statusCard").style.display="block"; renderAll(); refreshAll(); }
+  $("statusCard").style.display="block"; renderAll();
+  if(haveKeys){ show("durum"); refreshAll(); }
+  else loadRemote().then(ok => { if(ok) show("durum"); else show("ayar"); });
 }
 if("serviceWorker" in navigator) window.addEventListener("load", ()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
 window.addEventListener("offline", ()=>setStatus("Çevrimdışı — son veriler gösteriliyor"));
