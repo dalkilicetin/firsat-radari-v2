@@ -12,14 +12,14 @@ const FH_GAP = 1050, TD_GAP = 7800;
 
 const EMBEDDED = readFileSync(new URL("./universe-fallback.txt", import.meta.url), "utf8").trim().split(",");
 const NDX35 = EMBEDDED.slice(0,35);
-const METAL_ETF = ["QTUM","BOTZ","SMH","ICLN","URA","ARKG","XBI","ITA","LIT","KWEB","XLE","XLF","IGV","PAVE","JETS","REMX","SPY","VGK","MCHI","EWJ","EEM","XAU/USD","XAG/USD","XPT/USD","XPD/USD","CPER"];
+const METAL_ETF = ["QTUM","BOTZ","SMH","ICLN","URA","ARKG","XBI","ITA","LIT","KWEB","XLE","XLF","IGV","PAVE","JETS","REMX","SPY","VGK","MCHI","EWJ","EEM","XAU/USD","SLV","PPLT","PALL","CPER"];
 
 // izleme listesi repo'dan (uygulamadaki yerel liste buna ek olarak cihazda taranmaya devam eder)
 let WATCH = { other:["RGTI","QBTS","SWK","ZYME","LGIH"], micro:[], spin:["SNDK"] };
 try{ WATCH = {...WATCH, ...JSON.parse(readFileSync("watchlist.json","utf8"))}; }catch(e){}
 
 // önceki çıktı (artımlı profil çekimi için)
-let prev = {prof:{}, series:{}};
+let prev = {prof:{}, series:{}, dead:{}};
 try{ prev = JSON.parse(readFileSync("data/sonuclar.json","utf8")); }catch(e){}
 
 async function fh(path){
@@ -60,7 +60,7 @@ function stage1(x){
   return out;
 }
 
-const out = { app:"firsat-radari", generatedAt:new Date().toISOString(),
+const out = { app:"firsat-radari", generatedAt:new Date().toISOString(), dead: prev.dead||{},
   vix:null, dynUni:null, screen:{}, prof:prev.prof||{}, quotes:{}, series:prev.series||{}, fin:{}, etf:{}, earnCal:{list:[]} };
 
 // ---- 1) VIX (Node'da CORS derdi yok) ----
@@ -88,7 +88,9 @@ try{ (await wikiTickers("List of S%26P 500 companies")).forEach(t=>merged.add(t)
 try{ (await wikiTickers("Nasdaq-100")).forEach(t=>merged.add(t)); }catch(e){}
 try{ const ru = await wikiTickers("Russell 1000 Index"); if(ru.size>200) ru.forEach(t=>merged.add(t)); }catch(e){}
 const ONE_OK = new Set(["A","C","D","F","K","L","O","T","V","U"]);
-const UNI = [...merged].filter(t=>/^[A-Z]{1,5}(\.[A-Z])?$/.test(t) && (t.length>1 || ONE_OK.has(t)));
+const ETF_BLACKLIST = new Set(["QQQ","SPY","DIA","IWM","VOO","VTI","GLD","SLV"]);
+const DEAD = prev.dead || {};
+const UNI = [...merged].filter(t=>/^[A-Z]{1,5}(\.[A-Z])?$/.test(t) && (t.length>1 || ONE_OK.has(t)) && !ETF_BLACKLIST.has(t) && (DEAD[t]||0) < 2);
 out.dynUni = {list:UNI, date:iso(new Date()), src:"Actions gece taraması"};
 console.log("Evren:", UNI.length);
 
@@ -104,6 +106,8 @@ for(const s of UNI){
       pe:M["peBasicExclExtraTTM"]||M["peNormalizedAnnual"]||null, ps:M["psTTM"] ?? null,
       mcap:M["marketCapitalization"] ?? null, gmT:M["grossMarginTTM"] ?? null, gm5:M["grossMargin5Y"] ?? null,
       roe:M["roeTTM"] ?? null, revG:M["revenueGrowthTTMYoy"] ?? null, avgVol:M["10DayAverageTradingVolume"] ?? null };
+    if(out.screen[s].mcap===null && out.screen[s].r52w===null) out.dead = {...(out.dead||DEAD), [s]:(DEAD[s]||0)+1};
+    else if(DEAD[s]) { out.dead = out.dead||DEAD; delete out.dead[s]; }
   }catch(e){ if(String(e).includes("geçersiz")) throw e; }
   if(++i % 100 === 0) console.log("metric", i, "/", UNI.length);
   await sleep(FH_GAP);
@@ -112,8 +116,10 @@ for(const s of UNI){
 // adaylar
 const spin = new Set(WATCH.spin||[]);
 const solid = s => spin.has(s) || ((out.screen[s]?.mcap||0)>=2000 && !!out.screen[s]?.pe);
-const CAND = UNI.filter(s => stage1(out.screen[s]).length && solid(s));
-const DISC = UNI.filter(s => { const x=out.screen[s]; return x && (x.mcap||0)>=300 && (x.mcap||0)<2000 && stage1(x).length; });
+const STRONG = new Set(["A","C?","D","ERKEN+UCUZ?"]);
+const qualifies = pats => pats.some(p=>STRONG.has(p)) || pats.filter(p=>p!=="BIÇAK?").length>=2;
+const CAND = UNI.filter(s => { const p = stage1(out.screen[s]); return p.length && qualifies(p) && solid(s); });
+const DISC = UNI.filter(s => { const x=out.screen[s]; return x && (x.mcap||0)>=300 && (x.mcap||0)<2000 && qualifies(stage1(x)); });
 console.log("Core aday:", CAND.length, "| Discovery:", DISC.length);
 
 // ---- 4) Profiller (artımlı: eksik/30 gün eskimiş) ----
@@ -134,7 +140,11 @@ for(const s of QUOTE_SET){
 }
 
 // ---- 6) 5 yıllık seriler (TD) — adaylar + izleme, 7 gün artımlı ----
-const SERIES_SET = [...new Set([...WATCH.other, ...WATCH.micro, ...CAND, ...DISC.slice(0,25)])].slice(0,160);
+// Seri önceliği: izleme listeleri > 5y dogrulamasi gerekenler (B?/C?/BICAK?) > kalanlar
+const NEEDS_5Y = new Set(["B?","C?","BIÇAK?"]);
+const candNeeds5y = CAND.filter(s => stage1(out.screen[s]).some(p=>NEEDS_5Y.has(p)));
+const candRest = CAND.filter(s => !candNeeds5y.includes(s));
+const SERIES_SET = [...new Set([...WATCH.other, ...WATCH.micro, ...candNeeds5y, ...DISC.slice(0,25), ...candRest])].slice(0,160);
 const needSeries = SERIES_SET.filter(s => !out.series[s] || !out.series[s].dateIso || (Date.now()-new Date(out.series[s].dateIso))>7*86400000);
 console.log("Seri gereken:", needSeries.length);
 for(const s of needSeries){

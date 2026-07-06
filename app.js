@@ -1,11 +1,11 @@
 "use strict";
-const APP_VERSION = "5.0";
+const APP_VERSION = "5.1";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
 const THEMES = [["QTUM","Quantum"],["BOTZ","Robotik/AI"],["SMH","Yarı iletken"],["ICLN","Temiz enerji"],["URA","Uranyum/Nükleer"],["ARKG","Genomik"],["XBI","Biotech"],["ITA","Savunma"],["LIT","Batarya/Lityum"],["KWEB","Çin internet"],["XLE","Enerji"],["XLF","Finans"],["IGV","Yazılım"],["PAVE","Altyapı"],["JETS","Havacılık"],["REMX","Nadir toprak"]];
 const REGIONS = [["SPY","ABD"],["VGK","Avrupa"],["MCHI","Çin"],["EWJ","Japonya"],["EEM","Gelişen P."]];
-const METALS = [["XAU/USD","Altın"],["XAG/USD","Gümüş"],["XPT/USD","Platin"],["XPD/USD","Paladyum"],["CPER","Bakır (ETF)"]];
+const METALS = [["XAU/USD","Altın"],["SLV","Gümüş (ETF)"],["PPLT","Platin (ETF)"],["PALL","Paladyum (ETF)"],["CPER","Bakır (ETF)"]];
 const CONF_WORDS = ["contract","awarded","award","agreement","signs","signed","partnership","order from","supply deal","procure","government","pentagon","defense","nasa","chips act","subsidy","acquisition of","acquires","stake in"];
 const RUMOR_WORDS = ["talks","rumor","rumour","in discussions","reportedly","considering","exploring","potential deal","sources say"];
 const CATALYST_WORDS = ["new ceo","ceo appoint","spin-off","spinoff","cost cutting","restructuring","new product","launches","fda approval","fda clear","ai ","artificial intelligence","datacenter","data center","hyperscaler","capacity expansion","factory","fab ","expands production","record backlog","guidance raise","raises guidance"];
@@ -38,7 +38,7 @@ let curSec = "durum", patTab = "hepsi";
 
 // -------- lists --------
 function bigList(){ return store.get("bigList", NDX); }
-function otherList(){ return store.get("otherList", ["RGTI","QBTS","SWK","ZYME","LGIH"]); }
+function otherList(){ const l = store.get("otherList", null); return (Array.isArray(l) && l.length) ? l : ["RGTI","QBTS","SWK","ZYME","LGIH"]; }
 function microList(){ return store.get("microList", []); }
 function spinList(){ return store.get("spinList", ["SNDK"]); }
 function allSyms(){ return [...new Set([...bigList(), ...otherList(), ...microList()])]; }
@@ -251,11 +251,13 @@ function stage1(s){ // ön eleme pattern adayları
   if(x.r13w>0 && x.pe && x.pe<15 && x.hi52 && x.r52w<0) out.push("ERKEN+UCUZ?");
   return out;
 }
-function candidates(){ // Core: ≥2 milyar $ + kârlı
+const STRONG_PATS = new Set(["A","C?","D","ERKEN+UCUZ?"]);
+function qualifies(pats){ return pats.some(p=>STRONG_PATS.has(p)) || pats.filter(p=>p!=="BIÇAK?").length>=2; }
+function candidates(){ // Core: ≥2 milyar $ + kârlı + güçlü sinyal (veya 2+ sinyal)
   const c = [];
   for(const s of universe()){
     const pats = stage1(s);
-    if(pats.length && solidScreen(s)) c.push(s);
+    if(pats.length && qualifies(pats) && solidScreen(s)) c.push(s);
   }
   return c;
 }
@@ -263,7 +265,7 @@ function discCandidates(){ // Discovery: 300M–2 milyar $ — sadece Keşif bö
   const c = [];
   for(const s of universe()){
     const x = screen[s]; if(!x) continue;
-    if((x.mcap||0)>=300 && (x.mcap||0)<2000 && stage1(s).length) c.push(s);
+    if((x.mcap||0)>=300 && (x.mcap||0)<2000 && qualifies(stage1(s))) c.push(s);
   }
   return c;
 }
@@ -378,7 +380,10 @@ async function phaseQuotes(){
 }
 
 async function phaseSeries(){
-  const wanted = activeSyms().slice(0,150); // TD günlük bütçe koruması
+  const NEEDS_5Y = new Set(["B?","C?","BIÇAK?"]);
+  const pool = activeSyms();
+  const pri = pool.filter(s => otherList().includes(s) || microList().includes(s) || stage1(s).some(p=>NEEDS_5Y.has(p)));
+  const wanted = [...new Set([...pri, ...pool])].slice(0,150); // 5y'ye muhtaçlar önce
   const need = wanted.filter(s => !series[s] || weekOld(series[s].dateIso));
   if(!need.length) return;
   setStatus("Pattern verisi (5 yıl, aylık)… "+need.length+" sembol, ~"+Math.ceil(need.length*TD_GAP/60000)+" dk arka planda");
