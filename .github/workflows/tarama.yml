@@ -1,1 +1,31 @@
-
+name: Gece Taramasi
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: tarama
+  cancel-in-progress: false
+jobs:
+  tara:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Tarayiciyi calistir
+        env:
+          FINNHUB_KEY: ${{ secrets.FINNHUB_KEY }}
+          TWELVEDATA_KEY: ${{ secrets.TWELVEDATA_KEY }}
+        run: node scanner.mjs
+      - name: Sonucu commitle
+        run: |
+          git config user.name "firsat-radari-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/sonuclar.json
+          git diff --cached --quiet || git commit -m "gece taramasi $(date -u +%F)"
+          git push
