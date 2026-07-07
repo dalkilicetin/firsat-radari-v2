@@ -87,7 +87,9 @@ const merged = new Set(EMBEDDED);
 try{ (await wikiTickers("List of S%26P 500 companies")).forEach(t=>merged.add(t)); }catch(e){}
 try{ (await wikiTickers("Nasdaq-100")).forEach(t=>merged.add(t)); }catch(e){}
 try{ const ru = await wikiTickers("Russell 1000 Index"); if(ru.size>200) ru.forEach(t=>merged.add(t)); }catch(e){}
-const ONE_OK = new Set(["A","C","D","F","K","L","O","T","V","U"]);
+TREE_EXTRA.forEach(t=>merged.add(t));
+const ONE_OK = new Set(["A","C","D","F","J","K","L","O","S","T","V","U"]);
+const TREE_EXTRA = ["AVAV", "AZZ", "CCJ", "INOD", "J", "KTOS", "LEU", "NTR", "NVO", "NXT", "OKLO", "PSTG", "RXRX", "S", "SATS", "SMR", "SNAP", "SQM", "SYM", "TSM", "UEC", "VIAV"]; // küratörlü ağacın evren dışı üyeleri // küratörlü ağacın evren dışı üyeleri — taramaya dahil
 const ETF_BLACKLIST = new Set(["QQQ","SPY","DIA","IWM","VOO","VTI","GLD","SLV"]);
 const DEAD = prev.dead || {};
 const UNI = [...merged].filter(t=>/^[A-Z]{1,5}(\.[A-Z])?$/.test(t) && (t.length>1 || ONE_OK.has(t)) && !ETF_BLACKLIST.has(t) && (DEAD[t]||0) < 2);

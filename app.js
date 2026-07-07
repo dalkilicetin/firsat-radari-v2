@@ -1,5 +1,5 @@
 "use strict";
-const APP_VERSION = "5.1";
+const APP_VERSION = "5.5";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
@@ -295,7 +295,7 @@ async function phaseUniverse(){
       try{ const ru = await wikiTickers("Russell 1000 Index"); if(ru.size>200){ ru.forEach(t=>merged.add(t)); srcs += " Russell ✓"; } }catch(e){}
     }
     // gürültü temizliği: 1 harfli semboller sadece bilinenler
-    const ONE_OK = new Set(["A","C","D","F","K","L","O","T","V","U"]);
+    const ONE_OK = new Set(["A","C","D","F","J","K","L","O","S","T","V","U"]);
     const list = [...merged].filter(t=>/^[A-Z]{1,5}(\.[A-Z])?$/.test(t) && (t.length>1 || ONE_OK.has(t)));
     if(list.length>=300){
       dynUni = {list, date: iso(new Date()), src: srcs};
@@ -625,6 +625,182 @@ function renderMicro(){
     '<div class="stock muted" style="padding:14px;">Liste boş — Ayarlar\'dan ekle (örn AEHR, AXT profili).</div>';
 }
 
+
+// -------- TREND AĞACI: tema → tedarik zinciri katmanı → firmalar --------
+// İskelet küratörlü; para akışı canlı veriden: tema=ETF getirisi, dal=üyelerin ort. 3 aylık getirisi
+const TREND_TREE = [
+ { name:"Yapay Zeka & Veri Merkezi", etf:"SMH", branches:[
+   {name:"GPU / Hızlandırıcı", note:"ana ürün", t:["NVDA","AMD","AVGO","MRVL"]},
+   {name:"Foundry / Üretici", note:"herkesin çipini basan", t:["TSM","INTC","GFS","ON","TXN"]},
+   {name:"EDA / Çip Tasarım", note:"gizli tekel", t:["SNPS","CDNS","ARM","ANSS"]},
+   {name:"Bellek / Depolama", note:"darboğaz adayı", t:["MU","SNDK","STX","WDC","PSTG","NTAP"]},
+   {name:"Analog / Güç Çipleri", note:"her cihazın sessiz parçası", t:["ADI","MPWR","POWI","SLAB","CRUS","SITM","DIOD","AOSL","NVTS","WOLF"]},
+   {name:"RF / Bağlantı Çipleri", note:"", t:["QCOM","SWKS","QRVO","MTSI","AMBA","SYNA"]},
+   {name:"Ağ / Anahtar", note:"veri otoyolu", t:["ANET","CSCO","MRVL","ALAB","CRDO","JNPR"]},
+   {name:"Optik / Fotonik", note:"", t:["COHR","LITE","GLW","VIAV"]},
+   {name:"Bağlantı / Konnektör", note:"sıkıcı ama her kutuda", t:["APH","TEL","GLW"]},
+   {name:"Üretim Ekipmanı", note:"altın hücumunda kürek", t:["ASML","AMAT","LRCX","KLAC","TER","ONTO","CAMT","FORM","ACLS","UCTT","ICHR","KLIC","PLAB","VECO","COHU"]},
+   {name:"Test / Ölçüm", note:"AEHR profili", t:["AEHR","TER","CAMT","KEYS","FORM"]},
+   {name:"Malzeme / Wafer / Gaz", note:"", t:["ENTG","AXTI","LIN","APD"]},
+   {name:"Sunucu / ODM", note:"", t:["SMCI","DELL","HPE","CLS","JBL","HPQ"]},
+   {name:"Güç / Soğutma", note:"fiziksel darboğaz", t:["VRT","ETN","NVT","MOD","GEV","TT","CARR"]},
+   {name:"Veri Merkezi İnşaatı", note:"AI'ın müteahhitleri", t:["EME","FIX","IESC","STRL","PWR","MTZ"]},
+   {name:"Veri Merkezi GYO", note:"AI'ın ev sahipleri", t:["DLR","EQIX","IRM"]},
+   {name:"Enerji / Nükleer Güç", note:"AI'ın elektrik faturası", t:["CEG","VST","NEE","TLN","OKLO","SMR","EXC","D"]},
+   {name:"Edge AI / Cihaz", note:"", t:["AAPL","QCOM","DELL","HPQ","LOGI"]},
+   {name:"Model / Yazılım / Bulut", note:"", t:["MSFT","GOOGL","META","ORCL","PLTR","NOW","CRM","AMZN","IBM","SNOW","MDB","DDOG"]},
+   {name:"AI Uygulayıcıları (Reklam/İçerik)", note:"AI'ı paraya çevirenler", t:["APP","TTD","META","RDDT","INOD"]}
+ ]},
+ { name:"Savunma & Uzay", etf:"ITA", branches:[
+   {name:"Ana Yükleniciler", note:"", t:["LMT","RTX","NOC","GD","BA","HII"]},
+   {name:"Motor / Parça", note:"uçak başına gelir", t:["GE","HWM","HEI","TDG","CW"]},
+   {name:"Savunma Elektroniği / C4ISR", note:"", t:["LHX","LDOS","AXON","KTOS","TDY"]},
+   {name:"İHA / Otonom", note:"", t:["AVAV","KTOS","AXON"]},
+   {name:"Uzay / Fırlatma / Uydu", note:"devlet anlaşması akışı", t:["RKLB","ASTS","PL","LUNR","IRDM","SATS"]},
+   {name:"Savunma Yazılımı", note:"", t:["PLTR","LDOS","BAH"]}
+ ]},
+ { name:"Quantum", etf:"QTUM", branches:[
+   {name:"Saf Oyuncular", note:"spekülatif dilim + devlet ortaklığı", t:["IONQ","RGTI","QBTS"]},
+   {name:"Devler (güvenli maruziyet)", note:"", t:["IBM","GOOGL","MSFT","HON"]},
+   {name:"Test / Altyapı", note:"kürek satıcıları", t:["FORM","KEYS","TDY"]}
+ ]},
+ { name:"Elektrifikasyon & Şebeke", etf:"PAVE", branches:[
+   {name:"Bakır / Madencilik", note:"", t:["FCX","SCCO","AA","NEM"]},
+   {name:"Trafo / Şebeke Ekipmanı", note:"çok yıllı sipariş birikimi", t:["GEV","ETN","HUBB","EMR","PWR","AZZ","ROK"]},
+   {name:"Elektrik Müteahhitleri", note:"", t:["PWR","EME","IESC","MTZ","FIX"]},
+   {name:"Güneş / Depolama", note:"faiz duyarlı", t:["FSLR","ENPH","NXT"]},
+   {name:"Batarya / Lityum", note:"", t:["ALB","TSLA","SQM"]},
+   {name:"Elektrikli Kamu Hizmeti", note:"", t:["NEE","SO","D","DUK","AEP","XEL","EXC"]}
+ ]},
+ { name:"Enerji Rönesansı", etf:"XLE", branches:[
+   {name:"Uranyum / Yakıt", note:"", t:["CCJ","LEU","UEC"]},
+   {name:"Nükleer Üretici / SMR", note:"", t:["CEG","VST","TLN","SMR","OKLO"]},
+   {name:"Doğalgaz / LNG", note:"veri merkezi köprü yakıtı", t:["EQT","LNG","EXE","WMB","OKE","KMI"]},
+   {name:"Petrol Üreticileri", note:"döngüsel — zamanlama her şey", t:["XOM","CVX","COP","OXY","FANG","DVN","BP"]},
+   {name:"Saha Hizmetleri", note:"", t:["SLB","HAL","BKR"]}
+ ]},
+ { name:"Biotech & Sağlık Teknolojisi", etf:"XBI", branches:[
+   {name:"GLP-1 / Obezite", note:"", t:["LLY","NVO","VKTX","AMGN"]},
+   {name:"Büyük İlaç", note:"", t:["JNJ","MRK","PFE","ABBV","BMY","GILD","AZN"]},
+   {name:"Araçlar / Tanı", note:"altın hücumunda kürek", t:["TMO","DHR","A","ILMN","IDXX","RVTY","WAT","MTD"]},
+   {name:"Cerrahi Robotik / Cihaz", note:"", t:["ISRG","SYK","MDT","DXCM","PODD","BSX","EW","GEHC"]},
+   {name:"Ortaklıklı Biotech", note:"dilüsyon riski düşük", t:["VRTX","REGN","ZYME","EXAS","NTRA","GH","INCY","BIIB","MRNA"]},
+   {name:"AI + İlaç Keşfi", note:"", t:["RXRX","TXG","PACB","QGEN"]},
+   {name:"Sağlık Sigortası / Hizmet", note:"regülasyon riski", t:["UNH","ELV","CI","HUM","CNC","MOH","HCA","UHS"]}
+ ]},
+ { name:"Siber Güvenlik", etf:"IGV", branches:[
+   {name:"Platform Liderleri", note:"", t:["PANW","CRWD","FTNT","CHKP"]},
+   {name:"Bulut / Kimlik / Uç", note:"", t:["ZS","OKTA","NET","S","AKAM"]},
+   {name:"Devlet Tarafı", note:"", t:["LDOS","PLTR","BAH","CACI"]}
+ ]},
+ { name:"Robotik & Otomasyon", etf:"BOTZ", branches:[
+   {name:"Endüstriyel Otomasyon", note:"", t:["ROK","EMR","AME","TT","HON","PH","DOV"]},
+   {name:"Depo / Lojistik Robotiği", note:"", t:["SYM","ZBRA","HON","CGNX"]},
+   {name:"Hassas Hareket / Sensör", note:"", t:["NDSN","IEX","TDY","KEYS"]}
+ ]},
+ { name:"Reshoring / ABD Sanayi", etf:"PAVE", branches:[
+   {name:"Fab / Tesis İnşaatı", note:"CHIPS yasası parası", t:["EME","FIX","STRL","PWR","J","ACM"]},
+   {name:"Endüstriyel Kiralama / Dağıtım", note:"", t:["URI","FAST","GWW","WSO","POOL"]},
+   {name:"Demiryolu / Nakliye", note:"", t:["UNP","CSX","NSC","ODFL","PCAR","JBHT"]},
+   {name:"Havacılık Tedariki", note:"", t:["HWM","HEI","TDG","GE","CW"]}
+ ]},
+ { name:"Konut & İnşaat", etf:"PAVE", branches:[
+   {name:"Konut Üreticileri", note:"faiz kaldıraçlı — LGIH profili", t:["DHI","LEN","PHM","NVR","TOL","KBH","LGIH","TMHC","MTH","GRBK"]},
+   {name:"Yapı Ürünleri", note:"", t:["BLDR","MAS","MHK","SWK","POOL","SHW","VMC","MLM"]},
+   {name:"Konut GYO / Kiralama", note:"", t:["INVH","AVB","EQR","MAA"]}
+ ]},
+ { name:"Tüketici İnterneti & Medya", etf:"IGV", branches:[
+   {name:"Reklam Platformları", note:"", t:["META","GOOGL","TTD","APP","PINS","SNAP","RDDT"]},
+   {name:"Streaming / İçerik", note:"", t:["NFLX","DIS","WBD","SPOT","PARA"]},
+   {name:"Oyun", note:"", t:["EA","TTWO","RBLX","U"]},
+   {name:"E-ticaret", note:"", t:["AMZN","SHOP","MELI","SE","PDD","EBAY"]},
+   {name:"Seyahat / Konaklama", note:"", t:["BKNG","ABNB","EXPE","MAR","HLT","RCL","CCL","NCLH","DAL","UAL","LUV","ALK"]}
+ ]},
+ { name:"Fintech & Sermaye Piyasası", etf:"XLF", branches:[
+   {name:"Ödeme Ağları", note:"gizli vergi tahsildarları", t:["V","MA","AXP","FI","GPN"]},
+   {name:"Borsa / Altyapı", note:"volatiliteden kazanır", t:["CME","ICE","NDAQ","CBOE","MKTX","COIN"]},
+   {name:"Dijital Aracılar", note:"", t:["HOOD","SOFI","AFRM","MSTR"]},
+   {name:"Varlık Yönetimi", note:"", t:["BLK","BX","KKR","APO","TROW","BEN"]}
+ ]},
+ { name:"Su & Tarım", etf:"PAVE", branches:[
+   {name:"Su Altyapısı", note:"sessiz kıtlık teması", t:["XYL","PNR","AWK","WTRG","VLTO"]},
+   {name:"Tarım Ekipmanı / Girdi", note:"", t:["DE","CTVA","ADM","BG","MOS","CF","NTR"]}
+ ]}
+];
+function branchFlow(tickers){ // dalın para akışı vekili: üyelerin ort. 13 haftalık getirisi
+  const vals = tickers.map(s=>(screen[s]||{}).r13w).filter(v=>v!==null && v!==undefined);
+  if(!vals.length) return null;
+  return vals.reduce((a,b)=>a+b,0)/vals.length;
+}
+function flowArrow(v){
+  if(v===null) return ["·","var(--dim)"];
+  if(v>=8) return ["▲▲","var(--green)"]; if(v>=3) return ["▲","var(--green)"];
+  if(v<=-8) return ["▼▼","var(--red)"]; if(v<=-3) return ["▼","var(--red)"];
+  return ["≈","var(--amber)"];
+}
+function treeTicker(s){
+  const q = quotes[s], x = screen[s]||{};
+  const r = reasonsFor(s);
+  const inUni = !!screen[s];
+  let badge = "";
+  if(r){ const [tl,tc] = tierOf(r.conviction); if(r.conviction>=2) badge = '<span class="chip" style="color:'+tc+';font-weight:700;">'+tl.split(" ")[0]+' '+r.conviction+'</span>'; }
+  const chg = x.r13w!==null && x.r13w!==undefined ? '<span class="chip">3a '+x.r13w.toFixed(0)+'%</span>' : "";
+  const nm = (prof[s]||{}).name || "";
+  const summary = r ? ('<div class="muted" style="margin:4px 0 6px 8px; border-left:2px solid var(--edge); padding-left:8px;">'+
+      (r.pros.length? '<span style="color:var(--green)">+</span> '+r.pros.join("; ")+'.':'Belirgin sinyal yok.')+
+      (r.cons.length? '<br><span style="color:var(--amber)">!</span> '+r.cons.join("; ")+'.':'')+'</div>') 
+    : '<div class="muted" style="margin:4px 0 6px 8px;">'+(inUni?"Sinyal yok.":"Evren dışı — Diğer listesine ekleyerek taratabilirsin.")+'</div>';
+  return '<details style="margin:2px 0;"><summary style="font-size:12.5px; color:var(--text); list-style:none;">'+
+    '<b>'+s+'</b> <span class="muted" style="font-size:10.5px;">'+nm.slice(0,24)+'</span> '+chg+' '+badge+
+    (q?' <span class="muted">$'+q.price.toFixed(2)+'</span>':'')+'</summary>'+summary+'</details>';
+}
+
+function renderAutoTree(){
+  // Tam otomatik: prof.ind endüstri etiketlerinden ağaç — küratör eli değmez, evren neyse o
+  const groups = {};
+  for(const s of universe()){
+    const ind = (prof[s]||{}).ind; const x = screen[s];
+    if(!ind || !x || x.r13w===null || x.r13w===undefined) continue;
+    (groups[ind] = groups[ind] || []).push(s);
+  }
+  const rows = Object.entries(groups)
+    .map(([ind, syms])=>({ind, syms, flow: syms.reduce((a,s)=>a+screen[s].r13w,0)/syms.length}))
+    .filter(g=>g.syms.length>=3)
+    .sort((a,b)=>b.flow-a.flow);
+  if(!rows.length){ $("autoTreeBox").innerHTML = '<div class="card muted">Profil verisi bekleniyor…</div>'; return; }
+  $("autoTreeBox").innerHTML = rows.map(g=>{
+    const [ar,ac] = flowArrow(g.flow);
+    const top = g.syms.slice().sort((x,y)=>(screen[y].r13w||0)-(screen[x].r13w||0));
+    return '<details class="card" style="padding:10px 14px;"><summary style="list-style:none; cursor:pointer; font-size:13.5px;">'+
+      '<span style="color:'+ac+';font-weight:800;">'+ar+'</span> <b>'+g.ind+'</b> '+
+      '<span class="chip">ort. 3a '+g.flow.toFixed(1)+'%</span> <span class="muted" style="font-size:10px;">'+g.syms.length+' firma</span></summary>'+
+      '<div style="margin-left:8px;">'+top.map(treeTicker).join("")+'</div></details>';
+  }).join("");
+}
+
+function renderTree(){
+  const spy3 = (etf["SPY"]||{}).r3m ?? null;
+  $("treeBox").innerHTML = TREND_TREE.map(theme=>{
+    const e = etf[theme.etf]||{};
+    const rs = (spy3!==null && e.r3m!==undefined) ? (100*(e.r3m-spy3)) : null;
+    const [ar,ac] = flowArrow(e.r3m!==undefined? 100*e.r3m : null);
+    const head = '<span style="color:'+ac+';font-weight:800;">'+ar+'</span> <b>'+theme.name+'</b> '+
+      (e.r3m!==undefined? '<span class="chip">3a '+(100*e.r3m).toFixed(1)+'%</span>':'')+
+      (rs!==null? '<span class="chip'+(rs>0?' g':'')+'">RS '+(rs>=0?"+":"")+rs.toFixed(1)+'</span>':'')+
+      ' <span class="muted" style="font-size:10px;">('+theme.etf+')</span>';
+    const body = theme.branches.map(br=>{
+      const f = branchFlow(br.t);
+      const [ba,bc] = flowArrow(f);
+      return '<details style="margin:4px 0 4px 10px;"><summary style="font-size:13px; list-style:none;">'+
+        '<span style="color:'+bc+';font-weight:700;">'+ba+'</span> '+br.name+
+        (f!==null? ' <span class="chip">ort. 3a '+f.toFixed(0)+'%</span>':'')+
+        (br.note? ' <span class="muted" style="font-size:10px;">— '+br.note+'</span>':'')+'</summary>'+
+        '<div style="margin-left:14px;">'+br.t.map(treeTicker).join("")+'</div></details>';
+    }).join("");
+    return '<details class="card" style="padding:12px 14px;"><summary style="font-size:14.5px; list-style:none; cursor:pointer;">'+head+'</summary>'+body+'</details>';
+  }).join("");
+}
+
 function renderTrend(){
   const rows = THEMES.map(([s,n])=>({s,n,d:etf[s]})).filter(r=>r.d);
   if(rows.length){
@@ -784,10 +960,10 @@ function renderOzet(){
   }).join("") : '<div class="stock muted" style="padding:14px;">En az 2 olumlu sinyali birleşen aday yok — tarama sürüyor olabilir.</div>';
 }
 
-function renderAll(){ renderOzet(); renderDurum(); renderBig(); renderOther(); renderMicro(); renderTrend(); renderMetal(); renderFunds(); renderCal(); renderJournal(); }
+function renderAll(){ renderOzet(); renderTree(); renderAutoTree(); renderDurum(); renderBig(); renderOther(); renderMicro(); renderTrend(); renderMetal(); renderFunds(); renderCal(); renderJournal(); }
 
 // -------- nav & settings --------
-const SECTIONS = [["durum","Durum"],["ozet","Özet"],["trend","Trend"],["buyuk","Tarama"],["diger","Diğer"],["kesif","Keşif"],["metal","Metal"],["fon","Fon"],["takvim","Takvim"],["gunluk","Günlük"]];
+const SECTIONS = [["durum","Durum"],["ozet","Özet"],["agac","Ağaç"],["trend","Trend"],["buyuk","Tarama"],["diger","Diğer"],["kesif","Keşif"],["metal","Metal"],["fon","Fon"],["takvim","Takvim"],["gunluk","Günlük"]];
 function show(sec){
   curSec = sec;
   document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
