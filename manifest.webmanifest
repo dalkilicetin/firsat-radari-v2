@@ -1,7 +1,7 @@
 {
-  "name": "Nasdaq-100 Fırsat Radarı",
+  "name": "Fırsat Radarı",
   "short_name": "Fırsat Radarı",
-  "description": "Nasdaq-100 hisselerini canlı tarayıp fırsat puanlayan radar",
+  "description": "ABD borsasında fırsatları basit dille gösteren radar",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

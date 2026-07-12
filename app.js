@@ -1,5 +1,5 @@
 "use strict";
-const APP_VERSION = "5.10";
+const APP_VERSION = "5.11";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
@@ -134,6 +134,13 @@ async function loadRemote(){
     Object.assign(etf, j.etf||{});        store.set("etf", etf);
     if(j.earnCal && j.earnCal.list){ earnCal = {date:today(), list:j.earnCal.list}; store.set("earnCal", earnCal); }
     if(j.macro){ store.set("macro", j.macro); }
+    // GitHub'daki sıralama geçmişini yerelle birleştir (yerelde olmayan günleri ekle)
+    if(j.rankHist){
+      const local = store.get("rankHist", {});
+      for(const [d,arr] of Object.entries(j.rankHist)) if(!local[d]) local[d] = arr;
+      const keys = Object.keys(local).sort(); while(keys.length>60){ delete local[keys.shift()]; }
+      store.set("rankHist", local);
+    }
     const t = new Date(j.generatedAt).toLocaleString("tr-TR",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
     setStatus("Gece taramasi yuklendi ("+t+") - anında hazir");
     setBar(1,1); renderAll();
@@ -605,7 +612,7 @@ function renderDurum(){
 const PAT_TABS = [["hepsi","Adaylar"],["A","A"],["B","B"],["C","C"],["D","D"],["DÖNÜŞ","Dönüş"],["BIÇAK","Bıçak"],["insider","Insider"]];
 function renderBig(){
   $("patTabs").innerHTML = PAT_TABS.map(([id,l])=>'<button class="ghost" style="'+(patTab===id?'border-color:var(--blue);color:var(--text);':'')+'" onclick="patTab=\''+id+'\';renderBig()">'+l+'</button>').join("");
-  const descs = {hepsi:"586 hisselik evrenden sağlam-firma filtresini (≥2 milyar $ + kârlı) geçip en az bir pattern yakalayanlar. \"?\" = ön eleme, derin veri doğrulaması sırada.", A:"12ay +%20 VE 1ay −%5/−15.", B:"5y −%50 VE 1y yatay VE 3ay pozitif.", C:"5y +%100 VE 1ay −%20 — olayı incele.", D:"Momentum devamı.", "DÖNÜŞ":"5y zirvesinden −%50+ VE 3ay pozitif.", "BIÇAK":"Her vadede negatif — uzak dur.", insider:"Adaylar içinde son 30 günde alım yapılanlar."};
+  const descs = {hepsi:"Binlerce firma arasından sağlam olanları (yeterince büyük + para kazanan) süzüp, fiyat grafiğinde ilgi çekici bir hareket yakalayanların listesi. \"?\" işareti: henüz ilk eleme, derin kontrol sırada.", A:"1 yılda iyi yükselmiş, son 1 ayda hafif geri çekilmiş — sağlıklı nefes molası olabilir.", B:"5 yılda çok düşmüş, son aylarda dibi bırakıp toparlanmaya başlamış — dipten dönüş adayı.", C:"5 yılda çok kazandırmış ama son ayda sert düşmüş — geçici bir olay mı, incele.", D:"Güçlü yukarı trend, zirvesine yakın ilerliyor.", "DÖNÜŞ":"Tepe noktasından çok düşmüş ama son 3 ayda yukarı dönmüş.", "BIÇAK":"Her zaman diliminde düşüyor — düşen bıçağı tutma, uzak dur.", insider:"Bu adaylar içinde son 1 ayda firma yöneticilerinin kendi parasıyla hisse aldığı firmalar."};
   $("patDesc").textContent = descs[patTab]||"";
   let syms = candidates();
   const deep = s => series[s] ? patterns(s).list.map(p=>p[0]) : null;
@@ -751,7 +758,7 @@ function treeTicker(s){
       (r.pros.length? '<span style="color:var(--green)">+</span> '+r.pros.join("; ")+'.':'Belirgin sinyal yok.')+
       (r.cons.length? '<br><span style="color:var(--amber)">!</span> '+r.cons.join("; ")+'.':'')+'</div>') 
     : '<div class="muted" style="margin:4px 0 6px 8px;">'+(inUni?"Sinyal yok.":"Evren dışı — Diğer listesine ekleyerek taratabilirsin.")+'</div>';
-  return '<details style="margin:2px 0;"><summary style="font-size:12.5px; color:var(--text); list-style:none;">'+
+  return '<details data-k="tk:'+s+'" style="margin:2px 0;"><summary style="font-size:12.5px; color:var(--text); list-style:none;">'+
     '<b>'+s+'</b> <span class="muted" style="font-size:10.5px;">'+nm.slice(0,24)+'</span> '+chg+' '+badge+
     (q?' <span class="muted">$'+q.price.toFixed(2)+'</span>':'')+'</summary>'+summary+'</details>';
 }
@@ -772,11 +779,40 @@ function renderAutoTree(){
   $("autoTreeBox").innerHTML = rows.map(g=>{
     const [ar,ac] = flowArrow(g.flow);
     const top = g.syms.slice().sort((x,y)=>(screen[y].r13w||0)-(screen[x].r13w||0));
-    return '<details class="card" style="padding:10px 14px;"><summary style="list-style:none; cursor:pointer; font-size:13.5px;">'+
+    return '<details data-k="auto:'+g.ind+'" class="card" style="padding:10px 14px;"><summary style="list-style:none; cursor:pointer; font-size:13.5px;">'+
       '<span style="color:'+ac+';font-weight:800;">'+ar+'</span> <b>'+g.ind+'</b> '+
       '<span class="chip">ort. 3a '+g.flow.toFixed(1)+'%</span> <span class="muted" style="font-size:10px;">'+g.syms.length+' firma</span></summary>'+
       '<div style="margin-left:8px;">'+top.map(treeTicker).join("")+'</div></details>';
   }).join("");
+  restoreOpenState("autoTreeBox");
+}
+
+// --- Ağaç: açık dalları hatırla, yeniden çizimde kapanmasınlar ---
+// Kullanıcı bir dalı elle açtığında, arka planda veri yenilenince kapanmaması için
+// açık olan tüm <details> id'lerini saklıyoruz; yeniden çizimden sonra geri açıyoruz.
+let _openTree = store.get("openTree", {});
+function saveOpenState(boxId){
+  const box = document.getElementById(boxId); if(!box) return;
+  box.querySelectorAll("details[data-k]").forEach(d=>{
+    _openTree[d.getAttribute("data-k")] = d.open;
+  });
+  store.set("openTree", _openTree);
+}
+function restoreOpenState(boxId){
+  const box = document.getElementById(boxId); if(!box) return;
+  box.querySelectorAll("details[data-k]").forEach(d=>{
+    if(_openTree[d.getAttribute("data-k")]) d.open = true;
+  });
+  // her details'e toggle dinleyici: kullanıcı açıp kapatınca durumu kaydet
+  box.querySelectorAll("details[data-k]").forEach(d=>{
+    if(!d._bound){ d._bound = true; d.addEventListener("toggle", ()=>{
+      _openTree[d.getAttribute("data-k")] = d.open; store.set("openTree", _openTree);
+    }); }
+  });
+}
+function collapseAllTree(){
+  _openTree = {}; store.set("openTree", _openTree);
+  document.querySelectorAll("#treeBox details, #autoTreeBox details").forEach(d=>d.open=false);
 }
 
 function renderTree(){
@@ -787,20 +823,21 @@ function renderTree(){
     const [ar,ac] = flowArrow(e.r3m!==undefined? 100*e.r3m : null);
     const head = '<span style="color:'+ac+';font-weight:800;">'+ar+'</span> <b>'+theme.name+'</b> '+
       (e.r3m!==undefined? '<span class="chip">3a '+(100*e.r3m).toFixed(1)+'%</span>':'')+
-      (rs!==null? '<span class="chip'+(rs>0?' g':'')+'">RS '+(rs>=0?"+":"")+rs.toFixed(1)+'</span>':'')+
+      (rs!==null? '<span class="chip'+(rs>0?' g':'')+'" title="Piyasa ortalamasına göre farkı">piyasaya göre '+(rs>=0?"+":"")+rs.toFixed(0)+'</span>':'')+
       ' <span class="muted" style="font-size:10px;">('+theme.etf+')</span>'+(theme.lc?' <span class="chip p">'+theme.lc+'</span>':'');
     const drivers = theme.drivers ? '<div class="muted" style="margin:8px 0 4px 4px; line-height:1.6;"><b>Neden hareketli?</b><br>• '+theme.drivers.join('<br>• ')+(theme.risk? '<br><b style=\"color:var(--amber)\">Ana risk:</b> '+theme.risk : '')+'</div>' : '';
     const body = drivers + theme.branches.map(br=>{
       const f = branchFlow(br.t);
       const [ba,bc] = flowArrow(f);
-      return '<details style="margin:4px 0 4px 10px;"><summary style="font-size:13px; list-style:none;">'+
+      return '<details data-k="br:'+theme.name+':'+br.name+'" style="margin:4px 0 4px 10px;"><summary style="font-size:13px; list-style:none;">'+
         '<span style="color:'+bc+';font-weight:700;">'+ba+'</span> '+br.name+
         (f!==null? ' <span class="chip">ort. 3a '+f.toFixed(0)+'%</span>':'')+
         (br.note? ' <span class="muted" style="font-size:10px;">— '+br.note+'</span>':'')+'</summary>'+
         '<div style="margin-left:14px;">'+br.t.map(treeTicker).join("")+'</div></details>';
     }).join("");
-    return '<details class="card" style="padding:12px 14px;"><summary style="font-size:14.5px; list-style:none; cursor:pointer;">'+head+'</summary>'+body+'</details>';
+    return '<details data-k="th:'+theme.name+'" class="card" style="padding:12px 14px;"><summary style="font-size:14.5px; list-style:none; cursor:pointer;">'+head+'</summary>'+body+'</details>';
   }).join("");
+  restoreOpenState("treeBox");
 }
 
 function renderTrend(){
@@ -810,7 +847,7 @@ function renderTrend(){
     const spy3 = (etf["SPY"]||{}).r3m ?? null;
     $("themeTable").innerHTML = '<table class="mini">'+rows.map((r,i)=>{
       const col = r.d.r3m>0.08?"var(--green)":r.d.r3m<0?"var(--red)":"var(--text)";
-      const rs = spy3!==null ? ' • RS '+(100*(r.d.r3m-spy3)).toFixed(1) : '';
+      const rs = spy3!==null ? ' • piyasaya göre '+(100*(r.d.r3m-spy3)>=0?"+":"")+(100*(r.d.r3m-spy3)).toFixed(0) : '';
       return '<tr><td>'+(i+1)+'. '+r.n+' <span class="muted">('+r.s+')</span></td><td style="color:'+col+'">3a '+(100*r.d.r3m).toFixed(1)+'%'+rs+'</td></tr>';
     }).join("")+'</table>';
   }
@@ -969,20 +1006,20 @@ function evaluate(sym){
     const e = etf[th.etf]||{};
     const rs = (spy3!==null && e.r3m!==undefined) ? e.r3m - spy3 : null;
     const bf = branchFlow(th.bt);
-    if(rs!==null && rs>0){ tema++; temaTxt.push(th.theme+" SPY'ı yeniyor"); }
-    if(bf!==null && bf>3){ tema++; temaTxt.push(th.branch+" katmanına para akıyor (3a %"+bf.toFixed(0)+")"); }
-    if(!temaTxt.length) temaTxt.push(th.theme+" / "+th.branch+" — akış nötr");
-  } else temaTxt.push("küratörlü temada değil (endüstri ağacından izle)");
+    if(rs!==null && rs>0){ tema++; temaTxt.push(th.theme+" konusu piyasa ortalamasından iyi gidiyor"); }
+    if(bf!==null && bf>3){ tema++; temaTxt.push(th.branch+" grubuna para akıyor (son 3 ay %"+bf.toFixed(0)+")"); }
+    if(!temaTxt.length) temaTxt.push(th.theme+" / "+th.branch+" — para akışı şu an nötr");
+  } else temaTxt.push("popüler bir konu grubunda değil (aşağıdaki sektör listesinden takip edebilirsin)");
 
   // K2 KALİTE (0-3)
   let kalite = 0; const kalTxt = [];
   const prof_ = (g("roic") ?? g("roe"));
-  if((g("revG")||0)>8){ kalite++; kalTxt.push("gelir büyüyor (%"+(g("revG")||0).toFixed(0)+")"); }
-  if(prof_!==null && prof_>15){ kalite++; kalTxt.push((f.roic!=null||x.roic!=null?"ROIC":"ROE")+" güçlü (%"+prof_.toFixed(0)+")"); }
-  if(pats.includes("RULE40")){ kalite++; kalTxt.push("Rule of 40 ✓ — compounder profili"); }
-  else if(pats.includes("MARJ")){ kalite++; kalTxt.push("marj genişliyor (fiyatlama gücü)"); }
-  if(!g("pe")) { kalTxt.push("kârsız"); }
-  if(!kalTxt.length) kalTxt.push("kalite sinyali yok");
+  if((g("revG")||0)>8){ kalite++; kalTxt.push("satışları büyüyor (%"+(g("revG")||0).toFixed(0)+")"); }
+  if(prof_!==null && prof_>15){ kalite++; kalTxt.push("parasını verimli kullanıyor (kârlılık %"+prof_.toFixed(0)+")"); }
+  if(pats.includes("RULE40")){ kalite++; kalTxt.push("hem hızlı büyüyor hem kârlı (nadir kombinasyon)"); }
+  else if(pats.includes("MARJ")){ kalite++; kalTxt.push("kâr marjı genişliyor (fiyatını yükseltebiliyor)"); }
+  if(!g("pe")) { kalTxt.push("henüz kâr etmiyor"); }
+  if(!kalTxt.length) kalTxt.push("belirgin bir sağlamlık sinyali yok");
 
   // K3 KATALİZÖR (0-3): neden şimdi?
   let kat = 0; const katTxt = [];
@@ -992,7 +1029,7 @@ function evaluate(sym){
   if((f.catN||0)>=2){ kat+=1; katTxt.push("⚡ Katalizör haberleri"); }
   if(f.buyNow!=null && f.buyPrev!=null && f.buyNow - f.buyPrev >= 0.05){ kat+=1; katTxt.push("📈 Analist iyileşmesi"); }
   kat = Math.min(3, kat);
-  if(!katTxt.length) katTxt.push("katalizör yok — 'neden şimdi' cevapsız");
+  if(!katTxt.length) katTxt.push("şu an özel bir 'neden şimdi' sebebi yok");
 
   // K4 RİSK
   const riskTxt = []; let hard = false;
@@ -1005,12 +1042,12 @@ function evaluate(sym){
 
   // DOKTOR KURALLARI (toplama değil, birlikte yorum)
   let stars, verdict;
-  if(hard){ stars=1; verdict="Uzak dur — sert risk bayrağı her sinyali geçersiz kılar"; }
-  else if(kalite===0 && kat>0){ stars=2; verdict="Momentum var ama kalite yok — kovalanmaz"; }
-  else if(kalite>=2 && kat===0){ stars=3; verdict="Compounder adayı — kaliteli ama katalizör yok, izleme listesine"; }
-  else if(kalite>=2 && tema>=1 && kat>=2){ stars=5; verdict="Güçlü aday — tema + kalite + katalizör aynı anda destekliyor"; }
-  else if(kalite>=1 && kat>=2){ stars=4; verdict="İzlenmeli — sinyaller birikiyor"; }
-  else if(kalite>=1 || kat>=1){ stars=3; verdict="Erken aşama"; }
+  if(hard){ stars=1; verdict="Uzak dur — ciddi bir risk bayrağı var, diğer artılar ne olursa olsun bu firmayı geçersiz kılıyor"; }
+  else if(kalite===0 && kat>0){ stars=2; verdict="Fiyatı hareketli ama firma sağlam değil — sırf yükseliyor diye peşinden koşulmaz"; }
+  else if(kalite>=2 && kat===0){ stars=3; verdict="Sağlam firma ama şu an alım için özel bir sebep yok — izleme listesine at, sebep çıkınca bak"; }
+  else if(kalite>=2 && tema>=1 && kat>=2){ stars=5; verdict="En güçlü aday — popüler konu, sağlam firma ve şimdi alım sebebi üçü birden var"; }
+  else if(kalite>=1 && kat>=2){ stars=4; verdict="Güçlü — alım için birden fazla sebep birikiyor"; }
+  else if(kalite>=1 || kat>=1){ stars=3; verdict="Erken aşama — bir iki olumlu sinyal var ama henüz tam oturmadı"; }
   else return null;
   if(riskTxt.length>1 && stars>2) stars--; // çoklu soft risk bir yıldız düşürür
 
@@ -1022,9 +1059,9 @@ function evaluate(sym){
   if((f.insBuyers||0)>=3) killCo.push("insider'ların satışa dönmesi");
   if(pats.includes("MARJ")) killCo.push("marj genişlemesinin durması");
   if(f.industry && FIN_INDUSTRIES.some(w=>(f.industry||"").includes(w))) killWorld.push("kredi döngüsü bozulması");
-  let type = "🚀 Trade";
-  if(pats.includes("RULE40") || (kalite>=2 && (g("roic")??g("roe")??0)>20)) type = "🏛 Compounder";
-  if((x.mcap||0)<2000 || microList().includes(sym)) type = "🌱 Erken";
+  let type = "🚀 Kısa vadeli fırsat";
+  if(pats.includes("RULE40") || (kalite>=2 && (g("roic")??g("roe")??0)>20)) type = "🏛 Uzun vadeli sağlam firma";
+  if((x.mcap||0)<2000 || microList().includes(sym)) type = "🌱 Küçük/riskli firma";
   return {stars, verdict, type, tema, kalite, kat, temaTxt, kalTxt, katTxt, riskTxt, killCo, killWorld, th};
 }
 
@@ -1054,6 +1091,77 @@ function thesis(sym, ev){
   return parts.join(" ");
 }
 
+// Son 1 ay / 3 ay / 1 yıl / 5 yıl getiri satırı — derin veri (5y seri) varsa ondan,
+// yoksa ön eleme (screen) verisinden. Renkli, tek satır.
+function returnsLine(sym){
+  const r = series[sym] ? rets(sym) : null;
+  const x = screen[sym]||{};
+  let m1=null, m3=null, y1=null, y5=null;
+  if(r){
+    m1 = 100*r.r1m; m3 = 100*r.r3m; y1 = 100*r.r12m;
+    y5 = r.r60m!==null ? 100*r.r60m : null;
+  } else {
+    m1 = x.mtd!=null ? x.mtd : null;   // ay başından beri (yaklaşık 1 ay)
+    m3 = x.r13w!=null ? x.r13w : null;  // 13 hafta ≈ 3 ay
+    y1 = x.r52w!=null ? x.r52w : null;  // 52 hafta = 1 yıl
+    y5 = null;
+  }
+  const cell = (lbl, v) => {
+    if(v===null || v===undefined || isNaN(v)) return '<span style="color:var(--dim);">'+lbl+' –</span>';
+    const col = v>=0 ? "var(--green)" : "var(--red)";
+    return '<span style="color:'+col+';">'+lbl+' '+(v>=0?"+":"")+v.toFixed(0)+'%</span>';
+  };
+  return '<div class="muted" style="margin-top:5px; display:flex; gap:12px; font-size:11.5px; flex-wrap:wrap;">'+
+    '<span style="color:var(--dim);">Getiri:</span>'+
+    cell("1a", m1)+cell("3a", m3)+cell("1y", y1)+cell("5y", y5)+'</div>';
+}
+
+// --- Sıralama değişim takibi: bir önceki güne göre yükselen/düşen/yeni/kaybolan ---
+// rankHist: { "YYYY-MM-DD": [sym,sym,...] }  (o günkü Özet sıralaması)
+function rankSnapshot(orderedSyms){
+  const hist = store.get("rankHist", {});
+  const d = iso(new Date());
+  hist[d] = orderedSyms.slice(0, 30);
+  // son 60 günü tut
+  const keys = Object.keys(hist).sort(); while(keys.length>60){ delete hist[keys.shift()]; }
+  store.set("rankHist", hist);
+  return hist;
+}
+function prevRankMap(){
+  const hist = store.get("rankHist", {});
+  const today_ = iso(new Date());
+  const days = Object.keys(hist).filter(d=>d<today_).sort();
+  const prevDay = days[days.length-1];
+  if(!prevDay) return {map:null, day:null};
+  const m = {}; hist[prevDay].forEach((s,i)=>m[s]=i);
+  return {map:m, day:prevDay};
+}
+// bir firmanın dünkü sıraya göre durumu -> küçük renkli etiket
+function rankBadge(sym, todayIdx, prev){
+  if(!prev.map) return "";
+  const was = prev.map[sym];
+  if(was===undefined) return '<span class="chip g" style="font-size:9px;">🆕 YENİ</span>';
+  const diff = was - todayIdx; // pozitif = yukarı çıktı
+  if(diff>=1) return '<span class="chip g" style="font-size:9px;">▲ '+diff+' yükseldi</span>';
+  if(diff<=-1) return '<span class="chip a" style="font-size:9px;">▼ '+(-diff)+' düştü</span>';
+  return '<span class="chip" style="font-size:9px;">≈ aynı</span>';
+}
+// dünkü listede olup bugün düşenler (kaybolanlar)
+function droppedList(todaySyms, prev){
+  if(!prev.map) return [];
+  const todaySet = new Set(todaySyms);
+  return Object.keys(prev.map).filter(s=>!todaySet.has(s)).sort((a,b)=>prev.map[a]-prev.map[b]);
+}
+
+// Üç sütunun (Konu / Kalite / Neden şimdi) kaç puan aldığını basit dolu/boş nokta ile göster
+function pillarBadge(label, val, max){
+  const v = Math.max(0, Math.min(max, val||0));
+  const strong = v>=Math.ceil(max*0.66), some = v>0;
+  const cls = strong ? "g" : some ? "a" : "";
+  const dots = "●".repeat(v) + "○".repeat(max-v);
+  return '<span class="chip '+cls+'" style="font-size:10px;">'+label+' '+dots+'</span>';
+}
+
 function renderOzet(){
   _evCache = {};
   const pool = [...new Set([...candidates(), ...otherList(), ...microList()])];
@@ -1064,7 +1172,16 @@ function renderOzet(){
   }
   rows.sort((a,b)=>b.ev.stars-a.ev.stars || (b.ev.kalite+b.ev.kat)-(a.ev.kalite+a.ev.kat));
   logSignals(rows);
-  $("ozetList").innerHTML = rows.length ? rows.slice(0,15).map(({s,ev})=>{
+  // sıralama değişim takibi (dünkü listeyle karşılaştır)
+  const todaySyms = rows.slice(0,15).map(r=>r.s);
+  const prev = prevRankMap();
+  rankSnapshot(todaySyms);
+  const dropped = droppedList(todaySyms, prev);
+  const droppedStrip = dropped.length ?
+    '<div class="stock muted" style="padding:10px 14px; background:#101724;"><b style="color:var(--amber)">Dünkü listeden çıkanlar:</b> '+
+    dropped.slice(0,8).map(s=>'<span class="chip a" style="font-size:9px;">'+s+'</span>').join(" ")+
+    '<div style="margin-top:4px; font-size:10px;">Bunlar dün listedeydi, bugün ilk 15\'e giremedi. Sinyalleri zayıfladı ya da başkaları öne geçti.</div></div>' : "";
+  $("ozetList").innerHTML = rows.length ? (droppedStrip + rows.slice(0,15).map(({s,ev},idx)=>{
     const q = quotes[s];
     const e2 = (earnCal.list||[]).find(x=>x.s===s);
     const days = e2 ? Math.round((new Date(e2.d)-new Date())/86400000) : null;
@@ -1072,17 +1189,24 @@ function renderOzet(){
       (q?'<div class="price">$'+q.price.toFixed(2)+'</div>':'')+
       '<span class="chip" style="font-size:10px;">'+ev.type+'</span> <span style="color:var(--amber);letter-spacing:1px;">'+("★".repeat(ev.stars))+'<span style="opacity:.25">'+("★".repeat(5-ev.stars))+'</span></span>'+
       (otherList().includes(s)?'':'<button class="ghost" style="padding:3px 8px;font-size:11px;" onclick="addToOther(\''+s+'\')">+ Takip</button>')+
-      '</div>'+nameLine(s)+
-      '<div class="muted" style="margin-top:5px; line-height:1.65;">'+
-      '<b style="color:var(--blue)">Hikâye:</b> '+((ev.th && ev.th.drivers && ev.th.drivers[0])? ev.th.drivers[0]+" → " : "")+ev.temaTxt.join("; ")+'<br>'+
-      '<b style="color:var(--green)">Neden bu şirket:</b> '+((ev.th)? ev.th.branch+(ev.th && themeOf(s).bt? "" : "")+" katmanında"+(TICKER_THEME[s] && TICKER_THEME[s].note? "" : "")+" — " : "")+ev.kalTxt.join("; ")+'<br>'+
-      '<b style="color:var(--purple)">Neden şimdi:</b> '+ev.katTxt.join("; ")+
-      (days!==null && days<=7 && days>=0 ? ' · 📅 bilanço '+days+' gün' : '')+'<br>'+
-      (ev.killCo && ev.killCo.length? '<b style="color:var(--amber)">Dikkat (şirket):</b> '+ev.killCo.slice(0,3).join("; ")+'<br>':'')+
-      (ev.killWorld && ev.killWorld.length? '<b style="color:var(--red)">Dikkat (dünya):</b> '+ev.killWorld.slice(0,2).join("; ")+'<br>':'')+
+      '</div>'+
+      '<div style="margin-top:3px;">'+rankBadge(s, idx, prev)+'</div>'+
+      nameLine(s)+ returnsLine(s)+
+      '<div style="margin-top:6px; display:flex; gap:6px; flex-wrap:wrap;">'+
+        pillarBadge("Konu", ev.tema, 2)+
+        pillarBadge("Kalite", ev.kalite, 3)+
+        pillarBadge("Neden şimdi", ev.kat, 3)+
+      '</div>'+
+      '<div class="muted" style="margin-top:7px; line-height:1.65;">'+
+      '<b style="color:var(--blue)">📌 Konu:</b> '+((ev.th && ev.th.drivers && ev.th.drivers[0])? ev.th.drivers[0]+" → " : "")+ev.temaTxt.join("; ")+'<br>'+
+      '<b style="color:var(--green)">✅ Neden bu firma:</b> '+((ev.th)? ev.th.branch+" grubunda — " : "")+ev.kalTxt.join("; ")+'<br>'+
+      '<b style="color:var(--purple)">⏰ Neden şimdi:</b> '+ev.katTxt.join("; ")+
+      (days!==null && days<=7 && days>=0 ? ' · 📅 bilanço '+days+' gün sonra' : '')+'<br>'+
+      (ev.killCo && ev.killCo.length? '<b style="color:var(--amber)">⚠️ Dikkat (firmayla ilgili):</b> '+ev.killCo.slice(0,3).join("; ")+'<br>':'')+
+      (ev.killWorld && ev.killWorld.length? '<b style="color:var(--red)">⚠️ Dikkat (piyasa/dünya):</b> '+ev.killWorld.slice(0,2).join("; ")+'<br>':'')+
       siblingLine(s)+
-      '<b>Tez:</b> '+thesis(s, ev)+'</div></div>';
-  }).join("") : '<div class="stock muted" style="padding:14px;">3+ yıldızlı aday yok — tarama sürüyor olabilir.</div>';
+      '<b>🧭 Kısaca:</b> '+thesis(s, ev)+'</div></div>';
+  }).join("")) : '<div class="stock muted" style="padding:14px;">3+ yıldızlı aday yok — tarama sürüyor olabilir.</div>';
 }
 
 function logSignals(rows){
@@ -1153,7 +1277,7 @@ function renderSigLog(){
 function renderAll(){ renderOzet(); renderSigLog(); renderTree(); renderAutoTree(); renderDurum(); renderBig(); renderOther(); renderMicro(); renderTrend(); renderMetal(); renderFunds(); renderCal(); renderJournal(); }
 
 // -------- nav & settings --------
-const SECTIONS = [["durum","Durum"],["ozet","Özet"],["agac","Ağaç"],["trend","Trend"],["buyuk","Tarama"],["diger","Diğer"],["kesif","Keşif"],["metal","Metal"],["fon","Fon"],["takvim","Takvim"],["gunluk","Günlük"]];
+const SECTIONS = [["durum","Giriş"],["ozet","Özet"],["kesif","Keşif"],["diger","Listem"],["trend","Sektörler"],["agac","Ağaç"],["buyuk","Analiz"],["metal","Metal"],["takvim","Takvim"],["fon","Fon"],["gunluk","Günlük"]];
 function show(sec){
   curSec = sec;
   document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));

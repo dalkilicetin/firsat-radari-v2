@@ -1,4 +1,4 @@
-const CACHE = "firsat-radari-v5.10";
+const CACHE = "firsat-radari-v5.11";
 const SHELL = [
   "./",
   "./index.html",
@@ -38,14 +38,14 @@ self.addEventListener("fetch", (e) => {
     return;
   }
 
-  // Uygulama kabuğu: önce cache, yoksa ağ (çevrimdışı açılabilir)
+  // Uygulama kabuğu: ONCE AG, yoksa cache (yeni surum aninda gorunur; cevrimdisi de acilir)
   e.respondWith(
-    caches.match(e.request).then((hit) => hit || fetch(e.request).then((res) => {
+    fetch(e.request).then((res) => {
       if (e.request.method === "GET" && res.ok && url.origin === self.location.origin) {
         const copy = res.clone();
         caches.open(CACHE).then((c) => c.put(e.request, copy));
       }
       return res;
-    }).catch(() => caches.match("./index.html")))
+    }).catch(() => caches.match(e.request).then((hit) => hit || caches.match("./index.html")))
   );
 });

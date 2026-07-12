@@ -241,6 +241,17 @@ try{
   out.earnCal = {date:iso(new Date()), list:(j?.earningsCalendar||[]).filter(e=>mine.has(e.symbol)).map(e=>({s:e.symbol,d:e.date}))};
 }catch(e){}
 
+// ---- 10) Sıralama geçmişi (GitHub'da kalıcı) ----
+// Basit günlük sıralama: adaylar 13 haftalık getiriye göre — uygulamadaki yıldız
+// sıralamasının kaba bir vekili. Amaç: cihaz değişse de "dün neredeydi" bilgisi kalsın.
+out.rankHist = prev.rankHist || {};
+{
+  const ordered = [...CAND].sort((a,b)=>((out.screen[b]||{}).r13w||0)-((out.screen[a]||{}).r13w||0)).slice(0,30);
+  const d = iso(new Date());
+  out.rankHist[d] = ordered;
+  const keys = Object.keys(out.rankHist).sort(); while(keys.length>60){ delete out.rankHist[keys.shift()]; }
+}
+
 mkdirSync("data", {recursive:true});
 writeFileSync("data/sonuclar.json", JSON.stringify(out));
 console.log("Yazıldı: data/sonuclar.json | boyut:", (JSON.stringify(out).length/1024).toFixed(0), "KB");

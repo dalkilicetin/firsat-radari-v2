@@ -1,4 +1,13 @@
-# FIRSAT RADARI v5 — Kurulum
+# FIRSAT RADARI v5.11 — Kurulum
+
+## Bu sürümde ne değişti
+- Sürüm numarası artık her yerde doğru görünür (eski "v4" yazısı kalkti; servis worker cache adı da güncellendi, yani site artık yeni sürümü anında gösterir).
+- Sekme sırası ve isimleri sadeleşti: Giriş · Özet · Keşif · Listem · Sektörler · Ağaç · Analiz · Metal · Takvim · Fon · Günlük.
+- Ağaç sayfası: açtığın dallar sen kapatana kadar açık kalır ("Hepsini Kapat" butonu eklendi).
+- Özet kartlarına her firmanın son 1 ay / 3 ay / 1 yıl / 5 yıl getirisi eklendi.
+- Açıklamalar sade dille yeniden yazıldı; "Bu sayfayı nasıl okurum?" kutusu eklendi.
+- Her firmada Konu / Kalite / Neden şimdi puanları basit dolu-nokta rozetiyle görünür.
+- Bir önceki güne göre sıralamada yükselen/düşen/yeni/kaybolan firmalar işaretlenir; bu geçmiş GitHub'daki data/sonuclar.json içinde de tutulur (cihaz değişince kaybolmaz).
 
 ## Yapı
 - Uygulama (PWA): repo kökündeki index.html, app.js, sw.js, ikonlar
