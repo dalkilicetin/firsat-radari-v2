@@ -1,4 +1,4 @@
-const CACHE = "firsat-radari-v5.9";
+const CACHE = "firsat-radari-v5.10";
 const SHELL = [
   "./",
   "./index.html",
