@@ -1,5 +1,5 @@
 "use strict";
-const APP_VERSION = "5.8";
+const APP_VERSION = "5.9";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
@@ -1014,17 +1014,33 @@ function evaluate(sym){
   else return null;
   if(riskTxt.length>1 && stars>2) stars--; // çoklu soft risk bir yıldız düşürür
 
+  const killTxt = [];
+  if(th && th.risk) killTxt.push(th.risk);
+  if(pats.includes("PAHALI")) killTxt.push("çarpan daralması (F/S>30'dan düşüş sert olur)");
+  const eNext = (earnCal.list||[]).find(z=>z.s===sym);
+  if(eNext) killTxt.push("kötü bilanço ("+eNext.d+")");
+  if((f.insBuyers||0)>=3) killTxt.push("insider'ların satışa dönmesi");
+  if(f.industry && FIN_INDUSTRIES.some(w=>(f.industry||"").includes(w))) killTxt.push("kredi döngüsü bozulması");
   let type = "🚀 Trade";
   if(pats.includes("RULE40") || (kalite>=2 && (g("roic")??g("roe")??0)>20)) type = "🏛 Compounder";
   if((x.mcap||0)<2000 || microList().includes(sym)) type = "🌱 Erken";
-  return {stars, verdict, type, tema, kalite, kat, temaTxt, kalTxt, katTxt, riskTxt};
+  return {stars, verdict, type, tema, kalite, kat, temaTxt, kalTxt, katTxt, riskTxt, killTxt};
 }
 
+let _evCache = {};
+function evCached(s){ if(!(s in _evCache)) _evCache[s] = evaluate(s); return _evCache[s]; }
+function siblingLine(sym){
+  const th = themeOf(sym); if(!th) return "";
+  const sibs = th.bt.filter(t=>t!==sym && (screen[t]||fin[t])).slice(0,6)
+    .map(t=>{ const e = evCached(t); return t+(e? " "+"★".repeat(e.stars) : " –"); });
+  return sibs.length ? '<b style="color:var(--dim)">Dal kıyası ('+th.branch+'):</b> '+sibs.join(" · ")+'<br>' : "";
+}
 function renderOzet(){
+  _evCache = {};
   const pool = [...new Set([...candidates(), ...otherList(), ...microList()])];
   const rows = [];
   for(const s of pool){
-    const ev = evaluate(s);
+    const ev = evCached(s);
     if(ev && ev.stars>=3) rows.push({s, ev});
   }
   rows.sort((a,b)=>b.ev.stars-a.ev.stars || (b.ev.kalite+b.ev.kat)-(a.ev.kalite+a.ev.kat));
@@ -1044,6 +1060,8 @@ function renderOzet(){
       '<b style="color:var(--purple)">Katalizör:</b> '+ev.katTxt.join("; ")+
       (days!==null && days<=7 && days>=0 ? ' · 📅 bilanço '+days+' gün' : '')+'<br>'+
       (ev.riskTxt.length? '<b style="color:var(--amber)">Risk:</b> '+ev.riskTxt.join("; ")+'<br>':'')+
+      (ev.killTxt && ev.killTxt.length? '<b style="color:var(--red)">Tezi bozar:</b> '+ev.killTxt.slice(0,3).join("; ")+'<br>':'')+
+      siblingLine(s)+
       '<b>Sonuç:</b> '+ev.verdict+'</div></div>';
   }).join("") : '<div class="stock muted" style="padding:14px;">3+ yıldızlı aday yok — tarama sürüyor olabilir.</div>';
 }
