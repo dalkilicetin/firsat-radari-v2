@@ -1,5 +1,5 @@
 "use strict";
-const APP_VERSION = "5.5";
+const APP_VERSION = "5.8";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
@@ -87,7 +87,9 @@ function patterns(sym){
     if(f.gmT!==null && f.gm5!==null && f.gmT > f.gm5 + 2) out.push(["MARJ","Brüt marj genişliyor","p"]);
     return {list:out, r};
   }
-  if((f.roe||0)>15 && (f.revG||0)>8) out.push(["KALİTE","ROE>15 + gelir büyümesi >%8","g"]);
+  const _prof = (f.roic ?? f.roe) || 0;
+  if(_prof>15 && (f.revG||0)>8) out.push(["KALİTE","ROIC/ROE>15 + gelir büyüyor","g"]);
+  if((f.gmT||0)>=50 && (f.revG||0) + (f.netM||0) >= 40 && (f.revG||0)>15) out.push(["RULE40","Rule of 40 (yazılım profili) — compounder","g"]);
   if(r.r12m>=0.20 && r.r1m<=-0.05 && r.r1m>=-0.15) out.push(["A","Trend içi düzeltme","g"]);
   if(r.r60m!==null && r.r60m<=-0.50 && Math.abs(r.r12m)<=0.10 && r.r3m>0) out.push(["B","Kaybedenin dönüşü","g"]);
   if(r.r60m!==null && r.r60m>=1.00 && r.r1m<=-0.20) out.push(["C","Şampiyonun kötü günü — olayı incele","a"]);
@@ -104,7 +106,7 @@ function patterns(sym){
   }
   if(f.gmT!==null && f.gm5!==null && f.gmT > f.gm5 + 2) out.push(["MARJ","Brüt marj genişliyor — darboğaz/fiyatlama gücü vekili","p"]);
   if(r.r3m>0 && f.pe && f.pe<15 && r.off5y>=0.30) out.push(["ERKEN+UCUZ","Momentum başladı + hâlâ ucuz + zirveden uzak","g"]);
-  if(f.ps && f.ps>30 && out.some(p=>["A","D","E","DÖNÜŞ"].includes(p[0]))) out.push(["PAHALI","F/S > 30 — değerleme uyarısı","a"]);
+  if(f.ps && f.ps>30 && !out.some(p=>p[0]==="RULE40") && out.some(p=>["A","D","E","DÖNÜŞ"].includes(p[0]))) out.push(["PAHALI","F/S > 30 — değerleme uyarısı","a"]);
   return {list:out, r};
 }
 
@@ -131,6 +133,7 @@ async function loadRemote(){
     Object.assign(fin, j.fin||{});        store.set("fin", fin);
     Object.assign(etf, j.etf||{});        store.set("etf", etf);
     if(j.earnCal && j.earnCal.list){ earnCal = {date:today(), list:j.earnCal.list}; store.set("earnCal", earnCal); }
+    if(j.macro){ store.set("macro", j.macro); }
     const t = new Date(j.generatedAt).toLocaleString("tr-TR",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
     setStatus("Gece taramasi yuklendi ("+t+") - anında hazir");
     setBar(1,1); renderAll();
@@ -341,7 +344,7 @@ async function phaseScreen(){
           hi52: M["52WeekHigh"] ?? null, pe: M["peBasicExclExtraTTM"] || M["peNormalizedAnnual"] || null,
           ps: M["psTTM"] ?? null, mcap: M["marketCapitalization"] ?? null,
           gmT: M["grossMarginTTM"] ?? null, gm5: M["grossMargin5Y"] ?? null,
-          roe: M["roeTTM"] ?? null, revG: M["revenueGrowthTTMYoy"] ?? null, avgVol: M["10DayAverageTradingVolume"] ?? null };
+          roe: M["roeTTM"] ?? null, roic: M["roiTTM"] ?? null, netM: M["netProfitMarginTTM"] ?? null, revG: M["revenueGrowthTTMYoy"] ?? null, avgVol: M["10DayAverageTradingVolume"] ?? null };
       } else screen[s] = {date: iso(new Date())};
     }catch(e){ if(e.message==="auth-fh") throw e; }
     i++; setBar(i, need.length);
@@ -354,7 +357,7 @@ async function phaseScreen(){
 function activeSyms(){ return [...new Set([...otherList(), ...microList(), ...candidates(), ...discCandidates().slice(0,25)])]; }
 
 async function phaseQuotesFast(){
-  const syms = [...new Set([...otherList(), ...microList(), ...NDX.slice(0,35)])];
+  const syms = [...new Set(["SPY", ...otherList(), ...microList(), ...NDX.slice(0,35)])];
   setStatus("Öncelikli fiyatlar… (~"+Math.ceil(syms.length*FH_GAP/60000)+" dk)");
   let i=0;
   for(const s of syms){
@@ -417,7 +420,7 @@ async function phaseFin(){
         rec.pe=m.metric["peBasicExclExtraTTM"]||m.metric["peNormalizedAnnual"]||null;
         rec.ps=m.metric["psTTM"]||null;
         rec.gmT=m.metric["grossMarginTTM"]??null; rec.gm5=m.metric["grossMargin5Y"]??null;
-        rec.roe=m.metric["roeTTM"]??null; rec.revG=m.metric["revenueGrowthTTMYoy"]??null; rec.avgVol=m.metric["10DayAverageTradingVolume"]??null;
+        rec.roe=m.metric["roeTTM"]??null; rec.roic=m.metric["roiTTM"]??null; rec.netM=m.metric["netProfitMarginTTM"]??null; rec.revG=m.metric["revenueGrowthTTMYoy"]??null; rec.avgVol=m.metric["10DayAverageTradingVolume"]??null;
       }
     }catch(e){ if(e.message==="auth-fh") throw e; } i++; setBar(i,total); await sleep(FH_GAP);
     try{
@@ -545,6 +548,25 @@ function stockHtml(sym, opts={}){
     nameLine(sym)+'<div class="l2">'+chips.join("")+'</div>'+news+'</div>';
 }
 
+function riskMode(){
+  const spyC = (etf["SPY"]||{}).closes;
+  const above = spyC && spyC.length>=10 ? spyC[0] > spyC.slice(0,10).reduce((a,b)=>a+b,0)/10 : null; // 10 aylık MA (Faber)
+  const withData = universe().filter(s=>screen[s] && screen[s].r13w!==null && screen[s].r13w!==undefined);
+  const breadth = withData.length>50 ? withData.filter(s=>screen[s].r13w>0).length/withData.length : null;
+  const v = vix.val;
+  let mode, col, txt;
+  if(v!==null && v>=40){ mode="🟢 AGRESİF PENCERE"; col="var(--green)"; txt="Panik = tarihsel fırsat penceresi. Kademeli al."; }
+  else if((above===false) || (breadth!==null && breadth<0.35)){ mode="🔴 SAVUNMACI"; col="var(--red)"; txt="Trend kırık / katılım zayıf — yeni pozisyonda ekstra seçici ol."; }
+  else if(above===true && (breadth===null || breadth>0.5) && (v===null || v<24)){ mode="🟢 RİSK ALINABİLİR"; col="var(--green)"; txt="Trend yukarı, katılım sağlıklı — plan normal işler."; }
+  else { mode="🟡 NORMAL"; col="var(--amber)"; txt="Karışık sinyaller — düzenli alım, kovalamaca yok."; }
+  const macro = store.get("macro", null);
+  let mtxt = "";
+  if(macro){
+    if(macro.t10y2y!==null && macro.t10y2y!==undefined) mtxt += " · Faiz eğrisi "+(macro.t10y2y>=0?"+":"")+macro.t10y2y.toFixed(2)+(macro.t10y2y<0?" (ters ⚠)":"");
+    if(macro.hy!==null && macro.hy!==undefined) mtxt += " · HY spread "+macro.hy.toFixed(1)+(macro.hy>5?" (stres ⚠)":"");
+  }
+  return {mode, col, txt: txt+mtxt, breadth};
+}
 function renderDurum(){
   if(vix.val===null){ $("vixVal").textContent="—"; $("verdictBadge").textContent="VERİ YOK"; }
   if(vix.val!==null){
@@ -556,6 +578,12 @@ function renderDurum(){
       $("vixNote").textContent="Gerginlik yükseliyor — nakit hazırla, listeyi tara, henüz panik değil."; }
     else { b.textContent="FIRSAT: YOK"; b.style.background="#1A2233"; b.style.color="var(--dim)";
       $("vixNote").textContent="Sakin piyasa — düzenli aylık alım planına devam, zamanlama arama."; }
+  }
+  { const rm = riskMode();
+    const el = $("riskModeBox");
+    if(el){ el.innerHTML = '<span style="color:'+rm.col+';font-weight:800;">'+rm.mode+'</span>'+
+      (rm.breadth!==null? ' <span class="chip">katılım %'+Math.round(100*rm.breadth)+'</span>':'')+
+      '<div class="muted" style="margin-top:4px;">'+rm.txt+'</div>'; }
   }
   const rows = NDX.slice(0,35).map(s=>quotes[s]).filter(Boolean);
   if(rows.length){
@@ -629,102 +657,75 @@ function renderMicro(){
 // -------- TREND AĞACI: tema → tedarik zinciri katmanı → firmalar --------
 // İskelet küratörlü; para akışı canlı veriden: tema=ETF getirisi, dal=üyelerin ort. 3 aylık getirisi
 const TREND_TREE = [
- { name:"Yapay Zeka & Veri Merkezi", etf:"SMH", branches:[
+ { name:"Yapay Zeka & Veri Merkezi", risk:"Capex döngüsü yavaşlarsa tüm zincir de-rate olur", lc:"🔥 Zirveye yakın", drivers:["Hyperscaler capex rekor seviyede (MSFT/META/GOOGL/AMZN)","Güç ve soğutma fiziksel darboğaz haline geldi","Bellek (HBM/NAND) arz açığı fiyatları taşıyor","Değerleme tartışması başladı — seçicilik dönemi"], etf:"SMH", branches:[
    {name:"GPU / Hızlandırıcı", note:"ana ürün", t:["NVDA","AMD","AVGO","MRVL"]},
-   {name:"Foundry / Üretici", note:"herkesin çipini basan", t:["TSM","INTC","GFS","ON","TXN"]},
-   {name:"EDA / Çip Tasarım", note:"gizli tekel", t:["SNPS","CDNS","ARM","ANSS"]},
-   {name:"Bellek / Depolama", note:"darboğaz adayı", t:["MU","SNDK","STX","WDC","PSTG","NTAP"]},
-   {name:"Analog / Güç Çipleri", note:"her cihazın sessiz parçası", t:["ADI","MPWR","POWI","SLAB","CRUS","SITM","DIOD","AOSL","NVTS","WOLF"]},
-   {name:"RF / Bağlantı Çipleri", note:"", t:["QCOM","SWKS","QRVO","MTSI","AMBA","SYNA"]},
-   {name:"Ağ / Anahtar", note:"veri otoyolu", t:["ANET","CSCO","MRVL","ALAB","CRDO","JNPR"]},
-   {name:"Optik / Fotonik", note:"", t:["COHR","LITE","GLW","VIAV"]},
-   {name:"Bağlantı / Konnektör", note:"sıkıcı ama her kutuda", t:["APH","TEL","GLW"]},
-   {name:"Üretim Ekipmanı", note:"altın hücumunda kürek", t:["ASML","AMAT","LRCX","KLAC","TER","ONTO","CAMT","FORM","ACLS","UCTT","ICHR","KLIC","PLAB","VECO","COHU"]},
-   {name:"Test / Ölçüm", note:"AEHR profili", t:["AEHR","TER","CAMT","KEYS","FORM"]},
-   {name:"Malzeme / Wafer / Gaz", note:"", t:["ENTG","AXTI","LIN","APD"]},
-   {name:"Sunucu / ODM", note:"", t:["SMCI","DELL","HPE","CLS","JBL","HPQ"]},
-   {name:"Güç / Soğutma", note:"fiziksel darboğaz", t:["VRT","ETN","NVT","MOD","GEV","TT","CARR"]},
+   {name:"Foundry / Üretici", note:"herkesin çipini basan", t:["TSM","INTC","GFS"]},
+   {name:"EDA / Çip Tasarım Yazılımı", note:"gizli tekel", t:["SNPS","CDNS","ARM"]},
+   {name:"Bellek / Depolama", note:"darboğaz adayı", t:["MU","SNDK","STX","WDC","PSTG"]},
+   {name:"Ağ / Anahtar", note:"veri otoyolu", t:["ANET","CSCO","MRVL","ALAB","CRDO"]},
+   {name:"Optik / Fotonik", note:"", t:["COHR","LITE","GLW"]},
+   {name:"Bağlantı / Konnektör", note:"sıkıcı ama her kutuda", t:["APH","TEL"]},
+   {name:"Üretim Ekipmanı", note:"altın hücumunda kürek", t:["ASML","AMAT","LRCX","KLAC","TER","ONTO","CAMT","FORM","ACLS","UCTT","ICHR"]},
+   {name:"Test (AI çip yaşlandırma)", note:"AEHR profili", t:["AEHR","TER","CAMT"]},
+   {name:"Malzeme / Wafer", note:"", t:["ENTG","AXTI","LIN"]},
+   {name:"Sunucu / ODM", note:"", t:["SMCI","DELL","HPE","CLS","JBL"]},
+   {name:"Güç / Soğutma", note:"fiziksel darboğaz", t:["VRT","ETN","NVT","MOD","GEV"]},
    {name:"Veri Merkezi İnşaatı", note:"AI'ın müteahhitleri", t:["EME","FIX","IESC","STRL","PWR","MTZ"]},
-   {name:"Veri Merkezi GYO", note:"AI'ın ev sahipleri", t:["DLR","EQIX","IRM"]},
-   {name:"Enerji / Nükleer Güç", note:"AI'ın elektrik faturası", t:["CEG","VST","NEE","TLN","OKLO","SMR","EXC","D"]},
-   {name:"Edge AI / Cihaz", note:"", t:["AAPL","QCOM","DELL","HPQ","LOGI"]},
-   {name:"Model / Yazılım / Bulut", note:"", t:["MSFT","GOOGL","META","ORCL","PLTR","NOW","CRM","AMZN","IBM","SNOW","MDB","DDOG"]},
-   {name:"AI Uygulayıcıları (Reklam/İçerik)", note:"AI'ı paraya çevirenler", t:["APP","TTD","META","RDDT","INOD"]}
+   {name:"Enerji / Nükleer Güç", note:"AI'ın elektrik faturası", t:["CEG","VST","NEE","TLN","OKLO","SMR"]},
+   {name:"Model / Yazılım / Bulut", note:"", t:["MSFT","GOOGL","META","ORCL","PLTR","NOW","CRM"]}
  ]},
- { name:"Savunma & Uzay", etf:"ITA", branches:[
+ { name:"Savunma & Uzay", risk:"Barış anlaşmaları / bütçe kesintileri", lc:"📈 Hızlanıyor", drivers:["NATO ülkeleri harcama hedeflerini yükseltti","Sipariş birikimleri çok yıllı rekorda","Uzay tarafına devlet teşvik akışı sürüyor"], etf:"ITA", branches:[
    {name:"Ana Yükleniciler", note:"", t:["LMT","RTX","NOC","GD","BA","HII"]},
-   {name:"Motor / Parça", note:"uçak başına gelir", t:["GE","HWM","HEI","TDG","CW"]},
-   {name:"Savunma Elektroniği / C4ISR", note:"", t:["LHX","LDOS","AXON","KTOS","TDY"]},
+   {name:"Savunma Elektroniği / C4ISR", note:"", t:["LHX","LDOS","AXON","KTOS"]},
    {name:"İHA / Otonom", note:"", t:["AVAV","KTOS","AXON"]},
    {name:"Uzay / Fırlatma / Uydu", note:"devlet anlaşması akışı", t:["RKLB","ASTS","PL","LUNR","IRDM","SATS"]},
-   {name:"Savunma Yazılımı", note:"", t:["PLTR","LDOS","BAH"]}
+   {name:"Savunma Yazılımı", note:"", t:["PLTR","LDOS"]}
  ]},
- { name:"Quantum", etf:"QTUM", branches:[
+ { name:"Quantum", risk:"Ticarileşme 10 yıl uzakta olabilir; yanlış mimari = sıfır", lc:"🌱 Yeni", drivers:["ABD hükümeti 9 şirkete hisse ortaklığıyla girdi (2026)","Ticari gelir hâlâ minimal — mimari yarışı sürüyor","Hata düzeltmede bilimsel eşikler aşılıyor (Willow)"], etf:"QTUM", branches:[
    {name:"Saf Oyuncular", note:"spekülatif dilim + devlet ortaklığı", t:["IONQ","RGTI","QBTS"]},
    {name:"Devler (güvenli maruziyet)", note:"", t:["IBM","GOOGL","MSFT","HON"]},
-   {name:"Test / Altyapı", note:"kürek satıcıları", t:["FORM","KEYS","TDY"]}
+   {name:"Test / Altyapı Sağlayıcı", note:"kürek satıcıları", t:["FORM","KEYS"]}
  ]},
- { name:"Elektrifikasyon & Şebeke", etf:"PAVE", branches:[
-   {name:"Bakır / Madencilik", note:"", t:["FCX","SCCO","AA","NEM"]},
-   {name:"Trafo / Şebeke Ekipmanı", note:"çok yıllı sipariş birikimi", t:["GEV","ETN","HUBB","EMR","PWR","AZZ","ROK"]},
-   {name:"Elektrik Müteahhitleri", note:"", t:["PWR","EME","IESC","MTZ","FIX"]},
-   {name:"Güneş / Depolama", note:"faiz duyarlı", t:["FSLR","ENPH","NXT"]},
-   {name:"Batarya / Lityum", note:"", t:["ALB","TSLA","SQM"]},
-   {name:"Elektrikli Kamu Hizmeti", note:"", t:["NEE","SO","D","DUK","AEP","XEL","EXC"]}
+ { name:"Elektrifikasyon & Şebeke", risk:"Sipariş iptalleri + faiz duyarlılığı", lc:"📈 Hızlanıyor", drivers:["Veri merkezi + EV yükü şebekeyi zorluyor","Trafo/anahtar teslim süreleri yıllara uzadı","Bakırda yapısal arz açığı tezi güçleniyor"], etf:"PAVE", branches:[
+   {name:"Bakır / Madencilik", note:"", t:["FCX","SCCO","AA"]},
+   {name:"Trafo / Şebeke Ekipmanı", note:"çok yıllı sipariş birikimi", t:["GEV","ETN","HUBB","EMR","PWR","AZZ"]},
+   {name:"Elektrik Müteahhitleri", note:"", t:["PWR","EME","IESC","MTZ"]},
+   {name:"Güneş / Depolama", note:"faiz duyarlı", t:["FSLR","ENPH"]},
+   {name:"Batarya Zinciri", note:"", t:["ALB","TSLA"]}
  ]},
- { name:"Enerji Rönesansı", etf:"XLE", branches:[
+ { name:"Enerji Rönesansı", risk:"Emtia fiyat çöküşü her tezi ezer", lc:"📈 Hızlanıyor", drivers:["AI elektrik talebi nükleer anlaşmalarını tetikledi","LNG veri merkezi köprü yakıtı konumunda","Uranyum arz tarafı disiplinli"], etf:"XLE", branches:[
    {name:"Uranyum / Yakıt", note:"", t:["CCJ","LEU","UEC"]},
-   {name:"Nükleer Üretici / SMR", note:"", t:["CEG","VST","TLN","SMR","OKLO"]},
-   {name:"Doğalgaz / LNG", note:"veri merkezi köprü yakıtı", t:["EQT","LNG","EXE","WMB","OKE","KMI"]},
-   {name:"Petrol Üreticileri", note:"döngüsel — zamanlama her şey", t:["XOM","CVX","COP","OXY","FANG","DVN","BP"]},
+   {name:"Nükleer Üretici", note:"", t:["CEG","VST","TLN","SMR","OKLO"]},
+   {name:"Doğalgaz / LNG", note:"veri merkezi köprü yakıtı", t:["EQT","LNG","EXE"]},
    {name:"Saha Hizmetleri", note:"", t:["SLB","HAL","BKR"]}
  ]},
- { name:"Biotech & Sağlık Teknolojisi", etf:"XBI", branches:[
-   {name:"GLP-1 / Obezite", note:"", t:["LLY","NVO","VKTX","AMGN"]},
-   {name:"Büyük İlaç", note:"", t:["JNJ","MRK","PFE","ABBV","BMY","GILD","AZN"]},
-   {name:"Araçlar / Tanı", note:"altın hücumunda kürek", t:["TMO","DHR","A","ILMN","IDXX","RVTY","WAT","MTD"]},
-   {name:"Cerrahi Robotik / Cihaz", note:"", t:["ISRG","SYK","MDT","DXCM","PODD","BSX","EW","GEHC"]},
-   {name:"Ortaklıklı Biotech", note:"dilüsyon riski düşük", t:["VRTX","REGN","ZYME","EXAS","NTRA","GH","INCY","BIIB","MRNA"]},
-   {name:"AI + İlaç Keşfi", note:"", t:["RXRX","TXG","PACB","QGEN"]},
-   {name:"Sağlık Sigortası / Hizmet", note:"regülasyon riski", t:["UNH","ELV","CI","HUM","CNC","MOH","HCA","UHS"]}
+ { name:"Biotech & Sağlık Teknolojisi", risk:"Klinik başarısızlık + ilaç fiyat regülasyonu", lc:"🌱 Toparlanma", drivers:["Faiz baskısı hafifledikçe sektör nefes alıyor","GLP-1 dalgası ikinci nesil ilaçlara genişliyor","AI + ilaç keşfi ortaklıkları artıyor"], etf:"XBI", branches:[
+   {name:"GLP-1 / Obezite", note:"", t:["LLY","NVO","VKTX"]},
+   {name:"Araçlar / Tanı", note:"altın hücumunda kürek", t:["TMO","DHR","A","ILMN","IDXX"]},
+   {name:"Cerrahi Robotik / Cihaz", note:"", t:["ISRG","SYK","MDT","DXCM","PODD"]},
+   {name:"Ortaklıklı Biotech", note:"dilüsyon riski düşük", t:["VRTX","REGN","ZYME","EXAS","NTRA","GH"]},
+   {name:"AI + İlaç Keşfi", note:"", t:["RXRX","TXG","PACB"]}
  ]},
- { name:"Siber Güvenlik", etf:"IGV", branches:[
-   {name:"Platform Liderleri", note:"", t:["PANW","CRWD","FTNT","CHKP"]},
-   {name:"Bulut / Kimlik / Uç", note:"", t:["ZS","OKTA","NET","S","AKAM"]},
-   {name:"Devlet Tarafı", note:"", t:["LDOS","PLTR","BAH","CACI"]}
+ { name:"Siber Güvenlik", risk:"Bütçe konsolidasyonu, rekabetle marj erimesi", lc:"📈 İstikrarlı", drivers:["AI hem saldırı hem savunma bütçelerini büyütüyor","Konsolidasyon: platform liderleri pay topluyor"], etf:"IGV", branches:[
+   {name:"Platform Liderleri", note:"", t:["PANW","CRWD","FTNT"]},
+   {name:"Bulut / Kimlik", note:"", t:["ZS","OKTA","NET","S"]},
+   {name:"Devlet Tarafı", note:"", t:["LDOS","PLTR","BAH"]}
  ]},
- { name:"Robotik & Otomasyon", etf:"BOTZ", branches:[
-   {name:"Endüstriyel Otomasyon", note:"", t:["ROK","EMR","AME","TT","HON","PH","DOV"]},
-   {name:"Depo / Lojistik Robotiği", note:"", t:["SYM","ZBRA","HON","CGNX"]},
-   {name:"Hassas Hareket / Sensör", note:"", t:["NDSN","IEX","TDY","KEYS"]}
+ { name:"Robotik & Otomasyon", risk:"Capex ertelemesi döngüselliği", lc:"🌱 Erken", drivers:["İşgücü maliyeti + reshoring otomasyonu zorluyor","Depo robotiği ölçeklenme fazında","İnsansı robot yatırımları hızlandı"], etf:"BOTZ", branches:[
+   {name:"Endüstriyel Otomasyon", note:"", t:["ROK","EMR","AME","TT"]},
+   {name:"Depo / Lojistik Robotiği", note:"", t:["SYM","ZBRA","HON"]},
+   {name:"Yarı Otomasyon Ekipmanı", note:"", t:["TER","ISRG","AXON"]}
  ]},
- { name:"Reshoring / ABD Sanayi", etf:"PAVE", branches:[
-   {name:"Fab / Tesis İnşaatı", note:"CHIPS yasası parası", t:["EME","FIX","STRL","PWR","J","ACM"]},
-   {name:"Endüstriyel Kiralama / Dağıtım", note:"", t:["URI","FAST","GWW","WSO","POOL"]},
-   {name:"Demiryolu / Nakliye", note:"", t:["UNP","CSX","NSC","ODFL","PCAR","JBHT"]},
-   {name:"Havacılık Tedariki", note:"", t:["HWM","HEI","TDG","GE","CW"]}
+ { name:"Reshoring / ABD Sanayi", risk:"Teşvik politikası değişimi", lc:"📈 Hızlanıyor", drivers:["CHIPS + altyapı yasaları fab inşaatını fonluyor","Elektrik müteahhitlerinde rekor iş birikimi"], etf:"PAVE", branches:[
+   {name:"Fab / Tesis İnşaatı", note:"CHIPS yasası parası", t:["EME","FIX","STRL","PWR","J"]},
+   {name:"Endüstriyel Kiralama/Dağıtım", note:"", t:["URI","FAST","GWW","WSO"]},
+   {name:"Demiryolu / Nakliye", note:"", t:["UNP","CSX","ODFL","PCAR"]}
  ]},
- { name:"Konut & İnşaat", etf:"PAVE", branches:[
-   {name:"Konut Üreticileri", note:"faiz kaldıraçlı — LGIH profili", t:["DHI","LEN","PHM","NVR","TOL","KBH","LGIH","TMHC","MTH","GRBK"]},
-   {name:"Yapı Ürünleri", note:"", t:["BLDR","MAS","MHK","SWK","POOL","SHW","VMC","MLM"]},
-   {name:"Konut GYO / Kiralama", note:"", t:["INVH","AVB","EQR","MAA"]}
- ]},
- { name:"Tüketici İnterneti & Medya", etf:"IGV", branches:[
-   {name:"Reklam Platformları", note:"", t:["META","GOOGL","TTD","APP","PINS","SNAP","RDDT"]},
-   {name:"Streaming / İçerik", note:"", t:["NFLX","DIS","WBD","SPOT","PARA"]},
-   {name:"Oyun", note:"", t:["EA","TTWO","RBLX","U"]},
-   {name:"E-ticaret", note:"", t:["AMZN","SHOP","MELI","SE","PDD","EBAY"]},
-   {name:"Seyahat / Konaklama", note:"", t:["BKNG","ABNB","EXPE","MAR","HLT","RCL","CCL","NCLH","DAL","UAL","LUV","ALK"]}
- ]},
- { name:"Fintech & Sermaye Piyasası", etf:"XLF", branches:[
-   {name:"Ödeme Ağları", note:"gizli vergi tahsildarları", t:["V","MA","AXP","FI","GPN"]},
-   {name:"Borsa / Altyapı", note:"volatiliteden kazanır", t:["CME","ICE","NDAQ","CBOE","MKTX","COIN"]},
-   {name:"Dijital Aracılar", note:"", t:["HOOD","SOFI","AFRM","MSTR"]},
-   {name:"Varlık Yönetimi", note:"", t:["BLK","BX","KKR","APO","TROW","BEN"]}
- ]},
- { name:"Su & Tarım", etf:"PAVE", branches:[
-   {name:"Su Altyapısı", note:"sessiz kıtlık teması", t:["XYL","PNR","AWK","WTRG","VLTO"]},
-   {name:"Tarım Ekipmanı / Girdi", note:"", t:["DE","CTVA","ADM","BG","MOS","CF","NTR"]}
+ { name:"Fintech & Sermaye Piyasası", risk:"Regülasyon + kredi döngüsü", lc:"📈 İstikrarlı", drivers:["İşlem hacimleri ve volatilite borsa gelirlerini besliyor","Dijital varlık regülasyonu netleşiyor"], etf:"XLF", branches:[
+   {name:"Ödeme Ağları", note:"gizli vergi tahsildarları", t:["V","MA","AXP"]},
+   {name:"Borsa / Altyapı", note:"volatiliteden kazanır", t:["CME","ICE","NDAQ","CBOE"]},
+   {name:"Dijital Aracılar", note:"", t:["HOOD","SOFI","COIN"]},
+   {name:"Varlık Yönetimi", note:"", t:["BLK","BX","KKR","APO"]}
  ]}
 ];
 function branchFlow(tickers){ // dalın para akışı vekili: üyelerin ort. 13 haftalık getirisi
@@ -787,8 +788,9 @@ function renderTree(){
     const head = '<span style="color:'+ac+';font-weight:800;">'+ar+'</span> <b>'+theme.name+'</b> '+
       (e.r3m!==undefined? '<span class="chip">3a '+(100*e.r3m).toFixed(1)+'%</span>':'')+
       (rs!==null? '<span class="chip'+(rs>0?' g':'')+'">RS '+(rs>=0?"+":"")+rs.toFixed(1)+'</span>':'')+
-      ' <span class="muted" style="font-size:10px;">('+theme.etf+')</span>';
-    const body = theme.branches.map(br=>{
+      ' <span class="muted" style="font-size:10px;">('+theme.etf+')</span>'+(theme.lc?' <span class="chip p">'+theme.lc+'</span>':'');
+    const drivers = theme.drivers ? '<div class="muted" style="margin:8px 0 4px 4px; line-height:1.6;"><b>Neden hareketli?</b><br>• '+theme.drivers.join('<br>• ')+(theme.risk? '<br><b style=\"color:var(--amber)\">Ana risk:</b> '+theme.risk : '')+'</div>' : '';
+    const body = drivers + theme.branches.map(br=>{
       const f = branchFlow(br.t);
       const [ba,bc] = flowArrow(f);
       return '<details style="margin:4px 0 4px 10px;"><summary style="font-size:13px; list-style:none;">'+
@@ -940,27 +942,178 @@ function tierOf(c){
   if(c>=2) return ["⚪ ÖN İZLEME","var(--dim)"];
   return ["🔴 RİSK BASKIN","var(--red)"];
 }
+
+// -------- v5.6: 5 katmanlı değerlendirme (doktor mantığı: toplama değil birlikte yorum) --------
+let TICKER_THEME = null;
+function themeOf(sym){
+  if(!TICKER_THEME){ TICKER_THEME = {};
+    for(const th of TREND_TREE) for(const br of th.branches) for(const t of br.t)
+      if(!TICKER_THEME[t]) TICKER_THEME[t] = {theme:th.name, etf:th.etf, branch:br.name, bt:br.t};
+  }
+  return TICKER_THEME[sym] || null;
+}
+const PAT_TR = {A:"↩ Sağlıklı Düzeltme", B:"🔥 Dipten Dönüş", C:"⚡ Olay Bazlı Düşüş", D:"🚀 Güçlü Trend",
+  E:"💰 Bilanço Gücü", "DÖNÜŞ":"🔥 Dipten Dönüş", "ERKEN+UCUZ":"🎯 Ucuz Kalite"};
+function evaluate(sym){
+  const f = fin[sym]||{}, x = screen[sym]||{};
+  const deep = !!series[sym];
+  const pats = (deep ? patterns(sym).list.map(p=>p[0]) : stage1(sym).map(p=>p.replace("?","")));
+  if(pats.includes("BIÇAK")) return null;
+  const g = k => f[k] ?? x[k];
+
+  // K1 TEMA (0-2): tedarik zinciri üyeliği + tema/dal para akışı
+  let tema = 0; const temaTxt = [];
+  const th = themeOf(sym);
+  const spy3 = (etf["SPY"]||{}).r3m ?? null;
+  if(th){
+    const e = etf[th.etf]||{};
+    const rs = (spy3!==null && e.r3m!==undefined) ? e.r3m - spy3 : null;
+    const bf = branchFlow(th.bt);
+    if(rs!==null && rs>0){ tema++; temaTxt.push(th.theme+" SPY'ı yeniyor"); }
+    if(bf!==null && bf>3){ tema++; temaTxt.push(th.branch+" katmanına para akıyor (3a %"+bf.toFixed(0)+")"); }
+    if(!temaTxt.length) temaTxt.push(th.theme+" / "+th.branch+" — akış nötr");
+  } else temaTxt.push("küratörlü temada değil (endüstri ağacından izle)");
+
+  // K2 KALİTE (0-3)
+  let kalite = 0; const kalTxt = [];
+  const prof_ = (g("roic") ?? g("roe"));
+  if((g("revG")||0)>8){ kalite++; kalTxt.push("gelir büyüyor (%"+(g("revG")||0).toFixed(0)+")"); }
+  if(prof_!==null && prof_>15){ kalite++; kalTxt.push((f.roic!=null||x.roic!=null?"ROIC":"ROE")+" güçlü (%"+prof_.toFixed(0)+")"); }
+  if(pats.includes("RULE40")){ kalite++; kalTxt.push("Rule of 40 ✓ — compounder profili"); }
+  else if(pats.includes("MARJ")){ kalite++; kalTxt.push("marj genişliyor (fiyatlama gücü)"); }
+  if(!g("pe")) { kalTxt.push("kârsız"); }
+  if(!kalTxt.length) kalTxt.push("kalite sinyali yok");
+
+  // K3 KATALİZÖR (0-3): neden şimdi?
+  let kat = 0; const katTxt = [];
+  for(const p of pats) if(PAT_TR[p] && ["E","A","D","B","DÖNÜŞ","C","ERKEN+UCUZ"].includes(p)){ kat = Math.max(kat, ["E"].includes(p)?2:1); katTxt.push(PAT_TR[p]); }
+  if((f.insBuyers||0)>=3){ kat+=1; katTxt.push("👔 Küme insider ("+f.insBuyers+")"); }
+  if((f.news||[]).filter(n=>n.type==="conf").length>=2){ kat+=1; katTxt.push("🏭 Anlaşma akışı"); }
+  if((f.catN||0)>=2){ kat+=1; katTxt.push("⚡ Katalizör haberleri"); }
+  if(f.buyNow!=null && f.buyPrev!=null && f.buyNow - f.buyPrev >= 0.05){ kat+=1; katTxt.push("📈 Analist iyileşmesi"); }
+  kat = Math.min(3, kat);
+  if(!katTxt.length) katTxt.push("katalizör yok — 'neden şimdi' cevapsız");
+
+  // K4 RİSK
+  const riskTxt = []; let hard = false;
+  if(f.scandal){ riskTxt.push("skandal/soruşturma"); hard = true; }
+  if(pats.includes("TUZAK")){ riskTxt.push("değer tuzağı"); hard = true; }
+  if(pats.includes("PAHALI")) riskTxt.push("değerleme yüklü (F/S>30)");
+  if(f.industry && FIN_INDUSTRIES.some(w=>(f.industry||"").includes(w))) riskTxt.push("finans — bilanço krizi görünmez");
+  const av = g("avgVol"); if(av!=null && av<0.3) riskTxt.push("likidite düşük");
+  if(!deep) riskTxt.push("ön eleme");
+
+  // DOKTOR KURALLARI (toplama değil, birlikte yorum)
+  let stars, verdict;
+  if(hard){ stars=1; verdict="Uzak dur — sert risk bayrağı her sinyali geçersiz kılar"; }
+  else if(kalite===0 && kat>0){ stars=2; verdict="Momentum var ama kalite yok — kovalanmaz"; }
+  else if(kalite>=2 && kat===0){ stars=3; verdict="Compounder adayı — kaliteli ama katalizör yok, izleme listesine"; }
+  else if(kalite>=2 && tema>=1 && kat>=2){ stars=5; verdict="Güçlü aday — tema + kalite + katalizör aynı anda destekliyor"; }
+  else if(kalite>=1 && kat>=2){ stars=4; verdict="İzlenmeli — sinyaller birikiyor"; }
+  else if(kalite>=1 || kat>=1){ stars=3; verdict="Erken aşama"; }
+  else return null;
+  if(riskTxt.length>1 && stars>2) stars--; // çoklu soft risk bir yıldız düşürür
+
+  let type = "🚀 Trade";
+  if(pats.includes("RULE40") || (kalite>=2 && (g("roic")??g("roe")??0)>20)) type = "🏛 Compounder";
+  if((x.mcap||0)<2000 || microList().includes(sym)) type = "🌱 Erken";
+  return {stars, verdict, type, tema, kalite, kat, temaTxt, kalTxt, katTxt, riskTxt};
+}
+
 function renderOzet(){
   const pool = [...new Set([...candidates(), ...otherList(), ...microList()])];
   const rows = [];
   for(const s of pool){
-    const r = reasonsFor(s);
-    if(r && r.pros.length>=2 && r.conviction>=2) rows.push({s, ...r});
+    const ev = evaluate(s);
+    if(ev && ev.stars>=3) rows.push({s, ev});
   }
-  rows.sort((a,b)=>b.conviction-a.conviction);
-  $("ozetList").innerHTML = rows.length ? rows.slice(0,15).map(({s,pros,cons,conviction})=>{
+  rows.sort((a,b)=>b.ev.stars-a.ev.stars || (b.ev.kalite+b.ev.kat)-(a.ev.kalite+a.ev.kat));
+  logSignals(rows);
+  $("ozetList").innerHTML = rows.length ? rows.slice(0,15).map(({s,ev})=>{
     const q = quotes[s];
-    const [tl,tc] = tierOf(conviction);
+    const e2 = (earnCal.list||[]).find(x=>x.s===s);
+    const days = e2 ? Math.round((new Date(e2.d)-new Date())/86400000) : null;
     return '<div class="stock"><div class="l1"><div class="tick">'+s+'</div>'+
       (q?'<div class="price">$'+q.price.toFixed(2)+'</div>':'')+
-      '<span class="badge" style="background:#101724;color:'+tc+'">'+tl+' • '+conviction+'</span>'+'</div>'+nameLine(s)+'<div>'+
-      (otherList().includes(s)?'':'<button class="ghost" style="padding:4px 9px;font-size:11px;" onclick="addToOther(\''+s+'\')">+ Takip</button>')+'</div>'+
-      '<div class="muted" style="margin-top:5px;"><span style="color:var(--green);font-weight:700;">Sinyaller:</span> '+pros.join("; ")+'.'+
-      (cons.length?'<br><span style="color:var(--amber);font-weight:700;">Dikkat:</span> '+cons.join("; ")+'.':'')+'</div></div>';
-  }).join("") : '<div class="stock muted" style="padding:14px;">En az 2 olumlu sinyali birleşen aday yok — tarama sürüyor olabilir.</div>';
+      '<span class="chip" style="font-size:10px;">'+ev.type+'</span> <span style="color:var(--amber);letter-spacing:1px;">'+("★".repeat(ev.stars))+'<span style="opacity:.25">'+("★".repeat(5-ev.stars))+'</span></span>'+
+      (otherList().includes(s)?'':'<button class="ghost" style="padding:3px 8px;font-size:11px;" onclick="addToOther(\''+s+'\')">+ Takip</button>')+
+      '</div>'+nameLine(s)+
+      '<div class="muted" style="margin-top:5px; line-height:1.6;">'+
+      '<b style="color:var(--blue)">Tema:</b> '+ev.temaTxt.join("; ")+'<br>'+
+      '<b style="color:var(--green)">Kalite:</b> '+ev.kalTxt.join("; ")+'<br>'+
+      '<b style="color:var(--purple)">Katalizör:</b> '+ev.katTxt.join("; ")+
+      (days!==null && days<=7 && days>=0 ? ' · 📅 bilanço '+days+' gün' : '')+'<br>'+
+      (ev.riskTxt.length? '<b style="color:var(--amber)">Risk:</b> '+ev.riskTxt.join("; ")+'<br>':'')+
+      '<b>Sonuç:</b> '+ev.verdict+'</div></div>';
+  }).join("") : '<div class="stock muted" style="padding:14px;">3+ yıldızlı aday yok — tarama sürüyor olabilir.</div>';
 }
 
-function renderAll(){ renderOzet(); renderTree(); renderAutoTree(); renderDurum(); renderBig(); renderOther(); renderMicro(); renderTrend(); renderMetal(); renderFunds(); renderCal(); renderJournal(); }
+function logSignals(rows){
+  const log = store.get("sigLog", {});
+  const d = iso(new Date());
+  if(log[d]) return;
+  const entry = rows.filter(r=>r.ev.stars>=4).slice(0,10)
+    .map(r=>({s:r.s, stars:r.ev.stars, p: quotes[r.s]? quotes[r.s].price : null,
+              ty: r.ev.type, sig: r.ev.katTxt.slice(0,3)}));
+  if(entry.length){
+    log[d] = {spy: quotes["SPY"]? quotes["SPY"].price : null, e: entry};
+    const keys = Object.keys(log).sort(); while(keys.length>190){ delete log[keys.shift()]; }
+    store.set("sigLog", log);
+  }
+}
+function tagSignal(d, i){
+  const log = store.get("sigLog", {});
+  if(!log[d] || !log[d].e[i]) return;
+  const r = prompt("Sonuç etiketi (örn: earnings kötü / tema zayıfladı / makro / tez çalıştı):", log[d].e[i].r||"");
+  if(r!==null){ log[d].e[i].r = r.trim(); store.set("sigLog", log); renderSigLog(); }
+}
+function renderSigLog(){
+  const el = $("sigLogBox"); if(!el) return;
+  const log = store.get("sigLog", {});
+  const days = Object.keys(log).sort().reverse();
+  if(!days.length){ el.innerHTML = '<div class="stock muted" style="padding:12px;">Henüz kayıt yok — ★★★★+ adaylar her gün SPY ile birlikte loglanır.</div>'; return; }
+  // Kalibrasyon özeti: ≥30 gün olgunlaşmış kayıtlar
+  const spyNow = quotes["SPY"]? quotes["SPY"].price : null;
+  let wins=0, total=0, sumR=0, sumA=0;
+  const byType = {};
+  for(const d of days){
+    const age = (Date.now()-new Date(d).getTime())/86400000;
+    if(age<30) continue;
+    const rec = log[d]; if(!rec.e) continue;
+    const spyR = (spyNow && rec.spy) ? spyNow/rec.spy-1 : null;
+    for(const e of rec.e){
+      const cur = quotes[e.s]? quotes[e.s].price : null;
+      if(!cur || !e.p || spyR===null) continue;
+      const r = cur/e.p-1, alpha = r - spyR;
+      total++; sumR+=r; sumA+=alpha; if(alpha>0) wins++;
+      const t = e.ty||"?"; byType[t] = byType[t]||{n:0,a:0}; byType[t].n++; byType[t].a+=alpha;
+    }
+  }
+  let summary = "";
+  if(total>=5){
+    const ty = Object.entries(byType).map(([t,v])=>t+" α "+(100*v.a/v.n).toFixed(1)+"% ("+v.n+")").join(" · ");
+    summary = '<div class="stock" style="background:#101724;">'+
+      '<b>KALİBRASYON (≥30 gün olgun, '+total+' sinyal):</b> '+
+      'SPY\'ı geçen: <b style="color:'+(wins/total>=0.5?"var(--green)":"var(--red)")+'">%'+Math.round(100*wins/total)+'</b>'+
+      ' · Ort. getiri %'+(100*sumR/total).toFixed(1)+' · Ort. alpha <b>%'+(100*sumA/total).toFixed(1)+'</b><br>'+
+      '<span class="muted">'+ty+'</span></div>';
+  } else summary = '<div class="stock muted" style="font-size:11px;">Kalibrasyon özeti için ≥30 gün olgunlaşmış en az 5 sinyal gerekiyor — birikiyor ('+total+'/5).</div>';
+  el.innerHTML = summary + days.slice(0,30).map(d=>{
+    const rec = log[d]; if(!rec.e) return "";
+    const spyR = (spyNow && rec.spy)? (spyNow/rec.spy-1)*100 : null;
+    const items = rec.e.map((e,i)=>{
+      const cur = quotes[e.s]? quotes[e.s].price : null;
+      const perf = (cur && e.p)? ((cur/e.p-1)*100) : null;
+      const a = (perf!==null && spyR!==null)? perf-spyR : null;
+      return '<span onclick="tagSignal(\''+d+'\','+i+')" style="cursor:pointer;">'+e.s+' '+"★".repeat(e.stars)+
+        (perf!==null? ' <span style="color:'+(perf>=0?"var(--green)":"var(--red)")+'">'+(perf>=0?"+":"")+perf.toFixed(1)+'%</span>':'')+
+        (a!==null? ' <span class="muted">(α'+(a>=0?"+":"")+a.toFixed(0)+')</span>':'')+
+        (e.r? ' <span class="chip a" style="font-size:9px;">❌ '+e.r+'</span>':'')+'</span>';
+    }).join(" · ");
+    return '<div class="stock" style="font-size:12px;"><span class="muted">'+d+':</span> '+items+'</div>';
+  }).join("");
+}
+function renderAll(){ renderOzet(); renderSigLog(); renderTree(); renderAutoTree(); renderDurum(); renderBig(); renderOther(); renderMicro(); renderTrend(); renderMetal(); renderFunds(); renderCal(); renderJournal(); }
 
 // -------- nav & settings --------
 const SECTIONS = [["durum","Durum"],["ozet","Özet"],["agac","Ağaç"],["trend","Trend"],["buyuk","Tarama"],["diger","Diğer"],["kesif","Keşif"],["metal","Metal"],["fon","Fon"],["takvim","Takvim"],["gunluk","Günlük"]];

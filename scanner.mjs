@@ -81,7 +81,17 @@ if(!out.vix){
     }
   }catch(e){}
 }
-console.log("VIX:", out.vix);
+out.macro = {};
+async function fredLast(id){
+  try{
+    const r = await fetch("https://fred.stlouisfed.org/graph/fredgraph.csv?id="+id);
+    const lines = (await r.text()).trim().split("\n").reverse();
+    for(const ln of lines){ const m = ln.match(/^\d{4}-\d{2}-\d{2},\s*(-?[0-9.]+)\s*$/); if(m) return parseFloat(m[1]); }
+  }catch(e){} return null;
+}
+out.macro.t10y2y = await fredLast("T10Y2Y");        // faiz eğrisi (negatif = ters)
+out.macro.hy = await fredLast("BAMLH0A0HYM2");      // yüksek getirili tahvil spreadi
+console.log("VIX:", out.vix, "| makro:", out.macro);
 
 // ---- 2) Evren ----
 const merged = new Set(EMBEDDED);
@@ -107,7 +117,7 @@ for(const s of UNI){
       r52w:M["52WeekPriceReturnDaily"] ?? null, hi52:M["52WeekHigh"] ?? null,
       pe:M["peBasicExclExtraTTM"]||M["peNormalizedAnnual"]||null, ps:M["psTTM"] ?? null,
       mcap:M["marketCapitalization"] ?? null, gmT:M["grossMarginTTM"] ?? null, gm5:M["grossMargin5Y"] ?? null,
-      roe:M["roeTTM"] ?? null, revG:M["revenueGrowthTTMYoy"] ?? null, avgVol:M["10DayAverageTradingVolume"] ?? null };
+      roe:M["roeTTM"] ?? null, roic:M["roiTTM"] ?? null, netM:M["netProfitMarginTTM"] ?? null, revG:M["revenueGrowthTTMYoy"] ?? null, avgVol:M["10DayAverageTradingVolume"] ?? null };
     if(out.screen[s].mcap===null && out.screen[s].r52w===null) out.dead = {...(out.dead||DEAD), [s]:(DEAD[s]||0)+1};
     else if(DEAD[s]) { out.dead = out.dead||DEAD; delete out.dead[s]; }
   }catch(e){ if(String(e).includes("geçersiz")) throw e; }
@@ -135,7 +145,7 @@ for(const s of needProf){
 }
 
 // ---- 5) Fiyatlar (adaylar + izleme + nabız örneklemi) ----
-const QUOTE_SET = [...new Set([...CAND, ...DISC.slice(0,40), ...WATCH.other, ...WATCH.micro, ...NDX35])];
+const QUOTE_SET = [...new Set(["SPY", ...CAND, ...DISC.slice(0,40), ...WATCH.other, ...WATCH.micro, ...NDX35])];
 for(const s of QUOTE_SET){
   try{ const q = await fh("/quote?symbol="+s); if(q?.c) out.quotes[s]={price:q.c, chgPct:q.dp}; }catch(e){}
   await sleep(FH_GAP);
@@ -171,7 +181,7 @@ for(const s of FIN_SET){
   const rec = {date:iso(new Date()), news:[], scandal:false, epsSurprise:null, catN:0};
   const x = out.screen[s]||{};
   rec.high52=x.hi52; rec.pe=x.pe; rec.ps=x.ps; rec.mcap=x.mcap; rec.gmT=x.gmT; rec.gm5=x.gm5;
-  rec.roe=x.roe; rec.revG=x.revG; rec.avgVol=x.avgVol;
+  rec.roe=x.roe; rec.roic=x.roic; rec.netM=x.netM; rec.revG=x.revG; rec.avgVol=x.avgVol;
   rec.name=(out.prof[s]||{}).name||""; rec.industry=((out.prof[s]||{}).ind||"").toLowerCase();
   try{
     const ins = await fh("/stock/insider-transactions?symbol="+s+"&from="+from30);
@@ -183,6 +193,14 @@ for(const s of FIN_SET){
   try{
     const er = await fh("/stock/earnings?symbol="+s+"&limit=1");
     if(er?.[0]?.estimate) rec.epsSurprise = 100*(er[0].actual-er[0].estimate)/Math.abs(er[0].estimate);
+  }catch(e){}
+  await sleep(FH_GAP);
+  try{
+    const rc = await fh("/stock/recommendation?symbol="+s);
+    if(Array.isArray(rc) && rc[0]){
+      const f = r => (r.strongBuy+r.buy)/Math.max(1, r.strongBuy+r.buy+r.hold+(r.sell||0)+(r.strongSell||0));
+      rec.buyNow = f(rc[0]); rec.buyPrev = rc[2] ? f(rc[2]) : (rc[1] ? f(rc[1]) : null);
+    }
   }catch(e){}
   await sleep(FH_GAP);
   if(deepNews.has(s)){
