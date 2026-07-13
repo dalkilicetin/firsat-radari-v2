@@ -1427,6 +1427,126 @@ function importBackup(inp){
   };
   r.readAsText(f);
 }
+// ==================== RAPOR ÜRETİCİ (Özet + x5 + Keşif + Listem) ====================
+// Saf metin döndürür (yan etki yok). Hem indir butonu hem Telegram bunu kullanır.
+function buildReport(){
+  const L = [];
+  const now = new Date();
+  const dtl = now.toLocaleString("tr-TR");
+  const dataDate = (dynUni && dynUni.date) || (screen[Object.keys(screen)[0]]||{}).date || "-";
+  L.push("═══════════════════════════════════════");
+  L.push("  FIRSAT RADARI • Özet Rapor");
+  L.push("  Oluşturma: " + dtl);
+  L.push("  Veri tarihi: " + dataDate + "  |  v" + APP_VERSION);
+  L.push("═══════════════════════════════════════");
+
+  const pxOf = s => { const q=quotes[s]; return q?("$"+q.price.toFixed(2)):((screen[s]||{}).mcap?Math.round((screen[s].mcap)/1000)+" mlr$":"-"); };
+  const nmOf = s => ((prof[s]||{}).name || (fin[s]||{}).name || "").slice(0,28);
+  const retOf = s => { const x=screen[s]||{}; const p=[];
+    if(x.mtd!=null)p.push("ay "+x.mtd.toFixed(0)+"%"); if(x.r13w!=null)p.push("3a "+x.r13w.toFixed(0)+"%");
+    if(x.r52w!=null)p.push("1y "+x.r52w.toFixed(0)+"%"); return p.join(" · "); };
+
+  // ---------- 1) ÖZET (en güçlü adaylar, conviction sıralı) ----------
+  L.push("\n■ ÖZET — En Güçlü Adaylar");
+  L.push("───────────────────────────");
+  {
+    const pool = [...new Set([...candidates(), ...otherList(), ...microList()])];
+    const rows = [];
+    for(const s of pool){ const r = reasonsFor(s); if(r && r.pros.length>=2 && r.conviction>=2) rows.push({s, ...r}); }
+    rows.sort((a,b)=>b.conviction-a.conviction);
+    if(!rows.length) L.push("(özet adayı yok — tarama sürüyor olabilir)");
+    for(const {s,pros,cons,conviction} of rows.slice(0,20)){
+      const [tier] = tierOf(conviction);
+      L.push("• " + s + " (" + pxOf(s) + ")  " + tier + "  [skor " + conviction + "]");
+      if(nmOf(s)) L.push("    " + nmOf(s) + (retOf(s)?("  —  "+retOf(s)):""));
+      L.push("    + " + pros.join("; "));
+      if(cons.length) L.push("    ! " + cons.join("; "));
+    }
+  }
+
+  // ---------- 2) 🚀 x5 MOONSHOT (kademeli) ----------
+  L.push("\n■ 🚀 x5 MOONSHOT — Marj Dönüşü Adayları");
+  L.push("───────────────────────────");
+  {
+    const ml = moonList();
+    if(!ml.length) L.push("(moonshot adayı yok)");
+    const order = ["🔥","🌱","⚠️"];
+    const grouped = {};
+    for(const [s,ms] of ml){ const k = ms.tier.slice(0,2); (grouped[k]=grouped[k]||[]).push([s,ms]); }
+    for(const key of order){
+      const arr = grouped[key]; if(!arr||!arr.length) continue;
+      L.push("  " + arr[0][1].tier + " (" + arr.length + ")");
+      for(const [s,ms] of arr){
+        const extra = [];
+        extra.push("marj +"+ms.marjDelta.toFixed(1));
+        if(ms.revStrong) extra.push("gelir +%"+Math.round(ms.revG));
+        if(ms.r52w!=null) extra.push("1y "+Math.round(ms.r52w)+"%");
+        if(ms.insBuy) extra.push("👔insider");
+        L.push("    • " + s + " (" + pxOf(s) + ")  " + extra.join(" · "));
+        L.push("       → " + ms.action);
+      }
+    }
+  }
+
+  // ---------- 3) KEŞİF (discovery + micro) ----------
+  L.push("\n■ KEŞİF — Küçük/Oynak Adaylar (yüksek risk)");
+  L.push("───────────────────────────");
+  {
+    const syms = [...new Set([...microList(), ...discCandidates()])].filter(s=>quotes[s]||screen[s]);
+    if(!syms.length) L.push("(keşif listesi boş)");
+    for(const s of syms.slice(0,30)){
+      const r = reasonsFor(s);
+      const tag = (r && r.conviction>=4) ? "  ✓ÇİFT TEYİT" : "";
+      L.push("• " + s + " (" + pxOf(s) + ")" + tag + (retOf(s)?("  —  "+retOf(s)):""));
+      if(r && r.pros.length) L.push("    + " + r.pros.join("; "));
+    }
+  }
+
+  // ---------- 4) LISTEM (takip listesi) ----------
+  L.push("\n■ LİSTEM — Takip Ettiklerin");
+  L.push("───────────────────────────");
+  {
+    const syms = otherList();
+    if(!syms.length) L.push("(liste boş)");
+    for(const s of syms){
+      const r = reasonsFor(s);
+      L.push("• " + s + " (" + pxOf(s) + ")" + (retOf(s)?("  —  "+retOf(s)):""));
+      if(nmOf(s)) L.push("    " + nmOf(s));
+      if(r && r.pros.length) L.push("    + " + r.pros.join("; "));
+      if(r && r.cons.length) L.push("    ! " + r.cons.join("; "));
+    }
+  }
+
+  L.push("\n───────────────────────────");
+  L.push("Not: Bu bir 'AL' listesi değil. Her aday için katalizörü kendin doğrula.");
+  return L.join("\n");
+}
+
+function downloadReportTxt(){
+  const txt = buildReport();
+  const blob = new Blob([txt], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "firsat-radari-ozet-" + iso(new Date()) + ".txt";
+  document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+}
+
+function downloadReportPdf(){
+  // Bağımlılıksız PDF: yeni pencereye <pre> yazıp yazdır → "PDF olarak kaydet"
+  const txt = buildReport();
+  const esc = txt.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  const w = window.open("", "_blank");
+  if(!w){ alert("Açılır pencere engellendi. İzin ver ya da TXT indir."); return; }
+  w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Fırsat Radarı Özet</title>'+
+    '<style>@page{margin:14mm;}body{font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;color:#111;white-space:pre-wrap;}'+
+    'h1{font:600 15px system-ui;margin:0 0 8px;}</style></head><body>'+
+    '<pre>'+esc+'</pre>'+
+    '<script>window.onload=function(){setTimeout(function(){window.print();},250);};<\/script>'+
+    '</body></html>');
+  w.document.close();
+}
+
 function diagReport(){
   const uni = universe();
   const nQ = Object.keys(quotes).length, nS = Object.keys(series).length,

@@ -134,6 +134,9 @@
   </div>
   <div class="card">
     <h2>Yedek & Rapor</h2>
+    <button class="primary" onclick="downloadReportTxt()">📄 Özet Rapor İndir (TXT)</button>
+    <button class="primary" style="background:#1A2233;" onclick="downloadReportPdf()">🖨️ Özet Rapor PDF (yazdır → PDF kaydet)</button>
+    <div class="muted" style="margin:4px 0 10px;">Özet + 🚀x5 + Keşif + Listem bölümlerini tek dosyada toplar.</div>
     <button class="primary" onclick="diagReport()">Tanılama Raporu Kopyala (Claude'a atmak için)</button>
     <button class="primary" style="background:#1A2233;" onclick="exportBackup()">Tüm Veriyi Yedekle (JSON indir)</button>
     <label class="muted" style="display:block; margin-top:8px; cursor:pointer;">İçe aktar: <input type="file" accept=".json" style="width:auto;" onchange="importBackup(this)"></label>

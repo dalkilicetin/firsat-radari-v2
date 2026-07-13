@@ -265,17 +265,95 @@ out.moonHist = prev.moonHist || {};
     if(gmT==null||gm5==null) continue;
     const dl = gmT-gm5;
     if(dl<=2 || gmT<10 || (netM!=null && netM<-25)) continue;
-    const tier = (x.r52w!=null && x.r52w>=120) ? "gec" : (x.r52w!=null && x.r52w<40) ? "kurulum" : "izle";
-    cand.push({s, dl:+dl.toFixed(1), r52w:x.r52w, revG:x.revG, tier});
+    // Kademe app.js moonshot() ile birebir aynı: fitil = tetik var; kurulum = sadece dönüş; geç = uçmuş
+    const f = out.fin[s] || {};
+    const revG = x.revG, revStrong = (revG!=null && revG>15);
+    const insBuy = (f.insBuyers||0) >= 1;
+    const eps = (f.epsSurprise!=null && f.epsSurprise >= 8);
+    const ser = out.series[s];
+    let r3m = null;
+    if(ser && ser.closes && ser.closes.length>=4){ const c=ser.closes; r3m = c[0]/c[Math.min(3,c.length-1)]-1; }
+    else if(x.r13w!=null){ r3m = x.r13w/100; }
+    const turning = (r3m!=null && r3m>0);
+    const hi = (x.r52w!=null && x.r52w>=120);
+    const dip = (x.r52w!=null && x.r52w<40);
+    let tier;
+    if(hi) tier = "gec";
+    else if((insBuy || eps || (turning && revStrong)) && (turning || !dip)) tier = "fitil";
+    else tier = "kurulum";
+    cand.push({s, dl:+dl.toFixed(1), r52w:x.r52w, revG:x.revG, insBuy, eps, tier});
   }
   cand.sort((a,b)=>b.dl-a.dl);
   const d = iso(new Date());
   out.moonHist[d] = cand.slice(0,60);
   const mk = Object.keys(out.moonHist).sort(); while(mk.length>30){ delete out.moonHist[mk.shift()]; }
-  console.log("Moonshot adayı:", cand.length, "(kurulum/izle/geç:",
-    cand.filter(c=>c.tier==="kurulum").length, "/", cand.filter(c=>c.tier==="izle").length, "/", cand.filter(c=>c.tier==="gec").length, ")");
+  console.log("Moonshot adayı:", cand.length, "(fitil/kurulum/geç:",
+    cand.filter(c=>c.tier==="fitil").length, "/", cand.filter(c=>c.tier==="kurulum").length, "/", cand.filter(c=>c.tier==="gec").length, ")");
 }
 
 mkdirSync("data", {recursive:true});
 writeFileSync("data/sonuclar.json", JSON.stringify(out));
 console.log("Yazıldı: data/sonuclar.json | boyut:", (JSON.stringify(out).length/1024).toFixed(0), "KB");
+
+// ==================== TELEGRAM ÖZET (opsiyonel) ====================
+// GitHub Secrets: TELEGRAM_TOKEN + TELEGRAM_CHAT_ID varsa gönderir; yoksa atlar.
+await sendTelegram(out).catch(e=>console.log("Telegram atlandı:", e.message));
+
+async function sendTelegram(out){
+  const TOKEN = process.env.TELEGRAM_TOKEN, CHAT = process.env.TELEGRAM_CHAT_ID;
+  if(!TOKEN || !CHAT){ console.log("Telegram secret yok — mesaj gönderilmedi."); return; }
+  const px = s => { const q=(out.quotes||{})[s]; return q?("$"+q.price.toFixed(2)):"-"; };
+  const nm = s => (((out.prof||{})[s]||{}).name || ((out.fin||{})[s]||{}).name || "").slice(0,24);
+  const esc = t => String(t).replace(/[<>&]/g, c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c]));
+  const L = [];
+  const today = iso(new Date());
+  L.push("<b>🎯 FIRSAT RADARI</b> — " + today);
+
+  // ÖZET: rankHist bugünkü ilk sıralar (scanner zaten conviction sıralı ordered üretiyor)
+  const ordered = (out.rankHist||{})[today] || [];
+  if(ordered.length){
+    L.push("\n<b>■ ÖZET (ilk 10)</b>");
+    for(const s of ordered.slice(0,10)) L.push("• <b>"+esc(s)+"</b> "+px(s)+"  <i>"+esc(nm(s))+"</i>");
+  }
+
+  // 🚀 x5 MOONSHOT: moonHist bugünkü, kademeli
+  const mh = (out.moonHist||{})[today] || [];
+  if(mh.length){
+    const grp = {kurulum:[], izle:[], gec:[]};
+    for(const c of mh){ (grp[c.tier]||grp.izle).push(c); }
+    const lbl = {kurulum:"🌱 Kurulum (izle)", izle:"🔥 Fitil (doğrula)", gec:"⚠️ Geç (kovalama)"};
+    L.push("\n<b>■ 🚀 x5 MOONSHOT</b>");
+    for(const key of ["izle","kurulum","gec"]){
+      const arr = grp[key]; if(!arr || !arr.length) continue;
+      L.push("<u>"+lbl[key]+"</u>");
+      for(const c of arr.slice(0,8)){
+        const bits = ["marj +"+c.dl];
+        if(c.revG!=null && c.revG>15) bits.push("gelir +%"+Math.round(c.revG));
+        if(c.r52w!=null) bits.push("1y "+Math.round(c.r52w)+"%");
+        L.push("• <b>"+esc(c.s)+"</b> "+px(c.s)+" — "+bits.join(" · "));
+      }
+    }
+  }
+
+  L.push("\n<i>AL listesi değil — katalizörü kendin doğrula.</i>");
+  const text = L.join("\n");
+
+  // Telegram mesaj limiti ~4096; parçala
+  const chunks = [];
+  let buf = "";
+  for(const line of text.split("\n")){
+    if((buf+line+"\n").length > 3800){ chunks.push(buf); buf=""; }
+    buf += line + "\n";
+  }
+  if(buf) chunks.push(buf);
+
+  for(const chunk of chunks){
+    const r = await fetch("https://api.telegram.org/bot"+TOKEN+"/sendMessage", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ chat_id: CHAT, text: chunk, parse_mode:"HTML", disable_web_page_preview:true })
+    });
+    if(!r.ok){ const t = await r.text(); throw new Error("HTTP "+r.status+" "+t.slice(0,120)); }
+    await new Promise(res=>setTimeout(res, 400)); // flood koruması
+  }
+  console.log("Telegram gönderildi:", chunks.length, "mesaj.");
+}
