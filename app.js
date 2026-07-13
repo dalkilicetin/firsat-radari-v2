@@ -1,5 +1,5 @@
 "use strict";
-const APP_VERSION = "5.11";
+const APP_VERSION = "5.12";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
@@ -107,7 +107,55 @@ function patterns(sym){
   if(f.gmT!==null && f.gm5!==null && f.gmT > f.gm5 + 2) out.push(["MARJ","Brüt marj genişliyor — darboğaz/fiyatlama gücü vekili","p"]);
   if(r.r3m>0 && f.pe && f.pe<15 && r.off5y>=0.30) out.push(["ERKEN+UCUZ","Momentum başladı + hâlâ ucuz + zirveden uzak","g"]);
   if(f.ps && f.ps>30 && !out.some(p=>p[0]==="RULE40") && out.some(p=>["A","D","E","DÖNÜŞ"].includes(p[0]))) out.push(["PAHALI","F/S > 30 — değerleme uyarısı","a"]);
+  // MOONSHOT: AMD/SanDisk reçetesi — marj dönüşü ZORUNLU gate + dip/erken konum
+  const ms = moonshot(sym, r, f);
+  if(ms) out.push(["MOONSHOT", ms.badgeTip, "m"]);
   return {list:out, r};
+}
+
+// -------- MOONSHOT: 1 yılda x5 profili (marj dönüşü + dipten çıkış) --------
+// Ders (AMD 2016, SanDisk 2025): ayırt edici olan "dip + ince float" DEĞİL,
+// fiyat patlamadan ÖNCE görünen TEMEL DOĞRULAMA (marj dönüşü / kâra geçiş).
+// Gate ZORUNLU: brüt marj trailing, 5y ortalamasının belirgin üstünde (gmT - gm5 > 2).
+function moonshot(sym, r, f){
+  f = f || fin[sym] || {};
+  const x = screen[sym] || {};
+  const gmT = f.gmT ?? x.gmT, gm5 = f.gm5 ?? x.gm5;
+  const revG = (f.revG ?? x.revG);
+  if(gmT==null || gm5==null) return null;              // marj verisi yoksa moonshot yok
+  const marjDelta = gmT - gm5;
+  if(marjDelta <= 2) return null;                      // GATE-1: datanın p75'i — gerçek dönüş eşiği
+  // GATE-2: gmT kendisi anlamlı pozitif olmalı. Aksi halde "korkunç zarardan az zarara"
+  // geçen (RIVN gm5=-211, LCID gmT=-92 gibi) yanlış dönüşler listeyi kirletir.
+  if(gmT < 10) return null;                            // artık her satıştan brüt kâr ediyor mu
+  // net zarar çok derinse (hâlâ batıyor) marj dönüşü tek başına yeterli değil
+  const netM = (f.netM ?? x.netM);
+  if(netM!=null && netM < -25) return null;
+  const r52w = x.r52w;
+  const r3m  = r ? r.r3m : (x.r13w!=null ? x.r13w/100 : null);
+  const off5y = r ? r.off5y : null;
+  const revStrong = (revG!=null && revG > 15);
+  const insBuy = (f.insBuyers||0) >= 1;
+  const eps = (f.epsSurprise!=null && f.epsSurprise >= 8);
+  const turning = (r3m!=null && r3m > 0);
+  const hi  = (r52w!=null && r52w >= 120);
+  const dip = (r52w!=null && r52w < 40) || (off5y!=null && off5y >= 0.30);
+  let tier, verb, action, tone;
+  if(hi){
+    tier = "⚠️ GEÇ"; verb = "Hareket büyük ölçüde olmuş"; tone = "a";
+    action = "Marj dönüşü çoktan fiyatlanmış (1y +%"+Math.round(r52w)+"). Kovalama riski yüksek — geri çekilmeyi bekle, tepeden girme.";
+  } else if((insBuy || eps || (turning && revStrong)) && (turning || !dip)){
+    tier = "🔥 FİTİL"; verb = "Kurulum + tetik birlikte"; tone = "g";
+    const checks = ["katalizör gerçek mi (earnings/ürün/anlaşma)"];
+    if(insBuy) checks.push("insider alımı ("+f.insBuyers+") sürüyor mu");
+    checks.push("bilanço tarihi yakın mı");
+    action = "Hem marj dönüşü hem tetik var. AL demiyorum — şunları KENDİN doğrula: "+checks.join("; ")+".";
+  } else {
+    tier = "🌱 KURULUM"; verb = "Marj dönüşü var, tetik henüz yok"; tone = "p";
+    action = "Temel dönüş doğrulandı (marj +"+marjDelta.toFixed(1)+" puan) ama momentum/insider henüz yok. İzleme listesine al, katalizör (earnings/ürün) tarihini takip et. Henüz kovalama.";
+  }
+  const badgeTip = "MOONSHOT ["+tier+"] — marj dönüşü +"+marjDelta.toFixed(1)+" puan"+(revStrong?", gelir +%"+Math.round(revG):"");
+  return {tier, verb, action, tone, marjDelta, revG, r52w, off5y, insBuy, eps, turning, revStrong, badgeTip};
 }
 
 // -------- refresh pipeline --------
@@ -609,6 +657,55 @@ function renderDurum(){
   $("summaryBox").innerHTML = (nice?("Pattern sayıları — "+nice+"<br>"):"Pattern verisi henüz yükleniyor.<br>") + (nextE?("Yaklaşan bilanço: "+nextE):"");
 }
 
+let moonTab = "hepsi";
+const MOON_TABS = [["hepsi","Tümü"],["🌱","🌱 Kurulum"],["🔥","🔥 Fitil"],["⚠️","⚠️ Geç"]];
+// Moonshot evreni: sadece derin veri (series/fin) olan hisseler moonshot hesabına girer.
+// candidates + izleme + keşif taraması — moonshot() gate zaten çoğunu eler.
+function moonUniverse(){
+  return [...new Set([...candidates(), ...discCandidates(), ...otherList(), ...microList()])]
+    .filter(s => (fin[s]||screen[s]));
+}
+function moonList(){
+  const out = [];
+  for(const s of moonUniverse()){
+    const r = series[s] ? rets(s) : null;
+    const ms = moonshot(s, r, fin[s]);
+    if(ms) out.push([s, ms]);
+  }
+  // sırala: FİTİL > KURULUM > GEÇ, her grup içinde marjDelta yüksek üste
+  const rank = t => t.startsWith("🔥")?0 : t.startsWith("🌱")?1 : 2;
+  out.sort((a,b)=> rank(a[1].tier)-rank(b[1].tier) || (b[1].marjDelta-a[1].marjDelta));
+  return out;
+}
+function renderMoon(){
+  $("moonTabs").innerHTML = MOON_TABS.map(([id,l])=>'<button class="ghost" style="'+(moonTab===id?'border-color:var(--blue);color:var(--text);':'')+'" onclick="moonTab=\''+id+'\';renderMoon()">'+l+'</button>').join("");
+  let list = moonList();
+  if(moonTab!=="hepsi") list = list.filter(([s,ms])=>ms.tier.startsWith(moonTab));
+  if(!list.length){
+    $("moonList").innerHTML = '<div class="stock muted" style="padding:14px;">Bu kademede moonshot adayı yok. Gate zorunlu: brüt marj 5y ortalamasının 2+ puan üstünde olmalı. Gece taraması çalıştıysa ve hâlâ boşsa, o an marj dönüşü profiline uyan hisse yok demektir.</div>';
+    return;
+  }
+  $("moonList").innerHTML = list.map(([s,ms])=>{
+    const q = quotes[s], x = screen[s]||{}, f = fin[s]||{};
+    const nm = (prof[s]||{}).name || f.name || "";
+    const price = q ? "$"+q.price.toFixed(2) : (x.mcap? Math.round(x.mcap/1000)+" mlr$" : "");
+    const tierCol = ms.tone==="g"?"var(--green)":ms.tone==="a"?"var(--amber)":"var(--purple)";
+    const stats = [];
+    stats.push('<span class="chip m">marj +'+ms.marjDelta.toFixed(1)+'</span>');
+    if(ms.revStrong) stats.push('<span class="chip g">gelir +%'+Math.round(ms.revG)+'</span>');
+    if(ms.r52w!=null) stats.push('<span class="chip'+(ms.r52w>=120?' a':'')+'">1y '+Math.round(ms.r52w)+'%</span>');
+    if(ms.insBuy) stats.push('<span class="chip g">👔 insider '+(f.insBuyers)+'</span>');
+    if(ms.eps) stats.push('<span class="chip b">💰 EPS sürpriz</span>');
+    const inOther = otherList().includes(s);
+    return '<div class="stock" style="border-left:3px solid '+tierCol+';">'+
+      '<div class="l1"><div class="tick">'+s+' <span class="muted" style="font-size:10px;font-weight:400;">'+nm.slice(0,20)+'</span></div>'+
+      '<div class="price">'+price+'</div>'+
+      (inOther?'':'<button class="ghost" style="padding:4px 9px;font-size:11px;" onclick="addToOther(\''+s+'\')">+ Takip</button>')+'</div>'+
+      '<div class="l2" style="margin-top:3px;"><span class="chip" style="color:'+tierCol+';font-weight:800;">'+ms.tier+'</span> '+stats.join(" ")+'</div>'+
+      '<div style="margin-top:6px;font-size:12px;line-height:1.5;color:#C8D2E2;"><b style="color:'+tierCol+';">'+ms.verb+'.</b> '+ms.action+'</div>'+
+      '</div>';
+  }).join("");
+}
 const PAT_TABS = [["hepsi","Adaylar"],["A","A"],["B","B"],["C","C"],["D","D"],["DÖNÜŞ","Dönüş"],["BIÇAK","Bıçak"],["insider","Insider"]];
 function renderBig(){
   $("patTabs").innerHTML = PAT_TABS.map(([id,l])=>'<button class="ghost" style="'+(patTab===id?'border-color:var(--blue);color:var(--text);':'')+'" onclick="patTab=\''+id+'\';renderBig()">'+l+'</button>').join("");
@@ -1274,10 +1371,10 @@ function renderSigLog(){
     return '<div class="stock" style="font-size:12px;"><span class="muted">'+d+':</span> '+items+'</div>';
   }).join("");
 }
-function renderAll(){ renderOzet(); renderSigLog(); renderTree(); renderAutoTree(); renderDurum(); renderBig(); renderOther(); renderMicro(); renderTrend(); renderMetal(); renderFunds(); renderCal(); renderJournal(); }
+function renderAll(){ renderOzet(); renderSigLog(); renderTree(); renderAutoTree(); renderDurum(); renderBig(); renderMoon(); renderOther(); renderMicro(); renderTrend(); renderMetal(); renderFunds(); renderCal(); renderJournal(); }
 
 // -------- nav & settings --------
-const SECTIONS = [["durum","Giriş"],["ozet","Özet"],["kesif","Keşif"],["diger","Listem"],["trend","Sektörler"],["agac","Ağaç"],["buyuk","Analiz"],["metal","Metal"],["takvim","Takvim"],["fon","Fon"],["gunluk","Günlük"]];
+const SECTIONS = [["durum","Giriş"],["ozet","Özet"],["moon","🚀 x5"],["kesif","Keşif"],["diger","Listem"],["trend","Sektörler"],["agac","Ağaç"],["buyuk","Analiz"],["metal","Metal"],["takvim","Takvim"],["fon","Fon"],["gunluk","Günlük"]];
 function show(sec){
   curSec = sec;
   document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));

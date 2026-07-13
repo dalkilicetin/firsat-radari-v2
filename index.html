@@ -49,6 +49,7 @@
   .chip.r{background:#3a1518; border-color:#7a222a; color:var(--red); font-weight:700;}
   .chip.b{background:#151E33; border-color:#2E4270; color:#9DB8F5; font-weight:700;}
   .chip.p{background:#241a38; border-color:#4e3a78; color:var(--purple); font-weight:700;}
+  .chip.m{background:#0d2b2e; border-color:#1f7a80; color:#33d6de; font-weight:800;}
   .news{margin-top:5px; font-size:11px; color:#B9C4D6; line-height:1.45; padding-left:8px; border-left:2px solid var(--blue);}
   .news.rumor{border-left-color:var(--purple);}
   .news small{color:var(--dim);}
@@ -79,8 +80,8 @@
 
 <div class="row">
   <div>
-    <div class="eyebrow">FIRSAT RADARI • v4</div>
-    <h1 id="pageTitle">Genel Durum</h1>
+    <div class="eyebrow">FIRSAT RADARI • v5.12</div>
+    <h1 id="pageTitle">Giriş</h1>
   </div>
   <button class="ghost" onclick="show('ayar')">Ayarlar</button>
 </div>
@@ -180,52 +181,80 @@
 
 <!-- ======== ÖZET ======== -->
 <section id="sec-ozet">
-  <div class="warn">Doktor mantığı: sinyaller toplanmaz, <b>birlikte yorumlanır</b>. ★★★★★ = tema + kalite + katalizör aynı anda; ★★★ compounder adayı (katalizör bekleyen kaliteli şirket) veya erken aşama; momentum-var-kalite-yok hiç listelenmez. Her karta 5 satır: Tema / Kalite / Katalizör / Risk / Sonuç. Hiçbir yıldız alım emri değildir.</div>
+  <details class="card" style="padding:12px 14px; margin-bottom:12px;">
+    <summary style="font-size:13px; font-weight:700; color:var(--text); list-style:none;">📖 Bu sayfayı nasıl okurum? (dokun)</summary>
+    <div class="muted" style="margin-top:10px; line-height:1.7;">
+      Burası en iyi firmaların kısa listesi. Her firma için 3 basit soruya bakıyoruz:<br><br>
+      <b style="color:var(--blue)">1) Konu (tema):</b> Bu firma şu an paranın aktığı popüler bir alanda mı? (örn. yapay zekâ, savunma). Popüler alandaysa rüzgârı arkasına almış demektir.<br>
+      <b style="color:var(--green)">2) Kalite:</b> Firma sağlam mı? Yani para kazanıyor mu, satışları büyüyor mu, borç batağında değil mi?<br>
+      <b style="color:var(--purple)">3) Neden şimdi (katalizör):</b> Tam da bugün bu firmaya bakmak için bir sebep var mı? (örn. yöneticiler kendi parasıyla hisse aldı, büyük bir anlaşma imzalandı, iyi bilanço geldi).<br><br>
+      <b>Yıldızlar bu üç şeyin kaçının aynı anda tuttuğunu gösterir:</b><br>
+      ★★★★★ = üçü de tam → en güçlü aday<br>
+      ★★★★ = sinyaller birikiyor, güçlü<br>
+      ★★★ = ya sağlam ama daha "neden şimdi" sebebi yok, ya da çok erken<br>
+      Daha azı listeye hiç girmez.<br><br>
+      Her firmanın altında <b>neden alınır</b> (Hikâye / Neden bu firma / Neden şimdi) ve <b>neye dikkat</b> (Dikkat satırları) ayrı ayrı yazıyor. Yanındaki yüzdeler firmanın <b>son 1 ay / 3 ay / 1 yıl / 5 yıl</b> fiyat değişimi.<br><br>
+      ⚠️ Hiçbir yıldız "kesin al" demek değil. Bu sadece bir ön eleme; son kararı sen verirsin.
+    </div>
+  </details>
   <div class="card" style="padding:4px 2px;" id="ozetList"><div class="stock muted" style="padding:14px;">Tarama bekleniyor…</div></div>
 </section>
 
 
 <!-- ======== AĞAÇ ======== -->
 <section id="sec-agac">
-  <div class="muted" style="margin:0 2px 10px;">Tema → tedarik zinciri katmanı → firmalar. Oklar para akışı vekili: tema = ETF 3 aylık getirisi (RS = SPY'a görece), dal = üyelerin ortalama 3 aylık getirisi. Firmaya dokun → sinyal özeti açılır. İskelet küratörlüdür; yeni tema/firma önerini söyle, ekleyelim.</div>
+  <div class="muted" style="margin:0 2px 10px;">Konu → o konunun alt dalları → o daldaki firmalar. Yani "yapay zekâ" gibi bir konuyu açarsın, altında "çip yapanlar, elektrik verenler" gibi gruplar çıkar, onları da açınca firmalar görünür. Yanındaki ok yeşilse o gruba son 3 ayda para giriyor, kırmızıysa çıkıyor demek. Firmaya dokun → o firmanın kısa notu açılır.</div>
+  <div class="row" style="margin:0 2px 10px;">
+    <div class="muted" style="flex:1;">Açtığın dallar sen kapatana kadar açık kalır.</div>
+    <button class="ghost" onclick="collapseAllTree()">Hepsini Kapat</button>
+  </div>
   <div id="treeBox"><div class="card muted">Veri bekleniyor…</div></div>
-  <div class="row" style="margin:14px 2px 8px;"><h2 style="margin:0;">Endüstri Ağacı (tam otomatik)</h2></div>
-  <div class="muted" style="margin:0 2px 8px;">Bu ağaç kendini kurar: evrendeki tüm firmalar sektör etiketlerine göre gruplanır, para akışına göre sıralanır — en çok para giren endüstri en üstte. Yukarıdaki küratörlü ağaç "anlam" (tedarik zinciri katmanları), bu ağaç "kapsam" (hiçbir şey gözden kaçmaz) verir.</div>
+  <div class="row" style="margin:14px 2px 8px;"><h2 style="margin:0;">Otomatik Sektör Listesi</h2></div>
+  <div class="muted" style="margin:0 2px 8px;">Bu liste kendiliğinden oluşur: tüm firmalar sektörüne göre gruplanır, en çok para giren sektör en üste gelir. Yukarıdaki ağaç "konuyu" anlatır, bu liste "hiçbir sektör atlanmasın" diye vardır.</div>
   <div id="autoTreeBox"><div class="card muted">Profil verisi bekleniyor…</div></div>
 </section>
 
 <!-- ======== TREND ======== -->
 <section id="sec-trend">
   <div class="card">
-    <h2>Tematik ETF sıralaması</h2>
-    <div class="muted" style="margin-bottom:6px;">Sermaye hangi temaya akıyor — 3 aylık getiriye göre sıralı.</div>
+    <h2>Hangi konuya para akıyor?</h2>
+    <div class="muted" style="margin-bottom:6px;">Her konu için bir "sepet" (ETF) var. Son 3 ayda en çok kazandıran sepet en üstte — yani para en çok oraya akıyor. En üsttekiler o an gözde alanlar.</div>
     <div id="themeTable" class="muted">Veri bekleniyor…</div>
   </div>
   <div class="card">
-    <h2>Bölgesel güç/zayıflık</h2>
-    <div class="muted" style="margin-bottom:6px;">Northvolt dersi: aynı temada zayıf bölgeden uzak dur.</div>
+    <h2>Hangi bölge güçlü?</h2>
+    <div class="muted" style="margin-bottom:6px;">Aynı işi yapan iki firmadan güçlü bölgedekini seç. Zayıf bölge, iyi firmayı bile aşağı çekebilir.</div>
     <div id="regionTable" class="muted">Veri bekleniyor…</div>
   </div>
-  <div class="card"><div class="muted">Lider temanın hisselerini Ayarlar'dan "Diğer firmalar" listesine ekle — pattern motoru + anlaşma takibi otomatik başlar. Tema lideri pahalıysa ucuz takipçisini araştır (NVDA→AMD ilişkisi).</div></div>
+  <div class="card"><div class="muted">En üstteki konunun firmalarını takip listene ekleyebilirsin. Konunun lideri sana pahalı geldiyse, aynı konudaki daha ucuz takipçisini araştır (örnek: NVDA pahalıysa AMD'ye bak).</div></div>
 </section>
 
 <!-- ======== BÜYÜK ======== -->
 <section id="sec-buyuk">
+  <div class="muted" style="margin:0 2px 10px;">Burası ham liste: Özet sayfası en iyileri seçip anlatırken, bu sayfa fiyat grafiğine göre dikkat çeken tüm firmaları grup grup gösterir. Aşağıdaki sekmelerle grafiğin türüne göre süzebilirsin (örn. dipten dönenler, güçlü trend).</div>
   <div class="tabsWrap" style="display:flex; gap:6px; overflow-x:auto; padding-bottom:6px;" id="patTabs"></div>
   <div class="muted" id="patDesc" style="margin:0 2px 8px;"></div>
   <div class="card" style="padding:4px 2px;" id="bigStockList"><div class="stock muted" style="padding:14px;">Tarama bekleniyor…</div></div>
-  <div class="card"><div class="muted" id="poolCounter">Aday havuzu hatırlatması: bu profildeki adayların hepsi kazanmaz — tarihsel isabet kabaca 10 adaydan 3-5'i. Sistem havuzu iyileştirir, garantiyi değil.</div></div>
+  <div class="card"><div class="muted" id="poolCounter">Unutma: bu listedeki firmaların hepsi kazandırmaz — geçmişte kabaca her 10 adaydan 3-5'i tutmuştur. Bu bir aday havuzu, garanti değil.</div></div>
 </section>
 
 <!-- ======== DİĞER ======== -->
 <section id="sec-diger">
-  <div class="card" style="padding:4px 2px;" id="otherStockList"><div class="stock muted" style="padding:14px;">Ayarlar'dan "Diğer firmalar" listesine hisse ekle.</div></div>
+  <div class="muted" style="margin:0 2px 10px;">Senin takip listen. Buraya eklediğin firmalar her gece daha derin taranır (haber, yönetici alımı, anlaşma). Firma eklemek için Ayarlar → "Diğer firmalar", ya da başka sayfalarda firmanın yanındaki "+ Takip" butonu.</div>
+  <div class="card" style="padding:4px 2px;" id="otherStockList"><div class="stock muted" style="padding:14px;">Liste boş. Ayarlar'dan ya da "+ Takip" ile firma ekle.</div></div>
 </section>
 
 <!-- ======== KEŞİF ======== -->
 <section id="sec-kesif">
-  <div class="warn danger"><b>SPEKÜLATİF BÖLME:</b> Sağlam firma filtresi burada KAPALI. Bu havuz portföyün %0-5'i içindir; pozisyon = kaybetmeyi göze aldığın para. Vurgu için çift teyit şartı: pattern + (insider VEYA teyitli anlaşma). Beklenti kalibrasyonu: bu havuzda 20 adaydan ~1'i 10x yapar, ~5'i sıfırlanır — pozisyon boyutunu buna göre seç.</div>
+  <div class="warn danger"><b>RİSKLİ BÖLÜM:</b> Burada "sağlam firma" şartı yok — küçük, çok oynak firmalar var. Buraya sadece kaybetmeyi göze alabileceğin küçük bir para (toplamın %0-5'i) koy. "ÇİFT TEYİT ✓" etiketi: hem grafik iyi hem de yönetici alımı/anlaşma var demek, yani daha güçlü. Gerçekçi ol: burada 20 firmadan belki 1'i 10 katına çıkar, 5'i sıfırlanır.</div>
   <div class="card" style="padding:4px 2px;" id="microStockList"><div class="stock muted" style="padding:14px;">Ayarlar'dan "Keşif" listesine hisse ekle.</div></div>
+</section>
+
+<!-- ======== MOONSHOT ======== -->
+<section id="sec-moon">
+  <div class="warn"><b>MOONSHOT RADARI:</b> "1 yılda x5" profili. Tek şart var ve zorunlu: <b>brüt marj dönüşü</b> (kâr marjı 5 yıl ortalamasının belirgin üstüne çıkmış). Ders şu (AMD 2016, SanDisk 2025): bu tür patlamaları ayıran şey ucuzluk ya da küçük olmak DEĞİL — fiyat patlamadan <b>önce bilançoda görünen somut dönüş</b>. Sistem sana "AL" demez; <b>ne kontrol etmen gerektiğini</b> söyler. Kademeler: 🌱 Kurulum (izle) · 🔥 Fitil (doğrula) · ⚠️ Geç (kovalama).</div>
+  <div id="moonTabs" style="display:flex; gap:6px; overflow-x:auto; padding-bottom:6px;"></div>
+  <div class="card" style="padding:4px 2px;" id="moonList"><div class="stock muted" style="padding:14px;">Tarama sonrası doldurulur.</div></div>
 </section>
 
 <!-- ======== METAL ======== -->

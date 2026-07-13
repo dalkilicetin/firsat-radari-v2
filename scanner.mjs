@@ -57,6 +57,8 @@ function stage1(x){
   if(x.r52w>=30 && x.r13w>0 && x.mtd>=-3) out.push("D");
   if(x.mtd<0 && x.r13w<0 && x.r52w<0) out.push("BIÇAK?");
   if(x.gmT!==null && x.gm5!==null && x.gmT > x.gm5+2) out.push("MARJ");
+  // MOONSHOT ön-işareti: marj dönüşü + gmT gerçekten pozitif (sahte EV dönüşünü ele)
+  if(x.gmT!==null && x.gm5!==null && (x.gmT-x.gm5)>2 && x.gmT>=10 && (x.netM===null||x.netM>=-25)) out.push("MOONSHOT");
   if(x.r13w>0 && x.pe && x.pe<15 && x.r52w<0) out.push("ERKEN+UCUZ?");
   return out;
 }
@@ -250,6 +252,28 @@ out.rankHist = prev.rankHist || {};
   const d = iso(new Date());
   out.rankHist[d] = ordered;
   const keys = Object.keys(out.rankHist).sort(); while(keys.length>60){ delete out.rankHist[keys.shift()]; }
+}
+
+// ---- 11) MOONSHOT gece özeti (marj dönüşü profili — istemci detay hesabı yapar) ----
+// Kademe: r52w>=120 → geç, r52w<40 → kurulum, arası → izle. Gate: gmT-gm5>2 & gmT>=10 & netM>=-25.
+out.moonHist = prev.moonHist || {};
+{
+  const cand = [];
+  for(const s of UNI){
+    const x = out.screen[s]; if(!x) continue;
+    const gmT=x.gmT, gm5=x.gm5, netM=x.netM;
+    if(gmT==null||gm5==null) continue;
+    const dl = gmT-gm5;
+    if(dl<=2 || gmT<10 || (netM!=null && netM<-25)) continue;
+    const tier = (x.r52w!=null && x.r52w>=120) ? "gec" : (x.r52w!=null && x.r52w<40) ? "kurulum" : "izle";
+    cand.push({s, dl:+dl.toFixed(1), r52w:x.r52w, revG:x.revG, tier});
+  }
+  cand.sort((a,b)=>b.dl-a.dl);
+  const d = iso(new Date());
+  out.moonHist[d] = cand.slice(0,60);
+  const mk = Object.keys(out.moonHist).sort(); while(mk.length>30){ delete out.moonHist[mk.shift()]; }
+  console.log("Moonshot adayı:", cand.length, "(kurulum/izle/geç:",
+    cand.filter(c=>c.tier==="kurulum").length, "/", cand.filter(c=>c.tier==="izle").length, "/", cand.filter(c=>c.tier==="gec").length, ")");
 }
 
 mkdirSync("data", {recursive:true});
