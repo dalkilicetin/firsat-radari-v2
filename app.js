@@ -1,5 +1,5 @@
 "use strict";
-const APP_VERSION = "5.12";
+const APP_VERSION = "5.13";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
@@ -117,6 +117,39 @@ function patterns(sym){
 // Ders (AMD 2016, SanDisk 2025): ayırt edici olan "dip + ince float" DEĞİL,
 // fiyat patlamadan ÖNCE görünen TEMEL DOĞRULAMA (marj dönüşü / kâra geçiş).
 // Gate ZORUNLU: brüt marj trailing, 5y ortalamasının belirgin üstünde (gmT - gm5 > 2).
+// Kural 4 — HİSSE SINIFI TEKİLLEŞTİRME: aynı şirketin sınıfları (GOOG/GOOGL, FWONA/FWONK)
+// listede bir kez görünsün. Aynı isim → en likit/yüksek fiyatlı olanı tut.
+function dedupeClasses(syms){
+  const byName = {};
+  const out = [], seen = new Set();
+  for(const s of syms){
+    const nm = ((prof[s]||{}).name || (fin[s]||{}).name || "").trim();
+    if(!nm){ if(!seen.has(s)){ out.push(s); seen.add(s); } continue; }
+    if(!byName[nm]) byName[nm] = [];
+    byName[nm].push(s);
+  }
+  const chosen = {};
+  for(const [nm, list] of Object.entries(byName)){
+    if(list.length===1){ chosen[list[0]] = true; continue; }
+    // en yüksek avgVol, yoksa en yüksek fiyat
+    let best = list[0], bestScore = -1;
+    for(const s of list){
+      const av = (fin[s]||{}).avgVol ?? (screen[s]||{}).avgVol ?? 0;
+      const px = (quotes[s]||{}).price ?? 0;
+      const sc = (av*1000) + px;
+      if(sc > bestScore){ bestScore = sc; best = s; }
+    }
+    chosen[best] = true;
+  }
+  const res = [], done = new Set();
+  for(const s of syms){
+    const nm = ((prof[s]||{}).name || (fin[s]||{}).name || "").trim();
+    if(!nm){ if(!done.has(s)){ res.push(s); done.add(s); } continue; }
+    if(chosen[s] && !done.has(nm)){ res.push(s); done.add(nm); }
+  }
+  return res;
+}
+
 function moonshot(sym, r, f){
   f = f || fin[sym] || {};
   const x = screen[sym] || {};
@@ -140,19 +173,26 @@ function moonshot(sym, r, f){
   const turning = (r3m!=null && r3m > 0);
   const hi  = (r52w!=null && r52w >= 120);
   const dip = (r52w!=null && r52w < 40) || (off5y!=null && off5y >= 0.30);
+  // Kural 3 — FİTİL için güçlü tetik şartı: sadece "marj +2 + zirveye yakın değil" yetmez.
+  // Döngüsel gürültüyü (havayolu/kimya, zayıf gelir) elemek için GÜÇLÜ temel + tetik iste.
+  // Güçlü temel = gelir patlaması (revG≥30) VEYA belirgin marj dönüşü (marjD≥5).
+  // Zayıf temelli (düşük marj + düşük gelir) hisse, tek EPS sürprizi/insider ile fitile giremez.
+  const gucluTemel = (revG!=null && revG>=30) || (marjDelta>=5);
+  const tetik = insBuy || eps || (turning && revStrong);
+  const gucluTetik = gucluTemel && tetik;
   let tier, verb, action, tone;
   if(hi){
     tier = "⚠️ GEÇ"; verb = "Hareket büyük ölçüde olmuş"; tone = "a";
     action = "Marj dönüşü çoktan fiyatlanmış (1y +%"+Math.round(r52w)+"). Kovalama riski yüksek — geri çekilmeyi bekle, tepeden girme.";
-  } else if((insBuy || eps || (turning && revStrong)) && (turning || !dip)){
-    tier = "🔥 FİTİL"; verb = "Kurulum + tetik birlikte"; tone = "g";
+  } else if(gucluTetik && (turning || !dip)){
+    tier = "🔥 FİTİL"; verb = "Kurulum + güçlü tetik birlikte"; tone = "g";
     const checks = ["katalizör gerçek mi (earnings/ürün/anlaşma)"];
     if(insBuy) checks.push("insider alımı ("+f.insBuyers+") sürüyor mu");
     checks.push("bilanço tarihi yakın mı");
-    action = "Hem marj dönüşü hem tetik var. AL demiyorum — şunları KENDİN doğrula: "+checks.join("; ")+".";
+    action = "Hem marj dönüşü hem güçlü tetik var. AL demiyorum — şunları KENDİN doğrula: "+checks.join("; ")+".";
   } else {
-    tier = "🌱 KURULUM"; verb = "Marj dönüşü var, tetik henüz yok"; tone = "p";
-    action = "Temel dönüş doğrulandı (marj +"+marjDelta.toFixed(1)+" puan) ama momentum/insider henüz yok. İzleme listesine al, katalizör (earnings/ürün) tarihini takip et. Henüz kovalama.";
+    tier = "🌱 KURULUM"; verb = "Marj dönüşü var, güçlü tetik henüz yok"; tone = "p";
+    action = "Temel dönüş doğrulandı (marj +"+marjDelta.toFixed(1)+" puan) ama momentum/insider/güçlü gelir henüz yok. İzleme listesine al, katalizör (earnings/ürün) tarihini takip et. Henüz kovalama.";
   }
   const badgeTip = "MOONSHOT ["+tier+"] — marj dönüşü +"+marjDelta.toFixed(1)+" puan"+(revStrong?", gelir +%"+Math.round(revG):"");
   return {tier, verb, action, tone, marjDelta, revG, r52w, off5y, insBuy, eps, turning, revStrong, badgeTip};
@@ -667,7 +707,7 @@ function moonUniverse(){
 }
 function moonList(){
   const out = [];
-  for(const s of moonUniverse()){
+  for(const s of dedupeClasses(moonUniverse())){
     const r = series[s] ? rets(s) : null;
     const ms = moonshot(s, r, fin[s]);
     if(ms) out.push([s, ms]);
@@ -1062,8 +1102,34 @@ function reasonsFor(s){
   if(confN>=2){ pros.push("anlaşma akışı ("+confN+" teyitli/90g)"); conv += 1; }
   if((f.catN||0)>=2){ pros.push("katalizör haber kümesi ("+f.catN+")"); conv += 2; }
   const pe = f.pe||x.pe;
-  if(pe && pe<15){ pros.push("F/K "+pe.toFixed(1)); conv += 1; }
+  const revG = f.revG ?? x.revG, netM = f.netM ?? x.netM;
+  const gmT = f.gmT ?? x.gmT, gm5 = f.gm5 ?? x.gm5;
+  // Kural 1 — VALUE-TRAP: ucuz F/K tek başına iyi değil; gelir küçülüyor VEYA net marj negatifse ucuzluğun sebebi vardır
+  const ucuz = pe && pe>0 && pe<15;
+  const kotuTemel = (revG!=null && revG<0) || (netM!=null && netM<0);
+  if(ucuz && kotuTemel){
+    cons.push("değer tuzağı riski: ucuz ama "+((revG!=null&&revG<0)?"gelir küçülüyor (%"+Math.round(revG)+")":"zarar ediyor")+" — ucuzluğun sebebi var");
+    conv -= 2;
+  } else if(ucuz){
+    pros.push("F/K "+pe.toFixed(1)); conv += 1;
+  }
+  // Kural 2 — MARJ BOZULMASI: brüt marj daralıyorsa (fiyatlama gücü kaybı) cezalandır
+  if(gmT!=null && gm5!=null && gmT < gm5-3){
+    cons.push("brüt marj daralıyor ("+gmT.toFixed(0)+"% ← "+gm5.toFixed(0)+"%) — fiyatlama gücü zayıflıyor");
+    conv -= 2;
+  }
+  // Kural 6 — NET-MARJ İLLÜZYONU: anormal yüksek net marj + çok düşük F/K = tek seferlik kalem şüphesi
+  if(netM!=null && netM>40 && pe && pe>0 && pe<6){
+    cons.push("net marj anormal yüksek (%"+Math.round(netM)+") + F/K çok düşük — tek seferlik kalem olabilir, normalleşmiş kâra bak");
+    conv -= 1;
+  }
   if(f.scandal){ cons.push("skandal/soruşturma — OLAY İNCELE"); conv -= 4; }
+  // Kural 5 — DEAD-CAT / ENKAZ: aşırı 1y sıçrama + negatif brüt marj/derin zarar = iflas-sonrası spekülasyon
+  const r52w_ = x.r52w;
+  if(r52w_!=null && r52w_>300 && ((gmT!=null&&gmT<0) || (netM!=null&&netM<-30))){
+    cons.push("⚠️ ENKAZ SIÇRAMASI: 1y +%"+Math.round(r52w_)+" ama "+((gmT!=null&&gmT<0)?"brüt marj negatif":"derin zarar")+" — iflas-sonrası/dead-cat olabilir, yatırım değil kumar");
+    conv -= 5;
+  }
   if(f.industry && FIN_INDUSTRIES.some(w=>(f.industry||"").includes(w))){ cons.push("finans — pattern bilanço krizini göremez"); conv -= 1; }
   const av = f.avgVol ?? x.avgVol;
   if(av!==null && av!==undefined && av<0.3){ cons.push("likidite düşük"); conv -= 1; }
@@ -1450,7 +1516,7 @@ function buildReport(){
   L.push("\n■ ÖZET — En Güçlü Adaylar");
   L.push("───────────────────────────");
   {
-    const pool = [...new Set([...candidates(), ...otherList(), ...microList()])];
+    const pool = dedupeClasses([...new Set([...candidates(), ...otherList(), ...microList()])]);
     const rows = [];
     for(const s of pool){ const r = reasonsFor(s); if(r && r.pros.length>=2 && r.conviction>=2) rows.push({s, ...r}); }
     rows.sort((a,b)=>b.conviction-a.conviction);
@@ -1492,7 +1558,7 @@ function buildReport(){
   L.push("\n■ KEŞİF — Küçük/Oynak Adaylar (yüksek risk)");
   L.push("───────────────────────────");
   {
-    const syms = [...new Set([...microList(), ...discCandidates()])].filter(s=>quotes[s]||screen[s]);
+    const syms = dedupeClasses([...new Set([...microList(), ...discCandidates()])].filter(s=>quotes[s]||screen[s]));
     if(!syms.length) L.push("(keşif listesi boş)");
     for(const s of syms.slice(0,30)){
       const r = reasonsFor(s);

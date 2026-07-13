@@ -277,13 +277,28 @@ out.moonHist = prev.moonHist || {};
     const turning = (r3m!=null && r3m>0);
     const hi = (x.r52w!=null && x.r52w>=120);
     const dip = (x.r52w!=null && x.r52w<40);
+    // Kural 3 — güçlü temel + tetik (app.js ile birebir): zayıf marj+gelir tek EPS ile fitile giremez
+    const gucluTemel = (revG!=null && revG>=30) || (dl>=5);
+    const tetik = insBuy || eps || (turning && revStrong);
+    const gucluTetik = gucluTemel && tetik;
     let tier;
     if(hi) tier = "gec";
-    else if((insBuy || eps || (turning && revStrong)) && (turning || !dip)) tier = "fitil";
+    else if(gucluTetik && (turning || !dip)) tier = "fitil";
     else tier = "kurulum";
     cand.push({s, dl:+dl.toFixed(1), r52w:x.r52w, revG:x.revG, insBuy, eps, tier});
   }
   cand.sort((a,b)=>b.dl-a.dl);
+  // Kural 4 — aynı şirketin sınıflarını (GOOG/GOOGL, FWONA/FWONK) tekilleştir
+  {
+    const seenName = new Set(), dedup = [];
+    for(const c of cand){
+      const nm = ((out.prof[c.s]||{}).name || (out.fin[c.s]||{}).name || "").trim();
+      if(nm && seenName.has(nm)) continue;
+      if(nm) seenName.add(nm);
+      dedup.push(c);
+    }
+    cand.length = 0; cand.push(...dedup);
+  }
   const d = iso(new Date());
   out.moonHist[d] = cand.slice(0,60);
   const mk = Object.keys(out.moonHist).sort(); while(mk.length>30){ delete out.moonHist[mk.shift()]; }
