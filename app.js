@@ -1,5 +1,5 @@
 "use strict";
-const APP_VERSION = "5.13";
+const APP_VERSION = "5.15";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
@@ -93,6 +93,21 @@ function patterns(sym){
   if(r.r12m>=0.20 && r.r1m<=-0.05 && r.r1m>=-0.15) out.push(["A","Trend içi düzeltme","g"]);
   if(r.r60m!==null && r.r60m<=-0.50 && Math.abs(r.r12m)<=0.10 && r.r3m>0) out.push(["B","Kaybedenin dönüşü","g"]);
   if(r.r60m!==null && r.r60m>=1.00 && r.r1m<=-0.20) out.push(["C","Şampiyonun kötü günü — olayı incele","a"]);
+  // ŞOK: tek günlük sert çöküş (IBM 14.07.2026: -%25, tarihindeki en kötü gün).
+  // quotes.chgPct günlük değişim — mevcut datada VAR ama v5.13'e kadar hiç kullanılmıyordu.
+  // Aylık pencere (r1m) tek günlük şoku yumuşattığı için ayrı bir sinyal şart.
+  const chg = quotes[sym] ? quotes[sym].chgPct : null;
+  if(chg!==null && chg<=-8){
+    const dev = (f.mcap||0) >= 50000;   // 50 mlr$+ = kurumsal dev, kolay kolay çökmez
+    const kaliteli = Math.max((f.roic||0), (f.roe||0)) > 12;   // ikisinden iyisi (IBM: roic 11 ama roe 35)
+    out.push(["ŞOK","⚡ Tek günde %"+Math.abs(chg).toFixed(0)+" çöküş — OLAYI OKU (bilanço uyarısı/dava/kılavuz kesintisi?)","r"]);
+    if(dev && kaliteli && chg<=-15)
+      out.push(["ŞOK-DEV","Kaliteli dev tek günde %"+Math.abs(chg).toFixed(0)+" düştü — panik mi, kırılma mı? Sebebi oku, aceleyle alma","a"]);
+  }
+  // C-GENİŞ: "şampiyon" olmayan ama kaliteli/dev şirketin sert düşüşü de olay adayıdır.
+  // (IBM 1y +%0 olduğu için r60m>=1.00 şampiyon şartına takılıp C alamıyordu.)
+  if(r.r1m<=-0.18 && ((f.mcap||0)>=50000 || ((f.roic ?? f.roe)||0)>15) && !out.some(p=>p[0]==="C"))
+    out.push(["C2","Büyük/kaliteli şirkette sert düşüş — olayı incele","a"]);
   if(r.r1m<0 && r.r3m<0 && r.r12m<0 && (r.r60m===null || r.r60m<0)) out.push(["BIÇAK","Düşen bıçak — uzak dur","r"]);
   const offH = f.high52 && quotes[sym] ? 1 - quotes[sym].price/f.high52 : null;
   if(offH!==null && offH<=0.05 && r.r12m>=0.30) out.push(["D","Momentum devamı","g"]);
@@ -717,6 +732,43 @@ function moonList(){
   out.sort((a,b)=> rank(a[1].tier)-rank(b[1].tier) || (b[1].marjDelta-a[1].marjDelta));
   return out;
 }
+function renderTop10(){
+  const t = top10();
+  const sl = shockList();
+  let html = "";
+  // Şok uyarı bandı (varsa)
+  const acil = sl.filter(x=>x.gun!=null && (x.dev||x.ndx)).slice(0,4);
+  if(acil.length){
+    html += '<div class="warn" style="border-color:#7a1f1f;background:#2b0d0d;"><b>⚡ BUGÜN SERT DÜŞENLER:</b> ' +
+      acil.map(x=>'<b>'+x.s+'</b> %'+x.gun.toFixed(1)).join(" · ") +
+      ' — sebebini oku, aceleyle alma.</div>';
+  }
+  if(!t.length){
+    $("top10List").innerHTML = html + '<div class="stock muted" style="padding:14px;">Tarama sonrası doldurulur.</div>';
+    return;
+  }
+  html += t.map((o,i)=>{
+    const q=quotes[o.s], x=screen[o.s]||{}, f=fin[o.s]||{};
+    const nm=(prof[o.s]||{}).name || f.name || "";
+    const price = q ? "$"+q.price.toFixed(2) : (x.mcap? Math.round(x.mcap/1000)+" mlr$" : "");
+    const rolCol = o.roller.some(r=>r.includes("şok")) ? "var(--red)" :
+                   o.roller.some(r=>r.includes("fitil")) ? "#33d6de" : "var(--green)";
+    const rets=[];
+    if(x.mtd!=null) rets.push('<span class="chip'+(x.mtd<-12?' r':'')+'">ay '+x.mtd.toFixed(0)+'%</span>');
+    if(x.r52w!=null) rets.push('<span class="chip">1y '+x.r52w.toFixed(0)+'%</span>');
+    const inOther = otherList().includes(o.s);
+    return '<div class="stock" style="border-left:3px solid '+rolCol+';">'+
+      '<div class="l1"><div class="tick"><span style="color:var(--muted);font-size:11px;">'+(i+1)+'.</span> '+o.s+
+      ' <span class="muted" style="font-size:10px;font-weight:400;">'+nm.slice(0,18)+'</span></div>'+
+      '<div class="price">'+price+'</div>'+
+      (inOther?'':'<button class="ghost" style="padding:4px 9px;font-size:11px;" onclick="addToOther(\''+o.s+'\')">+ Takip</button>')+'</div>'+
+      '<div class="l2" style="margin-top:3px;"><span class="chip" style="color:'+rolCol+';font-weight:800;">'+o.roller.join(" + ")+'</span> '+rets.join(" ")+'</div>'+
+      (o.pros&&o.pros.length?'<div style="margin-top:5px;font-size:11.5px;color:#9FB3C8;">+ '+o.pros.slice(0,2).join("; ")+'</div>':'')+
+      (o.cons&&o.cons.length?'<div style="margin-top:3px;font-size:11.5px;color:var(--amber);">! '+o.cons.slice(0,1).join("; ")+'</div>':'')+
+      '</div>';
+  }).join("");
+  $("top10List").innerHTML = html;
+}
 function renderMoon(){
   $("moonTabs").innerHTML = MOON_TABS.map(([id,l])=>'<button class="ghost" style="'+(moonTab===id?'border-color:var(--blue);color:var(--text);':'')+'" onclick="moonTab=\''+id+'\';renderMoon()">'+l+'</button>').join("");
   let list = moonList();
@@ -1082,16 +1134,19 @@ function reasonsFor(s){
   const deep = !!series[s];
   const pros = [], cons = [];
   let conv = 0;
-  const W = {A:2,B:2,C:1,D:2,E:3,"DÖNÜŞ":2,"MARJ":2,"KALİTE":2,"ERKEN+UCUZ":2,"SPIN-MOM":1};
+  const W = {A:2,B:2,C:1,C2:1,D:2,E:3,"DÖNÜŞ":2,"MARJ":2,"KALİTE":2,"ERKEN+UCUZ":2,"SPIN-MOM":1};
   const NAME = {A:"trend içi düzeltme", B:"kaybedenin dönüşü (5y dip + dönüş başladı)",
     C:"olay bazlı sert düşüş — geçiciyse fırsat", D:"momentum devamı (zirveye yakın)",
     E:"bilanço sürprizi drift penceresi", "DÖNÜŞ":"5y zirvesinden −%50+ sonrası 3 ay pozitif",
     "MARJ":"brüt marj genişliyor (fiyatlama gücü)", "ERKEN+UCUZ":"momentum başladı + hâlâ ucuz",
-    "KALİTE":"kalite: ROE>15 + gelir büyüyor", "SPIN-MOM":"spin-off momentumu pozitif"};
+    "KALİTE":"kalite: ROE>15 + gelir büyüyor", "SPIN-MOM":"spin-off momentumu pozitif",
+    "C2":"büyük/kaliteli şirkette sert düşüş — olayı incele"};
   const pats = deep ? patterns(s).list : stage1(s).map(p=>[p.replace("?",""), "", ""]);
-  for(const [code] of pats){
+  for(const [code, label] of pats){
     if(code==="BIÇAK") return null;
-    if(code==="TUZAK"){ cons.push("değer tuzağı: 12+ aydır ucuz, hâlâ düşüyor"); conv -= 4; }
+    if(code==="ŞOK"){ cons.push(label || "tek günde sert çöküş — OLAYI OKU"); conv -= 2; }
+    else if(code==="ŞOK-DEV"){ cons.push(label || "kaliteli devde sert düşüş — sebebini oku"); }
+    else if(code==="TUZAK"){ cons.push("değer tuzağı: 12+ aydır ucuz, hâlâ düşüyor"); conv -= 4; }
     else if(code==="PAHALI"){ cons.push("F/S > 30 — değerleme yüklü"); conv -= 1; }
     else if(code==="SPIN-MODU"){ pros.push("spin-off modu: klasik patternler kapalı, insider+anlaşma esas"); }
     else if(NAME[code]){ pros.push(NAME[code]); conv += (W[code]||1); }
@@ -1437,10 +1492,10 @@ function renderSigLog(){
     return '<div class="stock" style="font-size:12px;"><span class="muted">'+d+':</span> '+items+'</div>';
   }).join("");
 }
-function renderAll(){ renderOzet(); renderSigLog(); renderTree(); renderAutoTree(); renderDurum(); renderBig(); renderMoon(); renderOther(); renderMicro(); renderTrend(); renderMetal(); renderFunds(); renderCal(); renderJournal(); }
+function renderAll(){ renderOzet(); renderSigLog(); renderTree(); renderAutoTree(); renderDurum(); renderBig(); renderMoon(); renderTop10(); renderOther(); renderMicro(); renderTrend(); renderMetal(); renderFunds(); renderCal(); renderJournal(); }
 
 // -------- nav & settings --------
-const SECTIONS = [["durum","Giriş"],["ozet","Özet"],["moon","🚀 x5"],["kesif","Keşif"],["diger","Listem"],["trend","Sektörler"],["agac","Ağaç"],["buyuk","Analiz"],["metal","Metal"],["takvim","Takvim"],["fon","Fon"],["gunluk","Günlük"]];
+const SECTIONS = [["durum","Giriş"],["top10","★ 10'U"],["ozet","Özet"],["moon","🚀 x5"],["kesif","Keşif"],["diger","Listem"],["trend","Sektörler"],["agac","Ağaç"],["buyuk","Analiz"],["metal","Metal"],["takvim","Takvim"],["fon","Fon"],["gunluk","Günlük"]];
 function show(sec){
   curSec = sec;
   document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
@@ -1495,6 +1550,119 @@ function importBackup(inp){
 }
 // ==================== RAPOR ÜRETİCİ (Özet + x5 + Keşif + Listem) ====================
 // Saf metin döndürür (yan etki yok). Hem indir butonu hem Telegram bunu kullanır.
+// ==================== BUGÜNÜN 10'U — tek karar listesi ====================
+// Sorun: rapor 150+ isim gösteriyor, seçim felci yaratıyor.
+// Çözüm: tüm bölümlerden EN İYİ 10'u tek listeye harmanla, her birine net rol ver.
+// Kural: çeşitlilik zorunlu — tek temadan (ör. hepsi AI-bellek) liste dolmasın.
+function top10(){
+  const skor = {};   // sym -> {puan, roller:[], not}
+  const ekle = (s, puan, rol) => {
+    if(!s) return;
+    if(!skor[s]) skor[s] = {s, puan:0, roller:[]};
+    skor[s].puan += puan;
+    if(rol && !skor[s].roller.includes(rol)) skor[s].roller.push(rol);
+  };
+
+  // 1) Yüksek conviction adaylar (ana kaynak)
+  const pool = dedupeClasses([...new Set([...candidates(), ...otherList(), ...microList()])]);
+  for(const s of pool){
+    const r = reasonsFor(s);
+    if(!r) continue;
+    if(r.conviction >= 7) ekle(s, r.conviction, "güçlü aday");
+    else if(r.conviction >= 5) ekle(s, r.conviction * 0.7, "aday");
+  }
+  // 2) Moonshot FİTİL — en yüksek asimetri
+  for(const [s, ms] of moonList()){
+    if(ms.tier.startsWith("🔥")) ekle(s, 8, "🚀 fitil");
+    else if(ms.tier.startsWith("🌱") && ms.marjDelta >= 8) ekle(s, 4, "🌱 kurulum");
+  }
+  // 3) ŞOK — sadece DEV/NDX olanlar (kaliteli panik = fırsat olabilir)
+  // Puan şiddete göre ölçeklenir: kaliteli bir devin tarihi çöküşü (IBM -%25),
+  // sıradan bir adaydan daha fazla dikkat hak eder — "bak ve karar ver" demek için.
+  for(const it of shockList().slice(0, 10)){
+    if(!(it.dev || it.ndx)) continue;
+    const siddet = Math.abs(it.gun!=null ? it.gun : (it.ay||0));
+    let puan = 6;
+    if(it.gun!=null){                       // günlük şok = en acil
+      puan = 8 + Math.min(siddet/2, 8);     // -%25 → 8+8 = 16
+    } else {
+      puan = 5 + Math.min(siddet/6, 3);     // aylık düşüş daha yumuşak
+    }
+    ekle(it.s, puan, "⚡ şok");
+  }
+
+  // Ceza: raporun uyardığı riskler
+  for(const s of Object.keys(skor)){
+    const r = reasonsFor(s);
+    if(!r) continue;
+    const c = (r.cons||[]).join(" ");
+    if(/ENKAZ/.test(c)) skor[s].puan -= 20;
+    if(/değer tuzağı/.test(c)) skor[s].puan -= 5;
+    if(/marj daralıyor/.test(c)) skor[s].puan -= 4;
+    if(/anormal yüksek/.test(c)) skor[s].puan -= 2;
+    if(/skandal/.test(c)) skor[s].puan -= 15;
+    skor[s].cons = r.cons || [];
+    skor[s].pros = r.pros || [];
+    skor[s].conv = r.conviction;
+  }
+
+  let list = Object.values(skor).filter(o=>o.puan > 0).sort((a,b)=>b.puan-a.puan);
+
+  // ÇEŞİTLİLİK: aynı sektörden en fazla 3 isim (tek temaya boğulma)
+  const sektorSay = {};
+  const secili = [];
+  for(const o of list){
+    const ind = ((fin[o.s]||{}).industry || (prof[o.s]||{}).ind || "diğer").toLowerCase();
+    sektorSay[ind] = sektorSay[ind] || 0;
+    if(sektorSay[ind] >= 3) continue;
+    sektorSay[ind]++;
+    secili.push(o);
+    if(secili.length >= 10) break;
+  }
+  return secili;
+}
+
+// ==================== ŞOK LİSTESİ (günlük + haftalık sert düşüş) ====================
+// IBM dersi (14.07.2026 -%25): data doğruydu, chgPct oradaydı — kimse okumuyordu.
+// Kapsam sorunu: quotes sadece ~419 hissede; screen ~1097'de. İkisini birleştir.
+function shockList(){
+  const NDXSET = new Set(NDX);
+  const out = [];
+  const evren = new Set([...Object.keys(screen), ...Object.keys(quotes), ...otherList(), ...microList()]);
+  for(const s of evren){
+    const q = quotes[s], x = screen[s]||{}, f = fin[s]||{};
+    const mcap = (f.mcap ?? x.mcap) || 0;
+    const gun = (q && typeof q.chgPct==="number") ? q.chgPct : null;   // günlük %
+    const ay  = (typeof x.mtd==="number") ? x.mtd : null;              // ay başından beri %
+    const ceyrek = (typeof x.r13w==="number") ? x.r13w : null;
+    let etiket=null, aksiyon=null, siddet=0;
+    // 1) GÜNLÜK ŞOK — en yüksek öncelik (IBM tipi)
+    if(gun!==null && gun <= -8){
+      etiket = "⚡ Tek günde %"+gun.toFixed(1);
+      aksiyon = "Bilanço uyarısı / dava / kılavuz kesintisi mi? Haberi OKU, aceleyle alma.";
+      siddet = 100 + Math.abs(gun);
+    }
+    // 2) HAFTALIK/AYLIK SERT DÜŞÜŞ — kapsam geniş (1097 hisse), eşik -%12
+    else if(ay!==null && ay <= -12){
+      etiket = "📉 Ay içinde %"+ay.toFixed(1);
+      aksiyon = (ceyrek!==null && ceyrek>0)
+        ? "Çeyrek hâlâ pozitif — trend içi düzeltme olabilir. Sebebi doğrula."
+        : "Hem ay hem çeyrek negatif — trend kırılmış olabilir, acele etme.";
+      siddet = Math.abs(ay);
+    }
+    if(!etiket) continue;
+    const dev = mcap >= 50000;
+    const ndx = NDXSET.has(s);
+    // Kalite önceliği: endeks üyesi / dev şirket üste. Çöp mikro-cap dibe.
+    if(dev) siddet += 30;
+    if(ndx) siddet += 20;
+    if(mcap > 0 && mcap < 2000) siddet -= 25;   // 2 mlr$ altı: gürültü riski
+    out.push({s, etiket, aksiyon, dev, ndx, mcap, gun, ay, siddet});
+  }
+  out.sort((a,b)=> b.siddet - a.siddet);
+  return dedupeClasses(out.map(o=>o.s)).map(sym => out.find(o=>o.s===sym)).filter(Boolean);
+}
+
 function buildReport(){
   const L = [];
   const now = new Date();
@@ -1504,6 +1672,18 @@ function buildReport(){
   L.push("  FIRSAT RADARI • Özet Rapor");
   L.push("  Oluşturma: " + dtl);
   L.push("  Veri tarihi: " + dataDate + "  |  v" + APP_VERSION);
+  // Veri tazeliği uyarısı — IBM (14.07.2026, -%25) dersi: gece taraması günde bir çalışır,
+  // arada olan ani şoklar (bilanço uyarısı, dava, kılavuz kesintisi) bu raporda GÖRÜNMEZ.
+  {
+    const dd = new Date(dataDate);
+    const gun = isNaN(dd) ? null : Math.floor((now - dd)/86400000);
+    if(gun!==null && gun>=1){
+      L.push("");
+      L.push("  ⚠️ VERİ " + gun + " GÜN ESKİ. Bu süre içinde açıklanan bilanço uyarısı,");
+      L.push("     kâr kılavuzu kesintisi veya ani çöküşler bu raporda YOK.");
+      L.push("     Pozisyon açmadan önce hissenin güncel fiyatını ve haberini kontrol et.");
+    }
+  }
   L.push("═══════════════════════════════════════");
 
   const pxOf = s => { const q=quotes[s]; return q?("$"+q.price.toFixed(2)):((screen[s]||{}).mcap?Math.round((screen[s].mcap)/1000)+" mlr$":"-"); };
@@ -1513,6 +1693,50 @@ function buildReport(){
     if(x.r52w!=null)p.push("1y "+x.r52w.toFixed(0)+"%"); return p.join(" · "); };
 
   // ---------- 1) ÖZET (en güçlü adaylar, conviction sıralı) ----------
+  // ---------- ★ BUGÜNÜN 10'U — önce bu ----------
+  {
+    const t10 = top10();
+    if(t10.length){
+      L.push("\n★★★ BUGÜNÜN 10'U — Önce Buraya Bak ★★★");
+      L.push("═══════════════════════════════════════");
+      L.push("(150 isim yerine 10. Sektör çeşitliliği zorunlu. Sıra = öncelik.)");
+      L.push("");
+      let i = 1;
+      for(const o of t10){
+        const rol = o.roller.join(" + ");
+        L.push(i + ". " + o.s + " (" + pxOf(o.s) + ")  —  " + rol);
+        if(nmOf(o.s)) L.push("    " + nmOf(o.s) + (retOf(o.s)?("  ·  "+retOf(o.s)):""));
+        if(o.pros && o.pros.length) L.push("    + " + o.pros.slice(0,3).join("; "));
+        if(o.cons && o.cons.length) L.push("    ! " + o.cons.slice(0,2).join("; "));
+        i++;
+      }
+      L.push("");
+      L.push("Aşağısı detay — acelen varsa yukarıdaki 10 yeter.");
+    }
+  }
+
+  // ---------- 0) ŞOK RADARI (skordan bağımsız — ani çöküşler gizlenmemeli) ----------
+  // Kapsam: TÜM evren (screen ~1097 hisse), sadece quotes'lu 419 değil.
+  // İki sinyal: chgPct (günlük, quotes'ta) + mtd/r13w (haftalık-aylık, screen'de).
+  {
+    const shocked = shockList();
+    if(shocked.length){
+      L.push("\n■ ⚡ ŞOK RADARI — Sert Düşenler (endeks/dev öncelikli)");
+      L.push("───────────────────────────");
+      L.push("(Skordan bağımsız. Sert düşüş fırsat da olabilir kırılma da — SEBEBİNİ OKU.)");
+      for(const it of shocked.slice(0,12)){
+        const tags = [];
+        if(it.dev) tags.push("DEV");
+        if(it.ndx) tags.push("NDX100");
+        const tag = tags.length ? " ["+tags.join("/")+"]" : "";
+        L.push("• " + it.s + " (" + pxOf(it.s) + ")  " + it.etiket + tag + (nmOf(it.s)?("  —  "+nmOf(it.s)):""));
+        const r = reasonsFor(it.s);
+        if(r && r.cons.length) L.push("    ! " + r.cons.slice(0,2).join("; "));
+        L.push("    → " + it.aksiyon);
+      }
+    }
+  }
+
   L.push("\n■ ÖZET — En Güçlü Adaylar");
   L.push("───────────────────────────");
   {

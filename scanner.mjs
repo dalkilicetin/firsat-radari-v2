@@ -324,6 +324,36 @@ async function sendTelegram(out){
   const today = iso(new Date());
   L.push("<b>🎯 FIRSAT RADARI</b> — " + today);
 
+  // ⚡ ŞOK: bugün sert düşenler (skordan bağımsız — en üstte)
+  {
+    const shocked = [];
+    const evren = new Set([...Object.keys(out.screen||{}), ...Object.keys(out.quotes||{})]);
+    for(const sym of evren){
+      const q = (out.quotes||{})[sym], x = (out.screen||{})[sym] || {}, f = (out.fin||{})[sym] || {};
+      const mcap = (f.mcap ?? x.mcap) || 0;
+      const gun = (q && typeof q.chgPct==="number") ? q.chgPct : null;
+      const ay  = (typeof x.mtd==="number") ? x.mtd : null;
+      let chg=null, tip=null, siddet=0;
+      if(gun!==null && gun<=-8){ chg=gun; tip="gun"; siddet=100+Math.abs(gun); }
+      else if(ay!==null && ay<=-12){ chg=ay; tip="ay"; siddet=Math.abs(ay); }
+      else continue;
+      const dev = mcap>=50000;
+      if(dev) siddet+=30;
+      if(mcap>0 && mcap<2000) siddet-=25;
+      shocked.push({sym, chg, tip, mcap, siddet});
+    }
+    shocked.sort((a,b)=>b.siddet-a.siddet);
+    if(shocked.length){
+      L.push("\n<b>■ ⚡ ŞOK — Sert Düşenler (gün/ay)</b>");
+      for(const {sym, chg, tip, mcap} of shocked.slice(0,10)){
+        const dev = mcap>=50000 ? " <b>[DEV]</b>" : "";
+        const ico = tip==="gun" ? "⚡ gün" : "📉 ay";
+        L.push("• <b>"+esc(sym)+"</b> "+px(sym)+"  "+ico+" %"+chg.toFixed(1)+dev+"  <i>"+esc(nm(sym))+"</i>");
+      }
+      L.push("<i>Sebebini oku — bilanço uyarısı/dava/kılavuz kesintisi olabilir.</i>");
+    }
+  }
+
   // ÖZET: rankHist bugünkü ilk sıralar (scanner zaten conviction sıralı ordered üretiyor)
   const ordered = (out.rankHist||{})[today] || [];
   if(ordered.length){
