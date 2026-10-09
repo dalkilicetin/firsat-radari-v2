@@ -4,8 +4,9 @@
    SEC'e göre fiyat, takas tarihinden önceki işlem gününün kapanışıdır. Yalnızca o gün teslim
    başarısızlığı olan hisseler listelenir; bu yüzden fiyat serisi seyrek ama borsadan çıkmışları da içerir.
    Yan ürün: CUSIP → sembol eşleştirmesi (13F pozisyonlarını hisselere bağlamak için).
-2. Tiingo hisse listesi: her sembolün borsası ve veri başlangıç/bitiş tarihi (kimlik gerekmez).
-   Hayatta kalan yanılgısı olmayan bir evren listesi için kullanılır.
+2. Tiingo hisse listesi: denendi, kullanılmıyor. Semboller yeniden kullanıldığı için (2.278 sembolün birden
+   çok kaydı var) ve bilinen çıkışların bir kısmı eksik/yanlış olduğu için güvenilir değil (Ekim 2026 testi).
+   Borsadan çıkışlar SEC Form 25/15 bildirimlerinden (filings veri seti) CIK ile alınır.
 """
 
 from __future__ import annotations

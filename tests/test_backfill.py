@@ -113,15 +113,6 @@ def test_ftd_load():
     assert df.cusip.str.match(delisted.CUSIP_RE).all()
 
 
-def test_tiingo_listing():
-    csv = ("ticker,exchange,assetType,priceCurrency,startDate,endDate\n"
-           "SIVB,NASDAQ,Stock,USD,1987-01-01,2023-03-09\nAAPL,NASDAQ,Stock,USD,1980-12-12,2099-01-01\n")
-    nasdaq = b"Symbol|Security Name|Market Category|Test Issue|Financial Status|Round Lot Size|ETF|NextShares\nAAPL|Apple Inc. - Common Stock|Q|N|N|100|N|N\n"
-    loaded = delisted.TiingoListing().load(FakeClient({"supported_tickers": make_zip({"supported_tickers.csv": csv}), "nasdaqlisted": nasdaq}), "tiingo-x")
-    assert loaded.notes["universe"] == ["AAPL"]
-    assert loaded.df.set_index("ticker").end_date["SIVB"] == pd.Timestamp("2023-03-09")
-
-
 def test_runner_run_and_finalize(tmp_path, monkeypatch):
     monkeypatch.setattr(storage, "BACKFILL_DIR", tmp_path / "backfill")
     monkeypatch.setattr(storage, "MANIFEST_DIR", tmp_path / "manifest")
