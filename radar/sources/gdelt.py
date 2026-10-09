@@ -133,7 +133,7 @@ def run(ctx: Context, rep: SourceReport) -> None:
 
     try:
         points = parse_timeline(ctx.client.get(DOC.format(q='"Nvidia"'), retries=1).json())
-        rep.add("Yardımcı: DOC API zaman serisi", Status.OK if points else Status.WARN, f"{len(points)} nokta")
+        rep.add("Yardımcı: DOC API zaman serisi", Status.INFO, f"{len(points)} nokta (yardımcı kaynak; durumu etkilemez)")
     except (FetchError, ValueError) as exc:
         rep.add("Yardımcı: DOC API zaman serisi", Status.INFO,
                 f"erişilemedi (HTTP {getattr(exc, 'status', '?')}); ham dosyalar yeterli")
