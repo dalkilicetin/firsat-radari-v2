@@ -1,13 +1,12 @@
-"""Günlük fiyatlar: Yahoo, Nasdaq ve Stooq birbirine karşı çapraz kontrol edilir.
+"""Günlük fiyatlar: Yahoo ve Nasdaq birbirine karşı çapraz kontrol edilir.
 
 Hiçbiri resmî ve garantili bir kaynak değildir; bu yüzden aynı günün kapanışı en az iki kaynakta
-tutmuyorsa o hissenin fiyatı güvenilmez sayılır.
+tutmuyorsa o hissenin fiyatı güvenilmez sayılır. (Stooq denendi: bot koruması nedeniyle
+otomatik erişime kapalı.)
 """
 
 from __future__ import annotations
 
-import csv
-import io
 from datetime import date, datetime, timedelta, timezone
 from itertools import combinations
 from statistics import median
@@ -16,9 +15,8 @@ from radar.http import FetchError
 from radar.quality import SourceReport, Status
 from radar.sources.base import Context
 
-KEY, TITLE, TIER, ROADS = "prices", "Günlük fiyatlar (Yahoo ↔ Nasdaq ↔ Stooq)", 2, [1, 2, 3, 4]
+KEY, TITLE, TIER, ROADS = "prices", "Günlük fiyatlar (Yahoo ↔ Nasdaq)", 2, [1, 2, 3, 4]
 
-STOOQ = "https://stooq.com/q/d/l/?s={sym}.us&i=d"
 YAHOO = "https://query1.finance.yahoo.com/v8/finance/chart/{sym}?range={range}&interval=1d&events=split,div&includeAdjustedClose=true"
 NASDAQ = "https://api.nasdaq.com/api/quote/{sym}/historical"
 # Nasdaq API'si tarayıcı benzeri başlık ister.
@@ -30,18 +28,6 @@ NASDAQ_HEADERS = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537
 DELISTED = {"SIVB": "SVB Financial (2023)", "ATVI": "Activision Blizzard (2023)", "SGEN": "Seagen (2023)"}
 
 Series = dict[date, dict]
-
-
-def parse_stooq(text: str) -> Series:
-    if not text.startswith("Date"):
-        return {}
-    out = {}
-    for r in csv.DictReader(io.StringIO(text)):
-        try:
-            out[date.fromisoformat(r["Date"])] = {"close": float(r["Close"]), "volume": float(r.get("Volume") or 0)}
-        except (ValueError, KeyError):
-            continue
-    return out
 
 
 def parse_yahoo(data: dict) -> tuple[Series, list[date]]:
@@ -93,7 +79,7 @@ def agreement(a: Series, b: Series, last: int = 60) -> float | None:
 
 
 def fetch_all(ctx: Context, sym: str, days: int = 365) -> tuple[dict[str, Series], list[date], dict[str, str]]:
-    """Üç kaynaktan seri, Yahoo'nun bölünme tarihleri ve boş dönen kaynaklar için kısa tanı notu."""
+    """İki kaynaktan seri, Yahoo'nun bölünme tarihleri ve boş dönen kaynaklar için kısa tanı notu."""
     series: dict[str, Series] = {}
     notes: dict[str, str] = {}
     splits: list[date] = []
@@ -114,21 +100,14 @@ def fetch_all(ctx: Context, sym: str, days: int = 365) -> tuple[dict[str, Series
     except (FetchError, ValueError) as exc:
         series["nasdaq"], notes["nasdaq"] = {}, str(exc)[:120]
 
-    try:
-        resp = ctx.client.get(STOOQ.format(sym=sym.lower().replace(".", "-")))
-        series["stooq"] = parse_stooq(resp.text)
-        if not series["stooq"]:
-            notes["stooq"] = resp.text[:120]
-    except FetchError as exc:
-        series["stooq"], notes["stooq"] = {}, str(exc)[:120]
     return series, splits, notes
 
 
 def run(ctx: Context, rep: SourceReport) -> None:
     symbols = ["AAPL", "MSFT", "NVDA"] + ctx.sample_symbols(12)
-    got = {"yahoo": 0, "nasdaq": 0, "stooq": 0}
+    got = {"yahoo": 0, "nasdaq": 0}
     pair_diffs: dict[tuple[str, str], list[float]] = {}
-    confirmed, fresh_days, jumpy, notes_seen = 0, [], [], {}
+    confirmed, last_bars, jumps_by, notes_seen = 0, {}, {}, {}
 
     for sym in symbols:
         series, splits, notes = fetch_all(ctx, sym)
@@ -137,10 +116,10 @@ def run(ctx: Context, rep: SourceReport) -> None:
         for name, s in series.items():
             if s:
                 got[name] += 1
-                fresh_days.append(max(s))
-                jumps = [d for d in big_jumps(s) if not any(abs((d - x).days) <= 3 for x in splits)]
+                last_bars[sym] = max(last_bars.get(sym, max(s)), max(s))
+                jumps = {d for d in big_jumps(s) if not any(abs((d - x).days) <= 3 for x in splits)}
                 if jumps:
-                    jumpy.append(f"{name}:{sym}:{[str(d) for d in jumps[:2]]}")
+                    jumps_by.setdefault(sym, {})[name] = jumps
         sym_ok = False
         for a, b in combinations(series, 2):
             diff = agreement(series[a], series[b])
@@ -156,9 +135,19 @@ def run(ctx: Context, rep: SourceReport) -> None:
     rep.expect_min_ratio("Çapraz kontrol: en az iki kaynak %0,5 içinde (son 60 gün)", confirmed, len(symbols), 0.9, 0.75)
     for (a, b), diffs in pair_diffs.items():
         rep.add(f"{a} ↔ {b} medyan fark", Status.INFO, f"%{median(diffs):.3f} ({len(diffs)} hisse)")
-    rep.add("Bölünme dışı %60+ günlük sıçrama", Status.WARN if jumpy else Status.OK, "; ".join(jumpy) or "yok")
-    if fresh_days:
-        rep.expect_fresh("Fiyat güncelliği (en eski son bar)", min(fresh_days), 5, ctx.today)
+    # İki kaynağın birlikte gösterdiği sıçrama gerçek bir harekettir; tek kaynaktaki sıçrama veri hatası şüphesidir.
+    real, suspect = [], []
+    for sym, by_src in jumps_by.items():
+        both = set.intersection(*by_src.values()) if len(by_src) == 2 else set()
+        real += [f"{sym} {d}" for d in sorted(both)]
+        suspect += [f"{src}:{sym} {d}" for src, ds in by_src.items() for d in sorted(ds - both)]
+    rep.add("Tek kaynakta görünen %60+ sıçrama (veri hatası şüphesi)", Status.WARN if suspect else Status.OK, "; ".join(suspect) or "yok")
+    rep.add("İki kaynağın doğruladığı %60+ hareket (gerçek, risk sinyali)", Status.INFO, "; ".join(real) or "yok")
+    if last_bars:
+        days = sorted(last_bars.values())
+        rep.expect_fresh("Fiyat güncelliği (medyan hissenin son barı)", days[len(days) // 2], 5, ctx.today)
+        stale = [f"{s} ({d})" for s, d in last_bars.items() if (ctx.today - d).days > 5]
+        rep.add("5 günden eski son bar (işlem durdurma / likidite riski)", Status.INFO, ", ".join(stale) or "yok")
 
     # NVDA 10'a 1 bölünmesi (10 Haziran 2024): seri düzeltilmemişse %90 düşüş görünür.
     series, _, _ = fetch_all(ctx, "NVDA", days=(ctx.today - date(2024, 5, 1)).days)

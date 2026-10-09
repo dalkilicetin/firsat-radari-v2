@@ -121,10 +121,7 @@ def test_parse_13f_info_table():
     assert row["cusip"] == "037833100" and row["shares"] == 7000 and sec_13f.CUSIP.match(row["cusip"])
 
 
-def test_parse_stooq_and_yahoo():
-    st = prices.parse_stooq("Date,Open,High,Low,Close,Volume\n2024-06-07,1,1,1,120.88,100\n")
-    assert st[date(2024, 6, 7)]["close"] == 120.88
-    assert prices.parse_stooq("No data") == {}
+def test_parse_yahoo():
     data = {"chart": {"result": [{"timestamp": [1717767000, 1718026200],
                                   "events": {"splits": {"1718026200": {"date": 1718026200, "numerator": 10, "denominator": 1}}},
                                   "indicators": {"quote": [{"close": [120.88, None], "volume": [1, 2]}],
@@ -154,6 +151,7 @@ def test_parse_gdelt_and_wiki():
     assert pts[0][1] == 42.0
     views = wikipedia.parse_pageviews({"items": [{"timestamp": "2026100800", "views": 1234}]})
     assert views == {date(2026, 10, 8): 1234}
+    assert wikipedia.parse_sparql({"results": {"bindings": [{"cik": {"value": "0001045810"}, "article": {"value": "https://en.wikipedia.org/wiki/Nvidia"}}]}}, key="cik") == {"1045810": "Nvidia"}
     m = wikipedia.parse_sparql({"results": {"bindings": [{"ticker": {"value": "nvda"}, "article": {"value": "https://en.wikipedia.org/wiki/Nvidia"}}]}})
     assert m == {"NVDA": "Nvidia"}
 

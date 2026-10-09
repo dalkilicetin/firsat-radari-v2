@@ -13,6 +13,7 @@ import hashlib
 import io
 import re
 import sys
+import time
 import zipfile
 from collections import Counter
 from datetime import datetime, timezone
@@ -61,6 +62,18 @@ def parse_timeline(data: dict) -> list[tuple[datetime, float]]:
     return points
 
 
+def fetch_published(ctx: Context, url: str, attempts: int = 5) -> bytes:
+    """lastupdate.txt dosyayı, dosya sunucuya düşmeden birkaç saniye önce listeleyebiliyor."""
+    for i in range(attempts):
+        try:
+            return ctx.client.get(url, retries=1).content
+        except FetchError as exc:
+            if exc.status != 404 or i == attempts - 1:
+                raise
+            time.sleep(30)
+    raise AssertionError("unreachable")
+
+
 def run(ctx: Context, rep: SourceReport) -> None:
     files = parse_last_update(ctx.client.get(LAST_UPDATE).text)
     if "gkg" not in files:
@@ -70,7 +83,7 @@ def run(ctx: Context, rep: SourceReport) -> None:
     m = re.search(r"/(\d{14})\.", url)
     rep.expect_fresh("Ham dosya akışı güncelliği", datetime.strptime(m.group(1), "%Y%m%d%H%M%S").replace(tzinfo=timezone.utc), 0.25)
 
-    blob = ctx.client.get(url).content
+    blob = fetch_published(ctx, url)
     rep.add("İndirilen dosya bütünlüğü (boyut + MD5)",
             Status.OK if len(blob) == size and hashlib.md5(blob).hexdigest() == md5 else Status.FAIL,
             f"{len(blob):,} bayt, md5 {'eşleşti' if hashlib.md5(blob).hexdigest() == md5 else 'EŞLEŞMEDİ'}")
