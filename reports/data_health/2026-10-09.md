@@ -1,28 +1,28 @@
-# Veri Sağlık Raporu — 2026-10-09 22:47 UTC
+# Veri Sağlık Raporu — 2026-10-09 22:50 UTC
 
-🟢 10 kullanılabilir · 🟡 4 dikkat · 🔴 3 kullanılamaz
+🟢 10 kullanılabilir · 🟡 5 dikkat · 🔴 2 kullanılamaz
 
 Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = güvenilir ama dolaylı.
 
 | Kaynak | Sınıf | Yol | Durum | Süre | İstek |
 |---|---|---|---|---|---|
-| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.6 sn | 2 |
+| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.8 sn | 2 |
 | [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🔴 Kullanılamaz | 0.9 sn | 5 |
 | [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🔴 Kullanılamaz | 1.9 sn | 15 |
-| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 6.2 sn | 23 |
-| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 9.1 sn | 61 |
-| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🔴 Kullanılamaz | 0.9 sn | 5 |
-| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.4 sn | 1 |
-| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 0.9 sn | 4 |
+| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 6.4 sn | 23 |
+| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 9.3 sn | 61 |
+| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 1.0 sn | 6 |
+| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.5 sn | 1 |
+| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 1.7 sn | 4 |
 | [USPTO patentleri (PatentsView)](#uspto) | 1 | 3 | 🟡 Dikkat | 0.0 sn | 0 |
-| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 42.5 sn | 38 |
-| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 3.8 sn | 6 |
-| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 28.5 sn | 5 |
-| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 7.3 sn | 6 |
-| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.7 sn | 2 |
-| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.2 sn | 3 |
-| [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.1 sn | 3 |
-| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.8 sn | 3 |
+| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 41.0 sn | 38 |
+| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.7 sn | 6 |
+| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟡 Dikkat | 16.7 sn | 4 |
+| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 10.3 sn | 6 |
+| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.0 sn | 2 |
+| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.3 sn | 3 |
+| [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.2 sn | 3 |
+| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 2.1 sn | 3 |
 
 <a id="universe"></a>
 ## 🟢 Hisse evreni (Nasdaq + SEC)
@@ -47,20 +47,20 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | İndeks güncelliği | 🟢 | en son kayıt 2026-10-08, 1.0 gün önce (sınır 4) |
 | 2026-10-02: toplam dosya | 🟢 | 7,159 (beklenen 1,500–15,000) |
 | 2026-10-02: Form 4 sayısı | 🟢 | 3,079 (beklenen 300–6,000) |
-| 2026-10-02: dosya tarihi indeks günüyle aynı | 🟡 | 7125/7159 = %99.5 |
+| 2026-10-02: dosya tarihi indeks günüyle aynı | 🟡 | 7125/7159 = %99.5; fark (gün): {1: 17, 8: 3, 51: 2, 45: 2, 63: 1}; formlar: {'EFFECT': 12, 'TA-1/A': 7, 'DRS': 6, 'DRS/A': 4, 'MA-A': 2}; örnek: [('DRS', 'Arca Nova Acquisition Cor', '2026-07-31'), ('DRS', 'GEORGIA BANKING CO INC', '2026-07-28'), ('DRS', 'IPFX Pubco, Inc.', '2026-08-12')] |
 | 2026-10-05: toplam dosya | 🟢 | 4,886 (beklenen 1,500–15,000) |
 | 2026-10-05: Form 4 sayısı | 🟢 | 2,413 (beklenen 300–6,000) |
-| 2026-10-05: dosya tarihi indeks günüyle aynı | 🟡 | 4854/4886 = %99.3 |
+| 2026-10-05: dosya tarihi indeks günüyle aynı | 🟡 | 4854/4886 = %99.3; fark (gün): {3: 12, 39: 3, 4: 2, 116: 2, 70: 2}; formlar: {'EFFECT': 11, 'DRS/A': 8, 'DRS': 3, 'MA-I': 3, 'MA/A': 3}; örnek: [('1/A', 'Long-Term Stock Exchange,', '2026-10-01'), ('DRS', 'DayOne Data Centers Ltd', '2026-08-10'), ('DRS', 'Lycia Therapeutics, Inc.', '2026-07-02')] |
 | 2026-10-06: toplam dosya | 🟢 | 3,501 (beklenen 1,500–15,000) |
 | 2026-10-06: Form 4 sayısı | 🟢 | 837 (beklenen 300–6,000) |
-| 2026-10-06: dosya tarihi indeks günüyle aynı | 🟡 | 3482/3501 = %99.5 |
+| 2026-10-06: dosya tarihi indeks günüyle aynı | 🟡 | 3482/3501 = %99.5; fark (gün): {1: 15, 120: 1, 7: 1, 36: 1, 585: 1}; formlar: {'EFFECT': 10, 'DRS': 3, 'PRE 14A': 2, 'APP NTC': 1, 'APP ORDR': 1}; örnek: [('APP NTC', 'Pender Real Estate Credit', '2026-10-05'), ('APP ORDR', 'Pender Real Estate Credit', '2026-10-05'), ('ATS-N/MA', 'TMX ALPHA US, LLC', '2026-10-05')] |
 | 2026-10-07: toplam dosya | 🟢 | 3,159 (beklenen 1,500–15,000) |
 | 2026-10-07: Form 4 sayısı | 🟢 | 660 (beklenen 300–6,000) |
-| 2026-10-07: dosya tarihi indeks günüyle aynı | 🟡 | 3138/3159 = %99.3 |
+| 2026-10-07: dosya tarihi indeks günüyle aynı | 🟡 | 3138/3159 = %99.3; fark (gün): {1: 14, 2: 2, 152: 1, 99: 1, 100: 1}; formlar: {'EFFECT': 8, 'MA-I/A': 5, 'DRS/A': 3, 'DRS': 2, 'MA-I': 2}; örnek: [('DEF 14A', 'Tessera Defense & Homelan', '2026-10-06'), ('DRS', 'Centinel Spine Holdco, In', '2026-05-08'), ('DRS', 'FireFly Robotics, Inc.', '2026-06-30')] |
 | 2026-10-08: toplam dosya | 🟢 | 3,193 (beklenen 1,500–15,000) |
 | 2026-10-08: Form 4 sayısı | 🟢 | 639 (beklenen 300–6,000) |
-| 2026-10-08: dosya tarihi indeks günüyle aynı | 🔴 | 3141/3193 = %98.4 |
-| Haftalık form dağılımı | ℹ️ | 4: 7628, 8-K: 943, 13F-HR: 259, SC 13D: 0, SC 13G: 0, 10-K: 9, 10-Q: 39, S-1: 19, 424B4: 3, NT 10-K: 0 |
+| 2026-10-08: dosya tarihi indeks günüyle aynı | 🔴 | 3141/3193 = %98.4; fark (gün): {1: 35, 3: 6, 2: 4, 59: 2, 38: 1}; formlar: {'EFFECT': 25, 'MA-I/A': 15, 'DRS': 3, 'MA-I': 3, 'MA/A': 3}; örnek: [('ATS-N/OFA', 'BLUE OCEAN ATS, LLC', '2026-10-05'), ('ATS-N/UA', 'GOLDMAN SACHS & CO. LLC', '2026-10-07'), ('DRS', 'Boundless Bio, Inc.', '2026-08-31')] |
+| Haftalık form dağılımı | ℹ️ | 4: 7628, 8-K: 943, 13F-HR: 259, SCHEDULE 13D: 60, SCHEDULE 13G: 284, 10-K: 9, 10-Q: 39, S-1: 19, 424B4: 3, NT 10-K: 0 |
 | Halka arz hazırlığı (S-1/F-1/424B4) | ℹ️ | 51 dosya; örnek: ['Basel Medical Group Ltd', '707 Cayman Holdings Ltd.', 'Tracx Logis Ltd.', 'CYABRA, INC.', 'Amaero Inc.', 'Calm Seas Acquisition Corp.', 'Essential Minerals Acquisition Corp', 'Gravity Acquisition Corp.'] |
 
 <a id="sec_submissions"></a>
@@ -72,7 +72,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Çapraz kontrol: dosyadaki ticker evrendeki ticker ile aynı | 🟢 | 15/15 = %100.0 |
 | Doğrulanmış gerçek: AAPL 10-K 2023-11-03 | 🟢 | bulundu |
 | 8-K'larda olay kodu (items) dolu | 🟢 | 1233/1233 = %100.0 |
-| Kabul anı ile dosyalama tarihi tutarlı (zaman damgası) | 🔴 | 7168/9841 = %72.8 |
+| Kabul anı ile dosyalama tarihi tutarlı (zaman damgası) | 🔴 | 7168/9841 = %72.8; formlar: {'4': 1768, '8-K': 209, '144': 150, '3': 75, 'EFFECT': 55, '5': 45}; örnek: [('4', '2026-10-08', '2026-10-09T02:30:32.000Z'), ('4', '2026-10-05', '2026-10-06T02:42:45.000Z'), ('4', '2026-10-05', '2026-10-06T02:39:10.000Z'), ('4', '2026-10-05', '2026-10-06T02:35:24.000Z')] |
 | AAPL son dosya güncelliği | 🟢 | en son kayıt 2026-10-08, 1.0 gün önce (sınır 45) |
 | Yıllık rapor (10-K/20-F/40-F) bulunan şirket | 🟢 | 15/15 = %100.0 |
 
@@ -86,7 +86,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Doğrulanmış gerçek: NVDA geliri (2024-01-28) | 🟢 | okunan 60,922,000,000, beklenen 60,922,000,000 |
 | Rastgele şirketlerde temel kalem (varlık/gelir/kâr) bulunan | 🟢 | 19/20 = %95.0 |
 | Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu | 🟢 | 349447/349490 = %100.0 |
-| Güncel hisse sayısı (son 200 gün) bulunan | 🟡 | 14/20 = %70.0 |
+| Güncel hisse sayısı (son 200 gün) bulunan | 🟡 | 14/20 = %70.0; eksik/eski: ['PGAC:yok', 'DNMX:yok', 'CCAQ:yok', 'WENN:yok', 'NUR:yok', 'BID:yok'] |
 | Kapsam notu | ℹ️ | 0 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: [] |
 
 <a id="sec_form4"></a>
@@ -107,12 +107,16 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Toplu veri seti örnekleri | ℹ️ | ['/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip', '/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q3_form345.zip'] … ['/files/structureddata/data/insider-transactions-data-sets/2025q4_form345.zip', '/files/structureddata/data/insider-transactions-data-sets/2026q1_form345.zip'] |
 
 <a id="sec_13f"></a>
-## 🔴 SEC 13F (fon pozisyonları)
+## 🟢 SEC 13F (fon pozisyonları)
 
 | Kontrol | Durum | Detay |
 |---|---|---|
 | Bu hafta gelen 13F-HR | ℹ️ | 259 dosya (çeyrek sonu +45 gün civarında yoğunlaşır) |
-| Çalışma hatası | 🔴 | ParseError: unbound prefix: line 1, column 0 |
+| Pozisyon tablosu ayrıştırılan 13F | 🟢 | 5/5 = %100.0 |
+| Geçerli CUSIP | 🟢 | 486/486 = %100.0 |
+| Değer ve adet pozitif | 🟢 | 482/486 = %99.2 |
+| Toplu veri seti sayısı (geriye dönük test için) | 🟢 | 54 (beklenen 20–500) |
+| Toplu veri seti örnekleri | ℹ️ | ['/files/datastandardsinnovation/data/form-13f-data-sets/01jun2026-31aug2026_form13f.zip', '/files/structureddata/data/form-13f-data-sets/01dec2024-28feb2025_form13f.zip'] … ['/files/structureddata/data/form-13f-data-sets/2023q3_form13f.zip', '/files/structureddata/data/form-13f-data-sets/2023q4_form13f.zip'] |
 
 <a id="finra"></a>
 ## 🟢 FINRA açığa satış hacmi
@@ -171,19 +175,19 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | IPG3344S – Yarı iletken üretimi (aylık): güncellik | 🟢 | en son kayıt 2026-08-01, 69.0 gün önce (sınır 75); 656 gözlem, başlangıç 1972-01-01 |
 
 <a id="gdelt"></a>
-## 🟢 GDELT haber akışı
+## 🟡 GDELT haber akışı
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-09, 0.0 gün önce (sınır 0.25) |
-| İndirilen dosya bütünlüğü (boyut + MD5) | 🟢 | 4,984,826 bayt, md5 eşleşti |
-| 15 dakikalık dosyada makale | 🟢 | 1,165 (beklenen 500–50,000) |
-| Sütun sayısı = 27 | 🟢 | 1165/1165 = %100.0 |
-| Kurum (Organizations) bilgisi olan | 🟢 | 867/1165 = %74.4 |
-| Ton değeri okunabilen | 🟢 | 1165/1165 = %100.0 |
-| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | united states (75), white house (67), parades commission (28), department of homeland security (28), new york times (23), national weather service (23), google (22), police service of northern ireland (21) |
+| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-09, -0.0 gün önce (sınır 0.25) |
+| İndirilen dosya bütünlüğü (boyut + MD5) | 🟢 | 5,244,348 bayt, md5 eşleşti |
+| 15 dakikalık dosyada makale | 🟢 | 1,238 (beklenen 500–50,000) |
+| Sütun sayısı = 27 | 🟢 | 1238/1238 = %100.0 |
+| Kurum (Organizations) bilgisi olan | 🟢 | 910/1238 = %73.5 |
+| Ton değeri okunabilen | 🟢 | 1238/1238 = %100.0 |
+| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | white house (70), united states (70), associated press (31), department of homeland security (30), instagram (29), reuters (28), facebook (23), parades commission (21) |
 | Geçmiş veri: 1 Mart 2015 dosyası makale | 🟢 | 1,209 (beklenen 100–50,000) |
-| Yardımcı: DOC API zaman serisi | ℹ️ | erişilemedi (HTTP 429); ham dosyalar yeterli |
+| Yardımcı: DOC API zaman serisi | 🟡 | 0 nokta |
 
 <a id="wikipedia"></a>
 ## 🟡 Wikipedia ilgisi + Wikidata eşleştirmesi
@@ -217,7 +221,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 |---|---|---|
 | 'Nvidia stock': haber sayısı | 🟢 | 102 (beklenen 20–200) |
 | 'Nvidia stock': tarihi okunabilen | 🟢 | 102/102 = %100.0 |
-| 'Nvidia stock': güncellik | 🟢 | en son kayıt 2026-10-09, 0.1 gün önce (sınır 2) |
+| 'Nvidia stock': güncellik | 🟢 | en son kayıt 2026-10-09, 0.0 gün önce (sınır 2) |
 | 'Nvidia stock': tekil başlık | 🟢 | 102/102 = %100.0 |
 | 'Apple earnings': haber sayısı | 🟢 | 100 (beklenen 20–200) |
 | 'Apple earnings': tarihi okunabilen | 🟢 | 100/100 = %100.0 |
@@ -225,7 +229,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | 'Apple earnings': tekil başlık | 🟢 | 98/100 = %98.0 |
 | 'Nasdaq IPO': haber sayısı | 🟢 | 100 (beklenen 20–200) |
 | 'Nasdaq IPO': tarihi okunabilen | 🟢 | 100/100 = %100.0 |
-| 'Nasdaq IPO': güncellik | 🟢 | en son kayıt 2026-10-09, 0.0 gün önce (sınır 2) |
+| 'Nasdaq IPO': güncellik | 🟢 | en son kayıt 2026-10-09, 0.1 gün önce (sınır 2) |
 | 'Nasdaq IPO': tekil başlık | 🟢 | 99/100 = %99.0 |
 
 <a id="reddit"></a>

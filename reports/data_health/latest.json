@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-09T22:47:02.262244+00:00",
+ "run_at": "2026-10-09T22:50:10.867661+00:00",
  "sources": [
   {
    "key": "universe",
@@ -13,7 +13,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.6,
+   "duration_s": 0.8,
    "requests": 2,
    "checks": [
     {
@@ -156,7 +156,7 @@
     {
      "name": "2026-10-02: dosya tarihi indeks günüyle aynı",
      "status": "warn",
-     "detail": "7125/7159 = %99.5",
+     "detail": "7125/7159 = %99.5; fark (gün): {1: 17, 8: 3, 51: 2, 45: 2, 63: 1}; formlar: {'EFFECT': 12, 'TA-1/A': 7, 'DRS': 6, 'DRS/A': 4, 'MA-A': 2}; örnek: [('DRS', 'Arca Nova Acquisition Cor', '2026-07-31'), ('DRS', 'GEORGIA BANKING CO INC', '2026-07-28'), ('DRS', 'IPFX Pubco, Inc.', '2026-08-12')]",
      "value": 0.9953
     },
     {
@@ -174,7 +174,7 @@
     {
      "name": "2026-10-05: dosya tarihi indeks günüyle aynı",
      "status": "warn",
-     "detail": "4854/4886 = %99.3",
+     "detail": "4854/4886 = %99.3; fark (gün): {3: 12, 39: 3, 4: 2, 116: 2, 70: 2}; formlar: {'EFFECT': 11, 'DRS/A': 8, 'DRS': 3, 'MA-I': 3, 'MA/A': 3}; örnek: [('1/A', 'Long-Term Stock Exchange,', '2026-10-01'), ('DRS', 'DayOne Data Centers Ltd', '2026-08-10'), ('DRS', 'Lycia Therapeutics, Inc.', '2026-07-02')]",
      "value": 0.9935
     },
     {
@@ -192,7 +192,7 @@
     {
      "name": "2026-10-06: dosya tarihi indeks günüyle aynı",
      "status": "warn",
-     "detail": "3482/3501 = %99.5",
+     "detail": "3482/3501 = %99.5; fark (gün): {1: 15, 120: 1, 7: 1, 36: 1, 585: 1}; formlar: {'EFFECT': 10, 'DRS': 3, 'PRE 14A': 2, 'APP NTC': 1, 'APP ORDR': 1}; örnek: [('APP NTC', 'Pender Real Estate Credit', '2026-10-05'), ('APP ORDR', 'Pender Real Estate Credit', '2026-10-05'), ('ATS-N/MA', 'TMX ALPHA US, LLC', '2026-10-05')]",
      "value": 0.9946
     },
     {
@@ -210,7 +210,7 @@
     {
      "name": "2026-10-07: dosya tarihi indeks günüyle aynı",
      "status": "warn",
-     "detail": "3138/3159 = %99.3",
+     "detail": "3138/3159 = %99.3; fark (gün): {1: 14, 2: 2, 152: 1, 99: 1, 100: 1}; formlar: {'EFFECT': 8, 'MA-I/A': 5, 'DRS/A': 3, 'DRS': 2, 'MA-I': 2}; örnek: [('DEF 14A', 'Tessera Defense & Homelan', '2026-10-06'), ('DRS', 'Centinel Spine Holdco, In', '2026-05-08'), ('DRS', 'FireFly Robotics, Inc.', '2026-06-30')]",
      "value": 0.9934
     },
     {
@@ -228,13 +228,13 @@
     {
      "name": "2026-10-08: dosya tarihi indeks günüyle aynı",
      "status": "fail",
-     "detail": "3141/3193 = %98.4",
+     "detail": "3141/3193 = %98.4; fark (gün): {1: 35, 3: 6, 2: 4, 59: 2, 38: 1}; formlar: {'EFFECT': 25, 'MA-I/A': 15, 'DRS': 3, 'MA-I': 3, 'MA/A': 3}; örnek: [('ATS-N/OFA', 'BLUE OCEAN ATS, LLC', '2026-10-05'), ('ATS-N/UA', 'GOLDMAN SACHS & CO. LLC', '2026-10-07'), ('DRS', 'Boundless Bio, Inc.', '2026-08-31')]",
      "value": 0.9837
     },
     {
      "name": "Haftalık form dağılımı",
      "status": "info",
-     "detail": "4: 7628, 8-K: 943, 13F-HR: 259, SC 13D: 0, SC 13G: 0, 10-K: 9, 10-Q: 39, S-1: 19, 424B4: 3, NT 10-K: 0",
+     "detail": "4: 7628, 8-K: 943, 13F-HR: 259, SCHEDULE 13D: 60, SCHEDULE 13G: 284, 10-K: 9, 10-Q: 39, S-1: 19, 424B4: 3, NT 10-K: 0",
      "value": {
       "4": 7628,
       "8-K": 943,
@@ -331,7 +331,7 @@
     {
      "name": "Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)",
      "status": "fail",
-     "detail": "7168/9841 = %72.8",
+     "detail": "7168/9841 = %72.8; formlar: {'4': 1768, '8-K': 209, '144': 150, '3': 75, 'EFFECT': 55, '5': 45}; örnek: [('4', '2026-10-08', '2026-10-09T02:30:32.000Z'), ('4', '2026-10-05', '2026-10-06T02:42:45.000Z'), ('4', '2026-10-05', '2026-10-06T02:39:10.000Z'), ('4', '2026-10-05', '2026-10-06T02:35:24.000Z')]",
      "value": 0.7284
     },
     {
@@ -417,7 +417,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 6.2,
+   "duration_s": 6.4,
    "requests": 23,
    "checks": [
     {
@@ -453,7 +453,7 @@
     {
      "name": "Güncel hisse sayısı (son 200 gün) bulunan",
      "status": "warn",
-     "detail": "14/20 = %70.0",
+     "detail": "14/20 = %70.0; eksik/eski: ['PGAC:yok', 'DNMX:yok', 'CCAQ:yok', 'WENN:yok', 'NUR:yok', 'BID:yok']",
      "value": 0.7
     },
     {
@@ -474,7 +474,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 9.1,
+   "duration_s": 9.3,
    "requests": 61,
    "checks": [
     {
@@ -624,10 +624,10 @@
    "roads": [
     3
    ],
-   "status": "fail",
-   "error": "ParseError: unbound prefix: line 1, column 0",
-   "duration_s": 0.9,
-   "requests": 5,
+   "status": "ok",
+   "error": null,
+   "duration_s": 1.0,
+   "requests": 6,
    "checks": [
     {
      "name": "Bu hafta gelen 13F-HR",
@@ -636,13 +636,78 @@
      "value": null
     },
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "ParseError: unbound prefix: line 1, column 0",
-     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/sec_13f.py\", line 47, in run\n    rows += parse_info_table(m.group(0))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/sec_13f.py\", line 26, in parse_info_table\n    root = ET.fromstring(xml)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/xml/etree/ElementTree.py\", line 1335, in XML\n    parser.feed(text)\nxml.etree.ElementTree.ParseError: unbound prefix: line 1, column 0\n"
+     "name": "Pozisyon tablosu ayrıştırılan 13F",
+     "status": "ok",
+     "detail": "5/5 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "486/486 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Değer ve adet pozitif",
+     "status": "ok",
+     "detail": "482/486 = %99.2",
+     "value": 0.9918
+    },
+    {
+     "name": "Toplu veri seti sayısı (geriye dönük test için)",
+     "status": "ok",
+     "detail": "54 (beklenen 20–500)",
+     "value": 54
+    },
+    {
+     "name": "Toplu veri seti örnekleri",
+     "status": "info",
+     "detail": "['/files/datastandardsinnovation/data/form-13f-data-sets/01jun2026-31aug2026_form13f.zip', '/files/structureddata/data/form-13f-data-sets/01dec2024-28feb2025_form13f.zip'] … ['/files/structureddata/data/form-13f-data-sets/2023q3_form13f.zip', '/files/structureddata/data/form-13f-data-sets/2023q4_form13f.zip']",
+     "value": null
     }
    ],
-   "sample": null
+   "sample": [
+    {
+     "issuer": "ISHARES",
+     "cusip": "464287200",
+     "value": 118725081.0,
+     "shares": 153570.0,
+     "type": "SH",
+     "put_call": ""
+    },
+    {
+     "issuer": "JP Morgan",
+     "cusip": "46641Q399",
+     "value": 89150114.0,
+     "shares": 641322.0,
+     "type": "SH",
+     "put_call": ""
+    },
+    {
+     "issuer": "ISHARES",
+     "cusip": "46432F339",
+     "value": 47900898.0,
+     "shares": 213386.0,
+     "type": "SH",
+     "put_call": ""
+    },
+    {
+     "issuer": "Invesco",
+     "cusip": "46090E103",
+     "value": 36523236.0,
+     "shares": 48725.0,
+     "type": "SH",
+     "put_call": ""
+    },
+    {
+     "issuer": "Vanguard",
+     "cusip": "92204A702",
+     "value": 33934909.0,
+     "shares": 264455.0,
+     "type": "SH",
+     "put_call": ""
+    }
+   ]
   },
   {
    "key": "finra",
@@ -653,7 +718,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.4,
+   "duration_s": 0.5,
    "requests": 1,
    "checks": [
     {
@@ -714,7 +779,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.9,
+   "duration_s": 1.7,
    "requests": 4,
    "checks": [
     {
@@ -850,7 +915,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 42.5,
+   "duration_s": 41.0,
    "requests": 38,
    "checks": [
     {
@@ -932,7 +997,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 3.8,
+   "duration_s": 1.7,
    "requests": 6,
    "checks": [
     {
@@ -1013,51 +1078,51 @@
     2,
     4
    ],
-   "status": "ok",
+   "status": "warn",
    "error": null,
-   "duration_s": 28.5,
-   "requests": 5,
+   "duration_s": 16.7,
+   "requests": 4,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 0.25)",
-     "value": 0.0
+     "detail": "en son kayıt 2026-10-09, -0.0 gün önce (sınır 0.25)",
+     "value": -0.01
     },
     {
      "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
      "status": "ok",
-     "detail": "4,984,826 bayt, md5 eşleşti",
+     "detail": "5,244,348 bayt, md5 eşleşti",
      "value": null
     },
     {
      "name": "15 dakikalık dosyada makale",
      "status": "ok",
-     "detail": "1,165 (beklenen 500–50,000)",
-     "value": 1165
+     "detail": "1,238 (beklenen 500–50,000)",
+     "value": 1238
     },
     {
      "name": "Sütun sayısı = 27",
      "status": "ok",
-     "detail": "1165/1165 = %100.0",
+     "detail": "1238/1238 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kurum (Organizations) bilgisi olan",
      "status": "ok",
-     "detail": "867/1165 = %74.4",
-     "value": 0.7442
+     "detail": "910/1238 = %73.5",
+     "value": 0.7351
     },
     {
      "name": "Ton değeri okunabilen",
      "status": "ok",
-     "detail": "1165/1165 = %100.0",
+     "detail": "1238/1238 = %100.0",
      "value": 1.0
     },
     {
      "name": "Bu 15 dakikada en çok geçen kurumlar",
      "status": "info",
-     "detail": "united states (75), white house (67), parades commission (28), department of homeland security (28), new york times (23), national weather service (23), google (22), police service of northern ireland (21)",
+     "detail": "white house (70), united states (70), associated press (31), department of homeland security (30), instagram (29), reuters (28), facebook (23), parades commission (21)",
      "value": null
     },
     {
@@ -1068,26 +1133,26 @@
     },
     {
      "name": "Yardımcı: DOC API zaman serisi",
-     "status": "info",
-     "detail": "erişilemedi (HTTP 429); ham dosyalar yeterli",
+     "status": "warn",
+     "detail": "0 nokta",
      "value": null
     }
    ],
    "sample": [
     {
-     "date": "20261009224500",
-     "source": "cool987fm.com",
-     "orgs": "united states"
+     "date": "20261009230000",
+     "source": "aol.co.uk",
+     "orgs": "barclays center brooklyn"
     },
     {
-     "date": "20261009224500",
-     "source": "iheart.com",
-     "orgs": "united states;centers for disease"
+     "date": "20261009230000",
+     "source": "nbcwashington.com",
+     "orgs": "d c police"
     },
     {
-     "date": "20261009224500",
-     "source": "niagarafallsreview.ca",
-     "orgs": "ontario provincial police;ottawa citizen;keel digital solutions;peel regional police;national post;skills development fu"
+     "date": "20261009230000",
+     "source": "autoweek.com",
+     "orgs": "mercedes;audrain museum;audrain automobile museum in newport;ferrari;pontiac;rickenbacker;suffolk county vanderbilt muse"
     }
    ]
   },
@@ -1101,7 +1166,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 7.3,
+   "duration_s": 10.3,
    "requests": 6,
    "checks": [
     {
@@ -1223,7 +1288,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.7,
+   "duration_s": 1.0,
    "requests": 2,
    "checks": [
     {
@@ -1236,7 +1301,7 @@
      "name": "Güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
-     "value": 0.01
+     "value": 0.02
     },
     {
      "name": "Geçmiş veri: Ocak 2016 sonuç",
@@ -1270,7 +1335,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.2,
+   "duration_s": 1.3,
    "requests": 3,
    "checks": [
     {
@@ -1288,8 +1353,8 @@
     {
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.1 gün önce (sınır 2)",
-     "value": 0.06
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
+     "value": 0.03
     },
     {
      "name": "'Nvidia stock': tekil başlık",
@@ -1336,7 +1401,7 @@
     {
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
+     "detail": "en son kayıt 2026-10-09, 0.1 gün önce (sınır 2)",
      "value": 0.05
     },
     {
@@ -1389,7 +1454,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 4.1,
+   "duration_s": 4.2,
    "requests": 3,
    "checks": [
     {
@@ -1428,7 +1493,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.8,
+   "duration_s": 2.1,
    "requests": 3,
    "checks": [
     {
@@ -1476,14 +1541,14 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/IsaacCapture",
-     "NVIDIA/TensorRT-Model-Connect",
+     "NVIDIA/nvidia-resiliency-ext",
+     "NVIDIA/nvcf",
      "NVIDIA/NemoClaw"
     ],
     "microsoft": [
-     "microsoft/BotFramework-WebChat",
      "microsoft/upgrade-agent-plugins",
-     "microsoft/aspire"
+     "microsoft/VirtualClient",
+     "microsoft/amplifier-unified"
     ],
     "apple": [
      "apple/foundationdb",
