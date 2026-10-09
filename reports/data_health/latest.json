@@ -1,0 +1,1004 @@
+{
+ "run_at": "2026-10-09T22:33:20.156137+00:00",
+ "sources": [
+  {
+   "key": "universe",
+   "title": "Hisse evreni (Nasdaq + SEC)",
+   "tier": 1,
+   "roads": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "status": "fail",
+   "error": "FetchError: https://www.sec.gov/files/company_tickers_exchange.json -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T",
+   "duration_s": 0.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Nasdaq adi hisse sayısı",
+     "status": "ok",
+     "detail": "3,434 (beklenen 2,500–4,500)",
+     "value": 3434
+    },
+    {
+     "name": "Nasdaq listesi güncelliği",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.2 gün önce (sınır 4)",
+     "value": 0.19
+    },
+    {
+     "name": "Bilinen hisseler listede",
+     "status": "ok",
+     "detail": "4/4 bulundu",
+     "value": null
+    },
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "FetchError: https://www.sec.gov/files/company_tickers_exchange.json -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T",
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/universe.py\", line 101, in run\n    sec = parse_sec_tickers(ctx.client.get(SEC_TICKERS_URL).json())\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 90, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 87, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: https://www.sec.gov/files/company_tickers_exchange.json -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T\n"
+    }
+   ],
+   "sample": null
+  },
+  {
+   "key": "sec_index",
+   "title": "SEC günlük dosya indeksi",
+   "tier": 1,
+   "roads": [
+    1,
+    3
+   ],
+   "status": "fail",
+   "error": null,
+   "duration_s": 0.8,
+   "requests": 7,
+   "checks": [
+    {
+     "name": "Erişilebilen iş günü sayısı (son 7 iş günü içinde)",
+     "status": "fail",
+     "detail": "0 (beklenen 4–5)",
+     "value": 0
+    }
+   ],
+   "sample": null
+  },
+  {
+   "key": "sec_submissions",
+   "title": "SEC şirket dosya geçmişi",
+   "tier": 1,
+   "roads": [
+    1,
+    3
+   ],
+   "status": "fail",
+   "error": null,
+   "duration_s": 0.0,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Çekilen şirket",
+     "status": "fail",
+     "detail": "0/3 = %0.0",
+     "value": 0.0
+    },
+    {
+     "name": "Çapraz kontrol: dosyadaki ticker evrendeki ticker ile aynı",
+     "status": "fail",
+     "detail": "örnek yok",
+     "value": null
+    },
+    {
+     "name": "Doğrulanmış gerçek: AAPL 10-K 2023-11-03",
+     "status": "fail",
+     "detail": "bulunamadı",
+     "value": null
+    },
+    {
+     "name": "8-K'larda olay kodu (items) dolu",
+     "status": "fail",
+     "detail": "örnek yok",
+     "value": null
+    },
+    {
+     "name": "Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)",
+     "status": "fail",
+     "detail": "örnek yok",
+     "value": null
+    },
+    {
+     "name": "AAPL son dosya güncelliği",
+     "status": "fail",
+     "detail": "tarih bulunamadı",
+     "value": null
+    },
+    {
+     "name": "Yıllık rapor (10-K/20-F/40-F) bulunan şirket",
+     "status": "fail",
+     "detail": "örnek yok",
+     "value": null
+    }
+   ],
+   "sample": {}
+  },
+  {
+   "key": "sec_xbrl",
+   "title": "SEC XBRL finansal verileri",
+   "tier": 1,
+   "roads": [
+    1
+   ],
+   "status": "fail",
+   "error": null,
+   "duration_s": 0.0,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Doğrulanmış gerçek: AAPL geliri (2023-09-30)",
+     "status": "fail",
+     "detail": "değer yok (beklenen 383,285,000,000)",
+     "value": null
+    },
+    {
+     "name": "Doğrulanmış gerçek: MSFT geliri (2023-06-30)",
+     "status": "fail",
+     "detail": "değer yok (beklenen 211,915,000,000)",
+     "value": null
+    },
+    {
+     "name": "Doğrulanmış gerçek: NVDA geliri (2024-01-28)",
+     "status": "fail",
+     "detail": "değer yok (beklenen 60,922,000,000)",
+     "value": null
+    },
+    {
+     "name": "Rastgele şirketlerde temel kalem (varlık/gelir/kâr) bulunan",
+     "status": "fail",
+     "detail": "örnek yok",
+     "value": null
+    },
+    {
+     "name": "Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu",
+     "status": "fail",
+     "detail": "örnek yok",
+     "value": null
+    },
+    {
+     "name": "Güncel hisse sayısı (son 200 gün) bulunan",
+     "status": "fail",
+     "detail": "örnek yok",
+     "value": null
+    },
+    {
+     "name": "Kapsam notu",
+     "status": "info",
+     "detail": "0 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
+     "value": null
+    }
+   ],
+   "sample": null
+  },
+  {
+   "key": "sec_form4",
+   "title": "SEC Form 4 (içeriden işlemler)",
+   "tier": 1,
+   "roads": [
+    3
+   ],
+   "status": "fail",
+   "error": null,
+   "duration_s": 0.0,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Form 4 listesi",
+     "status": "fail",
+     "detail": "SEC günlük indeksi boş; Form 4 örneklenemedi",
+     "value": null
+    }
+   ],
+   "sample": null
+  },
+  {
+   "key": "sec_13f",
+   "title": "SEC 13F (fon pozisyonları)",
+   "tier": 1,
+   "roads": [
+    3
+   ],
+   "status": "fail",
+   "error": "FetchError: https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T",
+   "duration_s": 0.1,
+   "requests": 1,
+   "checks": [
+    {
+     "name": "Bu hafta gelen 13F-HR",
+     "status": "info",
+     "detail": "0 dosya (çeyrek sonu +45 gün civarında yoğunlaşır)",
+     "value": null
+    },
+    {
+     "name": "13F örnekleme",
+     "status": "info",
+     "detail": "bu hafta 13F-HR yok; örnek ayrıştırma atlandı",
+     "value": null
+    },
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "FetchError: https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T",
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/sec_13f.py\", line 56, in run\n    page = ctx.client.get(BULK_PAGE).text\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 90, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 87, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T\n"
+    }
+   ],
+   "sample": null
+  },
+  {
+   "key": "finra",
+   "title": "FINRA açığa satış hacmi",
+   "tier": 1,
+   "roads": [
+    3
+   ],
+   "status": "fail",
+   "error": null,
+   "duration_s": 0.1,
+   "requests": 1,
+   "checks": [
+    {
+     "name": "Güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 5)",
+     "value": 1
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "ok",
+     "detail": "12,334 (beklenen 5,000–20,000)",
+     "value": 12334
+    },
+    {
+     "name": "Açığa satış ≤ toplam hacim",
+     "status": "ok",
+     "detail": "12334/12334 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Evren kapsamı",
+     "status": "fail",
+     "detail": "örnek yok",
+     "value": null
+    }
+   ],
+   "sample": [
+    {
+     "date": "20261008",
+     "symbol": "A",
+     "short": 464495.36725,
+     "exempt": 2.0,
+     "total": 1505110.859693
+    },
+    {
+     "date": "20261008",
+     "symbol": "AA",
+     "short": 793782.086693,
+     "exempt": 6534.0,
+     "total": 1503164.346548
+    },
+    {
+     "date": "20261008",
+     "symbol": "AAAA",
+     "short": 212.0,
+     "exempt": 0.0,
+     "total": 418.4123
+    }
+   ]
+  },
+  {
+   "key": "usaspending",
+   "title": "USAspending devlet sözleşmeleri",
+   "tier": 1,
+   "roads": [
+    3
+   ],
+   "status": "warn",
+   "error": null,
+   "duration_s": 1.9,
+   "requests": 4,
+   "checks": [
+    {
+     "name": "Veritabanı güncelliği",
+     "status": "warn",
+     "detail": "tarih okunamadı: '10/09/2026'",
+     "value": null
+    },
+    {
+     "name": "Palantir: son 1 yıl sözleşme",
+     "status": "ok",
+     "detail": "50 kayıt, tutarlar sayısal: 50/50",
+     "value": null
+    },
+    {
+     "name": "Microsoft: son 1 yıl sözleşme",
+     "status": "ok",
+     "detail": "50 kayıt, tutarlar sayısal: 50/50",
+     "value": null
+    },
+    {
+     "name": "Amazon Web Services: son 1 yıl sözleşme",
+     "status": "ok",
+     "detail": "50 kayıt, tutarlar sayısal: 50/50",
+     "value": null
+    }
+   ],
+   "sample": {
+    "Palantir": [
+     {
+      "internal_id": 355423040,
+      "Award ID": "W9128Z26FA001",
+      "Recipient Name": "PALANTIR USG INC",
+      "Award Amount": 637552404.79,
+      "Start Date": "2025-10-15",
+      "Awarding Agency": "Department of Defense",
+      "awarding_agency_id": 1173,
+      "agency_slug": "department-of-defense",
+      "generated_internal_id": "CONT_AWD_W9128Z26FA001_9700_W519TC25D0039_9700"
+     },
+     {
+      "internal_id": 291199463,
+      "Award ID": "70CTD022FR0000170",
+      "Recipient Name": "PALANTIR TECHNOLOGIES INC.",
+      "Award Amount": 170765322.37,
+      "Start Date": "2022-09-26",
+      "Awarding Agency": "Department of Homeland Security",
+      "awarding_agency_id": 766,
+      "agency_slug": "department-of-homeland-security",
+      "generated_internal_id": "CONT_AWD_70CTD022FR0000170_7012_GS35F0086U_4730"
+     }
+    ],
+    "Microsoft": [
+     {
+      "internal_id": 306490593,
+      "Award ID": "HC102822F0982",
+      "Recipient Name": "MICROSOFT CORPORATION",
+      "Award Amount": 219964603.76,
+      "Start Date": "2022-09-30",
+      "Awarding Agency": "Department of Defense",
+      "awarding_agency_id": 1173,
+      "agency_slug": "department-of-defense",
+      "generated_internal_id": "CONT_AWD_HC102822F0982_9700_HC102817D0001_9700"
+     },
+     {
+      "internal_id": 306489269,
+      "Award ID": "HC102821F1170",
+      "Recipient Name": "MICROSOFT CORPORATION",
+      "Award Amount": 172503499.89,
+      "Start Date": "2021-09-30",
+      "Awarding Agency": "Department of Defense",
+      "awarding_agency_id": 1173,
+      "agency_slug": "department-of-defense",
+      "generated_internal_id": "CONT_AWD_HC102821F1170_9700_HC102817D0001_9700"
+     }
+    ],
+    "Amazon Web Services": [
+     {
+      "internal_id": 348988388,
+      "Award ID": "W519TC25FA004",
+      "Recipient Name": "AMAZON WEB SERVICES, INC.",
+      "Award Amount": 165881936.34,
+      "Start Date": "2024-11-22",
+      "Awarding Agency": "Department of Defense",
+      "awarding_agency_id": 1173,
+      "agency_slug": "department-of-defense",
+      "generated_internal_id": "CONT_AWD_W519TC25FA004_9700_HC105023D0005_9700"
+     },
+     {
+      "internal_id": 281081747,
+      "Award ID": "47QDCB21F0015",
+      "Recipient Name": "AMAZON WEB SERVICES, INC.",
+      "Award Amount": 104554319.03,
+      "Start Date": "2021-06-14",
+      "Awarding Agency": "General Services Administration",
+      "awarding_agency_id": 614,
+      "agency_slug": "general-services-administration",
+      "generated_internal_id": "CONT_AWD_47QDCB21F0015_4732_47QTCA19D000C_4732"
+     }
+    ]
+   }
+  },
+  {
+   "key": "uspto",
+   "title": "USPTO patentleri (PatentsView)",
+   "tier": 1,
+   "roads": [
+    3
+   ],
+   "status": "warn",
+   "error": null,
+   "duration_s": 0.0,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "API anahtarı",
+     "status": "warn",
+     "detail": "PATENTSVIEW_API_KEY yok. Ücretsiz anahtar: https://patentsview.org/apis/keyrequest — alınınca GitHub secret olarak eklenecek",
+     "value": null
+    }
+   ],
+   "sample": null
+  },
+  {
+   "key": "prices",
+   "title": "Günlük fiyatlar (Stooq ↔ Yahoo)",
+   "tier": 2,
+   "roads": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "status": "fail",
+   "error": null,
+   "duration_s": 6.2,
+   "requests": 14,
+   "checks": [
+    {
+     "name": "Stooq veri dönen hisse",
+     "status": "fail",
+     "detail": "0/3 = %0.0",
+     "value": 0.0
+    },
+    {
+     "name": "Yahoo veri dönen hisse",
+     "status": "ok",
+     "detail": "3/3 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Çapraz kontrol: son 60 gün kapanışlar %0,5 içinde",
+     "status": "fail",
+     "detail": "örnek yok",
+     "value": null
+    },
+    {
+     "name": "Çapraz kontrol detayı (medyan fark)",
+     "status": "info",
+     "detail": "",
+     "value": null
+    },
+    {
+     "name": "Bölünme dışı %60+ günlük sıçrama",
+     "status": "ok",
+     "detail": "yok",
+     "value": null
+    },
+    {
+     "name": "Fiyat güncelliği (en eski son bar)",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 5)",
+     "value": 0
+    },
+    {
+     "name": "Stooq: NVDA bölünmesi düzeltilmiş",
+     "status": "warn",
+     "detail": "2024-06-07/10 barı yok",
+     "value": null
+    },
+    {
+     "name": "Yahoo: NVDA bölünmesi düzeltilmiş",
+     "status": "ok",
+     "detail": "7→10 Haziran 2024 değişim %0.7",
+     "value": null
+    },
+    {
+     "name": "Borsadan çıkmış hisselerin geçmiş fiyatı",
+     "status": "info",
+     "detail": "SIVB (SVB Financial (2023)): stooq=yok, yahoo=yok; ATVI (Activision Blizzard (2023)): stooq=yok, yahoo=yok; SGEN (Seagen (2023)): stooq=yok, yahoo=yok",
+     "value": null
+    }
+   ],
+   "sample": null
+  },
+  {
+   "key": "fred",
+   "title": "FRED makro ve emtia serileri",
+   "tier": 1,
+   "roads": [
+    1,
+    4
+   ],
+   "status": "warn",
+   "error": null,
+   "duration_s": 1.3,
+   "requests": 6,
+   "checks": [
+    {
+     "name": "DCOILWTICO – Ham petrol WTI (günlük): güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-06, 3.0 gün önce (sınır 10); 9517 gözlem, başlangıç 1986-01-02",
+     "value": 3
+    },
+    {
+     "name": "DGS10 – ABD 10 yıllık faiz (günlük): güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 10); 16178 gözlem, başlangıç 1962-01-02",
+     "value": 1
+    },
+    {
+     "name": "PCOPPUSDM – Bakır fiyatı (aylık): güncellik",
+     "status": "warn",
+     "detail": "en son kayıt 2026-07-01, 100.0 gün önce (sınır 75); 415 gözlem, başlangıç 1992-01-01",
+     "value": 100
+    },
+    {
+     "name": "INDPRO – Sanayi üretimi (aylık): güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-08-01, 69.0 gün önce (sınır 75); 1292 gözlem, başlangıç 1919-01-01",
+     "value": 69
+    },
+    {
+     "name": "CPIAUCSL – Tüketici fiyat endeksi (aylık): güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-08-01, 69.0 gün önce (sınır 75); 955 gözlem, başlangıç 1947-01-01",
+     "value": 69
+    },
+    {
+     "name": "IPG3344S – Yarı iletken üretimi (aylık): güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-08-01, 69.0 gün önce (sınır 75); 656 gözlem, başlangıç 1972-01-01",
+     "value": 69
+    }
+   ],
+   "sample": {
+    "DCOILWTICO": {
+     "2026-10-02": 97.89,
+     "2026-10-05": 96.13,
+     "2026-10-06": 96.24
+    },
+    "DGS10": {
+     "2026-10-06": 5.27,
+     "2026-10-07": 5.28,
+     "2026-10-08": 5.22
+    },
+    "PCOPPUSDM": {
+     "2026-05-01": 13512.15619047619,
+     "2026-06-01": 13552.04090909091,
+     "2026-07-01": 13542.82086956522
+    },
+    "INDPRO": {
+     "2026-06-01": 102.842,
+     "2026-07-01": 103.0454,
+     "2026-08-01": 103.0682
+    },
+    "CPIAUCSL": {
+     "2026-06-01": 332.568,
+     "2026-07-01": 332.813,
+     "2026-08-01": 334.131
+    },
+    "IPG3344S": {
+     "2026-06-01": 187.5187,
+     "2026-07-01": 190.2607,
+     "2026-08-01": 190.0987
+    }
+   }
+  },
+  {
+   "key": "gdelt",
+   "title": "GDELT haber akışı",
+   "tier": 2,
+   "roads": [
+    2,
+    4
+   ],
+   "status": "fail",
+   "error": "FetchError: https://api.gdeltproject.org/api/v2/doc/doc?query=\"Nvidia\"&mode=timelinevolraw&format=json&timespan=3months -> 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+   "duration_s": 84.7,
+   "requests": 5,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "FetchError: https://api.gdeltproject.org/api/v2/doc/doc?query=\"Nvidia\"&mode=timelinevolraw&format=json&timespan=3months -> 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/gdelt.py\", line 36, in run\n    points = parse_timeline(ctx.client.get(DOC.format(q=q)).json())\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 90, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 87, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: https://api.gdeltproject.org/api/v2/doc/doc?query=\"Nvidia\"&mode=timelinevolraw&format=json&timespan=3months -> 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the\n"
+    }
+   ],
+   "sample": null
+  },
+  {
+   "key": "wikipedia",
+   "title": "Wikipedia ilgisi + Wikidata eşleştirmesi",
+   "tier": 2,
+   "roads": [
+    2,
+    4
+   ],
+   "status": "fail",
+   "error": null,
+   "duration_s": 4.1,
+   "requests": 5,
+   "checks": [
+    {
+     "name": "Nvidia: gün sayısı (60 gün)",
+     "status": "ok",
+     "detail": "59 (beklenen 55–61)",
+     "value": 59
+    },
+    {
+     "name": "Nvidia: güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-07, 2.0 gün önce (sınır 3)",
+     "value": 2
+    },
+    {
+     "name": "Apple_Inc.: gün sayısı (60 gün)",
+     "status": "ok",
+     "detail": "60 (beklenen 55–61)",
+     "value": 60
+    },
+    {
+     "name": "Apple_Inc.: güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 3)",
+     "value": 1
+    },
+    {
+     "name": "Microsoft: gün sayısı (60 gün)",
+     "status": "ok",
+     "detail": "60 (beklenen 55–61)",
+     "value": 60
+    },
+    {
+     "name": "Microsoft: güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 3)",
+     "value": 1
+    },
+    {
+     "name": "Geçmiş veri: Temmuz 2015 gün sayısı",
+     "status": "ok",
+     "detail": "31 (beklenen 30–31)",
+     "value": 31
+    },
+    {
+     "name": "Wikidata ile makalesi bulunan Nasdaq hissesi",
+     "status": "fail",
+     "detail": "örnek yok",
+     "value": null
+    },
+    {
+     "name": "Eşleştirme kontrolü",
+     "status": "ok",
+     "detail": "NVDA → Nvidia, AAPL → Apple_Inc.",
+     "value": null
+    }
+   ],
+   "sample": {
+    "pageviews": {
+     "Nvidia": [
+      [
+       "2026-10-05",
+       4837
+      ],
+      [
+       "2026-10-06",
+       5246
+      ],
+      [
+       "2026-10-07",
+       5673
+      ]
+     ],
+     "Apple_Inc.": [
+      [
+       "2026-10-06",
+       5897
+      ],
+      [
+       "2026-10-07",
+       5774
+      ],
+      [
+       "2026-10-08",
+       5998
+      ]
+     ],
+     "Microsoft": [
+      [
+       "2026-10-06",
+       4922
+      ],
+      [
+       "2026-10-07",
+       5119
+      ],
+      [
+       "2026-10-08",
+       6396
+      ]
+     ]
+    },
+    "mapping_count": 1686
+   }
+  },
+  {
+   "key": "hackernews",
+   "title": "Hacker News",
+   "tier": 2,
+   "roads": [
+    2,
+    4
+   ],
+   "status": "ok",
+   "error": null,
+   "duration_s": 0.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Son 7 gün 'nvidia' haberi",
+     "status": "ok",
+     "detail": "33 (beklenen 5–100)",
+     "value": 33
+    },
+    {
+     "name": "Güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
+     "value": 0.01
+    },
+    {
+     "name": "Geçmiş veri: Ocak 2016 sonuç",
+     "status": "ok",
+     "detail": "30 (beklenen 1–10,000)",
+     "value": 30
+    }
+   ],
+   "sample": [
+    {
+     "title": "GPGPU-SIM – Cycle-Level Simulator for Nvidia GPUs with CUDA or OpenCL Workloads",
+     "points": 1
+    },
+    {
+     "title": "Nvidia Driver for macOS",
+     "points": 3
+    },
+    {
+     "title": "Boro – Linux patch review and testing CLI with a multi-stage agentic workflow",
+     "points": 1
+    }
+   ]
+  },
+  {
+   "key": "gnews",
+   "title": "Google News RSS",
+   "tier": 2,
+   "roads": [
+    2,
+    4
+   ],
+   "status": "ok",
+   "error": null,
+   "duration_s": 1.7,
+   "requests": 3,
+   "checks": [
+    {
+     "name": "'Nvidia stock': haber sayısı",
+     "status": "ok",
+     "detail": "102 (beklenen 20–200)",
+     "value": 102
+    },
+    {
+     "name": "'Nvidia stock': tarihi okunabilen",
+     "status": "ok",
+     "detail": "102/102 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "'Nvidia stock': güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
+     "value": 0.05
+    },
+    {
+     "name": "'Nvidia stock': tekil başlık",
+     "status": "ok",
+     "detail": "102/102 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "'Apple earnings': haber sayısı",
+     "status": "ok",
+     "detail": "100 (beklenen 20–200)",
+     "value": 100
+    },
+    {
+     "name": "'Apple earnings': tarihi okunabilen",
+     "status": "ok",
+     "detail": "100/100 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "'Apple earnings': güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.2 gün önce (sınır 2)",
+     "value": 0.17
+    },
+    {
+     "name": "'Apple earnings': tekil başlık",
+     "status": "ok",
+     "detail": "98/100 = %98.0",
+     "value": 0.98
+    },
+    {
+     "name": "'Nasdaq IPO': haber sayısı",
+     "status": "ok",
+     "detail": "100 (beklenen 20–200)",
+     "value": 100
+    },
+    {
+     "name": "'Nasdaq IPO': tarihi okunabilen",
+     "status": "ok",
+     "detail": "100/100 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "'Nasdaq IPO': güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
+     "value": 0.04
+    },
+    {
+     "name": "'Nasdaq IPO': tekil başlık",
+     "status": "ok",
+     "detail": "99/100 = %99.0",
+     "value": 0.99
+    }
+   ],
+   "sample": {
+    "Nvidia stock": [
+     {
+      "title": "Nvidia, Oracle, CoreWeave and other AI stocks sink on OpenAI revenue report - CNBC",
+      "source": "CNBC"
+     },
+     {
+      "title": "Micron, Nvidia and AI chip stocks fall as report on OpenAI’s revenue causes ‘undue concern’ - MarketWatch",
+      "source": "MarketWatch"
+     }
+    ],
+    "Apple earnings": [
+     {
+      "title": "Apple sets Q4 2026 earnings release for November 2 - 9to5Mac",
+      "source": "9to5Mac"
+     },
+     {
+      "title": "Apple to Report Q4 2026 Earnings on November 2 - MacRumors",
+      "source": "MacRumors"
+     }
+    ],
+    "Nasdaq IPO": [
+     {
+      "title": "Anthropic will be 'most ridiculous IPO' of year, analyst says - CNBC",
+      "source": "CNBC"
+     },
+     {
+      "title": "City Therapeutics targets $158M IPO; Iambic seeks $135M Nasdaq debut - Endpoints News",
+      "source": "Endpoints News"
+     }
+    ]
+   }
+  },
+  {
+   "key": "reddit",
+   "title": "Reddit",
+   "tier": 2,
+   "roads": [
+    2,
+    4
+   ],
+   "status": "fail",
+   "error": null,
+   "duration_s": 4.1,
+   "requests": 3,
+   "checks": [
+    {
+     "name": "Erişim yöntemi",
+     "status": "info",
+     "detail": "kimliksiz; REDDIT_CLIENT_ID/SECRET tanımlanırsa OAuth kullanılır",
+     "value": null
+    },
+    {
+     "name": "r/stocks",
+     "status": "fail",
+     "detail": "erişilemedi (HTTP 403)",
+     "value": null
+    },
+    {
+     "name": "r/investing",
+     "status": "fail",
+     "detail": "erişilemedi (HTTP 403)",
+     "value": null
+    },
+    {
+     "name": "r/wallstreetbets",
+     "status": "fail",
+     "detail": "erişilemedi (HTTP 403)",
+     "value": null
+    }
+   ],
+   "sample": {}
+  },
+  {
+   "key": "github",
+   "title": "GitHub aktivitesi",
+   "tier": 2,
+   "roads": [
+    3
+   ],
+   "status": "ok",
+   "error": null,
+   "duration_s": 2.0,
+   "requests": 3,
+   "checks": [
+    {
+     "name": "NVIDIA: depo sayısı (ilk sayfa)",
+     "status": "ok",
+     "detail": "30 (beklenen 10–30)",
+     "value": 30
+    },
+    {
+     "name": "NVIDIA: son push",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 3)",
+     "value": 0.0
+    },
+    {
+     "name": "microsoft: depo sayısı (ilk sayfa)",
+     "status": "ok",
+     "detail": "30 (beklenen 10–30)",
+     "value": 30
+    },
+    {
+     "name": "microsoft: son push",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 3)",
+     "value": 0.0
+    },
+    {
+     "name": "apple: depo sayısı (ilk sayfa)",
+     "status": "ok",
+     "detail": "30 (beklenen 10–30)",
+     "value": 30
+    },
+    {
+     "name": "apple: son push",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 3)",
+     "value": 0.04
+    },
+    {
+     "name": "Kapsam notu",
+     "status": "info",
+     "detail": "Yalnızca açık kaynak yapan şirketlerde anlamlı; şirket ↔ organizasyon eşleştirmesi 3. aşamada",
+     "value": null
+    }
+   ],
+   "sample": {
+    "NVIDIA": [
+     "NVIDIA/earth2studio",
+     "NVIDIA/Megatron-LM",
+     "NVIDIA/multi-storage-client"
+    ],
+    "microsoft": [
+     "microsoft/vscode",
+     "microsoft/onnxruntime",
+     "microsoft/playwright"
+    ],
+    "apple": [
+     "apple/foundationdb",
+     "apple/containerization",
+     "apple/apple-ads-platform-api-swift"
+    ]
+   }
+  }
+ ]
+}
