@@ -1,0 +1,30 @@
+{
+ "dataset": "ftd",
+ "partitions": {
+  "2023": {
+   "partition": "2023",
+   "fetched_at": "2026-10-09T23:14:18+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 0.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "KeyError: \"zip içinde *.txt yok: ['cnsfails202301a']\""
+    }
+   ]
+  }
+ },
+ "dataset_checks": [
+  {
+   "name": "Yüklenen yıl",
+   "status": "fail",
+   "detail": "0 yıl: [] … []"
+  }
+ ],
+ "title": "SEC fails-to-deliver (fiyat + CUSIP eşleştirmesi, 2015→)",
+ "derived": {},
+ "finalized_at": "2026-10-09T23:15:29+00:00"
+}

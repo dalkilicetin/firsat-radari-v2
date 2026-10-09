@@ -1,0 +1,48 @@
+{
+ "dataset": "fred",
+ "partitions": {
+  "all-20261009": {
+   "partition": "all-20261009",
+   "fetched_at": "2026-10-09T23:14:16+00:00",
+   "rows": 90058,
+   "bytes": 531484,
+   "sha256": "98070f55760cc52ae1fedf4b29728679f9050db93716f1f5865f109283e7ab37",
+   "columns": {
+    "series": "str",
+    "date": "datetime64[s]",
+    "value": "float64"
+   },
+   "sources": [
+    "https://fred.stlouisfed.org/graph/fredgraph.csv?id=<seri>"
+   ],
+   "notes": {
+    "failed": {}
+   },
+   "asset": "fred__all-20261009.parquet",
+   "status": "warn",
+   "duration_s": 11.5,
+   "requests": 43,
+   "checks": [
+    {
+     "name": "İndirilen seri",
+     "status": "ok",
+     "detail": "43/43 = %100.0"
+    },
+    {
+     "name": "2015'ten önce başlayan seri",
+     "status": "warn",
+     "detail": "42/43; geç başlayanlar: {'BAMLH0A0HYM2': '2023-10-10'}"
+    },
+    {
+     "name": "Son 200 günde güncellenen seri",
+     "status": "ok",
+     "detail": "43/43; eskiler: yok"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [],
+ "title": "FRED makro, emtia ve sektör serileri",
+ "derived": {},
+ "finalized_at": "2026-10-09T23:15:29+00:00"
+}

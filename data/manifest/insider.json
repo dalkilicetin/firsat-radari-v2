@@ -1,0 +1,157 @@
+{
+ "dataset": "insider",
+ "partitions": {
+  "2024q1": {
+   "partition": "2024q1",
+   "fetched_at": "2026-10-09T23:14:21+00:00",
+   "rows": 111404,
+   "bytes": 2868204,
+   "sha256": "daa770226fa96d76747d5b41c0ce1cc6b449043a616eecdebfe6b590b108e837",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2024q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2024q1.parquet",
+   "status": "ok",
+   "duration_s": 3.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "111,404 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "111404/111404 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "111404/111404 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "111404/111404 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "111390/111404 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "33082/33145 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "32658/33145 = %98.5"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "111404/111404 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,171 şirket, açık piyasa alımı (P): 5,954"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [
+  {
+   "name": "Yüklenen çeyrek",
+   "status": "ok",
+   "detail": "1 çeyrek: ['2024q1'] … ['2024q1']"
+  },
+  {
+   "name": "Çeyrek başına işlem sayısı tutarlılığı",
+   "status": "ok",
+   "detail": "medyan 111,404; medyanın yarısının altında: yok"
+  },
+  {
+   "name": "Çapraz kontrol: toplu veri ↔ özgün Form 4 (2024q1)",
+   "status": "fail",
+   "detail": "15/20 = %75.0; farklar: [\"0001562180-24-001042: toplu=[('A', 62.0, 124.98)] ham=[('A', 62.0, 124.9839)]\", \"0000950170-24-030880: toplu=[('M', 60000.0, 64.5), ('S', 600.0, 286.6)] ham=[('M', 60000.0, 64.5033), ('S', 600.0, 286.604)]\", \"0000950170-24-002271: toplu=[('P', 162842.0, 29.18), ('P', 261090.0, 29.54)] ham=[('P', 162842.0, 29.1829), ('P', 261090.0, 29.5365)]\"]"
+  }
+ ],
+ "title": "SEC içeriden işlemler (Form 4, 2015→)",
+ "derived": {},
+ "finalized_at": "2026-10-09T23:15:34+00:00"
+}

@@ -1,0 +1,54 @@
+{
+ "dataset": "listings",
+ "partitions": {
+  "tiingo-20261009": {
+   "partition": "tiingo-20261009",
+   "fetched_at": "2026-10-09T23:14:15+00:00",
+   "rows": 108981,
+   "bytes": 962316,
+   "sha256": "24122fbfe8dddfb1ee080644ed773f0f4dcf70dbbe619d2182f645e641be0776",
+   "columns": {
+    "ticker": "str",
+    "exchange": "str",
+    "asset_type": "str",
+    "currency": "str",
+    "start_date": "datetime64[us]",
+    "end_date": "datetime64[us]"
+   },
+   "sources": [
+    "https://apimedia.tiingo.com/docs/tiingo/daily/supported_tickers.zip"
+   ],
+   "notes": {},
+   "asset": "listings__tiingo-20261009.parquet",
+   "status": "fail",
+   "duration_s": 0.4,
+   "requests": 1,
+   "checks": [
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "108,981 (beklenen 20,000–300,000)"
+    },
+    {
+     "name": "Şu an işlem gören Nasdaq hissesi (evrenimiz 3.434)",
+     "status": "fail",
+     "detail": "4,860 (beklenen 2,800–4,500)"
+    },
+    {
+     "name": "2015'ten bu yana Nasdaq'tan çıkan hisse",
+     "status": "info",
+     "detail": "4,233"
+    },
+    {
+     "name": "Bilinen çıkışlar doğru tarihle listede",
+     "status": "fail",
+     "detail": "1/3 = %33.3; [('SIVB', 'yok'), ('ATVI', '2023-10-13'), ('SGEN', '2026-10-09')]"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [],
+ "title": "Tiingo hisse listesi (borsadan çıkmışlar dahil)",
+ "derived": {},
+ "finalized_at": "2026-10-09T23:15:27+00:00"
+}

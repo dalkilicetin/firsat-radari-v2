@@ -1,0 +1,87 @@
+{
+ "dataset": "holdings",
+ "partitions": {
+  "2023q4": {
+   "partition": "2023q4",
+   "fetched_at": "2026-10-09T23:14:45+00:00",
+   "rows": 2886468,
+   "bytes": 37228594,
+   "sha256": "3d43171e0c9c4972aaf1661ae773b32c51114abdb995c18b48ba143457a474ae",
+   "columns": {
+    "accession": "str",
+    "filer_cik": "Int64",
+    "filer_name": "str",
+    "form": "str",
+    "is_amendment": "bool",
+    "amendment_type": "str",
+    "period": "datetime64[us]",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "cusip": "str",
+    "issuer": "str",
+    "title": "str",
+    "value": "int64",
+    "shares": "int64",
+    "share_type": "str",
+    "put_call": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/form-13f-data-sets/2023q4_form13f.zip"
+   ],
+   "notes": {
+    "filings": 9196
+   },
+   "asset": "holdings__2023q4.parquet",
+   "status": "warn",
+   "duration_s": 17.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Dosya (13F-HR) sayısı",
+     "status": "ok",
+     "detail": "9,196 (beklenen 3,000–15,000)"
+    },
+    {
+     "name": "Pozisyon satırı",
+     "status": "ok",
+     "detail": "2,886,468 (beklenen 500,000–6,000,000)"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "2883119/2886468 = %99.9"
+    },
+    {
+     "name": "Değer ve adet > 0",
+     "status": "warn",
+     "detail": "2825718/2886468 = %97.9"
+    },
+    {
+     "name": "Dönem sonu ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "2886468/2886468 = %100.0"
+    },
+    {
+     "name": "Birim kontrolü: AAPL değer/adet (medyan $)",
+     "status": "ok",
+     "detail": "171.21 $ (2023-09-30 dönemi)"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "6,951 kurum, 33,176 CUSIP, düzeltme dosyası: 161,375 satır"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [
+  {
+   "name": "Yüklenen bölüm",
+   "status": "ok",
+   "detail": "1 bölüm: ['2023q4'] … ['2023q4']"
+  }
+ ],
+ "title": "SEC 13F kurumsal pozisyonlar (2015→)",
+ "derived": {},
+ "finalized_at": "2026-10-09T23:15:37+00:00"
+}
