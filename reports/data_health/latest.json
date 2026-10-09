@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-09T22:33:20.156137+00:00",
+ "run_at": "2026-10-09T22:37:53.034785+00:00",
  "sources": [
   {
    "key": "universe",
@@ -12,8 +12,8 @@
     4
    ],
    "status": "fail",
-   "error": "FetchError: https://www.sec.gov/files/company_tickers_exchange.json -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T",
-   "duration_s": 0.3,
+   "error": null,
+   "duration_s": 0.4,
    "requests": 2,
    "checks": [
     {
@@ -35,10 +35,16 @@
      "value": null
     },
     {
-     "name": "Çalışma hatası",
+     "name": "SEC ticker→CIK eşleştirmesi",
      "status": "fail",
-     "detail": "FetchError: https://www.sec.gov/files/company_tickers_exchange.json -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T",
-     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/universe.py\", line 101, in run\n    sec = parse_sec_tickers(ctx.client.get(SEC_TICKERS_URL).json())\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 90, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 87, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: https://www.sec.gov/files/company_tickers_exchange.json -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T\n"
+     "detail": "erişilemedi (HTTP 403)",
+     "value": null
+    },
+    {
+     "name": "Yeni listelenen / çıkan hisseler",
+     "status": "info",
+     "detail": "ilk çalışma, karşılaştırılacak anlık görüntü yok",
+     "value": null
     }
    ],
    "sample": null
@@ -53,7 +59,7 @@
    ],
    "status": "fail",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.9,
    "requests": 7,
    "checks": [
     {
@@ -229,7 +235,7 @@
      "name": "Çalışma hatası",
      "status": "fail",
      "detail": "FetchError: https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T",
-     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/sec_13f.py\", line 56, in run\n    page = ctx.client.get(BULK_PAGE).text\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 90, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 87, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T\n"
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/sec_13f.py\", line 56, in run\n    page = ctx.client.get(BULK_PAGE).text\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T\n"
     }
    ],
    "sample": null
@@ -241,9 +247,9 @@
    "roads": [
     3
    ],
-   "status": "fail",
+   "status": "ok",
    "error": null,
-   "duration_s": 0.1,
+   "duration_s": 0.3,
    "requests": 1,
    "checks": [
     {
@@ -266,9 +272,9 @@
     },
     {
      "name": "Evren kapsamı",
-     "status": "fail",
-     "detail": "örnek yok",
-     "value": null
+     "status": "ok",
+     "detail": "3355/3434 = %97.7",
+     "value": 0.977
     }
    ],
    "sample": [
@@ -302,16 +308,16 @@
    "roads": [
     3
    ],
-   "status": "warn",
+   "status": "ok",
    "error": null,
-   "duration_s": 1.9,
+   "duration_s": 1.0,
    "requests": 4,
    "checks": [
     {
      "name": "Veritabanı güncelliği",
-     "status": "warn",
-     "detail": "tarih okunamadı: '10/09/2026'",
-     "value": null
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 10)",
+     "value": 0
     },
     {
      "name": "Palantir: son 1 yıl sözleşme",
@@ -430,7 +436,7 @@
   },
   {
    "key": "prices",
-   "title": "Günlük fiyatlar (Stooq ↔ Yahoo)",
+   "title": "Günlük fiyatlar (Yahoo ↔ Nasdaq ↔ Stooq)",
    "tier": 2,
    "roads": [
     1,
@@ -440,61 +446,73 @@
    ],
    "status": "fail",
    "error": null,
-   "duration_s": 6.2,
-   "requests": 14,
+   "duration_s": 44.7,
+   "requests": 57,
    "checks": [
     {
-     "name": "Stooq veri dönen hisse",
-     "status": "fail",
-     "detail": "0/3 = %0.0",
-     "value": 0.0
-    },
-    {
-     "name": "Yahoo veri dönen hisse",
+     "name": "Yahoo: veri dönen hisse",
      "status": "ok",
-     "detail": "3/3 = %100.0",
+     "detail": "15/15 = %100.0",
      "value": 1.0
     },
     {
-     "name": "Çapraz kontrol: son 60 gün kapanışlar %0,5 içinde",
-     "status": "fail",
-     "detail": "örnek yok",
-     "value": null
+     "name": "Nasdaq: veri dönen hisse",
+     "status": "ok",
+     "detail": "15/15 = %100.0",
+     "value": 1.0
     },
     {
-     "name": "Çapraz kontrol detayı (medyan fark)",
+     "name": "Stooq: veri dönen hisse",
+     "status": "fail",
+     "detail": "0/15 = %0.0 — örnek yanıt: AAPL: <!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T",
+     "value": 0.0
+    },
+    {
+     "name": "Çapraz kontrol: en az iki kaynak %0,5 içinde (son 60 gün)",
+     "status": "ok",
+     "detail": "15/15 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "yahoo ↔ nasdaq medyan fark",
      "status": "info",
-     "detail": "",
+     "detail": "%0.000 (15 hisse)",
      "value": null
     },
     {
      "name": "Bölünme dışı %60+ günlük sıçrama",
-     "status": "ok",
-     "detail": "yok",
+     "status": "warn",
+     "detail": "yahoo:KRRO:['2025-11-13']; nasdaq:KRRO:['2025-11-13']",
      "value": null
     },
     {
      "name": "Fiyat güncelliği (en eski son bar)",
-     "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 5)",
-     "value": 0
-    },
-    {
-     "name": "Stooq: NVDA bölünmesi düzeltilmiş",
      "status": "warn",
-     "detail": "2024-06-07/10 barı yok",
-     "value": null
+     "detail": "en son kayıt 2026-10-02, 7.0 gün önce (sınır 5)",
+     "value": 7
     },
     {
-     "name": "Yahoo: NVDA bölünmesi düzeltilmiş",
+     "name": "yahoo: NVDA bölünmesi düzeltilmiş",
      "status": "ok",
      "detail": "7→10 Haziran 2024 değişim %0.7",
      "value": null
     },
     {
+     "name": "nasdaq: NVDA bölünmesi düzeltilmiş",
+     "status": "ok",
+     "detail": "7→10 Haziran 2024 değişim %0.7",
+     "value": null
+    },
+    {
+     "name": "stooq: NVDA bölünmesi düzeltilmiş",
+     "status": "info",
+     "detail": "2024-06-07/10 barı yok",
+     "value": null
+    },
+    {
      "name": "Borsadan çıkmış hisselerin geçmiş fiyatı",
      "status": "info",
-     "detail": "SIVB (SVB Financial (2023)): stooq=yok, yahoo=yok; ATVI (Activision Blizzard (2023)): stooq=yok, yahoo=yok; SGEN (Seagen (2023)): stooq=yok, yahoo=yok",
+     "detail": "SIVB (SVB Financial (2023)): yahoo=yok, nasdaq=yok, stooq=yok; ATVI (Activision Blizzard (2023)): yahoo=yok, nasdaq=yok, stooq=yok; SGEN (Seagen (2023)): yahoo=yok, nasdaq=yok, stooq=yok",
      "value": null
     }
    ],
@@ -508,7 +526,7 @@
     1,
     4
    ],
-   "status": "warn",
+   "status": "ok",
    "error": null,
    "duration_s": 1.3,
    "requests": 6,
@@ -526,9 +544,9 @@
      "value": 1
     },
     {
-     "name": "PCOPPUSDM – Bakır fiyatı (aylık): güncellik",
-     "status": "warn",
-     "detail": "en son kayıt 2026-07-01, 100.0 gün önce (sınır 75); 415 gözlem, başlangıç 1992-01-01",
+     "name": "PCOPPUSDM – Bakır fiyatı (aylık, IMF kaynaklı ~3 ay gecikmeli): güncellik",
+     "status": "ok",
+     "detail": "en son kayıt 2026-07-01, 100.0 gün önce (sınır 130); 415 gözlem, başlangıç 1992-01-01",
      "value": 100
     },
     {
@@ -592,15 +610,21 @@
     4
    ],
    "status": "fail",
-   "error": "FetchError: https://api.gdeltproject.org/api/v2/doc/doc?query=\"Nvidia\"&mode=timelinevolraw&format=json&timespan=3months -> 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
-   "duration_s": 84.7,
-   "requests": 5,
+   "error": "FetchError: http://data.gdeltproject.org/gdeltv2/20261009224500.gkg.csv.zip -> 404: ",
+   "duration_s": 0.5,
+   "requests": 2,
    "checks": [
+    {
+     "name": "Ham dosya akışı güncelliği",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, -0.0 gün önce (sınır 0.25)",
+     "value": -0.0
+    },
     {
      "name": "Çalışma hatası",
      "status": "fail",
-     "detail": "FetchError: https://api.gdeltproject.org/api/v2/doc/doc?query=\"Nvidia\"&mode=timelinevolraw&format=json&timespan=3months -> 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
-     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/gdelt.py\", line 36, in run\n    points = parse_timeline(ctx.client.get(DOC.format(q=q)).json())\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 90, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 87, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: https://api.gdeltproject.org/api/v2/doc/doc?query=\"Nvidia\"&mode=timelinevolraw&format=json&timespan=3months -> 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the\n"
+     "detail": "FetchError: http://data.gdeltproject.org/gdeltv2/20261009224500.gkg.csv.zip -> 404: ",
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/gdelt.py\", line 73, in run\n    blob = ctx.client.get(url).content\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: http://data.gdeltproject.org/gdeltv2/20261009224500.gkg.csv.zip -> 404: \n"
     }
    ],
    "sample": null
@@ -615,7 +639,7 @@
    ],
    "status": "fail",
    "error": null,
-   "duration_s": 4.1,
+   "duration_s": 0.8,
    "requests": 5,
    "checks": [
     {
@@ -663,8 +687,8 @@
     {
      "name": "Wikidata ile makalesi bulunan Nasdaq hissesi",
      "status": "fail",
-     "detail": "örnek yok",
-     "value": null
+     "detail": "777/3434 = %22.6",
+     "value": 0.2263
     },
     {
      "name": "Eşleştirme kontrolü",
@@ -731,7 +755,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.6,
+   "duration_s": 0.8,
    "requests": 2,
    "checks": [
     {
@@ -802,8 +826,8 @@
     {
      "name": "'Nvidia stock': tekil başlık",
      "status": "ok",
-     "detail": "102/102 = %100.0",
-     "value": 1.0
+     "detail": "101/102 = %99.0",
+     "value": 0.9902
     },
     {
      "name": "'Apple earnings': haber sayısı",
@@ -895,7 +919,7 @@
     2,
     4
    ],
-   "status": "fail",
+   "status": "warn",
    "error": null,
    "duration_s": 4.1,
    "requests": 3,
@@ -908,20 +932,20 @@
     },
     {
      "name": "r/stocks",
-     "status": "fail",
-     "detail": "erişilemedi (HTTP 403)",
+     "status": "warn",
+     "detail": "erişilemedi (HTTP 403) — ücretsiz Reddit OAuth uygulaması gerekiyor",
      "value": null
     },
     {
      "name": "r/investing",
-     "status": "fail",
-     "detail": "erişilemedi (HTTP 403)",
+     "status": "warn",
+     "detail": "erişilemedi (HTTP 403) — ücretsiz Reddit OAuth uygulaması gerekiyor",
      "value": null
     },
     {
      "name": "r/wallstreetbets",
-     "status": "fail",
-     "detail": "erişilemedi (HTTP 403)",
+     "status": "warn",
+     "detail": "erişilemedi (HTTP 403) — ücretsiz Reddit OAuth uygulaması gerekiyor",
      "value": null
     }
    ],
@@ -936,7 +960,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.0,
+   "duration_s": 1.6,
    "requests": 3,
    "checks": [
     {
@@ -984,14 +1008,14 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/earth2studio",
-     "NVIDIA/Megatron-LM",
-     "NVIDIA/multi-storage-client"
+     "NVIDIA/Model-Optimizer",
+     "NVIDIA/NemoClaw",
+     "NVIDIA/cuda-python"
     ],
     "microsoft": [
-     "microsoft/vscode",
-     "microsoft/onnxruntime",
-     "microsoft/playwright"
+     "microsoft/winappCli",
+     "microsoft/sql-apps",
+     "microsoft/winget-pkgs"
     ],
     "apple": [
      "apple/foundationdb",
