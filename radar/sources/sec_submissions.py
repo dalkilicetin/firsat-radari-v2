@@ -8,6 +8,7 @@ ve 8-K'lar için olay kodları (items). 8-K kodları risk ve fırsat sinyalidir:
 
 from __future__ import annotations
 
+from collections import Counter
 from datetime import date, datetime
 
 from radar.quality import SourceReport, Status
@@ -56,7 +57,7 @@ def run(ctx: Context, rep: SourceReport) -> None:
     rep.expect_min_ratio("8-K'larda olay kodu (items) dolu", sum(1 for f in eight_k if f["items"]),
                          len(eight_k), 0.97, 0.9)
 
-    consistent = 0
+    consistent, bad = 0, []
     for f in all_filings:
         try:
             accepted = datetime.fromisoformat(f["acceptanceDateTime"].replace("Z", "+00:00")).date()
@@ -66,7 +67,12 @@ def run(ctx: Context, rep: SourceReport) -> None:
         # Kabul anı, dosyalama tarihiyle aynı gün ya da (17:30 sonrası kabullerde) bir gün önce olur.
         if 0 <= (filed - accepted).days <= 3:
             consistent += 1
-    rep.expect_min_ratio("Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)", consistent, len(all_filings), 0.99, 0.95)
+        else:
+            bad.append(f)
+    check = rep.expect_min_ratio("Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)", consistent, len(all_filings), 0.99, 0.95)
+    if bad:
+        check.detail += (f"; formlar: {dict(Counter(f['form'] for f in bad).most_common(6))}"
+                         f"; örnek: {[(f['form'], f['filingDate'], f['acceptanceDateTime']) for f in bad[:4]]}")
 
     latest = max((f["filingDate"] for f in aapl), default=None)
     rep.expect_fresh("AAPL son dosya güncelliği", date.fromisoformat(latest) if latest else None, 45, ctx.today)

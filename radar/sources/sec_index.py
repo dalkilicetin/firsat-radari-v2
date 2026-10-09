@@ -71,13 +71,17 @@ def run(ctx: Context, rep: SourceReport) -> None:
         forms = Counter(r.form for r in rows)
         rep.expect_range(f"{d}: toplam dosya", len(rows), 1500, 15000)
         rep.expect_range(f"{d}: Form 4 sayısı", forms["4"], 300, 6000)
-        mismatched = sum(1 for r in rows if r.filed != d)
-        rep.expect_min_ratio(f"{d}: dosya tarihi indeks günüyle aynı", len(rows) - mismatched, len(rows), 0.999, 0.99)
+        mismatched = [r for r in rows if r.filed != d]
+        check = rep.expect_min_ratio(f"{d}: dosya tarihi indeks günüyle aynı", len(rows) - len(mismatched), len(rows), 0.999, 0.99)
+        if mismatched:
+            gaps = Counter((d - r.filed).days for r in mismatched)
+            check.detail += (f"; fark (gün): {dict(gaps.most_common(5))}; formlar: {dict(Counter(r.form for r in mismatched).most_common(5))}"
+                             f"; örnek: {[(r.form, r.company[:25], str(r.filed)) for r in mismatched[:3]]}")
 
     all_rows = [r for rows in per_day.values() for r in rows]
     forms = Counter(r.form for r in all_rows)
     rep.add("Haftalık form dağılımı", Status.INFO,
-            ", ".join(f"{f}: {forms[f]}" for f in ["4", "8-K", "13F-HR", "SC 13D", "SC 13G", "10-K", "10-Q", "S-1", "424B4", "NT 10-K"]),
+            ", ".join(f"{f}: {forms[f]}" for f in ["4", "8-K", "13F-HR", "SCHEDULE 13D", "SCHEDULE 13G", "10-K", "10-Q", "S-1", "424B4", "NT 10-K"]),
             {f: forms[f] for f in ["4", "8-K", "13F-HR", "10-K", "10-Q", "S-1", "424B4", "NT 10-K"]})
     ipo = [r for r in all_rows if r.form in IPO_FORMS]
     rep.add("Halka arz hazırlığı (S-1/F-1/424B4)", Status.INFO,

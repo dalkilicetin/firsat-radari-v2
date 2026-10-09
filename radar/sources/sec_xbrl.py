@@ -44,6 +44,16 @@ def annual_value(facts: dict, tags: list[str], end: str, taxonomy: str = "us-gaa
     return None
 
 
+SHARES_TAGS = [("dei", "EntityCommonStockSharesOutstanding"), ("us-gaap", "CommonStockSharesOutstanding")]
+
+
+def latest_shares_filed(facts: dict) -> str | None:
+    """Hisse sayısının en son dosyalandığı tarih. Kapak sayfası (dei) yoksa bilanço kalemine bakılır."""
+    dates = [v["filed"] for tx, tag in SHARES_TAGS
+             for v in facts.get("facts", {}).get(tx, {}).get(tag, {}).get("units", {}).get("shares", [])]
+    return max(dates, default=None)
+
+
 def iter_values(facts: dict):
     for taxonomy, tags in facts.get("facts", {}).items():
         for tag, body in tags.items():
@@ -85,13 +95,16 @@ def run(ctx: Context, rep: SourceReport) -> None:
                     bad_time += 1
     rep.expect_min_ratio("Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu", total - bad_time, total, 0.999, 0.99)
 
-    shares_dates = []
+    fresh, missing = 0, []
     for t in sampled:
-        values = facts_by_ticker[t].get("facts", {}).get("dei", {}).get("EntityCommonStockSharesOutstanding", {}).get("units", {}).get("shares", [])
-        if values:
-            shares_dates.append(max(v["filed"] for v in values))
-    rep.expect_min_ratio("Güncel hisse sayısı (son 200 gün) bulunan", sum(1 for d in shares_dates if (ctx.today - date.fromisoformat(d)).days <= 200),
-                         len(sampled), 0.75, 0.6)
+        last = latest_shares_filed(facts_by_ticker[t])
+        if last and (ctx.today - date.fromisoformat(last)).days <= 200:
+            fresh += 1
+        else:
+            missing.append(f"{t}:{last or 'yok'}")
+    check = rep.expect_min_ratio("Güncel hisse sayısı (son 200 gün) bulunan", fresh, len(sampled), 0.85, 0.7)
+    if missing:
+        check.detail += f"; eksik/eski: {missing}"
 
     ifrs = sum(1 for t in sampled if "ifrs-full" in facts_by_ticker[t].get("facts", {}))
     errors = [t for t in sampled if "_error" in facts_by_ticker[t]]

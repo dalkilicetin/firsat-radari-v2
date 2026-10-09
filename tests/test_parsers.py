@@ -203,3 +203,16 @@ def test_gdelt_last_update_and_gkg():
         zf.writestr("a.gkg.csv", "\t".join(row) + "\n")
     rows = gdelt.read_gkg(buf.getvalue())
     assert len(rows) == 1 and rows[0][gdelt.COL_ORGS] == "nvidia;apple"
+
+
+def test_parse_13f_unbound_prefix():
+    xml = ('<informationTable xsi:schemaLocation="a b"><n1:infoTable><n1:nameOfIssuer>X</n1:nameOfIssuer>'
+           '<n1:cusip>037833100</n1:cusip><n1:value>5</n1:value><n1:shrsOrPrnAmt><n1:sshPrnamt>2</n1:sshPrnamt>'
+           '</n1:shrsOrPrnAmt></n1:infoTable></informationTable>')
+    assert sec_13f.parse_info_table(xml)[0]["shares"] == 2
+
+
+def test_latest_shares_filed_falls_back_to_balance_sheet():
+    facts = {"facts": {"us-gaap": {"CommonStockSharesOutstanding": {"units": {"shares": [{"filed": "2026-08-01"}]}}}}}
+    assert sec_xbrl.latest_shares_filed(facts) == "2026-08-01"
+    assert sec_xbrl.latest_shares_filed({}) is None

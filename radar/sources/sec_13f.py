@@ -19,11 +19,16 @@ BULK_PAGE = "https://www.sec.gov/data-research/sec-markets-data/form-13f-data-se
 CUSIP = re.compile(r"^[0-9A-Z]{8}[0-9]$")
 
 
+def strip_namespaces(xml: str) -> str:
+    """Ad alanı önekleri dosyadan dosyaya değişir (ns1:, n1:, önek yok) ve bazen tanımsız kalır;
+    hepsini metinden silip yerel adlarla ayrıştırıyoruz."""
+    xml = re.sub(r'\s[\w.-]+:[\w.-]+\s*=\s*"[^"]*"', "", xml)  # önekli öznitelikler (xmlns:x, xsi:schemaLocation)
+    xml = re.sub(r'\sxmlns\s*=\s*"[^"]*"', "", xml)
+    return re.sub(r"<(/?)[\w.-]+:", r"<\1", xml)
+
+
 def parse_info_table(xml: str) -> list[dict]:
-    # Ad alanlarını (namespace) yok sayarak ayrıştır.
-    xml = re.sub(r'\sxmlns(:\w+)?="[^"]+"', "", xml)
-    xml = re.sub(r"<(/?)\w+:", r"<\1", xml)
-    root = ET.fromstring(xml)
+    root = ET.fromstring(strip_namespaces(xml))
     rows = []
     for it in root.iter("infoTable"):
         get = lambda p: (it.findtext(p) or "").strip()
