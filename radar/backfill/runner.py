@@ -1,6 +1,7 @@
 """Geçmiş veri yükleme komutları (GitHub Actions'tan çağrılır).
 
-    python -m radar.backfill.runner plan --dataset insider [--only 2024q1,2024q2] [--force]
+    python -m radar.backfill.runner plan [--dataset insider [--only 2024q1,2024q2] [--force]]
+        (--dataset yoksa istekler backfill-request.json dosyasından okunur)
     python -m radar.backfill.runner run --dataset insider --partition 2024q1
     python -m radar.backfill.runner finalize --dataset insider
 """
@@ -27,17 +28,34 @@ PARTS_DIR = storage.MANIFEST_DIR / "parts"
 REPORT_DIR = storage.config.ROOT / "reports" / "backfill"
 
 
-def cmd_plan(args) -> None:
-    ds = DATASETS[args.dataset]
+REQUEST_FILE = storage.config.ROOT / "backfill-request.json"
+MATRIX_LIMIT = 250  # GitHub Actions matrix sınırı 256; fazlası sonraki istekte devam eder.
+
+
+def plan(dataset: str, only: str = "", force: bool = False) -> list[str]:
+    ds = DATASETS[dataset]
     available = ds.partitions(HttpClient(), date.today())
-    if args.only:
-        wanted = set(args.only.split(","))
-        todo = [p for p in available if p in wanted]
+    if only:
+        wanted = set(only.split(","))
+        return [p for p in available if p in wanted]
+    done = {p for p, e in storage.load_manifest(ds.name)["partitions"].items() if e["status"] != "fail"}
+    return available if force else [p for p in available if p not in done]
+
+
+def cmd_plan(args) -> None:
+    """İstek: komut satırı (--dataset) ya da backfill-request.json ([{"dataset", "only", "force"}, ...])."""
+    if args.dataset:
+        requests = [{"dataset": args.dataset, "only": args.only or "", "force": args.force}]
     else:
-        done = {p for p, e in storage.load_manifest(ds.name)["partitions"].items() if e["status"] != "fail"}
-        todo = available if args.force else [p for p in available if p not in done]
-    # GitHub Actions matrix sınırı 256; büyük setler birkaç çalışmaya bölünür.
-    print(json.dumps({"partition": todo[:250], "max_parallel": ds.max_parallel, "total": len(todo)}))
+        requests = json.loads(REQUEST_FILE.read_text())["requests"]
+    include, datasets = [], []
+    for r in requests:
+        parts = plan(r["dataset"], r.get("only", ""), r.get("force", False))
+        include += [{"dataset": r["dataset"], "partition": p} for p in parts]
+        datasets.append(r["dataset"])
+    print(json.dumps({"matrix": {"include": include[:MATRIX_LIMIT]}, "count": len(include[:MATRIX_LIMIT]),
+                      "total": len(include), "datasets": " ".join(datasets),
+                      "max_parallel": min(DATASETS[d].max_parallel * len(datasets), 6)}))
 
 
 def cmd_run(args) -> int:
@@ -119,7 +137,7 @@ def main(argv=None) -> int:
     sub = p.add_subparsers(dest="cmd", required=True)
     for name in ("plan", "run", "finalize"):
         sp = sub.add_parser(name)
-        sp.add_argument("--dataset", required=True, choices=sorted(DATASETS))
+        sp.add_argument("--dataset", required=name != "plan", choices=sorted(DATASETS))
         if name == "plan":
             sp.add_argument("--only")
             sp.add_argument("--force", action="store_true")

@@ -1,31 +1,22 @@
 name: Geçmiş Veri Yükleme
 
+# İstekler backfill-request.json dosyasındadır; dosya değişip gönderildiğinde çalışır.
 on:
+  push:
+    branches: [claude/yeni-firsat-radari-z71fl2]
+    paths: ["backfill-request.json"]
   workflow_dispatch:
-    inputs:
-      dataset:
-        description: "Veri seti: insider | financials | ftd | listings | fred"
-        required: true
-      only:
-        description: "Yalnızca bu bölümler (virgülle; boşsa eksik olanların hepsi)"
-        required: false
-        default: ""
-      force:
-        description: "Yüklenmiş bölümleri de yeniden yükle"
-        type: boolean
-        default: false
 
 permissions:
   contents: write
 
 concurrency:
-  group: backfill-${{ inputs.dataset }}
+  group: backfill
   cancel-in-progress: false
 
 env:
   RADAR_USER_AGENT: ${{ secrets.RADAR_USER_AGENT }}
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  DATASET: ${{ inputs.dataset }}
 
 jobs:
   plan:
@@ -34,6 +25,7 @@ jobs:
       matrix: ${{ steps.plan.outputs.matrix }}
       max_parallel: ${{ steps.plan.outputs.max_parallel }}
       count: ${{ steps.plan.outputs.count }}
+      datasets: ${{ steps.plan.outputs.datasets }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -41,14 +33,12 @@ jobs:
       - run: pip install -r requirements.txt
       - id: plan
         run: |
-          args=""
-          [ -n "${{ inputs.only }}" ] && args="$args --only ${{ inputs.only }}"
-          [ "${{ inputs.force }}" = "true" ] && args="$args --force"
-          out=$(python -m radar.backfill.runner plan --dataset "$DATASET" $args)
-          echo "$out"
-          echo "matrix=$(echo "$out" | jq -c '{partition: .partition}')" >> "$GITHUB_OUTPUT"
+          out=$(python -m radar.backfill.runner plan)
+          echo "$out" | jq .
+          echo "matrix=$(echo "$out" | jq -c '.matrix')" >> "$GITHUB_OUTPUT"
           echo "max_parallel=$(echo "$out" | jq '.max_parallel')" >> "$GITHUB_OUTPUT"
-          echo "count=$(echo "$out" | jq '.partition | length')" >> "$GITHUB_OUTPUT"
+          echo "count=$(echo "$out" | jq '.count')" >> "$GITHUB_OUTPUT"
+          echo "datasets=$(echo "$out" | jq -r '.datasets')" >> "$GITHUB_OUTPUT"
       - name: Arşiv sürümünü hazırla
         run: |
           gh release view veri-arsivi >/dev/null 2>&1 || gh release create veri-arsivi --prerelease \
@@ -70,14 +60,14 @@ jobs:
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
       - name: Bölümü yükle ve doğrula
-        run: python -m radar.backfill.runner run --dataset "$DATASET" --partition "${{ matrix.partition }}"
+        run: python -m radar.backfill.runner run --dataset "${{ matrix.dataset }}" --partition "${{ matrix.partition }}"
       - name: Arşive yükle
         run: |
-          f="data/backfill/$DATASET/${DATASET}__${{ matrix.partition }}.parquet"
+          f="data/backfill/${{ matrix.dataset }}/${{ matrix.dataset }}__${{ matrix.partition }}.parquet"
           if [ -f "$f" ]; then gh release upload veri-arsivi "$f" --clobber; else echo "Bölüm kırmızı; yüklenmedi"; fi
       - uses: actions/upload-artifact@v4
         with:
-          name: part-${{ matrix.partition }}
+          name: part-${{ matrix.dataset }}-${{ matrix.partition }}
           path: data/manifest/parts/
           retention-days: 3
 
@@ -85,7 +75,7 @@ jobs:
     needs: [plan, load]
     if: always() && needs.plan.result == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -96,24 +86,26 @@ jobs:
           pattern: part-*
           merge-multiple: true
           path: data/manifest/parts/
-      - name: Arşivdeki bölümleri indir
+      - name: Veri seti kontrolleri, manifest ve türetilmiş tablolar
         run: |
-          mkdir -p "data/backfill/$DATASET"
-          gh release download veri-arsivi -p "${DATASET}__*" -D "data/backfill/$DATASET" --clobber || echo "henüz bölüm yok"
-      - name: Veri seti kontrolleri ve manifest
-        run: python -m radar.backfill.runner finalize --dataset "$DATASET"
-      - name: Türetilmiş tabloları arşive yükle
-        run: |
-          for a in $(jq -r '.derived // {} | .[].asset' "data/manifest/$DATASET.json"); do
-            gh release upload veri-arsivi "data/backfill/$DATASET/$a" --clobber
+          for ds in ${{ needs.plan.outputs.datasets }}; do
+            echo "::group::$ds"
+            mkdir -p "data/backfill/$ds"
+            gh release download veri-arsivi -p "${ds}__*" -D "data/backfill/$ds" --clobber || echo "henüz bölüm yok"
+            python -m radar.backfill.runner finalize --dataset "$ds"
+            for a in $(jq -r '.derived // {} | .[].asset' "data/manifest/$ds.json"); do
+              gh release upload veri-arsivi "data/backfill/$ds/$a" --clobber
+            done
+            rm -rf "data/backfill/$ds"
+            echo "::endgroup::"
           done
-      - name: Manifest ve raporu branch'e yaz
+      - name: Manifest ve raporları branch'e yaz
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/manifest reports/backfill
           git diff --cached --quiet && exit 0
-          git commit -m "Geçmiş veri: $DATASET manifest ve rapor"
+          git commit -m "Geçmiş veri: ${{ needs.plan.outputs.datasets }} manifest ve rapor"
           for i in 1 2 3 4; do
             git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && break
             sleep 10
