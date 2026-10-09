@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-09T22:37:53.034785+00:00",
+ "run_at": "2026-10-09T22:40:29.204776+00:00",
  "sources": [
   {
    "key": "universe",
@@ -13,7 +13,7 @@
    ],
    "status": "fail",
    "error": null,
-   "duration_s": 0.4,
+   "duration_s": 0.5,
    "requests": 2,
    "checks": [
     {
@@ -41,10 +41,13 @@
      "value": null
     },
     {
-     "name": "Yeni listelenen / çıkan hisseler",
+     "name": "Yeni listelenen / çıkan hisseler (önceki çalışmaya göre)",
      "status": "info",
-     "detail": "ilk çalışma, karşılaştırılacak anlık görüntü yok",
-     "value": null
+     "detail": "+0 yeni: [] | -0 çıkan: []",
+     "value": {
+      "added": [],
+      "removed": []
+     }
     }
    ],
    "sample": null
@@ -59,7 +62,7 @@
    ],
    "status": "fail",
    "error": null,
-   "duration_s": 0.9,
+   "duration_s": 0.8,
    "requests": 7,
    "checks": [
     {
@@ -249,7 +252,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.3,
+   "duration_s": 0.2,
    "requests": 1,
    "checks": [
     {
@@ -310,7 +313,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.0,
+   "duration_s": 0.9,
    "requests": 4,
    "checks": [
     {
@@ -436,7 +439,7 @@
   },
   {
    "key": "prices",
-   "title": "Günlük fiyatlar (Yahoo ↔ Nasdaq ↔ Stooq)",
+   "title": "Günlük fiyatlar (Yahoo ↔ Nasdaq)",
    "tier": 2,
    "roads": [
     1,
@@ -444,10 +447,10 @@
     3,
     4
    ],
-   "status": "fail",
+   "status": "ok",
    "error": null,
-   "duration_s": 44.7,
-   "requests": 57,
+   "duration_s": 42.3,
+   "requests": 38,
    "checks": [
     {
      "name": "Yahoo: veri dönen hisse",
@@ -462,12 +465,6 @@
      "value": 1.0
     },
     {
-     "name": "Stooq: veri dönen hisse",
-     "status": "fail",
-     "detail": "0/15 = %0.0 — örnek yanıt: AAPL: <!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T",
-     "value": 0.0
-    },
-    {
      "name": "Çapraz kontrol: en az iki kaynak %0,5 içinde (son 60 gün)",
      "status": "ok",
      "detail": "15/15 = %100.0",
@@ -480,16 +477,28 @@
      "value": null
     },
     {
-     "name": "Bölünme dışı %60+ günlük sıçrama",
-     "status": "warn",
-     "detail": "yahoo:KRRO:['2025-11-13']; nasdaq:KRRO:['2025-11-13']",
+     "name": "Tek kaynakta görünen %60+ sıçrama (veri hatası şüphesi)",
+     "status": "ok",
+     "detail": "yok",
      "value": null
     },
     {
-     "name": "Fiyat güncelliği (en eski son bar)",
-     "status": "warn",
-     "detail": "en son kayıt 2026-10-02, 7.0 gün önce (sınır 5)",
-     "value": 7
+     "name": "İki kaynağın doğruladığı %60+ hareket (gerçek, risk sinyali)",
+     "status": "info",
+     "detail": "KRRO 2025-11-13",
+     "value": null
+    },
+    {
+     "name": "Fiyat güncelliği (medyan hissenin son barı)",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 5)",
+     "value": 0
+    },
+    {
+     "name": "5 günden eski son bar (işlem durdurma / likidite riski)",
+     "status": "info",
+     "detail": "yok",
+     "value": null
     },
     {
      "name": "yahoo: NVDA bölünmesi düzeltilmiş",
@@ -504,15 +513,9 @@
      "value": null
     },
     {
-     "name": "stooq: NVDA bölünmesi düzeltilmiş",
-     "status": "info",
-     "detail": "2024-06-07/10 barı yok",
-     "value": null
-    },
-    {
      "name": "Borsadan çıkmış hisselerin geçmiş fiyatı",
      "status": "info",
-     "detail": "SIVB (SVB Financial (2023)): yahoo=yok, nasdaq=yok, stooq=yok; ATVI (Activision Blizzard (2023)): yahoo=yok, nasdaq=yok, stooq=yok; SGEN (Seagen (2023)): yahoo=yok, nasdaq=yok, stooq=yok",
+     "detail": "SIVB (SVB Financial (2023)): yahoo=yok, nasdaq=yok; ATVI (Activision Blizzard (2023)): yahoo=yok, nasdaq=yok; SGEN (Seagen (2023)): yahoo=yok, nasdaq=yok",
      "value": null
     }
    ],
@@ -528,7 +531,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.3,
+   "duration_s": 2.2,
    "requests": 6,
    "checks": [
     {
@@ -609,10 +612,10 @@
     2,
     4
    ],
-   "status": "fail",
-   "error": "FetchError: http://data.gdeltproject.org/gdeltv2/20261009224500.gkg.csv.zip -> 404: ",
-   "duration_s": 0.5,
-   "requests": 2,
+   "status": "ok",
+   "error": null,
+   "duration_s": 24.8,
+   "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
@@ -621,13 +624,71 @@
      "value": -0.0
     },
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "FetchError: http://data.gdeltproject.org/gdeltv2/20261009224500.gkg.csv.zip -> 404: ",
-     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/gdelt.py\", line 73, in run\n    blob = ctx.client.get(url).content\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: http://data.gdeltproject.org/gdeltv2/20261009224500.gkg.csv.zip -> 404: \n"
+     "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
+     "status": "ok",
+     "detail": "4,984,826 bayt, md5 eşleşti",
+     "value": null
+    },
+    {
+     "name": "15 dakikalık dosyada makale",
+     "status": "ok",
+     "detail": "1,165 (beklenen 500–50,000)",
+     "value": 1165
+    },
+    {
+     "name": "Sütun sayısı = 27",
+     "status": "ok",
+     "detail": "1165/1165 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Kurum (Organizations) bilgisi olan",
+     "status": "ok",
+     "detail": "867/1165 = %74.4",
+     "value": 0.7442
+    },
+    {
+     "name": "Ton değeri okunabilen",
+     "status": "ok",
+     "detail": "1165/1165 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Bu 15 dakikada en çok geçen kurumlar",
+     "status": "info",
+     "detail": "united states (75), white house (67), parades commission (28), department of homeland security (28), new york times (23), national weather service (23), google (22), police service of northern ireland (21)",
+     "value": null
+    },
+    {
+     "name": "Geçmiş veri: 1 Mart 2015 dosyası makale",
+     "status": "ok",
+     "detail": "1,209 (beklenen 100–50,000)",
+     "value": 1209
+    },
+    {
+     "name": "Yardımcı: DOC API zaman serisi",
+     "status": "info",
+     "detail": "erişilemedi (HTTP 429); ham dosyalar yeterli",
+     "value": null
     }
    ],
-   "sample": null
+   "sample": [
+    {
+     "date": "20261009224500",
+     "source": "cool987fm.com",
+     "orgs": "united states"
+    },
+    {
+     "date": "20261009224500",
+     "source": "iheart.com",
+     "orgs": "united states;centers for disease"
+    },
+    {
+     "date": "20261009224500",
+     "source": "niagarafallsreview.ca",
+     "orgs": "ontario provincial police;ottawa citizen;keel digital solutions;peel regional police;national post;skills development fu"
+    }
+   ]
   },
   {
    "key": "wikipedia",
@@ -637,22 +698,22 @@
     2,
     4
    ],
-   "status": "fail",
+   "status": "warn",
    "error": null,
-   "duration_s": 0.8,
-   "requests": 5,
+   "duration_s": 5.5,
+   "requests": 6,
    "checks": [
     {
      "name": "Nvidia: gün sayısı (60 gün)",
      "status": "ok",
-     "detail": "59 (beklenen 55–61)",
-     "value": 59
+     "detail": "60 (beklenen 55–61)",
+     "value": 60
     },
     {
      "name": "Nvidia: güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-07, 2.0 gün önce (sınır 3)",
-     "value": 2
+     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 3)",
+     "value": 1
     },
     {
      "name": "Apple_Inc.: gün sayısı (60 gün)",
@@ -685,8 +746,14 @@
      "value": 31
     },
     {
-     "name": "Wikidata ile makalesi bulunan Nasdaq hissesi",
-     "status": "fail",
+     "name": "Eşleşme yolu: Nasdaq kodu / SEC CIK",
+     "status": "info",
+     "detail": "kod ile 777, CIK ile 0 (CIK yok: SEC erişimi bekleniyor)",
+     "value": null
+    },
+    {
+     "name": "Wikipedia makalesi eşleşen Nasdaq hissesi",
+     "status": "warn",
      "detail": "777/3434 = %22.6",
      "value": 0.2263
     },
@@ -701,16 +768,16 @@
     "pageviews": {
      "Nvidia": [
       [
-       "2026-10-05",
-       4837
-      ],
-      [
        "2026-10-06",
        5246
       ],
       [
        "2026-10-07",
        5673
+      ],
+      [
+       "2026-10-08",
+       6972
       ]
      ],
      "Apple_Inc.": [
@@ -755,7 +822,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.6,
    "requests": 2,
    "checks": [
     {
@@ -802,32 +869,32 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.7,
+   "duration_s": 1.5,
    "requests": 3,
    "checks": [
     {
      "name": "'Nvidia stock': haber sayısı",
      "status": "ok",
-     "detail": "102 (beklenen 20–200)",
-     "value": 102
+     "detail": "104 (beklenen 20–200)",
+     "value": 104
     },
     {
      "name": "'Nvidia stock': tarihi okunabilen",
      "status": "ok",
-     "detail": "102/102 = %100.0",
+     "detail": "104/104 = %100.0",
      "value": 1.0
     },
     {
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
+     "detail": "en son kayıt 2026-10-09, 0.1 gün önce (sınır 2)",
      "value": 0.05
     },
     {
      "name": "'Nvidia stock': tekil başlık",
      "status": "ok",
-     "detail": "101/102 = %99.0",
-     "value": 0.9902
+     "detail": "104/104 = %100.0",
+     "value": 1.0
     },
     {
      "name": "'Apple earnings': haber sayısı",
@@ -845,7 +912,7 @@
      "name": "'Apple earnings': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.2 gün önce (sınır 2)",
-     "value": 0.17
+     "value": 0.18
     },
     {
      "name": "'Apple earnings': tekil başlık",
@@ -881,12 +948,12 @@
    "sample": {
     "Nvidia stock": [
      {
-      "title": "Nvidia, Oracle, CoreWeave and other AI stocks sink on OpenAI revenue report - CNBC",
-      "source": "CNBC"
-     },
-     {
       "title": "Micron, Nvidia and AI chip stocks fall as report on OpenAI’s revenue causes ‘undue concern’ - MarketWatch",
       "source": "MarketWatch"
+     },
+     {
+      "title": "Nvidia, Oracle, CoreWeave and other AI stocks sink on OpenAI revenue report - CNBC",
+      "source": "CNBC"
      }
     ],
     "Apple earnings": [
@@ -960,7 +1027,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.6,
+   "duration_s": 1.9,
    "requests": 3,
    "checks": [
     {
@@ -1008,14 +1075,14 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/Model-Optimizer",
+     "NVIDIA/k8s-device-plugin",
      "NVIDIA/NemoClaw",
-     "NVIDIA/cuda-python"
+     "NVIDIA/aistore"
     ],
     "microsoft": [
-     "microsoft/winappCli",
-     "microsoft/sql-apps",
-     "microsoft/winget-pkgs"
+     "microsoft/BCApps",
+     "microsoft/litebox",
+     "microsoft/winappCli"
     ],
     "apple": [
      "apple/foundationdb",
