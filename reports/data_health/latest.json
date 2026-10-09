@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-09T22:40:29.204776+00:00",
+ "run_at": "2026-10-09T22:47:02.262244+00:00",
  "sources": [
   {
    "key": "universe",
@@ -11,9 +11,9 @@
     3,
     4
    ],
-   "status": "fail",
+   "status": "ok",
    "error": null,
-   "duration_s": 0.5,
+   "duration_s": 0.6,
    "requests": 2,
    "checks": [
     {
@@ -26,7 +26,7 @@
      "name": "Nasdaq listesi güncelliği",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.2 gün önce (sınır 4)",
-     "value": 0.19
+     "value": 0.2
     },
     {
      "name": "Bilinen hisseler listede",
@@ -35,10 +35,33 @@
      "value": null
     },
     {
-     "name": "SEC ticker→CIK eşleştirmesi",
-     "status": "fail",
-     "detail": "erişilemedi (HTTP 403)",
+     "name": "SEC CIK eşleşme oranı",
+     "status": "ok",
+     "detail": "3424/3434 = %99.7 adi hisse",
+     "value": 0.9971
+    },
+    {
+     "name": "Doğrulanmış CIK değerleri",
+     "status": "ok",
+     "detail": "AAPL, MSFT, NVDA, AMZN doğru",
      "value": null
+    },
+    {
+     "name": "Çapraz kontrol: SEC'te 'Nasdaq' görünenler Nasdaq listesinde",
+     "status": "ok",
+     "detail": "4337/4376 = %99.1",
+     "value": 0.9911
+    },
+    {
+     "name": "Finansal durum dağılımı (risk sinyali)",
+     "status": "info",
+     "detail": "normal: 3133, yetersiz (deficient): 280, geciken rapor (delinquent): 17, yetersiz+geciken: 4",
+     "value": {
+      "yetersiz (deficient)": 280,
+      "normal": 3133,
+      "geciken rapor (delinquent)": 17,
+      "yetersiz+geciken": 4
+     }
     },
     {
      "name": "Yeni listelenen / çıkan hisseler (önceki çalışmaya göre)",
@@ -50,7 +73,48 @@
      }
     }
    ],
-   "sample": null
+   "sample": [
+    {
+     "symbol": "AACG",
+     "name": "ATA Creativity Global - American Depositary Shares, each representing two common shares",
+     "market_category": "S",
+     "financial_status": "D",
+     "is_common": true,
+     "cik": 1420529
+    },
+    {
+     "symbol": "AACI",
+     "name": "Armada Acquisition Corp. III - Class A Ordinary Share",
+     "market_category": "G",
+     "financial_status": "N",
+     "is_common": true,
+     "cik": 2092897
+    },
+    {
+     "symbol": "AACO",
+     "name": "Abony Acquisition Corp. I - Class A Ordinary Share",
+     "market_category": "G",
+     "financial_status": "N",
+     "is_common": true,
+     "cik": 2099906
+    },
+    {
+     "symbol": "AACP",
+     "name": "Apogee Acquisition Corp - Class A Ordinary Shares",
+     "market_category": "G",
+     "financial_status": "N",
+     "is_common": true,
+     "cik": 2102123
+    },
+    {
+     "symbol": "AAL",
+     "name": "American Airlines Group, Inc. - Common Stock",
+     "market_category": "Q",
+     "financial_status": "N",
+     "is_common": true,
+     "cik": 6201
+    }
+   ]
   },
   {
    "key": "sec_index",
@@ -62,17 +126,170 @@
    ],
    "status": "fail",
    "error": null,
-   "duration_s": 0.8,
-   "requests": 7,
+   "duration_s": 0.9,
+   "requests": 5,
    "checks": [
     {
      "name": "Erişilebilen iş günü sayısı (son 7 iş günü içinde)",
+     "status": "ok",
+     "detail": "5 (beklenen 4–5)",
+     "value": 5
+    },
+    {
+     "name": "İndeks güncelliği",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 4)",
+     "value": 1
+    },
+    {
+     "name": "2026-10-02: toplam dosya",
+     "status": "ok",
+     "detail": "7,159 (beklenen 1,500–15,000)",
+     "value": 7159
+    },
+    {
+     "name": "2026-10-02: Form 4 sayısı",
+     "status": "ok",
+     "detail": "3,079 (beklenen 300–6,000)",
+     "value": 3079
+    },
+    {
+     "name": "2026-10-02: dosya tarihi indeks günüyle aynı",
+     "status": "warn",
+     "detail": "7125/7159 = %99.5",
+     "value": 0.9953
+    },
+    {
+     "name": "2026-10-05: toplam dosya",
+     "status": "ok",
+     "detail": "4,886 (beklenen 1,500–15,000)",
+     "value": 4886
+    },
+    {
+     "name": "2026-10-05: Form 4 sayısı",
+     "status": "ok",
+     "detail": "2,413 (beklenen 300–6,000)",
+     "value": 2413
+    },
+    {
+     "name": "2026-10-05: dosya tarihi indeks günüyle aynı",
+     "status": "warn",
+     "detail": "4854/4886 = %99.3",
+     "value": 0.9935
+    },
+    {
+     "name": "2026-10-06: toplam dosya",
+     "status": "ok",
+     "detail": "3,501 (beklenen 1,500–15,000)",
+     "value": 3501
+    },
+    {
+     "name": "2026-10-06: Form 4 sayısı",
+     "status": "ok",
+     "detail": "837 (beklenen 300–6,000)",
+     "value": 837
+    },
+    {
+     "name": "2026-10-06: dosya tarihi indeks günüyle aynı",
+     "status": "warn",
+     "detail": "3482/3501 = %99.5",
+     "value": 0.9946
+    },
+    {
+     "name": "2026-10-07: toplam dosya",
+     "status": "ok",
+     "detail": "3,159 (beklenen 1,500–15,000)",
+     "value": 3159
+    },
+    {
+     "name": "2026-10-07: Form 4 sayısı",
+     "status": "ok",
+     "detail": "660 (beklenen 300–6,000)",
+     "value": 660
+    },
+    {
+     "name": "2026-10-07: dosya tarihi indeks günüyle aynı",
+     "status": "warn",
+     "detail": "3138/3159 = %99.3",
+     "value": 0.9934
+    },
+    {
+     "name": "2026-10-08: toplam dosya",
+     "status": "ok",
+     "detail": "3,193 (beklenen 1,500–15,000)",
+     "value": 3193
+    },
+    {
+     "name": "2026-10-08: Form 4 sayısı",
+     "status": "ok",
+     "detail": "639 (beklenen 300–6,000)",
+     "value": 639
+    },
+    {
+     "name": "2026-10-08: dosya tarihi indeks günüyle aynı",
      "status": "fail",
-     "detail": "0 (beklenen 4–5)",
-     "value": 0
+     "detail": "3141/3193 = %98.4",
+     "value": 0.9837
+    },
+    {
+     "name": "Haftalık form dağılımı",
+     "status": "info",
+     "detail": "4: 7628, 8-K: 943, 13F-HR: 259, SC 13D: 0, SC 13G: 0, 10-K: 9, 10-Q: 39, S-1: 19, 424B4: 3, NT 10-K: 0",
+     "value": {
+      "4": 7628,
+      "8-K": 943,
+      "13F-HR": 259,
+      "10-K": 9,
+      "10-Q": 39,
+      "S-1": 19,
+      "424B4": 3,
+      "NT 10-K": 0
+     }
+    },
+    {
+     "name": "Halka arz hazırlığı (S-1/F-1/424B4)",
+     "status": "info",
+     "detail": "51 dosya; örnek: ['Basel Medical Group Ltd', '707 Cayman Holdings Ltd.', 'Tracx Logis Ltd.', 'CYABRA, INC.', 'Amaero Inc.', 'Calm Seas Acquisition Corp.', 'Essential Minerals Acquisition Corp', 'Gravity Acquisition Corp.']",
+     "value": null
     }
    ],
-   "sample": null
+   "sample": [
+    {
+     "form": "1-A",
+     "company": "Cahero Nytra Holding LLC",
+     "cik": 2158856,
+     "filed": "2026-10-08",
+     "path": "edgar/data/2158856/0002158856-26-000001.txt"
+    },
+    {
+     "form": "1-A",
+     "company": "Quantum Genesis AI Corp.",
+     "cik": 1663038,
+     "filed": "2026-10-08",
+     "path": "edgar/data/1663038/0001477932-26-006130.txt"
+    },
+    {
+     "form": "1-A POS",
+     "company": "Entrex Carbon Market, Inc.",
+     "cik": 1363598,
+     "filed": "2026-10-08",
+     "path": "edgar/data/1363598/0001363598-26-000006.txt"
+    },
+    {
+     "form": "1-A POS",
+     "company": "UNATION, Inc.",
+     "cik": 1549679,
+     "filed": "2026-10-08",
+     "path": "edgar/data/1549679/0001213900-26-107729.txt"
+    },
+    {
+     "form": "1-A/A",
+     "company": "GOA Therapeutics Corp",
+     "cik": 2131824,
+     "filed": "2026-10-08",
+     "path": "edgar/data/2131824/0001213900-26-108022.txt"
+    }
+   ]
   },
   {
    "key": "sec_submissions",
@@ -84,53 +301,112 @@
    ],
    "status": "fail",
    "error": null,
-   "duration_s": 0.0,
-   "requests": 0,
+   "duration_s": 1.9,
+   "requests": 15,
    "checks": [
     {
      "name": "Çekilen şirket",
-     "status": "fail",
-     "detail": "0/3 = %0.0",
-     "value": 0.0
+     "status": "ok",
+     "detail": "15/15 = %100.0",
+     "value": 1.0
     },
     {
      "name": "Çapraz kontrol: dosyadaki ticker evrendeki ticker ile aynı",
-     "status": "fail",
-     "detail": "örnek yok",
-     "value": null
+     "status": "ok",
+     "detail": "15/15 = %100.0",
+     "value": 1.0
     },
     {
      "name": "Doğrulanmış gerçek: AAPL 10-K 2023-11-03",
-     "status": "fail",
-     "detail": "bulunamadı",
+     "status": "ok",
+     "detail": "bulundu",
      "value": null
     },
     {
      "name": "8-K'larda olay kodu (items) dolu",
-     "status": "fail",
-     "detail": "örnek yok",
-     "value": null
+     "status": "ok",
+     "detail": "1233/1233 = %100.0",
+     "value": 1.0
     },
     {
      "name": "Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)",
      "status": "fail",
-     "detail": "örnek yok",
-     "value": null
+     "detail": "7168/9841 = %72.8",
+     "value": 0.7284
     },
     {
      "name": "AAPL son dosya güncelliği",
-     "status": "fail",
-     "detail": "tarih bulunamadı",
-     "value": null
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 45)",
+     "value": 1
     },
     {
      "name": "Yıllık rapor (10-K/20-F/40-F) bulunan şirket",
-     "status": "fail",
-     "detail": "örnek yok",
-     "value": null
+     "status": "ok",
+     "detail": "15/15 = %100.0",
+     "value": 1.0
     }
    ],
-   "sample": {}
+   "sample": {
+    "AAPL": [
+     {
+      "form": "4",
+      "filingDate": "2026-10-08",
+      "acceptanceDateTime": "2026-10-09T02:30:32.000Z",
+      "accessionNumber": "0001140361-26-039158",
+      "primaryDocument": "xslF345X06/form4.xml",
+      "items": "",
+      "reportDate": "2026-10-06"
+     },
+     {
+      "form": "4",
+      "filingDate": "2026-10-05",
+      "acceptanceDateTime": "2026-10-06T02:42:45.000Z",
+      "accessionNumber": "0001140361-26-038674",
+      "primaryDocument": "xslF345X06/form4.xml",
+      "items": "",
+      "reportDate": "2026-10-01"
+     },
+     {
+      "form": "4",
+      "filingDate": "2026-10-05",
+      "acceptanceDateTime": "2026-10-06T02:39:10.000Z",
+      "accessionNumber": "0001140361-26-038672",
+      "primaryDocument": "xslF345X06/form4.xml",
+      "items": "",
+      "reportDate": "2026-10-01"
+     }
+    ],
+    "MSFT": [
+     {
+      "form": "4",
+      "filingDate": "2026-09-17",
+      "acceptanceDateTime": "2026-09-17T22:07:20.000Z",
+      "accessionNumber": "0000789019-26-000224",
+      "primaryDocument": "xslF345X06/form4.xml",
+      "items": "",
+      "reportDate": "2026-09-15"
+     },
+     {
+      "form": "4",
+      "filingDate": "2026-09-17",
+      "acceptanceDateTime": "2026-09-17T22:06:57.000Z",
+      "accessionNumber": "0000789019-26-000223",
+      "primaryDocument": "xslF345X06/form4.xml",
+      "items": "",
+      "reportDate": "2026-09-15"
+     },
+     {
+      "form": "4",
+      "filingDate": "2026-09-17",
+      "acceptanceDateTime": "2026-09-17T22:06:42.000Z",
+      "accessionNumber": "0000789019-26-000222",
+      "primaryDocument": "xslF345X06/form4.xml",
+      "items": "",
+      "reportDate": "2026-09-15"
+     }
+    ]
+   }
   },
   {
    "key": "sec_xbrl",
@@ -139,46 +415,46 @@
    "roads": [
     1
    ],
-   "status": "fail",
+   "status": "warn",
    "error": null,
-   "duration_s": 0.0,
-   "requests": 0,
+   "duration_s": 6.2,
+   "requests": 23,
    "checks": [
     {
      "name": "Doğrulanmış gerçek: AAPL geliri (2023-09-30)",
-     "status": "fail",
-     "detail": "değer yok (beklenen 383,285,000,000)",
-     "value": null
+     "status": "ok",
+     "detail": "okunan 383,285,000,000, beklenen 383,285,000,000",
+     "value": 383285000000.0
     },
     {
      "name": "Doğrulanmış gerçek: MSFT geliri (2023-06-30)",
-     "status": "fail",
-     "detail": "değer yok (beklenen 211,915,000,000)",
-     "value": null
+     "status": "ok",
+     "detail": "okunan 211,915,000,000, beklenen 211,915,000,000",
+     "value": 211915000000.0
     },
     {
      "name": "Doğrulanmış gerçek: NVDA geliri (2024-01-28)",
-     "status": "fail",
-     "detail": "değer yok (beklenen 60,922,000,000)",
-     "value": null
+     "status": "ok",
+     "detail": "okunan 60,922,000,000, beklenen 60,922,000,000",
+     "value": 60922000000.0
     },
     {
      "name": "Rastgele şirketlerde temel kalem (varlık/gelir/kâr) bulunan",
-     "status": "fail",
-     "detail": "örnek yok",
-     "value": null
+     "status": "ok",
+     "detail": "19/20 = %95.0",
+     "value": 0.95
     },
     {
      "name": "Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu",
-     "status": "fail",
-     "detail": "örnek yok",
-     "value": null
+     "status": "ok",
+     "detail": "349447/349490 = %100.0",
+     "value": 0.9999
     },
     {
      "name": "Güncel hisse sayısı (son 200 gün) bulunan",
-     "status": "fail",
-     "detail": "örnek yok",
-     "value": null
+     "status": "warn",
+     "detail": "14/20 = %70.0",
+     "value": 0.7
     },
     {
      "name": "Kapsam notu",
@@ -196,19 +472,150 @@
    "roads": [
     3
    ],
-   "status": "fail",
+   "status": "ok",
    "error": null,
-   "duration_s": 0.0,
-   "requests": 0,
+   "duration_s": 9.1,
+   "requests": 61,
    "checks": [
     {
-     "name": "Form 4 listesi",
-     "status": "fail",
-     "detail": "SEC günlük indeksi boş; Form 4 örneklenemedi",
+     "name": "Ayrıştırılan Form 4",
+     "status": "ok",
+     "detail": "60/60 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "108/108 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "108/108 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Hisse adedi > 0",
+     "status": "ok",
+     "detail": "108/108 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "51/51 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "51/51 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "108/108 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "İşlem kodu dağılımı (örnek)",
+     "status": "info",
+     "detail": "S: 46, A: 24, F: 12, M: 11, D: 9, P: 5, J: 1",
+     "value": null
+    },
+    {
+     "name": "Bildirim gecikmesi (gün, medyan / %95)",
+     "status": "info",
+     "detail": "2 / 4",
+     "value": null
+    },
+    {
+     "name": "Toplu veri seti sayısı (geriye dönük test için)",
+     "status": "ok",
+     "detail": "83 (beklenen 40–500)",
+     "value": 83
+    },
+    {
+     "name": "Toplu veri seti örnekleri",
+     "status": "info",
+     "detail": "['/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip', '/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q3_form345.zip'] … ['/files/structureddata/data/insider-transactions-data-sets/2025q4_form345.zip', '/files/structureddata/data/insider-transactions-data-sets/2026q1_form345.zip']",
      "value": null
     }
    ],
-   "sample": null
+   "sample": [
+    {
+     "issuer_cik": 1437107,
+     "ticker": "WBD",
+     "owner": "Wiedenfels Gunnar",
+     "is_director": false,
+     "is_officer": true,
+     "officer_title": "Chief Financial Officer",
+     "date": "2026-10-06",
+     "code": "D",
+     "shares": 41784.0,
+     "price": 31.0167,
+     "acquired": "D",
+     "owned_after": 649473.0
+    },
+    {
+     "issuer_cik": 1437107,
+     "ticker": "WBD",
+     "owner": "Wiedenfels Gunnar",
+     "is_director": false,
+     "is_officer": true,
+     "officer_title": "Chief Financial Officer",
+     "date": "2026-10-06",
+     "code": "D",
+     "shares": 14140.0,
+     "price": 31.0167,
+     "acquired": "D",
+     "owned_after": 0.0
+    },
+    {
+     "issuer_cik": 1437107,
+     "ticker": "WBD",
+     "owner": "Wiedenfels Gunnar",
+     "is_director": false,
+     "is_officer": true,
+     "officer_title": "Chief Financial Officer",
+     "date": "2026-10-06",
+     "code": "D",
+     "shares": 421941.0,
+     "price": 31.0167,
+     "acquired": "D",
+     "owned_after": 227532.0
+    },
+    {
+     "issuer_cik": 1437107,
+     "ticker": "WBD",
+     "owner": "Wiedenfels Gunnar",
+     "is_director": false,
+     "is_officer": true,
+     "officer_title": "Chief Financial Officer",
+     "date": "2026-10-06",
+     "code": "D",
+     "shares": 227532.0,
+     "price": 31.0167,
+     "acquired": "D",
+     "owned_after": 0.0
+    },
+    {
+     "issuer_cik": 1437107,
+     "ticker": "WBD",
+     "owner": "Wiedenfels Gunnar",
+     "is_director": false,
+     "is_officer": true,
+     "officer_title": "Chief Financial Officer",
+     "date": "2026-10-06",
+     "code": "A",
+     "shares": 2982465.0,
+     "price": 0.0,
+     "acquired": "A",
+     "owned_after": 2982465.0
+    }
+   ]
   },
   {
    "key": "sec_13f",
@@ -218,27 +625,21 @@
     3
    ],
    "status": "fail",
-   "error": "FetchError: https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T",
-   "duration_s": 0.1,
-   "requests": 1,
+   "error": "ParseError: unbound prefix: line 1, column 0",
+   "duration_s": 0.9,
+   "requests": 5,
    "checks": [
     {
      "name": "Bu hafta gelen 13F-HR",
      "status": "info",
-     "detail": "0 dosya (çeyrek sonu +45 gün civarında yoğunlaşır)",
-     "value": null
-    },
-    {
-     "name": "13F örnekleme",
-     "status": "info",
-     "detail": "bu hafta 13F-HR yok; örnek ayrıştırma atlandı",
+     "detail": "259 dosya (çeyrek sonu +45 gün civarında yoğunlaşır)",
      "value": null
     },
     {
      "name": "Çalışma hatası",
      "status": "fail",
-     "detail": "FetchError: https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T",
-     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/sec_13f.py\", line 56, in run\n    page = ctx.client.get(BULK_PAGE).text\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets -> 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-T\n"
+     "detail": "ParseError: unbound prefix: line 1, column 0",
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/sec_13f.py\", line 47, in run\n    rows += parse_info_table(m.group(0))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/sec_13f.py\", line 26, in parse_info_table\n    root = ET.fromstring(xml)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/xml/etree/ElementTree.py\", line 1335, in XML\n    parser.feed(text)\nxml.etree.ElementTree.ParseError: unbound prefix: line 1, column 0\n"
     }
    ],
    "sample": null
@@ -252,7 +653,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.2,
+   "duration_s": 0.4,
    "requests": 1,
    "checks": [
     {
@@ -449,7 +850,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 42.3,
+   "duration_s": 42.5,
    "requests": 38,
    "checks": [
     {
@@ -485,7 +886,7 @@
     {
      "name": "İki kaynağın doğruladığı %60+ hareket (gerçek, risk sinyali)",
      "status": "info",
-     "detail": "KRRO 2025-11-13",
+     "detail": "CXAI 2026-06-04",
      "value": null
     },
     {
@@ -531,7 +932,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.2,
+   "duration_s": 3.8,
    "requests": 6,
    "checks": [
     {
@@ -614,14 +1015,14 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 24.8,
+   "duration_s": 28.5,
    "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, -0.0 gün önce (sınır 0.25)",
-     "value": -0.0
+     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 0.25)",
+     "value": 0.0
     },
     {
      "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
@@ -700,7 +1101,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 5.5,
+   "duration_s": 7.3,
    "requests": 6,
    "checks": [
     {
@@ -748,14 +1149,14 @@
     {
      "name": "Eşleşme yolu: Nasdaq kodu / SEC CIK",
      "status": "info",
-     "detail": "kod ile 777, CIK ile 0 (CIK yok: SEC erişimi bekleniyor)",
+     "detail": "kod ile 777, CIK ile 596",
      "value": null
     },
     {
      "name": "Wikipedia makalesi eşleşen Nasdaq hissesi",
      "status": "warn",
-     "detail": "777/3434 = %22.6",
-     "value": 0.2263
+     "detail": "870/3434 = %25.3",
+     "value": 0.2533
     },
     {
      "name": "Eşleştirme kontrolü",
@@ -822,7 +1223,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.6,
+   "duration_s": 0.7,
    "requests": 2,
    "checks": [
     {
@@ -869,31 +1270,31 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.5,
+   "duration_s": 1.2,
    "requests": 3,
    "checks": [
     {
      "name": "'Nvidia stock': haber sayısı",
      "status": "ok",
-     "detail": "104 (beklenen 20–200)",
-     "value": 104
+     "detail": "102 (beklenen 20–200)",
+     "value": 102
     },
     {
      "name": "'Nvidia stock': tarihi okunabilen",
      "status": "ok",
-     "detail": "104/104 = %100.0",
+     "detail": "102/102 = %100.0",
      "value": 1.0
     },
     {
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.1 gün önce (sınır 2)",
-     "value": 0.05
+     "value": 0.06
     },
     {
      "name": "'Nvidia stock': tekil başlık",
      "status": "ok",
-     "detail": "104/104 = %100.0",
+     "detail": "102/102 = %100.0",
      "value": 1.0
     },
     {
@@ -936,7 +1337,7 @@
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
-     "value": 0.04
+     "value": 0.05
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -948,12 +1349,12 @@
    "sample": {
     "Nvidia stock": [
      {
-      "title": "Micron, Nvidia and AI chip stocks fall as report on OpenAI’s revenue causes ‘undue concern’ - MarketWatch",
-      "source": "MarketWatch"
-     },
-     {
       "title": "Nvidia, Oracle, CoreWeave and other AI stocks sink on OpenAI revenue report - CNBC",
       "source": "CNBC"
+     },
+     {
+      "title": "Micron, Nvidia and AI chip stocks fall as report on OpenAI’s revenue causes ‘undue concern’ - MarketWatch",
+      "source": "MarketWatch"
      }
     ],
     "Apple earnings": [
@@ -1027,7 +1428,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.9,
+   "duration_s": 1.8,
    "requests": 3,
    "checks": [
     {
@@ -1064,7 +1465,7 @@
      "name": "apple: son push",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 3)",
-     "value": 0.04
+     "value": 0.05
     },
     {
      "name": "Kapsam notu",
@@ -1075,14 +1476,14 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/k8s-device-plugin",
-     "NVIDIA/NemoClaw",
-     "NVIDIA/aistore"
+     "NVIDIA/IsaacCapture",
+     "NVIDIA/TensorRT-Model-Connect",
+     "NVIDIA/NemoClaw"
     ],
     "microsoft": [
-     "microsoft/BCApps",
-     "microsoft/litebox",
-     "microsoft/winappCli"
+     "microsoft/BotFramework-WebChat",
+     "microsoft/upgrade-agent-plugins",
+     "microsoft/aspire"
     ],
     "apple": [
      "apple/foundationdb",
