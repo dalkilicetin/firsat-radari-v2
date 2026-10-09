@@ -14,6 +14,7 @@ from zoneinfo import ZoneInfo
 
 from radar.quality import SourceReport, Status
 from radar.sources.base import Context
+from radar.sources.sec_index import USED_FORMS
 
 KEY, TITLE, TIER, ROADS = "sec_submissions", "SEC şirket dosya geçmişi", 1, [1, 3]
 
@@ -59,8 +60,10 @@ def run(ctx: Context, rep: SourceReport) -> None:
     rep.expect_min_ratio("8-K'larda olay kodu (items) dolu", sum(1 for f in eight_k if f["items"]),
                          len(eight_k), 0.97, 0.9)
 
-    consistent, bad = 0, []
-    for f in all_filings:
+    # Yalnızca sinyal için kullandığımız formlar; idari formlar (EFFECT, CORRESP, NO ACT...) kapsam dışı.
+    used = [f for f in all_filings if f["form"] in USED_FORMS]
+    consistent, bad, backdated = 0, [], 0
+    for f in used:
         try:
             # Kabul anı UTC, dosyalama tarihi New York saatine göre verilir.
             accepted = datetime.fromisoformat(f["acceptanceDateTime"].replace("Z", "+00:00")).astimezone(NEW_YORK).date()
@@ -68,11 +71,19 @@ def run(ctx: Context, rep: SourceReport) -> None:
         except ValueError:
             continue
         # Kabul günü, dosyalama günüyle aynıdır ya da (mesai sonrası kabullerde) birkaç gün öncesidir.
-        if 0 <= (filed - accepted).days <= 3:
+        gap = (filed - accepted).days
+        if 0 <= gap <= 3:
             consistent += 1
+        elif gap == -1:
+            # Gece yarısından sonra kabul edilip önceki güne tarihlenen dosyalar (çoğunlukla Form 4).
+            # Dosyalama tarihi yayımdan önce göründüğü için geriye dönük testte kabul anı esas alınır.
+            consistent += 1
+            backdated += 1
         else:
             bad.append(f)
-    check = rep.expect_min_ratio("Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)", consistent, len(all_filings), 0.99, 0.95)
+    check = rep.expect_min_ratio("Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)", consistent, len(used), 0.995, 0.98)
+    rep.add("Önceki güne tarihlenen gece kabulleri", Status.INFO,
+            f"{backdated} dosya — dosyalama tarihi değil kabul anı esas alınır")
     if bad:
         check.detail += (f"; formlar: {dict(Counter(f['form'] for f in bad).most_common(6))}"
                          f"; örnek: {[(f['form'], f['filingDate'], f['acceptanceDateTime']) for f in bad[:4]]}")
