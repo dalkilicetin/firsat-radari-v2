@@ -58,12 +58,13 @@ class HttpClient:
             time.sleep(wait)
         self._last_request[host] = time.monotonic()
 
-    def request(self, method: str, url: str, *, ok_statuses=(200,), **kwargs) -> Fetched:
+    def request(self, method: str, url: str, *, ok_statuses=(200,), retries: int | None = None, **kwargs) -> Fetched:
         host = urlparse(url).netloc
         kwargs.setdefault("timeout", self.timeout)
         last_error = ""
         status = None
-        for attempt in range(self.retries + 1):
+        retries = self.retries if retries is None else retries
+        for attempt in range(retries + 1):
             self._throttle(host)
             self.request_count += 1
             try:
@@ -79,10 +80,10 @@ class HttpClient:
                 if status not in RETRY_STATUSES:
                     break
                 retry_after = resp.headers.get("Retry-After", "")
-                if retry_after.isdigit() and attempt < self.retries:
+                if retry_after.isdigit() and attempt < retries:
                     time.sleep(min(int(retry_after), 60))
                     continue
-            if attempt < self.retries:
+            if attempt < retries:
                 time.sleep(2 ** (attempt + 1))
         raise FetchError(url, status, last_error)
 

@@ -11,6 +11,7 @@ import re
 from datetime import datetime
 
 from radar import config
+from radar.http import FetchError
 from radar.quality import SourceReport, Status
 from radar.sources.base import Context, Security
 
@@ -87,6 +88,18 @@ def write_snapshot(securities: list[Security]) -> None:
                 w.writerow([s.symbol, s.name, s.cik or "", s.market_category, s.financial_status])
 
 
+def _new_listings(rep: SourceReport, common: list[Security]) -> None:
+    previous = read_snapshot()
+    current = {s.symbol for s in common}
+    if previous:
+        added, removed = sorted(current - previous), sorted(previous - current)
+        rep.add("Yeni listelenen / çıkan hisseler (önceki çalışmaya göre)", Status.INFO,
+                f"+{len(added)} yeni: {added[:30]} | -{len(removed)} çıkan: {removed[:30]}",
+                {"added": added, "removed": removed})
+    else:
+        rep.add("Yeni listelenen / çıkan hisseler", Status.INFO, "ilk çalışma, karşılaştırılacak anlık görüntü yok")
+
+
 def run(ctx: Context, rep: SourceReport) -> None:
     nasdaq = ctx.client.get(NASDAQ_URL)
     securities, created = parse_nasdaq_listed(nasdaq.text)
@@ -98,7 +111,15 @@ def run(ctx: Context, rep: SourceReport) -> None:
     rep.add("Bilinen hisseler listede", Status.FAIL if missing else Status.OK,
             f"eksik: {missing}" if missing else f"{len(GOLDEN_CIKS)}/{len(GOLDEN_CIKS)} bulundu")
 
-    sec = parse_sec_tickers(ctx.client.get(SEC_TICKERS_URL).json())
+    # SEC erişilemese bile Nasdaq listesi diğer kaynaklar için kullanılabilir kalsın.
+    ctx.universe = securities
+    try:
+        sec = parse_sec_tickers(ctx.client.get(SEC_TICKERS_URL).json())
+    except FetchError as exc:
+        rep.add("SEC ticker→CIK eşleştirmesi", Status.FAIL, f"erişilemedi (HTTP {exc.status})")
+        _new_listings(rep, common)
+        write_snapshot(securities)
+        return
     for s in securities:
         hit = sec.get(normalize_symbol(s.symbol))
         s.cik = hit[0] if hit else None
@@ -120,17 +141,8 @@ def run(ctx: Context, rep: SourceReport) -> None:
     rep.add("Finansal durum dağılımı (risk sinyali)", Status.INFO,
             ", ".join(f"{k}: {v}" for k, v in sorted(status_counts.items(), key=lambda kv: -kv[1])), status_counts)
 
-    previous = read_snapshot()
-    current = {s.symbol for s in common}
-    if previous:
-        added, removed = sorted(current - previous), sorted(previous - current)
-        rep.add("Yeni listelenen / çıkan hisseler (önceki çalışmaya göre)", Status.INFO,
-                f"+{len(added)} yeni: {added[:30]} | -{len(removed)} çıkan: {removed[:30]}",
-                {"added": added, "removed": removed})
-    else:
-        rep.add("Yeni listelenen / çıkan hisseler", Status.INFO, "ilk çalışma, karşılaştırılacak anlık görüntü yok")
+    _new_listings(rep, common)
     write_snapshot(securities)
 
-    ctx.universe = securities
     ctx.cik_by_ticker = {t: cik for t, (cik, _) in sec.items()}
     rep.sample = [vars(s) for s in common[:5]]

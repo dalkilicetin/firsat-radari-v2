@@ -83,12 +83,14 @@ class Reddit:
         else:
             base, headers = "https://www.reddit.com", {}
             rep.add("Erişim yöntemi", Status.INFO, "kimliksiz; REDDIT_CLIENT_ID/SECRET tanımlanırsa OAuth kullanılır")
+        blocked_status = Status.FAIL if cid else Status.WARN
         sample = {}
         for sub in ["stocks", "investing", "wallstreetbets"]:
             try:
                 data = ctx.client.get(f"{base}/r/{sub}/new.json", params={"limit": 100}, headers=headers).json()
             except FetchError as exc:
-                rep.add(f"r/{sub}", Status.FAIL, f"erişilemedi (HTTP {exc.status})")
+                rep.add(f"r/{sub}", blocked_status, f"erişilemedi (HTTP {exc.status})"
+                        + ("" if cid else " — ücretsiz Reddit OAuth uygulaması gerekiyor"))
                 continue
             posts = [c["data"] for c in data.get("data", {}).get("children", [])]
             rep.expect_range(f"r/{sub}: gönderi", len(posts), 50, 100)

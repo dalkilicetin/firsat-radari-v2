@@ -1,30 +1,38 @@
-"""Günlük fiyatlar: Stooq ve Yahoo, birbirine karşı çapraz kontrol edilir.
+"""Günlük fiyatlar: Yahoo, Nasdaq ve Stooq birbirine karşı çapraz kontrol edilir.
 
-İkisi de resmî kaynak değildir; bu yüzden aynı günün kapanışı iki kaynakta tutmuyorsa
-o hissenin fiyatı güvenilmez sayılır.
+Hiçbiri resmî ve garantili bir kaynak değildir; bu yüzden aynı günün kapanışı en az iki kaynakta
+tutmuyorsa o hissenin fiyatı güvenilmez sayılır.
 """
 
 from __future__ import annotations
 
 import csv
 import io
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
+from itertools import combinations
 from statistics import median
 
 from radar.http import FetchError
 from radar.quality import SourceReport, Status
 from radar.sources.base import Context
 
-KEY, TITLE, TIER, ROADS = "prices", "Günlük fiyatlar (Stooq ↔ Yahoo)", 2, [1, 2, 3, 4]
+KEY, TITLE, TIER, ROADS = "prices", "Günlük fiyatlar (Yahoo ↔ Nasdaq ↔ Stooq)", 2, [1, 2, 3, 4]
 
 STOOQ = "https://stooq.com/q/d/l/?s={sym}.us&i=d"
 YAHOO = "https://query1.finance.yahoo.com/v8/finance/chart/{sym}?range={range}&interval=1d&events=split,div&includeAdjustedClose=true"
+NASDAQ = "https://api.nasdaq.com/api/quote/{sym}/historical"
+# Nasdaq API'si tarayıcı benzeri başlık ister.
+NASDAQ_HEADERS = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                  "Accept": "application/json, text/plain, */*", "Origin": "https://www.nasdaq.com",
+                  "Referer": "https://www.nasdaq.com/"}
 
 # Borsadan çıkmış hisseler: geriye dönük testte hayatta kalan yanılgısını önlemek için gerekir.
 DELISTED = {"SIVB": "SVB Financial (2023)", "ATVI": "Activision Blizzard (2023)", "SGEN": "Seagen (2023)"}
 
+Series = dict[date, dict]
 
-def parse_stooq(text: str) -> dict[date, dict]:
+
+def parse_stooq(text: str) -> Series:
     if not text.startswith("Date"):
         return {}
     out = {}
@@ -36,7 +44,7 @@ def parse_stooq(text: str) -> dict[date, dict]:
     return out
 
 
-def parse_yahoo(data: dict) -> tuple[dict[date, dict], list[date]]:
+def parse_yahoo(data: dict) -> tuple[Series, list[date]]:
     result = (data.get("chart", {}).get("result") or [None])[0]
     if not result or not result.get("timestamp"):
         return {}, []
@@ -53,85 +61,120 @@ def parse_yahoo(data: dict) -> tuple[dict[date, dict], list[date]]:
     return out, splits
 
 
+def parse_nasdaq(data: dict) -> Series:
+    rows = ((data.get("data") or {}).get("tradesTable") or {}).get("rows") or []
+    out = {}
+    for r in rows:
+        try:
+            d = datetime.strptime(r["date"], "%m/%d/%Y").date()
+            out[d] = {"close": float(r["close"].replace("$", "").replace(",", "")),
+                      "volume": float((r.get("volume") or "0").replace(",", "") or 0)}
+        except (KeyError, ValueError, AttributeError):
+            continue
+    return out
+
+
 def pct_diff(a: float, b: float) -> float:
     return abs(a - b) / b * 100 if b else float("inf")
 
 
-def big_jumps(series: dict[date, dict], key: str = "close", limit: float = 0.6) -> list[date]:
+def big_jumps(series: Series, key: str = "close", limit: float = 0.6) -> list[date]:
     days = sorted(series)
     return [d for prev, d in zip(days, days[1:])
             if series[prev][key] and abs(series[d][key] / series[prev][key] - 1) > limit]
 
 
-def fetch(ctx: Context, sym: str, yahoo_range: str = "1y"):
+def agreement(a: Series, b: Series, last: int = 60) -> float | None:
+    """İki serinin son ortak `last` günündeki kapanışlarının medyan yüzde farkı."""
+    common = sorted(set(a) & set(b))[-last:]
+    if len(common) < 20:
+        return None
+    return median(pct_diff(a[d]["close"], b[d]["close"]) for d in common)
+
+
+def fetch_all(ctx: Context, sym: str, days: int = 365) -> tuple[dict[str, Series], list[date], dict[str, str]]:
+    """Üç kaynaktan seri, Yahoo'nun bölünme tarihleri ve boş dönen kaynaklar için kısa tanı notu."""
+    series: dict[str, Series] = {}
+    notes: dict[str, str] = {}
+    splits: list[date] = []
+    yrange = "1y" if days <= 365 else "5y" if days <= 5 * 365 else "max"
+
     try:
-        stooq = parse_stooq(ctx.client.get(STOOQ.format(sym=sym.lower().replace(".", "-"))).text)
-    except FetchError:
-        stooq = {}
+        series["yahoo"], splits = parse_yahoo(ctx.client.get(YAHOO.format(sym=sym.replace(".", "-"), range=yrange)).json())
+    except (FetchError, ValueError) as exc:
+        series["yahoo"], notes["yahoo"] = {}, str(exc)[:120]
+
     try:
-        yahoo, splits = parse_yahoo(ctx.client.get(YAHOO.format(sym=sym.replace(".", "-"), range=yahoo_range),
-                                                   ok_statuses=(200,)).json())
-    except FetchError:
-        yahoo, splits = {}, []
-    return stooq, yahoo, splits
+        params = {"assetclass": "stocks", "fromdate": (ctx.today - timedelta(days=days)).isoformat(),
+                  "todate": ctx.today.isoformat(), "limit": 9999}
+        resp = ctx.client.get(NASDAQ.format(sym=sym.replace(".", "/")), params=params, headers=NASDAQ_HEADERS)
+        series["nasdaq"] = parse_nasdaq(resp.json())
+        if not series["nasdaq"]:
+            notes["nasdaq"] = resp.text[:120]
+    except (FetchError, ValueError) as exc:
+        series["nasdaq"], notes["nasdaq"] = {}, str(exc)[:120]
+
+    try:
+        resp = ctx.client.get(STOOQ.format(sym=sym.lower().replace(".", "-")))
+        series["stooq"] = parse_stooq(resp.text)
+        if not series["stooq"]:
+            notes["stooq"] = resp.text[:120]
+    except FetchError as exc:
+        series["stooq"], notes["stooq"] = {}, str(exc)[:120]
+    return series, splits, notes
 
 
 def run(ctx: Context, rep: SourceReport) -> None:
     symbols = ["AAPL", "MSFT", "NVDA"] + ctx.sample_symbols(12)
-    stooq_ok = yahoo_ok = agree = compared = 0
-    fresh_days, details, jumpy = [], [], []
-    close_vs_adj = {"close": [], "adjclose": []}
+    got = {"yahoo": 0, "nasdaq": 0, "stooq": 0}
+    pair_diffs: dict[tuple[str, str], list[float]] = {}
+    confirmed, fresh_days, jumpy, notes_seen = 0, [], [], {}
 
     for sym in symbols:
-        stooq, yahoo, splits = fetch(ctx, sym)
-        stooq_ok += bool(stooq)
-        yahoo_ok += bool(yahoo)
-        for series in (stooq, yahoo):
-            if series:
-                fresh_days.append(max(series))
-        if stooq and yahoo:
-            common = sorted(set(stooq) & set(yahoo))[-60:]
-            if len(common) >= 20:
-                compared += 1
-                medians = {}
-                for key in ("close", "adjclose"):
-                    diffs = [pct_diff(stooq[d]["close"], yahoo[d][key]) for d in common if yahoo[d].get(key)]
-                    if diffs:
-                        medians[key] = median(diffs)
-                        close_vs_adj[key].append(medians[key])
-                best = min(medians.values(), default=99.0)
-                agree += best < 0.5
-                details.append(f"{sym}: %{best:.2f}")
-        for name, series in (("stooq", stooq), ("yahoo", yahoo)):
-            jumps = [d for d in big_jumps(series) if not any(abs((d - s).days) <= 3 for s in splits)]
-            if jumps:
-                jumpy.append(f"{name}:{sym}:{jumps[:2]}")
+        series, splits, notes = fetch_all(ctx, sym)
+        for k, v in notes.items():
+            notes_seen.setdefault(k, f"{sym}: {v}")
+        for name, s in series.items():
+            if s:
+                got[name] += 1
+                fresh_days.append(max(s))
+                jumps = [d for d in big_jumps(s) if not any(abs((d - x).days) <= 3 for x in splits)]
+                if jumps:
+                    jumpy.append(f"{name}:{sym}:{[str(d) for d in jumps[:2]]}")
+        sym_ok = False
+        for a, b in combinations(series, 2):
+            diff = agreement(series[a], series[b])
+            if diff is not None:
+                pair_diffs.setdefault((a, b), []).append(diff)
+                sym_ok |= diff < 0.5
+        confirmed += sym_ok
 
-    rep.expect_min_ratio("Stooq veri dönen hisse", stooq_ok, len(symbols), 0.9, 0.7)
-    rep.expect_min_ratio("Yahoo veri dönen hisse", yahoo_ok, len(symbols), 0.9, 0.7)
-    rep.expect_min_ratio("Çapraz kontrol: son 60 gün kapanışlar %0,5 içinde", agree, compared, 0.9, 0.75)
-    rep.add("Çapraz kontrol detayı (medyan fark)", Status.INFO, ", ".join(details))
-    if close_vs_adj["close"] and close_vs_adj["adjclose"]:
-        rep.add("Stooq hangi Yahoo serisine yakın", Status.INFO,
-                f"ham kapanış: %{median(close_vs_adj['close']):.3f}, düzeltilmiş: %{median(close_vs_adj['adjclose']):.3f}")
-    rep.add("Bölünme dışı %60+ günlük sıçrama", Status.WARN if jumpy else Status.OK,
-            "; ".join(jumpy) if jumpy else "yok")
+    for name, n in got.items():
+        check = rep.expect_min_ratio(f"{name.capitalize()}: veri dönen hisse", n, len(symbols), 0.9, 0.7)
+        if name in notes_seen and n < len(symbols):
+            check.detail += f" — örnek yanıt: {notes_seen[name]}"
+    rep.expect_min_ratio("Çapraz kontrol: en az iki kaynak %0,5 içinde (son 60 gün)", confirmed, len(symbols), 0.9, 0.75)
+    for (a, b), diffs in pair_diffs.items():
+        rep.add(f"{a} ↔ {b} medyan fark", Status.INFO, f"%{median(diffs):.3f} ({len(diffs)} hisse)")
+    rep.add("Bölünme dışı %60+ günlük sıçrama", Status.WARN if jumpy else Status.OK, "; ".join(jumpy) or "yok")
     if fresh_days:
         rep.expect_fresh("Fiyat güncelliği (en eski son bar)", min(fresh_days), 5, ctx.today)
 
     # NVDA 10'a 1 bölünmesi (10 Haziran 2024): seri düzeltilmemişse %90 düşüş görünür.
-    stooq, yahoo, _ = fetch(ctx, "NVDA", "5y")
-    for name, series in (("Stooq", stooq), ("Yahoo", yahoo)):
-        before, after = series.get(date(2024, 6, 7)), series.get(date(2024, 6, 10))
+    series, _, _ = fetch_all(ctx, "NVDA", days=(ctx.today - date(2024, 5, 1)).days)
+    for name, s in series.items():
+        before, after = s.get(date(2024, 6, 7)), s.get(date(2024, 6, 10))
         if before and after:
             change = after["close"] / before["close"] - 1
-            rep.add(f"{name}: NVDA bölünmesi düzeltilmiş", Status.OK if abs(change) < 0.15 else Status.FAIL,
-                    f"7→10 Haziran 2024 değişim %{change * 100:.1f}")
+            adjusted = abs(change) < 0.15
+            rep.add(f"{name}: NVDA bölünmesi düzeltilmiş", Status.OK if adjusted else Status.INFO,
+                    f"7→10 Haziran 2024 değişim %{change * 100:.1f}"
+                    + ("" if adjusted else " — ham fiyat; bölünme düzeltmesi bizim tarafta yapılmalı"))
         else:
-            rep.add(f"{name}: NVDA bölünmesi düzeltilmiş", Status.WARN, "2024-06-07/10 barı yok")
+            rep.add(f"{name}: NVDA bölünmesi düzeltilmiş", Status.INFO, "2024-06-07/10 barı yok")
 
     found = []
     for sym, label in DELISTED.items():
-        stooq, yahoo, _ = fetch(ctx, sym, "max")
-        found.append(f"{sym} ({label}): stooq={'var' if stooq else 'yok'}, yahoo={'var' if yahoo else 'yok'}")
+        series, _, _ = fetch_all(ctx, sym, days=365 * 6)
+        found.append(f"{sym} ({label}): " + ", ".join(f"{k}={'var' if v else 'yok'}" for k, v in series.items()))
     rep.add("Borsadan çıkmış hisselerin geçmiş fiyatı", Status.INFO, "; ".join(found))

@@ -175,3 +175,33 @@ def test_source_status_is_worst_check():
     rep.expect_min_ratio("d", 1, 10, 0.9, 0.5)
     assert rep.status == Status.FAIL
     assert rep.expect_equal("e", 383_285_000_000.0, 383_285_000_000).status == Status.OK
+
+
+def test_parse_nasdaq_prices():
+    data = {"data": {"tradesTable": {"rows": [{"date": "10/09/2026", "close": "$1,254.04", "volume": "40,123,456"},
+                                              {"date": "bad", "close": "$1"}]}}}
+    assert prices.parse_nasdaq(data) == {date(2026, 10, 9): {"close": 1254.04, "volume": 40123456.0}}
+    assert prices.parse_nasdaq({"data": None}) == {}
+
+
+def test_price_agreement():
+    a = {date(2024, 1, d): {"close": 100.0} for d in range(1, 31)}
+    b = {d: {"close": 100.2} for d in a}
+    assert round(prices.agreement(a, b), 3) == 0.2
+    assert prices.agreement(a, {}) is None
+
+
+def test_gdelt_last_update_and_gkg():
+    import io, zipfile
+    text = ("100 aaa http://data.gdeltproject.org/gdeltv2/20261009220000.export.CSV.zip\n"
+            "200 bbb http://data.gdeltproject.org/gdeltv2/20261009220000.mentions.CSV.zip\n"
+            "300 ccc http://data.gdeltproject.org/gdeltv2/20261009220000.gkg.csv.zip\n")
+    files = gdelt.parse_last_update(text)
+    assert files["gkg"] == (300, "ccc", "http://data.gdeltproject.org/gdeltv2/20261009220000.gkg.csv.zip")
+    row = ["x"] * gdelt.GKG_COLUMNS
+    row[gdelt.COL_ORGS] = "nvidia;apple"
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as zf:
+        zf.writestr("a.gkg.csv", "\t".join(row) + "\n")
+    rows = gdelt.read_gkg(buf.getvalue())
+    assert len(rows) == 1 and rows[0][gdelt.COL_ORGS] == "nvidia;apple"

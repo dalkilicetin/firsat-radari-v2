@@ -17,11 +17,11 @@ KEY, TITLE, TIER, ROADS = "fred", "FRED makro ve emtia serileri", 1, [1, 4]
 
 URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}"
 
-# seri: (açıklama, frekans sınırı gün olarak güncellik)
+# seri: (açıklama, güncellik sınırı gün olarak; aylık seriler ~1-2 ay gecikmeyle yayımlanır)
 SERIES = {
     "DCOILWTICO": ("Ham petrol WTI (günlük)", 10),
     "DGS10": ("ABD 10 yıllık faiz (günlük)", 10),
-    "PCOPPUSDM": ("Bakır fiyatı (aylık)", 75),
+    "PCOPPUSDM": ("Bakır fiyatı (aylık, IMF kaynaklı ~3 ay gecikmeli)", 130),
     "INDPRO": ("Sanayi üretimi (aylık)", 75),
     "CPIAUCSL": ("Tüketici fiyat endeksi (aylık)", 75),
     "IPG3344S": ("Yarı iletken üretimi (aylık)", 75),

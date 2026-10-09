@@ -6,7 +6,7 @@ Küçük bir şirket için büyük bir devlet sözleşmesi oyun değiştirici ol
 
 from __future__ import annotations
 
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 
 from radar.quality import SourceReport, Status
 from radar.sources.base import Context
@@ -36,7 +36,8 @@ def search_awards(ctx: Context, recipient: str, start: date, end: date) -> list[
 def run(ctx: Context, rep: SourceReport) -> None:
     updated = ctx.client.get(LAST_UPDATED).json().get("last_updated", "")
     try:
-        rep.expect_fresh("Veritabanı güncelliği", date.fromisoformat(updated[:10]), 10, ctx.today)
+        # API tarihi MM/DD/YYYY biçiminde döner.
+        rep.expect_fresh("Veritabanı güncelliği", datetime.strptime(updated[:10], "%m/%d/%Y").date(), 10, ctx.today)
     except ValueError:
         rep.add("Veritabanı güncelliği", Status.WARN, f"tarih okunamadı: {updated!r}")
 
