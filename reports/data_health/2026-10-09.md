@@ -1,4 +1,4 @@
-# Veri Sağlık Raporu — 2026-10-09 23:20 UTC
+# Veri Sağlık Raporu — 2026-10-09 23:24 UTC
 
 🟢 13 kullanılabilir · 🟡 4 dikkat · 🔴 0 kullanılamaz
 
@@ -7,20 +7,20 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Kaynak | Sınıf | Yol | Durum | Süre | İstek |
 |---|---|---|---|---|---|
 | [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.7 sn | 2 |
-| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.3 sn | 5 |
-| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 2.0 sn | 15 |
-| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 5.6 sn | 23 |
-| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 8.0 sn | 61 |
-| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.7 sn | 6 |
-| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.3 sn | 1 |
-| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 0.8 sn | 4 |
+| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.0 sn | 5 |
+| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 2.4 sn | 15 |
+| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 10.6 sn | 23 |
+| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.5 sn | 61 |
+| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.8 sn | 6 |
+| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.5 sn | 1 |
+| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 0.9 sn | 4 |
 | [USPTO patentleri (PatentsView)](#uspto) | 1 | 3 | 🟡 Dikkat | 0.0 sn | 0 |
-| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 43.1 sn | 38 |
-| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.3 sn | 6 |
-| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 61.6 sn | 8 |
-| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 3.8 sn | 6 |
-| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.6 sn | 2 |
-| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.6 sn | 3 |
+| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 43.8 sn | 38 |
+| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 5.4 sn | 6 |
+| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 29.7 sn | 5 |
+| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 4.6 sn | 6 |
+| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
+| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.1 sn | 3 |
 | [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.1 sn | 3 |
 | [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.8 sn | 3 |
 
@@ -186,12 +186,12 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Kontrol | Durum | Detay |
 |---|---|---|
 | Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-09, -0.0 gün önce (sınır 0.25) |
-| İndirilen dosya bütünlüğü (önceki dosya, zip CRC) | 🟢 | listelenen dosya henüz yayımlanmamıştı; 4,516,831 bayt, CRC sağlam |
-| 15 dakikalık dosyada makale | 🟢 | 1,062 (beklenen 500–50,000) |
-| Sütun sayısı = 27 | 🟢 | 1062/1062 = %100.0 |
-| Kurum (Organizations) bilgisi olan | 🟢 | 810/1062 = %76.3 |
-| Ton değeri okunabilen | 🟢 | 1062/1062 = %100.0 |
-| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | united states (64), white house (57), associated press (36), google (27), parades commission (25), department of homeland security (22), instagram (21), cnn (20) |
+| İndirilen dosya bütünlüğü (boyut + MD5) | 🟢 | 4,230,705 bayt, md5 eşleşti |
+| 15 dakikalık dosyada makale | 🟢 | 999 (beklenen 500–50,000) |
+| Sütun sayısı = 27 | 🟢 | 999/999 = %100.0 |
+| Kurum (Organizations) bilgisi olan | 🟢 | 731/999 = %73.2 |
+| Ton değeri okunabilen | 🟢 | 999/999 = %100.0 |
+| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | united states (57), white house (45), instagram (27), police service of northern ireland (22), parades commission (22), associated press (22), google (21), nickelodeon (19) |
 | Geçmiş veri: 1 Mart 2015 dosyası makale | 🟢 | 1,209 (beklenen 100–50,000) |
 | Yardımcı: DOC API zaman serisi | ℹ️ | erişilemedi (HTTP 429); ham dosyalar yeterli |
 
