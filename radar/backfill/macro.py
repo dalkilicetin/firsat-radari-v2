@@ -35,7 +35,7 @@ SERIES = {
     "CPIAUCSL": "Tüketici fiyatları", "PPIACO": "Üretici fiyatları", "CES0500000003": "Saatlik ücret",
     "PCU334413334413": "Yarı iletken üretici fiyatı",
     # Finansal koşullar
-    "DGS10": "10 yıllık faiz", "DGS2": "2 yıllık faiz", "FEDFUNDS": "Fed faizi", "BAMLH0A0HYM2": "Yüksek getirili tahvil makası",
+    "DGS10": "10 yıllık faiz", "DGS2": "2 yıllık faiz", "FEDFUNDS": "Fed faizi", "BAA10Y": "Baa kurumsal tahvil makası",
     "DTWEXBGS": "Dolar endeksi", "VIXCLS": "VIX", "UNRATE": "İşsizlik",
 }
 

@@ -39,8 +39,9 @@ def plan(dataset: str, only: str = "", force: bool = False) -> list[str]:
     ds = DATASETS[dataset]
     available = ds.partitions(HttpClient(), date.today())
     if only:
+        # "A" gibi bir önek, tarihli "A-20261009" bölümüyle de eşleşir; eşleşmeyen değer (örn. "yok") yalnızca kontrolleri çalıştırır.
         wanted = set(only.split(","))
-        return [p for p in available if p in wanted]
+        return [p for p in available if p in wanted or p.rsplit("-", 1)[0] in wanted]
     done = {p for p, e in storage.load_manifest(ds.name)["partitions"].items() if e["status"] != "fail"}
     return available if force else [p for p in available if p not in done]
 

@@ -45,7 +45,7 @@ class FailsToDeliver(Dataset):
         urls = sorted(self._links(client)[partition])
         frames = []
         for url in urls:
-            df = read_zip_member(client.get(url, timeout=300).content, ".txt", sep="|")
+            df = read_zip_member(client.get(url, timeout=300).content, "", sep="|")  # üye adının uzantısı yok
             df = df.rename(columns={"SETTLEMENT DATE": "SETTLE", "QUANTITY (FAILS)": "QTY"})
             frames.append(df)
         df = pd.concat(frames, ignore_index=True)
@@ -131,21 +131,26 @@ class TiingoListing(Dataset):
             "currency": df["pricecurrency"], "start_date": to_date(df["startdate"], "%Y-%m-%d"),
             "end_date": to_date(df["enddate"], "%Y-%m-%d"),
         })
-        return Loaded(out, [TIINGO_LIST])
+        from radar.backfill.market import current_symbols
+        return Loaded(out, [TIINGO_LIST], {"universe": current_symbols(client)})
 
     def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
         df = loaded.df
         rep.expect_range("Satır sayısı", len(df), 20_000, 300_000)
         nasdaq = df[(df.exchange.str.upper() == "NASDAQ") & (df.asset_type.str.lower() == "stock")]
         recent = nasdaq.end_date >= pd.Timestamp.today() - pd.Timedelta(days=7)
-        rep.expect_range("Şu an işlem gören Nasdaq hissesi (evrenimiz 3.434)", int(recent.sum()), 2_800, 4_500)
+        ours = set(loaded.notes.get("universe", []))
+        if ours:
+            rep.expect_min_ratio("Evrenimizdeki hisseler listede aktif", len(ours & set(nasdaq.ticker[recent])), len(ours), 0.95, 0.85)
         gone = nasdaq[~recent & (nasdaq.end_date >= "2015-01-01")]
         rep.add("2015'ten bu yana Nasdaq'tan çıkan hisse", Status.INFO, f"{len(gone):,}")
-        found = []
+        reused = df.ticker.value_counts()
+        rep.add("Birden çok kaydı olan sembol (yeniden kullanım)", Status.INFO, f"{int((reused > 1).sum()):,}")
+        found, good = [], 0
         for sym, month in DELISTED_PROBES.items():
-            hit = df[df.ticker == sym]
-            end = hit.end_date.max() if len(hit) else None
-            found.append((sym, month, end))
-        good = sum(1 for _, m, e in found if e is not None and str(e)[:7] in (m, str(pd.Period(m) + 1), str(pd.Period(m) - 1)))
-        rep.expect_min_ratio("Bilinen çıkışlar doğru tarihle listede", good, len(found), 1.0, 0.6).detail += \
-            f"; {[(s, str(e.date()) if e is not None else 'yok') for s, _, e in found]}"
+            rows = df[df.ticker == sym]
+            ends = [str(e.date()) for e in rows.end_date.dropna()]
+            ok_months = {month, str(pd.Period(month) + 1), str(pd.Period(month) - 1)}
+            good += any(e[:7] in ok_months for e in ends)
+            found.append(f"{sym}: {ends or 'yok'}")
+        rep.expect_min_ratio("Bilinen çıkışlar doğru tarihle listede", good, len(found), 1.0, 0.6).detail += f"; {found}"

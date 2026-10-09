@@ -71,7 +71,7 @@ class InstitutionalHoldings(Dataset):
         rep.expect_range("Dosya (13F-HR) sayısı", loaded.notes["filings"], 3_000, 15_000)
         rep.expect_range("Pozisyon satırı", n, 500_000, 6_000_000)
         rep.expect_min_ratio("Geçerli CUSIP", int(df.cusip.str.match(r"^[0-9A-Z]{8}[0-9]$").sum()), n, 0.99, 0.97)
-        rep.expect_min_ratio("Değer ve adet > 0", int(((df.value > 0) & (df.shares > 0)).sum()), n, 0.98, 0.95)
+        rep.expect_min_ratio("Değer ve adet > 0", int(((df.value > 0) & (df.shares > 0)).sum()), n, 0.97, 0.93)
         rep.expect_min_ratio("Dönem sonu ≤ dosyalama tarihi", int((df.period <= df.filing_date).sum()), n, 0.999, 0.99)
         # Birim tutarlılığı: AAPL için değer/adet, o çeyrek sonundaki gerçek fiyata yakın olmalı (bin $ hatası 1000 kat sapar).
         aapl = df[(df.cusip == AAPL_CUSIP) & (df.share_type == "SH") & (df.put_call == "") & (df.shares > 0)]

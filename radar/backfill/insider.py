@@ -118,10 +118,11 @@ class InsiderTransactions(Dataset):
             acc = row.accession
             url = f"https://www.sec.gov/Archives/edgar/data/{int(row.issuer_cik)}/{acc.replace('-', '')}/{acc}.txt"
             xml = sec_form4.extract_xml(client.get(url).text, "ownershipDocument")
-            raw = sorted((t.code, round(t.shares or 0, 2), round(t.price or 0, 4)) for t in sec_form4.parse_form4(xml)) if xml else []
-            bulk = sorted((r.code, round(r.shares if pd.notna(r.shares) else 0, 2), round(r.price if pd.notna(r.price) else 0, 4))
+            raw = sorted((t.code, round(t.shares or 0, 2), t.price or 0.0) for t in sec_form4.parse_form4(xml)) if xml else []
+            bulk = sorted((r.code, round(r.shares if pd.notna(r.shares) else 0, 2), r.price if pd.notna(r.price) else 0.0)
                           for r in df[df.accession == acc].itertuples())
-            if raw == bulk:
+            # Toplu veri seti fiyatı 2 ondalığa yuvarlar; kuruş içi fark eşleşme sayılır.
+            if len(raw) == len(bulk) and all(a[:2] == b[:2] and abs(a[2] - b[2]) <= 0.006 for a, b in zip(raw, bulk)):
                 match += 1
             else:
                 diffs.append(f"{acc}: toplu={bulk[:2]} ham={raw[:2]}")

@@ -98,7 +98,11 @@ class FinancialStatements(Dataset):
             "qtrs": pd.to_numeric(df.QTRS, errors="coerce").astype("Int64"), "uom": df.UOM,
             "value": pd.to_numeric(df.VALUE, errors="coerce"),
         })
-        return Loaded(out, [url], {"filings": int(sub.ADSH.nunique()), "forms": sub.FORM.value_counts().to_dict()})
+        # XBRL'de değeri boş ("nil") olarak raporlanmış kalemler tutulmaz.
+        empty = int(out.value.isna().sum())
+        out = out[out.value.notna()]
+        return Loaded(out, [url], {"filings": int(sub.ADSH.nunique()), "forms": sub.FORM.value_counts().to_dict(),
+                                   "empty_values": empty})
 
     def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
         df = loaded.df
@@ -111,7 +115,7 @@ class FinancialStatements(Dataset):
         both = df.accepted.notna() & df.filed.notna()
         gap = (df.filed[both] - df.accepted[both].dt.normalize()).dt.days
         rep.expect_min_ratio("Kabul günü ≤ dosyalama günü (≤3 gün)", int(gap.between(0, 3).sum()), int(both.sum()), 0.995, 0.98)
-        rep.expect_min_ratio("Değer sayısal", int(df.value.notna().sum()), n, 0.999, 0.99)
+        rep.add("Boş (nil) değer, ayıklandı", Status.INFO, f"{loaded.notes['empty_values']:,} satır")
         rep.expect_min_ratio("Dönem sonu ≤ kabul anı", int((df.ddate <= df.accepted).sum()), int(both.sum()), 0.999, 0.99)
         for part, cik, tag, ddate, qtrs, value in GOLDEN:
             if part != partition:

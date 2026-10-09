@@ -106,7 +106,7 @@ FTD_TXT = ("SETTLEMENT DATE|CUSIP|SYMBOL|QUANTITY (FAILS)|DESCRIPTION|PRICE\n"
 def test_ftd_load():
     ds = delisted.FailsToDeliver()
     page = b'<a href="/files/data/fails-deliver-data/cnsfails202303a.zip">'
-    loaded = ds.load(FakeClient({"cnsfails202303a.zip": make_zip({"cnsfails202303a.txt": FTD_TXT}),
+    loaded = ds.load(FakeClient({"cnsfails202303a.zip": make_zip({"cnsfails202303a": FTD_TXT}),
                                  "data-research": page}), "2023")
     df = loaded.df
     assert list(df.symbol) == ["SIVB", "AAPL"] and df.price.tolist() == [284.5, 145.91]
@@ -116,7 +116,9 @@ def test_ftd_load():
 def test_tiingo_listing():
     csv = ("ticker,exchange,assetType,priceCurrency,startDate,endDate\n"
            "SIVB,NASDAQ,Stock,USD,1987-01-01,2023-03-09\nAAPL,NASDAQ,Stock,USD,1980-12-12,2099-01-01\n")
-    loaded = delisted.TiingoListing().load(FakeClient({"supported_tickers": make_zip({"supported_tickers.csv": csv})}), "tiingo-x")
+    nasdaq = b"Symbol|Security Name|Market Category|Test Issue|Financial Status|Round Lot Size|ETF|NextShares\nAAPL|Apple Inc. - Common Stock|Q|N|N|100|N|N\n"
+    loaded = delisted.TiingoListing().load(FakeClient({"supported_tickers": make_zip({"supported_tickers.csv": csv}), "nasdaqlisted": nasdaq}), "tiingo-x")
+    assert loaded.notes["universe"] == ["AAPL"]
     assert loaded.df.set_index("ticker").end_date["SIVB"] == pd.Timestamp("2023-03-09")
 
 
