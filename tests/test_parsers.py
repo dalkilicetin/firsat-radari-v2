@@ -216,3 +216,9 @@ def test_latest_shares_filed_falls_back_to_balance_sheet():
     facts = {"facts": {"us-gaap": {"CommonStockSharesOutstanding": {"units": {"shares": [{"filed": "2026-08-01"}]}}}}}
     assert sec_xbrl.latest_shares_filed(facts) == "2026-08-01"
     assert sec_xbrl.latest_shares_filed({}) is None
+
+
+def test_acceptance_time_converted_to_new_york():
+    from radar.sources.sec_submissions import NEW_YORK
+    accepted = datetime.fromisoformat("2026-10-09T02:30:32+00:00").astimezone(NEW_YORK).date()
+    assert accepted == date(2026, 10, 8)

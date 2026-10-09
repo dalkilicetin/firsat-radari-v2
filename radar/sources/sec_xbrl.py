@@ -44,7 +44,10 @@ def annual_value(facts: dict, tags: list[str], end: str, taxonomy: str = "us-gaa
     return None
 
 
-SHARES_TAGS = [("dei", "EntityCommonStockSharesOutstanding"), ("us-gaap", "CommonStockSharesOutstanding")]
+# Sınıf bazında (A/B hisse) raporlanan değerler companyfacts'te yer almaz; bu yüzden sırayla yedeklere bakılır.
+SHARES_TAGS = [("dei", "EntityCommonStockSharesOutstanding"), ("us-gaap", "CommonStockSharesOutstanding"),
+               ("us-gaap", "WeightedAverageNumberOfSharesOutstandingBasic"),
+               ("us-gaap", "WeightedAverageNumberOfDilutedSharesOutstanding")]
 
 
 def latest_shares_filed(facts: dict) -> str | None:

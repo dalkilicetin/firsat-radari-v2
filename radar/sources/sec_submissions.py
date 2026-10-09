@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from collections import Counter
 from datetime import date, datetime
+from zoneinfo import ZoneInfo
 
 from radar.quality import SourceReport, Status
 from radar.sources.base import Context
@@ -17,6 +18,7 @@ from radar.sources.base import Context
 KEY, TITLE, TIER, ROADS = "sec_submissions", "SEC şirket dosya geçmişi", 1, [1, 3]
 
 URL = "https://data.sec.gov/submissions/CIK{cik:010d}.json"
+NEW_YORK = ZoneInfo("America/New_York")
 
 # Apple'ın 2023 mali yılı 10-K'sı 3 Kasım 2023'te dosyalandı.
 GOLDEN_FILING = ("AAPL", "10-K", "2023-11-03")
@@ -60,11 +62,12 @@ def run(ctx: Context, rep: SourceReport) -> None:
     consistent, bad = 0, []
     for f in all_filings:
         try:
-            accepted = datetime.fromisoformat(f["acceptanceDateTime"].replace("Z", "+00:00")).date()
+            # Kabul anı UTC, dosyalama tarihi New York saatine göre verilir.
+            accepted = datetime.fromisoformat(f["acceptanceDateTime"].replace("Z", "+00:00")).astimezone(NEW_YORK).date()
             filed = date.fromisoformat(f["filingDate"])
         except ValueError:
             continue
-        # Kabul anı, dosyalama tarihiyle aynı gün ya da (17:30 sonrası kabullerde) bir gün önce olur.
+        # Kabul günü, dosyalama günüyle aynıdır ya da (mesai sonrası kabullerde) birkaç gün öncesidir.
         if 0 <= (filed - accepted).days <= 3:
             consistent += 1
         else:

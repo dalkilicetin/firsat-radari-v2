@@ -44,6 +44,10 @@ sağlanacak.
 5. **Anomali:** kayıt sayısı / değerler normalin dışında mı.
 6. **Zaman damgası:** her veri, *yayımlandığı an* ve *çekildiği an* ile
    saklanır (geriye dönük testte ileriye bakma hatasını önler).
+   Kural: bir veri, kaynağın onu **kamuya açtığı an** itibarıyla bilinir; şirketin
+   dosyalama tarihi değil. (Örnek: halka arz taslakları (DRS) SEC'e aylar önce gizlice
+   verilir, sonra yayımlanır. SEC'te esas alınan an: `acceptanceDateTime` (UTC) ve
+   günlük indekse giriş günü.)
 
 Sonuç: her çalışmada `reports/data_health/` altında yeşil/sarı/kırmızı
 **Veri Sağlık Raporu**. Kırmızı kaynak o hafta puanlamada kullanılmaz.

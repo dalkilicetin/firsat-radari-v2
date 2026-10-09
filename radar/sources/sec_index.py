@@ -22,6 +22,8 @@ ROW = re.compile(
     r"^(?P<form>\S.*?)\s{2,}(?P<company>.+?)\s{2,}(?P<cik>\d{1,10})\s{2,}(?P<date>\d{8}|\d{4}-\d{2}-\d{2})\s+(?P<path>edgar/\S+)\s*$"
 )
 IPO_FORMS = {"S-1", "S-1/A", "F-1", "F-1/A", "424B4"}
+# Sinyal üretmek için kullandığımız formlar. Diğerleri (EFFECT, DRS, MA-I, ATS-N...) idari formlardır.
+USED_FORMS = {"4", "8-K", "10-K", "10-Q", "20-F", "6-K", "13F-HR", "SCHEDULE 13D", "SCHEDULE 13G", "NT 10-K", "NT 10-Q"} | IPO_FORMS
 
 
 def parse_form_index(text: str) -> list[IndexRow]:
@@ -71,12 +73,18 @@ def run(ctx: Context, rep: SourceReport) -> None:
         forms = Counter(r.form for r in rows)
         rep.expect_range(f"{d}: toplam dosya", len(rows), 1500, 15000)
         rep.expect_range(f"{d}: Form 4 sayısı", forms["4"], 300, 6000)
-        mismatched = [r for r in rows if r.filed != d]
-        check = rep.expect_min_ratio(f"{d}: dosya tarihi indeks günüyle aynı", len(rows) - len(mismatched), len(rows), 0.999, 0.99)
-        if mismatched:
-            gaps = Counter((d - r.filed).days for r in mismatched)
-            check.detail += (f"; fark (gün): {dict(gaps.most_common(5))}; formlar: {dict(Counter(r.form for r in mismatched).most_common(5))}"
-                             f"; örnek: {[(r.form, r.company[:25], str(r.filed)) for r in mismatched[:3]]}")
+        # Bir kayıt indekse, SEC'in onu yayımladığı gün girer. Mesai sonrası dosyalamalar 1 gün kayabilir;
+        # kullandığımız formlarda daha büyük fark beklenmez.
+        used = [r for r in rows if r.form in USED_FORMS]
+        late = [r for r in used if (d - r.filed).days > 1 + (d.weekday() == 0) * 2]
+        check = rep.expect_min_ratio(f"{d}: kullanılan formlar 1 iş günü içinde yayımlanmış", len(used) - len(late), len(used), 0.999, 0.99)
+        if late:
+            check.detail += f"; örnek: {[(r.form, r.company[:25], str(r.filed)) for r in late[:3]]}"
+        delayed = [r for r in rows if r.form.startswith("DRS") and r.filed != d]
+        if delayed:
+            rep.add(f"{d}: gizli taslak (DRS) — dosyalama ≠ yayım", Status.INFO,
+                    f"{len(delayed)} kayıt, medyan gecikme {sorted((d - r.filed).days for r in delayed)[len(delayed) // 2]} gün "
+                    "(geriye dönük testte yayım tarihi esas alınır)")
 
     all_rows = [r for rows in per_day.values() for r in rows]
     forms = Counter(r.form for r in all_rows)
