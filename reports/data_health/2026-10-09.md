@@ -1,4 +1,4 @@
-# Veri Sağlık Raporu — 2026-10-09 23:15 UTC
+# Veri Sağlık Raporu — 2026-10-09 23:20 UTC
 
 🟢 13 kullanılabilir · 🟡 4 dikkat · 🔴 0 kullanılamaz
 
@@ -6,23 +6,23 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kaynak | Sınıf | Yol | Durum | Süre | İstek |
 |---|---|---|---|---|---|
-| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.6 sn | 2 |
-| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.7 sn | 5 |
-| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 2.2 sn | 15 |
-| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 6.9 sn | 23 |
-| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 8.1 sn | 61 |
-| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 1.0 sn | 6 |
+| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.7 sn | 2 |
+| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.3 sn | 5 |
+| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 2.0 sn | 15 |
+| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 5.6 sn | 23 |
+| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 8.0 sn | 61 |
+| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.7 sn | 6 |
 | [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.3 sn | 1 |
 | [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 0.8 sn | 4 |
 | [USPTO patentleri (PatentsView)](#uspto) | 1 | 3 | 🟡 Dikkat | 0.0 sn | 0 |
-| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 41.5 sn | 38 |
-| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.5 sn | 6 |
-| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 24.2 sn | 5 |
+| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 43.1 sn | 38 |
+| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.3 sn | 6 |
+| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 61.6 sn | 8 |
 | [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 3.8 sn | 6 |
 | [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.6 sn | 2 |
-| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.2 sn | 3 |
+| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.6 sn | 3 |
 | [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.1 sn | 3 |
-| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.9 sn | 3 |
+| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.8 sn | 3 |
 
 <a id="universe"></a>
 ## 🟢 Hisse evreni (Nasdaq + SEC)
@@ -185,8 +185,8 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-09, 0.0 gün önce (sınır 0.25) |
-| İndirilen dosya bütünlüğü (boyut + MD5) | 🟢 | 4,516,831 bayt, md5 eşleşti |
+| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-09, -0.0 gün önce (sınır 0.25) |
+| İndirilen dosya bütünlüğü (önceki dosya, zip CRC) | 🟢 | listelenen dosya henüz yayımlanmamıştı; 4,516,831 bayt, CRC sağlam |
 | 15 dakikalık dosyada makale | 🟢 | 1,062 (beklenen 500–50,000) |
 | Sütun sayısı = 27 | 🟢 | 1062/1062 = %100.0 |
 | Kurum (Organizations) bilgisi olan | 🟢 | 810/1062 = %76.3 |

@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-09T23:15:52.428976+00:00",
+ "run_at": "2026-10-09T23:20:29.541131+00:00",
  "sources": [
   {
    "key": "universe",
@@ -13,7 +13,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.6,
+   "duration_s": 0.7,
    "requests": 2,
    "checks": [
     {
@@ -126,7 +126,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.7,
+   "duration_s": 1.3,
    "requests": 5,
    "checks": [
     {
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.2,
+   "duration_s": 2.0,
    "requests": 15,
    "checks": [
     {
@@ -453,7 +453,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 6.9,
+   "duration_s": 5.6,
    "requests": 23,
    "checks": [
     {
@@ -510,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 8.1,
+   "duration_s": 8.0,
    "requests": 61,
    "checks": [
     {
@@ -662,7 +662,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.0,
+   "duration_s": 0.7,
    "requests": 6,
    "checks": [
     {
@@ -951,7 +951,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 41.5,
+   "duration_s": 43.1,
    "requests": 38,
    "checks": [
     {
@@ -1033,7 +1033,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.5,
+   "duration_s": 1.3,
    "requests": 6,
    "checks": [
     {
@@ -1116,19 +1116,19 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 24.2,
-   "requests": 5,
+   "duration_s": 61.6,
+   "requests": 8,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 0.25)",
-     "value": 0.0
+     "detail": "en son kayıt 2026-10-09, -0.0 gün önce (sınır 0.25)",
+     "value": -0.01
     },
     {
-     "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
+     "name": "İndirilen dosya bütünlüğü (önceki dosya, zip CRC)",
      "status": "ok",
-     "detail": "4,516,831 bayt, md5 eşleşti",
+     "detail": "listelenen dosya henüz yayımlanmamıştı; 4,516,831 bayt, CRC sağlam",
      "value": null
     },
     {
@@ -1337,7 +1337,7 @@
      "name": "Güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
-     "value": 0.01
+     "value": 0.02
     },
     {
      "name": "Geçmiş veri: Ocak 2016 sonuç",
@@ -1371,7 +1371,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.2,
+   "duration_s": 1.6,
    "requests": 3,
    "checks": [
     {
@@ -1529,7 +1529,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.9,
+   "duration_s": 1.8,
    "requests": 3,
    "checks": [
     {
@@ -1577,14 +1577,14 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/stdexec",
-     "NVIDIA/JAX-Toolbox",
-     "NVIDIA/cudf"
+     "NVIDIA/srt-slurm",
+     "NVIDIA/OpenShell",
+     "NVIDIA/NemoClaw"
     ],
     "microsoft": [
-     "microsoft/nvx",
-     "microsoft/DiskANN",
-     "microsoft/qdk-chemistry"
+     "microsoft/aspire-samples",
+     "microsoft/garnet",
+     "microsoft/winget-pkgs"
     ],
     "apple": [
      "apple/swift-network-evolution",
