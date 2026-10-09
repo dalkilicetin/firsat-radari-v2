@@ -1,4 +1,4 @@
-# Veri Sağlık Raporu — 2026-10-09 23:01 UTC
+# Veri Sağlık Raporu — 2026-10-09 23:10 UTC
 
 🟢 13 kullanılabilir · 🟡 4 dikkat · 🔴 0 kullanılamaz
 
@@ -6,23 +6,23 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kaynak | Sınıf | Yol | Durum | Süre | İstek |
 |---|---|---|---|---|---|
-| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.6 sn | 2 |
-| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.1 sn | 5 |
-| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.9 sn | 15 |
-| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 4.5 sn | 23 |
-| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 8.6 sn | 61 |
-| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.8 sn | 6 |
-| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.3 sn | 1 |
-| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 1.3 sn | 4 |
+| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.3 sn | 2 |
+| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 0.7 sn | 5 |
+| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 2.0 sn | 15 |
+| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 7.3 sn | 23 |
+| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.6 sn | 61 |
+| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.7 sn | 6 |
+| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.4 sn | 1 |
+| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 0.9 sn | 4 |
 | [USPTO patentleri (PatentsView)](#uspto) | 1 | 3 | 🟡 Dikkat | 0.0 sn | 0 |
-| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 41.5 sn | 38 |
-| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.4 sn | 6 |
-| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 26.3 sn | 5 |
-| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 7.3 sn | 6 |
-| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.6 sn | 2 |
-| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.4 sn | 3 |
-| [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.1 sn | 3 |
-| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 2.1 sn | 3 |
+| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 45.8 sn | 38 |
+| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.3 sn | 6 |
+| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 26.6 sn | 5 |
+| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 35.3 sn | 6 |
+| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
+| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.2 sn | 3 |
+| [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.0 sn | 3 |
+| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.8 sn | 3 |
 
 <a id="universe"></a>
 ## 🟢 Hisse evreni (Nasdaq + SEC)
@@ -185,23 +185,23 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-09, 0.0 gün önce (sınır 0.25) |
-| İndirilen dosya bütünlüğü (boyut + MD5) | 🟢 | 5,244,348 bayt, md5 eşleşti |
-| 15 dakikalık dosyada makale | 🟢 | 1,238 (beklenen 500–50,000) |
-| Sütun sayısı = 27 | 🟢 | 1238/1238 = %100.0 |
-| Kurum (Organizations) bilgisi olan | 🟢 | 910/1238 = %73.5 |
-| Ton değeri okunabilen | 🟢 | 1238/1238 = %100.0 |
-| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | white house (70), united states (70), associated press (31), department of homeland security (30), instagram (29), reuters (28), facebook (23), parades commission (21) |
+| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-09, -0.0 gün önce (sınır 0.25) |
+| İndirilen dosya bütünlüğü (boyut + MD5) | 🟢 | 4,516,831 bayt, md5 eşleşti |
+| 15 dakikalık dosyada makale | 🟢 | 1,062 (beklenen 500–50,000) |
+| Sütun sayısı = 27 | 🟢 | 1062/1062 = %100.0 |
+| Kurum (Organizations) bilgisi olan | 🟢 | 810/1062 = %76.3 |
+| Ton değeri okunabilen | 🟢 | 1062/1062 = %100.0 |
+| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | united states (64), white house (57), associated press (36), google (27), parades commission (25), department of homeland security (22), instagram (21), cnn (20) |
 | Geçmiş veri: 1 Mart 2015 dosyası makale | 🟢 | 1,209 (beklenen 100–50,000) |
-| Yardımcı: DOC API zaman serisi | ℹ️ | erişilemedi (HTTP 429); ham dosyalar yeterli |
+| Yardımcı: DOC API zaman serisi | ℹ️ | 0 nokta (yardımcı kaynak; durumu etkilemez) |
 
 <a id="wikipedia"></a>
 ## 🟡 Wikipedia ilgisi + Wikidata eşleştirmesi
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Nvidia: gün sayısı (60 gün) | 🟢 | 60 (beklenen 55–61) |
-| Nvidia: güncellik | 🟢 | en son kayıt 2026-10-08, 1.0 gün önce (sınır 3) |
+| Nvidia: gün sayısı (60 gün) | 🟢 | 59 (beklenen 55–61) |
+| Nvidia: güncellik | 🟢 | en son kayıt 2026-10-07, 2.0 gün önce (sınır 3) |
 | Apple_Inc.: gün sayısı (60 gün) | 🟢 | 60 (beklenen 55–61) |
 | Apple_Inc.: güncellik | 🟢 | en son kayıt 2026-10-08, 1.0 gün önce (sınır 3) |
 | Microsoft: gün sayısı (60 gün) | 🟢 | 60 (beklenen 55–61) |
