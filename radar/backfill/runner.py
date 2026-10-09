@@ -17,13 +17,16 @@ from datetime import date
 from radar.backfill import storage
 from radar.backfill.delisted import FailsToDeliver, TiingoListing
 from radar.backfill.financials import FinancialStatements
+from radar.backfill.holdings import InstitutionalHoldings
 from radar.backfill.insider import InsiderTransactions
 from radar.backfill.macro import FredSeries
+from radar.backfill.market import DailyPrices, WikipediaViews
 from radar.health import ICON, LABEL
 from radar.http import HttpClient
 from radar.quality import SourceReport, Status
 
-DATASETS = {d.name: d for d in [InsiderTransactions(), FinancialStatements(), FailsToDeliver(), TiingoListing(), FredSeries()]}
+DATASETS = {d.name: d for d in [InsiderTransactions(), FinancialStatements(), FailsToDeliver(), TiingoListing(), FredSeries(),
+                                         DailyPrices(), WikipediaViews(), InstitutionalHoldings()]}
 PARTS_DIR = storage.MANIFEST_DIR / "parts"
 REPORT_DIR = storage.config.ROOT / "reports" / "backfill"
 
@@ -55,7 +58,7 @@ def cmd_plan(args) -> None:
         datasets.append(r["dataset"])
     print(json.dumps({"matrix": {"include": include[:MATRIX_LIMIT]}, "count": len(include[:MATRIX_LIMIT]),
                       "total": len(include), "datasets": " ".join(datasets),
-                      "max_parallel": min(DATASETS[d].max_parallel * len(datasets), 6)}))
+                      "max_parallel": min(sum(DATASETS[d].max_parallel for d in datasets), 6)}))
 
 
 def cmd_run(args) -> int:

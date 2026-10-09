@@ -136,3 +136,46 @@ def test_runner_run_and_finalize(tmp_path, monkeypatch):
     assert entry["status"] == "fail" and entry["rows"] == 2
     assert not storage.partition_path("insider", "2024q1").exists()
     assert (tmp_path / "reports" / "insider.md").exists()
+
+
+def test_market_groups_and_events():
+    from radar.backfill import market
+    assert market.in_group("AAPL", "A") and market.in_group("KLAC", "J-K") and not market.in_group("LULU", "J-K")
+    assert all(any(market.in_group(c + "X", g) for g in market.GROUPS) for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    data = {"chart": {"result": [{"events": {"splits": {"1": {"date": 1718026200, "numerator": 10, "denominator": 1}},
+                                             "dividends": {"2": {"date": 1717767000, "amount": 0.01}}}}]}}
+    splits, divs = market.parse_yahoo_events(data)
+    assert splits[0]["ratio"] == 10 and divs[0]["amount"] == 0.01
+
+
+def test_holdings_load_units():
+    from radar.backfill import holdings
+    z = make_zip({
+        "SUBMISSION.tsv": tsv([["ACCESSION_NUMBER", "FILING_DATE", "SUBMISSIONTYPE", "CIK", "PERIODOFREPORT"],
+                               ["A1", "14-NOV-2022", "13F-HR", "102909", "30-SEP-2022"],
+                               ["A2", "14-FEB-2023", "13F-HR", "102909", "31-DEC-2022"]]),
+        "COVERPAGE.tsv": tsv([["ACCESSION_NUMBER", "ISAMENDMENT", "FILINGMANAGER_NAME"], ["A1", "N", "VANGUARD"], ["A2", "N", "VANGUARD"]]),
+        "INFOTABLE.tsv": tsv([["ACCESSION_NUMBER", "NAMEOFISSUER", "CUSIP", "VALUE", "SSHPRNAMT", "SSHPRNAMTTYPE", "PUTCALL"],
+                              ["A1", "APPLE INC", "037833100", "138", "1000", "SH", ""],
+                              ["A2", "APPLE INC", "037833100", "130000", "1000", "SH", ""]]),
+    })
+    ds = holdings.InstitutionalHoldings()
+    loaded = ds.load(FakeClient({"2022q4_form13f.zip": z, "data-research": b'<a href="/f/2022q4_form13f.zip">'}), "2022q4")
+    assert loaded.df.value.tolist() == [138_000, 130_000]  # 2023 öncesi bin $ → $
+    assert holdings.partition_start("01jun2024-31aug2024") == pd.Timestamp("2024-06-01")
+    assert holdings.partition_start("2023q3") == pd.Timestamp("2023-07-01")
+
+
+def test_runner_plan_from_request_file(tmp_path, monkeypatch, capsys):
+    import json
+    monkeypatch.setattr(storage, "MANIFEST_DIR", tmp_path / "manifest")
+    req = tmp_path / "req.json"
+    req.write_text(json.dumps({"requests": [{"dataset": "insider", "only": "2024q1"}, {"dataset": "fred"}]}))
+    monkeypatch.setattr(runner, "REQUEST_FILE", req)
+    client = FakeClient({"data-research": b'<a href="/f/2024q1_form345.zip"><a href="/f/2024q2_form345.zip">'})
+    monkeypatch.setattr(runner, "HttpClient", lambda: client)
+    runner.main(["plan"])
+    out = json.loads(capsys.readouterr().out)
+    parts = [(m["dataset"], m["partition"][:3]) for m in out["matrix"]["include"]]
+    assert parts == [("insider", "202"), ("fred", "all")]
+    assert out["datasets"] == "insider fred" and 1 <= out["max_parallel"] <= 6
