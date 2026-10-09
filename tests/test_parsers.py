@@ -222,3 +222,9 @@ def test_acceptance_time_converted_to_new_york():
     from radar.sources.sec_submissions import NEW_YORK
     accepted = datetime.fromisoformat("2026-10-09T02:30:32+00:00").astimezone(NEW_YORK).date()
     assert accepted == date(2026, 10, 8)
+
+
+def test_gdelt_previous_slot_and_zip_check():
+    url = "http://data.gdeltproject.org/gdeltv2/20261009230000.gkg.csv.zip"
+    assert gdelt.previous_slot(url) == "http://data.gdeltproject.org/gdeltv2/20261009224500.gkg.csv.zip"
+    assert not gdelt.zip_intact(b"not a zip")

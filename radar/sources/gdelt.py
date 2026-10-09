@@ -16,7 +16,7 @@ import sys
 import time
 import zipfile
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from radar.http import FetchError
 from radar.quality import SourceReport, Status
@@ -62,16 +62,32 @@ def parse_timeline(data: dict) -> list[tuple[datetime, float]]:
     return points
 
 
-def fetch_published(ctx: Context, url: str, attempts: int = 5) -> bytes:
-    """lastupdate.txt dosyayı, dosya sunucuya düşmeden birkaç saniye önce listeleyebiliyor."""
+def previous_slot(url: str) -> str:
+    """Bir önceki 15 dakikalık dosyanın adresi."""
+    stamp = re.search(r"/(\d{14})\.", url).group(1)
+    prev = datetime.strptime(stamp, "%Y%m%d%H%M%S") - timedelta(minutes=15)
+    return url.replace(stamp, prev.strftime("%Y%m%d%H%M%S"))
+
+
+def zip_intact(blob: bytes) -> bool:
+    try:
+        with zipfile.ZipFile(io.BytesIO(blob)) as zf:
+            return zf.testzip() is None
+    except zipfile.BadZipFile:
+        return False
+
+
+def fetch_published(ctx: Context, url: str, attempts: int = 3) -> bytes | None:
+    """lastupdate.txt dosyayı sunucuya düşmeden önce listeleyebiliyor; kısa süre bekleyip yeniden dener."""
     for i in range(attempts):
         try:
             return ctx.client.get(url, retries=1).content
         except FetchError as exc:
-            if exc.status != 404 or i == attempts - 1:
+            if exc.status != 404:
                 raise
-            time.sleep(30)
-    raise AssertionError("unreachable")
+            if i < attempts - 1:
+                time.sleep(20)
+    return None
 
 
 def run(ctx: Context, rep: SourceReport) -> None:
@@ -84,9 +100,15 @@ def run(ctx: Context, rep: SourceReport) -> None:
     rep.expect_fresh("Ham dosya akışı güncelliği", datetime.strptime(m.group(1), "%Y%m%d%H%M%S").replace(tzinfo=timezone.utc), 0.25)
 
     blob = fetch_published(ctx, url)
-    rep.add("İndirilen dosya bütünlüğü (boyut + MD5)",
-            Status.OK if len(blob) == size and hashlib.md5(blob).hexdigest() == md5 else Status.FAIL,
-            f"{len(blob):,} bayt, md5 {'eşleşti' if hashlib.md5(blob).hexdigest() == md5 else 'EŞLEŞMEDİ'}")
+    if blob is not None:
+        ok = len(blob) == size and hashlib.md5(blob).hexdigest() == md5
+        rep.add("İndirilen dosya bütünlüğü (boyut + MD5)", Status.OK if ok else Status.FAIL,
+                f"{len(blob):,} bayt, md5 {'eşleşti' if ok else 'EŞLEŞMEDİ'}")
+    else:
+        # Listelenen dosya henüz yayımlanmamış: bir önceki dosyayı al, zip CRC'siyle doğrula.
+        blob = ctx.client.get(previous_slot(url)).content
+        rep.add("İndirilen dosya bütünlüğü (önceki dosya, zip CRC)", Status.OK if zip_intact(blob) else Status.FAIL,
+                f"listelenen dosya henüz yayımlanmamıştı; {len(blob):,} bayt, CRC {'sağlam' if zip_intact(blob) else 'BOZUK'}")
 
     rows = read_gkg(blob)
     rep.expect_range("15 dakikalık dosyada makale", len(rows), 500, 50_000)
