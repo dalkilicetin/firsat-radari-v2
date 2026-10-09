@@ -181,3 +181,46 @@ def test_runner_plan_from_request_file(tmp_path, monkeypatch, capsys):
     parts = [(m["dataset"], m["partition"][:3]) for m in out["matrix"]["include"]]
     assert parts == [("insider", "202"), ("fred", "all")]
     assert out["datasets"] == "insider fred" and 1 <= out["max_parallel"] <= 6
+
+
+def test_parse_submission_main_and_extra_page():
+    from radar.backfill import filings
+    main = {"filings": {"recent": {"form": ["8-K", "4", "25-NSE"], "filingDate": ["2024-01-02", "2024-01-03", "2024-02-01"],
+                                   "acceptanceDateTime": ["2024-01-02T16:00:00.000Z"] * 3, "accessionNumber": ["a", "b", "c"],
+                                   "items": ["2.02", "", ""], "reportDate": ["", "", ""], "primaryDocument": ["x", "y", "z"]}}}
+    rows = filings.parse_submission(main)
+    assert [r["form"] for r in rows] == ["8-K", "25-NSE"] and rows[0]["items"] == "2.02"
+    extra = {"form": ["10-K"], "filingDate": ["2016-03-01"], "accessionNumber": ["d"]}
+    assert filings.parse_submission(extra)[0]["accession"] == "d"
+
+
+def test_gdelt_aggregate():
+    from radar.backfill import filings
+    from radar.sources import gdelt
+    row = ["x"] * gdelt.GKG_COLUMNS
+    row[gdelt.COL_ORGS] = "nvidia;apple;nvidia"
+    row[gdelt.COL_TONE] = "-2.5,1,3"
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as zf:
+        zf.writestr("a.gkg.csv", "\t".join(row) + "\n")
+    df, n = filings.aggregate_gkg(buf.getvalue())
+    assert n == 1 and sorted(df.org) == ["apple", "nvidia"] and df.tone.tolist() == [-2.5, -2.5]
+
+
+def test_gdelt_history_load_daily_flush(monkeypatch):
+    from radar.backfill import filings
+    from radar.sources import gdelt
+    row = ["x"] * gdelt.GKG_COLUMNS
+    row[gdelt.COL_ORGS] = "nvidia"
+    row[gdelt.COL_TONE] = "1.0,0"
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as zf:
+        zf.writestr("a.gkg.csv", "\t".join(row) + "\n")
+    blob = buf.getvalue()
+    # Her günün ilk dosyası eksik, diğer 7'si aynı makaleyi içeriyor.
+    monkeypatch.setattr(filings, "_fetch", lambda url: None if url.endswith("000000.gkg.csv.zip") else blob)
+    loaded = filings.GdeltHistory().load(None, "2015")
+    df = loaded.df
+    nv = df[df.org == "nvidia"]
+    assert nv.date.min() == pd.Timestamp("2015-02-19") and (nv.mentions == 7).all()
+    assert loaded.notes["missing"] == loaded.notes["days"]

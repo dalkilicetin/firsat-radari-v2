@@ -16,6 +16,7 @@ from datetime import date
 
 from radar.backfill import storage
 from radar.backfill.delisted import FailsToDeliver, TiingoListing
+from radar.backfill.filings import Filings, GdeltHistory
 from radar.backfill.financials import FinancialStatements
 from radar.backfill.holdings import InstitutionalHoldings
 from radar.backfill.insider import InsiderTransactions
@@ -26,7 +27,8 @@ from radar.http import HttpClient
 from radar.quality import SourceReport, Status
 
 DATASETS = {d.name: d for d in [InsiderTransactions(), FinancialStatements(), FailsToDeliver(), TiingoListing(), FredSeries(),
-                                         DailyPrices(), WikipediaViews(), InstitutionalHoldings()]}
+                                         DailyPrices(), WikipediaViews(), InstitutionalHoldings(),
+                                         Filings(), GdeltHistory()]}
 PARTS_DIR = storage.MANIFEST_DIR / "parts"
 REPORT_DIR = storage.config.ROOT / "reports" / "backfill"
 
