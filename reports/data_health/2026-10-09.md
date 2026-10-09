@@ -1,28 +1,28 @@
-# Veri Sağlık Raporu — 2026-10-09 22:53 UTC
+# Veri Sağlık Raporu — 2026-10-09 22:55 UTC
 
-🟢 12 kullanılabilir · 🟡 5 dikkat · 🔴 0 kullanılamaz
+🟢 12 kullanılabilir · 🟡 4 dikkat · 🔴 1 kullanılamaz
 
 Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = güvenilir ama dolaylı.
 
 | Kaynak | Sınıf | Yol | Durum | Süre | İstek |
 |---|---|---|---|---|---|
-| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.7 sn | 2 |
-| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.4 sn | 5 |
-| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟡 Dikkat | 2.2 sn | 15 |
-| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 7.0 sn | 23 |
-| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 8.6 sn | 61 |
-| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 1.0 sn | 6 |
-| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 1.0 sn | 1 |
-| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 0.8 sn | 4 |
+| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
+| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 0.9 sn | 5 |
+| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.9 sn | 15 |
+| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 5.7 sn | 23 |
+| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 9.1 sn | 61 |
+| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 1.2 sn | 6 |
+| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.3 sn | 1 |
+| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 1.0 sn | 4 |
 | [USPTO patentleri (PatentsView)](#uspto) | 1 | 3 | 🟡 Dikkat | 0.0 sn | 0 |
-| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 45.8 sn | 38 |
-| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.5 sn | 6 |
-| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 20.5 sn | 5 |
-| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 4.0 sn | 6 |
-| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
-| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.5 sn | 3 |
+| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 41.8 sn | 38 |
+| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.4 sn | 6 |
+| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🔴 Kullanılamaz | 120.3 sn | 6 |
+| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 8.0 sn | 6 |
+| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.6 sn | 2 |
+| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.6 sn | 3 |
 | [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.1 sn | 3 |
-| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.9 sn | 3 |
+| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.8 sn | 3 |
 
 <a id="universe"></a>
 ## 🟢 Hisse evreni (Nasdaq + SEC)
@@ -69,7 +69,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Halka arz hazırlığı (S-1/F-1/424B4) | ℹ️ | 51 dosya; örnek: ['Basel Medical Group Ltd', '707 Cayman Holdings Ltd.', 'Tracx Logis Ltd.', 'CYABRA, INC.', 'Amaero Inc.', 'Calm Seas Acquisition Corp.', 'Essential Minerals Acquisition Corp', 'Gravity Acquisition Corp.'] |
 
 <a id="sec_submissions"></a>
-## 🟡 SEC şirket dosya geçmişi
+## 🟢 SEC şirket dosya geçmişi
 
 | Kontrol | Durum | Detay |
 |---|---|---|
@@ -77,7 +77,8 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Çapraz kontrol: dosyadaki ticker evrendeki ticker ile aynı | 🟢 | 15/15 = %100.0 |
 | Doğrulanmış gerçek: AAPL 10-K 2023-11-03 | 🟢 | bulundu |
 | 8-K'larda olay kodu (items) dolu | 🟢 | 1233/1233 = %100.0 |
-| Kabul anı ile dosyalama tarihi tutarlı (zaman damgası) | 🟡 | 9721/9841 = %98.8; formlar: {'EFFECT': 55, '4': 43, 'NO ACT': 7, 'CORRESP': 5, 'DRSLTR': 2, '3': 1}; örnek: [('4', '2023-10-03', '2023-10-04T05:09:17.000Z'), ('4', '2023-10-03', '2023-10-04T05:08:18.000Z'), ('4', '2023-10-03', '2023-10-04T05:06:55.000Z'), ('4', '2023-10-03', '2023-10-04T05:05:22.000Z')] |
+| Kabul anı ile dosyalama tarihi tutarlı (zaman damgası) | 🟢 | 6755/6756 = %100.0; formlar: {'S-1/A': 1}; örnek: [('S-1/A', '2024-09-03', '2024-08-30T23:09:30.000Z')] |
+| Önceki güne tarihlenen gece kabulleri | ℹ️ | 43 dosya — dosyalama tarihi değil kabul anı esas alınır |
 | AAPL son dosya güncelliği | 🟢 | en son kayıt 2026-10-08, 1.0 gün önce (sınır 45) |
 | Yıllık rapor (10-K/20-F/40-F) bulunan şirket | 🟢 | 15/15 = %100.0 |
 
@@ -180,19 +181,12 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | IPG3344S – Yarı iletken üretimi (aylık): güncellik | 🟢 | en son kayıt 2026-08-01, 69.0 gün önce (sınır 75); 656 gözlem, başlangıç 1972-01-01 |
 
 <a id="gdelt"></a>
-## 🟢 GDELT haber akışı
+## 🔴 GDELT haber akışı
 
 | Kontrol | Durum | Detay |
 |---|---|---|
 | Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-09, -0.0 gün önce (sınır 0.25) |
-| İndirilen dosya bütünlüğü (boyut + MD5) | 🟢 | 5,244,348 bayt, md5 eşleşti |
-| 15 dakikalık dosyada makale | 🟢 | 1,238 (beklenen 500–50,000) |
-| Sütun sayısı = 27 | 🟢 | 1238/1238 = %100.0 |
-| Kurum (Organizations) bilgisi olan | 🟢 | 910/1238 = %73.5 |
-| Ton değeri okunabilen | 🟢 | 1238/1238 = %100.0 |
-| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | white house (70), united states (70), associated press (31), department of homeland security (30), instagram (29), reuters (28), facebook (23), parades commission (21) |
-| Geçmiş veri: 1 Mart 2015 dosyası makale | 🟢 | 1,209 (beklenen 100–50,000) |
-| Yardımcı: DOC API zaman serisi | ℹ️ | erişilemedi (HTTP 429); ham dosyalar yeterli |
+| Çalışma hatası | 🔴 | FetchError: http://data.gdeltproject.org/gdeltv2/20261009230000.gkg.csv.zip -> 404:  |
 
 <a id="wikipedia"></a>
 ## 🟡 Wikipedia ilgisi + Wikidata eşleştirmesi
@@ -224,10 +218,10 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| 'Nvidia stock': haber sayısı | 🟢 | 103 (beklenen 20–200) |
-| 'Nvidia stock': tarihi okunabilen | 🟢 | 103/103 = %100.0 |
+| 'Nvidia stock': haber sayısı | 🟢 | 102 (beklenen 20–200) |
+| 'Nvidia stock': tarihi okunabilen | 🟢 | 102/102 = %100.0 |
 | 'Nvidia stock': güncellik | 🟢 | en son kayıt 2026-10-09, 0.0 gün önce (sınır 2) |
-| 'Nvidia stock': tekil başlık | 🟢 | 103/103 = %100.0 |
+| 'Nvidia stock': tekil başlık | 🟢 | 102/102 = %100.0 |
 | 'Apple earnings': haber sayısı | 🟢 | 100 (beklenen 20–200) |
 | 'Apple earnings': tarihi okunabilen | 🟢 | 100/100 = %100.0 |
 | 'Apple earnings': güncellik | 🟢 | en son kayıt 2026-10-09, 0.2 gün önce (sınır 2) |

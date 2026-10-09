@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-09T22:53:07.971151+00:00",
+ "run_at": "2026-10-09T22:55:37.162829+00:00",
  "sources": [
   {
    "key": "universe",
@@ -13,7 +13,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.7,
+   "duration_s": 0.5,
    "requests": 2,
    "checks": [
     {
@@ -126,7 +126,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.4,
+   "duration_s": 0.9,
    "requests": 5,
    "checks": [
     {
@@ -329,9 +329,9 @@
     1,
     3
    ],
-   "status": "warn",
+   "status": "ok",
    "error": null,
-   "duration_s": 2.2,
+   "duration_s": 1.9,
    "requests": 15,
    "checks": [
     {
@@ -360,9 +360,15 @@
     },
     {
      "name": "Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)",
-     "status": "warn",
-     "detail": "9721/9841 = %98.8; formlar: {'EFFECT': 55, '4': 43, 'NO ACT': 7, 'CORRESP': 5, 'DRSLTR': 2, '3': 1}; örnek: [('4', '2023-10-03', '2023-10-04T05:09:17.000Z'), ('4', '2023-10-03', '2023-10-04T05:08:18.000Z'), ('4', '2023-10-03', '2023-10-04T05:06:55.000Z'), ('4', '2023-10-03', '2023-10-04T05:05:22.000Z')]",
-     "value": 0.9878
+     "status": "ok",
+     "detail": "6755/6756 = %100.0; formlar: {'S-1/A': 1}; örnek: [('S-1/A', '2024-09-03', '2024-08-30T23:09:30.000Z')]",
+     "value": 0.9999
+    },
+    {
+     "name": "Önceki güne tarihlenen gece kabulleri",
+     "status": "info",
+     "detail": "43 dosya — dosyalama tarihi değil kabul anı esas alınır",
+     "value": null
     },
     {
      "name": "AAPL son dosya güncelliği",
@@ -447,7 +453,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 7.0,
+   "duration_s": 5.7,
    "requests": 23,
    "checks": [
     {
@@ -504,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 8.6,
+   "duration_s": 9.1,
    "requests": 61,
    "checks": [
     {
@@ -656,7 +662,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.0,
+   "duration_s": 1.2,
    "requests": 6,
    "checks": [
     {
@@ -748,7 +754,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.0,
+   "duration_s": 0.3,
    "requests": 1,
    "checks": [
     {
@@ -809,7 +815,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 1.0,
    "requests": 4,
    "checks": [
     {
@@ -945,7 +951,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 45.8,
+   "duration_s": 41.8,
    "requests": 38,
    "checks": [
     {
@@ -1027,7 +1033,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.5,
+   "duration_s": 1.4,
    "requests": 6,
    "checks": [
     {
@@ -1108,10 +1114,10 @@
     2,
     4
    ],
-   "status": "ok",
-   "error": null,
-   "duration_s": 20.5,
-   "requests": 5,
+   "status": "fail",
+   "error": "FetchError: http://data.gdeltproject.org/gdeltv2/20261009230000.gkg.csv.zip -> 404: ",
+   "duration_s": 120.3,
+   "requests": 6,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
@@ -1120,71 +1126,13 @@
      "value": -0.0
     },
     {
-     "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
-     "status": "ok",
-     "detail": "5,244,348 bayt, md5 eşleşti",
-     "value": null
-    },
-    {
-     "name": "15 dakikalık dosyada makale",
-     "status": "ok",
-     "detail": "1,238 (beklenen 500–50,000)",
-     "value": 1238
-    },
-    {
-     "name": "Sütun sayısı = 27",
-     "status": "ok",
-     "detail": "1238/1238 = %100.0",
-     "value": 1.0
-    },
-    {
-     "name": "Kurum (Organizations) bilgisi olan",
-     "status": "ok",
-     "detail": "910/1238 = %73.5",
-     "value": 0.7351
-    },
-    {
-     "name": "Ton değeri okunabilen",
-     "status": "ok",
-     "detail": "1238/1238 = %100.0",
-     "value": 1.0
-    },
-    {
-     "name": "Bu 15 dakikada en çok geçen kurumlar",
-     "status": "info",
-     "detail": "white house (70), united states (70), associated press (31), department of homeland security (30), instagram (29), reuters (28), facebook (23), parades commission (21)",
-     "value": null
-    },
-    {
-     "name": "Geçmiş veri: 1 Mart 2015 dosyası makale",
-     "status": "ok",
-     "detail": "1,209 (beklenen 100–50,000)",
-     "value": 1209
-    },
-    {
-     "name": "Yardımcı: DOC API zaman serisi",
-     "status": "info",
-     "detail": "erişilemedi (HTTP 429); ham dosyalar yeterli",
-     "value": null
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "FetchError: http://data.gdeltproject.org/gdeltv2/20261009230000.gkg.csv.zip -> 404: ",
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/gdelt.py\", line 86, in run\n    blob = fetch_published(ctx, url)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/gdelt.py\", line 69, in fetch_published\n    return ctx.client.get(url, retries=1).content\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: http://data.gdeltproject.org/gdeltv2/20261009230000.gkg.csv.zip -> 404: \n"
     }
    ],
-   "sample": [
-    {
-     "date": "20261009230000",
-     "source": "aol.co.uk",
-     "orgs": "barclays center brooklyn"
-    },
-    {
-     "date": "20261009230000",
-     "source": "nbcwashington.com",
-     "orgs": "d c police"
-    },
-    {
-     "date": "20261009230000",
-     "source": "autoweek.com",
-     "orgs": "mercedes;audrain museum;audrain automobile museum in newport;ferrari;pontiac;rickenbacker;suffolk county vanderbilt muse"
-    }
-   ]
+   "sample": null
   },
   {
    "key": "wikipedia",
@@ -1196,7 +1144,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 4.0,
+   "duration_s": 8.0,
    "requests": 6,
    "checks": [
     {
@@ -1318,7 +1266,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.5,
+   "duration_s": 0.6,
    "requests": 2,
    "checks": [
     {
@@ -1365,31 +1313,31 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.5,
+   "duration_s": 1.6,
    "requests": 3,
    "checks": [
     {
      "name": "'Nvidia stock': haber sayısı",
      "status": "ok",
-     "detail": "103 (beklenen 20–200)",
-     "value": 103
+     "detail": "102 (beklenen 20–200)",
+     "value": 102
     },
     {
      "name": "'Nvidia stock': tarihi okunabilen",
      "status": "ok",
-     "detail": "103/103 = %100.0",
+     "detail": "102/102 = %100.0",
      "value": 1.0
     },
     {
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
-     "value": 0.03
+     "value": 0.0
     },
     {
      "name": "'Nvidia stock': tekil başlık",
      "status": "ok",
-     "detail": "103/103 = %100.0",
+     "detail": "102/102 = %100.0",
      "value": 1.0
     },
     {
@@ -1432,7 +1380,7 @@
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.1 gün önce (sınır 2)",
-     "value": 0.05
+     "value": 0.06
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -1523,7 +1471,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.9,
+   "duration_s": 1.8,
    "requests": 3,
    "checks": [
     {
@@ -1572,13 +1520,13 @@
    "sample": {
     "NVIDIA": [
      "NVIDIA/NemoClaw",
-     "NVIDIA/cuvs",
-     "NVIDIA/nvidia-resiliency-ext"
+     "NVIDIA/NVFlare",
+     "NVIDIA/Megatron-LM"
     ],
     "microsoft": [
-     "microsoft/AzureTRE",
-     "microsoft/aspire-samples",
-     "microsoft/nvx"
+     "microsoft/DiskANN",
+     "microsoft/onnxscript",
+     "microsoft/BCApps"
     ],
     "apple": [
      "apple/foundationdb",
