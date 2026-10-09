@@ -3,7 +3,7 @@
  "partitions": {
   "2023q4": {
    "partition": "2023q4",
-   "fetched_at": "2026-10-09T23:14:45+00:00",
+   "fetched_at": "2026-10-09T23:17:31+00:00",
    "rows": 2886468,
    "bytes": 37228594,
    "sha256": "3d43171e0c9c4972aaf1661ae773b32c51114abdb995c18b48ba143457a474ae",
@@ -32,8 +32,8 @@
     "filings": 9196
    },
    "asset": "holdings__2023q4.parquet",
-   "status": "warn",
-   "duration_s": 17.5,
+   "status": "ok",
+   "duration_s": 10.6,
    "requests": 2,
    "checks": [
     {
@@ -53,7 +53,7 @@
     },
     {
      "name": "Değer ve adet > 0",
-     "status": "warn",
+     "status": "ok",
      "detail": "2825718/2886468 = %97.9"
     },
     {
@@ -83,5 +83,5 @@
  ],
  "title": "SEC 13F kurumsal pozisyonlar (2015→)",
  "derived": {},
- "finalized_at": "2026-10-09T23:15:37+00:00"
+ "finalized_at": "2026-10-09T23:22:39+00:00"
 }

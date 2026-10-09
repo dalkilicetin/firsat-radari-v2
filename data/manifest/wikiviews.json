@@ -1,0 +1,51 @@
+{
+ "dataset": "wikiviews",
+ "partitions": {
+  "A-20261009": {
+   "partition": "A-20261009",
+   "fetched_at": "2026-10-09T23:18:00+00:00",
+   "rows": 248975,
+   "bytes": 789935,
+   "sha256": "4c595dd8bb2148185606791c2acaa762e57879876c91eb0ae1e33cb97604697e",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 75,
+    "missing": []
+   },
+   "asset": "wikiviews__A-20261009.parquet",
+   "status": "ok",
+   "duration_s": 38.7,
+   "requests": 77,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "75/75 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "75/75 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 47/75"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [],
+ "title": "Wikipedia günlük görüntülenme (2015-07→)",
+ "derived": {},
+ "finalized_at": "2026-10-09T23:22:42+00:00"
+}

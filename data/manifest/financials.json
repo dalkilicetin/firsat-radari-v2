@@ -3,10 +3,10 @@
  "partitions": {
   "2023q3": {
    "partition": "2023q3",
-   "fetched_at": "2026-10-09T23:14:14+00:00",
-   "rows": 442381,
-   "bytes": 7053120,
-   "sha256": "c735da17ccdfb7b45b8012befd5bf41d27bcf6eda1407d407fe909c6c81d9cfd",
+   "fetched_at": "2026-10-09T23:17:32+00:00",
+   "rows": 437888,
+   "bytes": 6976834,
+   "sha256": "e682ed6d6b799c4614af2e33520f7ce509b7af5802e6b94032be7b58d0f93634",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -39,11 +39,12 @@
      "20-F/A": 21,
      "40-F": 7,
      "10-KT": 2
-    }
+    },
+    "empty_values": 4493
    },
    "asset": "financials__2023q3.parquet",
-   "status": "fail",
-   "duration_s": 7.0,
+   "status": "ok",
+   "duration_s": 7.9,
    "requests": 2,
    "checks": [
     {
@@ -54,32 +55,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "442,381 (beklenen 100,000–3,000,000)"
+     "detail": "437,888 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "442381/442381 = %100.0"
+     "detail": "437888/437888 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "442381/442381 = %100.0"
+     "detail": "437888/437888 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "441903/442381 = %99.9"
+     "detail": "437423/437888 = %99.9"
     },
     {
-     "name": "Değer sayısal",
-     "status": "fail",
-     "detail": "437888/442381 = %99.0"
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,493 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "442350/442381 = %100.0"
+     "detail": "437858/437888 = %100.0"
     },
     {
      "name": "Doğrulanmış gerçek: CIK 789019 RevenueFromContractWithCustomerExcludingAssessedTax 2023-06-30",
@@ -95,10 +96,10 @@
   },
   "2023q4": {
    "partition": "2023q4",
-   "fetched_at": "2026-10-09T23:14:17+00:00",
-   "rows": 451284,
-   "bytes": 7212694,
-   "sha256": "a82f4b806bef93ffd3fe626a8a7b2de0c3eeb8744b488a206487b59d10dd888f",
+   "fetched_at": "2026-10-09T23:17:32+00:00",
+   "rows": 446493,
+   "bytes": 7141097,
+   "sha256": "b14022ed2a614e46b0b1df5666613c177927686c82bab84ffc4f1e8ebcbcc991",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -131,10 +132,11 @@
      "20-F/A": 16,
      "40-F": 11,
      "10-KT": 1
-    }
+    },
+    "empty_values": 4791
    },
    "asset": "financials__2023q4.parquet",
-   "status": "fail",
+   "status": "ok",
    "duration_s": 11.0,
    "requests": 2,
    "checks": [
@@ -146,32 +148,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "451,284 (beklenen 100,000–3,000,000)"
+     "detail": "446,493 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "451284/451284 = %100.0"
+     "detail": "446493/446493 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "451284/451284 = %100.0"
+     "detail": "446493/446493 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "449293/451284 = %99.6"
+     "detail": "444511/446493 = %99.6"
     },
     {
-     "name": "Değer sayısal",
-     "status": "fail",
-     "detail": "446493/451284 = %98.9"
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,791 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "451267/451284 = %100.0"
+     "detail": "446476/446493 = %100.0"
     },
     {
      "name": "Doğrulanmış gerçek: CIK 320193 RevenueFromContractWithCustomerExcludingAssessedTax 2023-09-30",
@@ -283,7 +285,7 @@
   {
    "name": "Yüklenen çeyrek",
    "status": "ok",
-   "detail": "1 çeyrek: ['2024q1'] … ['2024q1']"
+   "detail": "3 çeyrek: ['2023q3'] … ['2024q1']"
   },
   {
    "name": "Doğrulanmış gerçek içeren çeyrekler",
@@ -293,5 +295,5 @@
  ],
  "title": "SEC finansal tablo verileri (XBRL, 2015→)",
  "derived": {},
- "finalized_at": "2026-10-09T23:15:35+00:00"
+ "finalized_at": "2026-10-09T23:22:37+00:00"
 }

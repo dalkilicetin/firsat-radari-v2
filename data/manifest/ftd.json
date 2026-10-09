@@ -3,16 +3,88 @@
  "partitions": {
   "2023": {
    "partition": "2023",
-   "fetched_at": "2026-10-09T23:14:18+00:00",
-   "rows": 0,
-   "status": "fail",
-   "duration_s": 0.7,
-   "requests": 2,
+   "fetched_at": "2026-10-09T23:17:33+00:00",
+   "rows": 1321877,
+   "bytes": 13132266,
+   "sha256": "dc61ceab4c94134ea0808da2eac894e55d27754de491e0596588f1b2619641b2",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202301a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202301b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202302a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202302b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202303a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202303b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202304a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202304b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202305a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202305b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202306a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202306b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202307a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202307b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202308a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202309a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202309b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202310a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202310b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202311a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202311b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202312a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202312b.zip"
+   ],
+   "notes": {
+    "files": 23,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2023.parquet",
+   "status": "ok",
+   "duration_s": 8.0,
+   "requests": 24,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "KeyError: \"zip içinde *.txt yok: ['cnsfails202301a']\""
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "23 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,321,877 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1321877/1321877 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1321877/1321877 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1310091/1321877 = %99.1"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "17,881 CUSIP, 18,041 sembol, 236 işlem günü"
     }
    ]
   }
@@ -20,11 +92,32 @@
  "dataset_checks": [
   {
    "name": "Yüklenen yıl",
-   "status": "fail",
-   "detail": "0 yıl: [] … []"
+   "status": "ok",
+   "detail": "1 yıl: ['2023'] … ['2023']"
+  },
+  {
+   "name": "Fiyat doğruluğu: AAPL FTD fiyatı ↔ Yahoo önceki gün kapanışı (%0,5)",
+   "status": "ok",
+   "detail": "186/186 = %100.0; aynı gün eşleşmesi: %31"
+  },
+  {
+   "name": "Borsadan çıkmış hisseler: çıkıştan önceki 12 ayda fiyatlı gün (~250 işlem günü)",
+   "status": "info",
+   "detail": "SIVB: 25 gün (son 2023-03-10); ATVI: 106 gün (son 2023-10-16); SGEN: 80 gün (son 2023-12-15)"
+  },
+  {
+   "name": "CUSIP → sembol eşleştirmesi",
+   "status": "info",
+   "detail": "17,881 CUSIP; birden çok sembole bağlanan (sembol değişikliği): 801"
   }
  ],
  "title": "SEC fails-to-deliver (fiyat + CUSIP eşleştirmesi, 2015→)",
- "derived": {},
- "finalized_at": "2026-10-09T23:15:29+00:00"
+ "derived": {
+  "cusip_map": {
+   "asset": "ftd__cusip_map.parquet",
+   "rows": 18707,
+   "sha256": "6431fc549ba92dcad7eff09a099ea87338ca7de34989b117eacb24ff624a8ad1"
+  }
+ },
+ "finalized_at": "2026-10-09T23:22:28+00:00"
 }
