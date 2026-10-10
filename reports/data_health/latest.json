@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T14:48:22.540007+00:00",
+ "run_at": "2026-10-10T14:58:34.540666+00:00",
  "sources": [
   {
    "key": "universe",
@@ -26,7 +26,7 @@
      "name": "Nasdaq listesi güncelliği",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.7 gün önce (sınır 4)",
-     "value": 0.72
+     "value": 0.73
     },
     {
      "name": "Bilinen hisseler listede",
@@ -126,7 +126,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 1.0,
    "requests": 5,
    "checks": [
     {
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.1,
+   "duration_s": 2.3,
    "requests": 15,
    "checks": [
     {
@@ -453,7 +453,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 7.0,
+   "duration_s": 6.2,
    "requests": 23,
    "checks": [
     {
@@ -662,7 +662,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.1,
+   "duration_s": 0.9,
    "requests": 6,
    "checks": [
     {
@@ -754,7 +754,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.4,
+   "duration_s": 0.7,
    "requests": 1,
    "checks": [
     {
@@ -815,7 +815,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 3.9,
+   "duration_s": 0.8,
    "requests": 4,
    "checks": [
     {
@@ -951,7 +951,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 42.5,
+   "duration_s": 42.7,
    "requests": 38,
    "checks": [
     {
@@ -1033,7 +1033,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.3,
+   "duration_s": 1.4,
    "requests": 6,
    "checks": [
     {
@@ -1114,83 +1114,25 @@
     2,
     4
    ],
-   "status": "ok",
-   "error": null,
-   "duration_s": 22.1,
+   "status": "fail",
+   "error": "FetchError: http://data.gdeltproject.org/gdeltv2/20261010144500.gkg.csv.zip -> 404: ",
+   "duration_s": 40.6,
    "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25)",
-     "value": 0.0
+     "detail": "en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25)",
+     "value": -0.0
     },
     {
-     "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
-     "status": "ok",
-     "detail": "3,365,339 bayt, md5 eşleşti",
-     "value": null
-    },
-    {
-     "name": "15 dakikalık dosyada makale",
-     "status": "ok",
-     "detail": "792 (beklenen 500–50,000)",
-     "value": 792
-    },
-    {
-     "name": "Sütun sayısı = 27",
-     "status": "ok",
-     "detail": "792/792 = %100.0",
-     "value": 1.0
-    },
-    {
-     "name": "Kurum (Organizations) bilgisi olan",
-     "status": "ok",
-     "detail": "573/792 = %72.3",
-     "value": 0.7235
-    },
-    {
-     "name": "Ton değeri okunabilen",
-     "status": "ok",
-     "detail": "792/792 = %100.0",
-     "value": 1.0
-    },
-    {
-     "name": "Bu 15 dakikada en çok geçen kurumlar",
-     "status": "info",
-     "detail": "united states (60), associated press (45), white house (34), instagram (24), facebook (16), nasdaq (14), national hurricane centre (14), supreme court (11)",
-     "value": null
-    },
-    {
-     "name": "Geçmiş veri: 1 Mart 2015 dosyası makale",
-     "status": "ok",
-     "detail": "1,209 (beklenen 100–50,000)",
-     "value": 1209
-    },
-    {
-     "name": "Yardımcı: DOC API zaman serisi",
-     "status": "info",
-     "detail": "erişilemedi (HTTP 429); ham dosyalar yeterli",
-     "value": null
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "FetchError: http://data.gdeltproject.org/gdeltv2/20261010144500.gkg.csv.zip -> 404: ",
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/gdelt.py\", line 110, in run\n    blob = ctx.client.get(previous_slot(url)).content\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: http://data.gdeltproject.org/gdeltv2/20261010144500.gkg.csv.zip -> 404: \n"
     }
    ],
-   "sample": [
-    {
-     "date": "20261010144500",
-     "source": "nigerianobservernews.com",
-     "orgs": "nigeria revenue service;world bank;nigeria revenue service establishment;news agency of nigeria;federation account alloc"
-    },
-    {
-     "date": "20261010144500",
-     "source": "clickondetroit.com",
-     "orgs": "community action program;america statehouse news initiative;university of illinois urbana-champaign;u s senate;ford moto"
-    },
-    {
-     "date": "20261010144500",
-     "source": "clickondetroit.com",
-     "orgs": ""
-    }
-   ]
+   "sample": null
   },
   {
    "key": "wikipedia",
@@ -1202,7 +1144,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 9.1,
+   "duration_s": 5.1,
    "requests": 6,
    "checks": [
     {
@@ -1324,7 +1266,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.9,
+   "duration_s": 5.6,
    "requests": 2,
    "checks": [
     {
@@ -1371,7 +1313,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.0,
+   "duration_s": 1.2,
    "requests": 3,
    "checks": [
     {
@@ -1390,7 +1332,7 @@
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
-     "value": 0.06
+     "value": 0.07
     },
     {
      "name": "'Nvidia stock': tekil başlık",
@@ -1414,7 +1356,7 @@
      "name": "'Apple earnings': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
-     "value": 0.12
+     "value": 0.13
     },
     {
      "name": "'Apple earnings': tekil başlık",
@@ -1438,7 +1380,7 @@
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
-     "value": 0.12
+     "value": 0.13
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -1490,7 +1432,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 4.1,
+   "duration_s": 4.0,
    "requests": 3,
    "checks": [
     {
@@ -1529,7 +1471,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.2,
+   "duration_s": 1.7,
    "requests": 3,
    "checks": [
     {
@@ -1566,7 +1508,7 @@
      "name": "apple: son push",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 3)",
-     "value": 0.03
+     "value": 0.04
     },
     {
      "name": "Kapsam notu",
@@ -1577,14 +1519,14 @@
    ],
    "sample": {
     "NVIDIA": [
+     "NVIDIA/aicr",
      "NVIDIA/Megatron-LM",
-     "NVIDIA/cudf",
-     "NVIDIA/garak"
+     "NVIDIA/cudf"
     ],
     "microsoft": [
-     "microsoft/amplifier-unified",
-     "microsoft/openvmm",
-     "microsoft/aspire"
+     "microsoft/trident",
+     "microsoft/fluentui-blazor",
+     "microsoft/amplifier-unified"
     ],
     "apple": [
      "apple/swift-binary-parsing",
