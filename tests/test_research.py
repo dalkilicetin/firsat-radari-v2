@@ -150,3 +150,32 @@ def test_shares_outstanding_prefers_total_then_sums_classes():
     s = fundamentals.shares_outstanding(fin).set_index("cik").value
     assert s[1] == 100 and s[2] == 100  # tek değer; sınıfların toplamı
     assert s[3] == 5  # kapak sayfası (dei) sınıf toplamı, bilanço kaleminden önce gelir
+
+
+def test_walk_forward_uses_only_realized_returns():
+    from radar.research import model
+    rng = np.random.default_rng(3)
+    T, N, h = 120, 200, 4
+    dates = pd.date_range("2016-01-01", periods=T, freq="W-FRI")
+    x = rng.random((T, N)).astype(np.float32) - 0.5
+    sign = np.where(np.arange(T) < 80, 1.0, -1.0)[:, None]  # 80. haftada ilişki tersine döner
+    y = (sign * x + 0.1 * rng.normal(size=(T, N))).astype(np.float32)
+    y[T - h:] = np.nan
+    fit = model.walk_forward({"f": x}, y, h, dates, ["f"], np.ones((T, N), bool))
+    first = np.argmax(np.isfinite(fit.pred).any(axis=1))
+    assert first >= model.MIN_TRAIN_WEEKS + h - 1          # öğrenme için yeterli gerçekleşmiş hafta yok
+    w = fit.weights["f"]
+    # 80+4. haftaya kadar ters ilişkiden hiçbir hafta gerçekleşmediği için ağırlık hâlâ pozitif olmalı.
+    assert (w[w.index <= dates[80 + h - 1]] > 0).all()
+    assert w.iloc[-1] < w.iloc[0]                            # sonra ters ilişkiyi öğrenmeye başlar
+
+
+def test_ranked_inputs_missing_is_neutral_and_events_centered():
+    from radar.research import model
+    dates = pd.date_range("2016-01-01", periods=2, freq="W-FRI")
+    cont = pd.DataFrame([[1.0, 2.0, np.nan, 4.0]] * 2, index=dates, columns=list("abcd"))
+    ev = pd.DataFrame([[1.0, 0.0, 0.0, 0.0]] * 2, index=dates, columns=list("abcd"))
+    uni = pd.DataFrame(True, index=dates, columns=list("abcd"))
+    X = model.ranked_inputs({"c": ("yol1", cont), "e": ("yol3", ev)}, uni)
+    assert X["c"][0, 2] == 0.0 and X["c"][0, 3] > X["c"][0, 0]
+    assert abs(X["e"][0].sum()) < 1e-6 and X["e"][0, 0] > 0
