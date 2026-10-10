@@ -241,8 +241,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 316206,HOT,"STARWOOD HOTELS & RESORTS WORLDWIDE, LLC",Tüketici,36.57,0.6620180475799835,0.511456662108781,,piyasanın üstünde,orta,2010
 34151,JAS,JO-ANN STORES INC,Perakende,36.24,0.6616997792494479,0.5111383937782454,,piyasanın üstünde,orta,2010
 72573,MOV,Movado Group Inc. Common Stock,Teknoloji donanım,9.720000267028809,0.6604938353477641,0.5099324498765616,,piyasanın üstünde,orta,2010
-18061,CASC,CASCADE CORP,Sanayi,27.49,0.6580574754456165,0.5074960899744141,,piyasanın üstünde,orta,2010
 1412067,CASC,"Cascadian Therapeutics, Inc.",Biyoteknoloji,27.49,0.6580574754456165,0.5074960899744141,,piyasanın üstünde,orta,2010
+18061,CASC,CASCADE CORP,Sanayi,27.49,0.6580574754456165,0.5074960899744141,,piyasanın üstünde,orta,2010
 866873,DLM,DEL MONTE FOODS CO,Temel tüketim,11.34,0.6578483245149913,0.5072869390437889,,piyasanın üstünde,orta,2010
 931584,USAP,UNIVERSAL STAINLESS & ALLOY PRODUCTS INC,Hammadde,19.29,0.656298600311042,0.5057372148398396,,piyasanın üstünde,orta,2010
 739944,MTOX,MEDTOX SCIENTIFIC INC,Sağlık,7.85,0.6560509554140128,0.5054895699428104,,piyasanın üstünde,orta,2010
@@ -610,8 +610,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1159167,IRBT,IROBOT CORP,Teknoloji donanım,17.7,0.40564971751412426,0.2550883320429218,,piyasanın üstünde,orta,2010
 40987,GPC,Genuine Parts Company Common Stock,Tüketici,37.959999084472656,0.40518420900577734,0.2546228235345749,,piyasanın üstünde,orta,2010
 1273441,GTE,Gran Tierra Energy Inc. Common Stock,Enerji,57.29999923706055,0.40488658066044336,0.2543251951892409,,piyasanın üstünde,orta,2010
-1279228,ATLS,ARKHAN Corp,Enerji,31.32,0.4038952745849298,0.25333388911372734,,piyasanın üstünde,orta,2010
 1347218,ATLS,Targa Energy LP,Enerji,31.32,0.4038952745849298,0.25333388911372734,,piyasanın üstünde,orta,2010
+1279228,ATLS,ARKHAN Corp,Enerji,31.32,0.4038952745849298,0.25333388911372734,,piyasanın üstünde,orta,2010
 1067491,INFY,Infosys Limited American Depositary Shares,Yazılım,6.908750057220459,0.40346127027678547,0.252899884805583,,piyasanın üstünde,orta,2010
 721083,SII,SMITH INTERNATIONAL INC,Sanayi,27.17,0.403386087596614,0.2528247021254115,borsadan çıktı,piyasanın üstünde,orta,2010
 6885,SSI,STAGE STORES INC,Perakende,12.36,0.40291262135922334,0.2523512358880209,,piyasanın üstünde,orta,2010
@@ -973,6 +973,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 217346,TXT,Textron Inc. Common Stock,Savunma/havacılık,18.809999465942383,0.2617427805112409,0.11118139504003843,,piyasanın üstünde,orta,2010
 1666700,DD,"DuPont de Nemours, Inc. Common Stock",Hammadde,49.361854553222656,0.26145954274125915,0.1108981572700567,,piyasanın üstünde,orta,2010
 1282266,WIN,"WINDSTREAM HOLDINGS, INC.",İletişim/medya,11.06,0.26039783001808314,0.10983644454688068,,piyasanın üstünde,orta,2010
+1006637,TKTM,TICKETMASTER ENTERTAINMENT LLC,Tüketici,12.22,0.26022913256955804,0.10966774709835558,borsadan çıktı,piyasanın üstünde,orta,2010
 1393612,DFS,Discover Financial Services,Finansal hizmet,14.71,0.25968728755948334,0.10912590208828088,,piyasanın üstünde,orta,2010
 1080359,ALOY,ALLOY INC,Diğer,7.78,0.2596401028277635,0.10907871735656105,borsadan çıktı,piyasanın üstünde,orta,2010
 1303523,BTI,"British American Tobacco  Industries, p.l.c. Common Stock ADR",Temel tüketim,32.33000183105469,0.25949380175072534,0.10893241627952288,,piyasanın üstünde,orta,2010
@@ -1090,8 +1091,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 752714,MGRC,McGrath RentCorp,Diğer,22.360000610351562,0.21707676740089887,0.06651538192969642,,piyasanın üstünde,orta,2010
 783325,WEC,"WEC Energy Group, Inc. Common Stock",Kamu hizmetleri,24.915000915527344,0.21707056336993746,0.066509177898735,,piyasanın üstünde,orta,2010
 914024,SHAW,SHAW GROUP INC,Diğer,28.75,0.21634782608695646,0.065786440615754,,piyasanın üstünde,orta,2010
-2006468,NUTR,NUSATRIP Inc,Sanayi,12.53,0.21628092577813263,0.06571954030693017,,piyasanın üstünde,orta,2010
 1050007,NUTR,NUTRACEUTICAL INTERNATIONAL CORP,Sağlık,12.53,0.21628092577813263,0.06571954030693017,,piyasanın üstünde,orta,2010
+2006468,NUTR,NUSATRIP Inc,Sanayi,12.53,0.21628092577813263,0.06571954030693017,,piyasanın üstünde,orta,2010
 1253955,CML,COMPELLENT TECHNOLOGIES INC,Yazılım,22.68,0.21604938271604923,0.06548799724484677,,piyasanın üstünde,orta,2010
 916789,HELE,Helen of Troy Limited,Teknoloji donanım,24.459999084472656,0.2158626690218186,0.06530128355061615,,piyasanın üstünde,orta,2010
 890923,ZOLT,ZOLTEK COMPANIES INC,Teknoloji donanım,9.5,0.21578947368421053,0.06522808821300807,,piyasanın üstünde,orta,2010
@@ -1280,8 +1281,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 700923,MYRG,"MYR Group, Inc.",Diğer,18.06999969482422,0.16214722493963407,0.011585839468431613,,piyasanın üstünde,orta,2010
 891456,PXP,PLAINS EXPLORATION & PRODUCTION CO,Enerji,27.66,0.16196673897324665,0.011405353502044191,,piyasanın üstünde,orta,2010
 101829,RTX,RTX Corporation Common Stock,Savunma/havacılık,43.68156051635742,0.16173620965894608,0.011174824187743626,,piyasanın üstünde,orta,2010
-72020,GAS,NICOR INC,Enerji,43.06,0.1614026939154667,0.01084130844426423,,piyasanın üstünde,orta,2010
 1004155,GAS,SOUTHERN CO GAS,Enerji,43.06,0.1614026939154667,0.01084130844426423,,piyasanın üstünde,orta,2010
+72020,GAS,NICOR INC,Enerji,43.06,0.1614026939154667,0.01084130844426423,,piyasanın üstünde,orta,2010
 1001902,IVAC,INTEVAC INC,Yarı iletken,11.6,0.16120689655172415,0.010645511080521697,,piyasanın üstünde,orta,2010
 72903,XEL,Xcel Energy Inc.,Kamu hizmetleri,21.219999313354492,0.16088630964638684,0.01032492417518438,,piyasanın üstünde,orta,2010
 97745,TMO,Thermo Fisher Scientific Inc Common Stock,Teknoloji donanım,47.689998626708984,0.1608299992826112,0.010268613811408756,,piyasanın üstünde,orta,2010
@@ -1310,8 +1311,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 855654,IMGN,"ImmunoGen, Inc.",Sağlık,8.03,0.15317559153175608,0.0026142060605536255,,piyasanın üstünde,orta,2010
 313927,CHD,"Church & Dwight Company, Inc. Common Stock",Temel tüketim,15.112500190734863,0.1529898164826966,0.0024284310114941476,,piyasanın üstünde,orta,2010
 932696,NSIT,"Insight Enterprises, Inc.",Perakende,11.420000076293945,0.15236425214480676,0.0018028666736042975,,piyasanın üstünde,orta,2010
-1012569,ETP,"Energy Transfer, LP",Enerji,44.97,0.15232377140315778,0.0017623859319553237,,piyasanın üstünde,orta,2010
 1161154,ETP,"Energy Transfer Operating, L.P.",Sanayi,44.97,0.15232377140315778,0.0017623859319553237,,piyasanın üstünde,orta,2010
+1012569,ETP,"Energy Transfer, LP",Enerji,44.97,0.15232377140315778,0.0017623859319553237,,piyasanın üstünde,orta,2010
 809173,MMT,Aberdeen Multi-Market Income Fund Common Shares of Beneficial Interest,Diğer,6.5,0.15219622659488818,0.0016348411236857263,,piyasanın üstünde,orta,2010
 888228,KMP,KINDER MORGAN ENERGY PARTNERS L P,Enerji,60.98,0.15218104296490664,0.0016196574937041852,,piyasanın üstünde,orta,2010
 354707,HE,"Hawaiian Electric Industries, Inc. Common Stock",Kamu hizmetleri,20.899999618530273,0.1520138270698046,0.0014524415986021388,,piyasanın üstünde,orta,2010
@@ -2011,6 +2012,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1136869,ZBH,"Zimmer Biomet Holdings, Inc. Common Stock",Sağlık,57.38835144042969,-0.0918629034693077,-0.24242428894051016,,piyasanın altında,orta,2010
 1076378,CX,"Cemex, S.A.B. de C.V. Sponsored ADR",Diğer,9.34151840209961,-0.09390844663355025,-0.2444698321047527,,piyasanın altında,orta,2010
 315852,RRC,Range Resources Corporation Common Stock,Enerji,49.849998474121094,-0.09442549926451238,-0.24498688473571484,,piyasanın altında,orta,2010
+1371011,SDXC,"Switch & Data Facilities Company, Inc.",İletişim/medya,20.21,-0.09524987629886195,-0.2458112617700644,borsadan çıktı,piyasanın altında,orta,2010
 2104052,NVRI,Enviri Corporation Common Stock,Kamu hizmetleri,32.22999954223633,-0.09548628431343109,-0.24604766978463355,,piyasanın altında,orta,2010
 927003,AEIS,"Advanced Energy Industries, Inc.",Teknoloji donanım,15.079999923706055,-0.09549057699416075,-0.2460519624653632,,piyasanın altında,orta,2010
 1000623,MATV,"Mativ Holdings, Inc. Common Stock",Hammadde,35.17499923706055,-0.09561012506590116,-0.24617151053710362,,piyasanın altında,orta,2010
@@ -2028,8 +2030,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 70530,NSM,NATIONAL SEMICONDUCTOR CORP,Yarı iletken,15.36,-0.10286458333333337,-0.25342596880453583,,piyasanın altında,orta,2010
 1109357,EXC,Exelon Corporation,Kamu hizmetleri,34.85734558105469,-0.10461877633932926,-0.2551801618105317,,piyasanın altında,orta,2010
 1436126,MG,Mistras Group Inc Common Stock,Sanayi,15.0600004196167,-0.10491373395463588,-0.25547511942583834,,piyasanın altında,orta,2010
-1168195,FIRE,SOURCEFIRE INC,Yazılım,27.36,-0.10526315789473684,-0.2558245433659393,,piyasanın altında,orta,2010
 1317577,PIKE,Pike Corp,Diğer,9.5,-0.10526315789473684,-0.2558245433659393,,piyasanın altında,orta,2010
+1168195,FIRE,SOURCEFIRE INC,Yazılım,27.36,-0.10526315789473684,-0.2558245433659393,,piyasanın altında,orta,2010
 1001385,NWPX,"NWPX Infrastructure, Inc.",Hammadde,26.860000610351562,-0.10536112655989305,-0.2559225120310955,,piyasanın altında,orta,2010
 1395325,ETJ,Eaton Vance Risk-Managed Diversified Equity Income Fund Common Shares of Beneficial Interest,Diğer,16.65999984741211,-0.10568513698007553,-0.256246522451278,,piyasanın altında,orta,2010
 1835632,MRVL,"Marvell Technology, Inc.",Yarı iletken,20.75,-0.10602468929906417,-0.2565860747702666,,piyasanın altında,orta,2010
@@ -2070,8 +2072,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 946644,AIM,AIM ImmunoTech Inc. Common Stock,Biyoteknoloji,28678.953125,-0.125,-0.27556138547120246,,piyasanın altında,orta,2010
 1306900,XRA,EXETER RESOURCE CORP,Diğer,7.1,-0.12535211267605628,-0.27591349814725874,,piyasanın altında,orta,2010
 1264707,AACC,ASSET ACCEPTANCE CAPITAL CORP,Finansal hizmet,6.78,-0.12536873156342188,-0.27593011703462433,,piyasanın altında,orta,2010
-1458891,NE,Noble Corp,Enerji,40.98,-0.12713518789653477,-0.27769657336773723,,piyasanın altında,orta,2010
 1169055,NE,Noble Finance Co,Enerji,40.98,-0.12713518789653477,-0.27769657336773723,,piyasanın altında,orta,2010
+1458891,NE,Noble Corp,Enerji,40.98,-0.12713518789653477,-0.27769657336773723,,piyasanın altında,orta,2010
 875622,BSTC,BIOSPECIFICS TECHNOLOGIES CORP,Sağlık,29.35,-0.12776831345826234,-0.2783296989294648,,piyasanın altında,orta,2010
 1091801,MSO,MARTHA STEWART LIVING OMNIMEDIA INC,İletişim/medya,5.07,-0.1282051282051283,-0.27876651367633076,,piyasanın altında,orta,2010
 1688568,DXC,DXC Technology Company Common Stock ,Yazılım,28.581687927246094,-0.12851916061478297,-0.2790805460859854,,piyasanın altında,orta,2010
@@ -2130,8 +2132,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1336920,LDOS,"Leidos Holdings, Inc. Common Stock",Yazılım,46.76543045043945,-0.1626185381885522,-0.31317992365975467,,piyasanın altında,orta,2010
 800240,ODP,ODP Corp,Perakende,6.45,-0.16279069767441856,-0.313352083145621,,piyasanın altında,orta,2010
 1459450,MYRX,"Myrexis, Inc.",Sağlık,5.03,-0.16302186878727642,-0.3135832542584789,,piyasanın altında,orta,2010
-796343,ADBE,Adobe Inc.,Yazılım,36.779998779296875,-0.16313209058692824,-0.3136934760581307,,piyasanın altında,orta,2010
-930184,VRX,VALEANT PHARMACEUTICALS INTERNATIONAL,Sağlık,31.79,-0.16325888644227737,-0.31382027191347983,borsadan çıktı,piyasanın altında,orta,2010
+796343,ADBE,Adobe Inc.,Yazılım,36.779998779296875,-0.16313209058692824,-0.3136934760581307,,piyasanın altında,kaybeden,2010
+930184,VRX,VALEANT PHARMACEUTICALS INTERNATIONAL,Sağlık,31.79,-0.16325888644227737,-0.31382027191347983,borsadan çıktı,piyasanın altında,kaybeden,2010
 1123871,ARD,ARENA RESOURCES INC,Enerji,43.12,-0.1655844155844156,-0.31614580105561807,borsadan çıktı,piyasanın altında,kaybeden,2010
 1468091,VEON,VEON Ltd.,İletişim/medya,464.75,-0.1660362529819297,-0.31659763845313216,,piyasanın altında,kaybeden,2010
 1103184,ULCM,"ULTICOM, INC",Teknoloji donanım,9.69,-0.1682146542827656,-0.31877603975396807,borsadan çıktı,piyasanın altında,kaybeden,2010
@@ -2150,8 +2152,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1268671,TNS,TNS INC,Diğer,25.28,-0.17721518987341778,-0.32777657534462024,,piyasanın altında,kaybeden,2010
 856982,MMSI,"Merit Medical Systems, Inc.",Sağlık,15.392000198364258,-0.17723496658732185,-0.3277963520585243,,piyasanın altında,kaybeden,2010
 892537,MANT,MANTECH INTERNATIONAL CORP,Sanayi,49.67,-0.1775719750352326,-0.32813336050643505,,piyasanın altında,kaybeden,2010
-1053092,CS,CREDIT SUISSE AG,Finansal hizmet,49.16,-0.1779902359641985,-0.32855162143540095,,piyasanın altında,kaybeden,2010
 1159510,CS,CREDIT SUISSE GROUP AG,Finansal hizmet,49.16,-0.1779902359641985,-0.32855162143540095,,piyasanın altında,kaybeden,2010
+1053092,CS,CREDIT SUISSE AG,Finansal hizmet,49.16,-0.1779902359641985,-0.32855162143540095,,piyasanın altında,kaybeden,2010
 780571,ITRI,"Itron, Inc.",Yarı iletken,67.56999969482422,-0.17936952769903802,-0.3299309131702405,,piyasanın altında,kaybeden,2010
 730000,SUPX,SUPERTEX INC,Yarı iletken,28.98,-0.18012422360248448,-0.33068560907368694,,piyasanın altında,kaybeden,2010
 1137861,WMGI,WRIGHT MEDICAL GROUP INC,Sağlık,18.95,-0.18047493403693937,-0.33103631950814183,,piyasanın altında,kaybeden,2010
@@ -2366,8 +2368,6 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1158223,AFFY,AFFYMAX INC,Sağlık,24.74,-0.7312045270816492,-0.8817659125528516,,asla alınmamalı,kaybeden,2010
 1347452,WEST,"Andalay Solar, Inc.",Diğer,8.95,-0.9474860335195531,-1.0980474189907556,,asla alınmamalı,kaybeden,2010
 43300,GAP,GREAT ATLANTIC & PACIFIC TEA CO INC,Perakende,12.08,-0.9693708609271523,-1.1199322463983548,,asla alınmamalı,kaybeden,2010
-1371011,SDXC,"Switch & Data Facilities Company, Inc.",İletişim/medya,20.21,-0.9995051954477981,-1.1500665809190007,borsadan çıktı,asla alınmamalı,kaybeden,2010
-1006637,TKTM,TICKETMASTER ENTERTAINMENT LLC,Tüketici,12.22,-1.0,-1.1505613854712025,iflas,asla alınmamalı,kaybeden,2010
 921549,TRMA,TRICO MARINE SERVICES INC,Sanayi,5.27,-1.0,-1.1505613854712025,iflas,asla alınmamalı,kaybeden,2010
 1207179,GLNG,Golar LNG Limited,Sanayi,15.920000076293945,1.9664627967793948,1.9409058770933048,,çok kazandıran,kazanan,2011
 1011835,MDVN,"MEDIVATION, INC.",Sağlık,16.34,1.8702570379436962,1.8447001182576062,,çok kazandıran,kazanan,2011
@@ -4848,6 +4848,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 839470,WWR,"Westwater Resources, Inc. Common Stock",Madencilik,17580.0,-0.7372013651877133,-0.7627582848738034,,asla alınmamalı,kaybeden,2011
 1091325,CNYD,"CHINA YIDA HOLDING, CO.",Diğer,9.74,-0.7412731006160165,-0.7668300203021066,,asla alınmamalı,kaybeden,2011
 831327,IPSU,IMPERIAL SUGAR CO /NEW/,Temel tüketim,12.79,-0.7427677873338545,-0.7683247070199446,,asla alınmamalı,kaybeden,2011
+1091164,JGBO,"Jiangbo Pharmaceuticals, Inc.",Sağlık,6.61,-0.7428139183055976,-0.7683708379916877,borsadan çıktı,asla alınmamalı,kaybeden,2011
 1120830,CHNG,"China Natural Gas, Inc.",Enerji,5.69,-0.7434094903339192,-0.7689664100200093,,asla alınmamalı,kaybeden,2011
 1297336,RLOC,ReachLocal Inc,Diğer,25.53,-0.7489228358793576,-0.7744797555654477,,asla alınmamalı,kaybeden,2011
 1070235,BB,BlackBerry Limited Common Stock,Yazılım,61.68000030517578,-0.7512970156178702,-0.7768539353039603,,asla alınmamalı,kaybeden,2011
@@ -4874,8 +4875,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1299130,PACB,"Pacific Biosciences of California, Inc.",Teknoloji donanım,15.1899995803833,-0.8025016403638177,-0.8280585600499077,,asla alınmamalı,kaybeden,2011
 1322439,EGLE,Eagle Bulk Shipping Inc.,Sanayi,5.04,-0.8035714285714286,-0.8291283482575187,,asla alınmamalı,kaybeden,2011
 65770,MVIS,"MicroVision, Inc.",Teknoloji donanım,253.1999969482422,-0.8056871984362755,-0.8312441181223655,,asla alınmamalı,kaybeden,2011
-1365101,PRMW,Primo Water Holdings LLC,Tüketici,13.32,-0.8070570570570571,-0.8326139767431472,,asla alınmamalı,kaybeden,2011
 884713,PRMW,Primo Water Corp /CN/,Temel tüketim,13.32,-0.8070570570570571,-0.8326139767431472,,asla alınmamalı,kaybeden,2011
+1365101,PRMW,Primo Water Holdings LLC,Tüketici,13.32,-0.8070570570570571,-0.8326139767431472,,asla alınmamalı,kaybeden,2011
 1382911,OREX,"Orexigen Therapeutics, Inc.",Sağlık,9.31,-0.807733619763695,-0.833290539449785,,asla alınmamalı,kaybeden,2011
 790024,SHZ,"CHINA SHEN ZHOU MINING & RESOURCES, INC.",Madencilik,8.97,-0.810479375696767,-0.8360362953828571,,asla alınmamalı,kaybeden,2011
 1386607,QXM,"Qiao Xing Mobile Communication Co., Ltd.",Teknoloji donanım,5.55,-0.8126126126126126,-0.8381695322987027,,asla alınmamalı,kaybeden,2011
@@ -4907,7 +4908,6 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 948708,SMSI,"Smith Micro Software, Inc.",Yazılım,2580.800048828125,-0.9187848720792261,-0.9443417917653162,,asla alınmamalı,kaybeden,2011
 883975,MBOT,Microbot Medical Inc. ,Sağlık,15876.0,-0.9193877520264472,-0.9449446717125373,,asla alınmamalı,kaybeden,2011
 1384135,HEAT,"Lithium & Boron Technology, Inc.",Hammadde,5.13,-0.9220272904483431,-0.9475842101344332,,asla alınmamalı,kaybeden,2011
-1091164,JGBO,"Jiangbo Pharmaceuticals, Inc.",Sağlık,6.61,-0.9546142208774584,-0.9801711405635485,borsadan çıktı,asla alınmamalı,kaybeden,2011
 1336691,MOTR,MOTRICITY INC,Diğer,20.04,-0.9555888223552894,-0.9811457420413795,,asla alınmamalı,kaybeden,2011
 1139570,SBAY,"SUBAYE, INC.",Yazılım,12.05,-0.995850622406639,-1.021407542092729,borsadan çıktı,asla alınmamalı,kaybeden,2011
 1401106,MF,MF Global Holdings Ltd.,Finansal hizmet,9.02,-1.0,-1.02555691968609,iflas,asla alınmamalı,kaybeden,2011
@@ -7164,6 +7164,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1487798,ECT,ECA Marcellus Trust I,Enerji,26.24,-0.3567073170731707,-0.5282343430626817,,piyasanın altında,kaybeden,2012
 1050550,VLTR,VOLTERRA SEMICONDUCTOR CORP,Yarı iletken,25.58,-0.3573103987490226,-0.5288374247385336,,piyasanın altında,kaybeden,2012
 926423,MIND,"MIND Technology, Inc.",Savunma/havacılık,229.89999389648438,-0.3649412619569773,-0.5364682879464883,,piyasanın altında,kaybeden,2012
+1261888,CAST,CHINACAST EDUCATION CORP,Diğer,6.08,-0.3651315789473685,-0.5366586049368794,borsadan çıktı,piyasanın altında,kaybeden,2012
 1495153,MMYT,MakeMyTrip Limited,Sanayi,21.829999923706055,-0.3660100686689196,-0.5375370946584306,,piyasanın altında,kaybeden,2012
 768408,CYAN,CYANOTECH CORP,Sağlık,7.62,-0.3661417322834646,-0.5376687582729756,,piyasanın altında,kaybeden,2012
 913955,AZK,AURIZON MINES LTD,Madencilik,5.29,-0.36672967863894135,-0.5382567046284523,,piyasanın altında,kaybeden,2012
@@ -7279,7 +7280,6 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1506932,LPR,Lone Pine Resources Inc.,Enerji,7.36,-0.8165760869565217,-0.9881031129460327,,asla alınmamalı,kaybeden,2012
 311471,APAGF,APCO OIL & GAS INTERNATIONAL INC,Enerji,81.4,-0.8190417690417691,-0.99056879503128,,asla alınmamalı,kaybeden,2012
 1333849,JAG,Jaguar Mining Inc,Madencilik,6.41,-0.890795631825273,-1.062322657814784,,asla alınmamalı,kaybeden,2012
-1261888,CAST,CHINACAST EDUCATION CORP,Diğer,6.08,-0.9161184210526316,-1.0876454470421426,borsadan çıktı,asla alınmamalı,kaybeden,2012
 1076700,KITD,"PIKSEL, INC.",Diğer,8.58,-0.9452214452214452,-1.1167484712109563,,asla alınmamalı,kaybeden,2012
 1156041,AGIG,Abundia Global Impact Group Inc. Common stock,Enerji,1597.5,-0.9827856025039123,-1.1543126284934233,,asla alınmamalı,kaybeden,2012
 1123647,ATPG,ATP OIL & GAS CORP,Enerji,7.21,-1.0,-1.171527025989511,iflas,asla alınmamalı,kaybeden,2012
@@ -12342,6 +12342,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1117733,PRSS,CAFEPRESS INC.,Perakende,6.15,-0.6260162601626017,-0.7712083310111871,,asla alınmamalı,kaybeden,2014
 1474042,BALT,Baltic Trading Ltd,Sanayi,6.4,-0.6265625,-0.7717545708485855,,asla alınmamalı,kaybeden,2014
 351231,DWSN,DAWSON OPERATING CO,Enerji,33.66,-0.6301247771836007,-0.7753168480321861,,asla alınmamalı,kaybeden,2014
+1399521,LIWA,LIHUA INTERNATIONAL INC.,Hammadde,5.69,-0.6309314586994728,-0.7761235295480582,borsadan çıktı,asla alınmamalı,kaybeden,2014
 1482080,ICEL,"CELLULAR DYNAMICS INTERNATIONAL, INC.",Biyoteknoloji,17.1,-0.6345029239766082,-0.7796949948251937,,asla alınmamalı,kaybeden,2014
 732834,CLR,"CONTINENTAL RESOURCES, INC",Enerji,106.77,-0.6366957010396179,-0.7818877718882034,,asla alınmamalı,kaybeden,2014
 1354513,CTCM,"CTC Media, Inc.",İletişim/medya,13.67,-0.6386247256766642,-0.7838167965252496,,asla alınmamalı,kaybeden,2014
@@ -12406,7 +12407,6 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1065059,LEU,Centrus Energy Corp. Class A Common Stock,Diğer,67.9120864868164,-0.9350631076801298,-1.080255178528715,,asla alınmamalı,kaybeden,2014
 1562594,LIQD,"Liquid Holdings Group, Inc.",Yazılım,6.83,-0.9502196193265007,-1.095411690175086,,asla alınmamalı,kaybeden,2014
 350199,CACH,CACHE INC,Perakende,5.53,-0.9638336347197106,-1.1090257055682962,,asla alınmamalı,kaybeden,2014
-1399521,LIWA,LIHUA INTERNATIONAL INC.,Hammadde,5.69,-0.9824253075571178,-1.127617378405703,borsadan çıktı,asla alınmamalı,kaybeden,2014
 30302,ALCS,ALCO STORES INC,Perakende,10.49,-1.0,-1.1451920708485854,iflas,asla alınmamalı,kaybeden,2014
 1394954,GTAT,GT Advanced Technologies Inc.,Yarı iletken,9.32,-1.0,-1.1451920708485854,iflas,asla alınmamalı,kaybeden,2014
 1112412,END,ENDEAVOUR INTERNATIONAL CORP,Enerji,5.29,-1.0,-1.1451920708485854,iflas,asla alınmamalı,kaybeden,2014
@@ -12561,8 +12561,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1295947,PBH,Prestige Consumer Healthcare Inc. Common Stock,Sağlık,34.40999984741211,0.49607671521416785,0.483191607008322,,piyasanın üstünde,kazanan,2015
 865415,ADEP,ADEPT TECHNOLOGY INC,Yarı iletken,8.68,0.49539170506912455,0.4825065968632787,borsadan çıktı,piyasanın üstünde,kazanan,2015
 33002,EBF,"Ennis, Inc. Common Stock",İletişim/medya,13.479999542236328,0.49415261749933204,0.48126750929348616,,piyasanın üstünde,kazanan,2015
-912603,RDUS,"RADIUS RECYCLING, INC.",Tüketici,41.21,0.49332686241203594,0.48044175420619006,,piyasanın üstünde,kazanan,2015
 1428522,RDUS,"Radius Health, Inc.",Sağlık,41.21,0.49332686241203594,0.48044175420619006,,piyasanın üstünde,kazanan,2015
+912603,RDUS,"RADIUS RECYCLING, INC.",Tüketici,41.21,0.49332686241203594,0.48044175420619006,,piyasanın üstünde,kazanan,2015
 829224,SBUX,Starbucks Corporation,Perakende,40.720001220703125,0.49321418717712096,0.4803290789712751,,piyasanın üstünde,kazanan,2015
 43196,GTN,"Gray Media, Inc. Common Stock",İletişim/medya,10.930000305175781,0.4913086828494444,0.4784235746435985,,piyasanın üstünde,kazanan,2015
 1101396,DLA,"DELTA APPAREL, INC",Tüketici,10.13,0.4906219151036524,0.4777368068978065,,piyasanın üstünde,kazanan,2015
@@ -13517,9 +13517,9 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 101063,CQB,CHIQUITA BRANDS INTERNATIONAL INC,Diğer,14.48,0.0006906077348065587,-0.012194500471039316,borsadan çıktı,piyasanın altında,orta,2015
 1166691,CMCSA,Comcast Corporation,İletişim/medya,26.874414443969727,0.0005935466517457133,-0.012291561554100161,,piyasanın altında,orta,2015
 1219601,CCK,"Crown Holdings, Inc.",Diğer,50.66999816894531,0.0005918962294473307,-0.012293211976398544,,piyasanın altında,orta,2015
+914398,ESYS,ELECSYS CORP,Teknoloji donanım,17.35,0.0,-0.012885108205845874,borsadan çıktı,piyasanın altında,orta,2015
 878520,SWS,Hilltop Securities Holdings LLC,Finansal hizmet,6.92,0.0,-0.012885108205845874,borsadan çıktı,piyasanın altında,orta,2015
 1008595,CIMT,CIMATRON LTD,Yazılım,8.8,0.0,-0.012885108205845874,borsadan çıktı,piyasanın altında,orta,2015
-914398,ESYS,ELECSYS CORP,Teknoloji donanım,17.35,0.0,-0.012885108205845874,borsadan çıktı,piyasanın altında,orta,2015
 104207,WAG,WALGREEN CO,Perakende,76.2,0.0,-0.012885108205845874,borsadan çıktı,piyasanın altında,orta,2015
 832101,IEX,IDEX Corporation Common Stock,Sanayi,77.87999725341797,-0.00014685419947935152,-0.013031962405325226,,piyasanın altında,orta,2015
 66382,MLKN,"MillerKnoll, Inc.",Diğer,29.290000915527344,-0.00039039736106416534,-0.01327550556691004,,piyasanın altında,orta,2015
@@ -13529,6 +13529,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1448056,NEWR,"NEW RELIC, INC.",Yazılım,36.47,-0.0010967918837400115,-0.013981900089585886,,piyasanın altında,orta,2015
 89800,SHW,Sherwin-Williams Company (The) Common Stock,Perakende,87.4800033569336,-0.0012334702092605676,-0.014118578415106442,,piyasanın altında,orta,2015
 827773,PPT,Franklin Premier Income Trust Shares of Beneficial Interest,Diğer,5.269999980926514,-0.0016252402934471277,-0.014510348499293002,,piyasanın altında,orta,2015
+1371781,XWES,"World Energy Solutions, Inc.",Diğer,5.5,-0.0018181818181818299,-0.014703290024027704,borsadan çıktı,piyasanın altında,orta,2015
 217346,TXT,Textron Inc. Common Stock,Savunma/havacılık,42.16999816894531,-0.001902826340098529,-0.014787934545944403,,piyasanın altında,orta,2015
 1276533,JFR,Nuveen Floating Rate Income Fund Common Stock,Diğer,10.979999542236328,-0.0021969632080957036,-0.015082071413941578,,piyasanın altında,orta,2015
 1353283,SPLK,SPLUNK INC,Yazılım,58.95,-0.0023748939779474343,-0.015260002183793309,,piyasanın altında,orta,2015
@@ -14011,8 +14012,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 51143,IBM,International Business Machines Corporation Common Stock,Sanayi,154.93307495117188,-0.12307763833284491,-0.13596274653869078,,piyasanın altında,orta,2015
 1065865,JNS,JANUS CAPITAL GROUP INC,Finansal hizmet,16.07,-0.12321095208462973,-0.1360960602904756,,piyasanın altında,orta,2015
 1572910,PSXP,PHILLIPS 66 PARTNERS LP,Sanayi,69.34,-0.1235938852033458,-0.13647899340919167,,piyasanın altında,orta,2015
-1159510,CS,CREDIT SUISSE GROUP AG,Finansal hizmet,24.99,-0.12364945978391362,-0.1365345679897595,,piyasanın altında,orta,2015
 1053092,CS,CREDIT SUISSE AG,Finansal hizmet,24.99,-0.12364945978391362,-0.1365345679897595,,piyasanın altında,orta,2015
+1159510,CS,CREDIT SUISSE GROUP AG,Finansal hizmet,24.99,-0.12364945978391362,-0.1365345679897595,,piyasanın altında,orta,2015
 1228509,EHI,Western Asset Global High Income Fund Inc Common Stock,Diğer,11.15999984741211,-0.12438073832773977,-0.13726584653358564,,piyasanın altında,orta,2015
 859163,AVX,AVX Corp,Teknoloji donanım,13.87,-0.12472963229992784,-0.1376147405057737,,piyasanın altında,orta,2015
 887247,ADMP,DMK PHARMACEUTICALS Corp,Sağlık,6.17,-0.12479740680713136,-0.13768251501297724,,piyasanın altında,orta,2015
@@ -14140,6 +14141,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 892450,KT,KT Corporation Common Stock,İletişim/medya,14.149999618530273,-0.1583038062965193,-0.17118891450236517,,piyasanın altında,orta,2015
 1396814,PCRX,"Pacira BioSciences, Inc.",Sağlık,91.23999786376953,-0.15837349064625672,-0.1712585988521026,,piyasanın altında,orta,2015
 835887,PGNX,PROGENICS PHARMACEUTICALS INC,Sağlık,7.29,-0.15912208504801095,-0.17200719325385683,,piyasanın altında,orta,2015
+1513161,HLSS,"HOME LOAN SERVICING SOLUTIONS, LTD.",Finansal hizmet,19.94,-0.15922768304914747,-0.17211279125499335,borsadan çıktı,piyasanın altında,orta,2015
 29002,DIOD,Diodes Incorporated,Yarı iletken,27.350000381469727,-0.15978065002858932,-0.1726657582344352,,piyasanın altında,orta,2015
 1123134,IMOS,ChipMOS TECHNOLOGIES INC.,Yarı iletken,26.213834762573242,-0.16071940356626657,-0.17360451177211245,,piyasanın altında,orta,2015
 7039,TREC,TRECORA RESOURCES,Enerji,14.93,-0.16075016744809112,-0.173635275653937,,piyasanın altında,orta,2015
@@ -14894,8 +14896,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1291855,SPCB,"SuperCom, Ltd.",Yarı iletken,2042.0,-0.4887365328109696,-0.5016216410168155,,piyasanın altında,orta,2015
 858339,CZR,"CAESARS HOLDINGS, INC.",Tüketici,15.44,-0.48898963730569944,-0.5018747455115453,,piyasanın altında,orta,2015
 1162112,RNET,"RigNet, Inc.",İletişim/medya,40.53,-0.48951394029114237,-0.5023990484969882,,piyasanın altında,orta,2015
-1610682,USDP,USD Partners LP,Sanayi,14.41,-0.49063150589868154,-0.5035166141045274,,piyasanın altında,orta,2015
-892553,GTLS,CHART INDUSTRIES INC,Diğer,35.27,-0.4907853700028353,-0.5036704782086812,,piyasanın altında,orta,2015
+1610682,USDP,USD Partners LP,Sanayi,14.41,-0.49063150589868154,-0.5035166141045274,,piyasanın altında,kaybeden,2015
+892553,GTLS,CHART INDUSTRIES INC,Diğer,35.27,-0.4907853700028353,-0.5036704782086812,,piyasanın altında,kaybeden,2015
 1040161,PXLW,"Pixelworks, Inc.",Yazılım,56.15999984741211,-0.49145299958083166,-0.5043381077866775,,piyasanın altında,kaybeden,2015
 1505512,RGLS,Regulus Therapeutics Inc.,Sağlık,17.19,-0.49272833042466546,-0.5056134386305113,,piyasanın altında,kaybeden,2015
 1208208,DGI,"DIGITALGLOBE, INC.",İletişim/medya,30.97,-0.4943493703584113,-0.5072344785642572,,piyasanın altında,kaybeden,2015
@@ -15167,11 +15169,9 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1549756,LNCO,"LinnCo, LLC",Enerji,11.5,-0.9113043478260869,-0.9241894560319328,,asla alınmamalı,kaybeden,2015
 1171012,UNXL,Uni-Pixel,Teknoloji donanım,5.88,-0.9115646258503401,-0.924449734056186,,asla alınmamalı,kaybeden,2015
 1555177,EMES,Emerge Energy Services LP,Diğer,53.41,-0.9133121138363602,-0.9261972220422061,,asla alınmamalı,kaybeden,2015
-1513161,HLSS,"HOME LOAN SERVICING SOLUTIONS, LTD.",Finansal hizmet,19.94,-0.9663991975927784,-0.9792843057986242,borsadan çıktı,asla alınmamalı,kaybeden,2015
 1568832,RCAP,RCS Capital Corp,Finansal hizmet,12.16,-0.9745065789473685,-0.9873916871532143,,asla alınmamalı,kaybeden,2015
 1439199,CTP,CTPARTNERS EXECUTIVE SEARCH INC.,Diğer,15.19,-0.9855167873601053,-0.9984018955659512,borsadan çıktı,asla alınmamalı,kaybeden,2015
 1560443,NSLP,New Source Energy Partners L.P.,Enerji,7.59,-0.9960474308300395,-1.0089325390358854,borsadan çıktı,asla alınmamalı,kaybeden,2015
-1371781,XWES,"World Energy Solutions, Inc.",Diğer,5.5,-0.9981818181818182,-1.011066926387664,borsadan çıktı,asla alınmamalı,kaybeden,2015
 1640251,WINS,Wins Finance Holdings Inc.,Finansal hizmet,12.0,16.168333333333333,16.04835453651039,,çok kazandıran,kazanan,2016
 1348649,CLCD,"CoLucid Pharmaceuticals, Inc.",Sağlık,8.37,3.4026284348865,3.282649638063559,,çok kazandıran,kazanan,2016
 1163302,X,UNITED STATES STEEL CORP,Hammadde,7.98,3.3696741854636585,3.2496953886407174,,çok kazandıran,kazanan,2016
@@ -17585,8 +17585,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1162194,LAB,Standard BioTools Inc.,Sağlık,10.8100004196167,-0.3265494979447481,-0.4465282947676892,,piyasanın altında,kaybeden,2016
 1021162,TGI,TRIUMPH GROUP INC,Savunma/havacılık,39.75,-0.32704402515723274,-0.44702282198017385,,piyasanın altında,kaybeden,2016
 1332349,BKD,Brookdale Senior Living Inc. Common Stock,Sağlık,18.459999084472656,-0.32719389532685095,-0.44717269214979205,,piyasanın altında,kaybeden,2016
-1509589,CIVI,"CIVITAS RESOURCES, INC.",Enerji,29.45,-0.3293718166383701,-0.4493506134613112,,piyasanın altında,kaybeden,2016
 1608638,CIVI,"Civitas Solutions, Inc.",Sağlık,29.45,-0.3293718166383701,-0.4493506134613112,,piyasanın altında,kaybeden,2016
+1509589,CIVI,"CIVITAS RESOURCES, INC.",Enerji,29.45,-0.3293718166383701,-0.4493506134613112,,piyasanın altında,kaybeden,2016
 1334036,CROX,"Crocs, Inc.",Diğer,10.239999771118164,-0.3300780969875625,-0.4500568938105036,,piyasanın altında,kaybeden,2016
 1578809,ENZY,Enzymotec Ltd.,Sağlık,9.93,-0.3303121852970795,-0.4502909821200206,,piyasanın altında,kaybeden,2016
 1393020,IVTY,"Invuity, Inc.",Sağlık,8.75,-0.3314285714285715,-0.4514073682515126,,piyasanın altında,kaybeden,2016
@@ -17677,6 +17677,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1458891,NE,Noble Corp,Enerji,10.55,-0.4227488151658768,-0.5427276119888179,,piyasanın altında,kaybeden,2016
 19446,CMD,CANTEL MEDICAL LLC,Sağlık,138.05,-0.42296269467584213,-0.5429414914987832,,piyasanın altında,kaybeden,2016
 29332,DXYN,DIXIE GROUP INC,Diğer,5.92,-0.42567567567567566,-0.5456544724986168,,piyasanın altında,kaybeden,2016
+1586300,HELI,CHC Group Ltd.,Havayolu,6.51,-0.4270353302611367,-0.5470141270840778,borsadan çıktı,piyasanın altında,kaybeden,2016
 1434868,ESPR,"Esperion Therapeutics, Inc.",Sağlık,22.26,-0.4294699011680144,-0.5494486979909555,,piyasanın altında,kaybeden,2016
 1159036,HALO,"Halozyme Therapeutics, Inc.",Biyoteknoloji,17.329999923706055,-0.4298903544179554,-0.5498691512408965,,piyasanın altında,kaybeden,2016
 1551060,QUNR,Qunar Cayman Islands Ltd.,Yazılım,52.74,-0.43022373909745926,-0.5502025359204004,,piyasanın altında,kaybeden,2016
@@ -17827,6 +17828,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1544227,TPST,"Tempest Therapeutics, Inc.",Sağlık,28577.25,-0.8433981576253838,-0.9633769544483249,,asla alınmamalı,kaybeden,2016
 1562214,ZAIS,"ZAIS Group Holdings, Inc.",Finansal hizmet,9.26,-0.8434125269978402,-0.9633913238207813,,asla alınmamalı,kaybeden,2016
 1000694,NVAX,"Novavax, Inc.",Biyoteknoloji,167.8000030517578,-0.8498212139175795,-0.9698000107405206,,asla alınmamalı,kaybeden,2016
+1514242,PSG,OLD PSG WIND-DOWN LTD.,Diğer,9.63,-0.8525441329179647,-0.9725229297409058,borsadan çıktı,asla alınmamalı,kaybeden,2016
 1602367,ADPT,Adeptus Health Inc.,Sağlık,54.52,-0.8567498165810712,-0.9767286134040123,,asla alınmamalı,kaybeden,2016
 885590,BHC,Bausch Health Companies Inc. Common Stock,Sağlık,101.6500015258789,-0.8571569086099123,-0.9771357054328534,,asla alınmamalı,kaybeden,2016
 1267813,MRNS,"MARINUS PHARMACEUTICALS, INC.",Sağlık,7.64,-0.8835078534031413,-1.0034866502260824,,asla alınmamalı,kaybeden,2016
@@ -17834,9 +17836,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1404281,ELDN,"Eledon Pharmaceuticals, Inc.",Sağlık,1412.6400146484375,-0.8878440345765642,-1.0078228313995052,,asla alınmamalı,kaybeden,2016
 1339469,CHMA,"CHIASMA, INC",Sağlık,19.57,-0.8901379662749106,-1.0101167630978516,,asla alınmamalı,kaybeden,2016
 1390478,SLS,"SELLAS Life Sciences Group, Inc. ",Sağlık,44100.0,-0.9340136054421768,-1.053992402265118,,asla alınmamalı,kaybeden,2016
-1586300,HELI,CHC Group Ltd.,Havayolu,6.51,-1.0,-1.119978796822941,iflas,asla alınmamalı,kaybeden,2016
 945436,SUNE,"SUNEDISON, INC.",Yarı iletken,5.09,-1.0,-1.119978796822941,iflas,asla alınmamalı,kaybeden,2016
-1514242,PSG,OLD PSG WIND-DOWN LTD.,Diğer,9.63,-1.0,-1.119978796822941,iflas,asla alınmamalı,kaybeden,2016
 791908,XOMA,XOMA Royalty Corp,Sağlık,5.5,5.5181818181818185,5.291406523634285,,çok kazandıran,kazanan,2017
 1557421,RXDX,"Ignyta, Inc.",Sağlık,5.1,4.294117647058824,4.0673423525112895,,çok kazandıran,kazanan,2017
 1574460,STRP,Straight Path Communications Inc.,İletişim/medya,36.16,4.036504424778761,3.809729130231227,,çok kazandıran,kazanan,2017
@@ -19100,6 +19100,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1425205,IOVA,"Iovance Biotherapeutics, Inc.",Biyoteknoloji,7.150000095367432,0.1678322056079118,-0.05894308893962252,,piyasanın altında,orta,2017
 1420302,LOGM,"LogMeIn, Inc.",Yazılım,98.35,0.16776817488561258,-0.059007119661921736,,piyasanın altında,orta,2017
 1135185,AAWW,ATLAS AIR WORLDWIDE HOLDINGS INC,Havayolu,50.75,0.16748768472906406,-0.059287609818470255,,piyasanın altında,orta,2017
+1577095,MYCC,"ClubCorp Holdings, Inc.",Tüketici,14.65,0.16723549488054612,-0.05953979966698819,borsadan çıktı,piyasanın altında,orta,2017
 1037676,ARCH,"ARCH RESOURCES, INC.",Diğer,79.17,0.1671087533156499,-0.05966654123188442,,piyasanın altında,orta,2017
 1094972,UGP,Ultrapar Participacoes S.A. (New) American Depositary Shares (Each representing one Common Share),Enerji,10.545000076293945,0.16708724834755717,-0.05968804619997714,,piyasanın altında,orta,2017
 31462,ECL,Ecolab Inc. Common Stock,Temel tüketim,118.91999816894531,0.1669992267221676,-0.05977606782536671,,piyasanın altında,orta,2017
@@ -19516,8 +19517,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1095291,WEB,"WEB.COM GROUP, INC.",Yazılım,20.7,0.0531400966183575,-0.1736351979291768,,piyasanın altında,orta,2017
 885978,USPH,"U.S. Physical Therapy, Inc. Common Stock",Sağlık,71.05000305175781,0.053127516626919835,-0.17364777792061448,,piyasanın altında,orta,2017
 1583744,ARCX,Zenith Energy Logistics Partners LP,Tüketici,15.66,0.0523627075351214,-0.1744125870124129,borsadan çıktı,piyasanın altında,orta,2017
-1356949,HWCC,Houston Wire & Cable CO,Tüketici,6.7,0.052238805970149294,-0.17453648857738502,,piyasanın altında,orta,2017
 1592057,EVA,"Enviva, LLC",Diğer,26.8,0.052238805970149294,-0.17453648857738502,,piyasanın altında,orta,2017
+1356949,HWCC,Houston Wire & Cable CO,Tüketici,6.7,0.052238805970149294,-0.17453648857738502,,piyasanın altında,orta,2017
 1122904,NTGR,"NETGEAR, Inc.",Sanayi,35.111663818359375,0.05212013673591254,-0.17465515781162178,,piyasanın altında,orta,2017
 1486298,BSL,Blackstone Senior Floating Rate 2027 Term Fund Common Shares of Beneficial Interest,Diğer,18.0,0.05193191313534373,-0.17484338141219058,,piyasanın altında,orta,2017
 938323,PSO,"Pearson, Plc Common Stock",İletişim/medya,10.020000457763672,0.05176594707496118,-0.17500934747257313,,piyasanın altında,orta,2017
@@ -19785,8 +19786,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 919956,DVCR,"Diversicare Healthcare Services, Inc.",Sağlık,10.5,-0.023809523809523836,-0.25058481835705815,,piyasanın altında,orta,2017
 1628063,SRG,Seritage Growth Properties Class A Common Stock,Gayrimenkul,42.130001068115234,-0.024389100720064394,-0.2511643952675987,,piyasanın altında,orta,2017
 98338,TSRI,TSR INC,Yazılım,6.1,-0.024590163934426146,-0.25136545848196046,,piyasanın altında,orta,2017
-1365101,PRMW,Primo Water Holdings LLC,Tüketici,12.88,-0.024844720496894457,-0.25162001504442877,,piyasanın altında,orta,2017
 884713,PRMW,Primo Water Corp /CN/,Temel tüketim,12.88,-0.024844720496894457,-0.25162001504442877,,piyasanın altında,orta,2017
+1365101,PRMW,Primo Water Holdings LLC,Tüketici,12.88,-0.024844720496894457,-0.25162001504442877,,piyasanın altında,orta,2017
 826020,BRW,Saba Capital Income & Opportunities Fund SBI,Diğer,11.079999923706055,-0.02526048561270622,-0.25203578016024053,,piyasanın altında,orta,2017
 310158,MRK,"Merck & Company, Inc. Common Stock (new)",Sağlık,57.50954055786133,-0.0254358400620891,-0.2522111346096234,,piyasanın altında,orta,2017
 9326,BCPC,Balchem Corporation,Hammadde,83.0,-0.025677709920969294,-0.2524530044685036,,piyasanın altında,orta,2017
@@ -19965,8 +19966,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1180145,CSII,Cardiovascular Systems Inc,Sağlık,26.23,-0.09187952725886395,-0.31865482180639826,,piyasanın altında,orta,2017
 1520262,ALKS,Alkermes plc,Sağlık,59.63999938964844,-0.09221998752995664,-0.31899528207749095,,piyasanın altında,orta,2017
 1157408,LRN,"Stride, Inc. Common Stock",Diğer,17.31999969482422,-0.09237872147731863,-0.31915401602485294,,piyasanın altında,orta,2017
-1383803,JMP,JMP Group Inc.,Finansal hizmet,6.05,-0.09256198347107436,-0.3193372780186087,,piyasanın altında,orta,2017
 1302350,JMP,JMP GROUP LLC,Finansal hizmet,6.05,-0.09256198347107436,-0.3193372780186087,,piyasanın altında,orta,2017
+1383803,JMP,JMP Group Inc.,Finansal hizmet,6.05,-0.09256198347107436,-0.3193372780186087,,piyasanın altında,orta,2017
 1142596,NUVA,NUVASIVE INC,Sağlık,67.14,-0.09264224009532318,-0.3194175346428575,,piyasanın altında,orta,2017
 1206264,SGI,Somnigroup International Inc. Common Stock,Diğer,17.207500457763672,-0.09269223860569498,-0.3194675331532293,,piyasanın altında,orta,2017
 816284,CELG,CELGENE CORP /DE/,Sağlık,115.75,-0.0929589632829374,-0.3197342578304717,,piyasanın altında,orta,2017
@@ -19981,8 +19982,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1048268,IESC,"IES Holdings, Inc.",Diğer,9.5,-0.09736844112998566,-0.32414373567752,,piyasanın altında,orta,2017
 108985,YORW,The York Water Company,Kamu hizmetleri,37.0,-0.09841124769973564,-0.32518654224726995,,piyasanın altında,orta,2017
 1289308,ENS,EnerSys Common Stock,Teknoloji donanım,79.52999877929688,-0.09927239859665626,-0.3260476931441906,,piyasanın altında,orta,2017
-1608638,CIVI,"Civitas Solutions, Inc.",Sağlık,20.0,-0.09999999999999998,-0.3267752945475343,,piyasanın altında,orta,2017
 1509589,CIVI,"CIVITAS RESOURCES, INC.",Enerji,20.0,-0.09999999999999998,-0.3267752945475343,,piyasanın altında,orta,2017
+1608638,CIVI,"Civitas Solutions, Inc.",Sağlık,20.0,-0.09999999999999998,-0.3267752945475343,,piyasanın altında,orta,2017
 1095315,PFSW,PFSWEB INC,Diğer,8.49,-0.10011778563015317,-0.3268930801776875,,piyasanın altında,orta,2017
 1235010,MNTA,MOMENTA PHARMACEUTICALS INC,Biyoteknoloji,16.4,-0.10060975609756084,-0.32738505064509515,,piyasanın altında,orta,2017
 1591763,ENBL,"Enable Midstream Partners, LP",Enerji,16.18,-0.1013597033374537,-0.328134997884988,,piyasanın altında,orta,2017
@@ -20252,7 +20253,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 854775,DGII,Digi International Inc.,Sanayi,13.800000190734863,-0.26811592450189004,-0.49489121904942435,,piyasanın altında,orta,2017
 6769,APA,APACHE CORP,Enerji,63.47,-0.2691035134709311,-0.4958788080184654,,piyasanın altında,orta,2017
 1308606,SRC,"SPIRIT REALTY CAPITAL, INC.",Gayrimenkul,11.19,-0.2698838248436103,-0.4966591193911446,,piyasanın altında,orta,2017
-1301501,AKAO,"Achaogen, Inc.",Sağlık,15.33,-0.2700587084148728,-0.4968340029624071,,piyasanın altında,orta,2017
+1301501,AKAO,"Achaogen, Inc.",Sağlık,15.33,-0.2700587084148728,-0.4968340029624071,,piyasanın altında,kaybeden,2017
 1318084,CORE,"Core-Mark Holding Company, LLC",Tüketici,43.01,-0.27388979307137873,-0.500665087618913,,piyasanın altında,kaybeden,2017
 1581990,PAGP,"Plains GP Holdings, L.P.",Sanayi,33.849998474121094,-0.27620840339250297,-0.5029836979400373,,piyasanın altında,kaybeden,2017
 1650445,QHC,Quorum Health Corp,Sağlık,8.63,-0.27694090382387027,-0.5037161983714046,,piyasanın altında,kaybeden,2017
@@ -20520,7 +20521,6 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1481241,PSHG,Performance Shipping Inc.,Sanayi,261160.203125,-0.9997685328854334,-1.2265438274329679,,asla alınmamalı,kaybeden,2017
 38984,RELY,"Elah Holdings, Inc.",Tüketici,6.25,-1.0,-1.2267752945475343,iflas,asla alınmamalı,kaybeden,2017
 1602367,ADPT,Adeptus Health Inc.,Sağlık,8.84,-1.0,-1.2267752945475343,iflas,asla alınmamalı,kaybeden,2017
-1577095,MYCC,"ClubCorp Holdings, Inc.",Tüketici,14.65,-1.0,-1.2267752945475343,iflas,asla alınmamalı,kaybeden,2017
 1554859,SMLR,"Semler Scientific, Inc.",Sağlık,7.8,3.064102564102564,3.123483328957776,,çok kazandıran,kazanan,2018
 1217234,CDNA,"CareDx, Inc.",Sağlık,7.239999771118164,2.4419890696274478,2.50136983448266,,çok kazandıran,kazanan,2018
 1447669,TWLO,Twilio Inc. Class A Common Stock,Yazılım,25.760000228881836,2.4375000879261055,2.4968808527813176,,çok kazandıran,kazanan,2018
@@ -28325,15 +28325,15 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1595585,TCDA,"Tricida, Inc.",Sağlık,36.49,-0.8040559057275967,-0.985353376855844,,asla alınmamalı,kaybeden,2020
 315131,PHX,PHX MINERALS INC.,Enerji,11.09,-0.8178539224526601,-0.9991513935809074,,asla alınmamalı,kaybeden,2020
 61398,TELL,TELLURIAN INC. /DE/,Enerji,7.42,-0.8274932614555256,-1.008790732583773,,asla alınmamalı,kaybeden,2020
+278130,PIR,PIER 1 IMPORTS INC/DE,Perakende,6.23,-0.8346709470304976,-1.015968418158745,borsadan çıktı,asla alınmamalı,kaybeden,2020
 1766600,SNDL,SNDL Inc.,Sağlık,28.899999618530273,-0.8359861649244126,-1.0172836360526598,,asla alınmamalı,kaybeden,2020
 1444192,GRCE,"Grace Therapeutics, Inc.",Sağlık,111.83999633789062,-0.8583690927105172,-1.0396665638387645,,asla alınmamalı,kaybeden,2020
 1780097,BXRX,"Baudax Bio, Inc.",Sağlık,7.24,-0.8604972375690607,-1.041794708697308,,asla alınmamalı,kaybeden,2020
 1781983,APRE,"Aprea Therapeutics, Inc.",Sağlık,820.0,-0.8799999981391721,-1.0612974692674193,,asla alınmamalı,kaybeden,2020
 1255474,WLL,Whiting Holdings LLC,Enerji,7.85,-0.9090081892629663,-1.0903056603912136,,asla alınmamalı,kaybeden,2020
-278130,PIR,PIER 1 IMPORTS INC/DE,Perakende,6.23,-1.0,-1.1812974711282473,iflas,asla alınmamalı,kaybeden,2020
-14195,BGG,BRIGGS & STRATTON CORP,Sanayi,6.46,-1.0,-1.1812974711282473,iflas,asla alınmamalı,kaybeden,2020
-1498301,ASNA,"Mahwah Bergen Retail Group, Inc.",Perakende,7.19,-1.0,-1.1812974711282473,iflas,asla alınmamalı,kaybeden,2020
 886835,SPN,SUPERIOR ENERGY SERVICES INC,Enerji,5.46,-1.0,-1.1812974711282473,iflas,asla alınmamalı,kaybeden,2020
+1498301,ASNA,"Mahwah Bergen Retail Group, Inc.",Perakende,7.19,-1.0,-1.1812974711282473,iflas,asla alınmamalı,kaybeden,2020
+14195,BGG,BRIGGS & STRATTON CORP,Sanayi,6.46,-1.0,-1.1812974711282473,iflas,asla alınmamalı,kaybeden,2020
 6885,SSI,STAGE STORES INC,Perakende,8.17,-1.0,-1.1812974711282473,iflas,asla alınmamalı,kaybeden,2020
 939930,PYX,"PYXUS INTERNATIONAL, INC.",Tüketici,8.35,-1.0,-1.1812974711282473,iflas,asla alınmamalı,kaybeden,2020
 1411579,AMC,"AMC Entertainment Holdings, Inc. Class A Common Stock",Tüketici,21.200000762939453,11.83018821751619,11.542900455030448,,çok kazandıran,kazanan,2021
@@ -30746,6 +30746,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1376339,MDXG,"MiMedx Group, Inc",Sağlık,9.079999923706055,-0.33480176072647294,-0.6220895232122144,,piyasanın altında,orta,2021
 1439404,ZNGA,ZYNGA INC,Yazılım,9.87,-0.33535967578520764,-0.6226474382709491,,piyasanın altında,orta,2021
 1042893,INVX,"Innovex International, Inc. Common Stock",Sanayi,29.6200008392334,-0.3355840733431551,-0.6228718358288966,,piyasanın altında,orta,2021
+1611110,MDLY,MEDLEY MANAGEMENT INC.,Finansal hizmet,7.99,-0.3360450563204006,-0.6233328188061421,borsadan çıktı,piyasanın altında,orta,2021
 1178711,PRTK,"Paratek Pharmaceuticals, Inc.",Sağlık,6.51,-0.33640552995391704,-0.6236932924396585,,piyasanın altında,orta,2021
 1501989,CTMX,"CytomX Therapeutics, Inc.",Sağlık,6.550000190734863,-0.3389313286080592,-0.6262190910938007,,piyasanın altında,orta,2021
 794619,AMWD,AMERICAN WOODMARK CORP,İnşaat,94.09,-0.3399936231267935,-0.627281385612535,,piyasanın altında,orta,2021
@@ -30915,6 +30916,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 805928,AXGN,"Axogen, Inc.",Sağlık,17.899999618530273,-0.47653630808689196,-0.7638240705726335,,piyasanın altında,orta,2021
 1655210,BYND,"Beyond Meat, Inc.",Temel tüketim,3750.0,-0.4787199869791666,-0.7660077494649081,,piyasanın altında,orta,2021
 1789029,AEVA,"Aeva Technologies, Inc.",Sanayi,72.69999694824219,-0.4800550093011453,-0.7673427717868868,,piyasanın altında,orta,2021
+1725526,HPR,HighPoint Resources Corp,Enerji,9.16,-0.48362445414847155,-0.770912216634213,borsadan çıktı,piyasanın altında,orta,2021
 1082324,VHC,VirnetX Holding Corp,Diğer,100.80000305175781,-0.48412696744595496,-0.7714147299316965,,piyasanın altında,orta,2021
 946644,AIM,AIM ImmunoTech Inc. Common Stock,Biyoteknoloji,173.6178436279297,-0.48603349083015546,-0.773321253315897,,piyasanın altında,orta,2021
 1727196,SRRK,Scholar Rock Holding Corporation,Biyoteknoloji,48.529998779296875,-0.4881516427487579,-0.7754394052344994,,piyasanın altında,orta,2021
@@ -30951,8 +30953,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1800667,FROG,JFrog Ltd.,Yazılım,62.83000183105469,-0.5272958793984982,-0.8145836418842397,,asla alınmamalı,orta,2021
 1796898,MAXN,"Maxeon Solar Technologies, Ltd.",Yarı iletken,29.5,-0.5288135593220339,-0.8161013218077754,,asla alınmamalı,orta,2021
 1781753,DAO,"Youdao, Inc. American Depositary Shares, each representing one Class A Ordinary Share",Diğer,26.530000686645508,-0.5295891737945402,-0.8168769362802817,,asla alınmamalı,orta,2021
-1794350,YALA,"Yalla Group Limited American Depositary Shares, each representing one Class A Ordinary Share",Yazılım,14.329999923706055,-0.531751564977565,-0.8190393274633065,,asla alınmamalı,orta,2021
-320121,TLS,Telos Corporation,Yazılım,32.97999954223633,-0.5324438965941739,-0.8197316590799154,,asla alınmamalı,orta,2021
+1794350,YALA,"Yalla Group Limited American Depositary Shares, each representing one Class A Ordinary Share",Yazılım,14.329999923706055,-0.531751564977565,-0.8190393274633065,,asla alınmamalı,kaybeden,2021
+320121,TLS,Telos Corporation,Yazılım,32.97999954223633,-0.5324438965941739,-0.8197316590799154,,asla alınmamalı,kaybeden,2021
 1385867,COUP,Coupa Software Inc,Yazılım,341.31,-0.5328586915121152,-0.8201464539978567,,asla alınmamalı,kaybeden,2021
 1514416,BAND,Bandwidth Inc.,Yazılım,153.6699981689453,-0.5330252945188606,-0.8203130570046021,,asla alınmamalı,kaybeden,2021
 1782594,GTH,Genetron Holdings Ltd,Sağlık,13.02,-0.5337941628264209,-0.8210819253121624,,asla alınmamalı,kaybeden,2021
@@ -31039,6 +31041,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1816007,LU,"Lufax Holding Ltd American Depositary Shares, each representing two (2) Ordinary Shares",Finansal hizmet,56.79999923706055,-0.6035211450854573,-0.8908089075711988,,asla alınmamalı,kaybeden,2021
 1815846,MNSO,"MINISO Group Holding Limited American Depositary Shares, each representing four Ordinary Shares",Perakende,26.389999389648438,-0.6035451926200587,-0.8908329551058002,,asla alınmamalı,kaybeden,2021
 1818383,MAX,"MediaAlpha, Inc. Class A Common Stock",Diğer,39.06999969482422,-0.6048118837730959,-0.8920996462588374,,asla alınmamalı,kaybeden,2021
+1648428,SQBG,"Sequential Brands Group, Inc.",Diğer,15.84,-0.606060606060606,-0.8933483685463475,borsadan çıktı,asla alınmamalı,kaybeden,2021
 1505155,UPLD,"Upland Software, Inc.",Yazılım,458.8999938964844,-0.6090651639081254,-0.8963529263938669,,asla alınmamalı,kaybeden,2021
 1491419,LVO,"LiveOne, Inc.",Perakende,32.79999923706055,-0.6097560826686785,-0.89704384515442,,asla alınmamalı,kaybeden,2021
 1527753,PSNL,"Personalis, Inc.",Sağlık,36.61000061035156,-0.6102157820306402,-0.8975035445163817,,asla alınmamalı,kaybeden,2021
@@ -31237,12 +31240,9 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1787803,WNW,Meiwu Technology Company Limited,Temel tüketim,2627100.0,-0.9371169730881961,-1.2244047355739376,,asla alınmamalı,kaybeden,2021
 1419041,FBRX,"Forte Biosciences, Inc.",Sağlık,35.73,-0.94010635320459,-1.2273941156903314,,asla alınmamalı,kaybeden,2021
 1821323,SGTX,"Sigilon Therapeutics, Inc.",Sağlık,48.03,-0.9425359150530919,-1.2298236775388334,,asla alınmamalı,kaybeden,2021
-1611110,MDLY,MEDLEY MANAGEMENT INC.,Finansal hizmet,7.99,-0.9449311639549437,-1.232218926440685,borsadan çıktı,asla alınmamalı,kaybeden,2021
 1499620,TAL,TAL Education Group American Depositary Shares,Diğer,71.51000213623047,-0.9450426520856434,-1.232330414571385,,asla alınmamalı,kaybeden,2021
 1768259,GOTU,Gaotu Techedu Inc. American Depositary Shares,Diğer,51.709999084472656,-0.9624830769373771,-1.2497708394231186,,asla alınmamalı,kaybeden,2021
 1821468,YQ,17 Education & Technology Group Inc.,Diğer,256.20001220703125,-0.9756049972591356,-1.2628927597448771,,asla alınmamalı,kaybeden,2021
-1648428,SQBG,"Sequential Brands Group, Inc.",Diğer,15.84,-1.0,-1.2872877624857415,iflas,asla alınmamalı,kaybeden,2021
-1725526,HPR,HighPoint Resources Corp,Enerji,9.16,-1.0,-1.2872877624857415,iflas,asla alınmamalı,kaybeden,2021
 1483934,STNG,Scorpio Tankers Inc. Common Shares,Sanayi,13.130000114440918,2.8183992780929064,2.972262560647632,,çok kazandıran,kazanan,2022
 1649904,RYTM,"Rhythm Pharmaceuticals, Inc.",Sağlık,9.3100004196167,2.677765857702989,2.8316291402577147,,çok kazandıran,kazanan,2022
 1657312,VRNA,Verona Pharma plc,Sağlık,6.88,2.67296511627907,2.8268283988337957,,çok kazandıran,kazanan,2022
@@ -31573,6 +31573,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 318154,AMGN,Amgen Inc.,Biyoteknoloji,227.2899932861328,0.2490313038056522,0.402894586360378,,piyasanın üstünde,orta,2022
 885245,BKE,"Buckle, Inc. (The) Common Stock",Perakende,39.720001220703125,0.24733146370001147,0.4011947462547373,,piyasanın üstünde,orta,2022
 877422,SPTN,SpartanNash Co,Tüketici,25.58,0.24589523064894458,0.3997585132036704,,piyasanın üstünde,orta,2022
+1679826,PING,Ping Identity Holding Corp.,Yazılım,22.89,0.2450851900393185,0.3989484725940443,borsadan çıktı,piyasanın üstünde,orta,2022
 1306550,BGR,BlackRock Energy and Resources Trust,Diğer,10.40999984741211,0.24497920153452757,0.3988424840892534,,piyasanın üstünde,orta,2022
 1306965,SHEL,Shell PLC American Depositary Shares (each representing two (2) Ordinary Shares) ,Enerji,47.27000045776367,0.24425594354390023,0.39811922609862604,,piyasanın üstünde,orta,2022
 1062579,DOX,Amdocs Limited,Yazılım,75.2300033569336,0.244022228338731,0.3978855108934568,,piyasanın üstünde,orta,2022
@@ -31712,6 +31713,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1374535,AIMC,Altra Industrial Motion Corp.,Sanayi,51.34,0.1632255551227113,0.3170888376774371,,piyasanın üstünde,orta,2022
 785786,PLXS,Plexus Corp.,Yarı iletken,92.83000183105469,0.16277065940223623,0.31663394195696204,,piyasanın üstünde,orta,2022
 1406666,CALX,"Calix, Inc Common Stock",İletişim/medya,59.7400016784668,0.16253757946035252,0.31640086201507833,,piyasanın üstünde,orta,2022
+1689813,BHVN,Biohaven Pharmaceutical Holding Co Ltd.,Sağlık,128.87,0.1617521533328159,0.3156154358875417,borsadan çıktı,piyasanın üstünde,orta,2022
 101829,RTX,RTX Corporation Common Stock,Savunma/havacılık,90.44000244140625,0.15944319494255677,0.3133064774972826,,piyasanın üstünde,orta,2022
 352915,UHS,"Universal Health Services, Inc. Common Stock",Sağlık,131.97000122070312,0.15900888885309117,0.312872171407817,,piyasanın üstünde,orta,2022
 876167,PRGS,Progress Software Corporation,Yazılım,45.630001068115234,0.1576362470146424,0.3114995295693682,,piyasanın üstünde,orta,2022
@@ -33971,6 +33973,7 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1482512,HPP,"Hudson Pacific Properties, Inc. Common Stock",Gayrimenkul,189.55999755859375,-0.6207692424732911,-0.4669059599185653,,asla alınmamalı,orta,2022
 1372020,GLDD,Great Lakes Dredge & Dock CORP,Diğer,15.69,-0.6207775653282346,-0.46691428277350877,,asla alınmamalı,orta,2022
 1533998,DRIO,DarioHealth Corp.,Sağlık,226.8000030517578,-0.6208112925802121,-0.46694801002548625,,asla alınmamalı,orta,2022
+1403752,ZYME,Zymeworks BC Inc.,Sağlık,14.07,-0.6208244491826581,-0.4669611666279323,borsadan çıktı,asla alınmamalı,orta,2022
 88941,SMTC,Semtech Corporation,Yarı iletken,80.06999969482422,-0.6212064438703051,-0.4673431613155793,,asla alınmamalı,orta,2022
 1503274,QTRX,Quanterix Corporation,Teknoloji donanım,34.22999954223633,-0.6219690402152457,-0.46810575766051987,,asla alınmamalı,orta,2022
 1180262,HLF,Herbalife Ltd. Common Shares,Tüketici,43.290000915527344,-0.6220836159769282,-0.4682203334222024,,asla alınmamalı,orta,2022
@@ -34145,9 +34148,9 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1821769,NVTS,Navitas Semiconductor Corporation,Yarı iletken,13.130000114440918,-0.7090632216338366,-0.5551999390791108,,asla alınmamalı,orta,2022
 1707303,DOGZ,Dogness (International) Corporation,Diğer,68.80000305175781,-0.7093023384758554,-0.5554390559211296,,asla alınmamalı,orta,2022
 1754195,TRLV,Trulieve Cannabis Corp. Subordinate Voting Shares,Sağlık,25.290000915527344,-0.7093713072932364,-0.5555080247385106,,asla alınmamalı,orta,2022
-1747748,XM,Qualtrics International Inc.,Yazılım,35.15,-0.7095305832147938,-0.555667300660068,,asla alınmamalı,orta,2022
-818033,HRTX,"Heron Therapeutics, Inc.  ",Sağlık,8.699999809265137,-0.7103448234282926,-0.5564815408735668,,asla alınmamalı,orta,2022
-1634117,BNED,"Barnes & Noble Education, Inc Common Stock",Perakende,670.0,-0.7104477545579073,-0.5565844720031815,,asla alınmamalı,orta,2022
+1747748,XM,Qualtrics International Inc.,Yazılım,35.15,-0.7095305832147938,-0.555667300660068,,asla alınmamalı,kaybeden,2022
+818033,HRTX,"Heron Therapeutics, Inc.  ",Sağlık,8.699999809265137,-0.7103448234282926,-0.5564815408735668,,asla alınmamalı,kaybeden,2022
+1634117,BNED,"Barnes & Noble Education, Inc Common Stock",Perakende,670.0,-0.7104477545579073,-0.5565844720031815,,asla alınmamalı,kaybeden,2022
 25743,TXMD,"TherapeuticsMD, Inc.",Sağlık,19.0,-0.7105263157894737,-0.5566630332347479,,asla alınmamalı,kaybeden,2022
 1120970,LODE,Comstock Inc. Common Stock,Hammadde,14.199999809265137,-0.7112676084715562,-0.5574043259168304,,asla alınmamalı,kaybeden,2022
 1217234,CDNA,"CareDx, Inc.",Sağlık,39.06999969482422,-0.7123112398537547,-0.5584479572990289,,asla alınmamalı,kaybeden,2022
@@ -34412,7 +34415,6 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1000694,NVAX,"Novavax, Inc.",Biyoteknoloji,126.69999694824219,-0.9130228830055503,-0.7591596004508245,,asla alınmamalı,kaybeden,2022
 1346610,SOS,SOS Limited Class A Ordinary Shares,Finansal hizmet,597.0,-0.9133165829145728,-0.759453300359847,,asla alınmamalı,kaybeden,2022
 1801661,FIRY,Firy Inc. Class A Common Stock,Yazılım,121.5999984741211,-0.9143092088236208,-0.760445926268895,,asla alınmamalı,kaybeden,2022
-1689813,BHVN,Biohaven Pharmaceutical Holding Co Ltd.,Sağlık,128.87,-0.9146426631489097,-0.7607793805941839,borsadan çıktı,asla alınmamalı,kaybeden,2022
 1730346,CHRA,"Charah Solutions, Inc.",Kamu hizmetleri,5.33,-0.9155722326454033,-0.7617089500906775,,asla alınmamalı,kaybeden,2022
 1833214,SABS,"SAB Biotherapeutics, Inc.",Biyoteknoloji,73.69999694824219,-0.9172320195763853,-0.7633687370216595,,asla alınmamalı,kaybeden,2022
 1690080,FRMM,"Forum Markets, Incorporated",Finansal hizmet,12540.0,-0.9201515161249626,-0.7662882335702368,,asla alınmamalı,kaybeden,2022
@@ -34463,10 +34465,8 @@ cik,sembol,sirket,sektor,fiyat,getiri,spy_farki,cikis,sinif,dilim,yil
 1595585,TCDA,"Tricida, Inc.",Sağlık,9.06,-0.9801324503311258,-0.8262691677764,,asla alınmamalı,kaybeden,2022
 1652724,LHDX,"Lucira Health, Inc.",Sağlık,7.17,-0.9860529986052998,-0.832189716050574,,asla alınmamalı,kaybeden,2022
 1418100,AVYA,Avaya Holdings Corp.,Yazılım,21.5,-0.9902325581395349,-0.8363692755848091,,asla alınmamalı,kaybeden,2022
-1403752,ZYME,Zymeworks BC Inc.,Sağlık,14.07,-0.9908315565031983,-0.8369682739484725,borsadan çıktı,asla alınmamalı,kaybeden,2022
 1869467,SVRN,"SVRN, Inc.",Sanayi,2000000.0,-0.9938907997109793,-0.8400275171562535,,asla alınmamalı,kaybeden,2022
 1800637,RYM,"RYTHM, Inc.",Diğer,27960.0,-0.996244635193133,-0.8423813526384072,,asla alınmamalı,kaybeden,2022
-1782627,WBEV,"Winc, Inc.",Perakende,7.5,-1.0,-0.8461367174452742,iflas,asla alınmamalı,kaybeden,2022
 1784168,ELMS,"Electric Last Mile Solutions, Inc.",Sanayi,6.42,-1.0,-0.8461367174452742,iflas,asla alınmamalı,kaybeden,2022
-1679826,PING,Ping Identity Holding Corp.,Yazılım,22.89,-1.0,-0.8461367174452742,iflas,asla alınmamalı,kaybeden,2022
+1782627,WBEV,"Winc, Inc.",Perakende,7.5,-1.0,-0.8461367174452742,iflas,asla alınmamalı,kaybeden,2022
 1749723,NFE,New Fortress Energy Inc.,Enerji,23.920000076293945,-2.0432456878265444,-1.8893824052718187,,asla alınmamalı,kaybeden,2022
