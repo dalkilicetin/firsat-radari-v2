@@ -67,6 +67,19 @@ def match_by_name(missing: pd.DataFrame, ftd: pd.DataFrame) -> dict[int, str]:
     return m.groupby("cik").symbol.agg(lambda s: s.value_counts().index[0]).to_dict()
 
 
+def collapsed(ftd: pd.DataFrame, symbol, end) -> bool:
+    """Çıkıştan önce fiyat çöktü mü (iflasın fiyat teyidi). ftd: o sembolün FTD fiyatları."""
+    if not isinstance(symbol, str):
+        return True
+    px = ftd[(ftd.settle_date <= end) & (ftd.settle_date >= end - pd.Timedelta(days=430))]
+    if px.empty:
+        return True
+    px = px.sort_values("settle_date")
+    last = px.price.iloc[-5:].median()
+    year_ago = px[px.settle_date <= end - pd.Timedelta(days=300)].price
+    return bool(last < 1.0 or (len(year_ago) and last < 0.3 * year_ago.median()))
+
+
 def exchange_exits(filings: pd.DataFrame) -> pd.DataFrame:
     """Form 25-NSE (borsa dosyalar) ve Form 25 (şirket kendisi dosyalar) kayıtları."""
     d = filings[filings.form.isin(["25-NSE", "25"])][["cik", "form", "filing_date", "accession"]].copy()
@@ -139,11 +152,16 @@ def build() -> dict[str, pd.DataFrame]:
     gone["ftd_first"] = gone.symbol.map(by_sym.min())
     gone["ftd_last"] = gone.symbol.map(by_sym.max())
     gone["start"] = gone[["sym_first", "ftd_first"]].max(axis=1).clip(lower=START)
-    # İflas: çıkıştan önceki 1 yıl ya da sonraki 90 gün içinde 8-K Madde 1.03.
+    # İflas: çıkıştan önceki 1 yıl ya da sonraki 90 gün içinde 8-K Madde 1.03 VE fiyat çöküşü (son fiyat < 1 $ ya da
+    # bir yıl öncesinin %30'undan az). Madde 1.03 bir yan kuruluş için de verilebilir (ör. Ticketmaster 2009:
+    # 15 $'dan satın alındı, iflas etmedi); fiyat verisi yoksa yalnızca Madde 1.03'e bakılır.
     bk = filings[(filings.form == "8-K") & filings["items"].fillna("").str.contains(r"\b1\.03\b")][["cik", "filing_date"]]
     bk = bk.merge(gone[["cik", "end"]], on="cik")
     bk = bk[(bk.filing_date >= bk.end - pd.Timedelta(days=365)) & (bk.filing_date <= bk.end + pd.Timedelta(days=90))]
-    gone["bankrupt"] = gone.cik.isin(bk.cik)
+    cand = gone.cik.isin(bk.cik)
+    by_sym = dict(tuple(ftd[ftd.symbol.isin(gone.symbol[cand])].groupby("symbol")))
+    gone["bankrupt"] = cand & gone.apply(
+        lambda r: bool(cand[r.name]) and collapsed(by_sym.get(r.symbol, ftd.iloc[:0]), r.symbol, r.end), axis=1)
     gone["price_source"] = "ftd"
     gone["status"] = "çıktı"
     gone["transferred_from_other"] = False

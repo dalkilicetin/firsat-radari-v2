@@ -55,6 +55,7 @@ class Styles:
         self.small = ParagraphStyle("small", fontName=reg, fontSize=7.5, leading=9.5, textColor=colors.HexColor("#444444"))
         self.cell = ParagraphStyle("cell", fontName=reg, fontSize=7.5, leading=9)
         self.cellb = ParagraphStyle("cellb", fontName=bold, fontSize=7.5, leading=9)
+        self.hdr = ParagraphStyle("hdr", fontName=bold, fontSize=7.2, leading=8.6, textColor=colors.white)
         self.box = ParagraphStyle("box", parent=self.body, backColor=colors.HexColor("#eef2f8"), borderPadding=6,
                                   borderColor=colors.HexColor("#c5d0e0"), borderWidth=0.5, spaceBefore=4, spaceAfter=8)
 

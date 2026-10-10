@@ -41,6 +41,15 @@ SIGNALS = {
     "tema_ruzgari_v1_uzun": "Temalara uzun vadeli ilgi artışı",
     "tema_ruzgari_v2_nadir": "Nadir temalara ilgi artışı",
     "tema_ruzgari_v3_uzun_nadir": "Nadir temalara uzun vadeli ilgi artışı",
+    "dusuk_oynaklik": "Düşük fiyat oynaklığı",
+    "sektor_getiri_13h": "Sektörün son 3 aylık getirisi",
+    "sektor_momentum_12_1": "Sektörün son 1 yıllık getirisi (son ay hariç)",
+    "beta_qqq": "Nasdaq'a duyarlılık (beta)",
+    "zirveye_yakinlik_52h": "52 haftalık zirveye yakınlık",
+    "getiri_6a": "Son 6 ay getirisi",
+    "getiri_1a": "Son 1 ay getirisi",
+    "hacim_artisi": "İşlem hacmi artışı (son 3 ay / 6 ay önce)",
+    "fiyat_seviyesi": "Hisse fiyatı ($)",
 }
 
 RISK = {

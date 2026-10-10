@@ -212,3 +212,15 @@ def test_big_win_target():
     y = model.TARGETS["kazanan_100"](price, sec, 52, pd.DataFrame(True, index=dates, columns=["a", "b"]))
     assert y[0, 0] == 1.0 and y[0, 1] == 0.0
     assert np.isnan(y[-1]).all()  # getirisi henüz bilinmiyor
+
+
+def test_exit_price_ignores_placeholder_and_bankruptcy_needs_collapse():
+    from radar import identity
+    px = pd.Series([20.0, 20.5, 21.0, 21.0, 21.2, 21.1, 21.0, 21.3, 0.01])
+    assert panel.exit_price(px) == pytest.approx(21.0)
+    assert panel.exit_price(pd.Series([5.0, 3.0, 2.0, 1.0, 0.5, 0.4])) == 0.4  # yavaş düşüş korunur
+    d = pd.date_range("2009-01-02", periods=60, freq="W-FRI")
+    ok = pd.DataFrame({"settle_date": d, "symbol": "TKTM", "price": 15.0})
+    assert not identity.collapsed(ok, "TKTM", d[-1])            # satın alma: iflas sayılmaz
+    bad = ok.assign(price=np.linspace(10, 0.2, 60))
+    assert identity.collapsed(bad, "X", d[-1])

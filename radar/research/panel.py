@@ -107,19 +107,30 @@ def membership(sec: pd.DataFrame, dates: pd.DatetimeIndex, columns) -> pd.DataFr
     return pd.DataFrame((d >= start) & (d <= end), index=dates, columns=columns)
 
 
+def exit_price(px: pd.Series) -> float:
+    """Çıkıştan önceki son geçerli fiyat. Satın almalarda FTD, çıkıştan sonra 0,01 $ gibi yer tutucu fiyatlar
+    yazabilir: önceki 8 gözlemin medyanının %20'sinin altına inen son değer yerine o medyan kullanılır
+    (gerçek çöküşler iflas olarak ayrıca 0 sayılır; yavaş düşüşte medyan da düşüktür)."""
+    px = px.dropna()
+    if px.empty:
+        return np.nan
+    last = float(px.iloc[-1])
+    ref = float(px.iloc[-9:-1].median()) if len(px) > 1 else last
+    return ref if ref > 0 and last < 0.2 * ref else last
+
+
 def forward_returns(price: pd.DataFrame, sec: pd.DataFrame, weeks: int) -> pd.DataFrame:
     """t'de fiyatı olan üyeler için t→t+h getirisi; arada çıkanlara çıkış değeri uygulanır."""
     s = sec.set_index(sec.cik.astype(str)).reindex(price.columns)
     dates = price.index
     member = membership(sec, dates, price.columns)
     future = price.shift(-weeks)
-    # Çıkış değeri: iflasta 0, değilse çıkıştan önceki son fiyat.
-    last_px = price.ffill()
+    # Çıkış değeri: iflasta 0, değilse çıkıştan önceki son geçerli fiyat (FTD yer tutucu fiyatları atlanır).
     exit_value = pd.Series(index=price.columns, dtype=float)
     for c in price.columns[s.status.to_numpy() == "çıktı"]:
         end = s.at[c, "end"]
-        before = last_px[c][last_px.index <= end + pd.Timedelta(days=10)].dropna()
-        exit_value[c] = 0.0 if s.at[c, "bankrupt"] else (before.iloc[-1] if len(before) else np.nan)
+        before = price[c][price.index <= end + pd.Timedelta(days=10)]
+        exit_value[c] = 0.0 if s.at[c, "bankrupt"] else exit_price(before)
     horizon_end = pd.Series(dates, index=dates).shift(-weeks)
     end_dates = s.end.to_numpy(dtype="datetime64[ns]")
     exited = pd.DataFrame(end_dates[None, :] < horizon_end.to_numpy(dtype="datetime64[ns]")[:, None],
