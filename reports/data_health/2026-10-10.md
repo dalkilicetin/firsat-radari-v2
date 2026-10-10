@@ -1,28 +1,28 @@
-# Veri Sağlık Raporu — 2026-10-10 07:27 UTC
+# Veri Sağlık Raporu — 2026-10-10 07:40 UTC
 
-🟢 13 kullanılabilir · 🟡 4 dikkat · 🔴 0 kullanılamaz
+🟢 12 kullanılabilir · 🟡 5 dikkat · 🔴 0 kullanılamaz
 
 Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = güvenilir ama dolaylı.
 
 | Kaynak | Sınıf | Yol | Durum | Süre | İstek |
 |---|---|---|---|---|---|
-| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.3 sn | 2 |
-| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.0 sn | 5 |
-| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 2.4 sn | 15 |
-| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟢 Kullanılabilir | 6.9 sn | 23 |
-| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.5 sn | 61 |
-| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.9 sn | 6 |
-| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.4 sn | 1 |
-| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 0.8 sn | 4 |
+| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
+| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 0.7 sn | 5 |
+| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.9 sn | 15 |
+| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 5.6 sn | 23 |
+| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.7 sn | 61 |
+| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.7 sn | 6 |
+| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.2 sn | 1 |
+| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 6.5 sn | 4 |
 | [USPTO patentleri (PatentsView)](#uspto) | 1 | 3 | 🟡 Dikkat | 0.0 sn | 0 |
-| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟡 Dikkat | 33.2 sn | 38 |
-| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.4 sn | 6 |
-| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 60.7 sn | 8 |
-| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 7.3 sn | 6 |
-| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.2 sn | 2 |
-| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.2 sn | 3 |
+| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟡 Dikkat | 40.0 sn | 38 |
+| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.5 sn | 6 |
+| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 17.7 sn | 4 |
+| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 5.6 sn | 6 |
+| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.6 sn | 2 |
+| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.4 sn | 3 |
 | [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.0 sn | 3 |
-| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.9 sn | 3 |
+| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.7 sn | 3 |
 
 <a id="universe"></a>
 ## 🟢 Hisse evreni (Nasdaq + SEC)
@@ -32,9 +32,9 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Nasdaq adi hisse sayısı | 🟢 | 3,434 (beklenen 2,500–4,500) |
 | Nasdaq listesi güncelliği | 🟢 | en son kayıt 2026-10-09, 0.4 gün önce (sınır 4) |
 | Bilinen hisseler listede | 🟢 | 4/4 bulundu |
-| SEC CIK eşleşme oranı | 🟢 | 3427/3434 = %99.8 adi hisse |
+| SEC CIK eşleşme oranı | 🟢 | 3424/3434 = %99.7 adi hisse |
 | Doğrulanmış CIK değerleri | 🟢 | AAPL, MSFT, NVDA, AMZN doğru |
-| Çapraz kontrol: SEC'te 'Nasdaq' görünenler Nasdaq listesinde | 🟢 | 4346/4378 = %99.3 |
+| Çapraz kontrol: SEC'te 'Nasdaq' görünenler Nasdaq listesinde | 🟢 | 4337/4376 = %99.1 |
 | Finansal durum dağılımı (risk sinyali) | ℹ️ | normal: 3133, yetersiz (deficient): 281, geciken rapor (delinquent): 17, yetersiz+geciken: 3 |
 | Yeni listelenen / çıkan hisseler (önceki çalışmaya göre) | ℹ️ | +0 yeni: [] \| -0 çıkan: [] |
 
@@ -76,24 +76,24 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Çekilen şirket | 🟢 | 15/15 = %100.0 |
 | Çapraz kontrol: dosyadaki ticker evrendeki ticker ile aynı | 🟢 | 15/15 = %100.0 |
 | Doğrulanmış gerçek: AAPL 10-K 2023-11-03 | 🟢 | bulundu |
-| 8-K'larda olay kodu (items) dolu | 🟢 | 1119/1119 = %100.0 |
-| Kabul anı ile dosyalama tarihi tutarlı (zaman damgası) | 🟢 | 5883/5884 = %100.0; formlar: {'10-Q': 1}; örnek: [('10-Q', '2019-11-12', '2019-11-08T22:41:40.000Z')] |
-| Önceki güne tarihlenen gece kabulleri | ℹ️ | 301 dosya — dosyalama tarihi değil kabul anı esas alınır |
+| 8-K'larda olay kodu (items) dolu | 🟢 | 1233/1233 = %100.0 |
+| Kabul anı ile dosyalama tarihi tutarlı (zaman damgası) | 🟢 | 6754/6755 = %100.0; formlar: {'S-1/A': 1}; örnek: [('S-1/A', '2024-09-03', '2024-08-30T23:09:30.000Z')] |
+| Önceki güne tarihlenen gece kabulleri | ℹ️ | 153 dosya — dosyalama tarihi değil kabul anı esas alınır |
 | AAPL son dosya güncelliği | 🟢 | en son kayıt 2026-10-08, 2.0 gün önce (sınır 45) |
 | Yıllık rapor (10-K/20-F/40-F) bulunan şirket | 🟢 | 15/15 = %100.0 |
 
 <a id="sec_xbrl"></a>
-## 🟢 SEC XBRL finansal verileri
+## 🟡 SEC XBRL finansal verileri
 
 | Kontrol | Durum | Detay |
 |---|---|---|
 | Doğrulanmış gerçek: AAPL geliri (2023-09-30) | 🟢 | okunan 383,285,000,000, beklenen 383,285,000,000 |
 | Doğrulanmış gerçek: MSFT geliri (2023-06-30) | 🟢 | okunan 211,915,000,000, beklenen 211,915,000,000 |
 | Doğrulanmış gerçek: NVDA geliri (2024-01-28) | 🟢 | okunan 60,922,000,000, beklenen 60,922,000,000 |
-| Rastgele şirketlerde temel kalem (varlık/gelir/kâr) bulunan | 🟢 | 20/20 = %100.0 |
-| Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu | 🟢 | 305743/305758 = %100.0 |
-| Güncel hisse sayısı (son 200 gün) bulunan | 🟢 | 19/20 = %95.0; eksik/eski: ['SRAD:yok'] |
-| Kapsam notu | ℹ️ | 1 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: [] |
+| Rastgele şirketlerde temel kalem (varlık/gelir/kâr) bulunan | 🟢 | 19/20 = %95.0 |
+| Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu | 🟢 | 349447/349490 = %100.0 |
+| Güncel hisse sayısı (son 200 gün) bulunan | 🟡 | 14/20 = %70.0; eksik/eski: ['PGAC:yok', 'DNMX:2025-12-10', 'CCAQ:yok', 'WENN:yok', 'NUR:yok', 'BID:yok'] |
+| Kapsam notu | ℹ️ | 0 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: [] |
 
 <a id="sec_form4"></a>
 ## 🟢 SEC Form 4 (içeriden işlemler)
@@ -186,14 +186,14 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Kontrol | Durum | Detay |
 |---|---|---|
 | Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25) |
-| İndirilen dosya bütünlüğü (önceki dosya, zip CRC) | 🟢 | listelenen dosya henüz yayımlanmamıştı; 2,773,312 bayt, CRC sağlam |
-| 15 dakikalık dosyada makale | 🟢 | 628 (beklenen 500–50,000) |
-| Sütun sayısı = 27 | 🟢 | 628/628 = %100.0 |
-| Kurum (Organizations) bilgisi olan | 🟢 | 474/628 = %75.5 |
-| Ton değeri okunabilen | 🟢 | 628/628 = %100.0 |
-| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | united states (64), delhi police (29), cockroach janta party (27), white house (26), rajasthan high court (19), supreme court (18), high court (13), honble supreme court (12) |
+| İndirilen dosya bütünlüğü (boyut + MD5) | 🟢 | 3,190,208 bayt, md5 eşleşti |
+| 15 dakikalık dosyada makale | 🟢 | 728 (beklenen 500–50,000) |
+| Sütun sayısı = 27 | 🟢 | 728/728 = %100.0 |
+| Kurum (Organizations) bilgisi olan | 🟢 | 537/728 = %73.8 |
+| Ton değeri okunabilen | 🟢 | 728/728 = %100.0 |
+| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | united states (45), australian associated (35), delhi police (21), white house (20), supreme court (19), high court (19), cockroach janta party (14), instagram (14) |
 | Geçmiş veri: 1 Mart 2015 dosyası makale | 🟢 | 1,209 (beklenen 100–50,000) |
-| Yardımcı: DOC API zaman serisi | ℹ️ | erişilemedi (HTTP 429); ham dosyalar yeterli |
+| Yardımcı: DOC API zaman serisi | ℹ️ | 1 nokta (yardımcı kaynak; durumu etkilemez) |
 
 <a id="wikipedia"></a>
 ## 🟡 Wikipedia ilgisi + Wikidata eşleştirmesi
@@ -231,7 +231,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | 'Nvidia stock': tekil başlık | 🟢 | 102/103 = %99.0 |
 | 'Apple earnings': haber sayısı | 🟢 | 100 (beklenen 20–200) |
 | 'Apple earnings': tarihi okunabilen | 🟢 | 100/100 = %100.0 |
-| 'Apple earnings': güncellik | 🟢 | en son kayıt 2026-10-09, 0.5 gün önce (sınır 2) |
+| 'Apple earnings': güncellik | 🟢 | en son kayıt 2026-10-09, 0.6 gün önce (sınır 2) |
 | 'Apple earnings': tekil başlık | 🟢 | 98/100 = %98.0 |
 | 'Nasdaq IPO': haber sayısı | 🟢 | 100 (beklenen 20–200) |
 | 'Nasdaq IPO': tarihi okunabilen | 🟢 | 100/100 = %100.0 |
