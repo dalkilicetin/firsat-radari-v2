@@ -1,6 +1,6 @@
 # 🟢 FRED makro, emtia ve sektör serileri
 
-Son güncelleme: 2026-10-09T23:22:26+00:00 · 1 bölüm · 99,465 satır
+Son güncelleme: 2026-10-10T02:22:31+00:00 · 1 bölüm · 99,465 satır
 
 ## Veri seti kontrolleri
 

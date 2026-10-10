@@ -84,5 +84,6 @@
  "dataset_checks": [],
  "title": "SEC dosyalama geçmişi (8-K olayları, borsadan çıkışlar)",
  "derived": {},
- "finalized_at": "2026-10-10T00:00:08+00:00"
+ "finalized_at": "2026-10-10T02:22:33+00:00",
+ "removed_assets": []
 }

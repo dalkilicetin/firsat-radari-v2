@@ -1,6 +1,6 @@
 # 🟢 Wikipedia günlük görüntülenme (2015-07→)
 
-Son güncelleme: 2026-10-10T00:00:05+00:00 · 20 bölüm · 2,707,364 satır
+Son güncelleme: 2026-10-10T02:22:35+00:00 · 20 bölüm · 2,707,364 satır
 
 ## Veri seti kontrolleri
 
