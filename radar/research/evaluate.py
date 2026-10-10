@@ -25,14 +25,20 @@ from radar.research import panel
 
 HOLDOUT_START = pd.Timestamp("2025-07-01")
 MIN_NAMES = 50
-_RET_CACHE: dict[int, pd.DataFrame] = {}
+_RET_CACHE: dict[tuple[int, str], pd.DataFrame] = {}
+PERIOD = "gelistirme"  # "gelistirme": son dönem öncesi; "son_donem": yalnızca tek seferlik test (run_holdout)
 
 
 def forward(price: pd.DataFrame, sec: pd.DataFrame, weeks: int) -> pd.DataFrame:
-    if weeks not in _RET_CACHE:
+    key = (weeks, PERIOD)
+    if key not in _RET_CACHE:
         r = panel.forward_returns(price, sec, weeks)
-        _RET_CACHE[weeks] = r[r.index + pd.Timedelta(weeks=weeks) < HOLDOUT_START]
-    return _RET_CACHE[weeks]
+        if PERIOD == "gelistirme":
+            r = r[r.index + pd.Timedelta(weeks=weeks) < HOLDOUT_START]
+        else:
+            r = r[r.index >= HOLDOUT_START]
+        _RET_CACHE[key] = r
+    return _RET_CACHE[key]
 
 
 def excess_returns(price: pd.DataFrame, sec: pd.DataFrame, weeks: int, universe: pd.DataFrame | None = None) -> pd.DataFrame:
