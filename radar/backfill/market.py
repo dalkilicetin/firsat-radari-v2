@@ -17,6 +17,8 @@ from radar.quality import SourceReport, Status
 from radar.sources import prices, universe, wikipedia
 from radar.sources.base import Context
 
+# Kıyas endeksleri (ETF; hisse evrenine girmez, yalnızca "piyasayı alsaydım" karşılaştırması için).
+BENCHMARKS = ["QQQ", "SPY"]
 GROUPS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J-K", "L", "M", "N", "O", "P", "Q-R", "S", "T", "U-V", "W-Z"]
 YAHOO_MAX = ("https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1=1230768000&period2={end}"
              "&interval=1d&events=split,div&includeAdjustedClose=true")
@@ -53,7 +55,7 @@ class DailyPrices(Dataset):
 
     def load(self, client: HttpClient, partition: str) -> Loaded:
         group = partition.rsplit("-", 1)[0]
-        symbols = [s for s in current_symbols(client) if in_group(s, group)]
+        symbols = sorted({s for s in current_symbols(client) + BENCHMARKS if in_group(s, group)})
         end = int(datetime.now(timezone.utc).timestamp())
         frames, missing, agree = [], [], []
         for sym in symbols:

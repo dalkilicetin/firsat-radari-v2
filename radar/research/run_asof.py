@@ -1,4 +1,6 @@
-""""O gün çalıştırsaydık" denemeleri: python -m radar.research.run_asof <tur>
+""""O gün çalıştırsaydık" denemeleri: python -m radar.research.run_asof <tur> [vade]
+
+Sıra (kullanıcı kararı): önce 1 yıl (1y) iyileştirilir, sonra 1 ay (1a), en son 1 hafta (1h).
 
 Her deneme reports/research/asof_denemeler.jsonl dosyasına yazılır (yapılan deneme sayısı saklanır).
 Kilitli dönem (tutma süresi 2023'e taşan başlangıçlar) bu betikle ölçülmez.
@@ -38,15 +40,16 @@ def prepare():
 
 def main() -> None:
     name = sys.argv[1] if len(sys.argv) > 1 else "tur1"
+    horizon = sys.argv[2] if len(sys.argv) > 2 else "1y"
     t0 = time.time()
     data = prepare()
     print(f"veri hazır ({round(time.time() - t0)} sn)", flush=True)
     OUT.mkdir(parents=True, exist_ok=True)
     for rec in ROUNDS[name]:
-        df = asof.evaluate(rec, data)
+        df = asof.evaluate(rec, data, horizons=[horizon])
         summ = asof.summary(df)
-        asof.log_trial(rec, summ, {"tur": name})
-        df.to_parquet(OUT / f"{rec.name.split(' ')[0]}_{name}.parquet")
+        asof.log_trial(rec, summ, {"tur": name, "vade": horizon})
+        df.to_parquet(OUT / f"{rec.name.split(' ')[0]}_{name}_{horizon}.parquet")
         print(f"\n== {rec.name} ({round(time.time() - t0)} sn)\n{summ.round(3).to_string()}", flush=True)
 
 
