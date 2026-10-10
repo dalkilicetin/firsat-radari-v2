@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T09:25:15.429508+00:00",
+ "run_at": "2026-10-10T10:41:34.096657+00:00",
  "sources": [
   {
    "key": "universe",
@@ -13,7 +13,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.3,
+   "duration_s": 0.7,
    "requests": 2,
    "checks": [
     {
@@ -26,7 +26,7 @@
      "name": "Nasdaq listesi güncelliği",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.5 gün önce (sınır 4)",
-     "value": 0.5
+     "value": 0.55
     },
     {
      "name": "Bilinen hisseler listede",
@@ -126,7 +126,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.7,
+   "duration_s": 0.6,
    "requests": 5,
    "checks": [
     {
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.9,
+   "duration_s": 2.1,
    "requests": 15,
    "checks": [
     {
@@ -453,7 +453,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 5.2,
+   "duration_s": 4.9,
    "requests": 23,
    "checks": [
     {
@@ -510,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 9.3,
+   "duration_s": 8.0,
    "requests": 61,
    "checks": [
     {
@@ -815,7 +815,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.7,
+   "duration_s": 3.4,
    "requests": 4,
    "checks": [
     {
@@ -951,7 +951,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 42.8,
+   "duration_s": 40.7,
    "requests": 38,
    "checks": [
     {
@@ -1114,10 +1114,10 @@
     2,
     4
    ],
-   "status": "ok",
-   "error": null,
-   "duration_s": 52.2,
-   "requests": 7,
+   "status": "fail",
+   "error": "FetchError: http://data.gdeltproject.org/gdeltv2/20261010103000.gkg.csv.zip -> 404: ",
+   "duration_s": 40.5,
+   "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
@@ -1126,71 +1126,13 @@
      "value": -0.0
     },
     {
-     "name": "İndirilen dosya bütünlüğü (önceki dosya, zip CRC)",
-     "status": "ok",
-     "detail": "listelenen dosya henüz yayımlanmamıştı; 2,391,413 bayt, CRC sağlam",
-     "value": null
-    },
-    {
-     "name": "15 dakikalık dosyada makale",
-     "status": "ok",
-     "detail": "582 (beklenen 500–50,000)",
-     "value": 582
-    },
-    {
-     "name": "Sütun sayısı = 27",
-     "status": "ok",
-     "detail": "582/582 = %100.0",
-     "value": 1.0
-    },
-    {
-     "name": "Kurum (Organizations) bilgisi olan",
-     "status": "ok",
-     "detail": "426/582 = %73.2",
-     "value": 0.732
-    },
-    {
-     "name": "Ton değeri okunabilen",
-     "status": "ok",
-     "detail": "582/582 = %100.0",
-     "value": 1.0
-    },
-    {
-     "name": "Bu 15 dakikada en çok geçen kurumlar",
-     "status": "info",
-     "detail": "united states (35), delhi police (35), cockroach janta party (34), election commission (26), bharatiya janata party (19), australian associated (19), india election commission special intensive revision (16), instagram (13)",
-     "value": null
-    },
-    {
-     "name": "Geçmiş veri: 1 Mart 2015 dosyası makale",
-     "status": "ok",
-     "detail": "1,209 (beklenen 100–50,000)",
-     "value": 1209
-    },
-    {
-     "name": "Yardımcı: DOC API zaman serisi",
-     "status": "info",
-     "detail": "1 nokta (yardımcı kaynak; durumu etkilemez)",
-     "value": null
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "FetchError: http://data.gdeltproject.org/gdeltv2/20261010103000.gkg.csv.zip -> 404: ",
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/gdelt.py\", line 110, in run\n    blob = ctx.client.get(previous_slot(url)).content\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: http://data.gdeltproject.org/gdeltv2/20261010103000.gkg.csv.zip -> 404: \n"
     }
    ],
-   "sample": [
-    {
-     "date": "20261010091500",
-     "source": "goskagit.com",
-     "orgs": "ukrainian embassy"
-    },
-    {
-     "date": "20261010091500",
-     "source": "yourlocalguardian.co.uk",
-     "orgs": "surrey police"
-    },
-    {
-     "date": "20261010091500",
-     "source": "infotechlead.com",
-     "orgs": "million growth financing for digital health platform;ablepay health;healthcare payment technology;united states;big brai"
-    }
-   ]
+   "sample": null
   },
   {
    "key": "wikipedia",
@@ -1202,7 +1144,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 5.7,
+   "duration_s": 10.0,
    "requests": 6,
    "checks": [
     {
@@ -1324,20 +1266,20 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.6,
+   "duration_s": 0.5,
    "requests": 2,
    "checks": [
     {
      "name": "Son 7 gün 'nvidia' haberi",
      "status": "ok",
-     "detail": "35 (beklenen 5–100)",
-     "value": 35
+     "detail": "36 (beklenen 5–100)",
+     "value": 36
     },
     {
      "name": "Güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
-     "value": 0.12
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
+     "value": 0.01
     },
     {
      "name": "Geçmiş veri: Ocak 2016 sonuç",
@@ -1348,16 +1290,16 @@
    ],
    "sample": [
     {
+     "title": "Nvidia reportedly discontinuing RTX 5090, GB202 to be reserved for RTX PRO serie",
+     "points": 1
+    },
+    {
      "title": "Metal Driver for Nvidia GeForce RTX Cards on macOS 15 Sequoia",
      "points": 3
     },
     {
      "title": "Boro: Nvidia's Open-Source Effort for AI-Assisted Linux Kernel Development",
      "points": 3
-    },
-    {
-     "title": "GPGPU-SIM – Cycle-Level Simulator for Nvidia GPUs with CUDA or OpenCL Workloads",
-     "points": 4
     }
    ]
   },
@@ -1371,7 +1313,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.4,
+   "duration_s": 1.3,
    "requests": 3,
    "checks": [
     {
@@ -1389,8 +1331,8 @@
     {
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
-     "value": 0.06
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
+     "value": 0.03
     },
     {
      "name": "'Nvidia stock': tekil başlık",
@@ -1413,8 +1355,8 @@
     {
      "name": "'Apple earnings': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.6 gün önce (sınır 2)",
-     "value": 0.62
+     "detail": "en son kayıt 2026-10-09, 0.7 gün önce (sınır 2)",
+     "value": 0.68
     },
     {
      "name": "'Apple earnings': tekil başlık",
@@ -1437,8 +1379,8 @@
     {
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
-     "value": 0.04
+     "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
+     "value": 0.09
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -1490,7 +1432,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 4.1,
+   "duration_s": 4.0,
    "requests": 3,
    "checks": [
     {
@@ -1542,7 +1484,7 @@
      "name": "NVIDIA: son push",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 3)",
-     "value": 0.0
+     "value": 0.01
     },
     {
      "name": "microsoft: depo sayısı (ilk sayfa)",
@@ -1565,8 +1507,8 @@
     {
      "name": "apple: son push",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.2 gün önce (sınır 3)",
-     "value": 0.24
+     "detail": "en son kayıt 2026-10-10, 0.3 gün önce (sınır 3)",
+     "value": 0.29
     },
     {
      "name": "Kapsam notu",
@@ -1578,13 +1520,13 @@
    "sample": {
     "NVIDIA": [
      "NVIDIA/NemoClaw",
-     "NVIDIA/TensorRT-LLM",
-     "NVIDIA/nvcf"
+     "NVIDIA/Megatron-LM",
+     "NVIDIA/srt-slurm"
     ],
     "microsoft": [
-     "microsoft/garnet",
-     "microsoft/amplifier-unified",
-     "microsoft/intelligent-terminal"
+     "microsoft/iqdeepdive",
+     "microsoft/winget-pkgs",
+     "microsoft/vscode-mssql"
     ],
     "apple": [
      "apple/foundationdb",
