@@ -43,6 +43,7 @@ class Recipe:
     learner: str = "ridge"             # ridge | lgbm
     features: list[str] | None = None
     exclude: set[str] = field(default_factory=set)
+    regime: bool = False               # dönem özellikleri (yalnızca ağaç modelleri)
     params: dict = field(default_factory=dict)
     refit: int = 4                     # hafta
     note: str = ""
@@ -67,6 +68,10 @@ class Data:
         self.train_u = train_universe.to_numpy()
         self.eval_u = eval_universe.to_numpy()
         self.X = model.ranked_inputs(sigs, train_universe)
+        from radar.research import context
+        reg = context.regime(self.dates)
+        self.R = {f"donem_{c}": np.broadcast_to(reg[c].to_numpy(np.float32)[:, None], (len(self.dates), len(self.cols)))
+                  for c in reg.columns}
         self.fwd = {h: panel.forward_returns(p["price"], p["securities"], w).reindex(self.dates) for h, w in HORIZONS.items()}
         self.Y = {h: make_targets(self.fwd[h], train_universe, w) for h, w in HORIZONS.items()}
         self.path = {k: panel.forward_returns(p["price"], p["securities"], k).reindex(self.dates).to_numpy(np.float32)
@@ -74,6 +79,10 @@ class Data:
         self.cost = 2 * np.vstack([bt.cost_rate(p["dollar_volume"].iloc[t]).to_numpy() for t in range(len(self.dates))])
         sec = p["securities"].assign(cik=lambda d: d.cik.astype(str)).drop_duplicates("cik").set_index("cik")
         self.symbols = sec.symbol.reindex(self.cols).fillna("?").to_numpy()
+
+    def col(self, f: str) -> np.ndarray:
+        """Sıralanmış hisse sinyali ya da (ağaç modelleri için) ham dönem özelliği."""
+        return self.X[f] if f in self.X else self.R[f]
 
 
 def _fit(rec: Recipe, X: np.ndarray, y: np.ndarray):
@@ -99,8 +108,11 @@ def predict(rec: Recipe, data: Data, h: str, t_range) -> np.ndarray:
     """Her t için (t_range) yalnızca geçmişle kurulan modelin puanları; T × N, puanlanmayan NaN."""
     w = HORIZONS[h]
     feats = [f for f in (rec.features or list(data.X)) if f not in rec.exclude]
+    if rec.regime:
+        assert rec.learner == "lgbm", "dönem özellikleri sıralanmaz; yalnızca ağaç modelinde anlamlı"
+        feats = feats + list(data.R)
     Y = data.Y[h][rec.target]
-    if rec.learner == "ridge" and not rec.params:  # artımlı kayan pencere (model.walk_forward, 4 haftada bir kurulum)
+    if rec.learner == "ridge" and not rec.params and not rec.regime:  # artımlı kayan pencere (model.walk_forward, 4 haftada bir kurulum)
         return model.walk_forward(data.X, Y, w, data.dates, feats, data.train_u).pred
     T, N = Y.shape
     out = np.full((T, N), np.nan, dtype=np.float32)
@@ -112,14 +124,14 @@ def predict(rec: Recipe, data: Data, h: str, t_range) -> np.ndarray:
             for s in rows:
                 m = data.train_u[s] & np.isfinite(Y[s])
                 if m.any():
-                    Xs.append(np.column_stack([data.X[f][s][m] for f in feats]))
+                    Xs.append(np.column_stack([data.col(f)[s][m] for f in feats]))
                     ys.append(Y[s][m])
             if sum(len(y) for y in ys) >= 2000:
                 fn, last_fit = _fit(rec, np.vstack(Xs), np.concatenate(ys)), t
         if fn is None:
             continue
         m = data.train_u[t]
-        out[t, m] = fn(np.column_stack([data.X[f][t][m] for f in feats]))
+        out[t, m] = fn(np.column_stack([data.col(f)[t][m] for f in feats]))
     return out
 
 

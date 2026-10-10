@@ -34,6 +34,7 @@ GROUPS = {
     "road2": ("yol2", ["gdelt", "wikiviews"]),
     "road3": ("yol3", ["insider", "holdings", "filings", "financials", "ftd"]),
     "road4": ("yol4", ["gdelt_themes"]),
+    "baglam": ("piyasa", ["prices", "filings"]),  # sektör ETF'leri ve beta
 }
 
 
@@ -54,7 +55,7 @@ def market_signals(p: dict) -> dict[str, pd.DataFrame]:
 
 
 def producers():
-    from radar.research import road1, road2, road3, road4
+    from radar.research import context, road1, road2, road3, road4
     return {
         "piyasa": market_signals,
         "road1": road1.signals,
@@ -62,6 +63,7 @@ def producers():
         "road2": road2.signals,
         "road3": road3.signals,
         "road4": lambda p: road4.signals(p, road4.VARIANTS),
+        "baglam": context.signals,
     }
 
 
