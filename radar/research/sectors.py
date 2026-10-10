@@ -1,7 +1,8 @@
 """Şirket türü: faaliyet şirketi / finans / SPAC.
 
-Kullanıcı kararı (2026-10-10): rapor ve fırsat modeli yalnızca finans dışı faaliyet şirketlerini kapsar
-(bankalar, sigorta, GYO, BDC, diğer finans ve SPAC'ler hariç), sektörlere bölünmeden tek genel liste.
+Kullanıcı kararları (2026-10-10): yalnızca faaliyet şirketleri, sektörlere bölünmeden tek genel liste.
+Hariç: bankalar, sigorta, GYO (REIT), fonlar/BDC'ler ve SPAC'ler. Dahil: aracı kurum, fintech, kripto ve diğer
+finansal hizmet şirketleri (HOOD, SOFI, COIN, MSTR, AFRM gibi).
 
 SIC kodu SEC şirket kaydından gelir (güncel değer; SIC nadiren değişir, geçmiş için de kullanılır).
 SPAC'ler çoğu zaman hedef sektörün SIC kodunu taşır; bu yüzden adla da yakalanır.
@@ -37,7 +38,8 @@ def classify(sec: pd.DataFrame, sic: pd.Series | None = None) -> pd.Series:
     code = sic.reindex(s.index).fillna("")
     name = s.name.fillna("")
     out = pd.Series("faaliyet", index=s.index)
-    out[code.str.startswith("6") | ((code == "") & name.str.contains(FINANCE_NAME))] = "finans"
+    excluded = code.str.match(r"^(?:60[2-3]\d|671\d|63\d\d|64\d\d|6798|6722|6726|6799)$")
+    out[excluded | ((code == "") & name.str.contains(FINANCE_NAME))] = "finans"
     out[(code == "6770") | name.str.contains(SPAC_NAME)] = "spac"
     return out
 
