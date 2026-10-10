@@ -55,17 +55,24 @@ def weekly_last(df: pd.DataFrame, value: str, dates: pd.DatetimeIndex) -> pd.Dat
 
 
 def build(force: bool = False) -> dict[str, pd.DataFrame]:
-    path = CACHE / "panel_weekly.parquet"
+    """price: düzeltilmiş kapanış (getiri için); raw: ham kapanış (düşük fiyat riski için);
+    dollar_volume: 13 haftalık medyan günlük işlem tutarı (yalnızca aktif hisseler; FTD'de hacim yok)."""
+    names = ["price", "raw", "dollar_volume"]
+    paths = {n: CACHE / f"panel_{n}.parquet" for n in names}
     ident = build_identity()
     sec = ident["securities"]
-    if path.exists() and not force:
-        return {"price": pd.read_parquet(path), "securities": sec}
+    if all(p.exists() for p in paths.values()) and not force:
+        return {n: pd.read_parquet(p) for n, p in paths.items()} | {"securities": sec}
 
     dates = fridays()
     active = sec[sec.status == "aktif"]
-    px = archive.load("prices", columns=["symbol", "date", "adjclose"])
-    px = px.merge(active[["symbol", "cik"]], on="symbol")
-    px = px.rename(columns={"adjclose": "price"})[["cik", "date", "price"]]
+    daily = archive.load("prices", columns=["symbol", "date", "adjclose", "close", "volume"])
+    daily = daily.merge(active[["symbol", "cik"]], on="symbol")
+    daily["dollar_volume"] = daily.close * daily.volume
+    px = daily.rename(columns={"adjclose": "price"})[["cik", "date", "price"]]
+    raw_px = daily.rename(columns={"close": "price"})[["cik", "date", "price"]]
+    dv = (daily.sort_values("date").groupby("cik", group_keys=False)
+          .apply(lambda g: g.set_index("date").dollar_volume.rolling("91D").median().reset_index().assign(cik=g.name)))
 
     gone = sec[sec.status == "çıktı"]
     ftd = archive.load("ftd", columns=["settle_date", "symbol", "price"])
@@ -75,15 +82,21 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
     # FTD fiyatı takas tarihinden önceki işlem gününün kapanışıdır.
     ftd["date"] = ftd.settle_date - pd.offsets.BDay(1)
     ftd = ftd.groupby(["cik", "date"]).price.last().reset_index().sort_values(["cik", "date"])
+    ftd_raw = ftd.copy()
     ftd["price"] = ftd.groupby("cik").price.transform(adjust_reverse_splits)
 
-    price = weekly_last(pd.concat([px, ftd], ignore_index=True), "price", dates)
-    price.columns = price.columns.astype(str)
-    # Hiç fiyatı olmayan üyeler de sütun olarak kalır (kapsam ölçümünde görünsünler).
-    price = price.reindex(columns=sec.cik.astype(str))
+    columns = sec.cik.astype(str)  # hiç fiyatı olmayan üyeler de sütun olarak kalır (kapsamda görünsünler)
+    out = {
+        "price": weekly_last(pd.concat([px, ftd], ignore_index=True), "price", dates),
+        "raw": weekly_last(pd.concat([raw_px, ftd_raw], ignore_index=True), "price", dates),
+        "dollar_volume": weekly_last(dv, "dollar_volume", dates),
+    }
     CACHE.mkdir(parents=True, exist_ok=True)
-    price.to_parquet(path)
-    return {"price": price, "securities": sec}
+    for n, df in out.items():
+        df.columns = df.columns.astype(str)
+        out[n] = df.reindex(columns=columns)
+        out[n].to_parquet(paths[n])
+    return out | {"securities": sec}
 
 
 def membership(sec: pd.DataFrame, dates: pd.DatetimeIndex, columns) -> pd.DataFrame:
