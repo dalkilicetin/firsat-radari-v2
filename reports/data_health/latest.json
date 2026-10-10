@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T06:51:27.522241+00:00",
+ "run_at": "2026-10-10T07:01:56.170526+00:00",
  "sources": [
   {
    "key": "universe",
@@ -26,7 +26,7 @@
      "name": "Nasdaq listesi güncelliği",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.4 gün önce (sınır 4)",
-     "value": 0.39
+     "value": 0.4
     },
     {
      "name": "Bilinen hisseler listede",
@@ -126,7 +126,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.7,
+   "duration_s": 0.6,
    "requests": 5,
    "checks": [
     {
@@ -453,7 +453,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 5.2,
+   "duration_s": 13.0,
    "requests": 23,
    "checks": [
     {
@@ -510,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 7.7,
+   "duration_s": 7.8,
    "requests": 61,
    "checks": [
     {
@@ -662,7 +662,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.9,
+   "duration_s": 0.8,
    "requests": 6,
    "checks": [
     {
@@ -754,7 +754,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.4,
    "requests": 1,
    "checks": [
     {
@@ -815,7 +815,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.1,
+   "duration_s": 0.8,
    "requests": 4,
    "checks": [
     {
@@ -951,7 +951,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 42.3,
+   "duration_s": 40.2,
    "requests": 38,
    "checks": [
     {
@@ -1033,7 +1033,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.6,
+   "duration_s": 1.4,
    "requests": 6,
    "checks": [
     {
@@ -1116,14 +1116,14 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 21.6,
+   "duration_s": 27.6,
    "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25)",
-     "value": -0.01
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25)",
+     "value": 0.0
     },
     {
      "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
@@ -1202,7 +1202,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 10.3,
+   "duration_s": 7.7,
    "requests": 6,
    "checks": [
     {
@@ -1349,7 +1349,7 @@
    "sample": [
     {
      "title": "Metal Driver for Nvidia GeForce RTX Cards on macOS 15 Sequoia",
-     "points": 2
+     "points": 3
     },
     {
      "title": "Boro: Nvidia's Open-Source Effort for AI-Assisted Linux Kernel Development",
@@ -1357,7 +1357,7 @@
     },
     {
      "title": "GPGPU-SIM – Cycle-Level Simulator for Nvidia GPUs with CUDA or OpenCL Workloads",
-     "points": 3
+     "points": 4
     }
    ]
   },
@@ -1371,7 +1371,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.6,
+   "duration_s": 1.2,
    "requests": 3,
    "checks": [
     {
@@ -1390,7 +1390,7 @@
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
-     "value": 0.02
+     "value": 0.03
     },
     {
      "name": "'Nvidia stock': tekil başlık",
@@ -1529,7 +1529,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.9,
+   "duration_s": 2.0,
    "requests": 3,
    "checks": [
     {
@@ -1566,7 +1566,7 @@
      "name": "apple: son push",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 3)",
-     "value": 0.13
+     "value": 0.14
     },
     {
      "name": "Kapsam notu",
@@ -1577,14 +1577,14 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/Megatron-LM",
-     "NVIDIA/NemoClaw",
-     "NVIDIA/srt-slurm"
+     "NVIDIA/nvcf",
+     "NVIDIA/cuopt",
+     "NVIDIA/cudf-spark"
     ],
     "microsoft": [
-     "microsoft/power-pages-samples",
-     "microsoft/intelligent-terminal",
-     "microsoft/onnxruntime"
+     "microsoft/aspire",
+     "microsoft/vscode-java-test",
+     "microsoft/vscode-gradle"
     ],
     "apple": [
      "apple/foundationdb",
