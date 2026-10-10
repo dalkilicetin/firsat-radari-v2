@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T07:06:28.041357+00:00",
+ "run_at": "2026-10-10T07:16:41.347701+00:00",
  "sources": [
   {
    "key": "universe",
@@ -13,7 +13,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.5,
+   "duration_s": 0.6,
    "requests": 2,
    "checks": [
     {
@@ -26,7 +26,7 @@
      "name": "Nasdaq listesi güncelliği",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.4 gün önce (sınır 4)",
-     "value": 0.4
+     "value": 0.41
     },
     {
      "name": "Bilinen hisseler listede",
@@ -37,8 +37,8 @@
     {
      "name": "SEC CIK eşleşme oranı",
      "status": "ok",
-     "detail": "3424/3434 = %99.7 adi hisse",
-     "value": 0.9971
+     "detail": "3427/3434 = %99.8 adi hisse",
+     "value": 0.998
     },
     {
      "name": "Doğrulanmış CIK değerleri",
@@ -49,8 +49,8 @@
     {
      "name": "Çapraz kontrol: SEC'te 'Nasdaq' görünenler Nasdaq listesinde",
      "status": "ok",
-     "detail": "4337/4376 = %99.1",
-     "value": 0.9911
+     "detail": "4346/4378 = %99.3",
+     "value": 0.9927
     },
     {
      "name": "Finansal durum dağılımı (risk sinyali)",
@@ -126,7 +126,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.7,
+   "duration_s": 0.9,
    "requests": 5,
    "checks": [
     {
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.8,
+   "duration_s": 2.1,
    "requests": 15,
    "checks": [
     {
@@ -355,19 +355,19 @@
     {
      "name": "8-K'larda olay kodu (items) dolu",
      "status": "ok",
-     "detail": "1233/1233 = %100.0",
+     "detail": "1119/1119 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)",
      "status": "ok",
-     "detail": "6754/6755 = %100.0; formlar: {'S-1/A': 1}; örnek: [('S-1/A', '2024-09-03', '2024-08-30T23:09:30.000Z')]",
-     "value": 0.9999
+     "detail": "5883/5884 = %100.0; formlar: {'10-Q': 1}; örnek: [('10-Q', '2019-11-12', '2019-11-08T22:41:40.000Z')]",
+     "value": 0.9998
     },
     {
      "name": "Önceki güne tarihlenen gece kabulleri",
      "status": "info",
-     "detail": "153 dosya — dosyalama tarihi değil kabul anı esas alınır",
+     "detail": "301 dosya — dosyalama tarihi değil kabul anı esas alınır",
      "value": null
     },
     {
@@ -451,9 +451,9 @@
    "roads": [
     1
    ],
-   "status": "warn",
+   "status": "ok",
    "error": null,
-   "duration_s": 3.9,
+   "duration_s": 6.8,
    "requests": 23,
    "checks": [
     {
@@ -477,25 +477,25 @@
     {
      "name": "Rastgele şirketlerde temel kalem (varlık/gelir/kâr) bulunan",
      "status": "ok",
-     "detail": "19/20 = %95.0",
-     "value": 0.95
+     "detail": "20/20 = %100.0",
+     "value": 1.0
     },
     {
      "name": "Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu",
      "status": "ok",
-     "detail": "349447/349490 = %100.0",
-     "value": 0.9999
+     "detail": "305743/305758 = %100.0",
+     "value": 1.0
     },
     {
      "name": "Güncel hisse sayısı (son 200 gün) bulunan",
-     "status": "warn",
-     "detail": "14/20 = %70.0; eksik/eski: ['PGAC:yok', 'DNMX:2025-12-10', 'CCAQ:yok', 'WENN:yok', 'NUR:yok', 'BID:yok']",
-     "value": 0.7
+     "status": "ok",
+     "detail": "19/20 = %95.0; eksik/eski: ['SRAD:yok']",
+     "value": 0.95
     },
     {
      "name": "Kapsam notu",
      "status": "info",
-     "detail": "0 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
+     "detail": "1 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
      "value": null
     }
    ],
@@ -510,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 7.7,
+   "duration_s": 7.6,
    "requests": 61,
    "checks": [
     {
@@ -662,7 +662,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.9,
    "requests": 6,
    "checks": [
     {
@@ -754,7 +754,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.2,
+   "duration_s": 0.5,
    "requests": 1,
    "checks": [
     {
@@ -815,7 +815,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.9,
+   "duration_s": 0.8,
    "requests": 4,
    "checks": [
     {
@@ -951,7 +951,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 43.4,
+   "duration_s": 38.3,
    "requests": 38,
    "checks": [
     {
@@ -1033,7 +1033,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.5,
+   "duration_s": 1.4,
    "requests": 6,
    "checks": [
     {
@@ -1114,25 +1114,83 @@
     2,
     4
    ],
-   "status": "fail",
-   "error": "FetchError: http://data.gdeltproject.org/gdeltv2/20261010070000.gkg.csv.zip -> 404: ",
-   "duration_s": 40.7,
+   "status": "ok",
+   "error": null,
+   "duration_s": 26.3,
    "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25)",
-     "value": -0.01
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25)",
+     "value": 0.0
     },
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "FetchError: http://data.gdeltproject.org/gdeltv2/20261010070000.gkg.csv.zip -> 404: ",
-     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/gdelt.py\", line 110, in run\n    blob = ctx.client.get(previous_slot(url)).content\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: http://data.gdeltproject.org/gdeltv2/20261010070000.gkg.csv.zip -> 404: \n"
+     "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
+     "status": "ok",
+     "detail": "2,773,312 bayt, md5 eşleşti",
+     "value": null
+    },
+    {
+     "name": "15 dakikalık dosyada makale",
+     "status": "ok",
+     "detail": "628 (beklenen 500–50,000)",
+     "value": 628
+    },
+    {
+     "name": "Sütun sayısı = 27",
+     "status": "ok",
+     "detail": "628/628 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Kurum (Organizations) bilgisi olan",
+     "status": "ok",
+     "detail": "474/628 = %75.5",
+     "value": 0.7548
+    },
+    {
+     "name": "Ton değeri okunabilen",
+     "status": "ok",
+     "detail": "628/628 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "Bu 15 dakikada en çok geçen kurumlar",
+     "status": "info",
+     "detail": "united states (64), delhi police (29), cockroach janta party (27), white house (26), rajasthan high court (19), supreme court (18), high court (13), honble supreme court (12)",
+     "value": null
+    },
+    {
+     "name": "Geçmiş veri: 1 Mart 2015 dosyası makale",
+     "status": "ok",
+     "detail": "1,209 (beklenen 100–50,000)",
+     "value": 1209
+    },
+    {
+     "name": "Yardımcı: DOC API zaman serisi",
+     "status": "info",
+     "detail": "erişilemedi (HTTP 429); ham dosyalar yeterli",
+     "value": null
     }
    ],
-   "sample": null
+   "sample": [
+    {
+     "date": "20261010071500",
+     "source": "indiankanoon.org",
+     "orgs": "honble the supreme court;rajasthan high court;honble supreme court"
+    },
+    {
+     "date": "20261010071500",
+     "source": "baxterbulletin.com",
+     "orgs": "burger king;gracy enterprises;hardee;eastside baptist church;milligan law office;college church;combs construction compa"
+    },
+    {
+     "date": "20261010071500",
+     "source": "stokesentinel.co.uk",
+     "orgs": "university of staffordshire"
+    }
+   ]
   },
   {
    "key": "wikipedia",
@@ -1144,7 +1202,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 11.6,
+   "duration_s": 6.0,
    "requests": 6,
    "checks": [
     {
@@ -1313,7 +1371,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.4,
+   "duration_s": 1.2,
    "requests": 3,
    "checks": [
     {
@@ -1332,7 +1390,7 @@
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
-     "value": 0.03
+     "value": 0.01
     },
     {
      "name": "'Nvidia stock': tekil başlık",
@@ -1356,7 +1414,7 @@
      "name": "'Apple earnings': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.5 gün önce (sınır 2)",
-     "value": 0.53
+     "value": 0.54
     },
     {
      "name": "'Apple earnings': tekil başlık",
@@ -1471,7 +1529,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.9,
+   "duration_s": 2.0,
    "requests": 3,
    "checks": [
     {
@@ -1508,7 +1566,7 @@
      "name": "apple: son push",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 3)",
-     "value": 0.14
+     "value": 0.15
     },
     {
      "name": "Kapsam notu",
@@ -1519,14 +1577,14 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/Megatron-LM",
      "NVIDIA/cosmos-framework",
+     "NVIDIA/Megatron-LM",
      "NVIDIA/nvcf"
     ],
     "microsoft": [
-     "microsoft/onnxruntime",
-     "microsoft/finops-toolkit",
-     "microsoft/lisa"
+     "microsoft/mssql-python",
+     "microsoft/azurelinux",
+     "microsoft/Oryx"
     ],
     "apple": [
      "apple/foundationdb",
