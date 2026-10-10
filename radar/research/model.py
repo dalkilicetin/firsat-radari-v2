@@ -43,8 +43,24 @@ def ranked_inputs(sigs: dict[str, tuple[str, pd.DataFrame]], universe: pd.DataFr
 
 
 def ranked_target(price: pd.DataFrame, sec: pd.DataFrame, weeks: int, universe: pd.DataFrame) -> np.ndarray:
+    """Sıra hedefi: medyanın üstünde kalma (dağılımın şeklini yok sayar)."""
     r = panel.forward_returns(price, sec, weeks).reindex(price.index).where(universe)
     return (r.rank(axis=1, pct=True) - 0.5).to_numpy(dtype=np.float32)
+
+
+def return_target(price: pd.DataFrame, sec: pd.DataFrame, weeks: int, universe: pd.DataFrame) -> np.ndarray:
+    """Getiri hedefi: haftalık %1/%99'da kırpılmış fazla getiri, haftalık standart sapmaya bölünmüş.
+    Büyük yükselişleri (fırsatları) ödüllendirir; sıra hedefi bunları medyan sorusuna indirger."""
+    r = panel.forward_returns(price, sec, weeks).reindex(price.index).where(universe)
+    lo, hi = r.quantile(0.01, axis=1), r.quantile(0.99, axis=1)
+    r = r.clip(lo, hi, axis=0)
+    r = r.sub(r.mean(axis=1), axis=0).div(r.std(axis=1).replace(0, np.nan), axis=0)
+    return r.to_numpy(dtype=np.float32)
+
+
+TARGETS = {"sira": ranked_target, "getiri": return_target}
+# Potansiyel modeline girmeyen sinyaller: risk puanında zaten var (çift sayılmasın).
+RISK_ONLY = {"dusuk_oynaklik"}
 
 
 @dataclass
@@ -91,19 +107,22 @@ def to_score(pred: np.ndarray, dates, columns) -> pd.DataFrame:
 
 
 def run(p: dict, sigs: dict[str, tuple[str, pd.DataFrame]], horizons: dict[str, int] | None = None,
-        universe: pd.DataFrame | None = None) -> dict[tuple[str, str], Fit]:
+        universe: pd.DataFrame | None = None, target: str = "getiri", exclude: set[str] = RISK_ONLY,
+        only_total: bool = False) -> dict[tuple[str, str], Fit]:
     """(model adı, vade) → Fit. Modeller: her yol ayrı + 'toplam'."""
     horizons = horizons or panel.HORIZONS
+    sigs = {n: v for n, v in sigs.items() if n not in exclude}
     price, sec = p["price"], p["securities"]
     if universe is None:
         universe = panel.membership(sec, price.index, price.columns) & price.notna()
     X = ranked_inputs(sigs, universe)
     roads = sorted({r for r, _ in sigs.values()})
-    groups = {road: [n for n, (r, _) in sigs.items() if r == road] for road in roads} | {"toplam": list(sigs)}
+    groups = {"toplam": list(sigs)} if only_total else \
+        {road: [n for n, (r, _) in sigs.items() if r == road] for road in roads} | {"toplam": list(sigs)}
     fits = {}
     u = universe.to_numpy()
     for label, weeks in horizons.items():
-        y = ranked_target(price, sec, weeks, universe)
+        y = TARGETS[target](price, sec, weeks, universe)
         for g, feats in groups.items():
             fits[(g, label)] = walk_forward(X, y, weeks, price.index, feats, u)
     return fits
