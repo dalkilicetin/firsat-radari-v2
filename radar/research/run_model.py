@@ -89,10 +89,14 @@ def main() -> None:
     bucket_rows = []
     ex13 = ev.excess_returns(price, sec, 13, member)
     pot = potential.reindex(ex13.index)
+    # Uç değerler (birkaç mikro hissenin yüzlerce yüzdelik sıçraması) ortalamayı çarpıtmasın: haftalık %1/%99 kırpma.
+    ex13w = ex13.clip(ex13.quantile(0.01, axis=1), ex13.quantile(0.99, axis=1), axis=0)
     for lo, hi in ((0, 30), (30, 50), (50, 70), (70, 80), (80, 90), (90, 101)):
-        v = ex13.where((pot >= lo) & (pot < hi)).stack().dropna()
-        bucket_rows.append({"potansiyel": f"{lo}–{min(hi, 100)}", "hisse-hafta": len(v), "3a ort fazla": round(v.mean(), 4),
-                            "3a medyan fazla": round(v.median(), 4)})
+        m = (pot >= lo) & (pot < hi)
+        v, vw = ex13.where(m).stack().dropna(), ex13w.where(m).stack().dropna()
+        bucket_rows.append({"potansiyel": f"{lo}–{min(hi, 100)}", "hisse-hafta": len(v),
+                            "3a kırpılmış ort fazla": round(vw.mean(), 4), "3a medyan fazla": round(v.median(), 4),
+                            "pozitif fazla getiri payı": round((v > 0).mean(), 3)})
     buckets = pd.DataFrame(bucket_rows)
 
     last_w = {h: fits[("toplam", h)].weights.iloc[-1] for h in panel.HORIZONS}
