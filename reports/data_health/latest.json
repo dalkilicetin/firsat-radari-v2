@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-09T23:24:08.559956+00:00",
+ "run_at": "2026-10-10T00:02:30.278984+00:00",
  "sources": [
   {
    "key": "universe",
@@ -13,7 +13,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.7,
+   "duration_s": 0.4,
    "requests": 2,
    "checks": [
     {
@@ -25,8 +25,8 @@
     {
      "name": "Nasdaq listesi güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.2 gün önce (sınır 4)",
-     "value": 0.22
+     "detail": "en son kayıt 2026-10-09, 0.3 gün önce (sınır 4)",
+     "value": 0.25
     },
     {
      "name": "Bilinen hisseler listede",
@@ -126,8 +126,8 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.0,
-   "requests": 5,
+   "duration_s": 0.9,
+   "requests": 6,
    "checks": [
     {
      "name": "Erişilebilen iş günü sayısı (son 7 iş günü içinde)",
@@ -138,8 +138,8 @@
     {
      "name": "İndeks güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 4)",
-     "value": 1
+     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 4)",
+     "value": 2
     },
     {
      "name": "2026-10-02: toplam dosya",
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.4,
+   "duration_s": 1.9,
    "requests": 15,
    "checks": [
     {
@@ -373,8 +373,8 @@
     {
      "name": "AAPL son dosya güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 45)",
-     "value": 1
+     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 45)",
+     "value": 2
     },
     {
      "name": "Yıllık rapor (10-K/20-F/40-F) bulunan şirket",
@@ -453,7 +453,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 10.6,
+   "duration_s": 6.3,
    "requests": 23,
    "checks": [
     {
@@ -510,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 7.5,
+   "duration_s": 7.6,
    "requests": 61,
    "checks": [
     {
@@ -662,7 +662,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.7,
    "requests": 6,
    "checks": [
     {
@@ -754,55 +754,55 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.5,
+   "duration_s": 0.2,
    "requests": 1,
    "checks": [
     {
      "name": "Güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 5)",
+     "detail": "en son kayıt 2026-10-09, 1.0 gün önce (sınır 5)",
      "value": 1
     },
     {
      "name": "Sembol sayısı",
      "status": "ok",
-     "detail": "12,334 (beklenen 5,000–20,000)",
-     "value": 12334
+     "detail": "12,278 (beklenen 5,000–20,000)",
+     "value": 12278
     },
     {
      "name": "Açığa satış ≤ toplam hacim",
      "status": "ok",
-     "detail": "12334/12334 = %100.0",
+     "detail": "12278/12278 = %100.0",
      "value": 1.0
     },
     {
      "name": "Evren kapsamı",
      "status": "ok",
-     "detail": "3355/3434 = %97.7",
-     "value": 0.977
+     "detail": "3364/3434 = %98.0",
+     "value": 0.9796
     }
    ],
    "sample": [
     {
-     "date": "20261008",
+     "date": "20261009",
      "symbol": "A",
-     "short": 464495.36725,
-     "exempt": 2.0,
-     "total": 1505110.859693
-    },
-    {
-     "date": "20261008",
-     "symbol": "AA",
-     "short": 793782.086693,
-     "exempt": 6534.0,
-     "total": 1503164.346548
-    },
-    {
-     "date": "20261008",
-     "symbol": "AAAA",
-     "short": 212.0,
+     "short": 334518.96311,
      "exempt": 0.0,
-     "total": 418.4123
+     "total": 768616.578491
+    },
+    {
+     "date": "20261009",
+     "symbol": "AA",
+     "short": 623102.435892,
+     "exempt": 1473.0,
+     "total": 1396860.971424
+    },
+    {
+     "date": "20261009",
+     "symbol": "AAA",
+     "short": 141520.0,
+     "exempt": 0.0,
+     "total": 143538.866
     }
    ]
   },
@@ -815,14 +815,14 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.9,
+   "duration_s": 25.5,
    "requests": 4,
    "checks": [
     {
      "name": "Veritabanı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 10)",
-     "value": 0
+     "detail": "en son kayıt 2026-10-09, 1.0 gün önce (sınır 10)",
+     "value": 1
     },
     {
      "name": "Palantir: son 1 yıl sözleşme",
@@ -951,7 +951,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 43.8,
+   "duration_s": 48.2,
    "requests": 38,
    "checks": [
     {
@@ -993,8 +993,8 @@
     {
      "name": "Fiyat güncelliği (medyan hissenin son barı)",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 5)",
-     "value": 0
+     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 5)",
+     "value": 2
     },
     {
      "name": "5 günden eski son bar (işlem durdurma / likidite riski)",
@@ -1033,44 +1033,44 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 5.4,
+   "duration_s": 1.7,
    "requests": 6,
    "checks": [
     {
      "name": "DCOILWTICO – Ham petrol WTI (günlük): güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-06, 3.0 gün önce (sınır 10); 9517 gözlem, başlangıç 1986-01-02",
-     "value": 3
+     "detail": "en son kayıt 2026-10-06, 4.0 gün önce (sınır 10); 9517 gözlem, başlangıç 1986-01-02",
+     "value": 4
     },
     {
      "name": "DGS10 – ABD 10 yıllık faiz (günlük): güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 10); 16178 gözlem, başlangıç 1962-01-02",
-     "value": 1
+     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 10); 16178 gözlem, başlangıç 1962-01-02",
+     "value": 2
     },
     {
      "name": "PCOPPUSDM – Bakır fiyatı (aylık, IMF kaynaklı ~3 ay gecikmeli): güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-07-01, 100.0 gün önce (sınır 130); 415 gözlem, başlangıç 1992-01-01",
-     "value": 100
+     "detail": "en son kayıt 2026-07-01, 101.0 gün önce (sınır 130); 415 gözlem, başlangıç 1992-01-01",
+     "value": 101
     },
     {
      "name": "INDPRO – Sanayi üretimi (aylık): güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-08-01, 69.0 gün önce (sınır 75); 1292 gözlem, başlangıç 1919-01-01",
-     "value": 69
+     "detail": "en son kayıt 2026-08-01, 70.0 gün önce (sınır 75); 1292 gözlem, başlangıç 1919-01-01",
+     "value": 70
     },
     {
      "name": "CPIAUCSL – Tüketici fiyat endeksi (aylık): güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-08-01, 69.0 gün önce (sınır 75); 955 gözlem, başlangıç 1947-01-01",
-     "value": 69
+     "detail": "en son kayıt 2026-08-01, 70.0 gün önce (sınır 75); 955 gözlem, başlangıç 1947-01-01",
+     "value": 70
     },
     {
      "name": "IPG3344S – Yarı iletken üretimi (aylık): güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-08-01, 69.0 gün önce (sınır 75); 656 gözlem, başlangıç 1972-01-01",
-     "value": 69
+     "detail": "en son kayıt 2026-08-01, 70.0 gün önce (sınır 75); 656 gözlem, başlangıç 1972-01-01",
+     "value": 70
     }
    ],
    "sample": {
@@ -1116,49 +1116,49 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 29.7,
+   "duration_s": 26.1,
    "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, -0.0 gün önce (sınır 0.25)",
-     "value": -0.0
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25)",
+     "value": 0.0
     },
     {
      "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
      "status": "ok",
-     "detail": "4,230,705 bayt, md5 eşleşti",
+     "detail": "4,143,183 bayt, md5 eşleşti",
      "value": null
     },
     {
      "name": "15 dakikalık dosyada makale",
      "status": "ok",
-     "detail": "999 (beklenen 500–50,000)",
-     "value": 999
+     "detail": "945 (beklenen 500–50,000)",
+     "value": 945
     },
     {
      "name": "Sütun sayısı = 27",
      "status": "ok",
-     "detail": "999/999 = %100.0",
+     "detail": "945/945 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kurum (Organizations) bilgisi olan",
      "status": "ok",
-     "detail": "731/999 = %73.2",
-     "value": 0.7317
+     "detail": "730/945 = %77.2",
+     "value": 0.7725
     },
     {
      "name": "Ton değeri okunabilen",
      "status": "ok",
-     "detail": "999/999 = %100.0",
+     "detail": "945/945 = %100.0",
      "value": 1.0
     },
     {
      "name": "Bu 15 dakikada en çok geçen kurumlar",
      "status": "info",
-     "detail": "united states (57), white house (45), instagram (27), police service of northern ireland (22), parades commission (22), associated press (22), google (21), nickelodeon (19)",
+     "detail": "united states (55), white house (40), google (36), associated press (27), australian associated (23), national hurricane center (18), national weather service (18), cnn (18)",
      "value": null
     },
     {
@@ -1176,19 +1176,19 @@
    ],
    "sample": [
     {
-     "date": "20261009233000",
-     "source": "boredpanda.com",
-     "orgs": "indica;caesars palace"
+     "date": "20261010000000",
+     "source": "batonrougepost.com",
+     "orgs": "business incubator association;chandigarh university;grade university;centre for incubation;microsoft;national assessmen"
     },
     {
-     "date": "20261009233000",
-     "source": "boredpanda.com",
-     "orgs": ""
+     "date": "20261010000000",
+     "source": "interior-news.com",
+     "orgs": "b c manufacturing jobs fund"
     },
     {
-     "date": "20261009233000",
-     "source": "hindustantimes.com",
-     "orgs": "jakson group;infosys;shiv nadar group;astrodevam private;vardhman group;mental health vastu shastra;ahluwalia group"
+     "date": "20261010000000",
+     "source": "mit.edu",
+     "orgs": "research scientist julian klein"
     }
    ]
   },
@@ -1202,44 +1202,44 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 4.6,
+   "duration_s": 6.7,
    "requests": 6,
    "checks": [
     {
      "name": "Nvidia: gün sayısı (60 gün)",
      "status": "ok",
-     "detail": "60 (beklenen 55–61)",
-     "value": 60
+     "detail": "59 (beklenen 55–61)",
+     "value": 59
     },
     {
      "name": "Nvidia: güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 3)",
-     "value": 1
+     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 3)",
+     "value": 2
     },
     {
      "name": "Apple_Inc.: gün sayısı (60 gün)",
      "status": "ok",
-     "detail": "60 (beklenen 55–61)",
-     "value": 60
+     "detail": "59 (beklenen 55–61)",
+     "value": 59
     },
     {
      "name": "Apple_Inc.: güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 3)",
-     "value": 1
+     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 3)",
+     "value": 2
     },
     {
      "name": "Microsoft: gün sayısı (60 gün)",
      "status": "ok",
-     "detail": "60 (beklenen 55–61)",
-     "value": 60
+     "detail": "59 (beklenen 55–61)",
+     "value": 59
     },
     {
      "name": "Microsoft: güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 1.0 gün önce (sınır 3)",
-     "value": 1
+     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 3)",
+     "value": 2
     },
     {
      "name": "Geçmiş veri: Temmuz 2015 gün sayısı",
@@ -1324,7 +1324,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.5,
+   "duration_s": 0.6,
    "requests": 2,
    "checks": [
     {
@@ -1337,7 +1337,7 @@
      "name": "Güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
-     "value": 0.02
+     "value": 0.05
     },
     {
      "name": "Geçmiş veri: Ocak 2016 sonuç",
@@ -1371,32 +1371,32 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.1,
+   "duration_s": 1.5,
    "requests": 3,
    "checks": [
     {
      "name": "'Nvidia stock': haber sayısı",
      "status": "ok",
-     "detail": "102 (beklenen 20–200)",
-     "value": 102
+     "detail": "101 (beklenen 20–200)",
+     "value": 101
     },
     {
      "name": "'Nvidia stock': tarihi okunabilen",
      "status": "ok",
-     "detail": "102/102 = %100.0",
+     "detail": "101/101 = %100.0",
      "value": 1.0
     },
     {
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
-     "value": 0.02
+     "value": 0.01
     },
     {
      "name": "'Nvidia stock': tekil başlık",
      "status": "ok",
-     "detail": "102/102 = %100.0",
-     "value": 1.0
+     "detail": "100/101 = %99.0",
+     "value": 0.9901
     },
     {
      "name": "'Apple earnings': haber sayısı",
@@ -1414,7 +1414,7 @@
      "name": "'Apple earnings': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.2 gün önce (sınır 2)",
-     "value": 0.21
+     "value": 0.23
     },
     {
      "name": "'Apple earnings': tekil başlık",
@@ -1438,7 +1438,7 @@
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.1 gün önce (sınır 2)",
-     "value": 0.07
+     "value": 0.1
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -1529,7 +1529,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.8,
+   "duration_s": 2.0,
    "requests": 3,
    "checks": [
     {
@@ -1541,7 +1541,7 @@
     {
      "name": "NVIDIA: son push",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 3)",
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 3)",
      "value": 0.0
     },
     {
@@ -1553,7 +1553,7 @@
     {
      "name": "microsoft: son push",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 3)",
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 3)",
      "value": 0.0
     },
     {
@@ -1566,7 +1566,7 @@
      "name": "apple: son push",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 3)",
-     "value": 0.01
+     "value": 0.03
     },
     {
      "name": "Kapsam notu",
@@ -1577,14 +1577,14 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/flashdreams",
-     "NVIDIA/Model-Optimizer",
-     "NVIDIA/cuCollections"
+     "NVIDIA/gpu-operator",
+     "NVIDIA/nvcf",
+     "NVIDIA/aicr"
     ],
     "microsoft": [
-     "microsoft/onnxruntime",
-     "microsoft/litebox",
-     "microsoft/aspire"
+     "microsoft/mxc",
+     "microsoft/garnet",
+     "microsoft/vscode-isort"
     ],
     "apple": [
      "apple/swift-network-evolution",
