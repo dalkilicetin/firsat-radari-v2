@@ -16,31 +16,46 @@ from radar import archive
 COMMON_DROP = 50   # en yaygın temalar ayırt edici değildir
 MAX_THEMES = 4000  # şirket-tema eşleşmesi en yoğun temalar
 
+# 4. aşama ön kaydı (sonuçlara bakılmadan, 2026-10-10'da sabitlendi): (ad, kısa pencere, uzun pencere, dışlanan yaygın tema)
+VARIANTS = [
+    ("tema_ruzgari", 4, 52, 50),                 # 3. aşamadaki temel sürüm
+    ("tema_ruzgari_v1_uzun", 13, 104, 50),       # V1: uzun vadeli tema trendi
+    ("tema_ruzgari_v2_nadir", 4, 52, 500),       # V2: yalnızca nadir/özgül temalar
+    ("tema_ruzgari_v3_uzun_nadir", 13, 104, 500),  # V3: ikisi birden
+]
+
 
 def load_themes() -> tuple[pd.DataFrame, pd.DataFrame]:
     df = archive.load("gdelt_themes")
     return df[df.kind == "day_theme"], df[df.kind == "month_cik_theme"]
 
 
-def theme_momentum(day: pd.DataFrame, dates: pd.DatetimeIndex, themes: list[str]) -> pd.DataFrame:
+def theme_momentum(day: pd.DataFrame, dates: pd.DatetimeIndex, themes: list[str], short: int = 4, long: int = 52) -> pd.DataFrame:
     d = day[day.theme.isin(themes)]
     w = d.assign(friday=d.date + pd.offsets.Week(weekday=4, n=1)).pivot_table(
         index="friday", columns="theme", values="count", aggfunc="sum").reindex(dates).fillna(0)
     share = w.div(w.sum(axis=1).replace(0, np.nan), axis=0)
-    recent = share.rolling(4).mean()
-    base = share.shift(4).rolling(52, min_periods=26).mean()
+    recent = share.rolling(short).mean()
+    base = share.shift(short).rolling(long, min_periods=long // 2).mean()
     return np.log((recent + 1e-6) / (base + 1e-6)).where(base > 0)
 
 
-def signals(p: dict) -> dict[str, pd.DataFrame]:
+def signals(p: dict, variants=None) -> dict[str, pd.DataFrame]:
+    day, pairs = load_themes()
+    out = {}
+    for name, short, long, drop in (variants or VARIANTS[:1]):
+        out[name] = wind_signal(p, day, pairs, short, long, drop)
+    return out
+
+
+def wind_signal(p: dict, day: pd.DataFrame, pairs: pd.DataFrame, short: int, long: int, drop: int) -> pd.DataFrame:
     price = p["price"]
     dates, cols = price.index, price.columns
-    day, pairs = load_themes()
-    common = day.groupby("theme")["count"].sum().nlargest(COMMON_DROP).index
+    common = day.groupby("theme")["count"].sum().nlargest(drop).index
     pairs = pairs[~pairs.theme.isin(common)]
     themes = list(pairs.groupby("theme")["count"].sum().nlargest(MAX_THEMES).index)
     pairs = pairs[pairs.theme.isin(themes)]
-    mom = theme_momentum(day, dates, themes)
+    mom = theme_momentum(day, dates, themes, short, long)
 
     pairs = pairs.assign(cik=pairs.cik.astype(str))
     pairs = pairs[pairs.cik.isin(set(cols))]
@@ -69,4 +84,4 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
         score = np.bincount(ci, weights=w * m_t[ti], minlength=len(cols))
         has = np.bincount(ci, minlength=len(cols)) > 0
         wind[i, has] = score[has]
-    return {"tema_ruzgari": pd.DataFrame(wind, index=dates, columns=cols)}
+    return pd.DataFrame(wind, index=dates, columns=cols)
