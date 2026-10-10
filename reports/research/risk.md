@@ -5,14 +5,14 @@ Kötü çıkış: sonraki 1 yıl içinde iflasla ya da %50'den fazla kayıpla bo
 
 |   Risk |   Gözlem (hisse-hafta) | Medyan en büyük düşüş (1 yıl)   | %50+ düşüş olasılığı   | Kötü çıkış olasılığı   | Medyan 1 yıllık getiri   |
 |-------:|-----------------------:|:--------------------------------|:-----------------------|:-----------------------|:-------------------------|
-|      1 |                382,337 | %-10                            | %5                     | %0.05                  | %5.8                     |
-|      2 |                319,082 | %-19                            | %16                    | %0.19                  | %0.3                     |
-|      3 |                255,115 | %-32                            | %31                    | %0.42                  | %-12.6                   |
-|      4 |                191,485 | %-42                            | %41                    | %1.60                  | %-23.4                   |
-|      5 |                127,760 | %-54                            | %54                    | %7.30                  | %-40.0                   |
+|      1 |                382,300 | %-10                            | %5                     | %0.04                  | %5.8                     |
+|      2 |                319,118 | %-19                            | %16                    | %0.18                  | %0.2                     |
+|      3 |                255,133 | %-32                            | %31                    | %0.45                  | %-12.0                   |
+|      4 |                191,399 | %-40                            | %40                    | %1.77                  | %-21.7                   |
+|      5 |                127,829 | %-56                            | %55                    | %7.05                  | %-42.6                   |
 
-- Bileşik puanın sonraki 1 yıldaki düşüşle sıralama korelasyonu: **+0.425**
-- Kötü çıkışı ayırt etme gücü (AUC): bileşik **0.888**, yalnızca oynaklık 0.806
+- Bileşik puanın sonraki 1 yıldaki düşüşle sıralama korelasyonu: **+0.421**
+- Kötü çıkışı ayırt etme gücü (AUC): bileşik **0.885**, yalnızca oynaklık 0.806
 
 ## Bileşenler
 
@@ -28,6 +28,7 @@ Kötü çıkış: sonraki 1 yıl içinde iflasla ya da %50'den fazla kayıpla bo
 | delist_uyarisi      |                          0.148 | %100     | olay puanı 0.25                |
 | denetci_degisikligi |                          0.069 | %100     | olay puanı 0.10                |
 | geciken_rapor       |                          0.104 | %100     | olay puanı 0.20                |
+| devamlilik_suphesi  |                          0.198 | %100     | olay puanı 0.25                |
 | borc                |                         -0.099 | %80      | çıkarıldı: ters yön (IC −0,10) |
 | icerden_satis       |                         -0.07  | %100     | çıkarıldı: ters yön (IC −0,07) |
 

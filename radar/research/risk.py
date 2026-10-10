@@ -24,7 +24,7 @@ WEIGHTS = {
     "nakit_suresi": 0.20, "sulandirma": 0.10,
 }
 DROPPED = {"borc": "ters yön (IC −0,10)", "icerden_satis": "ters yön (IC −0,07)"}
-EVENT_POINTS = {"delist_uyarisi": 0.25, "denetci_degisikligi": 0.10, "geciken_rapor": 0.20}
+EVENT_POINTS = {"delist_uyarisi": 0.25, "denetci_degisikligi": 0.10, "geciken_rapor": 0.20, "devamlilik_suphesi": 0.25}
 BUCKETS = [0.30, 0.55, 0.75, 0.90]  # bileşik yüzdelik → 1..5
 
 
@@ -60,7 +60,10 @@ def event_features(dates, columns) -> dict[str, pd.DataFrame]:
     eight_k = f[f.form == "8-K"]
     items = eight_k["items"].fillna("")
     mk = lambda d: d.rename(columns={"filing_date": "date"})[["cik", "date"]]
+    gc = archive.load("tenk", columns=["cik", "accepted", "going_concern"])
+    gc = gc[gc.going_concern].rename(columns={"accepted": "date"})[["cik", "date"]]
     return {
+        "devamlilik_suphesi": recent_events(gc, dates, columns, 400),  # son 10-K'daki devamlılık uyarısı
         "delist_uyarisi": recent_events(mk(eight_k[items.str.contains(r"\b3\.01\b")]), dates, columns, 180),
         "denetci_degisikligi": recent_events(mk(eight_k[items.str.contains(r"\b4\.01\b")]), dates, columns, 365),
         "geciken_rapor": recent_events(mk(f[f.form.isin(["NT 10-K", "NT 10-Q"])]), dates, columns, 365),
