@@ -251,6 +251,7 @@ def test_tenk_section_extraction_skips_table_of_contents():
     assert texts.has_going_concern("These conditions raise substantial doubt about the Company's ability to continue as a going concern.")
     assert not texts.has_going_concern("If we cannot raise capital, this could raise substantial doubt about our ability to continue as a going concern.")
     assert not texts.has_going_concern("Management evaluates whether there is substantial doubt about the entity's ability to continue as a going concern.")
+    assert not texts.has_going_concern("These conditions raise substantial doubt about the Company's ability to continue as a going concern, which management's plans have alleviated.")
 
 
 def test_gdelt_themes_load(monkeypatch):

@@ -41,11 +41,19 @@ GOING_CONCERN = re.compile(
 HYPOTHETICAL = re.compile(r"\b(could|may|might|would|will|can|if|whether|not)\b[^.]{0,40}$", re.I)
 
 
+ALLEVIATED = re.compile(r"alleviat|mitigat|no\s+longer|has\s+been\s+resolved", re.I)
+
+
 def has_going_concern(text: str) -> bool:
+    """Kesin uyarı; aynı cümlede şüphenin 'giderildiği' (alleviated) belirtiliyorsa sayılmaz."""
     for m in GOING_CONCERN.finditer(text):
         before = text[max(0, m.start() - 60):m.start()]
-        if not HYPOTHETICAL.search(before):
-            return True
+        start = text.rfind(".", 0, m.start()) + 1
+        end = text.find(".", m.end())
+        sentence_after = text[m.end(): end if end != -1 else m.end() + 300]
+        if HYPOTHETICAL.search(before) or ALLEVIATED.search(text[start:m.start()] + sentence_after):
+            continue
+        return True
     return False
 
 
