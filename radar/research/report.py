@@ -82,6 +82,15 @@ def main(which: str) -> None:
                   "geri_alim_getirisi": "Son yıllık hisse geri alım tutarı / piyasa değeri.",
                   "kurumsal_sahip_degisimi": "13F: kurumsal sahip sayısının çeyreklik değişimi (dönem sonu + 46 gün).",
                   "kurumsal_hisse_degisimi_payi": "13F: kurumların tuttuğu hisse değişimi / dolaşımdaki hisse."}
+    elif which == "road2":
+        from radar.research import road2
+        sig, title = road2.signals(p), "2. yol: gündem sinyalleri"
+        notes = {"wiki_ilgi_ivmesi": "Wikipedia: son 4 hafta ortalama görüntülenme / önceki 52 hafta ortalaması (log).",
+                 "wiki_ani_ilgi": "Wikipedia: bu haftaki görüntülenme 52 haftalık ortalamanın 3 katından fazla.",
+                 "haber_ivmesi": "GDELT: son 4 hafta haber geçişi / önceki 52 hafta (toplam haber hacmine göre normalize, log).",
+                 "haber_ani_artis": "GDELT: bu hafta haber geçişi 52 haftalık ortalamanın 3 katı ve en az 5.",
+                 "haber_ton_degisimi": "GDELT: son 4 hafta ortalama ton − önceki 52 hafta ortalama tonu.",
+                 "haber_ton_seviyesi": "GDELT: son 4 hafta ortalama haber tonu."}
     else:
         raise SystemExit(f"bilinmeyen rapor: {which}")
     md = build(sig, p, title, notes)
