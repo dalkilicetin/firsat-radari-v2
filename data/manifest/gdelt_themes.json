@@ -1,0 +1,646 @@
+{
+ "dataset": "gdelt_themes",
+ "partitions": {
+  "2015": {
+   "partition": "2015",
+   "fetched_at": "2026-10-10T09:20:45+00:00",
+   "rows": 2565080,
+   "bytes": 8364413,
+   "sha256": "490100bb7fc1f162c14e3c71d5c98be36529a444ab203783687fffb0e5f7c372",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 7584,
+    "missing": 58,
+    "days": 316
+   },
+   "asset": "gdelt_themes__2015.parquet",
+   "status": "ok",
+   "duration_s": 3125.7,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "7526/7584 = %99.2"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "316/316 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "1,911 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (15,145,268), TAX_ETHNICITY (6,470,062), SOC_POINTSOFINTEREST (5,003,504), TAX_WORLDLANGUAGES (4,700,980), LEADER (4,340,175), WB_696_PUBLIC_SECTOR_MANAGEMENT (4,054,139), MANMADE_DISASTER_IMPLIED (3,822,036), EDUCATION (3,814,820)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, TAX_ECON_PRICE, WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES, WB_678_DIGITAL_GOVERNMENT, WB_135_TRANSPORT"
+    }
+   ]
+  },
+  "2016": {
+   "partition": "2016",
+   "fetched_at": "2026-10-10T09:20:45+00:00",
+   "rows": 3411573,
+   "bytes": 10881940,
+   "sha256": "ccbe03aa700598a40f45c536e77f1701bacc5811142369ba474b02d2ccb03dc4",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8784,
+    "missing": 10,
+    "days": 366
+   },
+   "asset": "gdelt_themes__2016.parquet",
+   "status": "ok",
+   "duration_s": 3837.6,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8774/8784 = %99.9"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "366/366 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,059 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (20,311,276), EPU_POLICY (9,138,045), TAX_ETHNICITY (8,312,284), CRISISLEX_CRISISLEXREC (8,272,618), SOC_POINTSOFINTEREST (6,770,637), USPEC_POLITICS_GENERAL1 (6,386,888), UNGP_FORESTS_RIVERS_OCEANS (6,068,347), TAX_WORLDLANGUAGES (5,971,238)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES, TAX_ECON_PRICE, WB_678_DIGITAL_GOVERNMENT"
+    }
+   ]
+  },
+  "2017": {
+   "partition": "2017",
+   "fetched_at": "2026-10-10T09:20:44+00:00",
+   "rows": 3343677,
+   "bytes": 10590517,
+   "sha256": "32759f6af8098f246211495a3c130ba717551478772280a7df8bf16a10be4b4a",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 258,
+    "days": 365
+   },
+   "asset": "gdelt_themes__2017.parquet",
+   "status": "ok",
+   "duration_s": 3759.6,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8502/8760 = %97.1"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "365/365 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,145 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (17,381,396), EPU_POLICY (7,940,732), TAX_ETHNICITY (7,208,517), CRISISLEX_CRISISLEXREC (7,123,991), USPEC_POLITICS_GENERAL1 (5,997,993), LEADER (5,674,960), SOC_POINTSOFINTEREST (5,539,197), UNGP_FORESTS_RIVERS_OCEANS (5,396,331)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES, WB_678_DIGITAL_GOVERNMENT, TAX_ECON_PRICE"
+    }
+   ]
+  },
+  "2018": {
+   "partition": "2018",
+   "fetched_at": "2026-10-10T09:20:41+00:00",
+   "rows": 3261811,
+   "bytes": 10223222,
+   "sha256": "414b0df7e1508d9cc9201643033f48ac1c272891e2eb69d1ab828548c74c60ba",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 270,
+    "days": 365
+   },
+   "asset": "gdelt_themes__2018.parquet",
+   "status": "warn",
+   "duration_s": 3401.3,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "warn",
+     "detail": "8490/8760 = %96.9"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "365/365 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,296 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (15,624,920), EPU_POLICY (7,136,250), CRISISLEX_CRISISLEXREC (6,395,897), TAX_ETHNICITY (6,352,815), USPEC_POLITICS_GENERAL1 (5,267,758), SOC_POINTSOFINTEREST (4,989,983), LEADER (4,963,336), UNGP_FORESTS_RIVERS_OCEANS (4,902,995)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, TAX_ECON_PRICE, ECON_STOCKMARKET, EPU_POLICY"
+    }
+   ]
+  },
+  "2019": {
+   "partition": "2019",
+   "fetched_at": "2026-10-10T10:13:13+00:00",
+   "rows": 3080562,
+   "bytes": 9544373,
+   "sha256": "3059434cbf1f484fba59d9b852d4ad7d616b187ec5eb1338cdb17952dbc56cc3",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 3,
+    "days": 365
+   },
+   "asset": "gdelt_themes__2019.parquet",
+   "status": "ok",
+   "duration_s": 2361.9,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8757/8760 = %100.0"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "365/365 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,381 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (13,402,139), EPU_POLICY (5,885,791), CRISISLEX_CRISISLEXREC (5,477,979), TAX_ETHNICITY (5,370,191), USPEC_POLITICS_GENERAL1 (4,343,332), UNGP_FORESTS_RIVERS_OCEANS (4,285,201), SOC_POINTSOFINTEREST (4,196,513), LEADER (4,072,575)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, TAX_ECON_PRICE, WB_698_TRADE, ECON_STOCKMARKET"
+    }
+   ]
+  },
+  "2020": {
+   "partition": "2020",
+   "fetched_at": "2026-10-10T10:17:45+00:00",
+   "rows": 2573500,
+   "bytes": 8106139,
+   "sha256": "8c1da0b552c58c28276c369c5cab7cce2903fab0a02efd7f20bc8bfdebd16379",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8784,
+    "missing": 662,
+    "days": 366
+   },
+   "asset": "gdelt_themes__2020.parquet",
+   "status": "warn",
+   "duration_s": 2424.0,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "warn",
+     "detail": "8122/8784 = %92.5"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "366/366 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,257 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (10,360,604), GENERAL_HEALTH (5,031,705), CRISISLEX_CRISISLEXREC (4,935,582), EPU_POLICY (4,844,958), WB_621_HEALTH_NUTRITION_AND_POPULATION (4,801,762), TAX_ETHNICITY (4,389,855), TAX_DISEASE (4,300,019), MEDICAL (3,698,122)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, TAX_ECON_PRICE, ECON_STOCKMARKET, EPU_POLICY"
+    }
+   ]
+  },
+  "2021": {
+   "partition": "2021",
+   "fetched_at": "2026-10-10T10:23:42+00:00",
+   "rows": 2502063,
+   "bytes": 7774156,
+   "sha256": "8cfb87781386ad429a8e0ef5056ec2ccbee699c0d5e40c8fcb079b63a456d2b1",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 157,
+    "days": 365
+   },
+   "asset": "gdelt_themes__2021.parquet",
+   "status": "ok",
+   "duration_s": 1814.9,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8603/8760 = %98.2"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "365/365 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,468 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (8,654,574), EPU_POLICY (4,065,122), CRISISLEX_CRISISLEXREC (3,848,175), GENERAL_HEALTH (3,800,491), WB_621_HEALTH_NUTRITION_AND_POPULATION (3,675,967), TAX_ETHNICITY (3,580,184), UNGP_FORESTS_RIVERS_OCEANS (3,159,138), SOC_POINTSOFINTEREST (2,893,181)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, TAX_ECON_PRICE, EPU_POLICY, ECON_STOCKMARKET"
+    }
+   ]
+  },
+  "2022": {
+   "partition": "2022",
+   "fetched_at": "2026-10-10T10:25:06+00:00",
+   "rows": 2416636,
+   "bytes": 7446725,
+   "sha256": "e49f7f33eda439f33ce62b6c81bf22a75fe2b58f641a56cf9cce4c9e6109268f",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 21,
+    "days": 365
+   },
+   "asset": "gdelt_themes__2022.parquet",
+   "status": "ok",
+   "duration_s": 1632.2,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8739/8760 = %99.8"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "365/365 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,609 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (7,515,556), EPU_POLICY (3,406,857), CRISISLEX_CRISISLEXREC (3,273,318), TAX_ETHNICITY (3,176,840), UNGP_FORESTS_RIVERS_OCEANS (2,834,674), TAX_WORLDLANGUAGES (2,492,509), GENERAL_HEALTH (2,384,108), USPEC_POLITICS_GENERAL1 (2,366,260)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, TAX_ECON_PRICE, EPU_POLICY, ECON_STOCKMARKET"
+    }
+   ]
+  },
+  "2023": {
+   "partition": "2023",
+   "fetched_at": "2026-10-10T10:52:42+00:00",
+   "rows": 2896813,
+   "bytes": 9000646,
+   "sha256": "d95702f2327a4fb24a5eafb366d6e29b135a8afb1ed8eba7c0205aacacc4f98b",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 39,
+    "days": 365
+   },
+   "asset": "gdelt_themes__2023.parquet",
+   "status": "ok",
+   "duration_s": 2751.0,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8721/8760 = %99.6"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "365/365 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,874 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (9,945,783), EPU_POLICY (4,406,445), TAX_ETHNICITY (4,199,124), CRISISLEX_CRISISLEXREC (4,131,795), UNGP_FORESTS_RIVERS_OCEANS (3,792,096), SOC_POINTSOFINTEREST (3,026,878), WB_696_PUBLIC_SECTOR_MANAGEMENT (3,022,481), TAX_WORLDLANGUAGES (3,012,127)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, ECON_STOCKMARKET, TAX_ECON_PRICE, EPU_POLICY"
+    }
+   ]
+  },
+  "2024": {
+   "partition": "2024",
+   "fetched_at": "2026-10-10T10:52:57+00:00",
+   "rows": 2817000,
+   "bytes": 8706204,
+   "sha256": "b598a5ff090a4c4aa0f79506db3fc54e0abe9d493ceafd6616babcfc121bfe70",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8784,
+    "missing": 0,
+    "days": 366
+   },
+   "asset": "gdelt_themes__2024.parquet",
+   "status": "ok",
+   "duration_s": 2582.0,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8784/8784 = %100.0"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "366/366 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,862 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (9,530,086), EPU_POLICY (4,118,994), CRISISLEX_CRISISLEXREC (4,020,353), TAX_ETHNICITY (3,825,776), UNGP_FORESTS_RIVERS_OCEANS (3,534,129), WB_696_PUBLIC_SECTOR_MANAGEMENT (2,892,532), USPEC_POLITICS_GENERAL1 (2,860,113), SOC_POINTSOFINTEREST (2,832,913)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, ECON_STOCKMARKET, TAX_ECON_PRICE, EPU_POLICY"
+    }
+   ]
+  },
+  "2025": {
+   "partition": "2025",
+   "fetched_at": "2026-10-10T10:54:21+00:00",
+   "rows": 2355980,
+   "bytes": 7394113,
+   "sha256": "0a2ec61da11e184c50aa8d7a4a635773671720c88c25039313f1565cb8a0d45d",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 421,
+    "days": 365
+   },
+   "asset": "gdelt_themes__2025.parquet",
+   "status": "warn",
+   "duration_s": 1944.4,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "warn",
+     "detail": "8339/8760 = %95.2"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "warn",
+     "detail": "348/365 = %95.3"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,752 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (8,045,990), EPU_POLICY (3,708,333), CRISISLEX_CRISISLEXREC (3,489,013), TAX_ETHNICITY (3,321,631), UNGP_FORESTS_RIVERS_OCEANS (2,972,292), WB_696_PUBLIC_SECTOR_MANAGEMENT (2,637,794), USPEC_POLITICS_GENERAL1 (2,603,751), LEADER (2,484,021)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, EPU_POLICY, ECON_STOCKMARKET, TAX_ECON_PRICE"
+    }
+   ]
+  },
+  "2026": {
+   "partition": "2026",
+   "fetched_at": "2026-10-10T10:58:34+00:00",
+   "rows": 1851639,
+   "bytes": 5696363,
+   "sha256": "c9b0b578a1acb810dc0cc98bed18874cbb455ad379f8ad74c35baf19e5e78054",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "theme": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 6768,
+    "missing": 1,
+    "days": 282
+   },
+   "asset": "gdelt_themes__2026.parquet",
+   "status": "ok",
+   "duration_s": 1463.2,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "6767/6768 = %100.0"
+    },
+    {
+     "name": "Tema verisi olan gün",
+     "status": "ok",
+     "detail": "282/282 = %100.0"
+    },
+    {
+     "name": "Tema maruziyeti olan şirket",
+     "status": "ok",
+     "detail": "2,695 (beklenen 300–6,000)"
+    },
+    {
+     "name": "En sık temalar",
+     "status": "info",
+     "detail": "TAX_FNCACT (5,643,428), EPU_POLICY (2,730,180), CRISISLEX_CRISISLEXREC (2,513,229), TAX_ETHNICITY (2,360,335), UNGP_FORESTS_RIVERS_OCEANS (2,225,694), WB_696_PUBLIC_SECTOR_MANAGEMENT (1,972,757), USPEC_POLITICS_GENERAL1 (1,760,849), LEADER (1,684,073)"
+    },
+    {
+     "name": "Örnek: NVIDIA'nın en yoğun temaları",
+     "status": "info",
+     "detail": "TAX_FNCACT, EPU_ECONOMY_HISTORIC, TAX_ECON_PRICE, ECON_STOCKMARKET, EPU_POLICY"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [],
+ "title": "GDELT tema geçmişi (günlük tema sayıları + şirket-tema maruziyeti)",
+ "removed_assets": [],
+ "derived": {},
+ "finalized_at": "2026-10-10T11:39:00+00:00"
+}
