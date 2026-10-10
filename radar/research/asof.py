@@ -48,6 +48,9 @@ class Recipe:
     regime: bool = False               # dönem özellikleri (yalnızca ağaç modelleri)
     params: dict = field(default_factory=dict)
     refit: int = 4                     # hafta
+    train_on: str = "tum"              # tum | yatirilabilir (eğitim satırları)
+    min_volume: float = 0.0            # seçim filtresi: en az günlük işlem tutarı ($)
+    members: list = field(default_factory=list)  # learner="ensemble": puan sıraları ortalanan tarifler
     note: str = ""
 
 
@@ -81,6 +84,8 @@ class Data:
         self.cost = 2 * np.vstack([bt.cost_rate(p["dollar_volume"].iloc[t]).to_numpy() for t in range(len(self.dates))])
         sec = p["securities"].assign(cik=lambda d: d.cik.astype(str)).drop_duplicates("cik").set_index("cik")
         self.symbols = sec.symbol.reindex(self.cols).fillna("?").to_numpy()
+        self.dv = p["dollar_volume"].to_numpy(np.float32)
+        self.cache: dict = {}  # (tarif adı, vade) → tahminler (aynı turda topluluklar için)
 
     def col(self, f: str) -> np.ndarray:
         """Sıralanmış hisse sinyali ya da (ağaç modelleri için) ham dönem özelliği."""
@@ -108,14 +113,29 @@ def _fit(rec: Recipe, X: np.ndarray, y: np.ndarray):
 
 def predict(rec: Recipe, data: Data, h: str, t_range) -> np.ndarray:
     """Her t için (t_range) yalnızca geçmişle kurulan modelin puanları; T × N, puanlanmayan NaN."""
+    key = (rec.name, h)
+    if key in data.cache:
+        return data.cache[key]
+    if rec.learner == "ensemble":
+        ranks = [pd.DataFrame(predict(m, data, h, t_range)).rank(axis=1, pct=True).to_numpy() for m in rec.members]
+        out = np.nanmean(np.stack(ranks), axis=0).astype(np.float32)
+        data.cache[key] = out
+        return out
+    out = _predict(rec, data, h, t_range)
+    data.cache[key] = out
+    return out
+
+
+def _predict(rec: Recipe, data: Data, h: str, t_range) -> np.ndarray:
     w = HORIZONS[h]
+    train_u = data.train_u if rec.train_on == "tum" else data.train_u & data.eval_u
     feats = [f for f in (rec.features or list(data.X)) if f not in rec.exclude]
     if rec.regime:
         assert rec.learner == "lgbm", "dönem özellikleri sıralanmaz; yalnızca ağaç modelinde anlamlı"
         feats = feats + list(data.R)
     Y = data.Y[h][rec.target]
     if rec.learner == "ridge" and not rec.params and not rec.regime:  # artımlı kayan pencere (model.walk_forward, 4 haftada bir kurulum)
-        return model.walk_forward(data.X, Y, w, data.dates, feats, data.train_u).pred
+        return model.walk_forward(data.X, Y, w, data.dates, feats, train_u).pred
     T, N = Y.shape
     out = np.full((T, N), np.nan, dtype=np.float32)
     fn, last_fit = None, -10**9
@@ -124,7 +144,7 @@ def predict(rec: Recipe, data: Data, h: str, t_range) -> np.ndarray:
             rows = [s for s in range(t - w, -1, -STEP)]  # en yeni gerçekleşmiş haftadan geriye
             Xs, ys = [], []
             for s in rows:
-                m = data.train_u[s] & np.isfinite(Y[s])
+                m = train_u[s] & np.isfinite(Y[s])
                 if m.any():
                     Xs.append(np.column_stack([data.col(f)[s][m] for f in feats]))
                     ys.append(Y[s][m])
@@ -137,7 +157,7 @@ def predict(rec: Recipe, data: Data, h: str, t_range) -> np.ndarray:
     return out
 
 
-def outcome(data: Data, score_row: np.ndarray, t: int, h: str) -> dict | None:
+def outcome(data: Data, score_row: np.ndarray, t: int, h: str, min_volume: float = 0.0) -> dict | None:
     """t'de ilk PICKS hisse alınsaydı h sonra ne olurdu."""
     w = HORIZONS[h]
     r = data.fwd[h].iloc[t].to_numpy()
@@ -145,7 +165,8 @@ def outcome(data: Data, score_row: np.ndarray, t: int, h: str) -> dict | None:
     if ok.sum() < 100:
         return None
     idx = np.flatnonzero(ok)
-    order = idx[np.argsort(-score_row[idx])]
+    pickable = idx[np.nan_to_num(data.dv[t, idx]) >= min_volume] if min_volume else idx
+    order = pickable[np.argsort(-score_row[pickable])]
     picks = order[:PICKS]
     best = idx[np.argsort(-r[idx])][:PICKS]
     net = r[picks] - data.cost[t, picks]
@@ -175,7 +196,7 @@ def evaluate(rec: Recipe, data: Data, horizons=None, start_every: int = 4, locke
             end = data.dates[t] + pd.Timedelta(weeks=w)
             if not locked and end >= LOCK_FROM:
                 continue
-            res = outcome(data, sc[t], t, h)
+            res = outcome(data, sc[t], t, h, rec.min_volume)
             if res:
                 rows.append(res)
     return pd.DataFrame(rows)

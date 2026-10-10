@@ -37,6 +37,18 @@ ROUNDS = {
         Recipe("T2e lgbm fazla getiri + dönem", "fazla", "lgbm", refit=13, regime=True),
     ],
 }
+# Tur 3: 10-K metinleri ve haber sinyalleri NYSE dahil yeniden hesaplandıktan sonra.
+_T3A = Recipe("T3a lgbm sıra + dönem", "sira", "lgbm", refit=13, regime=True)
+_T3B = Recipe("T3b lgbm sıra", "sira", "lgbm", refit=13)
+_T3C = Recipe("T3c lgbm sıra + dönem, büyük ağaçlar", "sira", "lgbm", refit=13, regime=True,
+              params={"n_estimators": 500, "num_leaves": 31, "learning_rate": 0.03})
+_T3S = Recipe("T3s ridge sıra, oynaklık hariç (güvenlik)", "sira", exclude={"dusuk_oynaklik"})
+ROUNDS["tur3"] = [
+    _T3A, _T3B, _T3C, _T3S,
+    Recipe("T3e topluluk (a+b+c+güvenlik)", learner="ensemble", members=[_T3A, _T3B, _T3C, _T3S]),
+    Recipe("T3f lgbm sıra + dönem, yatırılabilirde eğitim", "sira", "lgbm", refit=13, regime=True, train_on="yatirilabilir"),
+    Recipe("T3g T3a, yalnızca ≥ 5 mn $/gün hisseler", "sira", "lgbm", refit=13, regime=True, min_volume=5e6),
+]
 
 
 def prepare():
