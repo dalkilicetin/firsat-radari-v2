@@ -73,3 +73,22 @@ def test_pit_rolling_count_uses_next_friday():
     c = pit.rolling_count(ev, dates, ["7"], 30)
     # Cuma günü olan olay o Cuma değil, bir sonraki Cuma'dan itibaren sayılır.
     assert c["7"].tolist() == [0.0, 2.0, 2.0, 2.0]
+
+
+def test_event_excess_uses_own_universe_and_hit_rate():
+    dates = pd.date_range("2016-01-01", periods=30, freq="W-FRI")
+    cols = [str(i) for i in range(100)]
+    # 0-49 "büyük" hisseler her hafta %1, 50-99 "küçük" hisseler %-1 getiri veriyor.
+    growth = np.where(np.arange(100) < 50, 1.01, 0.99)
+    price = pd.DataFrame(np.cumprod(np.tile(growth, (30, 1)), axis=0), index=dates, columns=cols)
+    sec = pd.DataFrame({"cik": range(100), "start": dates[0], "end": pd.NaT, "status": "aktif", "bankrupt": False})
+    big = pd.DataFrame(np.tile(np.arange(100) < 50, (30, 1)), index=dates, columns=cols)
+    flag = big & pd.DataFrame(np.tile(np.arange(100) % 2 == 0, (30, 1)), index=dates, columns=cols)
+    ev._RET_CACHE.clear()
+    # Tüm hisselere göre büyük hisselerdeki olay pozitif görünür (büyüklük etkisi)...
+    biased = ev.evaluate_event(flag, price, sec, "x", {"1h": 1}).rows[0]
+    # ...ama kendi evrenine (büyükler) göre fazla getiri sıfırdır.
+    fair = ev.evaluate_event(flag, price, sec, "x", {"1h": 1}, universe=big).rows[0]
+    assert biased["ort_fazla"] > 0.005 and abs(fair["ort_fazla"]) < 1e-9
+    assert 0 <= fair["isabet"] <= 1 and biased["isabet"] == 1.0
+    ev._RET_CACHE.clear()

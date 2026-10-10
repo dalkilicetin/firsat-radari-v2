@@ -7,7 +7,9 @@
   (uç değerler her hafta %1/%99'da kırpılır).
 - İsabet: en yüksek %10'un fazla getirisi pozitif olan payı.
 - Yıllara göre IC: istikrar.
-Fazla getiri = hissenin getirisi − o haftaki tüm üyelerin medyan getirisi.
+Fazla getiri = hissenin getirisi − o haftaki aynı evrendeki (universe) üyelerin medyan getirisi. Evren
+daraltıldığında (ör. yatırılabilir hisseler) kıyas da o evrenin medyanıdır; aksi halde büyüklük etkisi
+sinyal sanılır.
 
 Son dönem kuralı: ileri getiri penceresi HOLDOUT_START'a taşan haftalar kullanılmaz (4. aşamanın sonuna saklanır).
 """
@@ -26,12 +28,18 @@ MIN_NAMES = 50
 _RET_CACHE: dict[int, pd.DataFrame] = {}
 
 
-def excess_returns(price: pd.DataFrame, sec: pd.DataFrame, weeks: int) -> pd.DataFrame:
+def forward(price: pd.DataFrame, sec: pd.DataFrame, weeks: int) -> pd.DataFrame:
     if weeks not in _RET_CACHE:
         r = panel.forward_returns(price, sec, weeks)
-        r = r[r.index + pd.Timedelta(weeks=weeks) < HOLDOUT_START]
-        _RET_CACHE[weeks] = r.sub(r.median(axis=1), axis=0)
+        _RET_CACHE[weeks] = r[r.index + pd.Timedelta(weeks=weeks) < HOLDOUT_START]
     return _RET_CACHE[weeks]
+
+
+def excess_returns(price: pd.DataFrame, sec: pd.DataFrame, weeks: int, universe: pd.DataFrame | None = None) -> pd.DataFrame:
+    r = forward(price, sec, weeks)
+    if universe is not None:
+        r = r.where(universe.reindex(index=r.index, columns=r.columns).fillna(False).astype(bool))
+    return r.sub(r.median(axis=1), axis=0)
 
 
 def _winsor(df: pd.DataFrame, q: float = 0.01) -> pd.DataFrame:
@@ -51,13 +59,13 @@ class Result:
 
 
 def evaluate(signal: pd.DataFrame, price: pd.DataFrame, sec: pd.DataFrame, name: str,
-             horizons: dict[str, int] | None = None, sign: int = 1) -> Result:
+             horizons: dict[str, int] | None = None, sign: int = 1, universe: pd.DataFrame | None = None) -> Result:
     """signal: panel ile aynı indeks/sütunlarda geniş tablo (NaN = sinyal yok). sign=-1: düşük değer iyi."""
     horizons = horizons or panel.HORIZONS
     sig = (signal * sign).reindex(index=price.index, columns=price.columns)
     res = Result(name, coverage=float(sig.notna().sum(axis=1).median()))
     for label, weeks in horizons.items():
-        ex = excess_returns(price, sec, weeks)
+        ex = excess_returns(price, sec, weeks, universe)
         s = sig.reindex(ex.index)
         valid = s.notna() & ex.notna()
         n = valid.sum(axis=1)
@@ -87,20 +95,20 @@ def evaluate(signal: pd.DataFrame, price: pd.DataFrame, sec: pd.DataFrame, name:
 
 
 def evaluate_event(flag: pd.DataFrame, price: pd.DataFrame, sec: pd.DataFrame, name: str,
-                   horizons: dict[str, int] | None = None) -> Result:
+                   horizons: dict[str, int] | None = None, universe: pd.DataFrame | None = None) -> Result:
     """Seyrek olay sinyalleri (True/False): olay olan hisselerin ortalama fazla getirisi."""
     horizons = horizons or panel.HORIZONS
     flag = flag.reindex(index=price.index, columns=price.columns).fillna(False).astype(bool)
     res = Result(name, coverage=float(flag.sum(axis=1).mean()))
     for label, weeks in horizons.items():
-        ex = excess_returns(price, sec, weeks)
+        ex = excess_returns(price, sec, weeks, universe)
         f = flag.reindex(ex.index).fillna(False) & ex.notna()
         exw = _winsor(ex)
         vals = exw.where(f)
         per_date = vals.mean(axis=1).dropna()
         step = per_date.iloc[::max(weeks, 1)]
         t = step.mean() / step.std(ddof=1) * np.sqrt(len(step)) if len(step) > 2 else np.nan
-        events = vals.stack()
+        events = vals.stack().dropna()
         res.rows.append({
             "vade": label, "olay": int(f.sum().sum()), "olaylı_hafta": len(per_date),
             "ort_fazla": round(float(events.mean()), 4), "medyan_fazla": round(float(events.median()), 4),
