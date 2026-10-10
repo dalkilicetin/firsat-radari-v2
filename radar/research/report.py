@@ -91,6 +91,18 @@ def main(which: str) -> None:
                  "haber_ani_artis": "GDELT: bu hafta haber geçişi 52 haftalık ortalamanın 3 katı ve en az 5.",
                  "haber_ton_degisimi": "GDELT: son 4 hafta ortalama ton − önceki 52 hafta ortalama tonu.",
                  "haber_ton_seviyesi": "GDELT: son 4 hafta ortalama haber tonu."}
+    elif which == "road1":
+        from radar.research import road1
+        sig, title = road1.signals(p), "1. yol: şirketin yönü (finansal göstergeler)"
+        notes = {"gelir_buyumesi": "Son raporda gelirin geçen yılın aynı dönemine göre büyümesi.",
+                 "buyume_ivmesi": "Gelir büyümesi − bir yıl önceki gelir büyümesi.",
+                 "brut_marj_degisimi": "Brüt marjın geçen yılın aynı dönemine göre değişimi.",
+                 "faaliyet_marji_degisimi": "Faaliyet marjının geçen yılın aynı dönemine göre değişimi.",
+                 "arge_yogunlugu": "Yıllık Ar-Ge harcaması / gelir.",
+                 "serbest_nakit_getirisi": "Yıllık (faaliyet nakit akışı − yatırım harcaması) / piyasa değeri.",
+                 "kazanc_getirisi": "Yıllık net kâr / piyasa değeri.",
+                 "tahakkuklar_dusuk": "−(net kâr − faaliyet nakit akışı) / varlıklar: yüksek = kazanç nakitle destekleniyor.",
+                 "varlik_buyumesi_dusuk": "−varlıkların yıllık büyümesi (literatür: hızlı büyüyen varlık düşük getiri)."}
     else:
         raise SystemExit(f"bilinmeyen rapor: {which}")
     md = build(sig, p, title, notes)
