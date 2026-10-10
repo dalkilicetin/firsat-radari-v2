@@ -59,6 +59,8 @@ def return_target(price: pd.DataFrame, sec: pd.DataFrame, weeks: int, universe: 
 
 
 TARGETS = {"sira": ranked_target, "getiri": return_target}
+# Seçilen ayar (reports/research/model_varyantlari.md, önceden belirlenen ölçütle): sıra hedefi, oynaklık hariç,
+# tüm evrende eğitim. Bu satırdan sonra son dönem testi yapılır; ayar değiştirilmez.
 # Potansiyel modeline girmeyen sinyaller: risk puanında zaten var (çift sayılmasın).
 RISK_ONLY = {"dusuk_oynaklik"}
 
@@ -107,7 +109,7 @@ def to_score(pred: np.ndarray, dates, columns) -> pd.DataFrame:
 
 
 def run(p: dict, sigs: dict[str, tuple[str, pd.DataFrame]], horizons: dict[str, int] | None = None,
-        universe: pd.DataFrame | None = None, target: str = "getiri", exclude: set[str] = RISK_ONLY,
+        universe: pd.DataFrame | None = None, target: str = "sira", exclude: set[str] = RISK_ONLY,
         only_total: bool = False) -> dict[tuple[str, str], Fit]:
     """(model adı, vade) → Fit. Modeller: her yol ayrı + 'toplam'."""
     horizons = horizons or panel.HORIZONS
