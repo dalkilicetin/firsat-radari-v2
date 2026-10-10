@@ -30,6 +30,8 @@ from radar.research import model, panel
 
 HORIZONS = dict(panel.HORIZONS)  # 1h 1a 3a 6a 1y
 LOCK_FROM = pd.Timestamp("2023-01-01")
+# Tüm denemeler aynı başlangıç tarihlerinde ölçülür (2009 verisi + en az 1 yıllık gerçekleşmiş hedef).
+EVAL_FROM = pd.Timestamp("2011-01-01")
 STEP = 4
 PICKS = 20
 CAPITAL = 10_000
@@ -168,6 +170,8 @@ def evaluate(rec: Recipe, data: Data, horizons=None, start_every: int = 4, locke
         w = HORIZONS[h]
         sc = predict(rec, data, h, range(T))
         for t in range(0, T - w, start_every):
+            if data.dates[t] < EVAL_FROM:
+                continue
             end = data.dates[t] + pd.Timedelta(weeks=w)
             if not locked and end >= LOCK_FROM:
                 continue
