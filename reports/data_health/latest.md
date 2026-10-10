@@ -1,4 +1,4 @@
-# Veri Sağlık Raporu — 2026-10-10 10:41 UTC
+# Veri Sağlık Raporu — 2026-10-10 10:48 UTC
 
 🟢 11 kullanılabilir · 🟡 5 dikkat · 🔴 1 kullanılamaz
 
@@ -6,23 +6,23 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kaynak | Sınıf | Yol | Durum | Süre | İstek |
 |---|---|---|---|---|---|
-| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.7 sn | 2 |
-| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 0.6 sn | 5 |
-| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 2.1 sn | 15 |
-| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 4.9 sn | 23 |
-| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 8.0 sn | 61 |
-| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 1.0 sn | 6 |
+| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
+| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 0.9 sn | 5 |
+| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.9 sn | 15 |
+| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 5.8 sn | 23 |
+| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.6 sn | 61 |
+| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.8 sn | 6 |
 | [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.1 sn | 1 |
-| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 3.4 sn | 4 |
+| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 5.6 sn | 4 |
 | [USPTO patentleri (PatentsView)](#uspto) | 1 | 3 | 🟡 Dikkat | 0.0 sn | 0 |
-| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟡 Dikkat | 40.7 sn | 38 |
+| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟡 Dikkat | 40.8 sn | 38 |
 | [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.3 sn | 6 |
 | [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🔴 Kullanılamaz | 40.5 sn | 5 |
-| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 10.0 sn | 6 |
-| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
-| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.3 sn | 3 |
-| [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.0 sn | 3 |
-| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.7 sn | 3 |
+| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 12.2 sn | 6 |
+| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.7 sn | 2 |
+| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.4 sn | 3 |
+| [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.1 sn | 3 |
+| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.9 sn | 3 |
 
 <a id="universe"></a>
 ## 🟢 Hisse evreni (Nasdaq + SEC)
@@ -30,7 +30,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Kontrol | Durum | Detay |
 |---|---|---|
 | Nasdaq adi hisse sayısı | 🟢 | 3,434 (beklenen 2,500–4,500) |
-| Nasdaq listesi güncelliği | 🟢 | en son kayıt 2026-10-09, 0.5 gün önce (sınır 4) |
+| Nasdaq listesi güncelliği | 🟢 | en son kayıt 2026-10-09, 0.6 gün önce (sınır 4) |
 | Bilinen hisseler listede | 🟢 | 4/4 bulundu |
 | SEC CIK eşleşme oranı | 🟢 | 3424/3434 = %99.7 adi hisse |
 | Doğrulanmış CIK değerleri | 🟢 | AAPL, MSFT, NVDA, AMZN doğru |
@@ -185,7 +185,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25) |
+| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25) |
 | Çalışma hatası | 🔴 | FetchError: http://data.gdeltproject.org/gdeltv2/20261010103000.gkg.csv.zip -> 404:  |
 
 <a id="wikipedia"></a>
