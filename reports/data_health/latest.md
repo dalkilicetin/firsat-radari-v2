@@ -1,6 +1,6 @@
-# Veri Sağlık Raporu — 2026-10-10 10:48 UTC
+# Veri Sağlık Raporu — 2026-10-10 12:51 UTC
 
-🟢 11 kullanılabilir · 🟡 5 dikkat · 🔴 1 kullanılamaz
+🟢 12 kullanılabilir · 🟡 5 dikkat · 🔴 0 kullanılamaz
 
 Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = güvenilir ama dolaylı.
 
@@ -8,21 +8,21 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 |---|---|---|---|---|---|
 | [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
 | [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 0.9 sn | 5 |
-| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.9 sn | 15 |
-| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 5.8 sn | 23 |
-| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.6 sn | 61 |
+| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 2.1 sn | 15 |
+| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 10.7 sn | 23 |
+| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.7 sn | 61 |
 | [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.8 sn | 6 |
-| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.1 sn | 1 |
-| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 5.6 sn | 4 |
+| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.2 sn | 1 |
+| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 1.0 sn | 4 |
 | [USPTO patentleri (PatentsView)](#uspto) | 1 | 3 | 🟡 Dikkat | 0.0 sn | 0 |
-| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟡 Dikkat | 40.8 sn | 38 |
-| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.3 sn | 6 |
-| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🔴 Kullanılamaz | 40.5 sn | 5 |
-| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 12.2 sn | 6 |
+| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟡 Dikkat | 46.2 sn | 38 |
+| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.5 sn | 6 |
+| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 19.9 sn | 5 |
+| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 6.4 sn | 6 |
 | [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.7 sn | 2 |
-| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.4 sn | 3 |
+| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.5 sn | 3 |
 | [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.1 sn | 3 |
-| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.9 sn | 3 |
+| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.7 sn | 3 |
 
 <a id="universe"></a>
 ## 🟢 Hisse evreni (Nasdaq + SEC)
@@ -181,12 +181,19 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | IPG3344S – Yarı iletken üretimi (aylık): güncellik | 🟢 | en son kayıt 2026-08-01, 70.0 gün önce (sınır 75); 656 gözlem, başlangıç 1972-01-01 |
 
 <a id="gdelt"></a>
-## 🔴 GDELT haber akışı
+## 🟢 GDELT haber akışı
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25) |
-| Çalışma hatası | 🔴 | FetchError: http://data.gdeltproject.org/gdeltv2/20261010103000.gkg.csv.zip -> 404:  |
+| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25) |
+| İndirilen dosya bütünlüğü (boyut + MD5) | 🟢 | 3,187,580 bayt, md5 eşleşti |
+| 15 dakikalık dosyada makale | 🟢 | 733 (beklenen 500–50,000) |
+| Sütun sayısı = 27 | 🟢 | 733/733 = %100.0 |
+| Kurum (Organizations) bilgisi olan | 🟢 | 555/733 = %75.7 |
+| Ton değeri okunabilen | 🟢 | 733/733 = %100.0 |
+| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | united states (42), associated press (26), instagram (25), delhi police (22), cockroach janta party (22), white house (18), google (16), cnn (14) |
+| Geçmiş veri: 1 Mart 2015 dosyası makale | 🟢 | 1,209 (beklenen 100–50,000) |
+| Yardımcı: DOC API zaman serisi | ℹ️ | erişilemedi (HTTP 429); ham dosyalar yeterli |
 
 <a id="wikipedia"></a>
 ## 🟡 Wikipedia ilgisi + Wikidata eşleştirmesi
@@ -210,7 +217,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Kontrol | Durum | Detay |
 |---|---|---|
 | Son 7 gün 'nvidia' haberi | 🟢 | 36 (beklenen 5–100) |
-| Güncellik | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 2) |
+| Güncellik | 🟢 | en son kayıt 2026-10-10, 0.1 gün önce (sınır 2) |
 | Geçmiş veri: Ocak 2016 sonuç | 🟢 | 30 (beklenen 1–10,000) |
 
 <a id="gnews"></a>
@@ -218,17 +225,17 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| 'Nvidia stock': haber sayısı | 🟢 | 103 (beklenen 20–200) |
-| 'Nvidia stock': tarihi okunabilen | 🟢 | 103/103 = %100.0 |
+| 'Nvidia stock': haber sayısı | 🟢 | 101 (beklenen 20–200) |
+| 'Nvidia stock': tarihi okunabilen | 🟢 | 101/101 = %100.0 |
 | 'Nvidia stock': güncellik | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 2) |
-| 'Nvidia stock': tekil başlık | 🟢 | 102/103 = %99.0 |
+| 'Nvidia stock': tekil başlık | 🟢 | 100/101 = %99.0 |
 | 'Apple earnings': haber sayısı | 🟢 | 100 (beklenen 20–200) |
 | 'Apple earnings': tarihi okunabilen | 🟢 | 100/100 = %100.0 |
-| 'Apple earnings': güncellik | 🟢 | en son kayıt 2026-10-09, 0.7 gün önce (sınır 2) |
+| 'Apple earnings': güncellik | 🟢 | en son kayıt 2026-10-10, 0.1 gün önce (sınır 2) |
 | 'Apple earnings': tekil başlık | 🟢 | 98/100 = %98.0 |
 | 'Nasdaq IPO': haber sayısı | 🟢 | 100 (beklenen 20–200) |
 | 'Nasdaq IPO': tarihi okunabilen | 🟢 | 100/100 = %100.0 |
-| 'Nasdaq IPO': güncellik | 🟢 | en son kayıt 2026-10-10, 0.1 gün önce (sınır 2) |
+| 'Nasdaq IPO': güncellik | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 2) |
 | 'Nasdaq IPO': tekil başlık | 🟢 | 99/100 = %99.0 |
 
 <a id="reddit"></a>
@@ -251,5 +258,5 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | microsoft: depo sayısı (ilk sayfa) | 🟢 | 30 (beklenen 10–30) |
 | microsoft: son push | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 3) |
 | apple: depo sayısı (ilk sayfa) | 🟢 | 30 (beklenen 10–30) |
-| apple: son push | 🟢 | en son kayıt 2026-10-10, 0.3 gün önce (sınır 3) |
+| apple: son push | 🟢 | en son kayıt 2026-10-10, 0.4 gün önce (sınır 3) |
 | Kapsam notu | ℹ️ | Yalnızca açık kaynak yapan şirketlerde anlamlı; şirket ↔ organizasyon eşleştirmesi 3. aşamada |
