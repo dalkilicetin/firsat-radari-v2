@@ -1,6 +1,4726 @@
 {
  "dataset": "insider",
  "partitions": {
+  "2015q1": {
+   "partition": "2015q1",
+   "fetched_at": "2026-10-09T23:24:43+00:00",
+   "rows": 108960,
+   "bytes": 2854216,
+   "sha256": "086c6f7a783085c3f0d714fa6fcd02718cb7f7d0647ed24e5cfd2a9b822847f0",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2015q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2015q1.parquet",
+   "status": "ok",
+   "duration_s": 3.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "108,960 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "108960/108960 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "108960/108960 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "108960/108960 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "108940/108960 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "32983/33054 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "32575/33054 = %98.6"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "108960/108960 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,422 şirket, açık piyasa alımı (P): 8,593"
+    }
+   ]
+  },
+  "2015q2": {
+   "partition": "2015q2",
+   "fetched_at": "2026-10-09T23:24:40+00:00",
+   "rows": 75633,
+   "bytes": 2053698,
+   "sha256": "2528b72f9d6f7596b7685d8a1a3bf853d9c5c826979ed110b94c7d2886836daa",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2015q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2015q2.parquet",
+   "status": "ok",
+   "duration_s": 2.8,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "75,633 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "75633/75633 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "75633/75633 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "75633/75633 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "75620/75633 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "29267/29341 = %99.7"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "28900/29341 = %98.5"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "75633/75633 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,325 şirket, açık piyasa alımı (P): 8,496"
+    }
+   ]
+  },
+  "2015q3": {
+   "partition": "2015q3",
+   "fetched_at": "2026-10-09T23:24:42+00:00",
+   "rows": 61134,
+   "bytes": 1657429,
+   "sha256": "6336a83d1f226bbc29ccbad36a52ab4ce3022210070b546ea7bb30c732bfc567",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2015q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2015q3.parquet",
+   "status": "ok",
+   "duration_s": 2.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "61,134 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "61134/61134 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "61134/61134 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "61134/61134 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "61124/61134 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "30152/30203 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "29957/30203 = %99.2"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "61134/61134 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,170 şirket, açık piyasa alımı (P): 12,873"
+    }
+   ]
+  },
+  "2015q4": {
+   "partition": "2015q4",
+   "fetched_at": "2026-10-09T23:24:39+00:00",
+   "rows": 65272,
+   "bytes": 1766773,
+   "sha256": "208d8e8ba2c31ac5e0346d6ffe40ef751b6c3ee1e54131040d02b810868d4acd",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2015q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2015q4.parquet",
+   "status": "ok",
+   "duration_s": 1.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "65,272 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "65272/65272 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "65272/65272 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "65272/65272 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "65258/65272 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "30209/30260 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "29837/30260 = %98.6"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "65272/65272 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,106 şirket, açık piyasa alımı (P): 11,781"
+    }
+   ]
+  },
+  "2016q1": {
+   "partition": "2016q1",
+   "fetched_at": "2026-10-09T23:24:43+00:00",
+   "rows": 98625,
+   "bytes": 2659457,
+   "sha256": "41c6d82ad7e45d0d9bf44e7dbe021f53a2f5ab574e0822516be48d3d61efee1c",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2016q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2016q1.parquet",
+   "status": "ok",
+   "duration_s": 3.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "98,625 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "98625/98625 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "98625/98625 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "98625/98625 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "98588/98625 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "27970/28039 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "27700/28039 = %98.8"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "98625/98625 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,303 şirket, açık piyasa alımı (P): 11,901"
+    }
+   ]
+  },
+  "2016q2": {
+   "partition": "2016q2",
+   "fetched_at": "2026-10-09T23:24:42+00:00",
+   "rows": 67992,
+   "bytes": 1900754,
+   "sha256": "d88c278d44348995c88afb8d57f72bb30f4edd6e4d130c48fd0fa7f3fd3ee904",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2016q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2016q2.parquet",
+   "status": "ok",
+   "duration_s": 3.2,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "67,992 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "67992/67992 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "67992/67992 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "67992/67992 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "67978/67992 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "25097/25174 = %99.7"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "24861/25174 = %98.8"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "67992/67992 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,147 şirket, açık piyasa alımı (P): 8,143"
+    }
+   ]
+  },
+  "2016q3": {
+   "partition": "2016q3",
+   "fetched_at": "2026-10-09T23:24:41+00:00",
+   "rows": 58453,
+   "bytes": 1607381,
+   "sha256": "ce2dc8c3c4bb1ba17810ee984a376f111dcb5dcfdfb68b55054b5339e72df87c",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2016q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2016q3.parquet",
+   "status": "ok",
+   "duration_s": 2.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "58,453 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "58453/58453 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "58453/58453 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "58453/58453 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "58446/58453 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "25694/25767 = %99.7"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "25494/25767 = %98.9"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "58453/58453 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,837 şirket, açık piyasa alımı (P): 7,783"
+    }
+   ]
+  },
+  "2016q4": {
+   "partition": "2016q4",
+   "fetched_at": "2026-10-09T23:24:44+00:00",
+   "rows": 62517,
+   "bytes": 1719116,
+   "sha256": "b7c7e1100bd7753d3676168c11129de9e63fc138817d36cfe5d42ba2dde1d379",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2016q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2016q4.parquet",
+   "status": "ok",
+   "duration_s": 2.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "62,517 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "62517/62517 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "62517/62517 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "62517/62517 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "62507/62517 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "27300/27360 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "27147/27360 = %99.2"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "62517/62517 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,926 şirket, açık piyasa alımı (P): 8,164"
+    }
+   ]
+  },
+  "2017q1": {
+   "partition": "2017q1",
+   "fetched_at": "2026-10-09T23:24:44+00:00",
+   "rows": 106323,
+   "bytes": 2773953,
+   "sha256": "9226872714a6364f9af4952f6235b9b1b56b100227200c3867d67a6ff7f145c2",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2017q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2017q1.parquet",
+   "status": "ok",
+   "duration_s": 4.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "106,323 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "106323/106323 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "106323/106323 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "106323/106323 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "106315/106323 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "29351/29444 = %99.7"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "29188/29444 = %99.1"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "106323/106323 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,184 şirket, açık piyasa alımı (P): 6,770"
+    }
+   ]
+  },
+  "2017q2": {
+   "partition": "2017q2",
+   "fetched_at": "2026-10-09T23:24:48+00:00",
+   "rows": 72124,
+   "bytes": 1951064,
+   "sha256": "55bc4331619c144db8c0bf3d988e554ad96a427da09ada7904630153ee68b686",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2017q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2017q2.parquet",
+   "status": "ok",
+   "duration_s": 3.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "72,124 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "72124/72124 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "72124/72124 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "72124/72124 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "72117/72124 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "28216/28300 = %99.7"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "27905/28300 = %98.6"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "72124/72124 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,073 şirket, açık piyasa alımı (P): 8,477"
+    }
+   ]
+  },
+  "2017q3": {
+   "partition": "2017q3",
+   "fetched_at": "2026-10-09T23:24:41+00:00",
+   "rows": 52857,
+   "bytes": 1468285,
+   "sha256": "b7e5ff8cd8ea7c9bd8816c12b13bff74c860eb9b7db18d9608609cfdb96b0f28",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2017q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2017q3.parquet",
+   "status": "ok",
+   "duration_s": 1.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "52,857 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "52857/52857 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "52857/52857 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "52857/52857 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "52849/52857 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "23343/23385 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "23066/23385 = %98.6"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "52857/52857 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,758 şirket, açık piyasa alımı (P): 7,208"
+    }
+   ]
+  },
+  "2017q4": {
+   "partition": "2017q4",
+   "fetched_at": "2026-10-09T23:24:42+00:00",
+   "rows": 60811,
+   "bytes": 1682852,
+   "sha256": "a2b6d60d8276438b763ed405f97647c034dafe53c6683a371bcb1bfa84217c03",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2017q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2017q4.parquet",
+   "status": "ok",
+   "duration_s": 3.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "60,811 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "60811/60811 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "60811/60811 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "60811/60811 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "60801/60811 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "25913/25976 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "25752/25976 = %99.1"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "60811/60811 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,881 şirket, açık piyasa alımı (P): 6,478"
+    }
+   ]
+  },
+  "2018q1": {
+   "partition": "2018q1",
+   "fetched_at": "2026-10-09T23:25:05+00:00",
+   "rows": 105102,
+   "bytes": 2740847,
+   "sha256": "7e2124304f91defb47009fcd30d115fcc2cbe0c0bef03dabd6a6959680233716",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2018q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2018q1.parquet",
+   "status": "ok",
+   "duration_s": 4.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "105,102 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "105102/105102 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "105102/105102 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "105102/105102 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "105082/105102 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "28966/29018 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "28757/29018 = %99.1"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "105102/105102 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,149 şirket, açık piyasa alımı (P): 7,738"
+    }
+   ]
+  },
+  "2018q2": {
+   "partition": "2018q2",
+   "fetched_at": "2026-10-09T23:25:08+00:00",
+   "rows": 72030,
+   "bytes": 1955437,
+   "sha256": "89f8cf69218fa50f67fc013f399b67f1d6ae3874483ac4e16f8df7a14987a198",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2018q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2018q2.parquet",
+   "status": "ok",
+   "duration_s": 2.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "72,030 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "72030/72030 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "72030/72030 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "72030/72030 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "72016/72030 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "27493/27576 = %99.7"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "27273/27576 = %98.9"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "72030/72030 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,992 şirket, açık piyasa alımı (P): 7,139"
+    }
+   ]
+  },
+  "2018q3": {
+   "partition": "2018q3",
+   "fetched_at": "2026-10-09T23:25:08+00:00",
+   "rows": 57676,
+   "bytes": 1556044,
+   "sha256": "6620140b0cd8fb654ddf11f4d2fbd5f35db35c2b6fb8702934f559f9ce6187a9",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2018q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2018q3.parquet",
+   "status": "ok",
+   "duration_s": 2.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "57,676 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "57676/57676 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "57676/57676 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "57676/57676 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "57671/57676 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "27056/27113 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "26889/27113 = %99.2"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "57676/57676 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,760 şirket, açık piyasa alımı (P): 8,156"
+    }
+   ]
+  },
+  "2018q4": {
+   "partition": "2018q4",
+   "fetched_at": "2026-10-09T23:25:08+00:00",
+   "rows": 71126,
+   "bytes": 1700772,
+   "sha256": "5eeda1e8128c571f464f5c579ee56c7d60cf4777756afb821a90158d4e3e99fe",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2018q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2018q4.parquet",
+   "status": "ok",
+   "duration_s": 2.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "71,126 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "71126/71126 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "71126/71126 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "71126/71126 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "71124/71126 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "39085/39139 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "38748/39139 = %99.0"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "71126/71126 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,888 şirket, açık piyasa alımı (P): 23,879"
+    }
+   ]
+  },
+  "2019q1": {
+   "partition": "2019q1",
+   "fetched_at": "2026-10-09T23:25:10+00:00",
+   "rows": 107842,
+   "bytes": 2728933,
+   "sha256": "f2edced1eeb16786aa7235f1700aa163632925ba73fd8eb0ac22b0bbf5993669",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2019q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2019q1.parquet",
+   "status": "ok",
+   "duration_s": 3.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "107,842 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "107842/107842 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "107842/107842 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "107842/107842 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "107791/107842 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "32463/32514 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "32281/32514 = %99.3"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "107842/107842 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,092 şirket, açık piyasa alımı (P): 12,808"
+    }
+   ]
+  },
+  "2019q2": {
+   "partition": "2019q2",
+   "fetched_at": "2026-10-09T23:25:07+00:00",
+   "rows": 72587,
+   "bytes": 1923533,
+   "sha256": "463e56d190e7c238488db27383e4524b3fc248e6a8710a671eed02891b2a2b97",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2019q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2019q2.parquet",
+   "status": "ok",
+   "duration_s": 2.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "72,587 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "72587/72587 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "72587/72587 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "72587/72587 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "72582/72587 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "29793/29874 = %99.7"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "29615/29874 = %99.1"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "72587/72587 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,876 şirket, açık piyasa alımı (P): 12,034"
+    }
+   ]
+  },
+  "2019q3": {
+   "partition": "2019q3",
+   "fetched_at": "2026-10-09T23:25:11+00:00",
+   "rows": 56014,
+   "bytes": 1523406,
+   "sha256": "aa041aff10dc5ac38f54c4a21db40e5b13bf8acc75bb70491fb1d48d1e81d26a",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2019q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2019q3.parquet",
+   "status": "ok",
+   "duration_s": 2.2,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "56,014 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "56014/56014 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "56014/56014 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "56014/56014 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "56011/56014 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "26936/27008 = %99.7"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "26685/27008 = %98.8"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "56014/56014 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,657 şirket, açık piyasa alımı (P): 9,306"
+    }
+   ]
+  },
+  "2019q4": {
+   "partition": "2019q4",
+   "fetched_at": "2026-10-09T23:25:12+00:00",
+   "rows": 57423,
+   "bytes": 1568752,
+   "sha256": "84de62bab09046629a63a66e5289657915b48350e701ecdde23ede067ebad35a",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2019q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2019q4.parquet",
+   "status": "ok",
+   "duration_s": 2.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "57,423 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "57423/57423 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "57423/57423 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "57423/57423 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "57422/57423 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "24935/24981 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "24655/24981 = %98.7"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "57423/57423 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,698 şirket, açık piyasa alımı (P): 5,943"
+    }
+   ]
+  },
+  "2020q1": {
+   "partition": "2020q1",
+   "fetched_at": "2026-10-09T23:25:12+00:00",
+   "rows": 105852,
+   "bytes": 2772976,
+   "sha256": "494a848dbf14d73dc5063a8cdb5c30cb85b498f67422484b8fcd05ee99d9417e",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2020q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2020q1.parquet",
+   "status": "ok",
+   "duration_s": 6.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "105,852 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "105852/105852 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "105852/105852 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "105852/105852 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "105841/105852 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "31452/31482 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "31221/31482 = %99.2"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "105852/105852 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,085 şirket, açık piyasa alımı (P): 12,060"
+    }
+   ]
+  },
+  "2020q2": {
+   "partition": "2020q2",
+   "fetched_at": "2026-10-09T23:25:11+00:00",
+   "rows": 70429,
+   "bytes": 1894418,
+   "sha256": "0fa067ced3f4476be75513f382bdab759223236affc6bd9b5ce0bf1631c38604",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2020q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2020q2.parquet",
+   "status": "ok",
+   "duration_s": 3.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "70,429 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "70429/70429 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "70429/70429 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "70429/70429 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "70418/70429 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "28285/28341 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "28084/28341 = %99.1"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "70429/70429 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,836 şirket, açık piyasa alımı (P): 7,140"
+    }
+   ]
+  },
+  "2020q3": {
+   "partition": "2020q3",
+   "fetched_at": "2026-10-09T23:25:11+00:00",
+   "rows": 60619,
+   "bytes": 1626358,
+   "sha256": "f6eab8b7d5cd44515f4a680ff0fde40e7be746edd0d9f54deafd63b4716813d4",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2020q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2020q3.parquet",
+   "status": "ok",
+   "duration_s": 2.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "60,619 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "60619/60619 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "60619/60619 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "60619/60619 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "60616/60619 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "29854/29891 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "29710/29891 = %99.4"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "60619/60619 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,624 şirket, açık piyasa alımı (P): 7,063"
+    }
+   ]
+  },
+  "2020q4": {
+   "partition": "2020q4",
+   "fetched_at": "2026-10-09T23:25:13+00:00",
+   "rows": 72973,
+   "bytes": 1881498,
+   "sha256": "c2fca2cef7ad7dbabd21100aa0590908039b890787625a542f42e1d842d4229a",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2020q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2020q4.parquet",
+   "status": "ok",
+   "duration_s": 1.8,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "72,973 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "72973/72973 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "72973/72973 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "72973/72973 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "72971/72973 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "35482/35527 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "35306/35527 = %99.4"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "72973/72973 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,880 şirket, açık piyasa alımı (P): 5,966"
+    }
+   ]
+  },
+  "2021q1": {
+   "partition": "2021q1",
+   "fetched_at": "2026-10-09T23:25:28+00:00",
+   "rows": 125620,
+   "bytes": 3101091,
+   "sha256": "6292624586f242da2379dd3718576e247d1b902af9dc2ff593b2e901c8a6861a",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2021q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2021q1.parquet",
+   "status": "ok",
+   "duration_s": 2.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "125,620 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "125620/125620 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "125620/125620 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "125620/125620 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "125600/125620 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "42952/43056 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "42831/43056 = %99.5"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "125620/125620 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,280 şirket, açık piyasa alımı (P): 5,807"
+    }
+   ]
+  },
+  "2021q2": {
+   "partition": "2021q2",
+   "fetched_at": "2026-10-09T23:25:34+00:00",
+   "rows": 89108,
+   "bytes": 2291955,
+   "sha256": "044e87c8ac6e8be0eb10d9546bfd63b16f62cdb315c775d3db2d70281a38b4a7",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2021q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2021q2.parquet",
+   "status": "ok",
+   "duration_s": 3.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "89,108 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "89108/89108 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "89108/89108 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "89108/89108 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "89104/89108 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "39357/39414 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "39203/39414 = %99.5"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "89108/89108 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,166 şirket, açık piyasa alımı (P): 5,965"
+    }
+   ]
+  },
+  "2021q3": {
+   "partition": "2021q3",
+   "fetched_at": "2026-10-09T23:25:32+00:00",
+   "rows": 74002,
+   "bytes": 1857462,
+   "sha256": "ce28fe4274b8d0a89a5121cc3764b38b9fff26864ecdca03ffd2cde80d92d2a5",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2021q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2021q3.parquet",
+   "status": "ok",
+   "duration_s": 2.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "74,002 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "74002/74002 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "74002/74002 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "74002/74002 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "73996/74002 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "38708/38878 = %99.6"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "38688/38878 = %99.5"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "74002/74002 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,968 şirket, açık piyasa alımı (P): 7,092"
+    }
+   ]
+  },
+  "2021q4": {
+   "partition": "2021q4",
+   "fetched_at": "2026-10-09T23:25:32+00:00",
+   "rows": 80096,
+   "bytes": 2020169,
+   "sha256": "d37d9eef7c413c73953bcec91d4497a9d0d4c71ee6e9d27d635aea905bf3067f",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2021q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2021q4.parquet",
+   "status": "ok",
+   "duration_s": 1.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "80,096 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "80096/80096 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "80096/80096 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "80096/80096 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "80081/80096 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "40238/40286 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "40122/40286 = %99.6"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "80096/80096 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,185 şirket, açık piyasa alımı (P): 7,908"
+    }
+   ]
+  },
+  "2022q1": {
+   "partition": "2022q1",
+   "fetched_at": "2026-10-09T23:25:32+00:00",
+   "rows": 110327,
+   "bytes": 2870192,
+   "sha256": "b2da37f808501bc7c0dd4dca859f6808989e77e64c4c88a909cb5d920503a6ba",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2022q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2022q1.parquet",
+   "status": "ok",
+   "duration_s": 2.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "110,327 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "110327/110327 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "110327/110327 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "110327/110327 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "110319/110327 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "30406/30446 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "30241/30446 = %99.3"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "110327/110327 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,430 şirket, açık piyasa alımı (P): 8,019"
+    }
+   ]
+  },
+  "2022q2": {
+   "partition": "2022q2",
+   "fetched_at": "2026-10-09T23:25:35+00:00",
+   "rows": 69774,
+   "bytes": 1960440,
+   "sha256": "41d521a07797ba6e6d6cfe06b69df5c335da4977ffb394db3fb6f5431467fd38",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2022q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2022q2.parquet",
+   "status": "ok",
+   "duration_s": 4.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "69,774 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "69774/69774 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "69774/69774 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "69774/69774 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "69761/69774 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "25927/25969 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "25773/25969 = %99.2"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "69774/69774 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,212 şirket, açık piyasa alımı (P): 9,764"
+    }
+   ]
+  },
+  "2022q3": {
+   "partition": "2022q3",
+   "fetched_at": "2026-10-09T23:25:36+00:00",
+   "rows": 53743,
+   "bytes": 1514528,
+   "sha256": "33d997cf0a8e1d7ffbe8e2251932aedb0a4c0d58cfa490196e51f5ec476d426c",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2022q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2022q3.parquet",
+   "status": "ok",
+   "duration_s": 2.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "53,743 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "53743/53743 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "53743/53743 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "53743/53743 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "53739/53743 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "23962/23995 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "23841/23995 = %99.4"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "53743/53743 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,902 şirket, açık piyasa alımı (P): 7,868"
+    }
+   ]
+  },
+  "2022q4": {
+   "partition": "2022q4",
+   "fetched_at": "2026-10-09T23:25:37+00:00",
+   "rows": 58429,
+   "bytes": 1613157,
+   "sha256": "f85551fa06478f1d466ea357ed98efa88a6d04ff4901ce0fe936387097d83aa1",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2022q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2022q4.parquet",
+   "status": "ok",
+   "duration_s": 1.8,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "58,429 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "58429/58429 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "58429/58429 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "58429/58429 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "58427/58429 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "26904/26941 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "26749/26941 = %99.3"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "58429/58429 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,000 şirket, açık piyasa alımı (P): 8,659"
+    }
+   ]
+  },
+  "2023q1": {
+   "partition": "2023q1",
+   "fetched_at": "2026-10-09T23:25:38+00:00",
+   "rows": 106093,
+   "bytes": 2819827,
+   "sha256": "a86f60c0ae60c97e530a569833016dcc5f4f6a47e86d8420cac0c1e18f2010a3",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2023q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2023q1.parquet",
+   "status": "ok",
+   "duration_s": 4.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "106,093 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "106093/106093 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "106093/106093 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "106093/106093 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "106068/106093 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "26743/26797 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "26585/26797 = %99.2"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "106093/106093 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,313 şirket, açık piyasa alımı (P): 6,555"
+    }
+   ]
+  },
+  "2023q2": {
+   "partition": "2023q2",
+   "fetched_at": "2026-10-09T23:25:34+00:00",
+   "rows": 68588,
+   "bytes": 1966512,
+   "sha256": "9b9a0342dd4a40e330262852a29d1a97d52a420fb55546ce538955c2ae092258",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2023q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2023q2.parquet",
+   "status": "ok",
+   "duration_s": 2.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "68,588 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "68588/68588 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "68588/68588 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "68588/68588 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "68577/68588 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "23977/24020 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "23679/24020 = %98.6"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "68588/68588 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,148 şirket, açık piyasa alımı (P): 8,252"
+    }
+   ]
+  },
+  "2023q3": {
+   "partition": "2023q3",
+   "fetched_at": "2026-10-09T23:25:39+00:00",
+   "rows": 53078,
+   "bytes": 1502059,
+   "sha256": "2897b4ac071aad4720a366d5c2fdc59f3944b3ae2a17fb70a64afa5e4edf915d",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2023q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2023q3.parquet",
+   "status": "warn",
+   "duration_s": 2.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "53,078 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "53078/53078 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "53078/53078 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "53078/53078 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "53077/53078 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "23409/23437 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "warn",
+     "detail": "22321/23437 = %95.2"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "53078/53078 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,857 şirket, açık piyasa alımı (P): 6,859"
+    }
+   ]
+  },
+  "2023q4": {
+   "partition": "2023q4",
+   "fetched_at": "2026-10-09T23:25:44+00:00",
+   "rows": 57852,
+   "bytes": 1602093,
+   "sha256": "afa39ac425d9a61fe30e4e7e4cf3a82a069abe3c79733ee123d38b7845397d22",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2023q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2023q4.parquet",
+   "status": "warn",
+   "duration_s": 2.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "57,852 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "57852/57852 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "57852/57852 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "57852/57852 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "57847/57852 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "25208/25250 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "warn",
+     "detail": "24171/25250 = %95.7"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "57852/57852 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,923 şirket, açık piyasa alımı (P): 7,327"
+    }
+   ]
+  },
   "2024q1": {
    "partition": "2024q1",
    "fetched_at": "2026-10-09T23:14:21+00:00",
@@ -132,26 +4852,1346 @@
      "detail": "4,171 şirket, açık piyasa alımı (P): 5,954"
     }
    ]
+  },
+  "2024q2": {
+   "partition": "2024q2",
+   "fetched_at": "2026-10-09T23:25:55+00:00",
+   "rows": 69412,
+   "bytes": 1952499,
+   "sha256": "8bcb145adbe46ea97df1343fbda6fe87c4cf6c5348375a702270f65253cf2599",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2024q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2024q2.parquet",
+   "status": "ok",
+   "duration_s": 3.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "69,412 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "69412/69412 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "69412/69412 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "69412/69412 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "69395/69412 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "25640/25681 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "25520/25681 = %99.4"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "69412/69412 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,015 şirket, açık piyasa alımı (P): 5,578"
+    }
+   ]
+  },
+  "2024q3": {
+   "partition": "2024q3",
+   "fetched_at": "2026-10-09T23:25:51+00:00",
+   "rows": 55881,
+   "bytes": 1534574,
+   "sha256": "69119836c63d4a3f1c22c1e0d61bb8066a8182fade5612d483b46667346258a1",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2024q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2024q3.parquet",
+   "status": "ok",
+   "duration_s": 1.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "55,881 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "55881/55881 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "55881/55881 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "55881/55881 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "55876/55881 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "26174/26191 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "26104/26191 = %99.7"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "55881/55881 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,720 şirket, açık piyasa alımı (P): 5,138"
+    }
+   ]
+  },
+  "2024q4": {
+   "partition": "2024q4",
+   "fetched_at": "2026-10-09T23:26:02+00:00",
+   "rows": 63647,
+   "bytes": 1706075,
+   "sha256": "acec4bc196e93577f306ef354b12231ce439706661d19ebe63252d0c303e3f9a",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2024q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2024q4.parquet",
+   "status": "ok",
+   "duration_s": 2.2,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "63,647 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "63647/63647 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "63647/63647 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "63647/63647 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "63644/63647 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "30503/30549 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "30354/30549 = %99.4"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "63647/63647 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,883 şirket, açık piyasa alımı (P): 6,137"
+    }
+   ]
+  },
+  "2025q1": {
+   "partition": "2025q1",
+   "fetched_at": "2026-10-09T23:25:59+00:00",
+   "rows": 103029,
+   "bytes": 2689844,
+   "sha256": "7c866c1c85970185b4d4cd12161f6c1c355a168a9bc83e75a0ba6d7f61eab0d2",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2025q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2025q1.parquet",
+   "status": "ok",
+   "duration_s": 3.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "103,029 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "103029/103029 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "103029/103029 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "103028/103029 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "103016/103029 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "27332/27360 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "27192/27360 = %99.4"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "103029/103029 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,020 şirket, açık piyasa alımı (P): 5,681"
+    }
+   ]
+  },
+  "2025q2": {
+   "partition": "2025q2",
+   "fetched_at": "2026-10-09T23:25:58+00:00",
+   "rows": 66915,
+   "bytes": 1880556,
+   "sha256": "757118316853f78fbd4de1a7ff062d15d1b771498dd338b037e73841d14dbd28",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2025q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2025q2.parquet",
+   "status": "ok",
+   "duration_s": 2.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "66,915 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "66915/66915 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "66915/66915 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "66915/66915 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "66907/66915 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "23564/23611 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "23491/23611 = %99.5"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "66915/66915 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,904 şirket, açık piyasa alımı (P): 6,443"
+    }
+   ]
+  },
+  "2025q3": {
+   "partition": "2025q3",
+   "fetched_at": "2026-10-09T23:25:56+00:00",
+   "rows": 55125,
+   "bytes": 1521137,
+   "sha256": "af3633354feeb1c59286e0f15ac8135bb7e334fedc27a66b103aac9e2beea14f",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2025q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2025q3.parquet",
+   "status": "ok",
+   "duration_s": 1.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "55,125 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "55125/55125 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "55125/55125 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "55125/55125 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "55123/55125 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "26993/27036 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "26915/27036 = %99.6"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "55125/55125 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,632 şirket, açık piyasa alımı (P): 4,861"
+    }
+   ]
+  },
+  "2025q4": {
+   "partition": "2025q4",
+   "fetched_at": "2026-10-09T23:26:00+00:00",
+   "rows": 59678,
+   "bytes": 1632099,
+   "sha256": "85c145a729c1f0a9f7d9e4a3abb611205c06d8a2c0a313463a8cd7d9fb69a598",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2025q4_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2025q4.parquet",
+   "status": "ok",
+   "duration_s": 2.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "59,678 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "59678/59678 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "59678/59678 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "59677/59678 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "59677/59678 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "27875/27936 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "27798/27936 = %99.5"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "59678/59678 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,759 şirket, açık piyasa alımı (P): 5,447"
+    }
+   ]
+  },
+  "2026q1": {
+   "partition": "2026q1",
+   "fetched_at": "2026-10-09T23:26:03+00:00",
+   "rows": 103733,
+   "bytes": 2733437,
+   "sha256": "2096d8d48c4d1014189b02914fd8563394fca684f714a618101a2d8b1fded0a9",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2026q1_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2026q1.parquet",
+   "status": "ok",
+   "duration_s": 3.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "103,733 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "103733/103733 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "103733/103733 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "103730/103733 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "103720/103733 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "28715/28757 = %99.9"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "28591/28757 = %99.4"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "103733/103733 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,130 şirket, açık piyasa alımı (P): 5,935"
+    }
+   ]
+  },
+  "2026q2": {
+   "partition": "2026q2",
+   "fetched_at": "2026-10-09T23:26:01+00:00",
+   "rows": 78328,
+   "bytes": 2148921,
+   "sha256": "6c494423c69ea9fab3e96f01ec0dba0ff4e609c491d6fc87db3a90360afa421d",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2026q2.parquet",
+   "status": "ok",
+   "duration_s": 3.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "78,328 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "78328/78328 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "78328/78328 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "78326/78328 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "78328/78328 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "32862/32927 = %99.8"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "32744/32927 = %99.4"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "78328/78328 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,287 şirket, açık piyasa alımı (P): 5,326"
+    }
+   ]
+  },
+  "2026q3": {
+   "partition": "2026q3",
+   "fetched_at": "2026-10-09T23:26:05+00:00",
+   "rows": 59885,
+   "bytes": 1648572,
+   "sha256": "04c9dee1c63e154b83368e30e0ad5a7ec732659bb1f9a62a3397d53c64ba784d",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[us]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q3_form345.zip"
+   ],
+   "notes": {
+    "columns": {
+     "SUBMISSION": [
+      "ACCESSION_NUMBER",
+      "FILING_DATE",
+      "PERIOD_OF_REPORT",
+      "DATE_OF_ORIG_SUB",
+      "NO_SECURITIES_OWNED",
+      "NOT_SUBJECT_SEC16",
+      "FORM3_HOLDINGS_REPORTED",
+      "FORM4_TRANS_REPORTED",
+      "DOCUMENT_TYPE",
+      "ISSUERCIK",
+      "ISSUERNAME",
+      "ISSUERTRADINGSYMBOL",
+      "REMARKS",
+      "AFF10B5ONE"
+     ],
+     "NONDERIV_TRANS": [
+      "ACCESSION_NUMBER",
+      "NONDERIV_TRANS_SK",
+      "SECURITY_TITLE",
+      "SECURITY_TITLE_FN",
+      "TRANS_DATE",
+      "TRANS_DATE_FN",
+      "DEEMED_EXECUTION_DATE",
+      "DEEMED_EXECUTION_DATE_FN",
+      "TRANS_FORM_TYPE",
+      "TRANS_CODE",
+      "EQUITY_SWAP_INVOLVED",
+      "EQUITY_SWAP_TRANS_CD_FN",
+      "TRANS_TIMELINESS",
+      "TRANS_TIMELINESS_FN",
+      "TRANS_SHARES",
+      "TRANS_SHARES_FN",
+      "TRANS_PRICEPERSHARE",
+      "TRANS_PRICEPERSHARE_FN",
+      "TRANS_ACQUIRED_DISP_CD",
+      "TRANS_ACQUIRED_DISP_CD_FN",
+      "SHRS_OWND_FOLWNG_TRANS",
+      "SHRS_OWND_FOLWNG_TRANS_FN",
+      "VALU_OWND_FOLWNG_TRANS",
+      "VALU_OWND_FOLWNG_TRANS_FN",
+      "DIRECT_INDIRECT_OWNERSHIP",
+      "DIRECT_INDIRECT_OWNERSHIP_FN",
+      "NATURE_OF_OWNERSHIP",
+      "NATURE_OF_OWNERSHIP_FN"
+     ]
+    }
+   },
+   "asset": "insider__2026q3.parquet",
+   "status": "ok",
+   "duration_s": 2.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "İşlem sayısı",
+     "status": "ok",
+     "detail": "59,885 (beklenen 20,000–2,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "59885/59885 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "59885/59885 = %100.0"
+    },
+    {
+     "name": "Geçerli işlem kodu",
+     "status": "ok",
+     "detail": "59881/59885 = %100.0"
+    },
+    {
+     "name": "İşlem tarihi ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "59883/59885 = %100.0"
+    },
+    {
+     "name": "Kod/yön tutarlılığı (P→A, S→D)",
+     "status": "ok",
+     "detail": "30543/30625 = %99.7"
+    },
+    {
+     "name": "Alım/satışta fiyat > 0",
+     "status": "ok",
+     "detail": "30493/30625 = %99.6"
+    },
+    {
+     "name": "Ticker dolu",
+     "status": "ok",
+     "detail": "59885/59885 = %100.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "4,019 şirket, açık piyasa alımı (P): 5,184"
+    }
+   ]
   }
  },
  "dataset_checks": [
   {
    "name": "Yüklenen çeyrek",
    "status": "ok",
-   "detail": "1 çeyrek: ['2024q1'] … ['2024q1']"
+   "detail": "47 çeyrek: ['2015q1'] … ['2026q3']"
   },
   {
    "name": "Çeyrek başına işlem sayısı tutarlılığı",
    "status": "ok",
-   "detail": "medyan 111,404; medyanın yarısının altında: yok"
+   "detail": "medyan 69,774; medyanın yarısının altında: yok"
   },
   {
-   "name": "Çapraz kontrol: toplu veri ↔ özgün Form 4 (2024q1)",
+   "name": "Çapraz kontrol: toplu veri ↔ özgün Form 4 (2026q3)",
    "status": "ok",
    "detail": "20/20 = %100.0"
   }
  ],
  "title": "SEC içeriden işlemler (Form 4, 2015→)",
  "derived": {},
- "finalized_at": "2026-10-09T23:22:35+00:00"
+ "finalized_at": "2026-10-09T23:59:30+00:00"
 }

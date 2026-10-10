@@ -1,6 +1,3038 @@
 {
  "dataset": "financials",
  "partitions": {
+  "2015q1": {
+   "partition": "2015q1",
+   "fetched_at": "2026-10-09T23:26:06+00:00",
+   "rows": 452765,
+   "bytes": 7415856,
+   "sha256": "d5a2ab37f93dbf4cf3722a48bd133f7fd91ce4bca531b74526c02181d004b9ad",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2015q1.zip"
+   ],
+   "notes": {
+    "filings": 6798,
+    "forms": {
+     "10-K": 4697,
+     "10-Q": 1687,
+     "10-Q/A": 157,
+     "10-K/A": 134,
+     "20-F": 87,
+     "40-F": 18,
+     "10-KT": 11,
+     "10-QT": 4,
+     "20-F/A": 3
+    },
+    "empty_values": 5367
+   },
+   "asset": "financials__2015q1.parquet",
+   "status": "ok",
+   "duration_s": 12.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,798 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "452,765 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "452765/452765 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "452765/452765 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "452021/452765 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,367 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "452756/452765 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4697, '10-Q': 1687, '10-Q/A': 157, '10-K/A': 134, '20-F': 87, '40-F': 18, '10-KT': 11, '10-QT': 4, '20-F/A': 3}"
+    }
+   ]
+  },
+  "2015q2": {
+   "partition": "2015q2",
+   "fetched_at": "2026-10-09T23:26:09+00:00",
+   "rows": 363562,
+   "bytes": 6095597,
+   "sha256": "e1a90bd4bd5801f15fb77f4a2c4de1e7de650b04ab2adfeb23e3d79c6e4cc513",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2015q2.zip"
+   ],
+   "notes": {
+    "filings": 7916,
+    "forms": {
+     "10-Q": 6424,
+     "10-K": 961,
+     "10-Q/A": 192,
+     "20-F": 174,
+     "10-K/A": 150,
+     "20-F/A": 9,
+     "10-KT": 4,
+     "40-F": 2
+    },
+    "empty_values": 6740
+   },
+   "asset": "financials__2015q2.parquet",
+   "status": "ok",
+   "duration_s": 8.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,916 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "363,562 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "363562/363562 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "363562/363562 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "363061/363562 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "6,740 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "363538/363562 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6424, '10-K': 961, '10-Q/A': 192, '20-F': 174, '10-K/A': 150, '20-F/A': 9, '10-KT': 4, '40-F': 2}"
+    }
+   ]
+  },
+  "2015q3": {
+   "partition": "2015q3",
+   "fetched_at": "2026-10-09T23:26:15+00:00",
+   "rows": 397884,
+   "bytes": 6522359,
+   "sha256": "6be9b4a08adfd0a172795bc62e2340bbd77c5db93601d91a9056fb4349407802",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2015q3.zip"
+   ],
+   "notes": {
+    "filings": 7185,
+    "forms": {
+     "10-Q": 6314,
+     "10-K": 563,
+     "10-Q/A": 196,
+     "10-K/A": 84,
+     "20-F": 19,
+     "10-KT": 3,
+     "20-F/A": 3,
+     "10-QT": 2,
+     "40-F": 1
+    },
+    "empty_values": 6604
+   },
+   "asset": "financials__2015q3.parquet",
+   "status": "ok",
+   "duration_s": 9.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,185 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "397,884 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "397884/397884 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "397884/397884 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "397202/397884 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "6,604 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "397865/397884 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6314, '10-K': 563, '10-Q/A': 196, '10-K/A': 84, '20-F': 19, '10-KT': 3, '20-F/A': 3, '10-QT': 2, '40-F': 1}"
+    }
+   ]
+  },
+  "2015q4": {
+   "partition": "2015q4",
+   "fetched_at": "2026-10-09T23:26:20+00:00",
+   "rows": 393692,
+   "bytes": 6424048,
+   "sha256": "802c539f514f9ad058f7bd285d0ab43f2d65aeba0f787d98362e018bf19b4f32",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2015q4.zip"
+   ],
+   "notes": {
+    "filings": 7027,
+    "forms": {
+     "10-Q": 6239,
+     "10-K": 532,
+     "10-Q/A": 189,
+     "10-K/A": 56,
+     "20-F/A": 4,
+     "20-F": 4,
+     "10-KT": 2,
+     "40-F/A": 1
+    },
+    "empty_values": 6430
+   },
+   "asset": "financials__2015q4.parquet",
+   "status": "ok",
+   "duration_s": 9.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,027 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "393,692 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "393692/393692 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "393692/393692 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "393625/393692 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "6,430 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "393660/393692 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6239, '10-K': 532, '10-Q/A': 189, '10-K/A': 56, '20-F/A': 4, '20-F': 4, '10-KT': 2, '40-F/A': 1}"
+    }
+   ]
+  },
+  "2016q1": {
+   "partition": "2016q1",
+   "fetched_at": "2026-10-09T23:26:24+00:00",
+   "rows": 435216,
+   "bytes": 7082178,
+   "sha256": "d2c6b64bd6d52cb00e304b246b4c44a7e235035c3b0cb7b70011468f4bb0a54f",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2016q1.zip"
+   ],
+   "notes": {
+    "filings": 6368,
+    "forms": {
+     "10-K": 4498,
+     "10-Q": 1540,
+     "10-Q/A": 116,
+     "10-K/A": 93,
+     "20-F": 83,
+     "10-KT": 20,
+     "40-F": 15,
+     "10-QT": 2,
+     "20-F/A": 1
+    },
+    "empty_values": 4118
+   },
+   "asset": "financials__2016q1.parquet",
+   "status": "ok",
+   "duration_s": 12.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,368 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "435,216 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "435216/435216 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "435216/435216 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "434558/435216 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,118 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "435212/435216 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4498, '10-Q': 1540, '10-Q/A': 116, '10-K/A': 93, '20-F': 83, '10-KT': 20, '40-F': 15, '10-QT': 2, '20-F/A': 1}"
+    }
+   ]
+  },
+  "2016q2": {
+   "partition": "2016q2",
+   "fetched_at": "2026-10-09T23:26:22+00:00",
+   "rows": 336659,
+   "bytes": 5601060,
+   "sha256": "cfa5ed47eef648118b2c1d01e30ed319f40c802f4d65029baf34197d203fec96",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2016q2.zip"
+   ],
+   "notes": {
+    "filings": 7274,
+    "forms": {
+     "10-Q": 5980,
+     "10-K": 858,
+     "20-F": 171,
+     "10-Q/A": 131,
+     "10-K/A": 120,
+     "10-KT": 7,
+     "40-F": 3,
+     "20-F/A": 3,
+     "10-QT": 1
+    },
+    "empty_values": 5554
+   },
+   "asset": "financials__2016q2.parquet",
+   "status": "ok",
+   "duration_s": 6.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,274 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "336,659 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "336659/336659 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "336659/336659 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "336341/336659 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,554 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "336611/336659 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5980, '10-K': 858, '20-F': 171, '10-Q/A': 131, '10-K/A': 120, '10-KT': 7, '40-F': 3, '20-F/A': 3, '10-QT': 1}"
+    }
+   ]
+  },
+  "2016q3": {
+   "partition": "2016q3",
+   "fetched_at": "2026-10-09T23:26:24+00:00",
+   "rows": 334094,
+   "bytes": 5310846,
+   "sha256": "75d867e17b238c8776fd8bc0b9c0c61b2ac6b2ed80c6789bf2333ca54aa8b7ba",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2016q3.zip"
+   ],
+   "notes": {
+    "filings": 5975,
+    "forms": {
+     "10-Q": 5471,
+     "10-K": 332,
+     "10-Q/A": 115,
+     "10-K/A": 43,
+     "20-F": 11,
+     "10-KT": 2,
+     "40-F": 1
+    },
+    "empty_values": 4951
+   },
+   "asset": "financials__2016q3.parquet",
+   "status": "ok",
+   "duration_s": 8.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,975 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "334,094 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "334094/334094 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "334094/334094 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "333989/334094 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,951 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "334071/334094 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5471, '10-K': 332, '10-Q/A': 115, '10-K/A': 43, '20-F': 11, '10-KT': 2, '40-F': 1}"
+    }
+   ]
+  },
+  "2016q4": {
+   "partition": "2016q4",
+   "fetched_at": "2026-10-09T23:26:29+00:00",
+   "rows": 368708,
+   "bytes": 6014010,
+   "sha256": "9c581ed991b133b1e2ecbfeab6ac01bad44f8fb619bc96ec613cb73a6cecb44f",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2016q4.zip"
+   ],
+   "notes": {
+    "filings": 6552,
+    "forms": {
+     "10-Q": 5829,
+     "10-K": 495,
+     "10-Q/A": 168,
+     "10-K/A": 46,
+     "20-F/A": 4,
+     "20-F": 4,
+     "10-QT": 3,
+     "10-KT": 3
+    },
+    "empty_values": 5562
+   },
+   "asset": "financials__2016q4.parquet",
+   "status": "ok",
+   "duration_s": 7.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,552 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "368,708 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "368708/368708 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "368708/368708 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "367124/368708 = %99.6"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,562 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "368698/368708 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5829, '10-K': 495, '10-Q/A': 168, '10-K/A': 46, '20-F/A': 4, '20-F': 4, '10-QT': 3, '10-KT': 3}"
+    }
+   ]
+  },
+  "2017q1": {
+   "partition": "2017q1",
+   "fetched_at": "2026-10-09T23:26:29+00:00",
+   "rows": 419130,
+   "bytes": 6815437,
+   "sha256": "ee41728b56967daabf08ec735ac8ae1f8bbb2fa07cfcc881f5c70a80b58ea022",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2017q1.zip"
+   ],
+   "notes": {
+    "filings": 6075,
+    "forms": {
+     "10-K": 4325,
+     "10-Q": 1433,
+     "10-Q/A": 102,
+     "20-F": 91,
+     "10-K/A": 87,
+     "40-F": 18,
+     "10-KT": 11,
+     "10-QT": 5,
+     "40-F/A": 2,
+     "20-F/A": 1
+    },
+    "empty_values": 4414
+   },
+   "asset": "financials__2017q1.parquet",
+   "status": "ok",
+   "duration_s": 9.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,075 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "419,130 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "419130/419130 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "419130/419130 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "417990/419130 = %99.7"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,414 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "419128/419130 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4325, '10-Q': 1433, '10-Q/A': 102, '20-F': 91, '10-K/A': 87, '40-F': 18, '10-KT': 11, '10-QT': 5, '40-F/A': 2, '20-F/A': 1}"
+    }
+   ]
+  },
+  "2017q2": {
+   "partition": "2017q2",
+   "fetched_at": "2026-10-09T23:26:30+00:00",
+   "rows": 320516,
+   "bytes": 5384176,
+   "sha256": "fe268299f2cf60146c71934686d39737b179721429b5256c970476a1489ae131",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2017q2.zip"
+   ],
+   "notes": {
+    "filings": 6980,
+    "forms": {
+     "10-Q": 5781,
+     "10-K": 810,
+     "20-F": 152,
+     "10-Q/A": 128,
+     "10-K/A": 95,
+     "20-F/A": 5,
+     "10-KT": 4,
+     "10-QT": 2,
+     "40-F": 2,
+     "40-F/A": 1
+    },
+    "empty_values": 6054
+   },
+   "asset": "financials__2017q2.parquet",
+   "status": "ok",
+   "duration_s": 7.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,980 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "320,516 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "320516/320516 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "320516/320516 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "320442/320516 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "6,054 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "320496/320516 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5781, '10-K': 810, '20-F': 152, '10-Q/A': 128, '10-K/A': 95, '20-F/A': 5, '10-KT': 4, '10-QT': 2, '40-F': 2, '40-F/A': 1}"
+    }
+   ]
+  },
+  "2017q3": {
+   "partition": "2017q3",
+   "fetched_at": "2026-10-09T23:26:32+00:00",
+   "rows": 356430,
+   "bytes": 5801379,
+   "sha256": "58ec2db1950c735cdc0e04d3fee78a16d208c9b089a7e35759f4bd1f66c3b285",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2017q3.zip"
+   ],
+   "notes": {
+    "filings": 6308,
+    "forms": {
+     "10-Q": 5635,
+     "10-K": 479,
+     "10-Q/A": 123,
+     "10-K/A": 50,
+     "20-F": 15,
+     "20-F/A": 3,
+     "10-KT": 1,
+     "40-F": 1,
+     "10-QT": 1
+    },
+    "empty_values": 5544
+   },
+   "asset": "financials__2017q3.parquet",
+   "status": "ok",
+   "duration_s": 7.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,308 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "356,430 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "356430/356430 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "356430/356430 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "356172/356430 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,544 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "356389/356430 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5635, '10-K': 479, '10-Q/A': 123, '10-K/A': 50, '20-F': 15, '20-F/A': 3, '10-KT': 1, '40-F': 1, '10-QT': 1}"
+    }
+   ]
+  },
+  "2017q4": {
+   "partition": "2017q4",
+   "fetched_at": "2026-10-09T23:26:27+00:00",
+   "rows": 365635,
+   "bytes": 5976653,
+   "sha256": "ed5e1760a1e980c012fe96326903b71108320c05451ca986dd53f4123918decb",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2017q4.zip"
+   ],
+   "notes": {
+    "filings": 6353,
+    "forms": {
+     "10-Q": 5664,
+     "10-K": 474,
+     "10-Q/A": 145,
+     "10-K/A": 54,
+     "20-F": 10,
+     "20-F/A": 3,
+     "10-KT": 2,
+     "10-QT": 1
+    },
+    "empty_values": 5999
+   },
+   "asset": "financials__2017q4.parquet",
+   "status": "ok",
+   "duration_s": 5.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,353 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "365,635 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "365635/365635 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "365635/365635 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "364430/365635 = %99.7"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,999 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "365612/365635 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5664, '10-K': 474, '10-Q/A': 145, '10-K/A': 54, '20-F': 10, '20-F/A': 3, '10-KT': 2, '10-QT': 1}"
+    }
+   ]
+  },
+  "2018q1": {
+   "partition": "2018q1",
+   "fetched_at": "2026-10-09T23:26:43+00:00",
+   "rows": 409051,
+   "bytes": 6656209,
+   "sha256": "ffab6e8d0ea49f5b6369d696316280c4e266937b6a9afdba9ee761951ee587e9",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2018q1.zip"
+   ],
+   "notes": {
+    "filings": 5800,
+    "forms": {
+     "10-K": 3943,
+     "10-Q": 1333,
+     "20-F": 193,
+     "10-Q/A": 109,
+     "10-K/A": 97,
+     "40-F": 96,
+     "20-F/A": 15,
+     "10-KT": 10,
+     "40-F/A": 3,
+     "10-QT": 1
+    },
+    "empty_values": 4177
+   },
+   "asset": "financials__2018q1.parquet",
+   "status": "ok",
+   "duration_s": 9.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,800 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "409,051 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "409051/409051 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "409051/409051 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "408064/409051 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,177 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "409051/409051 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 3943, '10-Q': 1333, '20-F': 193, '10-Q/A': 109, '10-K/A': 97, '40-F': 96, '20-F/A': 15, '10-KT': 10, '40-F/A': 3, '10-QT': 1}"
+    }
+   ]
+  },
+  "2018q2": {
+   "partition": "2018q2",
+   "fetched_at": "2026-10-09T23:26:42+00:00",
+   "rows": 349808,
+   "bytes": 5916371,
+   "sha256": "6216d9b75d84a92e63e32a4719e88f4f113341e7764f9689608748477ad51927",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2018q2.zip"
+   ],
+   "notes": {
+    "filings": 7221,
+    "forms": {
+     "10-Q": 5554,
+     "10-K": 1050,
+     "20-F": 298,
+     "10-Q/A": 117,
+     "10-K/A": 105,
+     "20-F/A": 67,
+     "10-KT": 12,
+     "40-F": 9,
+     "40-F/A": 7,
+     "10-QT": 2
+    },
+    "empty_values": 6188
+   },
+   "asset": "financials__2018q2.parquet",
+   "status": "ok",
+   "duration_s": 4.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,221 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "349,808 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "349808/349808 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "349808/349808 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "349397/349808 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "6,188 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "349791/349808 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5554, '10-K': 1050, '20-F': 298, '10-Q/A': 117, '10-K/A': 105, '20-F/A': 67, '10-KT': 12, '40-F': 9, '40-F/A': 7, '10-QT': 2}"
+    }
+   ]
+  },
+  "2018q3": {
+   "partition": "2018q3",
+   "fetched_at": "2026-10-09T23:26:54+00:00",
+   "rows": 374369,
+   "bytes": 6098780,
+   "sha256": "385f970e756035ad1094cdb59f0bc9a2ad0a5195b64c9d5cb480c8743cd1f18a",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2018q3.zip"
+   ],
+   "notes": {
+    "filings": 6183,
+    "forms": {
+     "10-Q": 5522,
+     "10-K": 432,
+     "10-Q/A": 113,
+     "10-K/A": 60,
+     "20-F": 39,
+     "20-F/A": 10,
+     "10-KT": 3,
+     "10-QT": 3,
+     "40-F": 1
+    },
+    "empty_values": 5814
+   },
+   "asset": "financials__2018q3.parquet",
+   "status": "ok",
+   "duration_s": 7.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,183 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "374,369 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "374369/374369 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "374369/374369 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "374160/374369 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,814 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "374337/374369 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5522, '10-K': 432, '10-Q/A': 113, '10-K/A': 60, '20-F': 39, '20-F/A': 10, '10-KT': 3, '10-QT': 3, '40-F': 1}"
+    }
+   ]
+  },
+  "2018q4": {
+   "partition": "2018q4",
+   "fetched_at": "2026-10-09T23:26:51+00:00",
+   "rows": 381530,
+   "bytes": 4640029,
+   "sha256": "e786847655ad897eebb406a292422e2851989441cf2747a4653a0bc45525748d",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2018q4.zip"
+   ],
+   "notes": {
+    "filings": 6187,
+    "forms": {
+     "10-Q": 5524,
+     "10-K": 450,
+     "10-Q/A": 121,
+     "10-K/A": 45,
+     "20-F": 27,
+     "20-F/A": 11,
+     "40-F": 7,
+     "10-KT": 2
+    },
+    "empty_values": 5968
+   },
+   "asset": "financials__2018q4.parquet",
+   "status": "ok",
+   "duration_s": 7.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,187 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "381,530 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "381530/381530 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "381530/381530 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "380452/381530 = %99.7"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,968 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "381499/381530 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5524, '10-K': 450, '10-Q/A': 121, '10-K/A': 45, '20-F': 27, '20-F/A': 11, '40-F': 7, '10-KT': 2}"
+    }
+   ]
+  },
+  "2019q1": {
+   "partition": "2019q1",
+   "fetched_at": "2026-10-09T23:26:54+00:00",
+   "rows": 413005,
+   "bytes": 6711474,
+   "sha256": "5a17d9c9bccd398eca8f8d52913f953eeaec88697f3c7ce373b7e90e5ee1ea14",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2019q1.zip"
+   ],
+   "notes": {
+    "filings": 5548,
+    "forms": {
+     "10-K": 3883,
+     "10-Q": 1204,
+     "20-F": 222,
+     "40-F": 94,
+     "10-Q/A": 62,
+     "10-K/A": 48,
+     "10-KT": 20,
+     "20-F/A": 9,
+     "10-QT": 4,
+     "40-F/A": 2
+    },
+    "empty_values": 4059
+   },
+   "asset": "financials__2019q1.parquet",
+   "status": "ok",
+   "duration_s": 11.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,548 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "413,005 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "413005/413005 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "413005/413005 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "412504/413005 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,059 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "413001/413005 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 3883, '10-Q': 1204, '20-F': 222, '40-F': 94, '10-Q/A': 62, '10-K/A': 48, '10-KT': 20, '20-F/A': 9, '10-QT': 4, '40-F/A': 2}"
+    }
+   ]
+  },
+  "2019q2": {
+   "partition": "2019q2",
+   "fetched_at": "2026-10-09T23:26:57+00:00",
+   "rows": 360343,
+   "bytes": 6038092,
+   "sha256": "4eddf12b75fe632e3e636dfd985b48ae75033541cfbc3013d4e14e0193061c1f",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2019q2.zip"
+   ],
+   "notes": {
+    "filings": 7034,
+    "forms": {
+     "10-Q": 5385,
+     "10-K": 998,
+     "20-F": 365,
+     "10-Q/A": 135,
+     "10-K/A": 104,
+     "20-F/A": 20,
+     "40-F": 17,
+     "40-F/A": 6,
+     "10-KT": 3,
+     "10-QT": 1
+    },
+    "empty_values": 6681
+   },
+   "asset": "financials__2019q2.parquet",
+   "status": "ok",
+   "duration_s": 7.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,034 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "360,343 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "360343/360343 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "360343/360343 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "360279/360343 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "6,681 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "360326/360343 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5385, '10-K': 998, '20-F': 365, '10-Q/A': 135, '10-K/A': 104, '20-F/A': 20, '40-F': 17, '40-F/A': 6, '10-KT': 3, '10-QT': 1}"
+    }
+   ]
+  },
+  "2019q3": {
+   "partition": "2019q3",
+   "fetched_at": "2026-10-09T23:26:56+00:00",
+   "rows": 386270,
+   "bytes": 6308099,
+   "sha256": "222b6af05d96d79a4dbf77d1259ceaaa12a29c18e7099fc1394877562aa321e7",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2019q3.zip"
+   ],
+   "notes": {
+    "filings": 5991,
+    "forms": {
+     "10-Q": 5343,
+     "10-K": 443,
+     "10-Q/A": 103,
+     "20-F": 46,
+     "10-K/A": 41,
+     "20-F/A": 8,
+     "40-F": 3,
+     "40-F/A": 2,
+     "10-KT": 1,
+     "10-QT": 1
+    },
+    "empty_values": 5845
+   },
+   "asset": "financials__2019q3.parquet",
+   "status": "ok",
+   "duration_s": 8.2,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,991 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "386,270 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "386270/386270 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "386270/386270 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "386217/386270 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,845 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "386259/386270 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5343, '10-K': 443, '10-Q/A': 103, '20-F': 46, '10-K/A': 41, '20-F/A': 8, '40-F': 3, '40-F/A': 2, '10-KT': 1, '10-QT': 1}"
+    }
+   ]
+  },
+  "2019q4": {
+   "partition": "2019q4",
+   "fetched_at": "2026-10-09T23:26:56+00:00",
+   "rows": 399731,
+   "bytes": 6540669,
+   "sha256": "40a53f6d7768bf473693d623a02aab3f02d81e64992a6977d0730215c6265d66",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2019q4.zip"
+   ],
+   "notes": {
+    "filings": 6013,
+    "forms": {
+     "10-Q": 5384,
+     "10-K": 414,
+     "10-Q/A": 113,
+     "20-F": 44,
+     "10-K/A": 41,
+     "40-F": 7,
+     "20-F/A": 5,
+     "10-KT": 3,
+     "40-F/A": 2
+    },
+    "empty_values": 6261
+   },
+   "asset": "financials__2019q4.parquet",
+   "status": "ok",
+   "duration_s": 6.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,013 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "399,731 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "399731/399731 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "399731/399731 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "398002/399731 = %99.6"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "6,261 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "399720/399731 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5384, '10-K': 414, '10-Q/A': 113, '20-F': 44, '10-K/A': 41, '40-F': 7, '20-F/A': 5, '10-KT': 3, '40-F/A': 2}"
+    }
+   ]
+  },
+  "2020q1": {
+   "partition": "2020q1",
+   "fetched_at": "2026-10-09T23:27:00+00:00",
+   "rows": 417214,
+   "bytes": 6810591,
+   "sha256": "7cdabc26d3870e97e03941808b659422d43e72802a17da81e9b1f4647f51da84",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2020q1.zip"
+   ],
+   "notes": {
+    "filings": 5631,
+    "forms": {
+     "10-K": 4027,
+     "10-Q": 1174,
+     "20-F": 216,
+     "40-F": 95,
+     "10-K/A": 60,
+     "10-Q/A": 44,
+     "10-KT": 7,
+     "20-F/A": 5,
+     "40-F/A": 3
+    },
+    "empty_values": 4817
+   },
+   "asset": "financials__2020q1.parquet",
+   "status": "ok",
+   "duration_s": 8.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,631 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "417,214 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "417214/417214 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "417214/417214 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "416382/417214 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,817 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "417206/417214 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4027, '10-Q': 1174, '20-F': 216, '40-F': 95, '10-K/A': 60, '10-Q/A': 44, '10-KT': 7, '20-F/A': 5, '40-F/A': 3}"
+    }
+   ]
+  },
+  "2020q2": {
+   "partition": "2020q2",
+   "fetched_at": "2026-10-09T23:27:05+00:00",
+   "rows": 334079,
+   "bytes": 5578138,
+   "sha256": "8b90f4ba4151852792bf59dbecc47c39c86cb30b55cde3e01a4a1df0ceda9b31",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2020q2.zip"
+   ],
+   "notes": {
+    "filings": 6347,
+    "forms": {
+     "10-Q": 5101,
+     "10-K": 702,
+     "20-F": 396,
+     "10-K/A": 65,
+     "10-Q/A": 52,
+     "20-F/A": 17,
+     "40-F": 7,
+     "10-KT": 4,
+     "40-F/A": 3
+    },
+    "empty_values": 4731
+   },
+   "asset": "financials__2020q2.parquet",
+   "status": "ok",
+   "duration_s": 6.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,347 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "334,079 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "334079/334079 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "334079/334079 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "333474/334079 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,731 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "334069/334079 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5101, '10-K': 702, '20-F': 396, '10-K/A': 65, '10-Q/A': 52, '20-F/A': 17, '40-F': 7, '10-KT': 4, '40-F/A': 3}"
+    }
+   ]
+  },
+  "2020q3": {
+   "partition": "2020q3",
+   "fetched_at": "2026-10-09T23:26:58+00:00",
+   "rows": 387417,
+   "bytes": 6328764,
+   "sha256": "95d15f57c3b1f5d615e02ffeda9576f0fffcb3f70e835490dba108d0d9da0984",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2020q3.zip"
+   ],
+   "notes": {
+    "filings": 5965,
+    "forms": {
+     "10-Q": 5339,
+     "10-K": 428,
+     "10-Q/A": 101,
+     "20-F": 49,
+     "10-K/A": 35,
+     "20-F/A": 7,
+     "40-F": 4,
+     "40-F/A": 1,
+     "10-QT": 1
+    },
+    "empty_values": 4714
+   },
+   "asset": "financials__2020q3.parquet",
+   "status": "ok",
+   "duration_s": 5.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,965 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "387,417 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "387417/387417 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "387417/387417 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "387143/387417 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,714 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "387394/387417 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5339, '10-K': 428, '10-Q/A': 101, '20-F': 49, '10-K/A': 35, '20-F/A': 7, '40-F': 4, '40-F/A': 1, '10-QT': 1}"
+    }
+   ]
+  },
+  "2020q4": {
+   "partition": "2020q4",
+   "fetched_at": "2026-10-09T23:27:05+00:00",
+   "rows": 388697,
+   "bytes": 6274385,
+   "sha256": "35e696626d6f5c108444467d3d6435aaf4df694d12e8f58e3f6d44a95f59e8c1",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2020q4.zip"
+   ],
+   "notes": {
+    "filings": 5918,
+    "forms": {
+     "10-Q": 5344,
+     "10-K": 406,
+     "10-Q/A": 80,
+     "20-F": 41,
+     "10-K/A": 32,
+     "40-F": 9,
+     "20-F/A": 4,
+     "10-QT": 2
+    },
+    "empty_values": 4520
+   },
+   "asset": "financials__2020q4.parquet",
+   "status": "ok",
+   "duration_s": 10.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,918 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "388,697 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "388697/388697 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "388697/388697 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "388617/388697 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,520 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "388680/388697 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5344, '10-K': 406, '10-Q/A': 80, '20-F': 41, '10-K/A': 32, '40-F': 9, '20-F/A': 4, '10-QT': 2}"
+    }
+   ]
+  },
+  "2021q1": {
+   "partition": "2021q1",
+   "fetched_at": "2026-10-09T23:27:07+00:00",
+   "rows": 402621,
+   "bytes": 6615541,
+   "sha256": "9747140ac32f8432411053745cc15f158fa4ae55f56b30db3c5c267aa03e3b71",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2021q1.zip"
+   ],
+   "notes": {
+    "filings": 5965,
+    "forms": {
+     "10-K": 4335,
+     "10-Q": 1130,
+     "20-F": 262,
+     "40-F": 108,
+     "10-Q/A": 53,
+     "10-K/A": 52,
+     "20-F/A": 13,
+     "10-KT": 8,
+     "40-F/A": 3,
+     "10-QT": 1
+    },
+    "empty_values": 3431
+   },
+   "asset": "financials__2021q1.parquet",
+   "status": "ok",
+   "duration_s": 5.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,965 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "402,621 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "402621/402621 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "402621/402621 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "401763/402621 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "3,431 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "402606/402621 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4335, '10-Q': 1130, '20-F': 262, '40-F': 108, '10-Q/A': 53, '10-K/A': 52, '20-F/A': 13, '10-KT': 8, '40-F/A': 3, '10-QT': 1}"
+    }
+   ]
+  },
+  "2021q2": {
+   "partition": "2021q2",
+   "fetched_at": "2026-10-09T23:27:16+00:00",
+   "rows": 362442,
+   "bytes": 6080502,
+   "sha256": "bab9a2eb72ce0c49e94258ad1a6e1e6eb165340f05eb9794464db2d7d389098f",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2021q2.zip"
+   ],
+   "notes": {
+    "filings": 7337,
+    "forms": {
+     "10-Q": 5808,
+     "10-K": 661,
+     "20-F": 412,
+     "10-K/A": 304,
+     "10-Q/A": 99,
+     "20-F/A": 22,
+     "40-F": 14,
+     "10-KT": 9,
+     "40-F/A": 7,
+     "10-QT": 1
+    },
+    "empty_values": 4998
+   },
+   "asset": "financials__2021q2.parquet",
+   "status": "ok",
+   "duration_s": 8.3,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,337 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "362,442 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "362442/362442 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "362442/362442 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "361982/362442 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,998 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "362394/362442 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5808, '10-K': 661, '20-F': 412, '10-K/A': 304, '10-Q/A': 99, '20-F/A': 22, '40-F': 14, '10-KT': 9, '40-F/A': 7, '10-QT': 1}"
+    }
+   ]
+  },
+  "2021q3": {
+   "partition": "2021q3",
+   "fetched_at": "2026-10-09T23:27:21+00:00",
+   "rows": 423389,
+   "bytes": 6881770,
+   "sha256": "12b78c3218e2f54bdf3e2b079d6346e98213affb0267b4c87d62aaaa6441a65c",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2021q3.zip"
+   ],
+   "notes": {
+    "filings": 6905,
+    "forms": {
+     "10-Q": 6230,
+     "10-K": 443,
+     "10-Q/A": 103,
+     "10-K/A": 67,
+     "20-F": 47,
+     "20-F/A": 7,
+     "40-F": 4,
+     "40-F/A": 2,
+     "10-KT": 1,
+     "10-QT": 1
+    },
+    "empty_values": 6147
+   },
+   "asset": "financials__2021q3.parquet",
+   "status": "ok",
+   "duration_s": 9.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,905 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "423,389 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "423389/423389 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "423389/423389 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "423185/423389 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "6,147 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "423349/423389 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6230, '10-K': 443, '10-Q/A': 103, '10-K/A': 67, '20-F': 47, '20-F/A': 7, '40-F': 4, '40-F/A': 2, '10-KT': 1, '10-QT': 1}"
+    }
+   ]
+  },
+  "2021q4": {
+   "partition": "2021q4",
+   "fetched_at": "2026-10-09T23:27:25+00:00",
+   "rows": 441936,
+   "bytes": 7135328,
+   "sha256": "46af0302422f8360b8cd2273ee524a739016c8718f847ac7c7a6227e5c0bab1e",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2021q4.zip"
+   ],
+   "notes": {
+    "filings": 7025,
+    "forms": {
+     "10-Q": 6162,
+     "10-K": 422,
+     "10-Q/A": 257,
+     "10-K/A": 109,
+     "20-F": 43,
+     "20-F/A": 12,
+     "40-F": 9,
+     "40-F/A": 7,
+     "10-KT": 4
+    },
+    "empty_values": 5675
+   },
+   "asset": "financials__2021q4.parquet",
+   "status": "ok",
+   "duration_s": 9.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,025 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "441,936 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "441936/441936 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "441936/441936 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "441567/441936 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,675 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "441927/441936 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6162, '10-K': 422, '10-Q/A': 257, '10-K/A': 109, '20-F': 43, '20-F/A': 12, '40-F': 9, '40-F/A': 7, '10-KT': 4}"
+    }
+   ]
+  },
+  "2022q1": {
+   "partition": "2022q1",
+   "fetched_at": "2026-10-09T23:27:27+00:00",
+   "rows": 398253,
+   "bytes": 6526316,
+   "sha256": "52e3ace264c8f2dae77c9be941c163714d4a720a66078974a6736e5b115138da",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2022q1.zip"
+   ],
+   "notes": {
+    "filings": 6793,
+    "forms": {
+     "10-K": 4862,
+     "10-Q": 1129,
+     "20-F": 287,
+     "10-Q/A": 257,
+     "40-F": 120,
+     "10-K/A": 105,
+     "10-KT": 14,
+     "20-F/A": 11,
+     "10-QT": 5,
+     "40-F/A": 3
+    },
+    "empty_values": 4245
+   },
+   "asset": "financials__2022q1.parquet",
+   "status": "ok",
+   "duration_s": 9.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,793 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "398,253 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "398253/398253 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "398253/398253 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "397386/398253 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,245 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "398240/398253 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4862, '10-Q': 1129, '20-F': 287, '10-Q/A': 257, '40-F': 120, '10-K/A': 105, '10-KT': 14, '20-F/A': 11, '10-QT': 5, '40-F/A': 3}"
+    }
+   ]
+  },
+  "2022q2": {
+   "partition": "2022q2",
+   "fetched_at": "2026-10-09T23:27:29+00:00",
+   "rows": 399668,
+   "bytes": 6699791,
+   "sha256": "cb9622508d71fd1872d645f1ef5e5d1af682b67ce71e5e46a53c98e7e2c7c933",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2022q2.zip"
+   ],
+   "notes": {
+    "filings": 7896,
+    "forms": {
+     "10-Q": 6291,
+     "10-K": 852,
+     "20-F": 500,
+     "10-K/A": 105,
+     "10-Q/A": 98,
+     "20-F/A": 23,
+     "40-F": 14,
+     "40-F/A": 8,
+     "10-KT": 3,
+     "10-QT": 2
+    },
+    "empty_values": 5640
+   },
+   "asset": "financials__2022q2.parquet",
+   "status": "ok",
+   "duration_s": 11.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,896 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "399,668 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "399668/399668 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "399668/399668 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "399283/399668 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,640 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "399627/399668 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6291, '10-K': 852, '20-F': 500, '10-K/A': 105, '10-Q/A': 98, '20-F/A': 23, '40-F': 14, '40-F/A': 8, '10-KT': 3, '10-QT': 2}"
+    }
+   ]
+  },
+  "2022q3": {
+   "partition": "2022q3",
+   "fetched_at": "2026-10-09T23:27:29+00:00",
+   "rows": 453042,
+   "bytes": 7297588,
+   "sha256": "41b847acdc974380b792c16970d7b36ee3049995c3404117d7311f4d92792da5",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2022q3.zip"
+   ],
+   "notes": {
+    "filings": 6846,
+    "forms": {
+     "10-Q": 6197,
+     "10-K": 384,
+     "10-Q/A": 88,
+     "10-K/A": 66,
+     "20-F": 65,
+     "20-F/A": 26,
+     "40-F": 8,
+     "10-QT": 4,
+     "40-F/A": 4,
+     "10-KT": 4
+    },
+    "empty_values": 5558
+   },
+   "asset": "financials__2022q3.parquet",
+   "status": "ok",
+   "duration_s": 9.2,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,846 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "453,042 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "453042/453042 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "453042/453042 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "452810/453042 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,558 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "453025/453042 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6197, '10-K': 384, '10-Q/A': 88, '10-K/A': 66, '20-F': 65, '20-F/A': 26, '40-F': 8, '10-QT': 4, '40-F/A': 4, '10-KT': 4}"
+    }
+   ]
+  },
+  "2022q4": {
+   "partition": "2022q4",
+   "fetched_at": "2026-10-09T23:27:26+00:00",
+   "rows": 468386,
+   "bytes": 7488587,
+   "sha256": "ccc65a6a27c5e6afc96ab8f6e9e89430187b80bdac3644e3458ff76efa6d9be1",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2022q4.zip"
+   ],
+   "notes": {
+    "filings": 6868,
+    "forms": {
+     "10-Q": 6183,
+     "10-K": 418,
+     "10-Q/A": 133,
+     "10-K/A": 58,
+     "20-F": 48,
+     "20-F/A": 14,
+     "40-F": 12,
+     "40-F/A": 2
+    },
+    "empty_values": 5996
+   },
+   "asset": "financials__2022q4.parquet",
+   "status": "warn",
+   "duration_s": 10.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,868 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "468,386 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "468386/468386 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "468386/468386 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "warn",
+     "detail": "464688/468386 = %99.2"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "5,996 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "468382/468386 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6183, '10-K': 418, '10-Q/A': 133, '10-K/A': 58, '20-F': 48, '20-F/A': 14, '40-F': 12, '40-F/A': 2}"
+    }
+   ]
+  },
+  "2023q1": {
+   "partition": "2023q1",
+   "fetched_at": "2026-10-09T23:27:32+00:00",
+   "rows": 397366,
+   "bytes": 6530648,
+   "sha256": "f5c74b3024f065b245c7edfd3e1478904c1942c2a1fd5c2904fe8a40545fc465",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2023q1.zip"
+   ],
+   "notes": {
+    "filings": 6368,
+    "forms": {
+     "10-K": 4653,
+     "10-Q": 1090,
+     "20-F": 317,
+     "40-F": 113,
+     "10-Q/A": 89,
+     "10-K/A": 70,
+     "20-F/A": 24,
+     "10-KT": 7,
+     "40-F/A": 4,
+     "10-QT": 1
+    },
+    "empty_values": 3552
+   },
+   "asset": "financials__2023q1.parquet",
+   "status": "ok",
+   "duration_s": 9.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,368 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "397,366 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "397366/397366 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "397366/397366 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "397116/397366 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "3,552 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "397366/397366 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4653, '10-Q': 1090, '20-F': 317, '40-F': 113, '10-Q/A': 89, '10-K/A': 70, '20-F/A': 24, '10-KT': 7, '40-F/A': 4, '10-QT': 1}"
+    }
+   ]
+  },
+  "2023q2": {
+   "partition": "2023q2",
+   "fetched_at": "2026-10-09T23:27:27+00:00",
+   "rows": 397031,
+   "bytes": 6647339,
+   "sha256": "08359761f828405ed7ece687a58c85a4d8b1a1d9b86e1bc52d38d6274822ac5c",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2023q2.zip"
+   ],
+   "notes": {
+    "filings": 7488,
+    "forms": {
+     "10-Q": 5904,
+     "10-K": 800,
+     "20-F": 500,
+     "10-K/A": 132,
+     "10-Q/A": 92,
+     "20-F/A": 30,
+     "40-F": 18,
+     "10-KT": 5,
+     "40-F/A": 5,
+     "10-QT": 2
+    },
+    "empty_values": 4958
+   },
+   "asset": "financials__2023q2.parquet",
+   "status": "ok",
+   "duration_s": 6.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,488 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "397,031 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "397031/397031 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "397031/397031 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "396840/397031 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,958 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "396982/397031 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5904, '10-K': 800, '20-F': 500, '10-K/A': 132, '10-Q/A': 92, '20-F/A': 30, '40-F': 18, '10-KT': 5, '40-F/A': 5, '10-QT': 2}"
+    }
+   ]
+  },
   "2023q3": {
    "partition": "2023q3",
    "fetched_at": "2026-10-09T23:17:32+00:00",
@@ -189,10 +3221,10 @@
   },
   "2024q1": {
    "partition": "2024q1",
-   "fetched_at": "2026-10-09T23:14:36+00:00",
-   "rows": 363203,
-   "bytes": 5977140,
-   "sha256": "0758eec24b80278ff465e3bf1369be1ce66bd51a9ada1c57e9b953833a161b72",
+   "fetched_at": "2026-10-09T23:28:04+00:00",
+   "rows": 360557,
+   "bytes": 5937227,
+   "sha256": "cd4645fd904db856d838fb610cac98b285ce2c4d6a58eab5c42b2b90f91fd748",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -226,11 +3258,12 @@
      "20-F/A": 18,
      "10-KT": 5,
      "10-QT": 3
-    }
+    },
+    "empty_values": 2646
    },
    "asset": "financials__2024q1.parquet",
-   "status": "warn",
-   "duration_s": 7.1,
+   "status": "ok",
+   "duration_s": 9.1,
    "requests": 2,
    "checks": [
     {
@@ -241,32 +3274,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "363,203 (beklenen 100,000–3,000,000)"
+     "detail": "360,557 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "363203/363203 = %100.0"
+     "detail": "360557/360557 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "363203/363203 = %100.0"
+     "detail": "360557/360557 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "362478/363203 = %99.8"
+     "detail": "359836/360557 = %99.8"
     },
     {
-     "name": "Değer sayısal",
-     "status": "warn",
-     "detail": "360557/363203 = %99.3"
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "2,646 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "363193/363203 = %100.0"
+     "detail": "360547/360557 = %100.0"
     },
     {
      "name": "Doğrulanmış gerçek: CIK 1045810 Revenues 2024-01-31",
@@ -279,13 +3312,813 @@
      "detail": "{'10-K': 3974, '10-Q': 1044, '20-F': 319, '40-F': 105, '10-Q/A': 81, '10-K/A': 63, '20-F/A': 18, '10-KT': 5, '10-QT': 3}"
     }
    ]
+  },
+  "2024q2": {
+   "partition": "2024q2",
+   "fetched_at": "2026-10-09T23:27:34+00:00",
+   "rows": 390465,
+   "bytes": 6495784,
+   "sha256": "db399144ff8414644a11cf25b633f45bb33a99ab2be32e364a27660bfab24c7b",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2024q2.zip"
+   ],
+   "notes": {
+    "filings": 7183,
+    "forms": {
+     "10-Q": 5406,
+     "10-K": 1033,
+     "20-F": 503,
+     "10-K/A": 104,
+     "10-Q/A": 92,
+     "20-F/A": 21,
+     "40-F": 19,
+     "40-F/A": 3,
+     "10-KT": 2
+    },
+    "empty_values": 4558
+   },
+   "asset": "financials__2024q2.parquet",
+   "status": "ok",
+   "duration_s": 10.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,183 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "390,465 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "390465/390465 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "390465/390465 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "390427/390465 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,558 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "390420/390465 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5406, '10-K': 1033, '20-F': 503, '10-K/A': 104, '10-Q/A': 92, '20-F/A': 21, '40-F': 19, '40-F/A': 3, '10-KT': 2}"
+    }
+   ]
+  },
+  "2024q3": {
+   "partition": "2024q3",
+   "fetched_at": "2026-10-09T23:27:33+00:00",
+   "rows": 412681,
+   "bytes": 6644983,
+   "sha256": "a0e9d437a3d23bfe49e722eca9545dcc24360357b6955ba1b5f7472f4e4a2862",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2024q3.zip"
+   ],
+   "notes": {
+    "filings": 6085,
+    "forms": {
+     "10-Q": 5390,
+     "10-K": 403,
+     "10-Q/A": 94,
+     "10-K/A": 87,
+     "20-F": 83,
+     "20-F/A": 19,
+     "40-F": 5,
+     "10-KT": 3,
+     "10-QT": 1
+    },
+    "empty_values": 4156
+   },
+   "asset": "financials__2024q3.parquet",
+   "status": "ok",
+   "duration_s": 9.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,085 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "412,681 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "412681/412681 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "412681/412681 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "412681/412681 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,156 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "412671/412681 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5390, '10-K': 403, '10-Q/A': 94, '10-K/A': 87, '20-F': 83, '20-F/A': 19, '40-F': 5, '10-KT': 3, '10-QT': 1}"
+    }
+   ]
+  },
+  "2024q4": {
+   "partition": "2024q4",
+   "fetched_at": "2026-10-09T23:27:39+00:00",
+   "rows": 417662,
+   "bytes": 6713767,
+   "sha256": "69d02148df8fe587cf70fef932beee6f8434c072a3169199702f08a846ee224b",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2024q4.zip"
+   ],
+   "notes": {
+    "filings": 6016,
+    "forms": {
+     "10-Q": 5364,
+     "10-K": 373,
+     "10-Q/A": 108,
+     "20-F": 76,
+     "10-K/A": 61,
+     "20-F/A": 18,
+     "40-F": 11,
+     "10-KT": 3,
+     "10-QT": 1,
+     "40-F/A": 1
+    },
+    "empty_values": 4077
+   },
+   "asset": "financials__2024q4.parquet",
+   "status": "ok",
+   "duration_s": 11.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,016 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "417,662 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "417662/417662 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "417662/417662 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "416395/417662 = %99.7"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,077 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "417651/417662 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5364, '10-K': 373, '10-Q/A': 108, '20-F': 76, '10-K/A': 61, '20-F/A': 18, '40-F': 11, '10-KT': 3, '10-QT': 1, '40-F/A': 1}"
+    }
+   ]
+  },
+  "2025q1": {
+   "partition": "2025q1",
+   "fetched_at": "2026-10-09T23:27:44+00:00",
+   "rows": 358907,
+   "bytes": 5932363,
+   "sha256": "31ed7d10210daf70ff884c50f9bce95b1a9cb34cbad30db65cf8b6c8f9e0a4af",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q1.zip"
+   ],
+   "notes": {
+    "filings": 5765,
+    "forms": {
+     "10-K": 4171,
+     "10-Q": 1003,
+     "20-F": 337,
+     "40-F": 109,
+     "10-K/A": 64,
+     "10-Q/A": 61,
+     "20-F/A": 13,
+     "10-KT": 6,
+     "40-F/A": 1
+    },
+    "empty_values": 2589
+   },
+   "asset": "financials__2025q1.parquet",
+   "status": "ok",
+   "duration_s": 16.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,765 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "358,907 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "358907/358907 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "358907/358907 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "358549/358907 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "2,589 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "358907/358907 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4171, '10-Q': 1003, '20-F': 337, '40-F': 109, '10-K/A': 64, '10-Q/A': 61, '20-F/A': 13, '10-KT': 6, '40-F/A': 1}"
+    }
+   ]
+  },
+  "2025q3": {
+   "partition": "2025q3",
+   "fetched_at": "2026-10-09T23:27:55+00:00",
+   "rows": 395569,
+   "bytes": 6358630,
+   "sha256": "7c8a892e76bf1ea4b19c8ac2a0f814b5ce00e936451cd21abadaf36cf5aad64d",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q3.zip"
+   ],
+   "notes": {
+    "filings": 5875,
+    "forms": {
+     "10-Q": 5249,
+     "10-K": 382,
+     "20-F": 94,
+     "10-Q/A": 65,
+     "10-K/A": 56,
+     "20-F/A": 19,
+     "40-F": 6,
+     "10-KT": 3,
+     "10-QT": 1
+    },
+    "empty_values": 4504
+   },
+   "asset": "financials__2025q3.parquet",
+   "status": "ok",
+   "duration_s": 10.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,875 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "395,569 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "395569/395569 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "395569/395569 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "395177/395569 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,504 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "395559/395569 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5249, '10-K': 382, '20-F': 94, '10-Q/A': 65, '10-K/A': 56, '20-F/A': 19, '40-F': 6, '10-KT': 3, '10-QT': 1}"
+    }
+   ]
+  },
+  "2025q4": {
+   "partition": "2025q4",
+   "fetched_at": "2026-10-09T23:27:57+00:00",
+   "rows": 400522,
+   "bytes": 2452558,
+   "sha256": "b959c033795af41be1d716f0c09f5ae950c82963215d6c65911d1abac5aed49b",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q4.zip"
+   ],
+   "notes": {
+    "filings": 5825,
+    "forms": {
+     "10-Q": 5278,
+     "10-K": 353,
+     "20-F": 83,
+     "10-Q/A": 65,
+     "10-K/A": 23,
+     "40-F": 14,
+     "20-F/A": 7,
+     "10-KT": 2
+    },
+    "empty_values": 4409
+   },
+   "asset": "financials__2025q4.parquet",
+   "status": "ok",
+   "duration_s": 6.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,825 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "400,522 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "400522/400522 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "400522/400522 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "400252/400522 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,409 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "400518/400522 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5278, '10-K': 353, '20-F': 83, '10-Q/A': 65, '10-K/A': 23, '40-F': 14, '20-F/A': 7, '10-KT': 2}"
+    }
+   ]
+  },
+  "2026q1": {
+   "partition": "2026q1",
+   "fetched_at": "2026-10-09T23:27:57+00:00",
+   "rows": 347045,
+   "bytes": 4308505,
+   "sha256": "109548cb38652fe0a5e9229ee94b38f0ade82c6744f838f9eeffea3a52afb3ca",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q1.zip"
+   ],
+   "notes": {
+    "filings": 5812,
+    "forms": {
+     "10-K": 4262,
+     "10-Q": 972,
+     "20-F": 372,
+     "40-F": 112,
+     "10-K/A": 47,
+     "10-Q/A": 30,
+     "10-KT": 8,
+     "20-F/A": 8,
+     "40-F/A": 1
+    },
+    "empty_values": 2922
+   },
+   "asset": "financials__2026q1.parquet",
+   "status": "ok",
+   "duration_s": 8.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,812 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "347,045 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "347045/347045 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "347045/347045 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "346506/347045 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "2,922 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "347043/347045 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4262, '10-Q': 972, '20-F': 372, '40-F': 112, '10-K/A': 47, '10-Q/A': 30, '10-KT': 8, '20-F/A': 8, '40-F/A': 1}"
+    }
+   ]
+  },
+  "2026q2": {
+   "partition": "2026q2",
+   "fetched_at": "2026-10-09T23:27:56+00:00",
+   "rows": 348143,
+   "bytes": 2250351,
+   "sha256": "cfab83c853d1b825ff56289ec383648ca66d4edbeb422a06500440f799dfdfba",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q2.zip"
+   ],
+   "notes": {
+    "filings": 6567,
+    "forms": {
+     "10-Q": 5321,
+     "10-K": 570,
+     "20-F": 521,
+     "10-K/A": 72,
+     "10-Q/A": 37,
+     "20-F/A": 24,
+     "40-F": 17,
+     "40-F/A": 3,
+     "10-KT": 2
+    },
+    "empty_values": 4995
+   },
+   "asset": "financials__2026q2.parquet",
+   "status": "ok",
+   "duration_s": 6.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,567 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "348,143 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "348143/348143 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "348143/348143 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "347773/348143 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,995 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "348136/348143 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5321, '10-K': 570, '20-F': 521, '10-K/A': 72, '10-Q/A': 37, '20-F/A': 24, '40-F': 17, '40-F/A': 3, '10-KT': 2}"
+    }
+   ]
+  },
+  "2026q3": {
+   "partition": "2026q3",
+   "fetched_at": "2026-10-09T23:28:02+00:00",
+   "rows": 385147,
+   "bytes": 2363721,
+   "sha256": "7aee18e9c652cfb9c445982f9dae0a9c70c8bad4ddf936d36d5104ed2e698b40",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q3.zip"
+   ],
+   "notes": {
+    "filings": 5821,
+    "forms": {
+     "10-Q": 5263,
+     "10-K": 344,
+     "20-F": 97,
+     "10-Q/A": 55,
+     "10-K/A": 38,
+     "20-F/A": 17,
+     "40-F": 4,
+     "10-KT": 3
+    },
+    "empty_values": 4331
+   },
+   "asset": "financials__2026q3.parquet",
+   "status": "ok",
+   "duration_s": 11.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "5,821 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "385,147 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "385147/385147 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "385147/385147 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "385105/385147 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,331 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "385144/385147 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5263, '10-K': 344, '20-F': 97, '10-Q/A': 55, '10-K/A': 38, '20-F/A': 17, '40-F': 4, '10-KT': 3}"
+    }
+   ]
   }
  },
  "dataset_checks": [
   {
    "name": "Yüklenen çeyrek",
    "status": "ok",
-   "detail": "3 çeyrek: ['2023q3'] … ['2024q1']"
+   "detail": "46 çeyrek: ['2015q1'] … ['2026q3']"
   },
   {
    "name": "Doğrulanmış gerçek içeren çeyrekler",
@@ -295,5 +4128,5 @@
  ],
  "title": "SEC finansal tablo verileri (XBRL, 2015→)",
  "derived": {},
- "finalized_at": "2026-10-09T23:22:37+00:00"
+ "finalized_at": "2026-10-09T23:59:37+00:00"
 }

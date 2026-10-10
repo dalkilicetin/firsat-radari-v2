@@ -42,10 +42,808 @@
      "detail": "Temmuz 2015'ten başlayan: 47/75"
     }
    ]
+  },
+  "B-20261009": {
+   "partition": "B-20261009",
+   "fetched_at": "2026-10-09T23:33:31+00:00",
+   "rows": 120665,
+   "bytes": 358246,
+   "sha256": "353d5e2d5dbb562f3c19b40a17457981c92bf33c4afefa2dd21e6aeb5b19c28b",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 35,
+    "missing": []
+   },
+   "asset": "wikiviews__B-20261009.parquet",
+   "status": "ok",
+   "duration_s": 20.1,
+   "requests": 37,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "35/35 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "35/35 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 23/35"
+    }
+   ]
+  },
+  "C-20261009": {
+   "partition": "C-20261009",
+   "fetched_at": "2026-10-09T23:33:49+00:00",
+   "rows": 277874,
+   "bytes": 810789,
+   "sha256": "c3c3414c7c614f32247c646a1829c6510aa5c55417d86b5381390b56c2f193f3",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 76,
+    "missing": []
+   },
+   "asset": "wikiviews__C-20261009.parquet",
+   "status": "ok",
+   "duration_s": 40.4,
+   "requests": 78,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "76/76 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "76/76 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 57/76"
+    }
+   ]
+  },
+  "D-20261009": {
+   "partition": "D-20261009",
+   "fetched_at": "2026-10-09T23:33:48+00:00",
+   "rows": 80855,
+   "bytes": 253132,
+   "sha256": "70210822facb265584134e0e787f818ad870eef5d5659d3a99bae4df471b92a5",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 22,
+    "missing": []
+   },
+   "asset": "wikiviews__D-20261009.parquet",
+   "status": "ok",
+   "duration_s": 12.1,
+   "requests": 24,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "22/22 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "22/22 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 15/22"
+    }
+   ]
+  },
+  "E-20261009": {
+   "partition": "E-20261009",
+   "fetched_at": "2026-10-09T23:34:00+00:00",
+   "rows": 110752,
+   "bytes": 358723,
+   "sha256": "ecd67817b8150a0564fd2431628f9fc0d724f4e2b16b05b63a853b032eab693a",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 30,
+    "missing": []
+   },
+   "asset": "wikiviews__E-20261009.parquet",
+   "status": "ok",
+   "duration_s": 17.8,
+   "requests": 32,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "30/30 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "30/30 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 23/30"
+    }
+   ]
+  },
+  "F-20261009": {
+   "partition": "F-20261009",
+   "fetched_at": "2026-10-09T23:34:14+00:00",
+   "rows": 116409,
+   "bytes": 347083,
+   "sha256": "c509b22da5741c9589e160318bdc9c19007a67b2815b3f80c42ffbc0ade12eb4",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 32,
+    "missing": []
+   },
+   "asset": "wikiviews__F-20261009.parquet",
+   "status": "ok",
+   "duration_s": 12.0,
+   "requests": 34,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "32/32 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "32/32 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 25/32"
+    }
+   ]
+  },
+  "G-20261009": {
+   "partition": "G-20261009",
+   "fetched_at": "2026-10-09T23:34:15+00:00",
+   "rows": 101658,
+   "bytes": 319962,
+   "sha256": "bc062d0910b01b883882109ec7e98713e0b9226e8cf1f1be482f58c99000eb1b",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 34,
+    "missing": []
+   },
+   "asset": "wikiviews__G-20261009.parquet",
+   "status": "ok",
+   "duration_s": 10.7,
+   "requests": 36,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "34/34 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "34/34 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 20/34"
+    }
+   ]
+  },
+  "H-20261009": {
+   "partition": "H-20261009",
+   "fetched_at": "2026-10-09T23:34:26+00:00",
+   "rows": 68923,
+   "bytes": 218997,
+   "sha256": "6e86c0b8d6b60387a0149209fcc47f897fa52a141a3ac96ec9a21f212bd3100a",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 22,
+    "missing": []
+   },
+   "asset": "wikiviews__H-20261009.parquet",
+   "status": "ok",
+   "duration_s": 11.9,
+   "requests": 24,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "22/22 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "22/22 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 15/22"
+    }
+   ]
+  },
+  "I-20261009": {
+   "partition": "I-20261009",
+   "fetched_at": "2026-10-09T23:34:44+00:00",
+   "rows": 113096,
+   "bytes": 319916,
+   "sha256": "4a33ee126f7c2bad01a819db04a5dad344bdd285d515165a3c5776ceb1196b69",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 32,
+    "missing": []
+   },
+   "asset": "wikiviews__I-20261009.parquet",
+   "status": "ok",
+   "duration_s": 17.7,
+   "requests": 35,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "32/32 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "32/32 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 24/32"
+    }
+   ]
+  },
+  "J-K-20261009": {
+   "partition": "J-K-20261009",
+   "fetched_at": "2026-10-09T23:34:52+00:00",
+   "rows": 80120,
+   "bytes": 240106,
+   "sha256": "8b06cfa330637730824ec33fcbdab9c402eec2f16c855a513591fe336a903ab1",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 23,
+    "missing": []
+   },
+   "asset": "wikiviews__J-K-20261009.parquet",
+   "status": "ok",
+   "duration_s": 14.7,
+   "requests": 26,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "23/23 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "23/23 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 17/23"
+    }
+   ]
+  },
+  "L-20261009": {
+   "partition": "L-20261009",
+   "fetched_at": "2026-10-09T23:34:47+00:00",
+   "rows": 117311,
+   "bytes": 345948,
+   "sha256": "b58048c5cbbc4aefedcb1a5ec9d64d50dd9b624b20256ebb1e7c84f03bbcaf7b",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 31,
+    "missing": []
+   },
+   "asset": "wikiviews__L-20261009.parquet",
+   "status": "ok",
+   "duration_s": 22.6,
+   "requests": 34,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "31/31 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "31/31 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 25/31"
+    }
+   ]
+  },
+  "M-20261009": {
+   "partition": "M-20261009",
+   "fetched_at": "2026-10-09T23:34:54+00:00",
+   "rows": 154080,
+   "bytes": 493120,
+   "sha256": "63571726cc6ad3d283b3ddc42330646fae3535dd49ce2144d500cba29c1153d9",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 43,
+    "missing": []
+   },
+   "asset": "wikiviews__M-20261009.parquet",
+   "status": "ok",
+   "duration_s": 25.4,
+   "requests": 46,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "43/43 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "43/43 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 28/43"
+    }
+   ]
+  },
+  "N-20261009": {
+   "partition": "N-20261009",
+   "fetched_at": "2026-10-09T23:35:02+00:00",
+   "rows": 139109,
+   "bytes": 429624,
+   "sha256": "98b7e6d7d0dd1a494cccb744a38a31d0e9e9294236233ce1a5b42e59db86e249",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 40,
+    "missing": []
+   },
+   "asset": "wikiviews__N-20261009.parquet",
+   "status": "ok",
+   "duration_s": 20.5,
+   "requests": 42,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "40/40 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "40/40 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 27/40"
+    }
+   ]
+  },
+  "O-20261009": {
+   "partition": "O-20261009",
+   "fetched_at": "2026-10-09T23:35:05+00:00",
+   "rows": 75288,
+   "bytes": 232743,
+   "sha256": "f5c2417a0a532105422dbb3d11ff051875dffe427770bb27b00d08458a70f300",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 22,
+    "missing": []
+   },
+   "asset": "wikiviews__O-20261009.parquet",
+   "status": "ok",
+   "duration_s": 7.2,
+   "requests": 24,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "22/22 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "22/22 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 13/22"
+    }
+   ]
+  },
+  "P-20261009": {
+   "partition": "P-20261009",
+   "fetched_at": "2026-10-09T23:35:23+00:00",
+   "rows": 133670,
+   "bytes": 394233,
+   "sha256": "b5a5e02fe2b043011b43c378a3210ccc3a038031a1111df68b178147daa04be1",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 39,
+    "missing": []
+   },
+   "asset": "wikiviews__P-20261009.parquet",
+   "status": "ok",
+   "duration_s": 38.8,
+   "requests": 42,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "39/39 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "39/39 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 25/39"
+    }
+   ]
+  },
+  "Q-R-20261009": {
+   "partition": "Q-R-20261009",
+   "fetched_at": "2026-10-09T23:35:26+00:00",
+   "rows": 128083,
+   "bytes": 367968,
+   "sha256": "87329987a4ad6592d5e092c0e21ddf0d2d0c5b6f1e8b2ca896f5aefd9810fa1d",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 37,
+    "missing": []
+   },
+   "asset": "wikiviews__Q-R-20261009.parquet",
+   "status": "ok",
+   "duration_s": 37.1,
+   "requests": 40,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "37/37 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "37/37 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 24/37"
+    }
+   ]
+  },
+  "S-20261009": {
+   "partition": "S-20261009",
+   "fetched_at": "2026-10-09T23:35:25+00:00",
+   "rows": 179507,
+   "bytes": 547332,
+   "sha256": "6017ad831f5504506b02b8e9b7bf0cef6cd49a82624c59f32e9029474c68d4df",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 52,
+    "missing": []
+   },
+   "asset": "wikiviews__S-20261009.parquet",
+   "status": "ok",
+   "duration_s": 13.6,
+   "requests": 54,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "52/52 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "52/52 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 37/52"
+    }
+   ]
+  },
+  "T-20261009": {
+   "partition": "T-20261009",
+   "fetched_at": "2026-10-09T23:35:31+00:00",
+   "rows": 167594,
+   "bytes": 514630,
+   "sha256": "70729c0e2b487d571504ed708996a32720627d124bcde02b6ce9ff792c2458af",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 49,
+    "missing": []
+   },
+   "asset": "wikiviews__T-20261009.parquet",
+   "status": "ok",
+   "duration_s": 13.5,
+   "requests": 51,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "49/49 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "49/49 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 32/49"
+    }
+   ]
+  },
+  "U-V-20261009": {
+   "partition": "U-V-20261009",
+   "fetched_at": "2026-10-09T23:35:43+00:00",
+   "rows": 145734,
+   "bytes": 414706,
+   "sha256": "71ab3fc7b5e9da9e270897d457cdbe7b1b42af6adec50c32f3a0a56938ac2ef7",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 42,
+    "missing": []
+   },
+   "asset": "wikiviews__U-V-20261009.parquet",
+   "status": "ok",
+   "duration_s": 36.6,
+   "requests": 45,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "42/42 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "42/42 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 25/42"
+    }
+   ]
+  },
+  "W-Z-20261009": {
+   "partition": "W-Z-20261009",
+   "fetched_at": "2026-10-09T23:35:35+00:00",
+   "rows": 147661,
+   "bytes": 455574,
+   "sha256": "ae2ad997faa3b3b2a5e6259ed2fe864991140680f0685707abae1f9dc03cc60b",
+   "columns": {
+    "symbol": "str",
+    "article": "str",
+    "date": "datetime64[s]",
+    "views": "int64"
+   },
+   "sources": [
+    "https://query.wikidata.org/sparql",
+    "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{article}/daily/{start:%Y%m%d}/{end:%Y%m%d}"
+   ],
+   "notes": {
+    "symbols": 41,
+    "missing": []
+   },
+   "asset": "wikiviews__W-Z-20261009.parquet",
+   "status": "ok",
+   "duration_s": 12.8,
+   "requests": 43,
+   "checks": [
+    {
+     "name": "Görüntülenmesi gelen makale",
+     "status": "ok",
+     "detail": "41/41 = %100.0"
+    },
+    {
+     "name": "Son 5 güne kadar güncel",
+     "status": "ok",
+     "detail": "41/41 = %100.0"
+    },
+    {
+     "name": "Geçmiş derinliği",
+     "status": "info",
+     "detail": "Temmuz 2015'ten başlayan: 27/41"
+    }
+   ]
   }
  },
  "dataset_checks": [],
  "title": "Wikipedia günlük görüntülenme (2015-07→)",
  "derived": {},
- "finalized_at": "2026-10-09T23:22:42+00:00"
+ "finalized_at": "2026-10-10T00:00:05+00:00"
 }

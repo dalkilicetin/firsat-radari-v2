@@ -1,0 +1,88 @@
+{
+ "dataset": "filings",
+ "partitions": {
+  "snapshot-20261009": {
+   "partition": "snapshot-20261009",
+   "fetched_at": "2026-10-09T23:35:40+00:00",
+   "rows": 2914112,
+   "bytes": 61969573,
+   "sha256": "91eacce1fc8ff529adef46730f6c62fcf49e28510672b005a177a50dc75dc8cd",
+   "columns": {
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "accession": "str",
+    "items": "str",
+    "report_date": "datetime64[us]",
+    "primary_doc": "str",
+    "cik": "int64",
+    "name": "str",
+    "tickers": "str",
+    "exchanges": "str",
+    "sic": "str",
+    "category": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip"
+   ],
+   "notes": {
+    "companies": 21322
+   },
+   "asset": "filings__snapshot-20261009.parquet",
+   "status": "ok",
+   "duration_s": 146.7,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Faaliyet gösteren şirket",
+     "status": "ok",
+     "detail": "21,322 (beklenen 8,000–60,000)"
+    },
+    {
+     "name": "Dosya satırı",
+     "status": "ok",
+     "detail": "2,914,112 (beklenen 1,000,000–30,000,000)"
+    },
+    {
+     "name": "2015 sonrası 8-K'larda olay kodu dolu",
+     "status": "ok",
+     "detail": "823429/823429 = %100.0"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "2914112/2914112 = %100.0"
+    },
+    {
+     "name": "Doğrulanmış gerçek: AAPL 10-K 2023-11-03",
+     "status": "ok",
+     "detail": "bulundu"
+    },
+    {
+     "name": "2015 sonrası borsadan çıkış / kayıt sonlandırma bildirimi",
+     "status": "info",
+     "detail": "8,875 şirket ({'25-NSE': 7786, '15-12G': 3820, '15-12B': 2022, '15-15D': 1909, '25': 1036})"
+    },
+    {
+     "name": "Borsadan çıkış kaydı: SVB Financial",
+     "status": "ok",
+     "detail": "['15-12G 2018-01-10', '15-12G 2025-01-24', '25-NSE 2017-12-22']"
+    },
+    {
+     "name": "Borsadan çıkış kaydı: Activision Blizzard",
+     "status": "ok",
+     "detail": "['15-12G 2023-10-23', '25-NSE 2023-10-13']"
+    },
+    {
+     "name": "Borsadan çıkış kaydı: Seagen",
+     "status": "ok",
+     "detail": "['15-12G 2023-12-26', '25-NSE 2023-12-14']"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [],
+ "title": "SEC dosyalama geçmişi (8-K olayları, borsadan çıkışlar)",
+ "derived": {},
+ "finalized_at": "2026-10-10T00:00:08+00:00"
+}

@@ -1,6 +1,709 @@
 {
  "dataset": "ftd",
  "partitions": {
+  "2015": {
+   "partition": "2015",
+   "fetched_at": "2026-10-09T23:28:04+00:00",
+   "rows": 1547612,
+   "bytes": 15024187,
+   "sha256": "34d9c573bcbeed0ca17b642a198f5defa220c08180ad7faf355dfd61b05b05f8",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201501a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201501b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201502a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201502b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201503a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201503b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201504a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201504b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201505a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201505b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201506a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201506b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201507a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201507b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201508a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201508b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201509a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201509b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201510a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201510b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201511a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201511b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201512a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201512b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2015.parquet",
+   "status": "ok",
+   "duration_s": 8.5,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,547,612 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1547612/1547612 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1547612/1547612 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1513643/1547612 = %97.8"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "15,413 CUSIP, 15,837 sembol, 250 işlem günü"
+    }
+   ]
+  },
+  "2016": {
+   "partition": "2016",
+   "fetched_at": "2026-10-09T23:28:06+00:00",
+   "rows": 1245231,
+   "bytes": 12237456,
+   "sha256": "6081470eb1dbdc7396e4e475ba7292e04b01d1b0885bcee5691c7640b96dcbd3",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201601a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201601b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201602a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201602b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201603a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201603b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201604a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201604b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201605a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201605b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201606a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201606b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201607a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201607b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201608a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201608b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201609a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201609b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201610a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201610b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201611a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201611b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201612a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201612b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2016.parquet",
+   "status": "ok",
+   "duration_s": 10.1,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,245,231 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1245231/1245231 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1245231/1245231 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1220418/1245231 = %98.0"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "15,267 CUSIP, 15,761 sembol, 250 işlem günü"
+    }
+   ]
+  },
+  "2017": {
+   "partition": "2017",
+   "fetched_at": "2026-10-09T23:28:06+00:00",
+   "rows": 1121046,
+   "bytes": 11086996,
+   "sha256": "45b2b04c8ccd40f835b8d108c6e8d29304b0ccc4bd3d204fc0bed7906fe0451d",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201706b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201707a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201707b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201708a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201708b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201709a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201709b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201710a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201710b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201711a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201711b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201712a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201712b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201701a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201701b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201702a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201702b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201703a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201703b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201704a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201704b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201705a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201705b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201706a.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2017.parquet",
+   "status": "ok",
+   "duration_s": 6.7,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,121,046 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1121046/1121046 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1121046/1121046 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1100171/1121046 = %98.1"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "15,144 CUSIP, 15,508 sembol, 250 işlem günü"
+    }
+   ]
+  },
+  "2018": {
+   "partition": "2018",
+   "fetched_at": "2026-10-09T23:28:16+00:00",
+   "rows": 1194854,
+   "bytes": 11839853,
+   "sha256": "f3a97526f797eadac16c3909267ec85bc1c44fa5208bb9086c0305daf97d8108",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201801a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201801b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201802a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201802b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201803a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201803b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201804a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201804b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201805a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201805b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201806a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201806b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201807a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201807b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201808a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201808b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201809a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201809b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201810a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201810b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201811a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201811b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201812a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201812b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2018.parquet",
+   "status": "ok",
+   "duration_s": 7.9,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,194,854 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1194854/1194854 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1194854/1194854 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1176471/1194854 = %98.5"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "15,539 CUSIP, 15,885 sembol, 250 işlem günü"
+    }
+   ]
+  },
+  "2019": {
+   "partition": "2019",
+   "fetched_at": "2026-10-09T23:28:27+00:00",
+   "rows": 1016475,
+   "bytes": 9896695,
+   "sha256": "481f79946622f8b3fe16f78b8cdafd58f33539fbfaea458b3e65a6a7b14d8b54",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201901a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201901b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201902a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201902b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201903a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201903b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201904a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201904b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201905a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201905b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201906a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201906b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201907a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201907b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201908a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201908b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201909a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201909b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201910b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201911a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201911b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201912a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails201912b.zip"
+   ],
+   "notes": {
+    "files": 23,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2019.parquet",
+   "status": "ok",
+   "duration_s": 8.1,
+   "requests": 24,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "23 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,016,475 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1016475/1016475 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1016475/1016475 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1003103/1016475 = %98.7"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "15,114 CUSIP, 15,405 sembol, 241 işlem günü"
+    }
+   ]
+  },
+  "2020": {
+   "partition": "2020",
+   "fetched_at": "2026-10-09T23:28:28+00:00",
+   "rows": 1206764,
+   "bytes": 12112614,
+   "sha256": "39456145b7d0212a4a21bbe8f1aacb10c881a698649010fa3f9d08f6ff7c5642",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202001a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202001b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202005a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202005b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202006a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202006b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202007a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202007b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202008a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202008b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202009a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202009b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202010a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202010b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202011a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202011b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202012a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202012b.zip",
+    "https://www.sec.gov/files/node/add/data_distribution/cnsfails202002a.zip",
+    "https://www.sec.gov/files/node/add/data_distribution/cnsfails202002b.zip",
+    "https://www.sec.gov/files/node/add/data_distribution/cnsfails202003a.zip",
+    "https://www.sec.gov/files/node/add/data_distribution/cnsfails202003b.zip",
+    "https://www.sec.gov/files/node/add/data_distribution/cnsfails202004a.zip",
+    "https://www.sec.gov/files/node/add/data_distribution/cnsfails202004b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2020.parquet",
+   "status": "ok",
+   "duration_s": 8.5,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,206,764 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1206764/1206764 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1206764/1206764 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1192480/1206764 = %98.8"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "16,029 CUSIP, 16,389 sembol, 251 işlem günü"
+    }
+   ]
+  },
+  "2021": {
+   "partition": "2021",
+   "fetched_at": "2026-10-09T23:28:26+00:00",
+   "rows": 1460783,
+   "bytes": 14782516,
+   "sha256": "2213247203ad6d5754d365b3ef0daec4365d47bf0d472f04a02bbbd0b748a068",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202101a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202101b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202102a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202102b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202103a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202103b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202104a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202104b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202105a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202105b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202106a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202106b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202107a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202107b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202108a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202108b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202109a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202109b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202110a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202110b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202111a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202111b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202112a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202112b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2021.parquet",
+   "status": "ok",
+   "duration_s": 8.1,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,460,783 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1460783/1460783 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1460783/1460783 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1447075/1460783 = %99.1"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "18,895 CUSIP, 19,213 sembol, 250 işlem günü"
+    }
+   ]
+  },
+  "2022": {
+   "partition": "2022",
+   "fetched_at": "2026-10-09T23:28:25+00:00",
+   "rows": 1477590,
+   "bytes": 14792650,
+   "sha256": "444790365b0927e7c290fec1195b96e1e53c773b173e936c91c2f19aca7dfd0f",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202201a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202201b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202202a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202202b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202203a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202203b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202204a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202204b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202205a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202205b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202206a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202206b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202207a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202207b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202208a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202208b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202209a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202209b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202210a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202210b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202211a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202211b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202212a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202212b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2022.parquet",
+   "status": "ok",
+   "duration_s": 7.9,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,477,590 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1477590/1477590 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1477590/1477590 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1466663/1477590 = %99.3"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "18,269 CUSIP, 18,551 sembol, 249 işlem günü"
+    }
+   ]
+  },
   "2023": {
    "partition": "2023",
    "fetched_at": "2026-10-09T23:17:33+00:00",
@@ -87,37 +790,294 @@
      "detail": "17,881 CUSIP, 18,041 sembol, 236 işlem günü"
     }
    ]
+  },
+  "2024": {
+   "partition": "2024",
+   "fetched_at": "2026-10-09T23:28:29+00:00",
+   "rows": 1285064,
+   "bytes": 12902110,
+   "sha256": "c6b44913be38ee5223c386d379de6d8ec63e70c96188470c65741b77b1798e08",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202401a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202401b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202402a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202402b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202403a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202403b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202404a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202404b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202405a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202405b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202406a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202406b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202407a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202407b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202408a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202408b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202409a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202409b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202410a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202410b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202411a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202411b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202412a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202412b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2024.parquet",
+   "status": "ok",
+   "duration_s": 8.7,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,285,064 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1285064/1285064 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1285064/1285064 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1269369/1285064 = %98.8"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "18,188 CUSIP, 18,399 sembol, 250 işlem günü"
+    }
+   ]
+  },
+  "2025": {
+   "partition": "2025",
+   "fetched_at": "2026-10-09T23:28:27+00:00",
+   "rows": 1326583,
+   "bytes": 13443079,
+   "sha256": "caf8ba1321b870c7df7e657fec0a96dce94e1d30eabc91217c2b7d5fa4dc4f4e",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202501a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202501b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202502a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202502b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202503a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202503b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202504a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202504b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202505a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202505b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202506a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202506b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202507a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202507b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202508a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202508b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202509a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202509b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202510a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202510b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202511a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202511b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202512a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202512b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2025.parquet",
+   "status": "ok",
+   "duration_s": 8.2,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,326,583 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1326583/1326583 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1326583/1326583 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1314561/1326583 = %99.1"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "19,190 CUSIP, 19,424 sembol, 249 işlem günü"
+    }
+   ]
+  },
+  "2026": {
+   "partition": "2026",
+   "fetched_at": "2026-10-09T23:28:33+00:00",
+   "rows": 995071,
+   "bytes": 10032916,
+   "sha256": "c6f88d3cff7f2c61023d1d1d5d5b23772c57799131652cf1a275ae1c6b74471d",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202601a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202601b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202602a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202602b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202603a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202603b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202604a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202604b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202606a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202606b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202607a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202607b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202608a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202608b.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202609a.zip",
+    "https://www.sec.gov/files/data/other/fails-deliver-data/cnsfails202605a.zip",
+    "https://www.sec.gov/files/data/other/fails-deliver-data/cnsfails202605b.zip"
+   ],
+   "notes": {
+    "files": 17,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2026.parquet",
+   "status": "ok",
+   "duration_s": 4.5,
+   "requests": 18,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "17 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "995,071 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "995071/995071 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "995071/995071 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "988559/995071 = %99.3"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "19,289 CUSIP, 19,297 sembol, 175 işlem günü"
+    }
+   ]
   }
  },
  "dataset_checks": [
   {
    "name": "Yüklenen yıl",
    "status": "ok",
-   "detail": "1 yıl: ['2023'] … ['2023']"
+   "detail": "12 yıl: ['2015'] … ['2026']"
   },
   {
    "name": "Fiyat doğruluğu: AAPL FTD fiyatı ↔ Yahoo önceki gün kapanışı (%0,5)",
    "status": "ok",
-   "detail": "186/186 = %100.0; aynı gün eşleşmesi: %31"
+   "detail": "858/858 = %100.0; aynı gün eşleşmesi: %29"
   },
   {
    "name": "Borsadan çıkmış hisseler: çıkıştan önceki 12 ayda fiyatlı gün (~250 işlem günü)",
    "status": "info",
-   "detail": "SIVB: 25 gün (son 2023-03-10); ATVI: 106 gün (son 2023-10-16); SGEN: 80 gün (son 2023-12-15)"
+   "detail": "SIVB: 94 gün (son 2023-03-10); ATVI: 128 gün (son 2023-10-16); SGEN: 80 gün (son 2023-12-15)"
   },
   {
    "name": "CUSIP → sembol eşleştirmesi",
    "status": "info",
-   "detail": "17,881 CUSIP; birden çok sembole bağlanan (sembol değişikliği): 801"
+   "detail": "45,124 CUSIP; birden çok sembole bağlanan (sembol değişikliği): 9,953"
   }
  ],
  "title": "SEC fails-to-deliver (fiyat + CUSIP eşleştirmesi, 2015→)",
  "derived": {
   "cusip_map": {
    "asset": "ftd__cusip_map.parquet",
-   "rows": 18707,
-   "sha256": "6431fc549ba92dcad7eff09a099ea87338ca7de34989b117eacb24ff624a8ad1"
+   "rows": 56274,
+   "sha256": "abedd0a9c72fa5bfece809219394cad6283e57ef7b78faaea4eb6a88f755be07"
   }
  },
- "finalized_at": "2026-10-09T23:22:28+00:00"
+ "finalized_at": "2026-10-09T23:59:46+00:00"
 }
