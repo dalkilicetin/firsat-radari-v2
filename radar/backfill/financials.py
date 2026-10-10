@@ -136,8 +136,12 @@ class FinancialStatements(Dataset):
         seg = df[df.segments != ""]
         if len(seg):
             # Doğrulama: Alphabet'in A+B+C sınıfı toplam hisse sayısı ~12 milyar.
-            goog = seg[(seg.cik == 1652044) & (seg.tag == "EntityCommonStockSharesOutstanding")]
-            goog = goog[goog.ddate == goog.ddate.max()].value.sum() if len(goog) else None
+            goog = seg[(seg.cik == 1652044) & seg.tag.isin(SHARE_TAGS)]
+            if len(goog):  # kapak sayfası etiketi yoksa bilanço etiketi (Alphabet bilançoyu kullanıyor)
+                goog = goog[goog.tag == sorted(goog.tag.unique())[-1]]
+                goog = goog[goog.ddate == goog.ddate.max()].value.sum()
+            else:
+                goog = None
             rep.add("Sınıf bazında hisse sayısı satırı", Status.INFO, f"{len(seg):,} satır, {seg.cik.nunique():,} şirket")
             if goog:
                 rep.expect_range("Doğrulama: Alphabet sınıf toplamı hisse sayısı", float(goog), 11e9, 13.5e9, warn_only=True)
