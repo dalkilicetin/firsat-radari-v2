@@ -4,8 +4,10 @@ Dosyalama geçmişi: her şirketin tüm dosyaları, SEC kabul anı ve 8-K olay k
 Form 25 (borsadan çıkarılma) ve Form 15 (kayıt sonlandırma) borsadan çıkış tarihlerini verir;
 geriye dönük testte hayatta kalan yanılgısını önlemek için gerekir.
 
-GDELT: 2015-02-18'den bu yana her gün 3 saatte bir 15 dakikalık GKG dosyası örneklenir (günde 8 dosya);
-her gün için kurum adı başına makale sayısı ve ortalama ton tutulur.
+GDELT: 2015-02-19'dan bu yana her saatin ilk 15 dakikalık GKG dosyası örneklenir (günde 24 dosya, akışın ~%25'i);
+her gün için kurum adı başına makale sayısı ve ortalama ton tutulur. Küçük şirketler kaybolmasın diye
+günde bir kez geçen kurumlar da tutulur. Not: GDELT bazı şirketleri yalnızca tam adıyla kodlar
+("apple" değil "apple inc"); kurum → şirket eşleştirmesi isim listeleriyle 3. aşamada yapılır.
 """
 
 from __future__ import annotations
@@ -111,7 +113,7 @@ class Filings(Dataset):
                     f"{sorted(hit.form + ' ' + hit.filing_date.dt.strftime('%Y-%m-%d'))[:3] or 'yok'}")
 
 
-SLOT_HOURS = [0, 3, 6, 9, 12, 15, 18, 21]
+SLOT_HOURS = list(range(24))
 GKG_START = date(2015, 2, 19)
 
 
@@ -167,13 +169,12 @@ class GdeltHistory(Dataset):
             if buffer:
                 agg = pd.concat(buffer).groupby("org").tone.agg(["size", "mean"]).reset_index()
                 agg.columns = ["org", "mentions", "tone"]
-                agg = agg[agg.mentions >= 2]  # tek geçişli gürültü
                 agg.insert(0, "date", pd.Timestamp(day))
                 daily_frames.append(agg)
                 buffer.clear()
 
         current = None
-        with ThreadPoolExecutor(max_workers=6) as pool:
+        with ThreadPoolExecutor(max_workers=8) as pool:
             for (d, url), blob in zip(urls, pool.map(lambda u: _fetch(u[1]), urls)):
                 if d != current:
                     flush(current)
@@ -202,10 +203,10 @@ class GdeltHistory(Dataset):
         totals = df[df.org == "__TOPLAM_MAKALE__"]
         rep.expect_min_ratio("Makale verisi olan gün", len(totals), notes["days"], 0.99, 0.95)
         if len(totals):
-            rep.expect_range("Gün başına örneklenen makale (medyan)", float(totals.mentions.median()), 3_000, 40_000)
+            rep.expect_range("Gün başına örneklenen makale (medyan)", float(totals.mentions.median()), 10_000, 120_000)
         orgs = df[df.org != "__TOPLAM_MAKALE__"]
         top = orgs.groupby("org").mentions.sum().nlargest(8)
         rep.add("Yılın en çok geçen kurumları", Status.INFO, ", ".join(f"{o} ({n:,})" for o, n in top.items()))
-        for org in ("apple", "microsoft", "nvidia"):
+        for org in ("apple inc", "microsoft", "nvidia"):
             days = orgs[orgs.org == org].date.nunique()
             rep.add(f"'{org}' geçen gün", Status.OK if days > 0.5 * notes["days"] else Status.WARN, f"{days}/{notes['days']}")

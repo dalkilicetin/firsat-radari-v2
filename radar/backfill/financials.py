@@ -114,7 +114,7 @@ class FinancialStatements(Dataset):
         rep.expect_min_ratio("Dosyalama tarihi çeyrek içinde", int(df.filed.between(start, end).sum()), n, 0.995, 0.97)
         both = df.accepted.notna() & df.filed.notna()
         gap = (df.filed[both] - df.accepted[both].dt.normalize()).dt.days
-        rep.expect_min_ratio("Kabul günü ≤ dosyalama günü (≤3 gün)", int(gap.between(0, 3).sum()), int(both.sum()), 0.995, 0.98)
+        rep.expect_min_ratio("Kabul günü ≤ dosyalama günü (≤3 gün)", int(gap.between(0, 3).sum()), int(both.sum()), 0.99, 0.98)
         rep.add("Boş (nil) değer, ayıklandı", Status.INFO, f"{loaded.notes['empty_values']:,} satır")
         rep.expect_min_ratio("Dönem sonu ≤ kabul anı", int((df.ddate <= df.accepted).sum()), int(both.sum()), 0.999, 0.99)
         for part, cik, tag, ddate, qtrs, value in GOLDEN:

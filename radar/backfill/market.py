@@ -88,13 +88,19 @@ class DailyPrices(Dataset):
                                                         headers=prices.NASDAQ_HEADERS).json())
             except (FetchError, ValueError):
                 pass
-            mine = {d.date(): {"close": c} for d, c in zip(df.date[df.symbol == sym], df.close[df.symbol == sym])} if len(df) else {}
+            sel = df[df.symbol == sym] if len(df) else df
+            mine = {d.date(): {"close": c} for d, c in zip(sel.date, sel.close)} if len(sel) else {}
             diff = prices.agreement(mine, nasdaq)
-            agree.append(diff)
+            # Nasdaq ham fiyat verir, Yahoo bölünmeye göre düzeltir: pencerede bölünme varsa fark beklenir.
+            recent_split = bool(len(sel)) and bool(sel[sel.date >= pd.Timestamp.today() - pd.Timedelta(days=100)].split_ratio.notna().any())
+            agree.append((sym, diff, recent_split))
         return Loaded(df, [YAHOO_MAX.format(sym="<sembol>", end="<bugün>"), prices.NASDAQ],
                       {"symbols": len(symbols), "missing": missing,
-                       "cross_checked": len(sample), "agree": sum(1 for d in agree if d is not None and d < 0.5),
-                       "compared": sum(1 for d in agree if d is not None)})
+                       "cross_checked": len(sample),
+                       "agree": sum(1 for _, d, split in agree if d is not None and (d < 0.5 or split)),
+                       "compared": sum(1 for _, d, _ in agree if d is not None),
+                       "mismatch": [f"{s}: %{d:.2f}" + (" (yakın bölünme)" if split else "")
+                                    for s, d, split in agree if d is not None and d >= 0.5]})
 
     def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
         df, notes = loaded.df, loaded.notes
@@ -102,7 +108,8 @@ class DailyPrices(Dataset):
             f"; gelmeyen: {notes['missing'][:15]}" if notes["missing"] else ""
         if df.empty:
             return
-        rep.expect_min_ratio("Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)", notes["agree"], notes["compared"], 0.95, 0.85)
+        rep.expect_min_ratio("Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)", notes["agree"],
+                             notes["compared"], 0.95, 0.85).detail += f"; uyuşmayan: {notes['mismatch']}" if notes.get("mismatch") else ""
         rep.expect_min_ratio("Pozitif kapanış", int((df.close > 0).sum()), len(df), 0.9999, 0.999)
         dup = df.duplicated(["symbol", "date"]).sum()
         rep.add("Yinelenen gün", Status.OK if dup == 0 else Status.WARN, f"{dup}")

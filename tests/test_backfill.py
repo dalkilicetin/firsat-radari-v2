@@ -208,10 +208,10 @@ def test_gdelt_history_load_daily_flush(monkeypatch):
     with zipfile.ZipFile(buf, "w") as zf:
         zf.writestr("a.gkg.csv", "\t".join(row) + "\n")
     blob = buf.getvalue()
-    # Her günün ilk dosyası eksik, diğer 7'si aynı makaleyi içeriyor.
+    # Her günün ilk dosyası eksik, diğer 23 dosya aynı makaleyi içeriyor.
     monkeypatch.setattr(filings, "_fetch", lambda url: None if url.endswith("000000.gkg.csv.zip") else blob)
     loaded = filings.GdeltHistory().load(None, "2015")
     df = loaded.df
     nv = df[df.org == "nvidia"]
-    assert nv.date.min() == pd.Timestamp("2015-02-19") and (nv.mentions == 7).all()
+    assert nv.date.min() == pd.Timestamp("2015-02-19") and (nv.mentions == 23).all()
     assert loaded.notes["missing"] == loaded.notes["days"]

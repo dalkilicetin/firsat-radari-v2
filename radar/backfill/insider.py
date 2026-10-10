@@ -90,7 +90,9 @@ class InsiderTransactions(Dataset):
         rep.expect_min_ratio("Kod/yön tutarlılığı (P→A, S→D)",
                              int(((ps.code == "P") & (ps.acq_disp == "A") | (ps.code == "S") & (ps.acq_disp == "D")).sum()),
                              len(ps), 0.99, 0.97)
-        rep.expect_min_ratio("Alım/satışta fiyat > 0", int((ps.price > 0).sum()), len(ps), 0.97, 0.9)
+        # Fiyatı 0/boş "P" kayıtları çoğunlukla yanlış kodlanmış özel yerleşim/dönüşümlerdir (örn. FOMC 2023q3);
+        # açık piyasa alımı sinyalinden çıkarılırlar. Oran düşerse kaynakta bir sorun olabilir.
+        rep.expect_min_ratio("Alım/satışta fiyat > 0 (0 fiyatlılar sinyalden çıkarılır)", int((ps.price > 0).sum()), len(ps), 0.94, 0.85)
         rep.expect_min_ratio("Ticker dolu", int((df.ticker.fillna("") != "").sum()), n, 0.97, 0.9)
         rep.add("Özet", Status.INFO, f"{df.issuer_cik.nunique():,} şirket, açık piyasa alımı (P): {int((df.code == 'P').sum()):,}")
 
