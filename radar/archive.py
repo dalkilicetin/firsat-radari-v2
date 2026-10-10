@@ -16,7 +16,7 @@ import requests
 
 from radar.backfill import storage
 
-RELEASE_URL = "https://github.com/dalkilicetin/firsat-radari-v2/releases/download/veri-arsivi/{asset}"
+RELEASE_URL = "https://github.com/dalkilicetin/firsat-radari-v2/releases/download/{release}/{asset}"
 
 
 class IntegrityError(Exception):
@@ -69,7 +69,7 @@ def ensure(dataset: str, name: str, entry: dict) -> str:
         return str(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".part")
-    with requests.get(RELEASE_URL.format(asset=entry["asset"]), stream=True, timeout=600) as r:
+    with requests.get(RELEASE_URL.format(release=entry.get("release", "veri-arsivi"), asset=entry["asset"]), stream=True, timeout=600) as r:
         r.raise_for_status()
         with tmp.open("wb") as f:
             for chunk in r.iter_content(1 << 22):

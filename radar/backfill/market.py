@@ -18,7 +18,7 @@ from radar.sources import prices, universe, wikipedia
 from radar.sources.base import Context
 
 GROUPS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J-K", "L", "M", "N", "O", "P", "Q-R", "S", "T", "U-V", "W-Z"]
-YAHOO_MAX = ("https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1=1420070400&period2={end}"
+YAHOO_MAX = ("https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1=1230768000&period2={end}"
              "&interval=1d&events=split,div&includeAdjustedClose=true")
 
 
@@ -45,7 +45,7 @@ def parse_yahoo_events(data: dict) -> tuple[list[dict], list[dict]]:
 
 class DailyPrices(Dataset):
     name = "prices"
-    title = "Günlük fiyat geçmişi (Yahoo, 2015→; Nasdaq ile çapraz kontrol)"
+    title = "Günlük fiyat geçmişi (Yahoo, 2009→; Nasdaq ile çapraz kontrol)"
     max_parallel = 4
 
     def partitions(self, client: HttpClient, today: date) -> list[str]:
@@ -115,7 +115,7 @@ class DailyPrices(Dataset):
         rep.add("Yinelenen gün", Status.OK if dup == 0 else Status.WARN, f"{dup}")
         first = df.groupby("symbol").date.min()
         rep.add("Geçmiş derinliği", Status.INFO,
-                f"2015'ten itibaren verisi olan: {int((first <= pd.Timestamp('2015-01-10')).sum())}/{len(first)} "
+                f"2009'dan itibaren verisi olan: {int((first <= pd.Timestamp('2009-01-10')).sum())}/{len(first)} "
                 f"(sonradan halka arz olanlar doğal olarak daha kısa)")
         jumps = df.sort_values(["symbol", "date"]).groupby("symbol").close.pct_change().abs()
         split_days = set(zip(df.symbol[df.split_ratio.notna()], df.date[df.split_ratio.notna()]))

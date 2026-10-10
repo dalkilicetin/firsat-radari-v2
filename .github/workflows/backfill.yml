@@ -3,7 +3,7 @@ name: Geçmiş Veri Yükleme
 # İstekler backfill-request.json dosyasındadır; dosya değişip gönderildiğinde çalışır.
 on:
   push:
-    branches: [claude/yeni-firsat-radari-z71fl2]
+    branches: [claude/firsat-modeli]
     paths: ["backfill-request.json"]
   workflow_dispatch:
 
@@ -17,6 +17,8 @@ concurrency:
 
 env:
   RADAR_USER_AGENT: ${{ secrets.RADAR_USER_AGENT }}
+  # Bu branch kendi arşiv sürümüne yazar; eski sürüm (veri-arsivi) yalnızca okunur, değiştirilmez.
+  RADAR_RELEASE: veri-arsivi-2009
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
@@ -42,8 +44,8 @@ jobs:
           echo "datasets=$(echo "$out" | jq -r '.datasets')" >> "$GITHUB_OUTPUT"
       - name: Arşiv sürümünü hazırla
         run: |
-          gh release view veri-arsivi >/dev/null 2>&1 || gh release create veri-arsivi --prerelease \
-            --target "$GITHUB_SHA" --title "Veri arşivi" \
+          gh release view "$RADAR_RELEASE" >/dev/null 2>&1 || gh release create "$RADAR_RELEASE" --prerelease \
+            --target "$GITHUB_SHA" --title "Veri arşivi (2009→)" \
             --notes "Fırsat Radarı geçmiş veri bölümleri (Parquet). İçerik ve doğrulamalar: data/manifest/*.json"
 
   load:
@@ -65,7 +67,7 @@ jobs:
       - name: Arşive yükle
         run: |
           f="data/backfill/${{ matrix.dataset }}/${{ matrix.dataset }}__${{ matrix.partition }}.parquet"
-          if [ -f "$f" ]; then gh release upload veri-arsivi "$f" --clobber; else echo "Bölüm kırmızı; yüklenmedi"; fi
+          if [ -f "$f" ]; then gh release upload "$RADAR_RELEASE" "$f" --clobber; else echo "Bölüm kırmızı; yüklenmedi"; fi
       - uses: actions/upload-artifact@v4
         with:
           name: part-${{ matrix.dataset }}-${{ matrix.partition }}
@@ -92,13 +94,14 @@ jobs:
           for ds in ${{ needs.plan.outputs.datasets }}; do
             echo "::group::$ds"
             mkdir -p "data/backfill/$ds"
-            gh release download veri-arsivi -p "${ds}__*" -D "data/backfill/$ds" --clobber || echo "henüz bölüm yok"
+            gh release download veri-arsivi -p "${ds}__*" -D "data/backfill/$ds" --clobber || echo "eski arşivde bölüm yok"
+            gh release download "$RADAR_RELEASE" -p "${ds}__*" -D "data/backfill/$ds" --clobber || echo "yeni arşivde bölüm yok"
             python -m radar.backfill.runner finalize --dataset "$ds"
             for a in $(jq -r '.derived // {} | .[].asset' "data/manifest/$ds.json"); do
-              gh release upload veri-arsivi "data/backfill/$ds/$a" --clobber
+              gh release upload "$RADAR_RELEASE" "data/backfill/$ds/$a" --clobber
             done
             for a in $(jq -r '.removed_assets // [] | .[] | select(. != null)' "data/manifest/$ds.json"); do
-              gh release delete-asset veri-arsivi "$a" -y || true
+              gh release delete-asset "$RADAR_RELEASE" "$a" -y || true  # eski sürüme dokunulmaz
             done
             rm -rf "data/backfill/$ds"
             echo "::endgroup::"

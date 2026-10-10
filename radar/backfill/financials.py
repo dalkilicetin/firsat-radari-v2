@@ -17,7 +17,7 @@ from radar.http import HttpClient
 from radar.quality import SourceReport, Status
 
 PAGE = "https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets"
-FIRST = "2015q1"
+FIRST = "2009q1"
 FORMS = {"10-K", "10-K/A", "10-Q", "10-Q/A", "20-F", "20-F/A", "40-F", "40-F/A", "10-KT", "10-QT"}
 
 TAGS = {
@@ -79,7 +79,7 @@ def read_num(blob: bytes) -> pd.DataFrame:
 
 class FinancialStatements(Dataset):
     name = "financials"
-    title = "SEC finansal tablo verileri (XBRL, 2015→)"
+    title = "SEC finansal tablo verileri (XBRL, 2009→)"
     max_parallel = 3
 
     def _links(self, client: HttpClient) -> dict[str, str]:
@@ -116,8 +116,10 @@ class FinancialStatements(Dataset):
     def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
         df = loaded.df
         n = len(df)
-        rep.expect_range("Rapor sayısı (10-K/10-Q/20-F)", loaded.notes["filings"], 3_000, 20_000)
-        rep.expect_range("Değer sayısı (temel kalemler)", n, 100_000, 3_000_000)
+        # XBRL 2009–2011 arasında kademeli zorunlu oldu (önce büyük şirketler): erken çeyreklerde az rapor beklenir.
+        early = partition < "2011q3"
+        rep.expect_range("Rapor sayısı (10-K/10-Q/20-F)", loaded.notes["filings"], 100 if early else 3_000, 20_000)
+        rep.expect_range("Değer sayısı (temel kalemler)", n, 5_000 if early else 100_000, 3_000_000)
         rep.expect_min_ratio("Kabul anı okunabilen", int(df.accepted.notna().sum()), n, 0.999, 0.99)
         start, end = quarter_bounds(partition)
         rep.expect_min_ratio("Dosyalama tarihi çeyrek içinde", int(df.filed.between(start, end).sum()), n, 0.995, 0.97)

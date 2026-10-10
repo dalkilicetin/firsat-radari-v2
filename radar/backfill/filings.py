@@ -79,7 +79,7 @@ class Filings(Dataset):
                                       "exchanges": ",".join(e or "" for e in data.get("exchanges") or []),
                                       "sic": data.get("sic", ""), "category": data.get("category", "")}
                 for row in parse_submission(data):
-                    if row["filing_date"] < "2010":  # 2015 testleri için 5 yıllık ön tampon yeterli
+                    if row["filing_date"] < "2008":  # 2009 başlangıcı için ön tampon
                         continue
                     row["cik"] = cik
                     rows.append(row)

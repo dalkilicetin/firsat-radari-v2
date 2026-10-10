@@ -24,7 +24,7 @@ from radar import archive, config
 
 NASDAQ_FILER = "0001354457"
 NYSE_FILERS = {"0000876661", "0001143313", "0001143362"}
-START = pd.Timestamp("2015-01-01")
+START = pd.Timestamp("2009-01-01")
 
 
 def ticker_history(insider: pd.DataFrame) -> pd.DataFrame:

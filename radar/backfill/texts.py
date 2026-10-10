@@ -17,7 +17,7 @@ from radar.backfill.base import Dataset, Loaded
 from radar.http import FetchError, HttpClient
 from radar.quality import SourceReport, Status
 
-FIRST_YEAR = 2014  # 2015 raporlarının yıldan yıla karşılaştırması için
+FIRST_YEAR = 2008  # 2009 raporlarının yıldan yıla karşılaştırması için
 MAX_CHARS = 250_000
 
 HEADINGS = {
@@ -89,7 +89,7 @@ def universe_ciks() -> set[int]:
 
 class TenKTexts(Dataset):
     name = "tenk"
-    title = "10-K metinleri (Madde 1, 1A, 7; 2014→)"
+    title = "10-K metinleri (Madde 1, 1A, 7; 2008→)"
     max_parallel = 3
 
     def partitions(self, client: HttpClient, today: date) -> list[str]:

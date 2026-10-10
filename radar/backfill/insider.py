@@ -16,12 +16,12 @@ from radar.quality import SourceReport, Status
 from radar.sources import sec_form4
 
 PAGE = "https://www.sec.gov/data-research/sec-markets-data/insider-transactions-data-sets"
-FIRST = "2015q1"
+FIRST = "2009q1"
 
 
 class InsiderTransactions(Dataset):
     name = "insider"
-    title = "SEC içeriden işlemler (Form 4, 2015→)"
+    title = "SEC içeriden işlemler (Form 4, 2009→)"
     max_parallel = 3
 
     def _links(self, client: HttpClient) -> dict[str, str]:

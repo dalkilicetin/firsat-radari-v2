@@ -23,7 +23,7 @@ REVERSE_SPLIT_FACTORS = np.array([4, 5, 8, 10, 12, 15, 20, 25, 30, 35, 40, 50, 6
 CACHE = config.DATA_DIR / "derived"
 
 
-def fridays(start="2015-01-02", end=None) -> pd.DatetimeIndex:
+def fridays(start="2009-01-02", end=None) -> pd.DatetimeIndex:
     end = end or pd.Timestamp.today().normalize()
     return pd.date_range(start, end, freq="W-FRI")
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -13,7 +14,8 @@ from radar import config
 
 BACKFILL_DIR = config.DATA_DIR / "backfill"
 MANIFEST_DIR = config.DATA_DIR / "manifest"
-RELEASE_TAG = "veri-arsivi"
+# Her branch kendi arşiv sürümüne yazar; eski kayıtlar (release alanı olmayan) "veri-arsivi"ndedir.
+RELEASE_TAG = os.environ.get("RADAR_RELEASE", "veri-arsivi")
 
 
 def asset_name(dataset: str, partition: str) -> str:

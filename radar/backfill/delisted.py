@@ -30,7 +30,7 @@ DELISTED_PROBES = {"SIVB": "2023-03", "ATVI": "2023-10", "SGEN": "2023-12"}
 
 class FailsToDeliver(Dataset):
     name = "ftd"
-    title = "SEC fails-to-deliver (fiyat + CUSIP eşleştirmesi, 2015→)"
+    title = "SEC fails-to-deliver (fiyat + CUSIP eşleştirmesi, 2009→)"
     max_parallel = 3
 
     def _links(self, client: HttpClient) -> dict[str, list[str]]:
@@ -40,7 +40,7 @@ class FailsToDeliver(Dataset):
         return by_year
 
     def partitions(self, client: HttpClient, today: date) -> list[str]:
-        return sorted(y for y in self._links(client) if y >= "2015")
+        return sorted(y for y in self._links(client) if y >= "2009")
 
     def load(self, client: HttpClient, partition: str) -> Loaded:
         urls = sorted(self._links(client)[partition])

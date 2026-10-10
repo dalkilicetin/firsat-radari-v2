@@ -78,7 +78,8 @@ def cmd_run(args) -> int:
         path = storage.write_partition(ds.name, args.partition, loaded.df)
         entry |= {"rows": len(loaded.df), "bytes": path.stat().st_size, "sha256": storage.sha256(path),
                   "columns": {c: str(t) for c, t in loaded.df.dtypes.items()}, "sources": loaded.sources,
-                  "notes": loaded.notes, "asset": storage.asset_name(ds.name, args.partition)}
+                  "notes": loaded.notes, "asset": storage.asset_name(ds.name, args.partition),
+                  "release": storage.RELEASE_TAG}
     except Exception as exc:
         rep.add("Çalışma hatası", Status.FAIL, f"{type(exc).__name__}: {exc}"[:800], traceback.format_exc()[-2000:])
         entry |= {"rows": 0}
@@ -118,7 +119,8 @@ def cmd_finalize(args) -> int:
     manifest["derived"] = {}
     for name, df in derived.items():
         path = storage.write_partition(ds.name, name, df)
-        manifest["derived"][name] = {"asset": storage.asset_name(ds.name, name), "rows": len(df), "sha256": storage.sha256(path)}
+        manifest["derived"][name] = {"asset": storage.asset_name(ds.name, name), "rows": len(df), "sha256": storage.sha256(path),
+                                    "release": storage.RELEASE_TAG}
     manifest["dataset_checks"] = [{"name": c.name, "status": c.status.value, "detail": c.detail} for c in rep.checks]
     manifest["finalized_at"] = storage.now_iso()
     storage.save_manifest(manifest)

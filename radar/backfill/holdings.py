@@ -30,14 +30,14 @@ def partition_start(key: str) -> pd.Timestamp:
 
 class InstitutionalHoldings(Dataset):
     name = "holdings"
-    title = "SEC 13F kurumsal pozisyonlar (2015→)"
+    title = "SEC 13F kurumsal pozisyonlar (2013→; SEC yapılandırılmış 13F verisi 2013'te başlar)"
     max_parallel = 3
 
     def _links(self, client: HttpClient) -> dict[str, str]:
         return links(client, PAGE, r"/([^/]+)_form13f\.zip")
 
     def partitions(self, client: HttpClient, today: date) -> list[str]:
-        return sorted((k for k in self._links(client) if partition_start(k) >= pd.Timestamp("2015-01-01")), key=partition_start)
+        return sorted((k for k in self._links(client) if partition_start(k) >= pd.Timestamp("2013-01-01")), key=partition_start)
 
     def load(self, client: HttpClient, partition: str) -> Loaded:
         url = self._links(client)[partition]
