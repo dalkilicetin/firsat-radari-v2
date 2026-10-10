@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T07:16:41.347701+00:00",
+ "run_at": "2026-10-10T07:20:08.936522+00:00",
  "sources": [
   {
    "key": "universe",
@@ -13,7 +13,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.6,
+   "duration_s": 0.4,
    "requests": 2,
    "checks": [
     {
@@ -37,8 +37,8 @@
     {
      "name": "SEC CIK eşleşme oranı",
      "status": "ok",
-     "detail": "3427/3434 = %99.8 adi hisse",
-     "value": 0.998
+     "detail": "3424/3434 = %99.7 adi hisse",
+     "value": 0.9971
     },
     {
      "name": "Doğrulanmış CIK değerleri",
@@ -49,8 +49,8 @@
     {
      "name": "Çapraz kontrol: SEC'te 'Nasdaq' görünenler Nasdaq listesinde",
      "status": "ok",
-     "detail": "4346/4378 = %99.3",
-     "value": 0.9927
+     "detail": "4337/4376 = %99.1",
+     "value": 0.9911
     },
     {
      "name": "Finansal durum dağılımı (risk sinyali)",
@@ -126,7 +126,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.9,
+   "duration_s": 0.7,
    "requests": 5,
    "checks": [
     {
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.1,
+   "duration_s": 1.9,
    "requests": 15,
    "checks": [
     {
@@ -355,19 +355,19 @@
     {
      "name": "8-K'larda olay kodu (items) dolu",
      "status": "ok",
-     "detail": "1119/1119 = %100.0",
+     "detail": "1233/1233 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)",
      "status": "ok",
-     "detail": "5883/5884 = %100.0; formlar: {'10-Q': 1}; örnek: [('10-Q', '2019-11-12', '2019-11-08T22:41:40.000Z')]",
-     "value": 0.9998
+     "detail": "6754/6755 = %100.0; formlar: {'S-1/A': 1}; örnek: [('S-1/A', '2024-09-03', '2024-08-30T23:09:30.000Z')]",
+     "value": 0.9999
     },
     {
      "name": "Önceki güne tarihlenen gece kabulleri",
      "status": "info",
-     "detail": "301 dosya — dosyalama tarihi değil kabul anı esas alınır",
+     "detail": "153 dosya — dosyalama tarihi değil kabul anı esas alınır",
      "value": null
     },
     {
@@ -451,9 +451,9 @@
    "roads": [
     1
    ],
-   "status": "ok",
+   "status": "warn",
    "error": null,
-   "duration_s": 6.8,
+   "duration_s": 5.3,
    "requests": 23,
    "checks": [
     {
@@ -477,25 +477,25 @@
     {
      "name": "Rastgele şirketlerde temel kalem (varlık/gelir/kâr) bulunan",
      "status": "ok",
-     "detail": "20/20 = %100.0",
-     "value": 1.0
+     "detail": "19/20 = %95.0",
+     "value": 0.95
     },
     {
      "name": "Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu",
      "status": "ok",
-     "detail": "305743/305758 = %100.0",
-     "value": 1.0
+     "detail": "349447/349490 = %100.0",
+     "value": 0.9999
     },
     {
      "name": "Güncel hisse sayısı (son 200 gün) bulunan",
-     "status": "ok",
-     "detail": "19/20 = %95.0; eksik/eski: ['SRAD:yok']",
-     "value": 0.95
+     "status": "warn",
+     "detail": "14/20 = %70.0; eksik/eski: ['PGAC:yok', 'DNMX:2025-12-10', 'CCAQ:yok', 'WENN:yok', 'NUR:yok', 'BID:yok']",
+     "value": 0.7
     },
     {
      "name": "Kapsam notu",
      "status": "info",
-     "detail": "1 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
+     "detail": "0 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
      "value": null
     }
    ],
@@ -510,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 7.6,
+   "duration_s": 7.9,
    "requests": 61,
    "checks": [
     {
@@ -662,7 +662,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.9,
+   "duration_s": 0.8,
    "requests": 6,
    "checks": [
     {
@@ -754,7 +754,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.5,
+   "duration_s": 0.3,
    "requests": 1,
    "checks": [
     {
@@ -815,7 +815,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 1.0,
    "requests": 4,
    "checks": [
     {
@@ -951,7 +951,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 38.3,
+   "duration_s": 35.9,
    "requests": 38,
    "checks": [
     {
@@ -1116,49 +1116,49 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 26.3,
+   "duration_s": 24.9,
    "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25)",
-     "value": 0.0
+     "detail": "en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25)",
+     "value": -0.01
     },
     {
      "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
      "status": "ok",
-     "detail": "2,773,312 bayt, md5 eşleşti",
+     "detail": "2,476,997 bayt, md5 eşleşti",
      "value": null
     },
     {
      "name": "15 dakikalık dosyada makale",
      "status": "ok",
-     "detail": "628 (beklenen 500–50,000)",
-     "value": 628
+     "detail": "590 (beklenen 500–50,000)",
+     "value": 590
     },
     {
      "name": "Sütun sayısı = 27",
      "status": "ok",
-     "detail": "628/628 = %100.0",
+     "detail": "590/590 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kurum (Organizations) bilgisi olan",
      "status": "ok",
-     "detail": "474/628 = %75.5",
-     "value": 0.7548
+     "detail": "421/590 = %71.4",
+     "value": 0.7136
     },
     {
      "name": "Ton değeri okunabilen",
      "status": "ok",
-     "detail": "628/628 = %100.0",
+     "detail": "590/590 = %100.0",
      "value": 1.0
     },
     {
      "name": "Bu 15 dakikada en çok geçen kurumlar",
      "status": "info",
-     "detail": "united states (64), delhi police (29), cockroach janta party (27), white house (26), rajasthan high court (19), supreme court (18), high court (13), honble supreme court (12)",
+     "detail": "australian associated (33), united states (31), white house (20), delhi police (13), united nations (11), high court (10), reuters (10), instagram (9)",
      "value": null
     },
     {
@@ -1176,19 +1176,19 @@
    ],
    "sample": [
     {
-     "date": "20261010071500",
-     "source": "indiankanoon.org",
-     "orgs": "honble the supreme court;rajasthan high court;honble supreme court"
+     "date": "20261010073000",
+     "source": "bucksfreepress.co.uk",
+     "orgs": "bucks new university;events industry forum"
     },
     {
-     "date": "20261010071500",
-     "source": "baxterbulletin.com",
-     "orgs": "burger king;gracy enterprises;hardee;eastside baptist church;milligan law office;college church;combs construction compa"
+     "date": "20261010073000",
+     "source": "russiaherald.com",
+     "orgs": "american league division series;white house"
     },
     {
-     "date": "20261010071500",
-     "source": "stokesentinel.co.uk",
-     "orgs": "university of staffordshire"
+     "date": "20261010073000",
+     "source": "news.tuoitre.vn",
+     "orgs": "vietnam news agency;cambodia ministry of commerce;council for the development of cambodia;vietnamese embassy;ministry of"
     }
    ]
   },
@@ -1202,20 +1202,20 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 6.0,
+   "duration_s": 12.9,
    "requests": 6,
    "checks": [
     {
      "name": "Nvidia: gün sayısı (60 gün)",
      "status": "ok",
-     "detail": "60 (beklenen 55–61)",
-     "value": 60
+     "detail": "59 (beklenen 55–61)",
+     "value": 59
     },
     {
      "name": "Nvidia: güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 1.0 gün önce (sınır 3)",
-     "value": 1
+     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 3)",
+     "value": 2
     },
     {
      "name": "Apple_Inc.: gün sayısı (60 gün)",
@@ -1270,16 +1270,16 @@
     "pageviews": {
      "Nvidia": [
       [
+       "2026-10-06",
+       5246
+      ],
+      [
        "2026-10-07",
        5673
       ],
       [
        "2026-10-08",
        6972
-      ],
-      [
-       "2026-10-09",
-       5529
       ]
      ],
      "Apple_Inc.": [
@@ -1337,7 +1337,7 @@
      "name": "Güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
-     "value": 0.03
+     "value": 0.04
     },
     {
      "name": "Geçmiş veri: Ocak 2016 sonuç",
@@ -1371,7 +1371,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.2,
+   "duration_s": 1.3,
    "requests": 3,
    "checks": [
     {
@@ -1438,7 +1438,7 @@
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.3 gün önce (sınır 2)",
-     "value": 0.29
+     "value": 0.3
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -1529,7 +1529,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.0,
+   "duration_s": 1.9,
    "requests": 3,
    "checks": [
     {
@@ -1565,7 +1565,7 @@
     {
      "name": "apple: son push",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 3)",
+     "detail": "en son kayıt 2026-10-10, 0.2 gün önce (sınır 3)",
      "value": 0.15
     },
     {
@@ -1582,9 +1582,9 @@
      "NVIDIA/nvcf"
     ],
     "microsoft": [
-     "microsoft/mssql-python",
-     "microsoft/azurelinux",
-     "microsoft/Oryx"
+     "microsoft/Huabu",
+     "microsoft/power-pages-samples",
+     "microsoft/azurelinux"
     ],
     "apple": [
      "apple/foundationdb",
