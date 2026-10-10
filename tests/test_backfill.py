@@ -248,3 +248,23 @@ def test_tenk_section_extraction_skips_table_of_contents():
     assert "iPhone" in sec["item1"] and "Risk Factors 9" not in sec["item1"]
     assert "going concern" in sec["item1a"] and "Revenue grew" in sec["item7"]
     assert texts.GOING_CONCERN.search(text)
+
+
+def test_gdelt_themes_load(monkeypatch):
+    from radar.backfill import filings
+    from radar.sources import gdelt
+    row = ["x"] * gdelt.GKG_COLUMNS
+    row[gdelt.COL_ORGS] = "nvidia;unknown org"
+    row[filings.COL_THEMES] = "TECH_AI;ECON_STOCKMARKET;"
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as zf:
+        zf.writestr("a.gkg.csv", ("\t".join(row) + "\n") * 2)
+    blob = buf.getvalue()
+    monkeypatch.setattr(filings, "_fetch", lambda url: blob if "20150219" in url or "20150220" in url else None)
+    monkeypatch.setattr("radar.identity.build", lambda: {"securities": pd.DataFrame({"cik": [1045810], "name": ["NVIDIA Corp"]})})
+    loaded = filings.GdeltThemes().load(None, "2015")
+    df = loaded.df
+    day = df[df.kind == "day_theme"]
+    assert set(day.theme) == {"TECH_AI", "ECON_STOCKMARKET"} and (day["count"] == 48).all()
+    pairs = df[df.kind == "month_cik_theme"]
+    assert set(pairs.cik) == {1045810} and pairs["count"].max() == 96

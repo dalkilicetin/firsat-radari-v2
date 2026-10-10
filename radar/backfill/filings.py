@@ -214,3 +214,76 @@ class GdeltHistory(Dataset):
         for org in ("apple inc", "microsoft", "nvidia"):
             days = orgs[orgs.org == org].date.nunique()
             rep.add(f"'{org}' geçen gün", Status.OK if days > 0.5 * notes["days"] else Status.WARN, f"{days}/{notes['days']}")
+
+
+COL_THEMES = 7
+
+
+class GdeltThemes(Dataset):
+    """GDELT tema geçmişi (4. yol için).
+
+    Aynı saatlik örneklemden iki tablo üretilir (kind sütunu):
+    - day_theme: gün × tema → makale sayısı (tema ivmesi için)
+    - month_cik_theme: ay × şirket × tema → şirketin adının geçtiği makalelerde temanın sayısı
+      (şirketin tema maruziyeti; kurum adı → şirket eşleştirmesi radar.research.road2.aliases ile)
+    """
+    name = "gdelt_themes"
+    title = "GDELT tema geçmişi (günlük tema sayıları + şirket-tema maruziyeti)"
+    max_parallel = 4
+
+    def partitions(self, client: HttpClient, today: date) -> list[str]:
+        return [str(y) for y in range(2015, today.year + 1)]
+
+    def load(self, client: HttpClient, partition: str) -> Loaded:
+        from collections import Counter
+        from radar.identity import build
+        from radar.research.road2 import aliases
+        alias = dict(aliases(build()["securities"]).itertuples(index=False, name=None))
+        year = int(partition)
+        start = max(date(year, 1, 1), GKG_START)
+        end = min(date(year, 12, 31), date.today() - timedelta(days=1))
+        days = [start + timedelta(days=i) for i in range((end - start).days + 1)]
+        day_rows, month_pairs, missing = [], Counter(), 0
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            for d in days:
+                themes_today = Counter()
+                for blob in pool.map(_fetch, [gkg_url(d, h) for h in SLOT_HOURS]):
+                    if blob is None:
+                        missing += 1
+                        continue
+                    try:
+                        rows = gdelt.read_gkg(blob)
+                    except (zipfile.BadZipFile, ValueError, csv.Error):
+                        missing += 1
+                        continue
+                    month = d.replace(day=1)
+                    for r in rows:
+                        if len(r) != gdelt.GKG_COLUMNS or not r[COL_THEMES]:
+                            continue
+                        themes = {t for t in r[COL_THEMES].split(";") if t}
+                        themes_today.update(themes)
+                        ciks = {alias[o] for o in r[gdelt.COL_ORGS].split(";") if o in alias}
+                        for c in ciks:
+                            for t in themes:
+                                month_pairs[(month, c, t)] += 1
+                day_rows += [(d, None, t, n) for t, n in themes_today.items() if n >= 3]
+        mrows = [(m, c, t, n) for (m, c, t), n in month_pairs.items() if n >= 2]
+        df = pd.DataFrame(
+            [("day_theme",) + r for r in day_rows] + [("month_cik_theme",) + r for r in mrows],
+            columns=["kind", "date", "cik", "theme", "count"])
+        df["date"] = pd.to_datetime(df.date)
+        df["cik"] = df.cik.astype("Int64")
+        return Loaded(df, ["http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"],
+                      {"slots": len(days) * len(SLOT_HOURS), "missing": missing, "days": len(days)})
+
+    def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
+        df, notes = loaded.df, loaded.notes
+        rep.expect_min_ratio("İndirilen örneklem dosyası", notes["slots"] - notes["missing"], notes["slots"], 0.97, 0.9)
+        day = df[df.kind == "day_theme"]
+        rep.expect_min_ratio("Tema verisi olan gün", day.date.nunique(), notes["days"], 0.99, 0.95)
+        pairs = df[df.kind == "month_cik_theme"]
+        rep.expect_range("Tema maruziyeti olan şirket", pairs.cik.nunique(), 300, 6000)
+        top = day.groupby("theme")["count"].sum().nlargest(8)
+        rep.add("En sık temalar", Status.INFO, ", ".join(f"{t} ({n:,})" for t, n in top.items()))
+        nv = pairs[pairs.cik == 1045810].groupby("theme")["count"].sum().nlargest(5)
+        rep.add("Örnek: NVIDIA'nın en yoğun temaları", Status.INFO, ", ".join(nv.index) or "yok")
