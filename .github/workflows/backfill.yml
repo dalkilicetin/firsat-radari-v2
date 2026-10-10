@@ -10,8 +10,9 @@ on:
 permissions:
   contents: write
 
+# Her istek kendi çalışmasıdır; farklı veri setleri paralel yüklenebilir (manifest yazımı rebase ile birleşir).
 concurrency:
-  group: backfill
+  group: backfill-${{ github.sha }}
   cancel-in-progress: false
 
 env:

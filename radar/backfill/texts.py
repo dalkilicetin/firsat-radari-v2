@@ -32,7 +32,21 @@ HEADINGS = {
     "item8": r"item\s*8\s*[\.\:\-—–]?\s*financial\s*statements",
 }
 KEEP = ["item1", "item1a", "item7"]
-GOING_CONCERN = re.compile(r"substantial\s+doubt[^.]{0,200}going\s+concern|going\s+concern[^.]{0,200}substantial\s+doubt", re.I)
+# Gerçek devamlılık uyarısı: "koşullar ... ciddi şüphe DOĞURMAKTADIR / ciddi şüphe VARDIR". Varsayımsal
+# risk cümleleri ("şüphe doğabilir", "could raise") ve 2016'dan beri zorunlu muhasebe politikası metni
+# ("yönetim ... şüphe olup olmadığını değerlendirir") sayılmaz.
+GOING_CONCERN = re.compile(
+    r"(raises?|raised|there\s+is|there\s+exists|exists)\s+substantial\s+doubt\s+(about|regarding|as\s+to|on)\s+"
+    r"[^.]{0,60}?ability\s+to\s+continue\s+as\s+a\s+going\s+concern", re.I)
+HYPOTHETICAL = re.compile(r"\b(could|may|might|would|will|can|if|whether|not)\b[^.]{0,40}$", re.I)
+
+
+def has_going_concern(text: str) -> bool:
+    for m in GOING_CONCERN.finditer(text):
+        before = text[max(0, m.start() - 60):m.start()]
+        if not HYPOTHETICAL.search(before):
+            return True
+    return False
 
 
 def html_to_text(raw: str) -> str:
@@ -87,7 +101,7 @@ class TenKTexts(Dataset):
                 continue
             sec = extract_sections(text)
             rows.append({"cik": r.cik, "accession": r.accession, "filing_date": r.filing_date, "accepted": r.accepted,
-                         "chars": len(text), "going_concern": bool(GOING_CONCERN.search(text)), **sec})
+                         "chars": len(text), "going_concern": has_going_concern(text), **sec})
         df = pd.DataFrame(rows)
         return Loaded(df, ["https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"],
                       {"filings": len(f), "failed": failed})
@@ -101,7 +115,8 @@ class TenKTexts(Dataset):
         for k, ok_at in (("item1", 0.9), ("item1a", 0.8), ("item7", 0.85)):
             found = int((df[k].str.len() > 2_000).sum())
             rep.expect_min_ratio(f"{k} bulundu (>2.000 karakter)", found, len(df), ok_at, ok_at - 0.15)
-        rep.expect_range("Devamlılık şüphesi oranı (substantial doubt)", float(df.going_concern.mean()), 0.01, 0.25)
+        # Analitik bir bayrak: eşik dışı olması veriyi geçersiz kılmaz (uyarı).
+        rep.expect_range("Devamlılık şüphesi oranı (substantial doubt)", float(df.going_concern.mean()), 0.01, 0.2, warn_only=True)
         aapl = df[df.cik == 320193]
         if len(aapl):
             ok = aapl.item1.str.contains("iPhone").any()

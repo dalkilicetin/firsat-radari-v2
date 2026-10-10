@@ -247,7 +247,10 @@ def test_tenk_section_extraction_skips_table_of_contents():
     sec = texts.extract_sections(text)
     assert "iPhone" in sec["item1"] and "Risk Factors 9" not in sec["item1"]
     assert "going concern" in sec["item1a"] and "Revenue grew" in sec["item7"]
-    assert texts.GOING_CONCERN.search(text)
+    assert not texts.has_going_concern(text)  # "faces substantial doubt" kesin uyarı kalıbı değil
+    assert texts.has_going_concern("These conditions raise substantial doubt about the Company's ability to continue as a going concern.")
+    assert not texts.has_going_concern("If we cannot raise capital, this could raise substantial doubt about our ability to continue as a going concern.")
+    assert not texts.has_going_concern("Management evaluates whether there is substantial doubt about the entity's ability to continue as a going concern.")
 
 
 def test_gdelt_themes_load(monkeypatch):
