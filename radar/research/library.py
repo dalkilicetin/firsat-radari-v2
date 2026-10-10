@@ -72,9 +72,14 @@ def filename(name: str) -> str:
     return re.sub(r"[^0-9A-Za-z_.-]+", "_", name) + ".parquet"
 
 
+# Sinyaller şirket listesine (kimlik katmanı: evren, çıkışlar, semboller) bağlıdır; bu veri setleri değişince tüm
+# gruplar yeniden hesaplanır (ör. NYSE eklendiğinde haber eşleştirmesi yeni şirketleri de kapsamalı).
+IDENTITY_INPUTS = ["universe", "filings", "insider", "prices", "ftd"]
+
+
 def fingerprint(datasets: list[str]) -> str:
     h = hashlib.sha256()
-    for ds in sorted(datasets):
+    for ds in sorted(set(datasets) | set(IDENTITY_INPUTS)):
         m = storage.load_manifest(ds)
         h.update(json.dumps({k: e.get("sha256") for k, e in sorted(m["partitions"].items())}).encode())
     return h.hexdigest()[:16]
