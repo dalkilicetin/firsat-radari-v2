@@ -22,6 +22,7 @@ from radar.backfill.financials import FinancialStatements
 from radar.backfill.holdings import InstitutionalHoldings
 from radar.backfill.insider import InsiderTransactions
 from radar.backfill.macro import FredSeries
+from radar.backfill.texts import TenKTexts
 from radar.backfill.market import DailyPrices, WikipediaViews
 from radar.health import ICON, LABEL
 from radar.http import HttpClient
@@ -29,7 +30,7 @@ from radar.quality import SourceReport, Status
 
 DATASETS = {d.name: d for d in [InsiderTransactions(), FinancialStatements(), FailsToDeliver(), FredSeries(),
                                          DailyPrices(), WikipediaViews(), InstitutionalHoldings(),
-                                         Filings(), GdeltHistory()]}
+                                         Filings(), GdeltHistory(), TenKTexts()]}
 PARTS_DIR = storage.MANIFEST_DIR / "parts"
 REPORT_DIR = storage.config.ROOT / "reports" / "backfill"
 

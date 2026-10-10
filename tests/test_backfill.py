@@ -232,3 +232,19 @@ def test_gkg_carriage_return_in_field():
         zf.writestr("a.gkg.csv", "\t".join(row) + "\n")
     rows = gdelt.read_gkg(buf.getvalue())
     assert len(rows) == 1 and rows[0][gdelt.COL_ORGS] == "acme corp"
+
+
+def test_tenk_section_extraction_skips_table_of_contents():
+    from radar.backfill import texts
+    raw = ("<html><body><p>Table of Contents</p><p>Item 1. Business 3</p><p>Item 1A. Risk Factors 9</p>"
+           "<p>Item 7. Management's Discussion 30</p>"
+           "<p>ITEM 1. BUSINESS</p><p>We design and sell the iPhone and many other devices worldwide.</p>"
+           "<p>ITEM 1A. RISK FACTORS</p><p>Our business faces substantial doubt about its ability to continue as a going concern.</p>"
+           "<p>Item 2. Properties</p><p>Cupertino.</p>"
+           "<p>ITEM 7. MANAGEMENT&#8217;S DISCUSSION AND ANALYSIS</p><p>Revenue grew strongly this year.</p>"
+           "<p>Item 8. Financial Statements</p></body></html>")
+    text = texts.html_to_text(raw)
+    sec = texts.extract_sections(text)
+    assert "iPhone" in sec["item1"] and "Risk Factors 9" not in sec["item1"]
+    assert "going concern" in sec["item1a"] and "Revenue grew" in sec["item7"]
+    assert texts.GOING_CONCERN.search(text)

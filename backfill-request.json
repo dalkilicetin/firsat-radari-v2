@@ -1,27 +1,9 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 6,
+ "rev": 7,
  "requests": [
   {
-   "dataset": "gdelt",
-   "only": "2015,2016,2017,2018,2019,2020,2023",
-   "force": true
-  },
-  {
-   "dataset": "prices",
-   "only": "yok"
-  },
-  {
-   "dataset": "fred",
-   "only": "yok"
-  },
-  {
-   "dataset": "filings",
-   "only": "yok"
-  },
-  {
-   "dataset": "wikiviews",
-   "only": "yok"
+   "dataset": "tenk"
   }
  ]
 }
