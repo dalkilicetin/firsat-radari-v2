@@ -1,6 +1,528 @@
 {
  "dataset": "ftd",
  "partitions": {
+  "2009": {
+   "partition": "2009",
+   "fetched_at": "2026-10-10T16:23:35+00:00",
+   "rows": 799993,
+   "bytes": 7603513,
+   "sha256": "3de24475135c3e0627fadb79b22cc03837c3bacfc1f3fd01197ecfd4496fc54a",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200907a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200907b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200908a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200908b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200909a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200909b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200910a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200910b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200911a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200911b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200912a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails200912b.zip"
+   ],
+   "notes": {
+    "files": 12,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2009.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 4.9,
+   "requests": 13,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "12 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "799,993 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "799993/799993 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "799993/799993 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "warn",
+     "detail": "766814/799993 = %95.9"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "16,216 CUSIP, 16,490 sembol, 126 işlem günü"
+    }
+   ]
+  },
+  "2010": {
+   "partition": "2010",
+   "fetched_at": "2026-10-10T16:23:50+00:00",
+   "rows": 1575431,
+   "bytes": 15172267,
+   "sha256": "ab87c48c795522b595058aaaba125c6d22da3c01f064d7532d4991040ba39336",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201001a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201001b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201002a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201002b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201003a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201003b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201004a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201004b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201005a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201005b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201006a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201006b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201007a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201007b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201008a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201008b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201009a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201009b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201010a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201010b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201011a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201011b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201012a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201012b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2010.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 10.3,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,575,431 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1575431/1575431 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1575431/1575431 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "warn",
+     "detail": "1524579/1575431 = %96.8"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "18,081 CUSIP, 18,600 sembol, 250 işlem günü"
+    }
+   ]
+  },
+  "2011": {
+   "partition": "2011",
+   "fetched_at": "2026-10-10T16:23:50+00:00",
+   "rows": 1536824,
+   "bytes": 14856529,
+   "sha256": "9d49a0f41e710742fae6983ef48b62360a0cf9f91259bba1afc77fb502333e7d",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201101a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201101b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201102a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201102b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201103a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201103b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201104a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201104b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201105a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201105b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201106a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201106b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201107a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201107b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201108a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201108b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201109a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201109b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201110a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201110b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201111a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201111b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201112a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201112b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2011.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 10.0,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,536,824 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1536824/1536824 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1536824/1536824 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "warn",
+     "detail": "1483233/1536824 = %96.5"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "17,295 CUSIP, 17,774 sembol, 250 işlem günü"
+    }
+   ]
+  },
+  "2012": {
+   "partition": "2012",
+   "fetched_at": "2026-10-10T16:24:05+00:00",
+   "rows": 1433315,
+   "bytes": 13825929,
+   "sha256": "b77e1b97853da515c15ec6f6abf4631ffd974dd8c385f3079ca6ce96f3a78f24",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201201a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201201b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201202a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201202b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201203a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201203b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201204a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201204b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201205a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201205b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201206a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201206b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201207a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201207b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201208a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201208b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201209a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201209b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201210a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201210b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201211a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201211b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201212a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201212b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2012.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 8.3,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,433,315 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1433315/1433315 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1433315/1433315 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1406274/1433315 = %98.1"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "16,086 CUSIP, 16,601 sembol, 250 işlem günü"
+    }
+   ]
+  },
+  "2013": {
+   "partition": "2013",
+   "fetched_at": "2026-10-10T16:24:06+00:00",
+   "rows": 1396893,
+   "bytes": 13567638,
+   "sha256": "2691d96cfe10411c9dbab8d3db1e6b0f38c4a8bb3141af357f02a5eb7f3efe68",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201301a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201301b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201302a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201302b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201303a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201303b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201304a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201304b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201305a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201305b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201306a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201306b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201307a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201307b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201308a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201308b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201309a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201309b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201310a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201310b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201311a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201311b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201312a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201312b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2013.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 6.8,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,396,893 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1396893/1396893 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1396893/1396893 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1375540/1396893 = %98.5"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "15,753 CUSIP, 16,120 sembol, 250 işlem günü"
+    }
+   ]
+  },
+  "2014": {
+   "partition": "2014",
+   "fetched_at": "2026-10-10T16:24:20+00:00",
+   "rows": 1518621,
+   "bytes": 14739468,
+   "sha256": "f13f9f2d2cfa387a009db47be7ed0120348daaeb60cf7faa56ee7673bf5e7b24",
+   "columns": {
+    "settle_date": "datetime64[us]",
+    "cusip": "str",
+    "symbol": "str",
+    "qty": "float64",
+    "description": "str",
+    "price": "float64"
+   },
+   "sources": [
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201401a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201401b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201402a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201402b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201403a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201403b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201404a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201404b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201405a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201405b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201406a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201406b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201407a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201407b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201408a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201408b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201409a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201409b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201410a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201410b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201411a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201411b.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201412a.zip",
+    "https://www.sec.gov/files/data/frequently-requested-foia-document-fails-deliver-data/cnsfails201412b.zip"
+   ],
+   "notes": {
+    "files": 24,
+    "columns": [
+     "SETTLE",
+     "CUSIP",
+     "SYMBOL",
+     "QTY",
+     "DESCRIPTION",
+     "PRICE"
+    ]
+   },
+   "asset": "ftd__2014.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 8.5,
+   "requests": 25,
+   "checks": [
+    {
+     "name": "Dosya sayısı (ayda 2)",
+     "status": "ok",
+     "detail": "24 (beklenen 2–24)"
+    },
+    {
+     "name": "Satır sayısı",
+     "status": "ok",
+     "detail": "1,518,621 (beklenen 50,000–5,000,000)"
+    },
+    {
+     "name": "Takas tarihi yıl içinde",
+     "status": "ok",
+     "detail": "1518621/1518621 = %100.0"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1518621/1518621 = %100.0"
+    },
+    {
+     "name": "Fiyat sayısal ve > 0",
+     "status": "ok",
+     "detail": "1494608/1518621 = %98.4"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "15,518 CUSIP, 15,861 sembol, 250 işlem günü"
+    }
+   ]
+  },
   "2015": {
    "partition": "2015",
    "fetched_at": "2026-10-09T23:28:04+00:00",
@@ -1053,7 +1575,7 @@
   {
    "name": "Yüklenen yıl",
    "status": "ok",
-   "detail": "12 yıl: ['2015'] … ['2026']"
+   "detail": "18 yıl: ['2009'] … ['2026']"
   },
   {
    "name": "Fiyat doğruluğu: AAPL FTD fiyatı ↔ Yahoo önceki gün kapanışı (%0,5)",
@@ -1068,16 +1590,18 @@
   {
    "name": "CUSIP → sembol eşleştirmesi",
    "status": "info",
-   "detail": "45,124 CUSIP; birden çok sembole bağlanan (sembol değişikliği): 9,953"
+   "detail": "58,571 CUSIP; birden çok sembole bağlanan (sembol değişikliği): 14,315"
   }
  ],
- "title": "SEC fails-to-deliver (fiyat + CUSIP eşleştirmesi, 2015→)",
+ "title": "SEC fails-to-deliver (fiyat + CUSIP eşleştirmesi, 2009→)",
  "derived": {
   "cusip_map": {
    "asset": "ftd__cusip_map.parquet",
-   "rows": 56274,
-   "sha256": "abedd0a9c72fa5bfece809219394cad6283e57ef7b78faaea4eb6a88f755be07"
+   "rows": 74830,
+   "sha256": "67c46083a9159dfe9d6de89072f9259a4fc982f9a3e7303bcd1dcbe8d7c77966",
+   "release": "veri-arsivi-2009"
   }
  },
- "finalized_at": "2026-10-09T23:59:46+00:00"
+ "finalized_at": "2026-10-10T16:28:19+00:00",
+ "removed_assets": []
 }

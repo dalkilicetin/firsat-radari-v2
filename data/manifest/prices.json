@@ -1,12 +1,12 @@
 {
  "dataset": "prices",
  "partitions": {
-  "A-20261009": {
-   "partition": "A-20261009",
-   "fetched_at": "2026-10-09T23:17:50+00:00",
-   "rows": 641534,
-   "bytes": 5430006,
-   "sha256": "33402b2c7246787b1fc3abe8b65fdfba7920ca5b0be96f0192067ee57c71f1f7",
+  "A-20261010": {
+   "partition": "A-20261010",
+   "fetched_at": "2026-10-10T16:21:32+00:00",
+   "rows": 816103,
+   "bytes": 7711883,
+   "sha256": "f87fac1c74de6b1677b54bfb2aa1fd03bdf8b6f24c196460731f048e309a858c",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -17,7 +17,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -25,11 +25,13 @@
     "missing": [],
     "cross_checked": 35,
     "agree": 35,
-    "compared": 35
+    "compared": 35,
+    "mismatch": []
    },
-   "asset": "prices__A-20261009.parquet",
+   "asset": "prices__A-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 246.7,
+   "duration_s": 251.7,
    "requests": 380,
    "checks": [
     {
@@ -38,14 +40,14 @@
      "detail": "344/344 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "35/35 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "641534/641534 = %100.0"
+     "detail": "816103/816103 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -55,21 +57,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 133/344 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 104/344 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "294 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['AACG 2019-04-09', 'AACG 2019-04-10', 'AACG 2021-02-04', 'AACG 2022-01-04', 'AAME 2021-02-05', 'ABAT 2016-05-27', 'ABAT 2020-01-15', 'ABEO 2015-05-05', 'ABEO 2019-09-03', 'ABLV 2025-03-07']"
+     "detail": "364 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['AACG 2019-04-09', 'AACG 2019-04-10', 'AACG 2021-02-04', 'AACG 2022-01-04', 'AAME 2021-02-05', 'ABAT 2016-05-27', 'ABAT 2020-01-15', 'ABEO 2015-05-05', 'ABEO 2019-09-03', 'ABLV 2025-03-07']"
     }
    ]
   },
-  "B-20261009": {
-   "partition": "B-20261009",
-   "fetched_at": "2026-10-09T23:30:48+00:00",
-   "rows": 315310,
-   "bytes": 2719067,
-   "sha256": "4fb29f3a338bbfac77e3d6587511571794a5ce4182d4d1c3f3712a58f95c4778",
+  "B-20261010": {
+   "partition": "B-20261010",
+   "fetched_at": "2026-10-10T16:21:29+00:00",
+   "rows": 391334,
+   "bytes": 3675180,
+   "sha256": "b1015d337398bfb34afbf144b512e97b15fa130f3d4c9d14861c5d1fa842b284",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -80,7 +82,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -88,11 +90,13 @@
     "missing": [],
     "cross_checked": 19,
     "agree": 19,
-    "compared": 19
+    "compared": 19,
+    "mismatch": []
    },
-   "asset": "prices__B-20261009.parquet",
+   "asset": "prices__B-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 132.3,
+   "duration_s": 137.9,
    "requests": 205,
    "checks": [
     {
@@ -101,14 +105,14 @@
      "detail": "185/185 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "19/19 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "315310/315310 = %100.0"
+     "detail": "391334/391334 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -118,21 +122,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 58/185 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 44/185 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "203 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['BAER 2023-01-25', 'BAOS 2022-05-25', 'BAOS 2023-05-01', 'BAOS 2023-06-08', 'BAOS 2024-12-24', 'BBGI 2025-12-10', 'BBGI 2026-04-08', 'BBGI 2026-04-09', 'BBLG 2024-09-16', 'BCDA 2023-11-14']"
+     "detail": "251 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['BAER 2023-01-25', 'BAOS 2022-05-25', 'BAOS 2023-05-01', 'BAOS 2023-06-08', 'BAOS 2024-12-24', 'BBGI 2025-12-10', 'BBGI 2026-04-08', 'BBGI 2026-04-09', 'BBLG 2024-09-16', 'BCAL 2009-08-05']"
     }
    ]
   },
-  "C-20261009": {
-   "partition": "C-20261009",
-   "fetched_at": "2026-10-09T23:30:59+00:00",
-   "rows": 640192,
-   "bytes": 5595801,
-   "sha256": "dbf00f52913193f88bd150e94cf46ee13b5f7ae44afe576827e4b257d674d476",
+  "C-20261010": {
+   "partition": "C-20261010",
+   "fetched_at": "2026-10-10T16:21:24+00:00",
+   "rows": 847516,
+   "bytes": 8099499,
+   "sha256": "1bca9cfda1e40b0b92c5a9fdc87729a761813be95b0668ac2c3933982d26a0c5",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -143,19 +147,23 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
     "symbols": 316,
     "missing": [],
     "cross_checked": 32,
-    "agree": 31,
-    "compared": 32
+    "agree": 32,
+    "compared": 32,
+    "mismatch": [
+     "CPOP: %93.33 (yakın bölünme)"
+    ]
    },
-   "asset": "prices__C-20261009.parquet",
+   "asset": "prices__C-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 225.2,
+   "duration_s": 225.1,
    "requests": 349,
    "checks": [
     {
@@ -164,14 +172,14 @@
      "detail": "316/316 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
-     "detail": "31/32 = %96.9"
+     "detail": "32/32 = %100.0; uyuşmayan: ['CPOP: %93.33 (yakın bölünme)']"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "640192/640192 = %100.0"
+     "detail": "847516/847516 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -181,21 +189,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 153/316 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 127/316 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "276 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['CAAS 2020-11-30', 'CADL 2024-04-04', 'CAN 2020-02-12', 'CAPR 2017-07-18', 'CAPR 2019-07-15', 'CAPR 2020-04-29', 'CAPR 2025-12-03', 'CAPS 2019-07-23', 'CAPS 2019-08-02', 'CAPS 2019-08-28']"
+     "detail": "326 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['CAAS 2020-11-30', 'CADL 2024-04-04', 'CAN 2020-02-12', 'CAPR 2017-07-18', 'CAPR 2019-07-15', 'CAPR 2020-04-29', 'CAPR 2025-12-03', 'CAPS 2019-07-23', 'CAPS 2019-08-02', 'CAPS 2019-08-28']"
     }
    ]
   },
-  "D-20261009": {
-   "partition": "D-20261009",
-   "fetched_at": "2026-10-09T23:31:01+00:00",
-   "rows": 186547,
-   "bytes": 1619484,
-   "sha256": "2b1b9a5650f82aa2f207d6a9023327337ec9723d02697be3cf747c3c896f7aa5",
+  "D-20261010": {
+   "partition": "D-20261010",
+   "fetched_at": "2026-10-10T16:21:26+00:00",
+   "rows": 230855,
+   "bytes": 2171740,
+   "sha256": "f672b3912f04ccf15613e39f67478a80bf747d4db42abfaf55c315fc16b653b9",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -206,19 +214,21 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
     "symbols": 103,
     "missing": [],
     "cross_checked": 11,
-    "agree": 11,
-    "compared": 11
+    "agree": 10,
+    "compared": 10,
+    "mismatch": []
    },
-   "asset": "prices__D-20261009.parquet",
+   "asset": "prices__D-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 77.8,
+   "duration_s": 80.2,
    "requests": 115,
    "checks": [
     {
@@ -227,14 +237,14 @@
      "detail": "103/103 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
-     "detail": "11/11 = %100.0"
+     "detail": "10/10 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "186547/186547 = %100.0"
+     "detail": "230855/230855 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -244,21 +254,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 33/103 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 27/103 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "119 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['DAIC 2026-08-24', 'DAIC 2026-08-25', 'DAIC 2026-09-17', 'DARE 2017-07-05', 'DARE 2019-03-18', 'DARE 2020-01-13', 'DBGI 2023-08-16', 'DBGI 2024-02-13', 'DBGI 2025-02-14', 'DBGI 2026-09-10']"
+     "detail": "139 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['DAIC 2026-08-24', 'DAIC 2026-08-25', 'DAIC 2026-09-17', 'DARE 2017-07-05', 'DARE 2019-03-18', 'DARE 2020-01-13', 'DBGI 2023-08-16', 'DBGI 2024-02-13', 'DBGI 2025-02-14', 'DBGI 2026-09-10']"
     }
    ]
   },
-  "E-20261009": {
-   "partition": "E-20261009",
-   "fetched_at": "2026-10-09T23:31:00+00:00",
-   "rows": 223578,
-   "bytes": 2072262,
-   "sha256": "c6df6e90adf53e5eb763e7d4777770c732cced8c592e07268aaccd4f44de948c",
+  "E-20261010": {
+   "partition": "E-20261010",
+   "fetched_at": "2026-10-10T16:21:26+00:00",
+   "rows": 286948,
+   "bytes": 2904806,
+   "sha256": "995744f4c86f9253e2adc5fd6bfed8b908b1b0c6108f51ccbfb049c9f685d10b",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -269,7 +279,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -277,11 +287,13 @@
     "missing": [],
     "cross_checked": 13,
     "agree": 12,
-    "compared": 12
+    "compared": 12,
+    "mismatch": []
    },
-   "asset": "prices__E-20261009.parquet",
+   "asset": "prices__E-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 91.9,
+   "duration_s": 91.6,
    "requests": 136,
    "checks": [
     {
@@ -290,14 +302,14 @@
      "detail": "122/122 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "12/12 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "223578/223578 = %100.0"
+     "detail": "286948/286948 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -307,21 +319,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 47/122 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 38/122 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "79 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['ECOR 2020-03-30', 'ECOR 2020-07-13', 'ECX 2023-02-22', 'EDHL 2025-09-10', 'EDHL 2025-10-14', 'EDIT 2025-02-19', 'EDSA 2020-06-15', 'EDSA 2020-07-30', 'EDSA 2021-09-20', 'EDSA 2026-03-03']"
+     "detail": "87 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['ECOR 2020-03-30', 'ECOR 2020-07-13', 'ECX 2023-02-22', 'EDHL 2025-09-10', 'EDHL 2025-10-14', 'EDIT 2025-02-19', 'EDSA 2020-06-15', 'EDSA 2020-07-30', 'EDSA 2021-09-20', 'EDSA 2026-03-03']"
     }
    ]
   },
-  "F-20261009": {
-   "partition": "F-20261009",
-   "fetched_at": "2026-10-09T23:31:11+00:00",
-   "rows": 312099,
-   "bytes": 2889707,
-   "sha256": "09aa4a9f2d16c258d48333986a0f70a20d47688f5d7d010db0025bde9385eb96",
+  "F-20261010": {
+   "partition": "F-20261010",
+   "fetched_at": "2026-10-10T16:21:30+00:00",
+   "rows": 404923,
+   "bytes": 4008520,
+   "sha256": "add36cbc7318c58b61f156294b93e53ba6b0ed844abf62b74ea59cc2012c7d36",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -332,7 +344,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -340,11 +352,13 @@
     "missing": [],
     "cross_checked": 16,
     "agree": 16,
-    "compared": 16
+    "compared": 16,
+    "mismatch": []
    },
-   "asset": "prices__F-20261009.parquet",
+   "asset": "prices__F-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 115.4,
+   "duration_s": 116.7,
    "requests": 175,
    "checks": [
     {
@@ -353,14 +367,14 @@
      "detail": "158/158 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "16/16 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "312099/312099 = %100.0"
+     "detail": "404923/404923 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -370,12 +384,12 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 73/158 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 54/158 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "94 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['FABC 2015-07-01', 'FABC 2019-12-20', 'FBLG 2024-02-13', 'FCEL 2019-07-02', 'FCEL 2019-11-06', 'FCHL 2025-09-23', 'FCUV 2015-03-24', 'FCUV 2015-03-31', 'FCUV 2017-09-28', 'FCUV 2017-09-29']"
+     "detail": "111 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['FABC 2015-07-01', 'FABC 2019-12-20', 'FBLG 2024-02-13', 'FCEL 2019-07-02', 'FCEL 2019-11-06', 'FCHL 2025-09-23', 'FCUV 2015-03-24', 'FCUV 2015-03-31', 'FCUV 2017-09-28', 'FCUV 2017-09-29']"
     }
    ]
   },
@@ -446,12 +460,12 @@
     }
    ]
   },
-  "H-20261009": {
-   "partition": "H-20261009",
-   "fetched_at": "2026-10-09T23:31:22+00:00",
-   "rows": 211312,
-   "bytes": 1994301,
-   "sha256": "6aabac67c5febd0a2e52c90d119715a273bd6f61615522660e79b23efaedea52",
+  "H-20261010": {
+   "partition": "H-20261010",
+   "fetched_at": "2026-10-10T16:21:26+00:00",
+   "rows": 277184,
+   "bytes": 2858212,
+   "sha256": "6b65ad587b445fa6268b42068ea257737c4bdb755308170b65fc2e9f3ce859e5",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -462,7 +476,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -470,11 +484,13 @@
     "missing": [],
     "cross_checked": 12,
     "agree": 12,
-    "compared": 12
+    "compared": 12,
+    "mismatch": []
    },
-   "asset": "prices__H-20261009.parquet",
+   "asset": "prices__H-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 89.2,
+   "duration_s": 85.5,
    "requests": 126,
    "checks": [
     {
@@ -483,14 +499,14 @@
      "detail": "113/113 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "12/12 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "211312/211312 = %100.0"
+     "detail": "277184/277184 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -500,12 +516,12 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 48/113 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 41/113 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "79 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['HAO 2025-01-27', 'HAO 2026-05-11', 'HBIO 2025-05-29', 'HCAI 2026-04-07', 'HCAI 2026-04-30', 'HCAI 2026-05-18', 'HCTI 2022-12-12', 'HCTI 2023-07-12', 'HCTI 2024-10-28', 'HCTI 2025-05-15']"
+     "detail": "119 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['HAO 2025-01-27', 'HAO 2026-05-11', 'HBIO 2025-05-29', 'HCAI 2026-04-07', 'HCAI 2026-04-30', 'HCAI 2026-05-18', 'HCTI 2022-12-12', 'HCTI 2023-07-12', 'HCTI 2024-10-28', 'HCTI 2025-05-15']"
     }
    ]
   },
@@ -575,12 +591,12 @@
     }
    ]
   },
-  "J-K-20261009": {
-   "partition": "J-K-20261009",
-   "fetched_at": "2026-10-09T23:31:26+00:00",
-   "rows": 209514,
-   "bytes": 1948731,
-   "sha256": "8faab063ae787dfe11f55ca639fd3e2db2ef3a5c5e1f678af6854d659ce32583",
+  "J-K-20261010": {
+   "partition": "J-K-20261010",
+   "fetched_at": "2026-10-10T16:21:31+00:00",
+   "rows": 261054,
+   "bytes": 2665178,
+   "sha256": "804ea62b59f2b9deb5fd7d92ad239c178777891fa9c98fa0e2b88638f48f3d7b",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -591,7 +607,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -599,11 +615,13 @@
     "missing": [],
     "cross_checked": 12,
     "agree": 12,
-    "compared": 12
+    "compared": 12,
+    "mismatch": []
    },
-   "asset": "prices__J-K-20261009.parquet",
+   "asset": "prices__J-K-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 87.3,
+   "duration_s": 82.5,
    "requests": 125,
    "checks": [
     {
@@ -612,14 +630,14 @@
      "detail": "112/112 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "12/12 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "209514/209514 = %100.0"
+     "detail": "261054/261054 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -629,21 +647,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 42/112 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 32/112 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "103 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['JAGX 2018-03-08', 'JAGX 2018-09-25', 'JAGX 2019-03-18', 'JAGX 2020-12-23', 'JAGX 2021-01-04', 'JAGX 2026-01-16', 'JAGX 2026-09-22', 'JAKK 2020-06-12', 'JANX 2024-02-27', 'JBDI 2024-09-16']"
+     "detail": "115 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['JAGX 2018-03-08', 'JAGX 2018-09-25', 'JAGX 2019-03-18', 'JAGX 2020-12-23', 'JAGX 2021-01-04', 'JAGX 2026-01-16', 'JAGX 2026-09-22', 'JAKK 2020-06-12', 'JANX 2024-02-27', 'JAZZ 2009-06-10']"
     }
    ]
   },
-  "L-20261009": {
-   "partition": "L-20261009",
-   "fetched_at": "2026-10-09T23:31:32+00:00",
-   "rows": 260248,
-   "bytes": 2392605,
-   "sha256": "e64d5358bd5d6eee3d05161430b07b530ed890d6910fe7d8d12ae87390e3f122",
+  "L-20261010": {
+   "partition": "L-20261010",
+   "fetched_at": "2026-10-10T16:21:30+00:00",
+   "rows": 334546,
+   "bytes": 3394624,
+   "sha256": "858376bc54e43331b6af7ac92203a6f4e52349201265d4f0c21fc92761818810",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -654,7 +672,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -662,11 +680,13 @@
     "missing": [],
     "cross_checked": 14,
     "agree": 14,
-    "compared": 14
+    "compared": 14,
+    "mismatch": []
    },
-   "asset": "prices__L-20261009.parquet",
+   "asset": "prices__L-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 93.1,
+   "duration_s": 102.5,
    "requests": 153,
    "checks": [
     {
@@ -675,14 +695,14 @@
      "detail": "138/138 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "14/14 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "260248/260248 = %100.0"
+     "detail": "334546/334546 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -692,12 +712,12 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 59/138 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 44/138 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "76 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['LABT 2026-07-22', 'LAES 2023-05-24', 'LAES 2024-12-11', 'LASE 2024-04-09', 'LASE 2024-09-23', 'LASE 2024-10-08', 'LASE 2026-06-02', 'LBGJ 2026-02-27', 'LBGJ 2026-07-20', 'LCFY 2024-07-11']"
+     "detail": "84 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['LABT 2026-07-22', 'LAES 2023-05-24', 'LAES 2024-12-11', 'LASE 2024-04-09', 'LASE 2024-09-23', 'LASE 2024-10-08', 'LASE 2026-06-02', 'LBGJ 2026-02-27', 'LBGJ 2026-07-20', 'LCFY 2024-07-11']"
     }
    ]
   },
@@ -767,12 +787,12 @@
     }
    ]
   },
-  "N-20261009": {
-   "partition": "N-20261009",
-   "fetched_at": "2026-10-09T23:31:28+00:00",
-   "rows": 297316,
-   "bytes": 2695754,
-   "sha256": "6474cfab58f947881f0cf85d5e5d35f050f5ee2d1e6c3321478f5d82b7c90d93",
+  "N-20261010": {
+   "partition": "N-20261010",
+   "fetched_at": "2026-10-10T16:21:26+00:00",
+   "rows": 385686,
+   "bytes": 3822619,
+   "sha256": "ec855399c54ecc48aa1c82dc45dd7952312a541cd723ab33aa4e8c8cceac1214",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -783,7 +803,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -791,11 +811,13 @@
     "missing": [],
     "cross_checked": 16,
     "agree": 16,
-    "compared": 16
+    "compared": 16,
+    "mismatch": []
    },
-   "asset": "prices__N-20261009.parquet",
+   "asset": "prices__N-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 113.9,
+   "duration_s": 119.7,
    "requests": 173,
    "checks": [
     {
@@ -804,14 +826,14 @@
      "detail": "156/156 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "16/16 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "297316/297316 = %100.0"
+     "detail": "385686/385686 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -821,21 +843,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 67/156 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 48/156 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "219 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['NA 2024-11-12', 'NA 2024-11-22', 'NAGE 2021-02-25', 'NAKA 2025-02-12', 'NAKA 2025-05-12', 'NAKA 2025-05-15', 'NAMM 2026-01-21', 'NAMM 2026-01-22', 'NAUT 2021-02-08', 'NBTX 2023-05-05']"
+     "detail": "313 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['NA 2024-11-12', 'NA 2024-11-22', 'NAGE 2009-05-21', 'NAGE 2009-06-17', 'NAGE 2009-07-13', 'NAGE 2009-07-17', 'NAGE 2009-07-24', 'NAGE 2021-02-25', 'NAKA 2025-02-12', 'NAKA 2025-05-12']"
     }
    ]
   },
-  "O-20261009": {
-   "partition": "O-20261009",
-   "fetched_at": "2026-10-09T23:32:42+00:00",
-   "rows": 196295,
-   "bytes": 1784462,
-   "sha256": "ea9a8de636a13e26264d263f0068018b09060d6b2ca4a7fbe7cac57a920471eb",
+  "O-20261010": {
+   "partition": "O-20261010",
+   "fetched_at": "2026-10-10T16:21:29+00:00",
+   "rows": 252583,
+   "bytes": 2505014,
+   "sha256": "cf48a556fc78699a5214a07792ffc5599355352e76bd1425b47fc7ec841652da",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -846,7 +868,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -854,11 +876,13 @@
     "missing": [],
     "cross_checked": 11,
     "agree": 11,
-    "compared": 11
+    "compared": 11,
+    "mismatch": []
    },
-   "asset": "prices__O-20261009.parquet",
+   "asset": "prices__O-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 75.1,
+   "duration_s": 77.0,
    "requests": 118,
    "checks": [
     {
@@ -867,14 +891,14 @@
      "detail": "106/106 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "11/11 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "196295/196295 = %100.0"
+     "detail": "252583/252583 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -884,21 +908,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 42/106 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 34/106 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "79 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['OBAI 2026-06-16', 'OCG 2021-03-15', 'OCG 2025-12-09', 'OCG 2025-12-11', 'OCGN 2020-12-22', 'OCGN 2020-12-23', 'OCGN 2021-02-02', 'OCGN 2021-02-08', 'ODYS 2022-05-18', 'ODYS 2022-05-31']"
+     "detail": "128 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['OBAI 2026-06-16', 'OCG 2021-03-15', 'OCG 2025-12-09', 'OCG 2025-12-11', 'OCGN 2020-12-22', 'OCGN 2020-12-23', 'OCGN 2021-02-02', 'OCGN 2021-02-08', 'ODYS 2022-05-18', 'ODYS 2022-05-31']"
     }
    ]
   },
-  "P-20261009": {
-   "partition": "P-20261009",
-   "fetched_at": "2026-10-09T23:32:48+00:00",
-   "rows": 377911,
-   "bytes": 3369473,
-   "sha256": "7d444c40224127bf9d8994c721ccbf0aacc716329f58ed6acbc8b1df76391f16",
+  "P-20261010": {
+   "partition": "P-20261010",
+   "fetched_at": "2026-10-10T16:23:03+00:00",
+   "rows": 474507,
+   "bytes": 4614798,
+   "sha256": "c58b0cac98dab7e0a7707999ea60e483655ae61ccc4a65f35b8b9623beb51727",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -909,7 +933,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -917,11 +941,13 @@
     "missing": [],
     "cross_checked": 20,
     "agree": 19,
-    "compared": 19
+    "compared": 19,
+    "mismatch": []
    },
-   "asset": "prices__P-20261009.parquet",
+   "asset": "prices__P-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 134.5,
+   "duration_s": 144.6,
    "requests": 217,
    "checks": [
     {
@@ -930,14 +956,14 @@
      "detail": "196/196 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "19/19 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "377911/377911 = %100.0"
+     "detail": "474504/474507 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -947,21 +973,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 81/196 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 56/196 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "173 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['PALI 2017-12-05', 'PALI 2022-11-22', 'PALI 2023-09-06', 'PALI 2024-01-29', 'PARA 2024-09-24', 'PARA 2024-10-09', 'PAVM 2016-07-28', 'PAVM 2026-01-21', 'PAVS 2024-10-01', 'PAVS 2025-12-01']"
+     "detail": "210 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['PALI 2017-12-05', 'PALI 2022-11-22', 'PALI 2023-09-06', 'PALI 2024-01-29', 'PARA 2024-09-24', 'PARA 2024-10-09', 'PAVM 2016-07-28', 'PAVM 2026-01-21', 'PAVS 2024-10-01', 'PAVS 2025-12-01']"
     }
    ]
   },
-  "Q-R-20261009": {
-   "partition": "Q-R-20261009",
-   "fetched_at": "2026-10-09T23:33:17+00:00",
-   "rows": 329325,
-   "bytes": 2866863,
-   "sha256": "23de6260ab5e903ecb0a92d1624541c3712aba84b28245b969cdccb1c07ab044",
+  "Q-R-20261010": {
+   "partition": "Q-R-20261010",
+   "fetched_at": "2026-10-10T16:23:11+00:00",
+   "rows": 411347,
+   "bytes": 3895829,
+   "sha256": "6c69d766dfc772d609c0bbfe73b28f7523f50b1eb97f0b73d44e95dc69dd18f5",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -972,7 +998,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -980,11 +1006,13 @@
     "missing": [],
     "cross_checked": 18,
     "agree": 18,
-    "compared": 18
+    "compared": 18,
+    "mismatch": []
    },
-   "asset": "prices__Q-R-20261009.parquet",
+   "asset": "prices__Q-R-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 126.7,
+   "duration_s": 127.9,
    "requests": 195,
    "checks": [
     {
@@ -993,14 +1021,14 @@
      "detail": "176/176 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "18/18 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "329325/329325 = %100.0"
+     "detail": "411347/411347 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -1010,21 +1038,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 62/176 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 47/176 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "205 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['QBTS 2023-05-22', 'QCLS 2020-04-06', 'QCLS 2026-09-16', 'QH 2024-09-10', 'QH 2025-07-28', 'QH 2025-10-29', 'QH 2026-02-26', 'QH 2026-04-10', 'QH 2026-04-27', 'QH 2026-05-28']"
+     "detail": "298 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['QBTS 2023-05-22', 'QCLS 2020-04-06', 'QCLS 2026-09-16', 'QH 2024-09-10', 'QH 2025-07-28', 'QH 2025-10-29', 'QH 2026-02-26', 'QH 2026-04-10', 'QH 2026-04-27', 'QH 2026-05-28']"
     }
    ]
   },
-  "S-20261009": {
-   "partition": "S-20261009",
-   "fetched_at": "2026-10-09T23:33:11+00:00",
-   "rows": 498697,
-   "bytes": 4301151,
-   "sha256": "5743612aac27e934ed749065fb64226e8377a33ddc9aeb593b4ef9d68a4a4747",
+  "S-20261010": {
+   "partition": "S-20261010",
+   "fetched_at": "2026-10-10T16:23:14+00:00",
+   "rows": 639204,
+   "bytes": 6092838,
+   "sha256": "f3ce473fc88895faf357a6a8cfac23aeaf941240d9b3c51fb1f0df745a45dc50",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -1035,7 +1063,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -1043,11 +1071,13 @@
     "missing": [],
     "cross_checked": 28,
     "agree": 28,
-    "compared": 28
+    "compared": 28,
+    "mismatch": []
    },
-   "asset": "prices__S-20261009.parquet",
+   "asset": "prices__S-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 201.2,
+   "duration_s": 209.4,
    "requests": 300,
    "checks": [
     {
@@ -1056,14 +1086,14 @@
      "detail": "271/271 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "28/28 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "498697/498697 = %100.0"
+     "detail": "639204/639204 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -1073,21 +1103,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 105/271 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 86/271 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "291 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['SABS 2023-04-13', 'SAFX 2025-03-05', 'SAFX 2025-03-07', 'SAFX 2025-06-06', 'SAFX 2026-01-27', 'SAIH 2023-04-14', 'SAIQ 2026-10-05', 'SANA 2025-01-08', 'SBET 2018-07-10', 'SBET 2024-12-06']"
+     "detail": "345 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['SABS 2023-04-13', 'SAFX 2025-03-05', 'SAFX 2025-03-07', 'SAFX 2025-06-06', 'SAFX 2026-01-27', 'SAIH 2023-04-14', 'SAIQ 2026-10-05', 'SANA 2025-01-08', 'SBET 2018-07-10', 'SBET 2024-12-06']"
     }
    ]
   },
-  "T-20261009": {
-   "partition": "T-20261009",
-   "fetched_at": "2026-10-09T23:33:18+00:00",
-   "rows": 300625,
-   "bytes": 2691113,
-   "sha256": "cb763725e5370237a4e312a186caf542fd1c0dd536c2fc9630f166eb354888a7",
+  "T-20261010": {
+   "partition": "T-20261010",
+   "fetched_at": "2026-10-10T16:23:12+00:00",
+   "rows": 385962,
+   "bytes": 3823141,
+   "sha256": "7afeaa26b270bc01e9b97dab17aea28cb04b8e505b450fecb17a8221af2f6ec3",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -1098,7 +1128,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -1106,11 +1136,13 @@
     "missing": [],
     "cross_checked": 17,
     "agree": 17,
-    "compared": 17
+    "compared": 17,
+    "mismatch": []
    },
-   "asset": "prices__T-20261009.parquet",
+   "asset": "prices__T-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 119.6,
+   "duration_s": 125.0,
    "requests": 179,
    "checks": [
     {
@@ -1119,14 +1151,14 @@
      "detail": "161/161 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "17/17 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "300625/300625 = %100.0"
+     "detail": "385962/385962 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -1136,21 +1168,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 67/161 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 50/161 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "106 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['TANH 2023-05-01', 'TAOP 2025-05-12', 'TARA 2019-03-28', 'TC 2022-11-21', 'TC 2026-07-01', 'TDIC 2025-10-10', 'TDIC 2026-05-12', 'TDIC 2026-05-13', 'TDIC 2026-05-14', 'TDIC 2026-06-08']"
+     "detail": "143 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['TANH 2023-05-01', 'TAOP 2025-05-12', 'TARA 2019-03-28', 'TC 2022-11-21', 'TC 2026-07-01', 'TDIC 2025-10-10', 'TDIC 2026-05-12', 'TDIC 2026-05-13', 'TDIC 2026-05-14', 'TDIC 2026-06-08']"
     }
    ]
   },
-  "U-V-20261009": {
-   "partition": "U-V-20261009",
-   "fetched_at": "2026-10-09T23:33:23+00:00",
-   "rows": 284480,
-   "bytes": 2594537,
-   "sha256": "a887b027ab0a4c851f9782a4ccd2a2c5b25a29e4f076c92f1461f8b8b87f134c",
+  "U-V-20261010": {
+   "partition": "U-V-20261010",
+   "fetched_at": "2026-10-10T16:23:17+00:00",
+   "rows": 365989,
+   "bytes": 3676223,
+   "sha256": "a772ead45c104b64b65f017d19fca3c0a408ec8542355e3bd2ecde6777dc954a",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -1161,7 +1193,7 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
@@ -1169,11 +1201,13 @@
     "missing": [],
     "cross_checked": 14,
     "agree": 14,
-    "compared": 14
+    "compared": 14,
+    "mismatch": []
    },
-   "asset": "prices__U-V-20261009.parquet",
+   "asset": "prices__U-V-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 98.9,
+   "duration_s": 99.3,
    "requests": 149,
    "checks": [
     {
@@ -1182,14 +1216,14 @@
      "detail": "134/134 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
      "detail": "14/14 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "284480/284480 = %100.0"
+     "detail": "365989/365989 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -1199,21 +1233,21 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 66/134 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 46/134 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "117 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['UCAR 2023-04-21', 'UCAR 2023-06-01', 'UCAR 2026-04-08', 'UCAR 2026-07-29', 'UCAR 2026-07-30', 'UCAR 2026-08-04', 'UCAR 2026-08-05', 'UCAR 2026-08-07', 'UCAR 2026-08-10', 'UCAR 2026-08-11']"
+     "detail": "147 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['UCAR 2023-04-21', 'UCAR 2023-06-01', 'UCAR 2026-04-08', 'UCAR 2026-07-29', 'UCAR 2026-07-30', 'UCAR 2026-08-04', 'UCAR 2026-08-05', 'UCAR 2026-08-07', 'UCAR 2026-08-10', 'UCAR 2026-08-11']"
     }
    ]
   },
-  "W-Z-20261009": {
-   "partition": "W-Z-20261009",
-   "fetched_at": "2026-10-09T23:33:30+00:00",
-   "rows": 283729,
-   "bytes": 2687181,
-   "sha256": "0455df0ac116cc63bc179c534fe90209323026c6eb3edda86e0fe902d64376f4",
+  "W-Z-20261010": {
+   "partition": "W-Z-20261010",
+   "fetched_at": "2026-10-10T16:23:28+00:00",
+   "rows": 353592,
+   "bytes": 3645613,
+   "sha256": "c8339f6180178918b6c7c7a2de225d3d509a770c9a16033c49023997250893c8",
    "columns": {
     "symbol": "str",
     "date": "datetime64[s]",
@@ -1224,19 +1258,21 @@
     "dividend": "object"
    },
    "sources": [
-    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1420070400&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
+    "https://query1.finance.yahoo.com/v8/finance/chart/<sembol>?period1=1230768000&period2=<bugün>&interval=1d&events=split,div&includeAdjustedClose=true",
     "https://api.nasdaq.com/api/quote/{sym}/historical"
    ],
    "notes": {
     "symbols": 168,
     "missing": [],
     "cross_checked": 17,
-    "agree": 16,
-    "compared": 16
+    "agree": 17,
+    "compared": 17,
+    "mismatch": []
    },
-   "asset": "prices__W-Z-20261009.parquet",
+   "asset": "prices__W-Z-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 127.3,
+   "duration_s": 121.3,
    "requests": 186,
    "checks": [
     {
@@ -1245,14 +1281,14 @@
      "detail": "168/168 = %100.0"
     },
     {
-     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5)",
+     "name": "Çapraz kontrol: Yahoo ↔ Nasdaq son 60 gün (%0,5; bölünme açıklamalı)",
      "status": "ok",
-     "detail": "16/16 = %100.0"
+     "detail": "17/17 = %100.0"
     },
     {
      "name": "Pozitif kapanış",
      "status": "ok",
-     "detail": "283729/283729 = %100.0"
+     "detail": "353592/353592 = %100.0"
     },
     {
      "name": "Yinelenen gün",
@@ -1262,23 +1298,37 @@
     {
      "name": "Geçmiş derinliği",
      "status": "info",
-     "detail": "2015'ten itibaren verisi olan: 56/168 (sonradan halka arz olanlar doğal olarak daha kısa)"
+     "detail": "2009'dan itibaren verisi olan: 40/168 (sonradan halka arz olanlar doğal olarak daha kısa)"
     },
     {
      "name": "Bölünme dışı %80+ günlük hareket",
      "status": "info",
-     "detail": "158 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['WAFU 2019-11-21', 'WAFU 2020-06-11', 'WAFU 2020-10-12', 'WAFU 2021-03-26', 'WATT 2017-12-27', 'WATT 2020-04-21', 'WATT 2021-02-19', 'WATT 2024-12-30', 'WAVE 2024-04-08', 'WBTN 2025-08-13']"
+     "detail": "181 adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): ['WAFU 2019-11-21', 'WAFU 2020-06-11', 'WAFU 2020-10-12', 'WAFU 2021-03-26', 'WATT 2017-12-27', 'WATT 2020-04-21', 'WATT 2021-02-19', 'WATT 2024-12-30', 'WAVE 2024-04-08', 'WBTN 2025-08-13']"
     }
    ]
   }
  },
  "dataset_checks": [],
- "title": "Günlük fiyat geçmişi (Yahoo, 2015→; Nasdaq ile çapraz kontrol)",
+ "title": "Günlük fiyat geçmişi (Yahoo, 2009→; Nasdaq ile çapraz kontrol)",
  "derived": {},
- "finalized_at": "2026-10-10T02:22:28+00:00",
+ "finalized_at": "2026-10-10T16:28:00+00:00",
  "removed_assets": [
-  "prices__G-20261009.parquet",
-  "prices__I-20261009.parquet",
-  "prices__M-20261009.parquet"
+  "prices__A-20261009.parquet",
+  "prices__B-20261009.parquet",
+  "prices__C-20261009.parquet",
+  "prices__D-20261009.parquet",
+  "prices__E-20261009.parquet",
+  "prices__F-20261009.parquet",
+  "prices__H-20261009.parquet",
+  "prices__J-K-20261009.parquet",
+  "prices__L-20261009.parquet",
+  "prices__N-20261009.parquet",
+  "prices__O-20261009.parquet",
+  "prices__P-20261009.parquet",
+  "prices__Q-R-20261009.parquet",
+  "prices__S-20261009.parquet",
+  "prices__T-20261009.parquet",
+  "prices__U-V-20261009.parquet",
+  "prices__W-Z-20261009.parquet"
  ]
 }

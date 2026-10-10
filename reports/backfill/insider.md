@@ -1,19 +1,43 @@
-# 🟢 SEC içeriden işlemler (Form 4, 2015→)
+# 🟢 SEC içeriden işlemler (Form 4, 2009→)
 
-Son güncelleme: 2026-10-10T01:08:16+00:00 · 47 bölüm · 3,574,121 satır
+Son güncelleme: 2026-10-10T16:28:32+00:00 · 71 bölüm · 5,508,615 satır
 
 ## Veri seti kontrolleri
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Yüklenen çeyrek | 🟢 | 47 çeyrek: ['2015q1'] … ['2026q3'] |
-| Çeyrek başına işlem sayısı tutarlılığı | 🟢 | medyan 69,774; medyanın yarısının altında: yok |
+| Yüklenen çeyrek | 🟢 | 71 çeyrek: ['2009q1'] … ['2026q3'] |
+| Çeyrek başına işlem sayısı tutarlılığı | 🟢 | medyan 72,124; medyanın yarısının altında: yok |
 | Çapraz kontrol: toplu veri ↔ özgün Form 4 (2026q3) | 🟢 | 20/20 = %100.0 |
 
 ## Bölümler
 
 | Bölüm | Durum | Satır | Uyarı / hata |
 |---|---|---|---|
+| 2009q1 | 🟢 Kullanılabilir | 90,795 |  |
+| 2009q2 | 🟢 Kullanılabilir | 70,035 |  |
+| 2009q3 | 🟢 Kullanılabilir | 70,349 |  |
+| 2009q4 | 🟢 Kullanılabilir | 75,028 |  |
+| 2010q1 | 🟢 Kullanılabilir | 103,233 |  |
+| 2010q2 | 🟢 Kullanılabilir | 83,616 |  |
+| 2010q3 | 🟢 Kullanılabilir | 62,054 |  |
+| 2010q4 | 🟢 Kullanılabilir | 82,953 |  |
+| 2011q1 | 🟢 Kullanılabilir | 110,038 |  |
+| 2011q2 | 🟢 Kullanılabilir | 83,886 |  |
+| 2011q3 | 🟢 Kullanılabilir | 61,404 |  |
+| 2011q4 | 🟢 Kullanılabilir | 64,701 |  |
+| 2012q1 | 🟢 Kullanılabilir | 106,815 |  |
+| 2012q2 | 🟢 Kullanılabilir | 72,893 |  |
+| 2012q3 | 🟢 Kullanılabilir | 66,827 |  |
+| 2012q4 | 🟢 Kullanılabilir | 82,564 |  |
+| 2013q1 | 🟢 Kullanılabilir | 105,697 |  |
+| 2013q2 | 🟢 Kullanılabilir | 80,372 |  |
+| 2013q3 | 🟢 Kullanılabilir | 66,852 |  |
+| 2013q4 | 🟢 Kullanılabilir | 73,528 |  |
+| 2014q1 | 🟢 Kullanılabilir | 109,861 |  |
+| 2014q2 | 🟢 Kullanılabilir | 76,117 |  |
+| 2014q3 | 🟢 Kullanılabilir | 62,643 |  |
+| 2014q4 | 🟢 Kullanılabilir | 72,233 |  |
 | 2015q1 | 🟢 Kullanılabilir | 108,960 |  |
 | 2015q2 | 🟢 Kullanılabilir | 75,633 |  |
 | 2015q3 | 🟢 Kullanılabilir | 61,134 |  |

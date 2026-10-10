@@ -793,6 +793,517 @@
     }
    ]
   },
+  "2013q2": {
+   "partition": "2013q2",
+   "fetched_at": "2026-10-10T16:27:09+00:00",
+   "rows": 87715,
+   "bytes": 1032868,
+   "sha256": "6c5e048fa352831ab7dbb6342155bcdfb3c657c2ae8d0ed29f3feb3f4e2e420b",
+   "columns": {
+    "accession": "str",
+    "filer_cik": "Int64",
+    "filer_name": "str",
+    "form": "str",
+    "is_amendment": "bool",
+    "amendment_type": "str",
+    "period": "datetime64[us]",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "cusip": "str",
+    "issuer": "str",
+    "title": "str",
+    "value": "int64",
+    "shares": "int64",
+    "share_type": "str",
+    "put_call": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/form-13f-data-sets/2013q2_form13f.zip"
+   ],
+   "notes": {
+    "filings": 166
+   },
+   "asset": "holdings__2013q2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 1.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Dosya (13F-HR) sayısı",
+     "status": "fail",
+     "detail": "166 (beklenen 3,000–15,000)"
+    },
+    {
+     "name": "Pozisyon satırı",
+     "status": "fail",
+     "detail": "87,715 (beklenen 500,000–6,000,000)"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "87067/87715 = %99.3"
+    },
+    {
+     "name": "Değer ve adet > 0",
+     "status": "ok",
+     "detail": "87343/87715 = %99.6"
+    },
+    {
+     "name": "Dönem sonu ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "87715/87715 = %100.0"
+    },
+    {
+     "name": "Birim kontrolü: AAPL değer/adet (medyan $)",
+     "status": "ok",
+     "detail": "532.17 $ (2013-03-31 dönemi)"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "77 kurum, 6,468 CUSIP, düzeltme dosyası: 67,620 satır"
+    }
+   ]
+  },
+  "2013q3": {
+   "partition": "2013q3",
+   "fetched_at": "2026-10-10T16:27:08+00:00",
+   "rows": 1533636,
+   "bytes": 19250011,
+   "sha256": "af6f749020ab00e5fdbe12deb7f781e9300afdec21235999465e1f20b9edf81b",
+   "columns": {
+    "accession": "str",
+    "filer_cik": "Int64",
+    "filer_name": "str",
+    "form": "str",
+    "is_amendment": "bool",
+    "amendment_type": "str",
+    "period": "datetime64[us]",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "cusip": "str",
+    "issuer": "str",
+    "title": "str",
+    "value": "int64",
+    "shares": "int64",
+    "share_type": "str",
+    "put_call": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/form-13f-data-sets/2013q3_form13f.zip"
+   ],
+   "notes": {
+    "filings": 5227
+   },
+   "asset": "holdings__2013q3.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 9.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Dosya (13F-HR) sayısı",
+     "status": "ok",
+     "detail": "5,227 (beklenen 3,000–15,000)"
+    },
+    {
+     "name": "Pozisyon satırı",
+     "status": "ok",
+     "detail": "1,533,636 (beklenen 500,000–6,000,000)"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "warn",
+     "detail": "1498186/1533636 = %97.7"
+    },
+    {
+     "name": "Değer ve adet > 0",
+     "status": "ok",
+     "detail": "1493954/1533636 = %97.4"
+    },
+    {
+     "name": "Dönem sonu ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "1533636/1533636 = %100.0"
+    },
+    {
+     "name": "Birim kontrolü: AAPL değer/adet (medyan $)",
+     "status": "ok",
+     "detail": "396.53 $ (2013-06-30 dönemi)"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,377 kurum, 29,179 CUSIP, düzeltme dosyası: 183,075 satır"
+    }
+   ]
+  },
+  "2013q4": {
+   "partition": "2013q4",
+   "fetched_at": "2026-10-10T16:27:04+00:00",
+   "rows": 1519317,
+   "bytes": 18867651,
+   "sha256": "b659b227a92528bbba32d79e3ff952c544003763c2eb9838889d47795502caa7",
+   "columns": {
+    "accession": "str",
+    "filer_cik": "Int64",
+    "filer_name": "str",
+    "form": "str",
+    "is_amendment": "bool",
+    "amendment_type": "str",
+    "period": "datetime64[us]",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "cusip": "str",
+    "issuer": "str",
+    "title": "str",
+    "value": "int64",
+    "shares": "int64",
+    "share_type": "str",
+    "put_call": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/form-13f-data-sets/2013q4_form13f.zip"
+   ],
+   "notes": {
+    "filings": 5043
+   },
+   "asset": "holdings__2013q4.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 6.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Dosya (13F-HR) sayısı",
+     "status": "ok",
+     "detail": "5,043 (beklenen 3,000–15,000)"
+    },
+    {
+     "name": "Pozisyon satırı",
+     "status": "ok",
+     "detail": "1,519,317 (beklenen 500,000–6,000,000)"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1506716/1519317 = %99.2"
+    },
+    {
+     "name": "Değer ve adet > 0",
+     "status": "ok",
+     "detail": "1489358/1519317 = %98.0"
+    },
+    {
+     "name": "Dönem sonu ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "1519317/1519317 = %100.0"
+    },
+    {
+     "name": "Birim kontrolü: AAPL değer/adet (medyan $)",
+     "status": "ok",
+     "detail": "476.75 $ (2013-09-30 dönemi)"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,406 kurum, 28,309 CUSIP, düzeltme dosyası: 139,318 satır"
+    }
+   ]
+  },
+  "2014q1": {
+   "partition": "2014q1",
+   "fetched_at": "2026-10-10T16:27:14+00:00",
+   "rows": 1584857,
+   "bytes": 20004899,
+   "sha256": "c07f66b7348ab3f1f075bc9af5fe556cd5e62cf63f45a4aa63848d878751982e",
+   "columns": {
+    "accession": "str",
+    "filer_cik": "Int64",
+    "filer_name": "str",
+    "form": "str",
+    "is_amendment": "bool",
+    "amendment_type": "str",
+    "period": "datetime64[us]",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "cusip": "str",
+    "issuer": "str",
+    "title": "str",
+    "value": "int64",
+    "shares": "int64",
+    "share_type": "str",
+    "put_call": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/form-13f-data-sets/2014q1_form13f.zip"
+   ],
+   "notes": {
+    "filings": 5425
+   },
+   "asset": "holdings__2014q1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 9.2,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Dosya (13F-HR) sayısı",
+     "status": "ok",
+     "detail": "5,425 (beklenen 3,000–15,000)"
+    },
+    {
+     "name": "Pozisyon satırı",
+     "status": "ok",
+     "detail": "1,584,857 (beklenen 500,000–6,000,000)"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1570569/1584857 = %99.1"
+    },
+    {
+     "name": "Değer ve adet > 0",
+     "status": "ok",
+     "detail": "1556720/1584857 = %98.2"
+    },
+    {
+     "name": "Dönem sonu ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "1584857/1584857 = %100.0"
+    },
+    {
+     "name": "Birim kontrolü: AAPL değer/adet (medyan $)",
+     "status": "ok",
+     "detail": "561.02 $ (2013-12-31 dönemi)"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,706 kurum, 29,082 CUSIP, düzeltme dosyası: 154,661 satır"
+    }
+   ]
+  },
+  "2014q2": {
+   "partition": "2014q2",
+   "fetched_at": "2026-10-10T16:27:18+00:00",
+   "rows": 1588232,
+   "bytes": 20443613,
+   "sha256": "d285b85fa1076fc8223f5453e08ebadbf6081a4fe9f5cb3b0dbe1a935d900e64",
+   "columns": {
+    "accession": "str",
+    "filer_cik": "Int64",
+    "filer_name": "str",
+    "form": "str",
+    "is_amendment": "bool",
+    "amendment_type": "str",
+    "period": "datetime64[us]",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "cusip": "str",
+    "issuer": "str",
+    "title": "str",
+    "value": "int64",
+    "shares": "int64",
+    "share_type": "str",
+    "put_call": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/form-13f-data-sets/2014q2_form13f.zip"
+   ],
+   "notes": {
+    "filings": 5415
+   },
+   "asset": "holdings__2014q2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 9.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Dosya (13F-HR) sayısı",
+     "status": "ok",
+     "detail": "5,415 (beklenen 3,000–15,000)"
+    },
+    {
+     "name": "Pozisyon satırı",
+     "status": "ok",
+     "detail": "1,588,232 (beklenen 500,000–6,000,000)"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1578477/1588232 = %99.4"
+    },
+    {
+     "name": "Değer ve adet > 0",
+     "status": "ok",
+     "detail": "1563566/1588232 = %98.4"
+    },
+    {
+     "name": "Dönem sonu ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "1588232/1588232 = %100.0"
+    },
+    {
+     "name": "Birim kontrolü: AAPL değer/adet (medyan $)",
+     "status": "ok",
+     "detail": "536.74 $ (2014-03-31 dönemi)"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,726 kurum, 27,249 CUSIP, düzeltme dosyası: 138,106 satır"
+    }
+   ]
+  },
+  "2014q3": {
+   "partition": "2014q3",
+   "fetched_at": "2026-10-10T16:27:17+00:00",
+   "rows": 1638747,
+   "bytes": 20766781,
+   "sha256": "dbaab0d95614fdf8c58ade56da2580919a6bfc9dcbfcd160eca0377127b056e0",
+   "columns": {
+    "accession": "str",
+    "filer_cik": "Int64",
+    "filer_name": "str",
+    "form": "str",
+    "is_amendment": "bool",
+    "amendment_type": "str",
+    "period": "datetime64[us]",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "cusip": "str",
+    "issuer": "str",
+    "title": "str",
+    "value": "int64",
+    "shares": "int64",
+    "share_type": "str",
+    "put_call": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/form-13f-data-sets/2014q3_form13f.zip"
+   ],
+   "notes": {
+    "filings": 5482
+   },
+   "asset": "holdings__2014q3.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 9.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Dosya (13F-HR) sayısı",
+     "status": "ok",
+     "detail": "5,482 (beklenen 3,000–15,000)"
+    },
+    {
+     "name": "Pozisyon satırı",
+     "status": "ok",
+     "detail": "1,638,747 (beklenen 500,000–6,000,000)"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1628487/1638747 = %99.4"
+    },
+    {
+     "name": "Değer ve adet > 0",
+     "status": "ok",
+     "detail": "1614533/1638747 = %98.5"
+    },
+    {
+     "name": "Dönem sonu ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "1638747/1638747 = %100.0"
+    },
+    {
+     "name": "Birim kontrolü: AAPL değer/adet (medyan $)",
+     "status": "ok",
+     "detail": "92.93 $ (2014-06-30 dönemi)"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,758 kurum, 27,633 CUSIP, düzeltme dosyası: 161,039 satır"
+    }
+   ]
+  },
+  "2014q4": {
+   "partition": "2014q4",
+   "fetched_at": "2026-10-10T16:27:18+00:00",
+   "rows": 1636491,
+   "bytes": 20479813,
+   "sha256": "c9af73447963c7135ddb877f1b8f3b6a5bd0c93e0f7df57a53f56db8f981399d",
+   "columns": {
+    "accession": "str",
+    "filer_cik": "Int64",
+    "filer_name": "str",
+    "form": "str",
+    "is_amendment": "bool",
+    "amendment_type": "str",
+    "period": "datetime64[us]",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "cusip": "str",
+    "issuer": "str",
+    "title": "str",
+    "value": "int64",
+    "shares": "int64",
+    "share_type": "str",
+    "put_call": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/structureddata/data/form-13f-data-sets/2014q4_form13f.zip"
+   ],
+   "notes": {
+    "filings": 5465
+   },
+   "asset": "holdings__2014q4.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 9.8,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Dosya (13F-HR) sayısı",
+     "status": "ok",
+     "detail": "5,465 (beklenen 3,000–15,000)"
+    },
+    {
+     "name": "Pozisyon satırı",
+     "status": "ok",
+     "detail": "1,636,491 (beklenen 500,000–6,000,000)"
+    },
+    {
+     "name": "Geçerli CUSIP",
+     "status": "ok",
+     "detail": "1626684/1636491 = %99.4"
+    },
+    {
+     "name": "Değer ve adet > 0",
+     "status": "ok",
+     "detail": "1611014/1636491 = %98.4"
+    },
+    {
+     "name": "Dönem sonu ≤ dosyalama tarihi",
+     "status": "ok",
+     "detail": "1636491/1636491 = %100.0"
+    },
+    {
+     "name": "Birim kontrolü: AAPL değer/adet (medyan $)",
+     "status": "ok",
+     "detail": "100.75 $ (2014-09-30 dönemi)"
+    },
+    {
+     "name": "Özet",
+     "status": "info",
+     "detail": "3,751 kurum, 28,364 CUSIP, düzeltme dosyası: 150,427 satır"
+    }
+   ]
+  },
   "2015q1": {
    "partition": "2015q1",
    "fetched_at": "2026-10-09T23:28:34+00:00",
@@ -3390,10 +3901,11 @@
   {
    "name": "Yüklenen bölüm",
    "status": "ok",
-   "detail": "47 bölüm: ['2015q1'] … ['01jun2026-31aug2026']"
+   "detail": "53 bölüm: ['2013q3'] … ['01jun2026-31aug2026']"
   }
  ],
- "title": "SEC 13F kurumsal pozisyonlar (2015→)",
+ "title": "SEC 13F kurumsal pozisyonlar (2013→; SEC yapılandırılmış 13F verisi 2013'te başlar)",
  "derived": {},
- "finalized_at": "2026-10-10T01:08:24+00:00"
+ "finalized_at": "2026-10-10T16:28:39+00:00",
+ "removed_assets": []
 }

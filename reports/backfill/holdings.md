@@ -1,12 +1,12 @@
-# 🟢 SEC 13F kurumsal pozisyonlar (2015→)
+# 🔴 SEC 13F kurumsal pozisyonlar (2013→; SEC yapılandırılmış 13F verisi 2013'te başlar)
 
-Son güncelleme: 2026-10-10T01:08:24+00:00 · 47 bölüm · 114,423,473 satır
+Son güncelleme: 2026-10-10T16:28:39+00:00 · 54 bölüm · 124,012,468 satır
 
 ## Veri seti kontrolleri
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Yüklenen bölüm | 🟢 | 47 bölüm: ['2015q1'] … ['01jun2026-31aug2026'] |
+| Yüklenen bölüm | 🟢 | 53 bölüm: ['2013q3'] … ['01jun2026-31aug2026'] |
 
 ## Bölümler
 
@@ -23,6 +23,13 @@ Son güncelleme: 2026-10-10T01:08:24+00:00 · 47 bölüm · 114,423,473 satır
 | 01mar2026-31may2026 | 🟢 Kullanılabilir | 3,822,885 |  |
 | 01sep2024-30nov2024 | 🟢 Kullanılabilir | 3,201,864 |  |
 | 01sep2025-30nov2025 | 🟢 Kullanılabilir | 3,267,091 |  |
+| 2013q2 | 🔴 Kullanılamaz | 87,715 | Dosya (13F-HR) sayısı: 166 (beklenen 3,000–15,000); Pozisyon satırı: 87,715 (beklenen 500,000–6,000,000) |
+| 2013q3 | 🟡 Dikkat | 1,533,636 | Geçerli CUSIP: 1498186/1533636 = %97.7 |
+| 2013q4 | 🟢 Kullanılabilir | 1,519,317 |  |
+| 2014q1 | 🟢 Kullanılabilir | 1,584,857 |  |
+| 2014q2 | 🟢 Kullanılabilir | 1,588,232 |  |
+| 2014q3 | 🟢 Kullanılabilir | 1,638,747 |  |
+| 2014q4 | 🟢 Kullanılabilir | 1,636,491 |  |
 | 2015q1 | 🟢 Kullanılabilir | 1,768,828 |  |
 | 2015q2 | 🟢 Kullanılabilir | 1,711,601 |  |
 | 2015q3 | 🟢 Kullanılabilir | 1,772,870 |  |

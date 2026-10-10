@@ -1,6 +1,2252 @@
 {
  "dataset": "financials",
  "partitions": {
+  "2009q1": {
+   "partition": "2009q1",
+   "fetched_at": "2026-10-10T16:24:30+00:00",
+   "rows": 0,
+   "bytes": 7388,
+   "sha256": "479b3ba7b15011653df7feeed4de38fe352c2ca5717a6435ec1eb72cfc6ba3ff",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[s]",
+    "filed": "datetime64[s]",
+    "accepted": "datetime64[s]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[s]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "int64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2009q1.zip"
+   ],
+   "notes": {
+    "filings": 0,
+    "forms": {},
+    "empty_values": 0
+   },
+   "asset": "financials__2009q1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 0.8,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "fail",
+     "detail": "0 (beklenen 100–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "fail",
+     "detail": "0 (beklenen 5,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "fail",
+     "detail": "örnek yok"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "fail",
+     "detail": "örnek yok"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "fail",
+     "detail": "örnek yok"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "0 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "fail",
+     "detail": "örnek yok"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{}"
+    }
+   ]
+  },
+  "2009q2": {
+   "partition": "2009q2",
+   "fetched_at": "2026-10-10T16:24:36+00:00",
+   "rows": 1015,
+   "bytes": 23552,
+   "sha256": "827f8ba3be228802a473fe69237d76b910167e7c87a7c87721017745562b79c2",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2009q2.zip"
+   ],
+   "notes": {
+    "filings": 20,
+    "forms": {
+     "10-Q": 17,
+     "10-Q/A": 2,
+     "10-K": 1
+    },
+    "empty_values": 0
+   },
+   "asset": "financials__2009q2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 0.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "fail",
+     "detail": "20 (beklenen 100–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "fail",
+     "detail": "1,015 (beklenen 5,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "1015/1015 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "1015/1015 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "1015/1015 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "0 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "1015/1015 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 17, '10-Q/A': 2, '10-K': 1}"
+    }
+   ]
+  },
+  "2009q3": {
+   "partition": "2009q3",
+   "fetched_at": "2026-10-10T16:24:42+00:00",
+   "rows": 30098,
+   "bytes": 429337,
+   "sha256": "f5506418fb6c3d3b84f626b0c8de0b22a21e6cc055a1e47a5c5f24ee69e93c2a",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2009q3.zip"
+   ],
+   "notes": {
+    "filings": 430,
+    "forms": {
+     "10-Q": 357,
+     "10-Q/A": 72,
+     "10-K": 1
+    },
+    "empty_values": 0
+   },
+   "asset": "financials__2009q3.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 0.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "430 (beklenen 100–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "30,098 (beklenen 5,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "30098/30098 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "30098/30098 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "30016/30098 = %99.7"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "0 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "30097/30098 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 357, '10-Q/A': 72, '10-K': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "40 satır, 9 şirket"
+    }
+   ]
+  },
+  "2009q4": {
+   "partition": "2009q4",
+   "fetched_at": "2026-10-10T16:24:51+00:00",
+   "rows": 33219,
+   "bytes": 471830,
+   "sha256": "cac204f3fffbf2f319c7148821cb9dfae039c655398971f8d73e6901d4e789ae",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2009q4.zip"
+   ],
+   "notes": {
+    "filings": 476,
+    "forms": {
+     "10-Q": 430,
+     "10-K": 29,
+     "10-Q/A": 13,
+     "10-K/A": 2,
+     "20-F": 2
+    },
+    "empty_values": 0
+   },
+   "asset": "financials__2009q4.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "476 (beklenen 100–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "33,219 (beklenen 5,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "33219/33219 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "33219/33219 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "33219/33219 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "0 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "33206/33219 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 430, '10-K': 29, '10-Q/A': 13, '10-K/A': 2, '20-F': 2}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "80 satır, 18 şirket"
+    }
+   ]
+  },
+  "2010q1": {
+   "partition": "2010q1",
+   "fetched_at": "2026-10-10T16:24:56+00:00",
+   "rows": 33518,
+   "bytes": 486467,
+   "sha256": "9ba59a62192854bc9de1ee10de6164ded4707d596522a3c6602a4e83574ab762",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2010q1.zip"
+   ],
+   "notes": {
+    "filings": 490,
+    "forms": {
+     "10-K": 389,
+     "10-Q": 80,
+     "10-K/A": 9,
+     "20-F": 9,
+     "20-F/A": 2,
+     "40-F": 1
+    },
+    "empty_values": 3
+   },
+   "asset": "financials__2010q1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 0.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "490 (beklenen 100–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "33,518 (beklenen 5,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "33518/33518 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "33518/33518 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "33451/33518 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "3 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "33518/33518 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 389, '10-Q': 80, '10-K/A': 9, '20-F': 9, '20-F/A': 2, '40-F': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "96 satır, 24 şirket"
+    }
+   ]
+  },
+  "2010q2": {
+   "partition": "2010q2",
+   "fetched_at": "2026-10-10T16:24:56+00:00",
+   "rows": 27947,
+   "bytes": 409039,
+   "sha256": "8827b18f30da7de12a9a0924514e2b23a5b929d55f7bc54612d412b2e5320fdf",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2010q2.zip"
+   ],
+   "notes": {
+    "filings": 500,
+    "forms": {
+     "10-Q": 452,
+     "10-K": 18,
+     "20-F": 15,
+     "10-Q/A": 8,
+     "20-F/A": 6,
+     "40-F/A": 1
+    },
+    "empty_values": 0
+   },
+   "asset": "financials__2010q2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 0.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "500 (beklenen 100–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "27,947 (beklenen 5,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "27947/27947 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "27947/27947 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "27830/27947 = %99.6"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "0 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "27946/27947 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 452, '10-K': 18, '20-F': 15, '10-Q/A': 8, '20-F/A': 6, '40-F/A': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "88 satır, 21 şirket"
+    }
+   ]
+  },
+  "2010q3": {
+   "partition": "2010q3",
+   "fetched_at": "2026-10-10T16:25:08+00:00",
+   "rows": 96803,
+   "bytes": 1468798,
+   "sha256": "bc242fb8b9beec1472c2e003a516e358ca00e603c47b12b81becc04e0ef17d6a",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2010q3.zip"
+   ],
+   "notes": {
+    "filings": 1379,
+    "forms": {
+     "10-Q": 1208,
+     "10-Q/A": 130,
+     "10-K": 24,
+     "20-F/A": 8,
+     "10-K/A": 6,
+     "20-F": 3
+    },
+    "empty_values": 94
+   },
+   "asset": "financials__2010q3.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 2.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "1,379 (beklenen 100–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "96,803 (beklenen 5,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "96803/96803 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "96803/96803 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "96803/96803 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "94 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "96797/96803 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 1208, '10-Q/A': 130, '10-K': 24, '20-F/A': 8, '10-K/A': 6, '20-F': 3}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "249 satır, 60 şirket"
+    }
+   ]
+  },
+  "2010q4": {
+   "partition": "2010q4",
+   "fetched_at": "2026-10-10T16:25:15+00:00",
+   "rows": 102252,
+   "bytes": 1569648,
+   "sha256": "3a0ebb58a95e868c772ccfb5475d8a2801c1ef1a853baed7a1a3a1c214577b9f",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2010q4.zip"
+   ],
+   "notes": {
+    "filings": 1440,
+    "forms": {
+     "10-Q": 1309,
+     "10-K": 105,
+     "10-Q/A": 21,
+     "10-K/A": 3,
+     "20-F/A": 2
+    },
+    "empty_values": 111
+   },
+   "asset": "financials__2010q4.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "1,440 (beklenen 100–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "102,252 (beklenen 5,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "102252/102252 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "102252/102252 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "102172/102252 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "111 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "102250/102252 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 1309, '10-K': 105, '10-Q/A': 21, '10-K/A': 3, '20-F/A': 2}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "268 satır, 69 şirket"
+    }
+   ]
+  },
+  "2011q1": {
+   "partition": "2011q1",
+   "fetched_at": "2026-10-10T16:25:18+00:00",
+   "rows": 110989,
+   "bytes": 1716677,
+   "sha256": "953e9ab2c9b27dfedd69df511e4dfd2127f9a4abaf07ba4a74be9eeb7ed894f3",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2011q1.zip"
+   ],
+   "notes": {
+    "filings": 1482,
+    "forms": {
+     "10-K": 1110,
+     "10-Q": 301,
+     "10-K/A": 42,
+     "20-F": 17,
+     "10-Q/A": 7,
+     "20-F/A": 2,
+     "40-F": 1,
+     "10-KT": 1,
+     "40-F/A": 1
+    },
+    "empty_values": 109
+   },
+   "asset": "financials__2011q1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 2.2,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "1,482 (beklenen 100–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "110,989 (beklenen 5,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "110989/110989 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "110989/110989 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "110551/110989 = %99.6"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "109 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "110985/110989 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 1110, '10-Q': 301, '10-K/A': 42, '20-F': 17, '10-Q/A': 7, '20-F/A': 2, '40-F': 1, '10-KT': 1, '40-F/A': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "395 satır, 93 şirket"
+    }
+   ]
+  },
+  "2011q2": {
+   "partition": "2011q2",
+   "fetched_at": "2026-10-10T16:25:21+00:00",
+   "rows": 95620,
+   "bytes": 1501860,
+   "sha256": "479dc4a5ac0f59bf8362ce10b08166a7b8b4a5c3188ae57bef0b893c9fc860a9",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2011q2.zip"
+   ],
+   "notes": {
+    "filings": 1670,
+    "forms": {
+     "10-Q": 1515,
+     "10-K": 70,
+     "10-Q/A": 30,
+     "20-F": 23,
+     "20-F/A": 18,
+     "10-K/A": 10,
+     "40-F/A": 4
+    },
+    "empty_values": 96
+   },
+   "asset": "financials__2011q2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "1,670 (beklenen 100–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "95,620 (beklenen 5,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "95620/95620 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "95620/95620 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "95620/95620 = %100.0"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "96 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "95614/95620 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 1515, '10-K': 70, '10-Q/A': 30, '20-F': 23, '20-F/A': 18, '10-K/A': 10, '40-F/A': 4}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "369 satır, 87 şirket"
+    }
+   ]
+  },
+  "2011q3": {
+   "partition": "2011q3",
+   "fetched_at": "2026-10-10T16:25:23+00:00",
+   "rows": 407750,
+   "bytes": 6516271,
+   "sha256": "469d21d182046d342f371a57095e9f3844282dbe71e52b706d3a6f1b78adf02f",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2011q3.zip"
+   ],
+   "notes": {
+    "filings": 7002,
+    "forms": {
+     "10-Q": 5631,
+     "10-Q/A": 1224,
+     "10-K": 113,
+     "20-F/A": 16,
+     "10-K/A": 12,
+     "20-F": 6
+    },
+    "empty_values": 4209
+   },
+   "asset": "financials__2011q3.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 6.6,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,002 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "407,750 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "407750/407750 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "407750/407750 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "407529/407750 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,209 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "407707/407750 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5631, '10-Q/A': 1224, '10-K': 113, '20-F/A': 16, '10-K/A': 12, '20-F': 6}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,212 satır, 294 şirket"
+    }
+   ]
+  },
+  "2011q4": {
+   "partition": "2011q4",
+   "fetched_at": "2026-10-10T16:25:30+00:00",
+   "rows": 423526,
+   "bytes": 6847811,
+   "sha256": "fd53c86b39acac4e09bc75129d9bbca94856721399ab08548837d5cbb1caf48b",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2011q4.zip"
+   ],
+   "notes": {
+    "filings": 7383,
+    "forms": {
+     "10-Q": 6495,
+     "10-Q/A": 494,
+     "10-K": 353,
+     "10-K/A": 34,
+     "20-F": 3,
+     "10-KT": 2,
+     "20-F/A": 2
+    },
+    "empty_values": 4638
+   },
+   "asset": "financials__2011q4.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 7.2,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,383 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "423,526 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "423526/423526 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "423526/423526 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "421554/423526 = %99.5"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,638 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "423459/423526 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6495, '10-Q/A': 494, '10-K': 353, '10-K/A': 34, '20-F': 3, '10-KT': 2, '20-F/A': 2}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,285 satır, 306 şirket"
+    }
+   ]
+  },
+  "2012q1": {
+   "partition": "2012q1",
+   "fetched_at": "2026-10-10T16:25:36+00:00",
+   "rows": 434022,
+   "bytes": 7064762,
+   "sha256": "64d7f18cdec5873034ffdd7b56cb13509bcee3fae3775337b72e9d1c2ba29c3f",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2012q1.zip"
+   ],
+   "notes": {
+    "filings": 7224,
+    "forms": {
+     "10-K": 4778,
+     "10-Q": 1924,
+     "10-Q/A": 265,
+     "10-K/A": 148,
+     "20-F": 67,
+     "20-F/A": 15,
+     "40-F": 13,
+     "10-KT": 10,
+     "10-QT": 3,
+     "40-F/A": 1
+    },
+    "empty_values": 4778
+   },
+   "asset": "financials__2012q1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 8.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,224 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "434,022 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "434022/434022 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "434022/434022 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "432749/434022 = %99.7"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "4,778 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "433977/434022 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4778, '10-Q': 1924, '10-Q/A': 265, '10-K/A': 148, '20-F': 67, '20-F/A': 15, '40-F': 13, '10-KT': 10, '10-QT': 3, '40-F/A': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,607 satır, 362 şirket"
+    }
+   ]
+  },
+  "2012q2": {
+   "partition": "2012q2",
+   "fetched_at": "2026-10-10T16:25:38+00:00",
+   "rows": 420082,
+   "bytes": 7007472,
+   "sha256": "a46d551d3ceeb29cf95b6343d71462fe5170b7ac7d2fc35c2e2b9740a0c7c769",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2012q2.zip"
+   ],
+   "notes": {
+    "filings": 8892,
+    "forms": {
+     "10-Q": 6943,
+     "10-K": 1139,
+     "10-Q/A": 327,
+     "10-K/A": 229,
+     "20-F": 146,
+     "20-F/A": 94,
+     "10-KT": 6,
+     "40-F": 5,
+     "40-F/A": 2,
+     "10-QT": 1
+    },
+    "empty_values": 7920
+   },
+   "asset": "financials__2012q2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 7.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "8,892 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "420,082 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "420082/420082 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "420082/420082 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "419379/420082 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "7,920 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "420007/420082 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6943, '10-K': 1139, '10-Q/A': 327, '10-K/A': 229, '20-F': 146, '20-F/A': 94, '10-KT': 6, '40-F': 5, '40-F/A': 2, '10-QT': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,534 satır, 348 şirket"
+    }
+   ]
+  },
+  "2012q3": {
+   "partition": "2012q3",
+   "fetched_at": "2026-10-10T16:25:41+00:00",
+   "rows": 441817,
+   "bytes": 7233777,
+   "sha256": "d2505a62d749cc0742ccceae8471b5b1396f71d7072a6d14700adae9adee45f8",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2012q3.zip"
+   ],
+   "notes": {
+    "filings": 7748,
+    "forms": {
+     "10-Q": 5741,
+     "10-Q/A": 1268,
+     "10-K": 581,
+     "10-K/A": 123,
+     "20-F": 20,
+     "20-F/A": 12,
+     "10-KT": 2,
+     "40-F/A": 1
+    },
+    "empty_values": 8310
+   },
+   "asset": "financials__2012q3.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 10.2,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,748 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "441,817 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "441817/441817 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "441817/441817 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "441305/441817 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "8,310 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "441722/441817 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 5741, '10-Q/A': 1268, '10-K': 581, '10-K/A': 123, '20-F': 20, '20-F/A': 12, '10-KT': 2, '40-F/A': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,472 satır, 347 şirket"
+    }
+   ]
+  },
+  "2012q4": {
+   "partition": "2012q4",
+   "fetched_at": "2026-10-10T16:25:43+00:00",
+   "rows": 452553,
+   "bytes": 7373624,
+   "sha256": "60a40d5977513128a4f1133f8c55dd8c9e3433072dd451968fbdae91f6ed8ea6",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2012q4.zip"
+   ],
+   "notes": {
+    "filings": 7838,
+    "forms": {
+     "10-Q": 6554,
+     "10-K": 609,
+     "10-Q/A": 477,
+     "10-K/A": 180,
+     "20-F": 7,
+     "20-F/A": 6,
+     "10-KT": 2,
+     "40-F/A": 2,
+     "10-QT": 1
+    },
+    "empty_values": 8720
+   },
+   "asset": "financials__2012q4.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 9.2,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,838 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "452,553 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "452553/452553 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "452553/452553 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "451370/452553 = %99.7"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "8,720 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "452491/452553 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6554, '10-K': 609, '10-Q/A': 477, '10-K/A': 180, '20-F': 7, '20-F/A': 6, '10-KT': 2, '40-F/A': 2, '10-QT': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,568 satır, 359 şirket"
+    }
+   ]
+  },
+  "2013q1": {
+   "partition": "2013q1",
+   "fetched_at": "2026-10-10T16:25:37+00:00",
+   "rows": 453257,
+   "bytes": 7380588,
+   "sha256": "5b21fee3edd7681c38ac1032a86c6e7203e683cb93f3eab62d4e1fb589e22815",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2013q1.zip"
+   ],
+   "notes": {
+    "filings": 6565,
+    "forms": {
+     "10-K": 4191,
+     "10-Q": 1868,
+     "10-Q/A": 243,
+     "10-K/A": 156,
+     "20-F": 62,
+     "40-F": 19,
+     "10-KT": 12,
+     "20-F/A": 11,
+     "10-QT": 3
+    },
+    "empty_values": 6116
+   },
+   "asset": "financials__2013q1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 8.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,565 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "453,257 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "453257/453257 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "453257/453257 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "452570/453257 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "6,116 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "453232/453257 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4191, '10-Q': 1868, '10-Q/A': 243, '10-K/A': 156, '20-F': 62, '40-F': 19, '10-KT': 12, '20-F/A': 11, '10-QT': 3}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,735 satır, 379 şirket"
+    }
+   ]
+  },
+  "2013q2": {
+   "partition": "2013q2",
+   "fetched_at": "2026-10-10T16:25:47+00:00",
+   "rows": 424113,
+   "bytes": 7076680,
+   "sha256": "8d687278c5d7a9908e26df1fbc08b442169a9e82f8c143b288597d3634c92fe0",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2013q2.zip"
+   ],
+   "notes": {
+    "filings": 8639,
+    "forms": {
+     "10-Q": 6349,
+     "10-K": 1467,
+     "10-Q/A": 344,
+     "10-K/A": 234,
+     "20-F": 154,
+     "20-F/A": 77,
+     "10-KT": 7,
+     "40-F/A": 3,
+     "40-F": 3,
+     "10-QT": 1
+    },
+    "empty_values": 9718
+   },
+   "asset": "financials__2013q2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 8.0,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "8,639 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "424,113 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "424113/424113 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "424113/424113 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "423596/424113 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "9,718 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "424054/424113 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6349, '10-K': 1467, '10-Q/A': 344, '10-K/A': 234, '20-F': 154, '20-F/A': 77, '10-KT': 7, '40-F/A': 3, '40-F': 3, '10-QT': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,760 satır, 388 şirket"
+    }
+   ]
+  },
+  "2013q3": {
+   "partition": "2013q3",
+   "fetched_at": "2026-10-10T16:25:46+00:00",
+   "rows": 439708,
+   "bytes": 7204911,
+   "sha256": "6ff98927f469aede662c995312e0cab03306fee16ce9f8e4d8aa33edc5e62026",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2013q3.zip"
+   ],
+   "notes": {
+    "filings": 7678,
+    "forms": {
+     "10-Q": 6507,
+     "10-K": 671,
+     "10-Q/A": 354,
+     "10-K/A": 117,
+     "20-F": 18,
+     "20-F/A": 9,
+     "10-KT": 1,
+     "40-F": 1
+    },
+    "empty_values": 9766
+   },
+   "asset": "financials__2013q3.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 7.1,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,678 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "439,708 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "439708/439708 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "439708/439708 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "439246/439708 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "9,766 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "439661/439708 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6507, '10-K': 671, '10-Q/A': 354, '10-K/A': 117, '20-F': 18, '20-F/A': 9, '10-KT': 1, '40-F': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,509 satır, 359 şirket"
+    }
+   ]
+  },
+  "2013q4": {
+   "partition": "2013q4",
+   "fetched_at": "2026-10-10T16:25:52+00:00",
+   "rows": 435366,
+   "bytes": 7078695,
+   "sha256": "2eecbce5a10c4dc546934e2efeadcf994f367e761c845a6808558d8756da4d08",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2013q4.zip"
+   ],
+   "notes": {
+    "filings": 7533,
+    "forms": {
+     "10-Q": 6467,
+     "10-K": 597,
+     "10-Q/A": 317,
+     "10-K/A": 134,
+     "20-F": 8,
+     "20-F/A": 6,
+     "10-QT": 3,
+     "40-F/A": 1
+    },
+    "empty_values": 8747
+   },
+   "asset": "financials__2013q4.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 9.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,533 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "435,366 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "435366/435366 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "435366/435366 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "433861/435366 = %99.7"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "8,747 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "435330/435366 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6467, '10-K': 597, '10-Q/A': 317, '10-K/A': 134, '20-F': 8, '20-F/A': 6, '10-QT': 3, '40-F/A': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,606 satır, 375 şirket"
+    }
+   ]
+  },
+  "2014q1": {
+   "partition": "2014q1",
+   "fetched_at": "2026-10-10T16:25:50+00:00",
+   "rows": 470031,
+   "bytes": 7676364,
+   "sha256": "ec3ca16c63cbb5c3144f40ae4c032cb9a4b8820b85cee0e98f3cb61480250fb0",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2014q1.zip"
+   ],
+   "notes": {
+    "filings": 6901,
+    "forms": {
+     "10-K": 4651,
+     "10-Q": 1796,
+     "10-Q/A": 192,
+     "10-K/A": 130,
+     "20-F": 88,
+     "40-F": 22,
+     "10-KT": 16,
+     "20-F/A": 6
+    },
+    "empty_values": 6975
+   },
+   "asset": "financials__2014q1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 9.7,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "6,901 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "470,031 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "470031/470031 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "470031/470031 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "469088/470031 = %99.8"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "6,975 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "470015/470031 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-K': 4651, '10-Q': 1796, '10-Q/A': 192, '10-K/A': 130, '20-F': 88, '40-F': 22, '10-KT': 16, '20-F/A': 6}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,836 satır, 427 şirket"
+    }
+   ]
+  },
+  "2014q2": {
+   "partition": "2014q2",
+   "fetched_at": "2026-10-10T16:26:01+00:00",
+   "rows": 392342,
+   "bytes": 6519048,
+   "sha256": "078e3ae85abfa74406762ed24f674c29274e3db8bd353c403d7f6a7361b64a4e",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2014q2.zip"
+   ],
+   "notes": {
+    "filings": 8196,
+    "forms": {
+     "10-Q": 6478,
+     "10-K": 1026,
+     "10-Q/A": 291,
+     "10-K/A": 203,
+     "20-F": 171,
+     "20-F/A": 12,
+     "10-KT": 6,
+     "40-F": 4,
+     "10-QT": 4,
+     "40-F/A": 1
+    },
+    "empty_values": 9456
+   },
+   "asset": "financials__2014q2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 8.5,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "8,196 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "392,342 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "392342/392342 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "392342/392342 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "391792/392342 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "9,456 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "392309/392342 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6478, '10-K': 1026, '10-Q/A': 291, '10-K/A': 203, '20-F': 171, '20-F/A': 12, '10-KT': 6, '40-F': 4, '10-QT': 4, '40-F/A': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,677 satır, 392 şirket"
+    }
+   ]
+  },
+  "2014q3": {
+   "partition": "2014q3",
+   "fetched_at": "2026-10-10T16:26:07+00:00",
+   "rows": 418358,
+   "bytes": 6784053,
+   "sha256": "7154576e9d6d0364de3a71532b743807e279e3defd2e7186e03f1b30735f858a",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2014q3.zip"
+   ],
+   "notes": {
+    "filings": 7467,
+    "forms": {
+     "10-Q": 6457,
+     "10-K": 601,
+     "10-Q/A": 265,
+     "10-K/A": 103,
+     "20-F": 25,
+     "10-KT": 11,
+     "20-F/A": 3,
+     "40-F": 1,
+     "10-QT": 1
+    },
+    "empty_values": 8076
+   },
+   "asset": "financials__2014q3.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 7.9,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,467 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "418,358 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "418358/418358 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "418358/418358 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "417781/418358 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "8,076 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "418339/418358 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6457, '10-K': 601, '10-Q/A': 265, '10-K/A': 103, '20-F': 25, '10-KT': 11, '20-F/A': 3, '40-F': 1, '10-QT': 1}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,536 satır, 377 şirket"
+    }
+   ]
+  },
+  "2014q4": {
+   "partition": "2014q4",
+   "fetched_at": "2026-10-10T16:26:09+00:00",
+   "rows": 417006,
+   "bytes": 6814817,
+   "sha256": "d9eb27b3cd4cacb41365d6075c0e0cb82a42a0a55bf510f6672efbd9dd12f02d",
+   "columns": {
+    "adsh": "str",
+    "cik": "Int64",
+    "name": "str",
+    "sic": "str",
+    "form": "str",
+    "fy": "str",
+    "fp": "str",
+    "period": "datetime64[us]",
+    "filed": "datetime64[us]",
+    "accepted": "datetime64[us]",
+    "tag": "str",
+    "version": "str",
+    "ddate": "datetime64[us]",
+    "qtrs": "Int64",
+    "uom": "str",
+    "value": "float64",
+    "segments": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2014q4.zip"
+   ],
+   "notes": {
+    "filings": 7443,
+    "forms": {
+     "10-Q": 6481,
+     "10-K": 576,
+     "10-Q/A": 275,
+     "10-K/A": 98,
+     "10-KT": 6,
+     "20-F": 5,
+     "10-QT": 2
+    },
+    "empty_values": 7371
+   },
+   "asset": "financials__2014q4.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 9.4,
+   "requests": 2,
+   "checks": [
+    {
+     "name": "Rapor sayısı (10-K/10-Q/20-F)",
+     "status": "ok",
+     "detail": "7,443 (beklenen 3,000–20,000)"
+    },
+    {
+     "name": "Değer sayısı (temel kalemler)",
+     "status": "ok",
+     "detail": "417,006 (beklenen 100,000–3,000,000)"
+    },
+    {
+     "name": "Kabul anı okunabilen",
+     "status": "ok",
+     "detail": "417006/417006 = %100.0"
+    },
+    {
+     "name": "Dosyalama tarihi çeyrek içinde",
+     "status": "ok",
+     "detail": "417006/417006 = %100.0"
+    },
+    {
+     "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
+     "status": "ok",
+     "detail": "416794/417006 = %99.9"
+    },
+    {
+     "name": "Boş (nil) değer, ayıklandı",
+     "status": "info",
+     "detail": "7,371 satır"
+    },
+    {
+     "name": "Dönem sonu ≤ kabul anı",
+     "status": "ok",
+     "detail": "416940/417006 = %100.0"
+    },
+    {
+     "name": "Form dağılımı",
+     "status": "info",
+     "detail": "{'10-Q': 6481, '10-K': 576, '10-Q/A': 275, '10-K/A': 98, '10-KT': 6, '20-F': 5, '10-QT': 2}"
+    },
+    {
+     "name": "Sınıf bazında hisse sayısı satırı",
+     "status": "info",
+     "detail": "1,582 satır, 392 şirket"
+    }
+   ]
+  },
   "2015q1": {
    "partition": "2015q1",
    "fetched_at": "2026-10-10T12:51:38+00:00",
@@ -4489,7 +6735,7 @@
   {
    "name": "Yüklenen çeyrek",
    "status": "ok",
-   "detail": "47 çeyrek: ['2015q1'] … ['2026q3']"
+   "detail": "69 çeyrek: ['2009q3'] … ['2026q3']"
   },
   {
    "name": "Doğrulanmış gerçek içeren çeyrekler",
@@ -4497,8 +6743,8 @@
    "detail": "3/3 geçti"
   }
  ],
- "title": "SEC finansal tablo verileri (XBRL, 2015→)",
+ "title": "SEC finansal tablo verileri (XBRL, 2009→)",
  "derived": {},
- "finalized_at": "2026-10-10T13:00:29+00:00",
+ "finalized_at": "2026-10-10T16:28:25+00:00",
  "removed_assets": []
 }

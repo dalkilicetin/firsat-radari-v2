@@ -1,12 +1,12 @@
 {
  "dataset": "filings",
  "partitions": {
-  "snapshot-20261009": {
-   "partition": "snapshot-20261009",
-   "fetched_at": "2026-10-09T23:35:40+00:00",
-   "rows": 2914112,
-   "bytes": 61969573,
-   "sha256": "91eacce1fc8ff529adef46730f6c62fcf49e28510672b005a177a50dc75dc8cd",
+  "snapshot-20261010": {
+   "partition": "snapshot-20261010",
+   "fetched_at": "2026-10-10T16:21:28+00:00",
+   "rows": 3320391,
+   "bytes": 70855358,
+   "sha256": "4302d25aab3f740ff2a9f0a664ece6a0d1bc5455cde7b1dfc0c7c7b8e1297852",
    "columns": {
     "form": "str",
     "filing_date": "datetime64[us]",
@@ -26,32 +26,33 @@
     "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip"
    ],
    "notes": {
-    "companies": 21322
+    "companies": 24902
    },
-   "asset": "filings__snapshot-20261009.parquet",
+   "asset": "filings__snapshot-20261010.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 146.7,
+   "duration_s": 97.6,
    "requests": 0,
    "checks": [
     {
      "name": "Faaliyet gösteren şirket",
      "status": "ok",
-     "detail": "21,322 (beklenen 8,000–60,000)"
+     "detail": "24,902 (beklenen 8,000–60,000)"
     },
     {
      "name": "Dosya satırı",
      "status": "ok",
-     "detail": "2,914,112 (beklenen 1,000,000–30,000,000)"
+     "detail": "3,320,391 (beklenen 1,000,000–30,000,000)"
     },
     {
      "name": "2015 sonrası 8-K'larda olay kodu dolu",
      "status": "ok",
-     "detail": "823429/823429 = %100.0"
+     "detail": "823832/823832 = %100.0"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "2914112/2914112 = %100.0"
+     "detail": "3320391/3320391 = %100.0"
     },
     {
      "name": "Doğrulanmış gerçek: AAPL 10-K 2023-11-03",
@@ -61,7 +62,7 @@
     {
      "name": "2015 sonrası borsadan çıkış / kayıt sonlandırma bildirimi",
      "status": "info",
-     "detail": "8,875 şirket ({'25-NSE': 7786, '15-12G': 3820, '15-12B': 2022, '15-15D': 1909, '25': 1036})"
+     "detail": "8,902 şirket ({'25-NSE': 7822, '15-12G': 3830, '15-12B': 2023, '15-15D': 1919, '25': 1037})"
     },
     {
      "name": "Borsadan çıkış kaydı: SVB Financial",
@@ -84,6 +85,8 @@
  "dataset_checks": [],
  "title": "SEC dosyalama geçmişi (8-K olayları, borsadan çıkışlar)",
  "derived": {},
- "finalized_at": "2026-10-10T02:22:33+00:00",
- "removed_assets": []
+ "finalized_at": "2026-10-10T16:27:57+00:00",
+ "removed_assets": [
+  "filings__snapshot-20261009.parquet"
+ ]
 }
