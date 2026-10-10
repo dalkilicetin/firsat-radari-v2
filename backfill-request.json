@@ -1,8 +1,7 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 14,
+ "rev": 15,
  "requests": [
-  {"dataset": "universe"},
-  {"dataset": "prices", "force": true}
+  {"dataset": "tenk", "force": true}
  ]
 }
