@@ -103,6 +103,19 @@ def main(which: str) -> None:
                  "kazanc_getirisi": "Yıllık net kâr / piyasa değeri.",
                  "tahakkuklar_dusuk": "−(net kâr − faaliyet nakit akışı) / varlıklar: yüksek = kazanç nakitle destekleniyor.",
                  "varlik_buyumesi_dusuk": "−varlıkların yıllık büyümesi (literatür: hızlı büyüyen varlık düşük getiri)."}
+    elif which == "road1_text":
+        from radar.research import road1
+        sig, title = road1.text_signals(p), "1. yol: 10-K metin sinyalleri (Lazy Prices)"
+        notes = {"metin_benzerligi_is_tanimi": "Madde 1 (iş tanımı) metninin bir önceki 10-K ile kosinüs benzerliği.",
+                 "metin_benzerligi_riskler": "Madde 1A (risk faktörleri) benzerliği.",
+                 "metin_benzerligi_yonetim": "Madde 7 (yönetimin değerlendirmesi) benzerliği.",
+                 "metin_benzerligi_ortalama": "Üç bölümün ortalama benzerliği (Lazy Prices: yüksek benzerlik = iyi).",
+                 "risk_bolumu_buyumesi_dusuk": "−risk faktörleri bölümünün uzunluk artışı.",
+                 "devamlilik_suphesi": "Son 10-K'da 'substantial doubt ... going concern' ifadesi."}
+    elif which == "road4":
+        from radar.research import road4
+        sig, title = road4.signals(p), "4. yol: temadan hisseye"
+        notes = {"tema_ruzgari": "Σ (şirketin son 12 aydaki GDELT tema maruziyeti × temanın 4/52 haftalık ivmesi)."}
     else:
         raise SystemExit(f"bilinmeyen rapor: {which}")
     md = build(sig, p, title, notes)

@@ -92,3 +92,35 @@ def test_event_excess_uses_own_universe_and_hit_rate():
     assert biased["ort_fazla"] > 0.005 and abs(fair["ort_fazla"]) < 1e-9
     assert 0 <= fair["isabet"] <= 1 and biased["isabet"] == 1.0
     ev._RET_CACHE.clear()
+
+
+def test_text_changes_lazy_prices_similarity():
+    from radar.research import road1
+    t = pd.DataFrame({
+        "cik": [1, 1, 1], "accepted": pd.to_datetime(["2020-03-01", "2021-03-01", "2022-03-01"]),
+        "going_concern": [False, False, True],
+        "item1": ["we sell widgets worldwide", "we sell widgets worldwide", "we now mine bitcoin exclusively"],
+        "item1a": ["risk " * 1000, "risk " * 1000, "risk " * 3000], "item7": ["revenue grew", "revenue grew", "revenue fell"]})
+    ch = road1.text_changes(t)
+    assert np.isnan(ch.sim_item1.iloc[0])
+    assert ch.sim_item1.iloc[1] > 0.99 and ch.sim_item1.iloc[2] < 0.1
+    assert abs(ch.risk_len_growth.iloc[2] - 2.0) < 0.01
+
+
+def test_theme_wind_uses_completed_months_and_momentum(monkeypatch):
+    from radar.research import road4
+    dates = pd.date_range("2016-01-01", periods=70, freq="W-FRI")
+    days = pd.date_range("2015-01-01", dates[-1], freq="D")
+    # HOT teması son 4 haftada patlıyor, COLD sabit; çok sayıda yaygın tema dışlanacak.
+    day = pd.DataFrame([{"kind": "day_theme", "date": d, "cik": pd.NA, "theme": th,
+                         "count": (100 if (th == "HOT" and d > dates[-5]) else 10)} for d in days for th in ("HOT", "COLD")])
+    common = pd.DataFrame([{"kind": "day_theme", "date": days[0], "cik": pd.NA, "theme": f"C{i}", "count": 10**6} for i in range(50)])
+    months = pd.date_range("2015-01-01", dates[-1], freq="MS")
+    pairs = pd.DataFrame([{"kind": "month_cik_theme", "date": m, "cik": c, "theme": th, "count": 30}
+                          for m in months for c, th in ((1, "HOT"), (2, "COLD"))])
+    monkeypatch.setattr(road4, "load_themes", lambda: (pd.concat([day, common]), pairs))
+    price = pd.DataFrame(1.0, index=dates, columns=["1", "2"])
+    w = road4.signals({"price": price})["tema_ruzgari"]
+    # HOT payı 0,5 → 0,91 (log ≈ +0,6); COLD payı 0,5 → 0,09 (log ≈ −1,7)
+    assert w["1"].iloc[-1] > 0.5 and w["2"].iloc[-1] < -1.5
+    assert np.isnan(w["1"].iloc[0])  # ilk ay: tamamlanmış ay yok

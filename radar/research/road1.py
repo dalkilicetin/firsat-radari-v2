@@ -95,3 +95,62 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
         "tahakkuklar_dusuk": -accruals.clip(-2, 2),          # düşük tahakkuk = kaliteli kazanç
         "varlik_buyumesi_dusuk": -(assets_w / assets_w.shift(52) - 1).clip(-1, 5),  # yatırım etkisi
     }
+
+
+# --- 10-K metinlerine dayalı sinyaller -----------------------------------------------------------
+
+import re
+from collections import Counter
+from math import sqrt
+
+TOKEN = re.compile(r"[a-z]{3,}")
+SECTIONS = ["item1", "item1a", "item7"]
+
+
+def term_counts(text: str) -> Counter:
+    return Counter(TOKEN.findall(str(text).lower()))
+
+
+def cosine(a: Counter, b: Counter) -> float:
+    if not a or not b:
+        return float("nan")
+    small, big = (a, b) if len(a) < len(b) else (b, a)
+    dot = sum(v * big.get(k, 0) for k, v in small.items())
+    return dot / (sqrt(sum(v * v for v in a.values())) * sqrt(sum(v * v for v in b.values())))
+
+
+def text_changes(tenk: pd.DataFrame) -> pd.DataFrame:
+    """Her 10-K için, aynı şirketin bir önceki 10-K'sıyla bölüm bazında benzerlik (Lazy Prices)."""
+    rows = []
+    tenk = tenk.sort_values(["cik", "accepted"])
+    for cik, g in tenk.groupby("cik"):
+        prev = None
+        for r in g.itertuples():
+            cur = {s: term_counts(getattr(r, s)) for s in SECTIONS}
+            rec = {"cik": cik, "accepted": r.accepted, "going_concern": r.going_concern,
+                   "len_item1a": len(str(r.item1a))}
+            if prev is not None and (r.accepted - prev["accepted"]).days < 550:
+                for s in SECTIONS:
+                    rec[f"sim_{s}"] = cosine(cur[s], prev["counts"][s])
+                rec["risk_len_growth"] = (rec["len_item1a"] / prev["len_item1a"] - 1) if prev["len_item1a"] > 2000 else np.nan
+            rows.append(rec)
+            prev = {"accepted": r.accepted, "counts": cur, "len_item1a": rec["len_item1a"]}
+    return pd.DataFrame(rows)
+
+
+def text_signals(p: dict) -> dict[str, pd.DataFrame]:
+    price = p["price"]
+    dates, cols = price.index, price.columns
+    tenk = archive.load("tenk", columns=["cik", "accepted", "going_concern"] + SECTIONS)
+    ch = text_changes(tenk)
+    P = lambda v: pit(ch.rename(columns={"accepted": "date"}).assign(value=v)[["cik", "date", "value"]],
+                      dates, cols, FUNDAMENTAL_MAX_AGE)
+    sims = [P(ch[f"sim_{s}"]) for s in SECTIONS]
+    return {
+        "metin_benzerligi_is_tanimi": sims[0],
+        "metin_benzerligi_riskler": sims[1],
+        "metin_benzerligi_yonetim": sims[2],
+        "metin_benzerligi_ortalama": sum(sims) / 3,
+        "risk_bolumu_buyumesi_dusuk": -P(ch.risk_len_growth).clip(-1, 5),
+        "devamlilik_suphesi": P(ch.going_concern.astype(float)) > 0,
+    }
