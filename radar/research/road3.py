@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 
 from radar import archive, config
+from radar.research import fundamentals
 from radar.research.pit import FUNDAMENTAL_MAX_AGE, pit, rolling_count, weekly
 
 MIN_PURCHASE = 10_000  # $; daha küçük alımlar sinyal sayılmaz
@@ -92,7 +93,7 @@ def eight_k_signals(dates, columns) -> dict[str, pd.DataFrame]:
 
 
 def buyback_signal(dates, columns, shares: pd.DataFrame, raw: pd.DataFrame) -> dict[str, pd.DataFrame]:
-    fin = archive.load("financials", columns=["cik", "tag", "value", "accepted", "qtrs", "ddate"])
+    fin = fundamentals.plain(fundamentals.load(["cik", "tag", "value", "accepted", "qtrs", "ddate"]))
     fin = fin[(fin.tag == "PaymentsForRepurchaseOfCommonStock") & (fin.qtrs == 4)]
     fin = fin[fin.ddate == fin.groupby(["cik", "accepted"]).ddate.transform("max")]
     bb = pit(fin.rename(columns={"accepted": "date"})[["cik", "date", "value"]], dates, columns, FUNDAMENTAL_MAX_AGE)
@@ -102,10 +103,8 @@ def buyback_signal(dates, columns, shares: pd.DataFrame, raw: pd.DataFrame) -> d
 def signals(p: dict) -> dict[str, pd.DataFrame]:
     price, raw = p["price"], p["raw"]
     dates, cols = price.index, price.columns
-    fin = archive.load("financials", columns=["cik", "tag", "value", "accepted", "qtrs", "ddate"])
-    sh = fin[fin.tag.isin(["EntityCommonStockSharesOutstanding", "CommonStockSharesOutstanding"]) & (fin.qtrs == 0)]
-    sh = sh[sh.ddate == sh.groupby(["cik", "accepted"]).ddate.transform("max")]
-    shares = pit(sh.rename(columns={"accepted": "date"})[["cik", "date", "value"]], dates, cols, FUNDAMENTAL_MAX_AGE)
+    sh = fundamentals.shares_outstanding(fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate"]))
+    shares = pit(sh.rename(columns={"accepted": "date"}), dates, cols, FUNDAMENTAL_MAX_AGE)
     out = {}
     out |= insider_signals(dates, cols, shares, raw)
     out |= holdings_signals(dates, cols, shares)

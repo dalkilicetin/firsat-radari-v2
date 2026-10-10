@@ -124,3 +124,29 @@ def test_theme_wind_uses_completed_months_and_momentum(monkeypatch):
     # HOT payı 0,5 → 0,91 (log ≈ +0,6); COLD payı 0,5 → 0,09 (log ≈ −1,7)
     assert w["1"].iloc[-1] > 0.5 and w["2"].iloc[-1] < -1.5
     assert np.isnan(w["1"].iloc[0])  # ilk ay: tamamlanmış ay yok
+
+
+def test_identity_name_matching_for_foreign_issuers():
+    assert identity.norm_name("TRANSGLOBE ENERGY CORP COM") == identity.norm_name("TransGlobe Energy Corp") == "transglobe energy"
+    assert identity.norm_name("ACME HOLDINGS LTD SPONSORED ADR") == "acme"
+    missing = pd.DataFrame({"cik": [5], "name": ["TransGlobe Energy Corp"], "end": [pd.Timestamp("2022-10-20")]})
+    ftd = pd.DataFrame({"settle_date": pd.to_datetime(["2022-09-01", "2015-01-01"]), "symbol": ["TGA", "OLD"],
+                        "description": ["TRANSGLOBE ENERGY CORP COM", "TRANSGLOBE ENERGY CORP COM"]})
+    assert identity.match_by_name(missing, ftd) == {5: "TGA"}
+    spac = pd.DataFrame({"cik": [6], "name": ["Healthwell Acquisition Corp I"], "end": [pd.Timestamp("2023-12-04")]})
+    f2 = pd.DataFrame({"settle_date": pd.to_datetime(["2023-11-01"] * 3), "symbol": ["HWELW", "HWELW", "HWEL"],
+                       "description": ["HEALTHWELL ACQUISITION CORP I", "HEALTHWELL ACQUISITION CORP I", "HEALTHWELL ACQUISITION CORP I"]})
+    assert identity.match_by_name(spac, f2) == {6: "HWEL"}  # varant sembolü (W eki) seçilmez
+
+
+def test_shares_outstanding_prefers_total_then_sums_classes():
+    from radar.research import fundamentals
+    fin = pd.DataFrame({
+        "adsh": ["a", "b", "b", "c", "c"], "cik": [1, 2, 2, 3, 3], "accepted": pd.Timestamp("2024-05-01"),
+        "tag": ["EntityCommonStockSharesOutstanding"] * 3 + ["EntityCommonStockSharesOutstanding", "CommonStockSharesOutstanding"],
+        "qtrs": 0, "ddate": pd.Timestamp("2024-04-30"),
+        "segments": ["", "ClassOfStock=A;", "ClassOfStock=B;", "ClassOfStock=A;", ""],
+        "value": [100.0, 30.0, 70.0, 5.0, 900.0]})
+    s = fundamentals.shares_outstanding(fin).set_index("cik").value
+    assert s[1] == 100 and s[2] == 100  # tek değer; sınıfların toplamı
+    assert s[3] == 5  # kapak sayfası (dei) sınıf toplamı, bilanço kaleminden önce gelir

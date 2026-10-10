@@ -30,7 +30,7 @@ def pit(long: pd.DataFrame, dates: pd.DatetimeIndex, columns, max_age: int) -> p
     wide = weekly(long.dropna(subset=["value"]), dates, columns, "last")
     idx = wide.index.union(dates)
     raw = wide.reindex(idx)
-    obs = pd.DataFrame(np.where(raw.notna(), idx.values[:, None], np.datetime64("NaT")), index=idx, columns=raw.columns).ffill()
+    obs = pd.DataFrame(np.where(raw.notna(), idx.values[:, None], np.datetime64("NaT", "ns")), index=idx, columns=raw.columns).ffill()
     age = (idx.values[:, None] - obs.values.astype("datetime64[ns]")) / np.timedelta64(1, "D")
     return raw.ffill().mask(age > max_age).reindex(dates)
 

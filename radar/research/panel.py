@@ -48,7 +48,7 @@ def weekly_last(df: pd.DataFrame, value: str, dates: pd.DatetimeIndex) -> pd.Dat
     raw = wide.reindex(idx)
     filled = raw.ffill()
     # Son gözlemden bu yana geçen gün: gözlem tarihini ileri taşıyarak hesaplanır.
-    obs_date = pd.DataFrame(np.where(raw.notna(), idx.values[:, None], np.datetime64("NaT")),
+    obs_date = pd.DataFrame(np.where(raw.notna(), idx.values[:, None], np.datetime64("NaT", "ns")),
                             index=idx, columns=wide.columns).ffill()
     age_days = (idx.values[:, None] - obs_date.values.astype("datetime64[ns]")) / np.timedelta64(1, "D")
     return filled.mask(age_days > STALE_DAYS).reindex(dates)

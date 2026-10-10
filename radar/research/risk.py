@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 
 from radar import archive
-from radar.research import panel
+from radar.research import fundamentals, panel
 from radar.research.pit import FUNDAMENTAL_MAX_AGE, pit, recent_events, rolling_count
 
 
@@ -29,8 +29,9 @@ BUCKETS = [0.30, 0.55, 0.75, 0.90]  # bileşik yüzdelik → 1..5
 
 
 def financial_features(dates, columns) -> dict[str, pd.DataFrame]:
-    fin = archive.load("financials", columns=["cik", "tag", "value", "accepted", "qtrs", "ddate", "form"])
-    fin = fin.rename(columns={"accepted": "date"})
+    raw_fin = fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate", "form"])
+    shares_long = fundamentals.shares_outstanding(raw_fin).rename(columns={"accepted": "date"})
+    fin = fundamentals.plain(raw_fin).rename(columns={"accepted": "date"})
     # Aynı rapordaki karşılaştırmalı (geçmiş dönem) değerleri değil, raporun kendi dönemini al.
     latest_period = fin.groupby(["cik", "date"]).ddate.transform("max")
     cur = fin[fin.ddate == latest_period]
@@ -42,7 +43,7 @@ def financial_features(dates, columns) -> dict[str, pd.DataFrame]:
     cash = pit(tag(["CashAndCashEquivalentsAtCarryingValue", "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
                      "CashAndCashEquivalents"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
     ocf = pit(tag(["NetCashProvidedByUsedInOperatingActivities"], 4), dates, columns, FUNDAMENTAL_MAX_AGE)
-    shares = pit(tag(["EntityCommonStockSharesOutstanding", "CommonStockSharesOutstanding"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
+    shares = pit(shares_long, dates, columns, FUNDAMENTAL_MAX_AGE)
     assets = pit(tag(["Assets"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
     liab = pit(tag(["Liabilities"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
 

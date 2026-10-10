@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 
 from radar import archive
+from radar.research import fundamentals
 from radar.research.pit import FUNDAMENTAL_MAX_AGE, pit
 
 REVENUE = ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues", "SalesRevenueNet",
@@ -18,7 +19,7 @@ REVENUE = ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues", "S
 
 
 def load_fin() -> pd.DataFrame:
-    fin = archive.load("financials", columns=["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate", "uom"])
+    fin = fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate", "uom"])
     return fin[fin.uom.isin(["USD", "shares", "USD/shares"])]
 
 
@@ -57,7 +58,8 @@ def annual(fin: pd.DataFrame, tags: list[str]) -> pd.DataFrame:
 def signals(p: dict) -> dict[str, pd.DataFrame]:
     price, raw = p["price"], p["raw"]
     dates, cols = price.index, price.columns
-    fin = load_fin()
+    all_fin = load_fin()
+    fin = fundamentals.plain(all_fin)
     P = lambda df, v: pit(df.rename(columns={"accepted": "date"}).assign(value=v)[["cik", "date", "value"]],
                           dates, cols, FUNDAMENTAL_MAX_AGE)
 
@@ -75,7 +77,7 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
     capex = annual(fin, ["PaymentsToAcquirePropertyPlantAndEquipment"])
     ni = annual(fin, ["NetIncomeLoss", "ProfitLoss"])
     assets = balance(fin, ["Assets"])
-    shares = balance(fin, ["EntityCommonStockSharesOutstanding", "CommonStockSharesOutstanding"])
+    shares = fundamentals.shares_outstanding(all_fin)
 
     fcf = ocf.merge(capex, on=["adsh", "cik", "accepted"], how="left", suffixes=("", "_cx"))
     fcf_v = P(fcf, fcf.value - fcf.value_cx.fillna(0))

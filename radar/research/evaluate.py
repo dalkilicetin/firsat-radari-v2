@@ -42,6 +42,12 @@ def excess_returns(price: pd.DataFrame, sec: pd.DataFrame, weeks: int, universe:
     return r.sub(r.median(axis=1), axis=0)
 
 
+def tstat(x: pd.Series) -> float:
+    """Ortalama / standart hata; örnek < 3 ya da sapma 0 ise tanımsız."""
+    sd = x.std(ddof=1)
+    return float(x.mean() / sd * np.sqrt(len(x))) if len(x) > 2 and sd > 0 else float("nan")
+
+
 def _winsor(df: pd.DataFrame, q: float = 0.01) -> pd.DataFrame:
     lo, hi = df.quantile(q, axis=1), df.quantile(1 - q, axis=1)
     return df.clip(lo, hi, axis=0)
@@ -77,7 +83,7 @@ def evaluate(signal: pd.DataFrame, price: pd.DataFrame, sec: pd.DataFrame, name:
         e_rank = ex.where(valid).loc[dates].rank(axis=1, pct=True)
         ic = s_rank.corrwith(e_rank, axis=1, method="pearson")  # sıralar üzerinde Pearson = Spearman
         step = ic.iloc[::max(weeks, 1)]
-        t = step.mean() / step.std(ddof=1) * np.sqrt(len(step)) if len(step) > 2 else np.nan
+        t = tstat(step)
         exw = _winsor(ex.where(valid).loc[dates])
         top = exw.where(s_rank >= 0.9)
         bottom = exw.where(s_rank <= 0.1)
@@ -107,7 +113,7 @@ def evaluate_event(flag: pd.DataFrame, price: pd.DataFrame, sec: pd.DataFrame, n
         vals = exw.where(f)
         per_date = vals.mean(axis=1).dropna()
         step = per_date.iloc[::max(weeks, 1)]
-        t = step.mean() / step.std(ddof=1) * np.sqrt(len(step)) if len(step) > 2 else np.nan
+        t = tstat(step)
         events = vals.stack().dropna()
         res.rows.append({
             "vade": label, "olay": int(f.sum().sum()), "olaylı_hafta": len(per_date),

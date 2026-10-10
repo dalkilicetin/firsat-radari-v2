@@ -45,6 +45,8 @@ TAGS = {
     "Revenue", "Equity", "CashAndCashEquivalents", "ProfitLossAttributableToOwnersOfParent",
 }
 
+SHARE_TAGS = {"EntityCommonStockSharesOutstanding", "CommonStockSharesOutstanding"}
+
 # Doğrulanmış gerçekler: (bölüm, CIK, etiket, dönem sonu (ay sonuna yuvarlanmış), çeyrek sayısı, değer)
 GOLDEN = [
     ("2023q4", 320193, "RevenueFromContractWithCustomerExcludingAssessedTax", "2023-09-30", 4, 383_285_000_000),
@@ -64,8 +66,14 @@ def read_num(blob: bytes) -> pd.DataFrame:
                 chunk.columns = [c.strip().upper() for c in chunk.columns]
                 mask = chunk["TAG"].isin(TAGS) & (chunk["COREG"] == "")
                 if "SEGMENTS" in chunk.columns:
-                    mask &= chunk["SEGMENTS"] == ""
-                keep.append(chunk.loc[mask, [c for c in ("ADSH", "TAG", "VERSION", "DDATE", "QTRS", "UOM", "VALUE") if c in chunk.columns]])
+                    # Segmentsiz değerler + hisse sayısının sınıf bazındaki değerleri (A/B sınıfı; toplanarak
+                    # çok sınıflı şirketlerin toplam hisse sayısı bulunur). Sınıf ekseni tek boyutlu olmalı.
+                    seg = chunk["SEGMENTS"]
+                    class_rows = chunk["TAG"].isin(SHARE_TAGS) & seg.str.contains("Class", case=False) & (seg.str.count(";") <= 1)
+                    mask &= (seg == "") | class_rows
+                else:
+                    chunk["SEGMENTS"] = ""
+                keep.append(chunk.loc[mask, [c for c in ("ADSH", "TAG", "VERSION", "DDATE", "QTRS", "UOM", "VALUE", "SEGMENTS") if c in chunk.columns]])
     return pd.concat(keep, ignore_index=True)
 
 
@@ -97,6 +105,7 @@ class FinancialStatements(Dataset):
             "tag": df.TAG, "version": df.get("VERSION", ""), "ddate": to_date(df.DDATE, "%Y%m%d"),
             "qtrs": pd.to_numeric(df.QTRS, errors="coerce").astype("Int64"), "uom": df.UOM,
             "value": pd.to_numeric(df.VALUE, errors="coerce"),
+            "segments": df.get("SEGMENTS", pd.Series("", index=df.index)).fillna(""),
         })
         # XBRL'de değeri boş ("nil") olarak raporlanmış kalemler tutulmaz.
         empty = int(out.value.isna().sum())
@@ -124,6 +133,14 @@ class FinancialStatements(Dataset):
             got = float(hit.value.iloc[0]) if len(hit) else None
             rep.expect_equal(f"Doğrulanmış gerçek: CIK {cik} {tag} {ddate}", got, value)
         rep.add("Form dağılımı", Status.INFO, str(loaded.notes["forms"]))
+        seg = df[df.segments != ""]
+        if len(seg):
+            # Doğrulama: Alphabet'in A+B+C sınıfı toplam hisse sayısı ~12 milyar.
+            goog = seg[(seg.cik == 1652044) & (seg.tag == "EntityCommonStockSharesOutstanding")]
+            goog = goog[goog.ddate == goog.ddate.max()].value.sum() if len(goog) else None
+            rep.add("Sınıf bazında hisse sayısı satırı", Status.INFO, f"{len(seg):,} satır, {seg.cik.nunique():,} şirket")
+            if goog:
+                rep.expect_range("Doğrulama: Alphabet sınıf toplamı hisse sayısı", float(goog), 11e9, 13.5e9, warn_only=True)
 
     def check_dataset(self, client: HttpClient, manifest: dict, rep: SourceReport) -> dict[str, pd.DataFrame]:
         parts = manifest["partitions"]

@@ -15,6 +15,9 @@ kullanılabildiği için her sembol bir tarih aralığına bağlıdır.
 
 from __future__ import annotations
 
+import re
+
+import numpy as np
 import pandas as pd
 
 from radar import archive, config
@@ -32,6 +35,35 @@ def ticker_history(insider: pd.DataFrame) -> pd.DataFrame:
             .reset_index().rename(columns={"issuer_cik": "cik"}))
     hist["cik"] = hist.cik.astype("int64")
     return hist[hist.n >= 2]  # tek seferlik yazım hatalarını ele
+
+
+SECURITY_WORDS = r"\b(com|common|stock|shs|shares?|ord|ordinary|adr|ads|sponsored|new|cl|class|[a-c]|par|value|usd|\$?\d[\d.]*)\b"
+
+
+def norm_name(name: str) -> str:
+    n = re.sub(r"[^a-z0-9 ]", " ", str(name).lower())
+    n = re.sub(SECURITY_WORDS, " ", n)
+    n = re.sub(r"\b(incorporated|inc|corporation|corp|co|company|ltd|limited|plc|holdings?|group|the|n v|s a|ag|se|lp|llc)\b", " ", n)
+    return re.sub(r"\s+", " ", n).strip()
+
+
+def match_by_name(missing: pd.DataFrame, ftd: pd.DataFrame) -> dict[int, str]:
+    """Çıkış evreninde sembolü bilinmeyen şirketler için FTD açıklamasından sembol (tam ad eşleşmesi)."""
+    # Varant, ünite ve haklar adi hisse değildir (SPAC'lerde yaygın): açıklamadan ya da 5+ harfli sembolün
+    # W/WS/U/R ekinden tanınır.
+    derivative = ftd.description.str.contains(r"\b(?:WTS?|WARRANTS?|UNITS?|RIGHTS?|RTS?)\b|\*W", case=False, regex=True, na=False)
+    derivative |= ftd.symbol.str.fullmatch(r"[A-Z]{4,}(W|WS|U|R)", na=False)
+    ftd = ftd[~derivative]
+    want = missing.assign(key=missing.name.map(norm_name))
+    want = want[want.key.str.len() >= 4]
+    # Açıklamalar tekrar ettiği için normalizasyon tekil açıklamalar üzerinde yapılır.
+    desc = pd.Series(ftd.description.unique())
+    keys = dict(zip(desc, desc.map(norm_name)))
+    ftd = ftd.assign(key=ftd.description.map(keys))
+    ftd = ftd[ftd.key.isin(set(want.key))]
+    m = ftd.merge(want[["cik", "key", "end"]], on="key")
+    m = m[(m.settle_date >= m.end - pd.Timedelta(days=365)) & (m.settle_date <= m.end + pd.Timedelta(days=10))]
+    return m.groupby("cik").symbol.agg(lambda s: s.value_counts().index[0]).to_dict()
 
 
 def exchange_exits(filings: pd.DataFrame) -> pd.DataFrame:
@@ -82,6 +114,16 @@ def build() -> dict[str, pd.DataFrame]:
     sym_at_exit = h.groupby("cik").agg(symbol=("ticker", "last"), sym_first=("first_seen", "min"))
     gone = gone.merge(sym_at_exit, on="cik", how="left")
     gone["name"] = gone.cik.map(names)
+    gone["symbol_source"] = np.where(gone.symbol.notna(), "form4", None)
+    # Form 4 vermeyen (çoğunlukla yabancı) şirketler: SEC adını, çıkıştan önceki 1 yıldaki FTD menkul kıymet
+    # açıklamasıyla eşleştir ("TRANSGLOBE ENERGY CORP COM" → TransGlobe Energy Corp).
+    missing = gone[gone.symbol.isna()]
+    if len(missing):
+        ftd_desc = archive.load("ftd", columns=["settle_date", "symbol", "description"])
+        recovered = match_by_name(missing, ftd_desc)
+        gone.loc[gone.cik.isin(recovered), "symbol"] = gone.cik.map(recovered)
+        gone.loc[gone.cik.isin(recovered), "symbol_source"] = "ftd_ad"
+        gone.loc[gone.cik.isin(recovered), "sym_first"] = pd.NaT
 
     # Fiyat kaynağı: FTD (seyrek); sembol aralığı içinde, çıkıştan en fazla 10 gün sonrasına kadar.
     ftd = ftd[ftd.price > 0]
@@ -100,7 +142,8 @@ def build() -> dict[str, pd.DataFrame]:
     # Sembolü bilinmeyenler çoğunlukla hisse dışı menkul kıymetlerdir (tahvil, ETN); Form 4 vermeyen yabancı
     # şirketler de bu gruba düşer (bilinen sınırlama).
     gone = gone[gone.symbol.notna()]
-    gone = gone[["cik", "symbol", "name", "start", "end", "price_source", "status", "transferred_from_other", "bankrupt"]]
+    gone = gone[["cik", "symbol", "name", "start", "end", "price_source", "status", "transferred_from_other", "bankrupt",
+                 "symbol_source"]]
 
     securities = pd.concat([cur, gone], ignore_index=True)
     return {"securities": securities, "tickers": hist, "exits": exits}
@@ -114,6 +157,7 @@ def summarize(tables: dict[str, pd.DataFrame]) -> list[str]:
         f"  başka borsadan Nasdaq'a geçmiş: {int(s.transferred_from_other.sum()):,}",
         f"2015 sonrası Nasdaq'tan çıkan (sembolü bilinen hisseler): {len(gone):,}",
         f"  iflasla çıkan (8-K 1.03): {int(gone.bankrupt.sum()):,}",
+        f"  sembolü FTD açıklamasıyla bulunan (Form 4 vermeyen şirketler): {int((gone.symbol_source == 'ftd_ad').sum()):,}",
         f"Çıkış yılları: {gone.end.dt.year.value_counts().sort_index().to_dict()}",
     ]
     return lines
