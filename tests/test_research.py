@@ -64,3 +64,12 @@ def test_evaluate_detects_perfect_and_random_signal(monkeypatch):
     assert good["IC"] > 0.99 and good["fark"] > 0
     assert abs(noise["IC"]) < 0.05
     ev._RET_CACHE.clear()
+
+
+def test_pit_rolling_count_uses_next_friday():
+    from radar.research import pit
+    dates = pd.date_range("2024-01-05", periods=4, freq="W-FRI")
+    ev = pd.DataFrame({"cik": [7, 7], "date": pd.to_datetime(["2024-01-05", "2024-01-10"])})
+    c = pit.rolling_count(ev, dates, ["7"], 30)
+    # Cuma günü olan olay o Cuma değil, bir sonraki Cuma'dan itibaren sayılır.
+    assert c["7"].tolist() == [0.0, 2.0, 2.0, 2.0]

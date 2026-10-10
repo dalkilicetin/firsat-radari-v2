@@ -12,8 +12,8 @@ import pandas as pd
 
 from radar import archive
 from radar.research import panel
+from radar.research.pit import FUNDAMENTAL_MAX_AGE, pit, recent_events, rolling_count
 
-FUNDAMENTAL_MAX_AGE = 400  # gün: bundan eski finansal değer yok sayılır
 
 # (bileşen, ağırlık). Yüksek değer = yüksek risk olacak şekilde hazırlanır.
 # Doğrulamada (2015–2024) ters yönde çıkan bileşenler çıkarıldı:
@@ -28,44 +28,6 @@ EVENT_POINTS = {"delist_uyarisi": 0.25, "denetci_degisikligi": 0.10, "geciken_ra
 BUCKETS = [0.30, 0.55, 0.75, 0.90]  # bileşik yüzdelik → 1..5
 
 
-def to_friday(dates: pd.Series) -> pd.Series:
-    """Bir olayın kullanılabileceği ilk Cuma: olay gününden SONRAKİ ilk Cuma (aynı gün kapanışına yetişmeyebilir)."""
-    day = pd.to_datetime(dates)
-    if getattr(day.dt, "tz", None) is not None:
-        day = day.dt.tz_convert("America/New_York").dt.tz_localize(None)
-    return (day.dt.normalize() + pd.Timedelta(days=1)) + pd.offsets.Week(weekday=4, n=0)
-
-
-def _weekly(long: pd.DataFrame, dates, columns, agg: str) -> pd.DataFrame:
-    long = long.assign(cik=long.cik.astype(str))
-    long = long[long.cik.isin(set(columns))]
-    long = long.assign(friday=to_friday(long.date))
-    g = long.groupby(["friday", "cik"]).value
-    wide = (g.last() if agg == "last" else g.sum()).unstack("cik")
-    return wide.reindex(columns=columns)
-
-
-def _pit(long: pd.DataFrame, dates: pd.DatetimeIndex, columns, max_age: int) -> pd.DataFrame:
-    """(cik, date, value) → her Cuma için o güne kadar bilinen son değer (max_age gün sınırlı)."""
-    wide = _weekly(long.dropna(subset=["value"]), dates, columns, "last")
-    idx = wide.index.union(dates)
-    raw = wide.reindex(idx)
-    obs = pd.DataFrame(np.where(raw.notna(), idx.values[:, None], np.datetime64("NaT")), index=idx, columns=raw.columns).ffill()
-    age = (idx.values[:, None] - obs.values.astype("datetime64[ns]")) / np.timedelta64(1, "D")
-    return raw.ffill().mask(age > max_age).reindex(dates)
-
-
-def _rolling_count(ev: pd.DataFrame, dates, columns, window_days) -> pd.DataFrame:
-    """(cik, date) olaylarından: Cuma itibarıyla son window_days içindeki olay sayısı."""
-    wide = _weekly(ev.assign(value=1.0), dates, columns, "sum")
-    weekly = wide.reindex(wide.index.union(dates)).fillna(0)
-    return weekly.rolling(f"{window_days}D").sum().reindex(dates).fillna(0)
-
-
-def _recent_events(events: pd.DataFrame, dates, columns, window_days: int) -> pd.DataFrame:
-    return _rolling_count(events, dates, columns, window_days) > 0
-
-
 def financial_features(dates, columns) -> dict[str, pd.DataFrame]:
     fin = archive.load("financials", columns=["cik", "tag", "value", "accepted", "qtrs", "ddate", "form"])
     fin = fin.rename(columns={"accepted": "date"})
@@ -77,12 +39,12 @@ def financial_features(dates, columns) -> dict[str, pd.DataFrame]:
         d = cur[cur.tag.isin(names) & (cur.qtrs == qtrs)]
         return d.sort_values("date").groupby(["cik", "date"]).value.first().reset_index()
 
-    cash = _pit(tag(["CashAndCashEquivalentsAtCarryingValue", "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+    cash = pit(tag(["CashAndCashEquivalentsAtCarryingValue", "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
                      "CashAndCashEquivalents"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
-    ocf = _pit(tag(["NetCashProvidedByUsedInOperatingActivities"], 4), dates, columns, FUNDAMENTAL_MAX_AGE)
-    shares = _pit(tag(["EntityCommonStockSharesOutstanding", "CommonStockSharesOutstanding"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
-    assets = _pit(tag(["Assets"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
-    liab = _pit(tag(["Liabilities"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
+    ocf = pit(tag(["NetCashProvidedByUsedInOperatingActivities"], 4), dates, columns, FUNDAMENTAL_MAX_AGE)
+    shares = pit(tag(["EntityCommonStockSharesOutstanding", "CommonStockSharesOutstanding"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
+    assets = pit(tag(["Assets"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
+    liab = pit(tag(["Liabilities"], 0), dates, columns, FUNDAMENTAL_MAX_AGE)
 
     burn = (-ocf).clip(lower=0)
     runway_months = (cash / burn.replace(0, np.nan) * 12).where(burn > 0)
@@ -99,9 +61,9 @@ def event_features(dates, columns) -> dict[str, pd.DataFrame]:
     items = eight_k["items"].fillna("")
     mk = lambda d: d.rename(columns={"filing_date": "date"})[["cik", "date"]]
     return {
-        "delist_uyarisi": _recent_events(mk(eight_k[items.str.contains(r"\b3\.01\b")]), dates, columns, 180),
-        "denetci_degisikligi": _recent_events(mk(eight_k[items.str.contains(r"\b4\.01\b")]), dates, columns, 365),
-        "geciken_rapor": _recent_events(mk(f[f.form.isin(["NT 10-K", "NT 10-Q"])]), dates, columns, 365),
+        "delist_uyarisi": recent_events(mk(eight_k[items.str.contains(r"\b3\.01\b")]), dates, columns, 180),
+        "denetci_degisikligi": recent_events(mk(eight_k[items.str.contains(r"\b4\.01\b")]), dates, columns, 365),
+        "geciken_rapor": recent_events(mk(f[f.form.isin(["NT 10-K", "NT 10-Q"])]), dates, columns, 365),
     }
 
 
@@ -112,7 +74,7 @@ def insider_selling(dates, columns) -> pd.DataFrame:
     ins = ins.assign(cik=ins.issuer_cik.astype("int64").astype(str), date=ins.available_date)
     sellers = ins[ins.code == "S"].drop_duplicates(["cik", "owner_cik", "date"])
     buyers = ins[ins.code == "P"].drop_duplicates(["cik", "owner_cik", "date"])
-    count = lambda d: _rolling_count(d[["cik", "date"]], dates, columns, 90)
+    count = lambda d: rolling_count(d[["cik", "date"]], dates, columns, 90)
     return count(sellers) - count(buyers)
 
 
