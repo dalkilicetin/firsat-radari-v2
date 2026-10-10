@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T13:02:25.842338+00:00",
+ "run_at": "2026-10-10T13:23:19.026967+00:00",
  "sources": [
   {
    "key": "universe",
@@ -13,7 +13,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.5,
    "requests": 2,
    "checks": [
     {
@@ -25,8 +25,8 @@
     {
      "name": "Nasdaq listesi güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.6 gün önce (sınır 4)",
-     "value": 0.65
+     "detail": "en son kayıt 2026-10-09, 0.7 gün önce (sınır 4)",
+     "value": 0.66
     },
     {
      "name": "Bilinen hisseler listede",
@@ -37,8 +37,8 @@
     {
      "name": "SEC CIK eşleşme oranı",
      "status": "ok",
-     "detail": "3427/3434 = %99.8 adi hisse",
-     "value": 0.998
+     "detail": "3424/3434 = %99.7 adi hisse",
+     "value": 0.9971
     },
     {
      "name": "Doğrulanmış CIK değerleri",
@@ -49,8 +49,8 @@
     {
      "name": "Çapraz kontrol: SEC'te 'Nasdaq' görünenler Nasdaq listesinde",
      "status": "ok",
-     "detail": "4346/4378 = %99.3",
-     "value": 0.9927
+     "detail": "4337/4376 = %99.1",
+     "value": 0.9911
     },
     {
      "name": "Finansal durum dağılımı (risk sinyali)",
@@ -126,7 +126,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.9,
    "requests": 5,
    "checks": [
     {
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.1,
+   "duration_s": 1.8,
    "requests": 15,
    "checks": [
     {
@@ -355,19 +355,19 @@
     {
      "name": "8-K'larda olay kodu (items) dolu",
      "status": "ok",
-     "detail": "1119/1119 = %100.0",
+     "detail": "1233/1233 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)",
      "status": "ok",
-     "detail": "5883/5884 = %100.0; formlar: {'10-Q': 1}; örnek: [('10-Q', '2019-11-12', '2019-11-08T22:41:40.000Z')]",
-     "value": 0.9998
+     "detail": "6754/6755 = %100.0; formlar: {'S-1/A': 1}; örnek: [('S-1/A', '2024-09-03', '2024-08-30T23:09:30.000Z')]",
+     "value": 0.9999
     },
     {
      "name": "Önceki güne tarihlenen gece kabulleri",
      "status": "info",
-     "detail": "301 dosya — dosyalama tarihi değil kabul anı esas alınır",
+     "detail": "153 dosya — dosyalama tarihi değil kabul anı esas alınır",
      "value": null
     },
     {
@@ -451,9 +451,9 @@
    "roads": [
     1
    ],
-   "status": "ok",
+   "status": "warn",
    "error": null,
-   "duration_s": 7.0,
+   "duration_s": 4.9,
    "requests": 23,
    "checks": [
     {
@@ -477,25 +477,25 @@
     {
      "name": "Rastgele şirketlerde temel kalem (varlık/gelir/kâr) bulunan",
      "status": "ok",
-     "detail": "20/20 = %100.0",
-     "value": 1.0
+     "detail": "19/20 = %95.0",
+     "value": 0.95
     },
     {
      "name": "Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu",
      "status": "ok",
-     "detail": "305743/305758 = %100.0",
-     "value": 1.0
+     "detail": "349447/349490 = %100.0",
+     "value": 0.9999
     },
     {
      "name": "Güncel hisse sayısı (son 200 gün) bulunan",
-     "status": "ok",
-     "detail": "19/20 = %95.0; eksik/eski: ['SRAD:yok']",
-     "value": 0.95
+     "status": "warn",
+     "detail": "14/20 = %70.0; eksik/eski: ['PGAC:yok', 'DNMX:2025-12-10', 'CCAQ:yok', 'WENN:yok', 'NUR:yok', 'BID:yok']",
+     "value": 0.7
     },
     {
      "name": "Kapsam notu",
      "status": "info",
-     "detail": "1 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
+     "detail": "0 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
      "value": null
     }
    ],
@@ -754,7 +754,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.4,
    "requests": 1,
    "checks": [
     {
@@ -813,110 +813,19 @@
    "roads": [
     3
    ],
-   "status": "ok",
-   "error": null,
-   "duration_s": 0.8,
-   "requests": 4,
+   "status": "fail",
+   "error": "FetchError: https://api.usaspending.gov/api/v2/awards/last_updated/ -> 500: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd\"><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=",
+   "duration_s": 31.8,
+   "requests": 5,
    "checks": [
     {
-     "name": "Veritabanı güncelliği",
-     "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 10)",
-     "value": 0
-    },
-    {
-     "name": "Palantir: son 1 yıl sözleşme",
-     "status": "ok",
-     "detail": "50 kayıt, tutarlar sayısal: 50/50",
-     "value": null
-    },
-    {
-     "name": "Microsoft: son 1 yıl sözleşme",
-     "status": "ok",
-     "detail": "50 kayıt, tutarlar sayısal: 50/50",
-     "value": null
-    },
-    {
-     "name": "Amazon Web Services: son 1 yıl sözleşme",
-     "status": "ok",
-     "detail": "50 kayıt, tutarlar sayısal: 50/50",
-     "value": null
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "FetchError: https://api.usaspending.gov/api/v2/awards/last_updated/ -> 500: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd\"><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=",
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/usaspending.py\", line 37, in run\n    updated = ctx.client.get(LAST_UPDATED).json().get(\"last_updated\", \"\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: https://api.usaspending.gov/api/v2/awards/last_updated/ -> 500: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd\"><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=\n"
     }
    ],
-   "sample": {
-    "Palantir": [
-     {
-      "internal_id": 355423040,
-      "Award ID": "W9128Z26FA001",
-      "Recipient Name": "PALANTIR USG INC",
-      "Award Amount": 637552404.79,
-      "Start Date": "2025-10-15",
-      "Awarding Agency": "Department of Defense",
-      "awarding_agency_id": 1173,
-      "agency_slug": "department-of-defense",
-      "generated_internal_id": "CONT_AWD_W9128Z26FA001_9700_W519TC25D0039_9700"
-     },
-     {
-      "internal_id": 291199463,
-      "Award ID": "70CTD022FR0000170",
-      "Recipient Name": "PALANTIR TECHNOLOGIES INC.",
-      "Award Amount": 170765322.37,
-      "Start Date": "2022-09-26",
-      "Awarding Agency": "Department of Homeland Security",
-      "awarding_agency_id": 766,
-      "agency_slug": "department-of-homeland-security",
-      "generated_internal_id": "CONT_AWD_70CTD022FR0000170_7012_GS35F0086U_4730"
-     }
-    ],
-    "Microsoft": [
-     {
-      "internal_id": 306490593,
-      "Award ID": "HC102822F0982",
-      "Recipient Name": "MICROSOFT CORPORATION",
-      "Award Amount": 219964603.76,
-      "Start Date": "2022-09-30",
-      "Awarding Agency": "Department of Defense",
-      "awarding_agency_id": 1173,
-      "agency_slug": "department-of-defense",
-      "generated_internal_id": "CONT_AWD_HC102822F0982_9700_HC102817D0001_9700"
-     },
-     {
-      "internal_id": 306489269,
-      "Award ID": "HC102821F1170",
-      "Recipient Name": "MICROSOFT CORPORATION",
-      "Award Amount": 172503499.89,
-      "Start Date": "2021-09-30",
-      "Awarding Agency": "Department of Defense",
-      "awarding_agency_id": 1173,
-      "agency_slug": "department-of-defense",
-      "generated_internal_id": "CONT_AWD_HC102821F1170_9700_HC102817D0001_9700"
-     }
-    ],
-    "Amazon Web Services": [
-     {
-      "internal_id": 348988388,
-      "Award ID": "W519TC25FA004",
-      "Recipient Name": "AMAZON WEB SERVICES, INC.",
-      "Award Amount": 167541936.34,
-      "Start Date": "2024-11-22",
-      "Awarding Agency": "Department of Defense",
-      "awarding_agency_id": 1173,
-      "agency_slug": "department-of-defense",
-      "generated_internal_id": "CONT_AWD_W519TC25FA004_9700_HC105023D0005_9700"
-     },
-     {
-      "internal_id": 281081747,
-      "Award ID": "47QDCB21F0015",
-      "Recipient Name": "AMAZON WEB SERVICES, INC.",
-      "Award Amount": 104554319.03,
-      "Start Date": "2021-06-14",
-      "Awarding Agency": "General Services Administration",
-      "awarding_agency_id": 614,
-      "agency_slug": "general-services-administration",
-      "generated_internal_id": "CONT_AWD_47QDCB21F0015_4732_47QTCA19D000C_4732"
-     }
-    ]
-   }
+   "sample": null
   },
   {
    "key": "uspto",
@@ -951,7 +860,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 41.2,
+   "duration_s": 45.1,
    "requests": 38,
    "checks": [
     {
@@ -1033,7 +942,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.8,
+   "duration_s": 1.5,
    "requests": 6,
    "checks": [
     {
@@ -1116,49 +1025,49 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 44.2,
-   "requests": 5,
+   "duration_s": 54.5,
+   "requests": 7,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25)",
-     "value": 0.0
+     "detail": "en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25)",
+     "value": -0.0
     },
     {
-     "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
+     "name": "İndirilen dosya bütünlüğü (önceki dosya, zip CRC)",
      "status": "ok",
-     "detail": "3,187,580 bayt, md5 eşleşti",
+     "detail": "listelenen dosya henüz yayımlanmamıştı; 3,400,344 bayt, CRC sağlam",
      "value": null
     },
     {
      "name": "15 dakikalık dosyada makale",
      "status": "ok",
-     "detail": "733 (beklenen 500–50,000)",
-     "value": 733
+     "detail": "771 (beklenen 500–50,000)",
+     "value": 771
     },
     {
      "name": "Sütun sayısı = 27",
      "status": "ok",
-     "detail": "733/733 = %100.0",
+     "detail": "771/771 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kurum (Organizations) bilgisi olan",
      "status": "ok",
-     "detail": "555/733 = %75.7",
-     "value": 0.7572
+     "detail": "564/771 = %73.2",
+     "value": 0.7315
     },
     {
      "name": "Ton değeri okunabilen",
      "status": "ok",
-     "detail": "733/733 = %100.0",
+     "detail": "771/771 = %100.0",
      "value": 1.0
     },
     {
      "name": "Bu 15 dakikada en çok geçen kurumlar",
      "status": "info",
-     "detail": "united states (42), associated press (26), instagram (25), delhi police (22), cockroach janta party (22), white house (18), google (16), cnn (14)",
+     "detail": "united states (44), white house (37), google (33), associated press (32), instagram (21), national hurricane centre (17), cockroach janta party (16), delhi police (15)",
      "value": null
     },
     {
@@ -1176,19 +1085,19 @@
    ],
    "sample": [
     {
-     "date": "20261010130000",
-     "source": "politicalwire.com",
+     "date": "20261010131500",
+     "source": "kbs.co.kr",
      "orgs": ""
     },
     {
-     "date": "20261010130000",
-     "source": "lombardiave.com",
-     "orgs": "dallas cowboys;espn"
+     "date": "20261010131500",
+     "source": "kysdc.com",
+     "orgs": "whitley separation divides the panel;hillman college;howard university;hampton university"
     },
     {
-     "date": "20261010130000",
-     "source": "krrq.com",
-     "orgs": "international bluegrass music association"
+     "date": "20261010131500",
+     "source": "foxnews.com",
+     "orgs": "instagram"
     }
    ]
   },
@@ -1202,7 +1111,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 8.7,
+   "duration_s": 5.7,
    "requests": 6,
    "checks": [
     {
@@ -1324,7 +1233,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.6,
    "requests": 2,
    "checks": [
     {
@@ -1337,7 +1246,7 @@
      "name": "Güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
-     "value": 0.11
+     "value": 0.13
     },
     {
      "name": "Geçmiş veri: Ocak 2016 sonuç",
@@ -1371,32 +1280,32 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.6,
+   "duration_s": 1.5,
    "requests": 3,
    "checks": [
     {
      "name": "'Nvidia stock': haber sayısı",
      "status": "ok",
-     "detail": "101 (beklenen 20–200)",
-     "value": 101
+     "detail": "104 (beklenen 20–200)",
+     "value": 104
     },
     {
      "name": "'Nvidia stock': tarihi okunabilen",
      "status": "ok",
-     "detail": "101/101 = %100.0",
+     "detail": "104/104 = %100.0",
      "value": 1.0
     },
     {
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
-     "value": 0.02
+     "value": 0.03
     },
     {
      "name": "'Nvidia stock': tekil başlık",
      "status": "ok",
-     "detail": "100/101 = %99.0",
-     "value": 0.9901
+     "detail": "103/104 = %99.0",
+     "value": 0.9904
     },
     {
      "name": "'Apple earnings': haber sayısı",
@@ -1414,7 +1323,7 @@
      "name": "'Apple earnings': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
-     "value": 0.07
+     "value": 0.09
     },
     {
      "name": "'Apple earnings': tekil başlık",
@@ -1437,8 +1346,8 @@
     {
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
-     "value": 0.04
+     "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
+     "value": 0.06
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -1529,7 +1438,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.9,
+   "duration_s": 2.5,
    "requests": 3,
    "checks": [
     {
@@ -1542,7 +1451,7 @@
      "name": "NVIDIA: son push",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 3)",
-     "value": 0.0
+     "value": 0.01
     },
     {
      "name": "microsoft: depo sayısı (ilk sayfa)",
@@ -1566,7 +1475,7 @@
      "name": "apple: son push",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.4 gün önce (sınır 3)",
-     "value": 0.39
+     "value": 0.4
     },
     {
      "name": "Kapsam notu",
@@ -1577,14 +1486,14 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/cudnn-frontend",
-     "NVIDIA/pytorch-windows-ci",
-     "NVIDIA/structured-data-models"
+     "NVIDIA/NemoClaw",
+     "NVIDIA/Model-Optimizer",
+     "NVIDIA/MatX"
     ],
     "microsoft": [
-     "microsoft/intelligent-terminal",
-     "microsoft/ntosebpfext",
-     "microsoft/power-pages-samples"
+     "microsoft/power-platform-skills",
+     "microsoft/amplifier-unified",
+     "microsoft/intelligent-terminal"
     ],
     "apple": [
      "apple/foundationdb",
