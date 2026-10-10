@@ -27,6 +27,15 @@ ROUNDS = {
         Recipe("R5 lgbm sıra", "sira", "lgbm", refit=13),
         Recipe("R6 lgbm dönemin en iyi %10'u", "ust10", "lgbm", refit=13),
     ],
+    # Tur 2: Nasdaq + NYSE, 2011→ başlangıçlar, sektör/beta sinyalleri; 10-K metinleri henüz yüklenmedi.
+    "tur2": [
+        Recipe("T2a ridge sıra, oynaklık hariç (güvenlik modeli)", "sira", exclude={"dusuk_oynaklik"}),
+        Recipe("T2b lgbm sıra (tur 1 kazananı)", "sira", "lgbm", refit=13),
+        Recipe("T2c lgbm sıra + piyasa dönemi", "sira", "lgbm", refit=13, regime=True),
+        Recipe("T2d lgbm sıra, daha büyük ağaçlar", "sira", "lgbm", refit=13,
+               params={"n_estimators": 500, "num_leaves": 31, "learning_rate": 0.03}),
+        Recipe("T2e lgbm fazla getiri + dönem", "fazla", "lgbm", refit=13, regime=True),
+    ],
 }
 
 
