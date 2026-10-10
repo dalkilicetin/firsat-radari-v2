@@ -1,6 +1,6 @@
-# 🟡 SEC finansal tablo verileri (XBRL, 2015→)
+# 🟢 SEC finansal tablo verileri (XBRL, 2015→)
 
-Son güncelleme: 2026-10-09T23:59:37+00:00 · 46 bölüm · 17,991,018 satır
+Son güncelleme: 2026-10-10T01:08:18+00:00 · 46 bölüm · 17,991,018 satır
 
 ## Veri seti kontrolleri
 
@@ -44,7 +44,7 @@ Son güncelleme: 2026-10-09T23:59:37+00:00 · 46 bölüm · 17,991,018 satır
 | 2022q1 | 🟢 Kullanılabilir | 398,253 |  |
 | 2022q2 | 🟢 Kullanılabilir | 399,668 |  |
 | 2022q3 | 🟢 Kullanılabilir | 453,042 |  |
-| 2022q4 | 🟡 Dikkat | 468,386 | Kabul günü ≤ dosyalama günü (≤3 gün): 464688/468386 = %99.2 |
+| 2022q4 | 🟢 Kullanılabilir | 468,386 |  |
 | 2023q1 | 🟢 Kullanılabilir | 397,366 |  |
 | 2023q2 | 🟢 Kullanılabilir | 397,031 |  |
 | 2023q3 | 🟢 Kullanılabilir | 437,888 |  |

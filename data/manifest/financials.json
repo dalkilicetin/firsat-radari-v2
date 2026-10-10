@@ -2767,7 +2767,7 @@
   },
   "2022q4": {
    "partition": "2022q4",
-   "fetched_at": "2026-10-09T23:27:26+00:00",
+   "fetched_at": "2026-10-10T00:15:59+00:00",
    "rows": 468386,
    "bytes": 7488587,
    "sha256": "ccc65a6a27c5e6afc96ab8f6e9e89430187b80bdac3644e3458ff76efa6d9be1",
@@ -2807,8 +2807,8 @@
     "empty_values": 5996
    },
    "asset": "financials__2022q4.parquet",
-   "status": "warn",
-   "duration_s": 10.4,
+   "status": "ok",
+   "duration_s": 12.3,
    "requests": 2,
    "checks": [
     {
@@ -2833,7 +2833,7 @@
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
-     "status": "warn",
+     "status": "ok",
      "detail": "464688/468386 = %99.2"
     },
     {
@@ -4128,5 +4128,5 @@
  ],
  "title": "SEC finansal tablo verileri (XBRL, 2015→)",
  "derived": {},
- "finalized_at": "2026-10-09T23:59:37+00:00"
+ "finalized_at": "2026-10-10T01:08:18+00:00"
 }

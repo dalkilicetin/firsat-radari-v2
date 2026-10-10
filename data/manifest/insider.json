@@ -4459,7 +4459,7 @@
   },
   "2023q3": {
    "partition": "2023q3",
-   "fetched_at": "2026-10-09T23:25:39+00:00",
+   "fetched_at": "2026-10-10T00:15:05+00:00",
    "rows": 53078,
    "bytes": 1502059,
    "sha256": "2897b4ac071aad4720a366d5c2fdc59f3944b3ae2a17fb70a64afa5e4edf915d",
@@ -4538,8 +4538,8 @@
     }
    },
    "asset": "insider__2023q3.parquet",
-   "status": "warn",
-   "duration_s": 2.1,
+   "status": "ok",
+   "duration_s": 2.9,
    "requests": 2,
    "checks": [
     {
@@ -4573,8 +4573,8 @@
      "detail": "23409/23437 = %99.9"
     },
     {
-     "name": "Alım/satışta fiyat > 0",
-     "status": "warn",
+     "name": "Alım/satışta fiyat > 0 (0 fiyatlılar sinyalden çıkarılır)",
+     "status": "ok",
      "detail": "22321/23437 = %95.2"
     },
     {
@@ -4591,7 +4591,7 @@
   },
   "2023q4": {
    "partition": "2023q4",
-   "fetched_at": "2026-10-09T23:25:44+00:00",
+   "fetched_at": "2026-10-10T00:15:31+00:00",
    "rows": 57852,
    "bytes": 1602093,
    "sha256": "afa39ac425d9a61fe30e4e7e4cf3a82a069abe3c79733ee123d38b7845397d22",
@@ -4670,7 +4670,7 @@
     }
    },
    "asset": "insider__2023q4.parquet",
-   "status": "warn",
+   "status": "ok",
    "duration_s": 2.4,
    "requests": 2,
    "checks": [
@@ -4705,8 +4705,8 @@
      "detail": "25208/25250 = %99.8"
     },
     {
-     "name": "Alım/satışta fiyat > 0",
-     "status": "warn",
+     "name": "Alım/satışta fiyat > 0 (0 fiyatlılar sinyalden çıkarılır)",
+     "status": "ok",
      "detail": "24171/25250 = %95.7"
     },
     {
@@ -6193,5 +6193,5 @@
  ],
  "title": "SEC içeriden işlemler (Form 4, 2015→)",
  "derived": {},
- "finalized_at": "2026-10-09T23:59:30+00:00"
+ "finalized_at": "2026-10-10T01:08:16+00:00"
 }

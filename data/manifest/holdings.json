@@ -1227,7 +1227,7 @@
   },
   "2016q3": {
    "partition": "2016q3",
-   "fetched_at": "2026-10-09T23:28:59+00:00",
+   "fetched_at": "2026-10-10T00:16:21+00:00",
    "rows": 1742410,
    "bytes": 21888384,
    "sha256": "e55a0e0a2a098a22fafb0ad00044b9bc5a833dc5f6848bac363edd8806af700a",
@@ -1256,8 +1256,8 @@
     "filings": 6007
    },
    "asset": "holdings__2016q3.parquet",
-   "status": "warn",
-   "duration_s": 8.1,
+   "status": "ok",
+   "duration_s": 10.5,
    "requests": 2,
    "checks": [
     {
@@ -1272,7 +1272,7 @@
     },
     {
      "name": "Geçerli CUSIP",
-     "status": "warn",
+     "status": "ok",
      "detail": "1723132/1742410 = %98.9"
     },
     {
@@ -1947,7 +1947,7 @@
   },
   "2019q1": {
    "partition": "2019q1",
-   "fetched_at": "2026-10-09T23:29:26+00:00",
+   "fetched_at": "2026-10-10T00:16:37+00:00",
    "rows": 1945558,
    "bytes": 23895366,
    "sha256": "ae630360388d04a912975c6f7a3eb852ef1521bb4fee931334b0796b4a1d3a65",
@@ -1976,8 +1976,8 @@
     "filings": 6887
    },
    "asset": "holdings__2019q1.parquet",
-   "status": "warn",
-   "duration_s": 9.4,
+   "status": "ok",
+   "duration_s": 9.2,
    "requests": 2,
    "checks": [
     {
@@ -1997,7 +1997,7 @@
     },
     {
      "name": "Değer ve adet > 0",
-     "status": "warn",
+     "status": "ok",
      "detail": "1887039/1945558 = %97.0"
     },
     {
@@ -2235,7 +2235,7 @@
   },
   "2020q1": {
    "partition": "2020q1",
-   "fetched_at": "2026-10-09T23:29:35+00:00",
+   "fetched_at": "2026-10-10T00:16:56+00:00",
    "rows": 2159065,
    "bytes": 25524203,
    "sha256": "4d3f349c1b6f6fbae93f43b102c0840f2ebc1f35ed8bb461009528ed4cfc3efa",
@@ -2264,8 +2264,8 @@
     "filings": 7285
    },
    "asset": "holdings__2020q1.parquet",
-   "status": "warn",
-   "duration_s": 11.9,
+   "status": "ok",
+   "duration_s": 11.1,
    "requests": 2,
    "checks": [
     {
@@ -2285,7 +2285,7 @@
     },
     {
      "name": "Değer ve adet > 0",
-     "status": "warn",
+     "status": "ok",
      "detail": "2093963/2159065 = %97.0"
     },
     {
@@ -2307,7 +2307,7 @@
   },
   "2020q2": {
    "partition": "2020q2",
-   "fetched_at": "2026-10-09T23:29:32+00:00",
+   "fetched_at": "2026-10-10T00:16:57+00:00",
    "rows": 2163834,
    "bytes": 25086853,
    "sha256": "7780afcdaee437cea935fa47074a3addf995fb86659b1bb56106deeb4558b5d8",
@@ -2336,8 +2336,8 @@
     "filings": 7296
    },
    "asset": "holdings__2020q2.parquet",
-   "status": "warn",
-   "duration_s": 8.6,
+   "status": "ok",
+   "duration_s": 10.6,
    "requests": 2,
    "checks": [
     {
@@ -2357,7 +2357,7 @@
     },
     {
      "name": "Değer ve adet > 0",
-     "status": "warn",
+     "status": "ok",
      "detail": "2085679/2163834 = %96.4"
     },
     {
@@ -2379,7 +2379,7 @@
   },
   "2020q3": {
    "partition": "2020q3",
-   "fetched_at": "2026-10-09T23:29:39+00:00",
+   "fetched_at": "2026-10-10T00:17:11+00:00",
    "rows": 2089408,
    "bytes": 24736031,
    "sha256": "752c48492c6fba9ee83f92d23600a25256e3090b0d647b412f12afdcfec45d13",
@@ -2408,8 +2408,8 @@
     "filings": 7157
    },
    "asset": "holdings__2020q3.parquet",
-   "status": "warn",
-   "duration_s": 13.7,
+   "status": "ok",
+   "duration_s": 11.6,
    "requests": 2,
    "checks": [
     {
@@ -2429,7 +2429,7 @@
     },
     {
      "name": "Değer ve adet > 0",
-     "status": "warn",
+     "status": "ok",
      "detail": "2024972/2089408 = %96.9"
     },
     {
@@ -2955,7 +2955,7 @@
   },
   "2022q3": {
    "partition": "2022q3",
-   "fetched_at": "2026-10-09T23:30:08+00:00",
+   "fetched_at": "2026-10-10T00:17:31+00:00",
    "rows": 2632327,
    "bytes": 31935998,
    "sha256": "e03e701b9507a2b4d7238734d8d6ad27c7ba1398cc267caee31fbe0f77762341",
@@ -2984,8 +2984,8 @@
     "filings": 8948
    },
    "asset": "holdings__2022q3.parquet",
-   "status": "warn",
-   "duration_s": 16.1,
+   "status": "ok",
+   "duration_s": 15.0,
    "requests": 2,
    "checks": [
     {
@@ -3005,7 +3005,7 @@
     },
     {
      "name": "Değer ve adet > 0",
-     "status": "warn",
+     "status": "ok",
      "detail": "2549009/2632327 = %96.8"
     },
     {
@@ -3027,7 +3027,7 @@
   },
   "2022q4": {
    "partition": "2022q4",
-   "fetched_at": "2026-10-09T23:30:09+00:00",
+   "fetched_at": "2026-10-10T00:17:30+00:00",
    "rows": 2622058,
    "bytes": 31748956,
    "sha256": "c107be98183a2cfeac44520af0c434a98cbeb99ca4c12c649eec99101401fa61",
@@ -3056,8 +3056,8 @@
     "filings": 9010
    },
    "asset": "holdings__2022q4.parquet",
-   "status": "warn",
-   "duration_s": 15.1,
+   "status": "ok",
+   "duration_s": 13.3,
    "requests": 2,
    "checks": [
     {
@@ -3077,7 +3077,7 @@
     },
     {
      "name": "Değer ve adet > 0",
-     "status": "warn",
+     "status": "ok",
      "detail": "2531471/2622058 = %96.5"
     },
     {
@@ -3395,5 +3395,5 @@
  ],
  "title": "SEC 13F kurumsal pozisyonlar (2015→)",
  "derived": {},
- "finalized_at": "2026-10-10T00:00:00+00:00"
+ "finalized_at": "2026-10-10T01:08:24+00:00"
 }

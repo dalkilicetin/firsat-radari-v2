@@ -375,10 +375,10 @@
   },
   "2021": {
    "partition": "2021",
-   "fetched_at": "2026-10-09T23:36:14+00:00",
-   "rows": 944000,
-   "bytes": 14465918,
-   "sha256": "e94b8915abd1fec5da22b3c6a36bc56d5f0c8c2f79221a42b505aaecb4064cda",
+   "fetched_at": "2026-10-10T00:03:00+00:00",
+   "rows": 9626084,
+   "bytes": 143540870,
+   "sha256": "c0973409600a406b76a8acfa68b26ba5ab546d19d0d1ebef37806074a6e757fc",
    "columns": {
     "date": "datetime64[s]",
     "org": "str",
@@ -389,19 +389,19 @@
     "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
    ],
    "notes": {
-    "slots": 2920,
-    "missing": 50,
+    "slots": 8760,
+    "missing": 157,
     "days": 365
    },
    "asset": "gdelt__2021.parquet",
-   "status": "warn",
-   "duration_s": 629.3,
+   "status": "ok",
+   "duration_s": 1543.9,
    "requests": 0,
    "checks": [
     {
      "name": "İndirilen örneklem dosyası",
      "status": "ok",
-     "detail": "2870/2920 = %98.3"
+     "detail": "8603/8760 = %98.2"
     },
     {
      "name": "Makale verisi olan gün",
@@ -411,17 +411,17 @@
     {
      "name": "Gün başına örneklenen makale (medyan)",
      "status": "ok",
-     "detail": "11,509 (beklenen 3,000–40,000)"
+     "detail": "34,407 (beklenen 10,000–120,000)"
     },
     {
      "name": "Yılın en çok geçen kurumları",
      "status": "info",
-     "detail": "united states (310,106), twitter (166,898), associated press (147,890), facebook (124,991), instagram (113,010), white house (107,343), cnn (85,130), reuters (75,857)"
+     "detail": "united states (923,268), twitter (499,764), associated press (444,355), facebook (374,589), instagram (336,218), white house (322,089), cnn (254,628), reuters (223,819)"
     },
     {
-     "name": "'apple' geçen gün",
-     "status": "warn",
-     "detail": "0/365"
+     "name": "'apple inc' geçen gün",
+     "status": "ok",
+     "detail": "363/365"
     },
     {
      "name": "'microsoft' geçen gün",
@@ -431,16 +431,16 @@
     {
      "name": "'nvidia' geçen gün",
      "status": "ok",
-     "detail": "326/365"
+     "detail": "365/365"
     }
    ]
   },
   "2022": {
    "partition": "2022",
-   "fetched_at": "2026-10-09T23:36:24+00:00",
-   "rows": 809113,
-   "bytes": 12296836,
-   "sha256": "c2057348dd2e10cb1f7a0ff21c0bc902f656c143ee12835a2f2ad1be358699ed",
+   "fetched_at": "2026-10-10T00:02:55+00:00",
+   "rows": 8894200,
+   "bytes": 131729476,
+   "sha256": "736eda5aa2ef86d8d70e21f9787e37df5d2c95c28a0e253e40de64865a2727ee",
    "columns": {
     "date": "datetime64[s]",
     "org": "str",
@@ -451,19 +451,19 @@
     "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
    ],
    "notes": {
-    "slots": 2920,
-    "missing": 7,
+    "slots": 8760,
+    "missing": 21,
     "days": 365
    },
    "asset": "gdelt__2022.parquet",
-   "status": "warn",
-   "duration_s": 563.4,
+   "status": "ok",
+   "duration_s": 1110.2,
    "requests": 0,
    "checks": [
     {
      "name": "İndirilen örneklem dosyası",
      "status": "ok",
-     "detail": "2913/2920 = %99.8"
+     "detail": "8739/8760 = %99.8"
     },
     {
      "name": "Makale verisi olan gün",
@@ -473,79 +473,17 @@
     {
      "name": "Gün başına örneklenen makale (medyan)",
      "status": "ok",
-     "detail": "10,164 (beklenen 3,000–40,000)"
+     "detail": "30,930 (beklenen 10,000–120,000)"
     },
     {
      "name": "Yılın en çok geçen kurumları",
      "status": "info",
-     "detail": "united states (253,551), twitter (155,458), associated press (103,687), instagram (103,174), facebook (96,111), white house (72,287), supreme court (55,449), reuters (51,842)"
+     "detail": "united states (764,615), twitter (467,638), associated press (312,030), instagram (310,672), facebook (288,137), white house (218,211), supreme court (167,521), reuters (155,356)"
     },
     {
-     "name": "'apple' geçen gün",
-     "status": "warn",
-     "detail": "0/365"
-    },
-    {
-     "name": "'microsoft' geçen gün",
+     "name": "'apple inc' geçen gün",
      "status": "ok",
-     "detail": "364/365"
-    },
-    {
-     "name": "'nvidia' geçen gün",
-     "status": "ok",
-     "detail": "323/365"
-    }
-   ]
-  },
-  "2023": {
-   "partition": "2023",
-   "fetched_at": "2026-10-09T23:36:30+00:00",
-   "rows": 1128246,
-   "bytes": 17531399,
-   "sha256": "acbcef9f9c2cafb085093362ebc69e80c96d206eb2f8851b445c8ae682b2a0a7",
-   "columns": {
-    "date": "datetime64[s]",
-    "org": "str",
-    "mentions": "int64",
-    "tone": "float64"
-   },
-   "sources": [
-    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
-   ],
-   "notes": {
-    "slots": 2920,
-    "missing": 13,
-    "days": 365
-   },
-   "asset": "gdelt__2023.parquet",
-   "status": "warn",
-   "duration_s": 847.7,
-   "requests": 0,
-   "checks": [
-    {
-     "name": "İndirilen örneklem dosyası",
-     "status": "ok",
-     "detail": "2907/2920 = %99.6"
-    },
-    {
-     "name": "Makale verisi olan gün",
-     "status": "ok",
-     "detail": "365/365 = %100.0"
-    },
-    {
-     "name": "Gün başına örneklenen makale (medyan)",
-     "status": "ok",
-     "detail": "12,198 (beklenen 3,000–40,000)"
-    },
-    {
-     "name": "Yılın en çok geçen kurumları",
-     "status": "info",
-     "detail": "united states (320,509), twitter (180,406), instagram (133,096), facebook (127,324), associated press (114,116), white house (85,941), reuters (72,526), supreme court (58,858)"
-    },
-    {
-     "name": "'apple' geçen gün",
-     "status": "warn",
-     "detail": "0/365"
+     "detail": "362/365"
     },
     {
      "name": "'microsoft' geçen gün",
@@ -555,16 +493,31 @@
     {
      "name": "'nvidia' geçen gün",
      "status": "ok",
-     "detail": "357/365"
+     "detail": "364/365"
+    }
+   ]
+  },
+  "2023": {
+   "partition": "2023",
+   "fetched_at": "2026-10-10T00:03:02+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 1383.7,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "Error: new-line character seen in unquoted field - do you need to open the file with newline=''?"
     }
    ]
   },
   "2024": {
    "partition": "2024",
-   "fetched_at": "2026-10-09T23:36:42+00:00",
-   "rows": 1031287,
-   "bytes": 15905078,
-   "sha256": "848768436ab120bb370cd8a3465020549c66c2cbcb5eb1c6320b471f1b26ab2d",
+   "fetched_at": "2026-10-10T00:02:55+00:00",
+   "rows": 11026008,
+   "bytes": 165183691,
+   "sha256": "35c2ae3b05f961a9f7ee67d30fd69c06699b34dad3fd98a72d33c13b9558621a",
    "columns": {
     "date": "datetime64[s]",
     "org": "str",
@@ -575,19 +528,19 @@
     "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
    ],
    "notes": {
-    "slots": 2928,
+    "slots": 8784,
     "missing": 0,
     "days": 366
    },
    "asset": "gdelt__2024.parquet",
-   "status": "warn",
-   "duration_s": 815.7,
+   "status": "ok",
+   "duration_s": 1293.3,
    "requests": 0,
    "checks": [
     {
      "name": "İndirilen örneklem dosyası",
      "status": "ok",
-     "detail": "2928/2928 = %100.0"
+     "detail": "8784/8784 = %100.0"
     },
     {
      "name": "Makale verisi olan gün",
@@ -597,17 +550,17 @@
     {
      "name": "Gün başına örneklenen makale (medyan)",
      "status": "ok",
-     "detail": "12,662.500 (beklenen 3,000–40,000)"
+     "detail": "38,058.500 (beklenen 10,000–120,000)"
     },
     {
      "name": "Yılın en çok geçen kurumları",
      "status": "info",
-     "detail": "united states (299,000), instagram (125,861), associated press (109,432), facebook (108,297), twitter (92,712), white house (89,750), supreme court (58,293), reuters (54,041)"
+     "detail": "united states (901,648), instagram (377,829), associated press (328,645), facebook (328,293), twitter (283,381), white house (269,764), supreme court (177,289), reuters (160,698)"
     },
     {
-     "name": "'apple' geçen gün",
-     "status": "warn",
-     "detail": "0/366"
+     "name": "'apple inc' geçen gün",
+     "status": "ok",
+     "detail": "361/366"
     },
     {
      "name": "'microsoft' geçen gün",
@@ -623,10 +576,10 @@
   },
   "2025": {
    "partition": "2025",
-   "fetched_at": "2026-10-09T23:36:56+00:00",
-   "rows": 830338,
-   "bytes": 12741008,
-   "sha256": "d9c9e932dd7c27e9150a05c9d9d004bb27f03badc146cae79c7a9a5cc1a03d80",
+   "fetched_at": "2026-10-10T00:03:00+00:00",
+   "rows": 9116371,
+   "bytes": 136743097,
+   "sha256": "e0c678aae69ba602469869fcda18809676e5aa80f5f11369732f3671c3e60042",
    "columns": {
     "date": "datetime64[s]",
     "org": "str",
@@ -637,19 +590,19 @@
     "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
    ],
    "notes": {
-    "slots": 2920,
-    "missing": 139,
+    "slots": 8760,
+    "missing": 421,
     "days": 365
    },
    "asset": "gdelt__2025.parquet",
    "status": "warn",
-   "duration_s": 485.6,
+   "duration_s": 1739.0,
    "requests": 0,
    "checks": [
     {
      "name": "İndirilen örneklem dosyası",
      "status": "warn",
-     "detail": "2781/2920 = %95.2"
+     "detail": "8339/8760 = %95.2"
     },
     {
      "name": "Makale verisi olan gün",
@@ -659,17 +612,17 @@
     {
      "name": "Gün başına örneklenen makale (medyan)",
      "status": "ok",
-     "detail": "11,048 (beklenen 3,000–40,000)"
+     "detail": "33,491.500 (beklenen 10,000–120,000)"
     },
     {
      "name": "Yılın en çok geçen kurumları",
      "status": "info",
-     "detail": "united states (274,452), white house (121,808), instagram (112,404), associated press (95,962), facebook (74,528), supreme court (47,116), google (45,037), youtube (44,540)"
+     "detail": "united states (820,981), white house (365,212), instagram (336,617), associated press (287,074), facebook (221,166), supreme court (141,775), google (134,958), youtube (132,473)"
     },
     {
-     "name": "'apple' geçen gün",
-     "status": "warn",
-     "detail": "0/365"
+     "name": "'apple inc' geçen gün",
+     "status": "ok",
+     "detail": "342/365"
     },
     {
      "name": "'microsoft' geçen gün",
@@ -685,10 +638,10 @@
   },
   "2026": {
    "partition": "2026",
-   "fetched_at": "2026-10-09T23:38:33+00:00",
-   "rows": 579696,
-   "bytes": 8855697,
-   "sha256": "44d8c902a45683acf6b324f070c9977e3ddf0e7d3830f765548a3d5943f5250f",
+   "fetched_at": "2026-10-10T00:03:00+00:00",
+   "rows": 6565615,
+   "bytes": 98436718,
+   "sha256": "2465f85871dd317cec79aa114aa236fe2df416ea46e8db8a293e0924ac2a03d8",
    "columns": {
     "date": "datetime64[s]",
     "org": "str",
@@ -699,49 +652,49 @@
     "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
    ],
    "notes": {
-    "slots": 2248,
+    "slots": 6768,
     "missing": 1,
-    "days": 281
+    "days": 282
    },
    "asset": "gdelt__2026.parquet",
-   "status": "warn",
-   "duration_s": 404.2,
+   "status": "ok",
+   "duration_s": 772.1,
    "requests": 0,
    "checks": [
     {
      "name": "İndirilen örneklem dosyası",
      "status": "ok",
-     "detail": "2247/2248 = %100.0"
+     "detail": "6767/6768 = %100.0"
     },
     {
      "name": "Makale verisi olan gün",
      "status": "ok",
-     "detail": "281/281 = %100.0"
+     "detail": "282/282 = %100.0"
     },
     {
      "name": "Gün başına örneklenen makale (medyan)",
      "status": "ok",
-     "detail": "9,395 (beklenen 3,000–40,000)"
+     "detail": "28,485.500 (beklenen 10,000–120,000)"
     },
     {
      "name": "Yılın en çok geçen kurumları",
      "status": "info",
-     "detail": "united states (207,297), instagram (75,067), white house (68,439), associated press (54,795), facebook (48,414), google (39,175), reuters (38,176), supreme court (33,473)"
+     "detail": "united states (621,579), instagram (226,477), white house (205,618), associated press (164,465), facebook (146,130), google (119,031), reuters (114,982), supreme court (100,380)"
     },
     {
-     "name": "'apple' geçen gün",
-     "status": "warn",
-     "detail": "0/281"
+     "name": "'apple inc' geçen gün",
+     "status": "ok",
+     "detail": "272/282"
     },
     {
      "name": "'microsoft' geçen gün",
      "status": "ok",
-     "detail": "281/281"
+     "detail": "282/282"
     },
     {
      "name": "'nvidia' geçen gün",
      "status": "ok",
-     "detail": "281/281"
+     "detail": "282/282"
     }
    ]
   }
@@ -749,5 +702,5 @@
  "dataset_checks": [],
  "title": "GDELT haber geçmişi (kurum başına günlük makale ve ton, örneklem)",
  "derived": {},
- "finalized_at": "2026-10-10T00:00:11+00:00"
+ "finalized_at": "2026-10-10T01:08:08+00:00"
 }

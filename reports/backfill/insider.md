@@ -1,6 +1,6 @@
-# 🟡 SEC içeriden işlemler (Form 4, 2015→)
+# 🟢 SEC içeriden işlemler (Form 4, 2015→)
 
-Son güncelleme: 2026-10-09T23:59:30+00:00 · 47 bölüm · 3,574,121 satır
+Son güncelleme: 2026-10-10T01:08:16+00:00 · 47 bölüm · 3,574,121 satır
 
 ## Veri seti kontrolleri
 
@@ -48,8 +48,8 @@ Son güncelleme: 2026-10-09T23:59:30+00:00 · 47 bölüm · 3,574,121 satır
 | 2022q4 | 🟢 Kullanılabilir | 58,429 |  |
 | 2023q1 | 🟢 Kullanılabilir | 106,093 |  |
 | 2023q2 | 🟢 Kullanılabilir | 68,588 |  |
-| 2023q3 | 🟡 Dikkat | 53,078 | Alım/satışta fiyat > 0: 22321/23437 = %95.2 |
-| 2023q4 | 🟡 Dikkat | 57,852 | Alım/satışta fiyat > 0: 24171/25250 = %95.7 |
+| 2023q3 | 🟢 Kullanılabilir | 53,078 |  |
+| 2023q4 | 🟢 Kullanılabilir | 57,852 |  |
 | 2024q1 | 🟢 Kullanılabilir | 111,404 |  |
 | 2024q2 | 🟢 Kullanılabilir | 69,412 |  |
 | 2024q3 | 🟢 Kullanılabilir | 55,881 |  |
