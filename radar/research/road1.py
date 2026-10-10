@@ -119,30 +119,37 @@ def cosine(a: Counter, b: Counter) -> float:
     return dot / (sqrt(sum(v * v for v in a.values())) * sqrt(sum(v * v for v in b.values())))
 
 
-def text_changes(tenk: pd.DataFrame) -> pd.DataFrame:
-    """Her 10-K için, aynı şirketin bir önceki 10-K'sıyla bölüm bazında benzerlik (Lazy Prices)."""
+def text_changes(frames) -> pd.DataFrame:
+    """Her 10-K için, aynı şirketin bir önceki 10-K'sıyla bölüm bazında benzerlik (Lazy Prices).
+
+    frames: tarih sırasıyla gelen tablolar (yıl yıl) ya da tek tablo. Bellek için her şirketin yalnızca
+    son raporunun kelime sayımları tutulur.
+    """
+    if isinstance(frames, pd.DataFrame):
+        frames = [frames]
+    prev: dict = {}
     rows = []
-    tenk = tenk.sort_values(["cik", "accepted"])
-    for cik, g in tenk.groupby("cik"):
-        prev = None
-        for r in g.itertuples():
+    for tenk in frames:
+        for r in tenk.sort_values("accepted").itertuples():
             cur = {s: term_counts(getattr(r, s)) for s in SECTIONS}
-            rec = {"cik": cik, "accepted": r.accepted, "going_concern": r.going_concern,
+            rec = {"cik": r.cik, "accepted": r.accepted, "going_concern": r.going_concern,
                    "len_item1a": len(str(r.item1a))}
-            if prev is not None and (r.accepted - prev["accepted"]).days < 550:
+            p = prev.get(r.cik)
+            if p is not None and (r.accepted - p["accepted"]).days < 550:
                 for s in SECTIONS:
-                    rec[f"sim_{s}"] = cosine(cur[s], prev["counts"][s])
-                rec["risk_len_growth"] = (rec["len_item1a"] / prev["len_item1a"] - 1) if prev["len_item1a"] > 2000 else np.nan
+                    rec[f"sim_{s}"] = cosine(cur[s], p["counts"][s])
+                rec["risk_len_growth"] = (rec["len_item1a"] / p["len_item1a"] - 1) if p["len_item1a"] > 2000 else np.nan
             rows.append(rec)
-            prev = {"accepted": r.accepted, "counts": cur, "len_item1a": rec["len_item1a"]}
+            prev[r.cik] = {"accepted": r.accepted, "counts": cur, "len_item1a": rec["len_item1a"]}
     return pd.DataFrame(rows)
 
 
 def text_signals(p: dict) -> dict[str, pd.DataFrame]:
     price = p["price"]
     dates, cols = price.index, price.columns
-    tenk = archive.load("tenk", columns=["cik", "accepted", "going_concern"] + SECTIONS)
-    ch = text_changes(tenk)
+    cols_ = ["cik", "accepted", "going_concern"] + SECTIONS
+    years = sorted(archive.entries("tenk"))
+    ch = text_changes(archive.load("tenk", names=[y], columns=cols_) for y in years)
     P = lambda v: pit(ch.rename(columns={"accepted": "date"}).assign(value=v)[["cik", "date", "value"]],
                       dates, cols, FUNDAMENTAL_MAX_AGE)
     sims = [P(ch[f"sim_{s}"]) for s in SECTIONS]
