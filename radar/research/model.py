@@ -29,7 +29,8 @@ def ranked_inputs(sigs: dict[str, tuple[str, pd.DataFrame]], universe: pd.DataFr
         x = df.where(universe)
         vals = x.to_numpy(dtype=float)
         finite = np.isfinite(vals)
-        is_event = np.nanmax(np.where(finite, np.abs(vals - np.round(vals)), 0)) == 0 and np.nanmax(np.where(finite, vals, 0)) <= 1
+        fv = np.where(finite, vals, 0.0)
+        is_event = np.max(np.abs(fv - np.round(fv))) == 0 and np.max(fv) <= 1
         if is_event:
             v = np.where(finite, vals, 0.0)
             mean = np.where(u, v, np.nan)

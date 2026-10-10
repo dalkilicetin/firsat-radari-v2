@@ -96,6 +96,6 @@ Python; GitHub Actions (repo açık → dakika sınırı yok) üzerinde haftalı
 2. **Geçmiş veri yüklemesi** — SEC, FRED, GDELT, Wikipedia, fiyatlar (2015→). ✅
    (10-K metinleri, şirket profili analiziyle birlikte 3. aşamada.)
 3. **Sinyaller ve puanlar** — dört yol + risk puanı. ✅ ([özet](reports/research/OZET.md))
-4. **Geriye dönük doğrulama** ← *sıradaki* — kayan pencere, ağırlık ayarı, son dönem testi.
-5. **Haftalık çalışma + PDF rapor + öneri takibi.**
+4. **Geriye dönük doğrulama** — kayan pencere, ağırlık ayarı, son dönem testi. ✅ ([özet](reports/research/ASAMA4_OZET.md))
+5. **Haftalık çalışma + PDF rapor + öneri takibi.** ← *sıradaki*
 6. **İsteğe bağlı** — LLM prompt'ları, ertelenen kaynaklar.
