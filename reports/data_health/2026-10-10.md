@@ -1,4 +1,4 @@
-# Veri Sağlık Raporu — 2026-10-10 12:51 UTC
+# Veri Sağlık Raporu — 2026-10-10 12:56 UTC
 
 🟢 12 kullanılabilir · 🟡 5 dikkat · 🔴 0 kullanılamaz
 
@@ -6,23 +6,23 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kaynak | Sınıf | Yol | Durum | Süre | İstek |
 |---|---|---|---|---|---|
-| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
-| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 0.9 sn | 5 |
-| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 2.1 sn | 15 |
-| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 10.7 sn | 23 |
-| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.7 sn | 61 |
-| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.8 sn | 6 |
+| [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.7 sn | 2 |
+| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.4 sn | 5 |
+| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.9 sn | 15 |
+| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 5.9 sn | 23 |
+| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.6 sn | 61 |
+| [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.7 sn | 6 |
 | [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.2 sn | 1 |
-| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 1.0 sn | 4 |
+| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 1.5 sn | 4 |
 | [USPTO patentleri (PatentsView)](#uspto) | 1 | 3 | 🟡 Dikkat | 0.0 sn | 0 |
-| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟡 Dikkat | 46.2 sn | 38 |
-| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.5 sn | 6 |
-| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 19.9 sn | 5 |
-| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 6.4 sn | 6 |
-| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.7 sn | 2 |
-| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.5 sn | 3 |
+| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟡 Dikkat | 44.5 sn | 38 |
+| [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.4 sn | 6 |
+| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 19.0 sn | 5 |
+| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 5.2 sn | 6 |
+| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
+| [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.3 sn | 3 |
 | [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.1 sn | 3 |
-| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.7 sn | 3 |
+| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.9 sn | 3 |
 
 <a id="universe"></a>
 ## 🟢 Hisse evreni (Nasdaq + SEC)
@@ -200,12 +200,12 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Nvidia: gün sayısı (60 gün) | 🟢 | 60 (beklenen 55–61) |
-| Nvidia: güncellik | 🟢 | en son kayıt 2026-10-09, 1.0 gün önce (sınır 3) |
-| Apple_Inc.: gün sayısı (60 gün) | 🟢 | 60 (beklenen 55–61) |
-| Apple_Inc.: güncellik | 🟢 | en son kayıt 2026-10-09, 1.0 gün önce (sınır 3) |
-| Microsoft: gün sayısı (60 gün) | 🟢 | 60 (beklenen 55–61) |
-| Microsoft: güncellik | 🟢 | en son kayıt 2026-10-09, 1.0 gün önce (sınır 3) |
+| Nvidia: gün sayısı (60 gün) | 🟢 | 59 (beklenen 55–61) |
+| Nvidia: güncellik | 🟢 | en son kayıt 2026-10-08, 2.0 gün önce (sınır 3) |
+| Apple_Inc.: gün sayısı (60 gün) | 🟢 | 59 (beklenen 55–61) |
+| Apple_Inc.: güncellik | 🟢 | en son kayıt 2026-10-08, 2.0 gün önce (sınır 3) |
+| Microsoft: gün sayısı (60 gün) | 🟢 | 59 (beklenen 55–61) |
+| Microsoft: güncellik | 🟢 | en son kayıt 2026-10-08, 2.0 gün önce (sınır 3) |
 | Geçmiş veri: Temmuz 2015 gün sayısı | 🟢 | 31 (beklenen 30–31) |
 | Eşleşme yolu: Nasdaq kodu / SEC CIK | ℹ️ | kod ile 777, CIK ile 596 |
 | Wikipedia makalesi eşleşen Nasdaq hissesi | 🟡 | 870/3434 = %25.3 |
