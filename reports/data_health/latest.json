@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T07:01:56.170526+00:00",
+ "run_at": "2026-10-10T07:06:28.041357+00:00",
  "sources": [
   {
    "key": "universe",
@@ -37,8 +37,8 @@
     {
      "name": "SEC CIK eşleşme oranı",
      "status": "ok",
-     "detail": "3427/3434 = %99.8 adi hisse",
-     "value": 0.998
+     "detail": "3424/3434 = %99.7 adi hisse",
+     "value": 0.9971
     },
     {
      "name": "Doğrulanmış CIK değerleri",
@@ -49,8 +49,8 @@
     {
      "name": "Çapraz kontrol: SEC'te 'Nasdaq' görünenler Nasdaq listesinde",
      "status": "ok",
-     "detail": "4346/4378 = %99.3",
-     "value": 0.9927
+     "detail": "4337/4376 = %99.1",
+     "value": 0.9911
     },
     {
      "name": "Finansal durum dağılımı (risk sinyali)",
@@ -126,7 +126,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.6,
+   "duration_s": 0.7,
    "requests": 5,
    "checks": [
     {
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.0,
+   "duration_s": 1.8,
    "requests": 15,
    "checks": [
     {
@@ -355,19 +355,19 @@
     {
      "name": "8-K'larda olay kodu (items) dolu",
      "status": "ok",
-     "detail": "1119/1119 = %100.0",
+     "detail": "1233/1233 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)",
      "status": "ok",
-     "detail": "5883/5884 = %100.0; formlar: {'10-Q': 1}; örnek: [('10-Q', '2019-11-12', '2019-11-08T22:41:40.000Z')]",
-     "value": 0.9998
+     "detail": "6754/6755 = %100.0; formlar: {'S-1/A': 1}; örnek: [('S-1/A', '2024-09-03', '2024-08-30T23:09:30.000Z')]",
+     "value": 0.9999
     },
     {
      "name": "Önceki güne tarihlenen gece kabulleri",
      "status": "info",
-     "detail": "301 dosya — dosyalama tarihi değil kabul anı esas alınır",
+     "detail": "153 dosya — dosyalama tarihi değil kabul anı esas alınır",
      "value": null
     },
     {
@@ -451,9 +451,9 @@
    "roads": [
     1
    ],
-   "status": "ok",
+   "status": "warn",
    "error": null,
-   "duration_s": 13.0,
+   "duration_s": 3.9,
    "requests": 23,
    "checks": [
     {
@@ -477,25 +477,25 @@
     {
      "name": "Rastgele şirketlerde temel kalem (varlık/gelir/kâr) bulunan",
      "status": "ok",
-     "detail": "20/20 = %100.0",
-     "value": 1.0
+     "detail": "19/20 = %95.0",
+     "value": 0.95
     },
     {
      "name": "Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu",
      "status": "ok",
-     "detail": "305743/305758 = %100.0",
-     "value": 1.0
+     "detail": "349447/349490 = %100.0",
+     "value": 0.9999
     },
     {
      "name": "Güncel hisse sayısı (son 200 gün) bulunan",
-     "status": "ok",
-     "detail": "19/20 = %95.0; eksik/eski: ['SRAD:yok']",
-     "value": 0.95
+     "status": "warn",
+     "detail": "14/20 = %70.0; eksik/eski: ['PGAC:yok', 'DNMX:2025-12-10', 'CCAQ:yok', 'WENN:yok', 'NUR:yok', 'BID:yok']",
+     "value": 0.7
     },
     {
      "name": "Kapsam notu",
      "status": "info",
-     "detail": "1 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
+     "detail": "0 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
      "value": null
     }
    ],
@@ -510,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 7.8,
+   "duration_s": 7.7,
    "requests": 61,
    "checks": [
     {
@@ -754,7 +754,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.4,
+   "duration_s": 0.2,
    "requests": 1,
    "checks": [
     {
@@ -815,7 +815,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.9,
    "requests": 4,
    "checks": [
     {
@@ -951,7 +951,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 40.2,
+   "duration_s": 43.4,
    "requests": 38,
    "checks": [
     {
@@ -1033,7 +1033,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.4,
+   "duration_s": 1.5,
    "requests": 6,
    "checks": [
     {
@@ -1114,83 +1114,25 @@
     2,
     4
    ],
-   "status": "ok",
-   "error": null,
-   "duration_s": 27.6,
+   "status": "fail",
+   "error": "FetchError: http://data.gdeltproject.org/gdeltv2/20261010070000.gkg.csv.zip -> 404: ",
+   "duration_s": 40.7,
    "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25)",
-     "value": 0.0
+     "detail": "en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25)",
+     "value": -0.01
     },
     {
-     "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
-     "status": "ok",
-     "detail": "2,600,910 bayt, md5 eşleşti",
-     "value": null
-    },
-    {
-     "name": "15 dakikalık dosyada makale",
-     "status": "ok",
-     "detail": "621 (beklenen 500–50,000)",
-     "value": 621
-    },
-    {
-     "name": "Sütun sayısı = 27",
-     "status": "ok",
-     "detail": "621/621 = %100.0",
-     "value": 1.0
-    },
-    {
-     "name": "Kurum (Organizations) bilgisi olan",
-     "status": "ok",
-     "detail": "480/621 = %77.3",
-     "value": 0.7729
-    },
-    {
-     "name": "Ton değeri okunabilen",
-     "status": "ok",
-     "detail": "621/621 = %100.0",
-     "value": 1.0
-    },
-    {
-     "name": "Bu 15 dakikada en çok geçen kurumlar",
-     "status": "info",
-     "detail": "australian associated (49), united states (41), instagram (22), cockroach janta party (21), delhi police (19), election commission (18), google (17), high court (13)",
-     "value": null
-    },
-    {
-     "name": "Geçmiş veri: 1 Mart 2015 dosyası makale",
-     "status": "ok",
-     "detail": "1,209 (beklenen 100–50,000)",
-     "value": 1209
-    },
-    {
-     "name": "Yardımcı: DOC API zaman serisi",
-     "status": "info",
-     "detail": "erişilemedi (HTTP 429); ham dosyalar yeterli",
-     "value": null
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "FetchError: http://data.gdeltproject.org/gdeltv2/20261010070000.gkg.csv.zip -> 404: ",
+     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/gdelt.py\", line 110, in run\n    blob = ctx.client.get(previous_slot(url)).content\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: http://data.gdeltproject.org/gdeltv2/20261010070000.gkg.csv.zip -> 404: \n"
     }
    ],
-   "sample": [
-    {
-     "date": "20261010070000",
-     "source": "northeasttoday.in",
-     "orgs": "central armed police forces"
-    },
-    {
-     "date": "20261010070000",
-     "source": "callapple.org",
-     "orgs": "kodak"
-    },
-    {
-     "date": "20261010070000",
-     "source": "laois-nationalist.ie",
-     "orgs": "heineken;co laois;portlaoise district court"
-    }
-   ]
+   "sample": null
   },
   {
    "key": "wikipedia",
@@ -1202,7 +1144,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 7.7,
+   "duration_s": 11.6,
    "requests": 6,
    "checks": [
     {
@@ -1337,7 +1279,7 @@
      "name": "Güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
-     "value": 0.02
+     "value": 0.03
     },
     {
      "name": "Geçmiş veri: Ocak 2016 sonuç",
@@ -1371,7 +1313,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.2,
+   "duration_s": 1.4,
    "requests": 3,
    "checks": [
     {
@@ -1414,7 +1356,7 @@
      "name": "'Apple earnings': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.5 gün önce (sınır 2)",
-     "value": 0.52
+     "value": 0.53
     },
     {
      "name": "'Apple earnings': tekil başlık",
@@ -1438,7 +1380,7 @@
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.3 gün önce (sınır 2)",
-     "value": 0.28
+     "value": 0.29
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -1529,7 +1471,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.0,
+   "duration_s": 1.9,
    "requests": 3,
    "checks": [
     {
@@ -1577,14 +1519,14 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/nvcf",
-     "NVIDIA/cuopt",
-     "NVIDIA/cudf-spark"
+     "NVIDIA/Megatron-LM",
+     "NVIDIA/cosmos-framework",
+     "NVIDIA/nvcf"
     ],
     "microsoft": [
-     "microsoft/aspire",
-     "microsoft/vscode-java-test",
-     "microsoft/vscode-gradle"
+     "microsoft/onnxruntime",
+     "microsoft/finops-toolkit",
+     "microsoft/lisa"
     ],
     "apple": [
      "apple/foundationdb",
