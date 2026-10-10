@@ -1,5 +1,6 @@
 """Panel ve değerlendirme düzeneği testleri (küçük sentetik verilerle)."""
 
+import pytest
 import numpy as np
 import pandas as pd
 
@@ -179,3 +180,35 @@ def test_ranked_inputs_missing_is_neutral_and_events_centered():
     X = model.ranked_inputs({"c": ("yol1", cont), "e": ("yol3", ev)}, uni)
     assert X["c"][0, 2] == 0.0 and X["c"][0, 3] > X["c"][0, 0]
     assert abs(X["e"][0].sum()) < 1e-6 and X["e"][0, 0] > 0
+
+
+def test_backtest_simulation_costs_and_exit():
+    from radar.research import backtest
+    dates = pd.date_range("2020-01-03", periods=20, freq="W-FRI")
+    cols = [str(i) for i in range(60)]
+    price = pd.DataFrame(100.0, index=dates, columns=cols)
+    price["0"] = 100.0 * (1.1 ** np.arange(20))  # en iyi hisse her hafta %10
+    sec = pd.DataFrame({"cik": cols, "symbol": cols, "name": cols, "start": dates[0], "end": pd.NaT,
+                        "price_source": "yahoo", "status": "aktif", "transferred_from_other": False, "bankrupt": False})
+    p = {"price": price, "raw": price, "dollar_volume": pd.DataFrame(1e8, index=dates, columns=cols), "securities": sec}
+    score = pd.DataFrame(0.0, index=dates, columns=cols)
+    score["0"] = 1.0
+    uni = pd.DataFrame(True, index=dates, columns=cols)
+    sim = backtest.simulate(score, p, uni, how=1, rebalance=4, dates=dates[:-4])
+    r = sim.returns
+    assert np.allclose(r.brut, 1.1 ** 4 - 1)
+    assert r.maliyet.iloc[0] == pytest.approx(0.0005)  # ilk alım: tek yön
+    assert (r.maliyet.iloc[1:] == 0).all()  # aynı hisse tutuluyor: devir yok
+    assert np.allclose(r.kiyas, ((1.1 ** 4 - 1) / 60))
+
+
+def test_big_win_target():
+    from radar.research import model
+    dates = pd.date_range("2020-01-03", periods=60, freq="W-FRI")
+    price = pd.DataFrame({"a": np.linspace(10, 40, 60), "b": 10.0})
+    price.index = dates
+    sec = pd.DataFrame({"cik": ["a", "b"], "symbol": ["a", "b"], "name": ["a", "b"], "start": dates[0], "end": pd.NaT,
+                        "price_source": "yahoo", "status": "aktif", "transferred_from_other": False, "bankrupt": False})
+    y = model.TARGETS["kazanan_100"](price, sec, 52, pd.DataFrame(True, index=dates, columns=["a", "b"]))
+    assert y[0, 0] == 1.0 and y[0, 1] == 0.0
+    assert np.isnan(y[-1]).all()  # getirisi henüz bilinmiyor

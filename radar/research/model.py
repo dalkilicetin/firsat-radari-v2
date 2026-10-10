@@ -59,7 +59,16 @@ def return_target(price: pd.DataFrame, sec: pd.DataFrame, weeks: int, universe: 
     return r.to_numpy(dtype=np.float32)
 
 
-TARGETS = {"sira": ranked_target, "getiri": return_target}
+def big_win_target(threshold: float):
+    """Büyük kazanan hedefi (fırsat modeli): h haftalık getiri ≥ eşik → 1, değilse 0; getirisi bilinmeyen = NaN."""
+    def target(price: pd.DataFrame, sec: pd.DataFrame, weeks: int, universe: pd.DataFrame) -> np.ndarray:
+        r = panel.forward_returns(price, sec, weeks).reindex(price.index).where(universe)
+        return (r >= threshold).astype(np.float32).where(r.notna()).to_numpy(dtype=np.float32)
+    return target
+
+
+TARGETS = {"sira": ranked_target, "getiri": return_target,
+           "kazanan_100": big_win_target(1.0), "kazanan_50": big_win_target(0.5)}
 # Seçilen ayar (reports/research/model_varyantlari.md, önceden belirlenen ölçütle): sıra hedefi, oynaklık hariç,
 # tüm evrende eğitim. Bu satırdan sonra son dönem testi yapılır; ayar değiştirilmez.
 # Potansiyel modeline girmeyen sinyaller: risk puanında zaten var (çift sayılmasın).
