@@ -96,6 +96,9 @@ jobs:
             for a in $(jq -r '.derived // {} | .[].asset' "data/manifest/$ds.json"); do
               gh release upload veri-arsivi "data/backfill/$ds/$a" --clobber
             done
+            for a in $(jq -r '.removed_assets // [] | .[] | select(. != null)' "data/manifest/$ds.json"); do
+              gh release delete-asset veri-arsivi "$a" -y || true
+            done
             rm -rf "data/backfill/$ds"
             echo "::endgroup::"
           done

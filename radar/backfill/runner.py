@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import time
 import traceback
 from datetime import date
@@ -102,6 +103,11 @@ def cmd_finalize(args) -> int:
         manifest["partitions"][entry["partition"]] = entry
         f.unlink()
 
+    # Tarihli anlık görüntü bölümlerinde (A-20261009, snapshot-20261010) yalnızca grubun en yenisi geçerlidir.
+    manifest["removed_assets"] = []
+    for old in superseded(manifest["partitions"]):
+        manifest["removed_assets"].append(manifest["partitions"].pop(old).get("asset"))
+
     rep = SourceReport(ds.name, ds.title, 1, [])
     derived = {}
     try:
@@ -117,6 +123,20 @@ def cmd_finalize(args) -> int:
     storage.save_manifest(manifest)
     write_report(manifest)
     return 0
+
+
+def superseded(partitions: dict) -> list[str]:
+    latest: dict[str, str] = {}
+    for p, e in partitions.items():
+        m = re.fullmatch(r"(.+)-(\d{8})", p)
+        if m and e["status"] != "fail":
+            group = m.group(1)
+            if p > latest.get(group, ""):
+                latest[group] = p
+    # Başarısız bölümler kayıtta kalır (neden başarısız olduğu görünsün); plan onları yeniden dener.
+    return [p for p, e in partitions.items()
+            if e["status"] != "fail" and (m := re.fullmatch(r"(.+)-(\d{8})", p))
+            and m.group(1) in latest and p != latest[m.group(1)]]
 
 
 def write_report(manifest: dict) -> None:

@@ -1,30 +1,27 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 5,
+ "rev": 6,
  "requests": [
   {
    "dataset": "gdelt",
+   "only": "2015,2016,2017,2018,2019,2020,2023",
    "force": true
   },
   {
    "dataset": "prices",
-   "only": "G,I,M",
-   "force": true
+   "only": "yok"
   },
   {
-   "dataset": "insider",
-   "only": "2023q3,2023q4",
-   "force": true
+   "dataset": "fred",
+   "only": "yok"
   },
   {
-   "dataset": "financials",
-   "only": "2022q4",
-   "force": true
+   "dataset": "filings",
+   "only": "yok"
   },
   {
-   "dataset": "holdings",
-   "only": "2016q3,2019q1,2020q1,2020q2,2020q3,2022q3,2022q4",
-   "force": true
+   "dataset": "wikiviews",
+   "only": "yok"
   }
  ]
 }

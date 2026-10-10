@@ -12,6 +12,7 @@ günde bir kez geçen kurumlar da tutulur. Not: GDELT bazı şirketleri yalnızc
 
 from __future__ import annotations
 
+import csv
 import io
 import json
 import zipfile
@@ -117,6 +118,10 @@ SLOT_HOURS = list(range(24))
 GKG_START = date(2015, 2, 19)
 
 
+def gkg_url(d: date, hour: int) -> str:
+    return f"http://data.gdeltproject.org/gdeltv2/{d:%Y%m%d}{hour:02d}0000.gkg.csv.zip"
+
+
 def _fetch(url: str) -> bytes | None:
     for _ in range(3):
         try:
@@ -160,12 +165,12 @@ class GdeltHistory(Dataset):
         start = max(date(year, 1, 1), GKG_START)
         end = min(date(year, 12, 31), date.today() - timedelta(days=1))
         days = [start + timedelta(days=i) for i in range((end - start).days + 1)]
-        urls = [(d, f"http://data.gdeltproject.org/gdeltv2/{d:%Y%m%d}{h:02d}0000.gkg.csv.zip") for d in days for h in SLOT_HOURS]
+        slots = len(days) * len(SLOT_HOURS)
         daily_frames, articles, missing = [], {}, 0
         buffer: list[pd.DataFrame] = []
 
         def flush(day: date) -> None:
-            # Bellek için her günün 8 dosyası birleşince hemen özetlenir.
+            # Bellek için her günün dosyaları birleşince hemen özetlenir.
             if buffer:
                 agg = pd.concat(buffer).groupby("org").tone.agg(["size", "mean"]).reset_index()
                 agg.columns = ["org", "mentions", "tone"]
@@ -173,29 +178,28 @@ class GdeltHistory(Dataset):
                 daily_frames.append(agg)
                 buffer.clear()
 
-        current = None
+        # Gün gün indir: aynı anda bellekte en fazla bir günün dosyaları (24) bulunur.
         with ThreadPoolExecutor(max_workers=8) as pool:
-            for (d, url), blob in zip(urls, pool.map(lambda u: _fetch(u[1]), urls)):
-                if d != current:
-                    flush(current)
-                    current = d
-                if blob is None:
-                    missing += 1
-                    continue
-                try:
-                    orgs, n = aggregate_gkg(blob)
-                except (zipfile.BadZipFile, ValueError):
-                    missing += 1
-                    continue
-                articles[d] = articles.get(d, 0) + n
-                buffer.append(orgs)
-            flush(current)
+            for d in days:
+                day_urls = [gkg_url(d, h) for h in SLOT_HOURS]
+                for blob in pool.map(_fetch, day_urls):
+                    if blob is None:
+                        missing += 1
+                        continue
+                    try:
+                        orgs, n = aggregate_gkg(blob)
+                    except (zipfile.BadZipFile, ValueError, csv.Error):
+                        missing += 1
+                        continue
+                    articles[d] = articles.get(d, 0) + n
+                    buffer.append(orgs)
+                flush(d)
         daily = pd.concat(daily_frames, ignore_index=True)
         totals = pd.DataFrame({"date": pd.to_datetime(list(articles)), "org": "__TOPLAM_MAKALE__",
                                "mentions": list(articles.values()), "tone": float("nan")})
         df = pd.concat([daily, totals], ignore_index=True)
         return Loaded(df, ["http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"],
-                      {"slots": len(urls), "missing": missing, "days": len(days)})
+                      {"slots": slots, "missing": missing, "days": len(days)})
 
     def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
         df, notes = loaded.df, loaded.notes

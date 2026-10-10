@@ -215,3 +215,20 @@ def test_gdelt_history_load_daily_flush(monkeypatch):
     nv = df[df.org == "nvidia"]
     assert nv.date.min() == pd.Timestamp("2015-02-19") and (nv.mentions == 23).all()
     assert loaded.notes["missing"] == loaded.notes["days"]
+
+
+def test_superseded_snapshots():
+    parts = {"A-20261009": {"status": "ok"}, "A-20261010": {"status": "ok"}, "B-20261009": {"status": "ok"},
+             "C-20261009": {"status": "ok"}, "C-20261010": {"status": "fail"}, "2024q1": {"status": "ok"}}
+    assert runner.superseded(parts) == ["A-20261009"]
+
+
+def test_gkg_carriage_return_in_field():
+    from radar.sources import gdelt
+    row = ["x"] * gdelt.GKG_COLUMNS
+    row[gdelt.COL_ORGS] = "acme\rcorp"
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as zf:
+        zf.writestr("a.gkg.csv", "\t".join(row) + "\n")
+    rows = gdelt.read_gkg(buf.getvalue())
+    assert len(rows) == 1 and rows[0][gdelt.COL_ORGS] == "acme corp"

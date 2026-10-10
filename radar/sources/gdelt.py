@@ -47,7 +47,8 @@ def parse_last_update(text: str) -> dict[str, tuple[int, str, str]]:
 
 def read_gkg(zipped: bytes) -> list[list[str]]:
     with zipfile.ZipFile(io.BytesIO(zipped)) as zf:
-        raw = zf.read(zf.namelist()[0]).decode("utf-8", errors="replace")
+        # Bazı dosyalarda alan içinde satır başı (\r) karakteri var; csv modülü bunu satır sonu sanıyor.
+        raw = zf.read(zf.namelist()[0]).decode("utf-8", errors="replace").replace("\r", " ")
     return list(csv.reader(io.StringIO(raw), delimiter="\t", quoting=csv.QUOTE_NONE))
 
 
