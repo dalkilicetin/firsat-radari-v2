@@ -1,12 +1,12 @@
 {
  "dataset": "tenk",
  "partitions": {
-  "2014": {
-   "partition": "2014",
-   "fetched_at": "2026-10-10T09:25:37+00:00",
-   "rows": 2283,
-   "bytes": 109177016,
-   "sha256": "f273fbb55e47a1fb10d3cec29eb2d3990818b413d1068126a5c280790ffd2a6c",
+  "2008": {
+   "partition": "2008",
+   "fetched_at": "2026-10-10T16:52:15+00:00",
+   "rows": 4311,
+   "bytes": 180543301,
+   "sha256": "6f985f9e4071eaa88db646a2a18a7155efa9b06ce217ce76a04271d0b4e6eafd",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -22,43 +22,44 @@
     "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
    ],
    "notes": {
-    "filings": 2283,
+    "filings": 4311,
     "failed": 0
    },
-   "asset": "tenk__2014.parquet",
+   "asset": "tenk__2008.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 587.1,
-   "requests": 2283,
+   "duration_s": 1091.7,
+   "requests": 4311,
    "checks": [
     {
      "name": "10-K sayısı",
      "status": "ok",
-     "detail": "2,283 (beklenen 1,500–8,000)"
+     "detail": "4,311 (beklenen 1,500–8,000)"
     },
     {
      "name": "İndirilen",
      "status": "ok",
-     "detail": "2283/2283 = %100.0"
+     "detail": "4311/4311 = %100.0"
     },
     {
      "name": "item1 bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2126/2283 = %93.1"
+     "detail": "3918/4311 = %90.9"
     },
     {
      "name": "item1a bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2092/2283 = %91.6"
+     "detail": "3994/4311 = %92.6"
     },
     {
      "name": "item7 bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2061/2283 = %90.3"
+     "detail": "3706/4311 = %86.0"
     },
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "ok",
-     "detail": "0.081 (beklenen 0.010–0.200)"
+     "detail": "0.034 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -68,16 +69,448 @@
     {
      "name": "Medyan uzunluk (karakter)",
      "status": "info",
-     "detail": "item1: 41,056, item1a: 46,160, item7: 52,004"
+     "detail": "item1: 35,930, item1a: 29,324, item7: 53,316"
+    }
+   ]
+  },
+  "2009": {
+   "partition": "2009",
+   "fetched_at": "2026-10-10T16:52:19+00:00",
+   "rows": 4638,
+   "bytes": 199412087,
+   "sha256": "f65a328c0b0ac1a581fe228b3c15b9130750d9a46f7f1483ae5b127a20f44075",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4638,
+    "failed": 0
+   },
+   "asset": "tenk__2009.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 5786.8,
+   "requests": 4638,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,638 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4638/4638 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "warn",
+     "detail": "4167/4638 = %89.8"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4184/4638 = %90.2"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4011/4638 = %86.5"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.087 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 34,528, item1a: 32,603, item7: 54,011"
+    }
+   ]
+  },
+  "2010": {
+   "partition": "2010",
+   "fetched_at": "2026-10-10T16:52:16+00:00",
+   "rows": 4535,
+   "bytes": 199316844,
+   "sha256": "55b06705c8f8a270302a160a7ac298c0544e2480920ea0f830391199470bb722",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4535,
+    "failed": 0
+   },
+   "asset": "tenk__2010.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1289.5,
+   "requests": 4535,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,535 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4535/4535 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4083/4535 = %90.0"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4095/4535 = %90.3"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3882/4535 = %85.6"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.079 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 34,689, item1a: 35,211, item7: 53,581"
+    }
+   ]
+  },
+  "2011": {
+   "partition": "2011",
+   "fetched_at": "2026-10-10T17:10:56+00:00",
+   "rows": 4444,
+   "bytes": 198487731,
+   "sha256": "cbc071daa4d947fd0510de958b0d754857d5c0ea73c8ee73e390eebba7a4f6c0",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4444,
+    "failed": 0
+   },
+   "asset": "tenk__2011.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1581.3,
+   "requests": 4444,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,444 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4444/4444 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4039/4444 = %90.9"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4038/4444 = %90.9"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3882/4444 = %87.4"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.066 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 36,483, item1a: 37,500, item7: 53,485"
+    }
+   ]
+  },
+  "2012": {
+   "partition": "2012",
+   "fetched_at": "2026-10-10T17:14:16+00:00",
+   "rows": 4376,
+   "bytes": 196959702,
+   "sha256": "3a79b7fa903d16abc440227b79e6704583d2e14d8ad4c7502fe01638a958dd9d",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4376,
+    "failed": 0
+   },
+   "asset": "tenk__2012.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1365.3,
+   "requests": 4376,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,376 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4376/4376 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3956/4376 = %90.4"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3954/4376 = %90.4"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3833/4376 = %87.6"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.066 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 36,173, item1a: 39,848, item7: 53,541"
+    }
+   ]
+  },
+  "2013": {
+   "partition": "2013",
+   "fetched_at": "2026-10-10T17:37:42+00:00",
+   "rows": 4335,
+   "bytes": 200531526,
+   "sha256": "e42754c33a7cc5c9510b7e54e191e9da620a8ff8ee0f61f9f44d1f78839105ae",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4335,
+    "failed": 0
+   },
+   "asset": "tenk__2013.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1496.1,
+   "requests": 4335,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,335 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4335/4335 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3962/4335 = %91.4"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3968/4335 = %91.5"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3842/4335 = %88.6"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.072 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 36,611, item1a: 43,068, item7: 54,938"
+    }
+   ]
+  },
+  "2014": {
+   "partition": "2014",
+   "fetched_at": "2026-10-10T17:37:42+00:00",
+   "rows": 4393,
+   "bytes": 211759635,
+   "sha256": "2c1c1e1d01cbd965a20c6be5c7a247034c2cca2481b278408cbb99b21aa9a7ae",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4393,
+    "failed": 0
+   },
+   "asset": "tenk__2014.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1669.6,
+   "requests": 4393,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,393 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4393/4393 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4038/4393 = %91.9"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4059/4393 = %92.4"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3923/4393 = %89.3"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.064 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 37,799, item1a: 46,369, item7: 56,501"
     }
    ]
   },
   "2015": {
    "partition": "2015",
-   "fetched_at": "2026-10-10T09:25:37+00:00",
-   "rows": 2434,
-   "bytes": 121128863,
-   "sha256": "0930b3fb4e942c804b6036ef54561428b2d3985b634022fcb0cd36e6f13147b9",
+   "fetched_at": "2026-10-10T18:03:11+00:00",
+   "rows": 4497,
+   "bytes": 222783122,
+   "sha256": "cdac71ebf3de07d280e29bf54cd4e63087cafcffebef1add5d4fbea22e1c4a00",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -93,43 +526,44 @@
     "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
    ],
    "notes": {
-    "filings": 2434,
+    "filings": 4497,
     "failed": 0
    },
    "asset": "tenk__2015.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 648.0,
-   "requests": 2434,
+   "duration_s": 1652.2,
+   "requests": 4497,
    "checks": [
     {
      "name": "10-K sayısı",
      "status": "ok",
-     "detail": "2,434 (beklenen 1,500–8,000)"
+     "detail": "4,497 (beklenen 1,500–8,000)"
     },
     {
      "name": "İndirilen",
      "status": "ok",
-     "detail": "2434/2434 = %100.0"
+     "detail": "4497/4497 = %100.0"
     },
     {
      "name": "item1 bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2245/2434 = %92.2"
+     "detail": "4091/4497 = %91.0"
     },
     {
      "name": "item1a bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2189/2434 = %89.9"
+     "detail": "4102/4497 = %91.2"
     },
     {
      "name": "item7 bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2169/2434 = %89.1"
+     "detail": "3968/4497 = %88.2"
     },
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "ok",
-     "detail": "0.153 (beklenen 0.010–0.200)"
+     "detail": "0.124 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -139,16 +573,16 @@
     {
      "name": "Medyan uzunluk (karakter)",
      "status": "info",
-     "detail": "item1: 42,268, item1a: 49,461, item7: 50,623"
+     "detail": "item1: 38,248, item1a: 49,248, item7: 55,043"
     }
    ]
   },
   "2016": {
    "partition": "2016",
-   "fetched_at": "2026-10-10T09:25:34+00:00",
-   "rows": 2421,
-   "bytes": 123334393,
-   "sha256": "d802cf07069c2336b8d02255773084ce84ff9173047082cf8e3b4ed920b8437b",
+   "fetched_at": "2026-10-10T18:05:59+00:00",
+   "rows": 4424,
+   "bytes": 223980501,
+   "sha256": "ab799e09a28bc88fb70ca9cec601b68616145fbb29e46bc638a5813c65e9173d",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -164,43 +598,44 @@
     "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
    ],
    "notes": {
-    "filings": 2421,
+    "filings": 4424,
     "failed": 0
    },
    "asset": "tenk__2016.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 491.3,
-   "requests": 2421,
+   "duration_s": 1624.8,
+   "requests": 4424,
    "checks": [
     {
      "name": "10-K sayısı",
      "status": "ok",
-     "detail": "2,421 (beklenen 1,500–8,000)"
+     "detail": "4,424 (beklenen 1,500–8,000)"
     },
     {
      "name": "İndirilen",
      "status": "ok",
-     "detail": "2421/2421 = %100.0"
+     "detail": "4424/4424 = %100.0"
     },
     {
      "name": "item1 bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2233/2421 = %92.2"
+     "detail": "4024/4424 = %91.0"
     },
     {
      "name": "item1a bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2130/2421 = %88.0"
+     "detail": "3957/4424 = %89.4"
     },
     {
      "name": "item7 bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2135/2421 = %88.2"
+     "detail": "3902/4424 = %88.2"
     },
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "ok",
-     "detail": "0.162 (beklenen 0.010–0.200)"
+     "detail": "0.129 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -210,16 +645,16 @@
     {
      "name": "Medyan uzunluk (karakter)",
      "status": "info",
-     "detail": "item1: 42,891, item1a: 50,638, item7: 50,392"
+     "detail": "item1: 38,889, item1a: 50,901, item7: 56,062"
     }
    ]
   },
   "2017": {
    "partition": "2017",
-   "fetched_at": "2026-10-10T09:34:12+00:00",
-   "rows": 2385,
-   "bytes": 124252151,
-   "sha256": "e476c4547135ad27576009e2bfba48571ef9e4184d90b88f6c876a94d7114c4b",
+   "fetched_at": "2026-10-10T18:29:17+00:00",
+   "rows": 4321,
+   "bytes": 221683632,
+   "sha256": "f94ab8e43e8f06f0a73f20ac4737420666f3992ffb0d3ad17001a51507bcc6db",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -235,38 +670,543 @@
     "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
    ],
    "notes": {
-    "filings": 2385,
+    "filings": 4321,
     "failed": 0
    },
    "asset": "tenk__2017.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 630.6,
-   "requests": 2385,
+   "duration_s": 1944.5,
+   "requests": 4321,
    "checks": [
     {
      "name": "10-K sayısı",
      "status": "ok",
-     "detail": "2,385 (beklenen 1,500–8,000)"
+     "detail": "4,321 (beklenen 1,500–8,000)"
     },
     {
      "name": "İndirilen",
      "status": "ok",
-     "detail": "2385/2385 = %100.0"
+     "detail": "4321/4321 = %100.0"
     },
     {
      "name": "item1 bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2200/2385 = %92.2"
+     "detail": "3935/4321 = %91.1"
     },
     {
      "name": "item1a bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2107/2385 = %88.3"
+     "detail": "3865/4321 = %89.4"
     },
     {
      "name": "item7 bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2109/2385 = %88.4"
+     "detail": "3811/4321 = %88.2"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.150 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 38,459, item1a: 52,712, item7: 54,813"
+    }
+   ]
+  },
+  "2018": {
+   "partition": "2018",
+   "fetched_at": "2026-10-10T18:31:13+00:00",
+   "rows": 4295,
+   "bytes": 225856008,
+   "sha256": "90def29af8da075e4af995a6a98e3776c5e50a8d1a4e96edd004b2740a05cfab",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4295,
+    "failed": 0
+   },
+   "asset": "tenk__2018.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1473.7,
+   "requests": 4295,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,295 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4295/4295 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3919/4295 = %91.2"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3836/4295 = %89.3"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3784/4295 = %88.1"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.112 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 38,708, item1a: 55,694, item7: 55,139"
+    }
+   ]
+  },
+  "2019": {
+   "partition": "2019",
+   "fetched_at": "2026-10-10T18:33:37+00:00",
+   "rows": 4290,
+   "bytes": 228723916,
+   "sha256": "f78d55453adbabf57c81f1fb5dc55297a6e5649803468a7f0bf62325cc8556aa",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4290,
+    "failed": 0
+   },
+   "asset": "tenk__2019.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1912.4,
+   "requests": 4290,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,290 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4290/4290 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3920/4290 = %91.4"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3792/4290 = %88.4"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3740/4290 = %87.2"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.109 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 39,456, item1a: 58,412, item7: 51,789"
+    }
+   ]
+  },
+  "2020": {
+   "partition": "2020",
+   "fetched_at": "2026-10-10T18:56:31+00:00",
+   "rows": 4263,
+   "bytes": 232461733,
+   "sha256": "b8846aaa79624b69f509b8a24f059adc762aa011e629890ad5b6b1cabe91444e",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4263,
+    "failed": 0
+   },
+   "asset": "tenk__2020.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1768.9,
+   "requests": 4263,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,263 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4263/4263 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3916/4263 = %91.9"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3784/4263 = %88.8"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3759/4263 = %88.2"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.118 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 40,645, item1a: 62,267, item7: 49,487"
+    }
+   ]
+  },
+  "2021": {
+   "partition": "2021",
+   "fetched_at": "2026-10-10T19:02:12+00:00",
+   "rows": 4604,
+   "bytes": 266896250,
+   "sha256": "7e7a77b4ad98a1f80063069b414e19a8b0f3b71db9293d2afddc92e41e1cde38",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4604,
+    "failed": 0
+   },
+   "asset": "tenk__2021.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1972.8,
+   "requests": 4604,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,604 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4604/4604 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4281/4604 = %93.0"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4236/4604 = %92.0"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4017/4604 = %87.3"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.099 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 44,707, item1a: 69,690, item7: 46,573"
+    }
+   ]
+  },
+  "2022": {
+   "partition": "2022",
+   "fetched_at": "2026-10-10T19:05:58+00:00",
+   "rows": 5069,
+   "bytes": 293963303,
+   "sha256": "512a197f0b7ad40940c90d420279f49f0e73cc0b3141f4992386a7e47178172f",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 5069,
+    "failed": 0
+   },
+   "asset": "tenk__2022.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1831.4,
+   "requests": 5069,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "5,069 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "5069/5069 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4579/5069 = %90.3"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4589/5069 = %90.5"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4392/5069 = %86.6"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.154 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 45,533, item1a: 73,602, item7: 43,758"
+    }
+   ]
+  },
+  "2023": {
+   "partition": "2023",
+   "fetched_at": "2026-10-10T19:26:33+00:00",
+   "rows": 4848,
+   "bytes": 278298955,
+   "sha256": "aefde360bf9f0ca90023efec95dc1cafcd85fe81545c0565af63e191c2c79469",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4848,
+    "failed": 0
+   },
+   "asset": "tenk__2023.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 7113.7,
+   "requests": 4848,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,848 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4848/4848 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "warn",
+     "detail": "4235/4848 = %87.4"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4256/4848 = %87.8"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4176/4848 = %86.1"
+    },
+    {
+     "name": "Devamlılık şüphesi oranı (substantial doubt)",
+     "status": "ok",
+     "detail": "0.193 (beklenen 0.010–0.200)"
+    },
+    {
+     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
+     "status": "ok",
+     "detail": "evet"
+    },
+    {
+     "name": "Medyan uzunluk (karakter)",
+     "status": "info",
+     "detail": "item1: 43,532, item1a: 72,208, item7: 43,854"
+    }
+   ]
+  },
+  "2024": {
+   "partition": "2024",
+   "fetched_at": "2026-10-10T19:35:38+00:00",
+   "rows": 4553,
+   "bytes": 261213627,
+   "sha256": "dec84040397a72ea346751a6a77e228e94cc29d0fe343dabe543e4546a090bf1",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "chars": "int64",
+    "going_concern": "bool",
+    "item1": "str",
+    "item1a": "str",
+    "item7": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
+   ],
+   "notes": {
+    "filings": 4553,
+    "failed": 0
+   },
+   "asset": "tenk__2024.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 1592.3,
+   "requests": 4553,
+   "checks": [
+    {
+     "name": "10-K sayısı",
+     "status": "ok",
+     "detail": "4,553 (beklenen 1,500–8,000)"
+    },
+    {
+     "name": "İndirilen",
+     "status": "ok",
+     "detail": "4553/4553 = %100.0"
+    },
+    {
+     "name": "item1 bulundu (>2.000 karakter)",
+     "status": "warn",
+     "detail": "3957/4553 = %86.9"
+    },
+    {
+     "name": "item1a bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "4055/4553 = %89.1"
+    },
+    {
+     "name": "item7 bulundu (>2.000 karakter)",
+     "status": "ok",
+     "detail": "3970/4553 = %87.2"
     },
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
@@ -281,513 +1221,16 @@
     {
      "name": "Medyan uzunluk (karakter)",
      "status": "info",
-     "detail": "item1: 42,627, item1a: 52,789, item7: 49,408"
-    }
-   ]
-  },
-  "2018": {
-   "partition": "2018",
-   "fetched_at": "2026-10-10T09:35:48+00:00",
-   "rows": 2375,
-   "bytes": 128560787,
-   "sha256": "74c16c039352aa488a34ac05eab22a1d91b135ef55375a323466ced408a377b6",
-   "columns": {
-    "cik": "int64",
-    "accession": "str",
-    "filing_date": "datetime64[us]",
-    "accepted": "datetime64[us, UTC]",
-    "chars": "int64",
-    "going_concern": "bool",
-    "item1": "str",
-    "item1a": "str",
-    "item7": "str"
-   },
-   "sources": [
-    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
-   ],
-   "notes": {
-    "filings": 2375,
-    "failed": 0
-   },
-   "asset": "tenk__2018.parquet",
-   "status": "ok",
-   "duration_s": 414.2,
-   "requests": 2375,
-   "checks": [
-    {
-     "name": "10-K sayısı",
-     "status": "ok",
-     "detail": "2,375 (beklenen 1,500–8,000)"
-    },
-    {
-     "name": "İndirilen",
-     "status": "ok",
-     "detail": "2375/2375 = %100.0"
-    },
-    {
-     "name": "item1 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2193/2375 = %92.3"
-    },
-    {
-     "name": "item1a bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2086/2375 = %87.8"
-    },
-    {
-     "name": "item7 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2103/2375 = %88.5"
-    },
-    {
-     "name": "Devamlılık şüphesi oranı (substantial doubt)",
-     "status": "ok",
-     "detail": "0.158 (beklenen 0.010–0.200)"
-    },
-    {
-     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
-     "status": "ok",
-     "detail": "evet"
-    },
-    {
-     "name": "Medyan uzunluk (karakter)",
-     "status": "info",
-     "detail": "item1: 43,774, item1a: 57,168, item7: 50,385"
-    }
-   ]
-  },
-  "2019": {
-   "partition": "2019",
-   "fetched_at": "2026-10-10T09:36:50+00:00",
-   "rows": 2406,
-   "bytes": 132879319,
-   "sha256": "d5da98684748cbe4cd4592e1e526f47e43c36c3ec2b230fc0df9e42eb2e2702c",
-   "columns": {
-    "cik": "int64",
-    "accession": "str",
-    "filing_date": "datetime64[us]",
-    "accepted": "datetime64[us, UTC]",
-    "chars": "int64",
-    "going_concern": "bool",
-    "item1": "str",
-    "item1a": "str",
-    "item7": "str"
-   },
-   "sources": [
-    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
-   ],
-   "notes": {
-    "filings": 2406,
-    "failed": 0
-   },
-   "asset": "tenk__2019.parquet",
-   "status": "ok",
-   "duration_s": 639.9,
-   "requests": 2406,
-   "checks": [
-    {
-     "name": "10-K sayısı",
-     "status": "ok",
-     "detail": "2,406 (beklenen 1,500–8,000)"
-    },
-    {
-     "name": "İndirilen",
-     "status": "ok",
-     "detail": "2406/2406 = %100.0"
-    },
-    {
-     "name": "item1 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2231/2406 = %92.7"
-    },
-    {
-     "name": "item1a bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2091/2406 = %86.9"
-    },
-    {
-     "name": "item7 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2095/2406 = %87.1"
-    },
-    {
-     "name": "Devamlılık şüphesi oranı (substantial doubt)",
-     "status": "ok",
-     "detail": "0.155 (beklenen 0.010–0.200)"
-    },
-    {
-     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
-     "status": "ok",
-     "detail": "evet"
-    },
-    {
-     "name": "Medyan uzunluk (karakter)",
-     "status": "info",
-     "detail": "item1: 44,439, item1a: 60,594, item7: 47,709"
-    }
-   ]
-  },
-  "2020": {
-   "partition": "2020",
-   "fetched_at": "2026-10-10T09:43:13+00:00",
-   "rows": 2430,
-   "bytes": 139240143,
-   "sha256": "8e6903286d6d6324e973860a3ff7d17766468792d4e6efbdea3fd845037278e8",
-   "columns": {
-    "cik": "int64",
-    "accession": "str",
-    "filing_date": "datetime64[us]",
-    "accepted": "datetime64[us, UTC]",
-    "chars": "int64",
-    "going_concern": "bool",
-    "item1": "str",
-    "item1a": "str",
-    "item7": "str"
-   },
-   "sources": [
-    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
-   ],
-   "notes": {
-    "filings": 2430,
-    "failed": 0
-   },
-   "asset": "tenk__2020.parquet",
-   "status": "ok",
-   "duration_s": 633.9,
-   "requests": 2430,
-   "checks": [
-    {
-     "name": "10-K sayısı",
-     "status": "ok",
-     "detail": "2,430 (beklenen 1,500–8,000)"
-    },
-    {
-     "name": "İndirilen",
-     "status": "ok",
-     "detail": "2430/2430 = %100.0"
-    },
-    {
-     "name": "item1 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2265/2430 = %93.2"
-    },
-    {
-     "name": "item1a bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2108/2430 = %86.7"
-    },
-    {
-     "name": "item7 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2138/2430 = %88.0"
-    },
-    {
-     "name": "Devamlılık şüphesi oranı (substantial doubt)",
-     "status": "ok",
-     "detail": "0.165 (beklenen 0.010–0.200)"
-    },
-    {
-     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
-     "status": "ok",
-     "detail": "evet"
-    },
-    {
-     "name": "Medyan uzunluk (karakter)",
-     "status": "info",
-     "detail": "item1: 46,908, item1a: 65,718, item7: 45,703"
-    }
-   ]
-  },
-  "2021": {
-   "partition": "2021",
-   "fetched_at": "2026-10-10T09:45:06+00:00",
-   "rows": 2666,
-   "bytes": 164900306,
-   "sha256": "1e85bb245aed5fd2ee76a58e62d1f057f1bd0f3674d7743455e0be432c93b469",
-   "columns": {
-    "cik": "int64",
-    "accession": "str",
-    "filing_date": "datetime64[us]",
-    "accepted": "datetime64[us, UTC]",
-    "chars": "int64",
-    "going_concern": "bool",
-    "item1": "str",
-    "item1a": "str",
-    "item7": "str"
-   },
-   "sources": [
-    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
-   ],
-   "notes": {
-    "filings": 2666,
-    "failed": 0
-   },
-   "asset": "tenk__2021.parquet",
-   "status": "ok",
-   "duration_s": 1866.4,
-   "requests": 2666,
-   "checks": [
-    {
-     "name": "10-K sayısı",
-     "status": "ok",
-     "detail": "2,666 (beklenen 1,500–8,000)"
-    },
-    {
-     "name": "İndirilen",
-     "status": "ok",
-     "detail": "2666/2666 = %100.0"
-    },
-    {
-     "name": "item1 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2517/2666 = %94.4"
-    },
-    {
-     "name": "item1a bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2430/2666 = %91.1"
-    },
-    {
-     "name": "item7 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2332/2666 = %87.5"
-    },
-    {
-     "name": "Devamlılık şüphesi oranı (substantial doubt)",
-     "status": "ok",
-     "detail": "0.132 (beklenen 0.010–0.200)"
-    },
-    {
-     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
-     "status": "ok",
-     "detail": "evet"
-    },
-    {
-     "name": "Medyan uzunluk (karakter)",
-     "status": "info",
-     "detail": "item1: 51,753, item1a: 73,746, item7: 44,883"
-    }
-   ]
-  },
-  "2022": {
-   "partition": "2022",
-   "fetched_at": "2026-10-10T09:47:53+00:00",
-   "rows": 2973,
-   "bytes": 181891000,
-   "sha256": "fbdcff07c4c3b25304fa9115abe17de5d0f161c99ef2233f84dda133d9dfb69e",
-   "columns": {
-    "cik": "int64",
-    "accession": "str",
-    "filing_date": "datetime64[us]",
-    "accepted": "datetime64[us, UTC]",
-    "chars": "int64",
-    "going_concern": "bool",
-    "item1": "str",
-    "item1a": "str",
-    "item7": "str"
-   },
-   "sources": [
-    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
-   ],
-   "notes": {
-    "filings": 2973,
-    "failed": 0
-   },
-   "asset": "tenk__2022.parquet",
-   "status": "ok",
-   "duration_s": 1193.1,
-   "requests": 2973,
-   "checks": [
-    {
-     "name": "10-K sayısı",
-     "status": "ok",
-     "detail": "2,973 (beklenen 1,500–8,000)"
-    },
-    {
-     "name": "İndirilen",
-     "status": "ok",
-     "detail": "2973/2973 = %100.0"
-    },
-    {
-     "name": "item1 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2688/2973 = %90.4"
-    },
-    {
-     "name": "item1a bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2664/2973 = %89.6"
-    },
-    {
-     "name": "item7 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2578/2973 = %86.7"
-    },
-    {
-     "name": "Devamlılık şüphesi oranı (substantial doubt)",
-     "status": "ok",
-     "detail": "0.181 (beklenen 0.010–0.200)"
-    },
-    {
-     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
-     "status": "ok",
-     "detail": "evet"
-    },
-    {
-     "name": "Medyan uzunluk (karakter)",
-     "status": "info",
-     "detail": "item1: 51,666, item1a: 78,757, item7: 41,921"
-    }
-   ]
-  },
-  "2023": {
-   "partition": "2023",
-   "fetched_at": "2026-10-10T09:54:12+00:00",
-   "rows": 2893,
-   "bytes": 173929742,
-   "sha256": "2b55a038d1102e75fabf72349869765c44847a168c23f6a0be19d2ee39ea518a",
-   "columns": {
-    "cik": "int64",
-    "accession": "str",
-    "filing_date": "datetime64[us]",
-    "accepted": "datetime64[us, UTC]",
-    "chars": "int64",
-    "going_concern": "bool",
-    "item1": "str",
-    "item1a": "str",
-    "item7": "str"
-   },
-   "sources": [
-    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
-   ],
-   "notes": {
-    "filings": 2893,
-    "failed": 0
-   },
-   "asset": "tenk__2023.parquet",
-   "status": "warn",
-   "duration_s": 571.9,
-   "requests": 2893,
-   "checks": [
-    {
-     "name": "10-K sayısı",
-     "status": "ok",
-     "detail": "2,893 (beklenen 1,500–8,000)"
-    },
-    {
-     "name": "İndirilen",
-     "status": "ok",
-     "detail": "2893/2893 = %100.0"
-    },
-    {
-     "name": "item1 bulundu (>2.000 karakter)",
-     "status": "warn",
-     "detail": "2521/2893 = %87.1"
-    },
-    {
-     "name": "item1a bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2515/2893 = %86.9"
-    },
-    {
-     "name": "item7 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2487/2893 = %86.0"
-    },
-    {
-     "name": "Devamlılık şüphesi oranı (substantial doubt)",
-     "status": "warn",
-     "detail": "0.244 (beklenen 0.010–0.200)"
-    },
-    {
-     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
-     "status": "ok",
-     "detail": "evet"
-    },
-    {
-     "name": "Medyan uzunluk (karakter)",
-     "status": "info",
-     "detail": "item1: 48,480, item1a: 78,331, item7: 41,879"
-    }
-   ]
-  },
-  "2024": {
-   "partition": "2024",
-   "fetched_at": "2026-10-10T10:04:15+00:00",
-   "rows": 2726,
-   "bytes": 164878325,
-   "sha256": "63e3523d78a290811a815c312107fd45a9a7b43a10c6e42a1a2203c2cea5b31c",
-   "columns": {
-    "cik": "int64",
-    "accession": "str",
-    "filing_date": "datetime64[us]",
-    "accepted": "datetime64[us, UTC]",
-    "chars": "int64",
-    "going_concern": "bool",
-    "item1": "str",
-    "item1a": "str",
-    "item7": "str"
-   },
-   "sources": [
-    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
-   ],
-   "notes": {
-    "filings": 2726,
-    "failed": 0
-   },
-   "asset": "tenk__2024.parquet",
-   "status": "warn",
-   "duration_s": 1108.0,
-   "requests": 2726,
-   "checks": [
-    {
-     "name": "10-K sayısı",
-     "status": "ok",
-     "detail": "2,726 (beklenen 1,500–8,000)"
-    },
-    {
-     "name": "İndirilen",
-     "status": "ok",
-     "detail": "2726/2726 = %100.0"
-    },
-    {
-     "name": "item1 bulundu (>2.000 karakter)",
-     "status": "warn",
-     "detail": "2362/2726 = %86.6"
-    },
-    {
-     "name": "item1a bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2408/2726 = %88.3"
-    },
-    {
-     "name": "item7 bulundu (>2.000 karakter)",
-     "status": "ok",
-     "detail": "2367/2726 = %86.8"
-    },
-    {
-     "name": "Devamlılık şüphesi oranı (substantial doubt)",
-     "status": "warn",
-     "detail": "0.259 (beklenen 0.010–0.200)"
-    },
-    {
-     "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
-     "status": "ok",
-     "detail": "evet"
-    },
-    {
-     "name": "Medyan uzunluk (karakter)",
-     "status": "info",
-     "detail": "item1: 46,906, item1a: 78,397, item7: 41,817"
+     "detail": "item1: 41,264, item1a: 72,387, item7: 43,874"
     }
    ]
   },
   "2025": {
    "partition": "2025",
-   "fetched_at": "2026-10-10T10:08:13+00:00",
-   "rows": 2642,
-   "bytes": 161033305,
-   "sha256": "2c1726ad66cc1d1836c0c361029e5ce4e5b021da7f745c1a288fdb5f0fd78a0a",
+   "fetched_at": "2026-10-10T19:37:10+00:00",
+   "rows": 4427,
+   "bytes": 255365903,
+   "sha256": "118fa69895750511d9993a1854af63f4974feec984c17311547b42a804138059",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -803,43 +1246,44 @@
     "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
    ],
    "notes": {
-    "filings": 2642,
+    "filings": 4427,
     "failed": 0
    },
    "asset": "tenk__2025.parquet",
+   "release": "veri-arsivi-2009",
    "status": "warn",
-   "duration_s": 980.4,
-   "requests": 2642,
+   "duration_s": 1547.5,
+   "requests": 4427,
    "checks": [
     {
      "name": "10-K sayısı",
      "status": "ok",
-     "detail": "2,642 (beklenen 1,500–8,000)"
+     "detail": "4,427 (beklenen 1,500–8,000)"
     },
     {
      "name": "İndirilen",
      "status": "ok",
-     "detail": "2642/2642 = %100.0"
+     "detail": "4427/4427 = %100.0"
     },
     {
      "name": "item1 bulundu (>2.000 karakter)",
      "status": "warn",
-     "detail": "2299/2642 = %87.0"
+     "detail": "3860/4427 = %87.2"
     },
     {
      "name": "item1a bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2336/2642 = %88.4"
+     "detail": "3940/4427 = %89.0"
     },
     {
      "name": "item7 bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2280/2642 = %86.3"
+     "detail": "3840/4427 = %86.7"
     },
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
-     "status": "warn",
-     "detail": "0.245 (beklenen 0.010–0.200)"
+     "status": "ok",
+     "detail": "0.179 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -849,16 +1293,16 @@
     {
      "name": "Medyan uzunluk (karakter)",
      "status": "info",
-     "detail": "item1: 45,533, item1a: 80,626, item7: 41,318"
+     "detail": "item1: 40,380, item1a: 73,391, item7: 43,569"
     }
    ]
   },
   "2026": {
    "partition": "2026",
-   "fetched_at": "2026-10-10T10:16:42+00:00",
-   "rows": 2562,
-   "bytes": 156215420,
-   "sha256": "a4526d105a173ee03423fa5ee35177abf211010fd595f8eb2e992189982decee",
+   "fetched_at": "2026-10-10T20:02:46+00:00",
+   "rows": 4222,
+   "bytes": 245610450,
+   "sha256": "a1472588ec83d142cd2333e5f04713059716f276c799efd6c788e09919d8676e",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -874,55 +1318,56 @@
     "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<primary_doc>"
    ],
    "notes": {
-    "filings": 2562,
+    "filings": 4222,
     "failed": 0
    },
    "asset": "tenk__2026.parquet",
+   "release": "veri-arsivi-2009",
    "status": "warn",
-   "duration_s": 617.7,
-   "requests": 2562,
+   "duration_s": 1273.6,
+   "requests": 4222,
    "checks": [
     {
      "name": "10-K sayısı",
      "status": "ok",
-     "detail": "2,562 (beklenen 1,500–8,000)"
+     "detail": "4,222 (beklenen 1,500–8,000)"
     },
     {
      "name": "İndirilen",
      "status": "ok",
-     "detail": "2562/2562 = %100.0"
+     "detail": "4222/4222 = %100.0"
     },
     {
      "name": "item1 bulundu (>2.000 karakter)",
      "status": "warn",
-     "detail": "2234/2562 = %87.2"
+     "detail": "3698/4222 = %87.6"
     },
     {
      "name": "item1a bulundu (>2.000 karakter)",
      "status": "ok",
-     "detail": "2278/2562 = %88.9"
+     "detail": "3789/4222 = %89.7"
     },
     {
      "name": "item7 bulundu (>2.000 karakter)",
      "status": "warn",
-     "detail": "2133/2562 = %83.3"
+     "detail": "3560/4222 = %84.3"
     },
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
-     "status": "warn",
-     "detail": "0.263 (beklenen 0.010–0.200)"
+     "status": "ok",
+     "detail": "0.191 (beklenen 0.010–0.200)"
     },
     {
      "name": "Medyan uzunluk (karakter)",
      "status": "info",
-     "detail": "item1: 46,751, item1a: 84,088, item7: 38,900"
+     "detail": "item1: 41,857, item1a: 76,529, item7: 41,360"
     }
    ]
   }
  },
  "dataset_checks": [],
- "title": "10-K metinleri (Madde 1, 1A, 7; 2014→)",
+ "title": "10-K metinleri (Madde 1, 1A, 7; 2008→)",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-10T10:27:37+00:00"
+ "finalized_at": "2026-10-10T21:26:29+00:00"
 }
