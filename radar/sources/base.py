@@ -17,6 +17,7 @@ class Security:
     financial_status: str
     is_common: bool
     cik: int | None = None
+    exchange: str = "Q"  # Q = Nasdaq, N = NYSE, A = NYSE American
 
 
 @dataclass

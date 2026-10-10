@@ -228,3 +228,20 @@ def test_gdelt_previous_slot_and_zip_check():
     url = "http://data.gdeltproject.org/gdeltv2/20261009230000.gkg.csv.zip"
     assert gdelt.previous_slot(url) == "http://data.gdeltproject.org/gdeltv2/20261009224500.gkg.csv.zip"
     assert not gdelt.zip_intact(b"not a zip")
+
+
+def test_parse_other_listed_keeps_nyse_common_only():
+    from radar.sources import universe
+    text = "\n".join([
+        "ACT Symbol|Security Name|Exchange|CQS Symbol|ETF|Round Lot Size|Test Issue|NASDAQ Symbol",
+        "JPM|JPMorgan Chase & Co. Common Stock|N|JPM|N|100|N|JPM",
+        "BAC$K|Bank of America Corporation Depositary Shares|N|BACpK|N|100|N|BAC-K",
+        "SPY|SPDR S&P 500 ETF Trust|P|SPY|Y|100|N|SPY",
+        "XYZ.WS|XYZ Corp Warrants|N|XYZ.WS|N|100|N|XYZ+",
+        "UEC|Uranium Energy Corp. Common Stock|A|UEC|N|100|N|UEC",
+        "BRK.B|Berkshire Hathaway Inc. Class B|N|BRK.B|N|100|N|BRK.B",
+        "File Creation Time: 1010202612:00|||||||",
+    ])
+    secs = universe.parse_other_listed(text)
+    common = {s.symbol: s.exchange for s in secs if s.is_common}
+    assert common == {"JPM": "N", "UEC": "A", "BRK.B": "N"}

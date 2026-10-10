@@ -1,12 +1,8 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 13,
+ "rev": 14,
  "requests": [
-  {"dataset": "filings"},
-  {"dataset": "prices"},
-  {"dataset": "ftd"},
-  {"dataset": "financials"},
-  {"dataset": "insider"},
-  {"dataset": "holdings"}
+  {"dataset": "universe"},
+  {"dataset": "prices", "force": true}
  ]
 }

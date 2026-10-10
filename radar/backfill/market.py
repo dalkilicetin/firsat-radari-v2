@@ -18,7 +18,10 @@ from radar.sources import prices, universe, wikipedia
 from radar.sources.base import Context
 
 # Kıyas endeksleri (ETF; hisse evrenine girmez, yalnızca "piyasayı alsaydım" karşılaştırması için).
-BENCHMARKS = ["QQQ", "SPY"]
+# Sektör/tema ETF'leri sinyal olarak kullanılır (hissenin sektörü yükselişte mi, piyasa hangi dönemde).
+BENCHMARKS = ["QQQ", "SPY", "IWM", "DIA", "XLK", "XLE", "XLV", "XLF", "XLI", "XLY", "XLP", "XLU", "XLB", "XLRE",
+              "XLC", "SMH", "IGV", "IBB", "XBI", "ITA", "KRE", "ARKK", "TAN", "GDX", "URA", "XRT", "XHB", "JETS",
+              "BITO", "BOTZ"]
 GROUPS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J-K", "L", "M", "N", "O", "P", "Q-R", "S", "T", "U-V", "W-Z"]
 YAHOO_MAX = ("https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1=1230768000&period2={end}"
              "&interval=1d&events=split,div&includeAdjustedClose=true")
@@ -31,8 +34,10 @@ def in_group(symbol: str, group: str) -> bool:
 
 
 def current_symbols(client: HttpClient) -> list[str]:
-    secs, _ = universe.parse_nasdaq_listed(client.get(universe.NASDAQ_URL).text)
-    return sorted(s.symbol for s in secs if s.is_common)
+    """Nasdaq + NYSE + NYSE American adi hisseleri."""
+    nasdaq, _ = universe.parse_nasdaq_listed(client.get(universe.NASDAQ_URL).text)
+    other = universe.parse_other_listed(client.get(universe.OTHER_URL).text)
+    return sorted({s.symbol for s in nasdaq + other if s.is_common})
 
 
 def parse_yahoo_events(data: dict) -> tuple[list[dict], list[dict]]:
@@ -168,3 +173,35 @@ class WikipediaViews(Dataset):
         rep.expect_min_ratio("Son 5 güne kadar güncel", int((span["max"] >= pd.Timestamp.today() - pd.Timedelta(days=5)).sum()),
                              len(span), 0.97, 0.9)
         rep.add("Geçmiş derinliği", Status.INFO, f"Temmuz 2015'ten başlayan: {int((span['min'] <= pd.Timestamp('2015-07-02')).sum())}/{len(span)}")
+
+
+class ListedUniverse(Dataset):
+    """Bugün işlem gören adi hisseler (Nasdaq + NYSE + NYSE American) ve CIK'leri: kimlik katmanının girdisi."""
+    name = "universe"
+    title = "Hisse evreni anlık görüntüsü (Nasdaq + NYSE + NYSE American)"
+    max_parallel = 1
+
+    def partitions(self, client: HttpClient, today: date) -> list[str]:
+        return [f"snapshot-{today:%Y%m%d}"]
+
+    def load(self, client: HttpClient, partition: str) -> Loaded:
+        secs = universe.listed_securities(client)
+        df = pd.DataFrame([{"symbol": s.symbol, "name": s.name, "cik": s.cik, "exchange": s.exchange,
+                            "market_category": s.market_category, "financial_status": s.financial_status,
+                            "is_common": s.is_common} for s in secs])
+        df["cik"] = df.cik.astype("Int64")
+        return Loaded(df, [universe.NASDAQ_URL, universe.OTHER_URL, universe.SEC_TICKERS_URL], {})
+
+    def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
+        df = loaded.df[loaded.df.is_common]
+        for ex, label, lo, hi in (("Q", "Nasdaq", 2500, 4500), ("N", "NYSE", 1300, 3000), ("A", "NYSE American", 100, 600)):
+            rep.expect_range(f"{label} adi hisse sayısı", int((df.exchange == ex).sum()), lo, hi)
+        rep.expect_min_ratio("SEC CIK eşleşme oranı", int(df.cik.notna().sum()), len(df), 0.92, 0.85)
+        known = {"AAPL": ("Q", 320193), "JPM": ("N", 19617), "PLTR": ("Q", 1321655), "KO": ("N", 21344)}
+        got = {}
+        for s in known:
+            row = df[df.symbol == s]
+            got[s] = (row.exchange.iloc[0], None if pd.isna(row.cik.iloc[0]) else int(row.cik.iloc[0])) if len(row) else None
+        bad = {s: g for s, g in got.items() if g != known[s]}
+        rep.add("Doğrulanmış gerçekler: AAPL/PLTR Nasdaq, JPM/KO NYSE (CIK ile)", Status.FAIL if bad else Status.OK,
+                f"hatalı: {bad}" if bad else "4/4 doğru")

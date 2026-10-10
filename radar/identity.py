@@ -1,10 +1,11 @@
-"""Kimlik katmanı: her şirketi (CIK) sembol geçmişi, Nasdaq üyelik dönemi ve fiyat kaynağıyla birleştirir.
+"""Kimlik katmanı: her şirketi (CIK) sembol geçmişi, borsa üyelik dönemi ve fiyat kaynağıyla birleştirir.
+
+Evren (2026-10-10 kararı): Nasdaq + NYSE + NYSE American. Aşağıdaki "Nasdaq" ifadeleri bu üç borsayı kapsar.
 
 Nasdaq üyeliği (hayatta kalan yanılgısı olmadan):
-- Bugün Nasdaq'ta olanlar: fiyat verisinin başladığı günden bugüne. Geçmişte başka borsadan geçtiyse
-  (o borsanın Form 25-NSE'si ya da şirketin kendi verdiği Form 25, örn. PLTR 2024), üyelik geçiş tarihinde başlar.
-- Nasdaq'tan çıkanlar: Form 25-NSE'yi Nasdaq'ın kendisi dosyalar (dosya no öneki NASDAQ_FILER). Bugün Nasdaq'ta
-  olmayan ve 2015 sonrası böyle bir bildirimi olan şirketlerin üyeliği son bildirim tarihinde biter.
+- Bugün işlem görenler: fiyat verisinin başladığı günden bugüne (borsalar arası geçiş üyeliği kesmez).
+- Çıkanlar: Form 25-NSE'yi borsanın kendisi dosyalar (dosya no öneki NASDAQ_FILER / NYSE_FILERS). Bugün işlem
+  görmeyen ve START sonrası böyle bir bildirimi olan şirketlerin üyeliği son bildirim tarihinde biter.
   Not: 25-NSE adi hisse dışındaki menkul kıymetler için de verilebilir; fiyat verisinin kesilmesiyle birlikte
   değerlendirilir (price_end).
 Çıkış anındaki değer (delisting return): çıkıştan önceki 1 yıl / sonraki 90 gün içinde 8-K Madde 1.03 (iflas)
@@ -75,8 +76,16 @@ def exchange_exits(filings: pd.DataFrame) -> pd.DataFrame:
     return d
 
 
+def current_universe() -> pd.DataFrame:
+    """Bugün işlem gören adi hisseler: arşivdeki anlık görüntü (Nasdaq + NYSE + NYSE American); yoksa Nasdaq listesi."""
+    if archive.entries("universe"):
+        u = archive.load("universe")
+        return u[u.is_common].drop(columns=["is_common"])
+    return pd.read_csv(config.STATE_DIR / "universe.csv", dtype={"cik": "Int64"}).assign(exchange="Q")
+
+
 def build() -> dict[str, pd.DataFrame]:
-    universe = pd.read_csv(config.STATE_DIR / "universe.csv", dtype={"cik": "Int64"})
+    universe = current_universe()
     filings = archive.load("filings", columns=["cik", "form", "filing_date", "accession", "name", "tickers", "items"])
     insider = archive.load("insider", columns=["issuer_cik", "ticker", "filing_date"])
     prices = archive.load("prices", columns=["symbol", "date", "close", "volume"])
@@ -91,10 +100,9 @@ def build() -> dict[str, pd.DataFrame]:
     cur = universe.dropna(subset=["cik"]).copy()
     cur["cik"] = cur.cik.astype("int64")
     cur["start"] = cur.symbol.map(first_price).fillna(pd.Timestamp.today().normalize())
-    transfer = exits[exits.exchange != "NASDAQ"].groupby("cik").filing_date.max()
-    moved = cur.cik.map(transfer)
-    cur["transferred_from_other"] = moved.notna() & (moved > cur.start + pd.Timedelta(days=30))
-    cur["start"] = cur.start.where(~cur.transferred_from_other, moved)
+    # Evren Nasdaq + NYSE + NYSE American: borsalar arası geçişte (ör. PLTR 2024'te NYSE → Nasdaq) üyelik kesilmez,
+    # fiyat verisinin başladığı günden bugüne sürer.
+    cur["transferred_from_other"] = False
     # Birden çok hisse sınıfı aynı CIK'ı paylaşır (GOOG/GOOGL): son 1 yılın işlem hacmi en yüksek sınıf ana sınıftır.
     recent = prices[prices.date >= prices.date.max() - pd.Timedelta(days=365)]
     dollar_vol = (recent.close * recent.volume).groupby(recent.symbol).median()
@@ -105,8 +113,8 @@ def build() -> dict[str, pd.DataFrame]:
     cur = cur.assign(end=pd.NaT, price_source="yahoo", status="aktif", bankrupt=False)[
         ["cik", "symbol", "name", "start", "end", "price_source", "status", "transferred_from_other", "bankrupt"]]
 
-    # B) 2015 sonrası Nasdaq'tan çıkanlar
-    nasdaq_exit = exits[(exits.exchange == "NASDAQ") & (exits.filing_date >= START)].groupby("cik").filing_date.max()
+    # B) START sonrası Nasdaq ya da NYSE'den çıkanlar (borsanın kendi Form 25-NSE'si)
+    nasdaq_exit = exits[exits.exchange.isin(["NASDAQ", "NYSE"]) & (exits.filing_date >= START)].groupby("cik").filing_date.max()
     gone = nasdaq_exit[~nasdaq_exit.index.isin(cur.cik)].rename("end").reset_index()
     # Çıkış anında kullanılan sembol: çıkıştan önce/30 gün sonrasına kadar en son görülen sembol.
     h = hist.merge(gone, on="cik")

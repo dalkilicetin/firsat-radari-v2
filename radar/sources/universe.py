@@ -1,4 +1,4 @@
-"""Hisse evreni: Nasdaq'ın resmî sembol listesi + SEC'in ticker→CIK eşleştirmesi.
+"""Hisse evreni: Nasdaq'ın resmî sembol listeleri (Nasdaq + NYSE + NYSE American) + SEC'in ticker→CIK eşleştirmesi.
 
 Yeni halka arzlar, her çalışmada listeyi bir önceki anlık görüntüyle karşılaştırarak yakalanır.
 """
@@ -18,6 +18,9 @@ from radar.sources.base import Context, Security
 KEY, TITLE, TIER, ROADS = "universe", "Hisse evreni (Nasdaq + SEC)", 1, [1, 2, 3, 4]
 
 NASDAQ_URL = "https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt"
+# Diğer borsalar (NYSE = N, NYSE American = A; Arca/BATS/IEX çoğunlukla ETF olduğundan alınmaz).
+OTHER_URL = "https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt"
+OTHER_EXCHANGES = {"N", "A"}
 SEC_TICKERS_URL = "https://www.sec.gov/files/company_tickers_exchange.json"
 SNAPSHOT = config.STATE_DIR / "universe.csv"
 
@@ -57,6 +60,33 @@ def parse_nasdaq_listed(text: str) -> tuple[list[Security], datetime | None]:
             financial_status=r.get("Financial Status", ""), is_common=is_common,
         ))
     return securities, created
+
+
+def parse_other_listed(text: str) -> list[Security]:
+    lines = [ln for ln in text.strip().splitlines() if not ln.startswith("File Creation Time")]
+    out = []
+    for r in csv.DictReader(io.StringIO("\n".join(lines)), delimiter="|"):
+        if r.get("Test Issue") == "Y" or r.get("Exchange") not in OTHER_EXCHANGES:
+            continue
+        sym, name = r["ACT Symbol"].strip(), r["Security Name"]
+        # "$" tercihli hisse, ".W"/".U"/".R" varant/ünite/hak sınıflarıdır.
+        is_common = r.get("ETF") != "Y" and not NON_COMMON.search(name) and "$" not in sym \
+            and not re.search(r"\.(W|WS|U|R|RT)$", sym)
+        out.append(Security(symbol=sym, name=name, market_category="", financial_status="", is_common=is_common,
+                            exchange=r["Exchange"]))
+    return out
+
+
+def listed_securities(client) -> list[Security]:
+    """Nasdaq + NYSE + NYSE American; CIK'ler SEC eşleştirmesinden."""
+    nasdaq, _ = parse_nasdaq_listed(client.get(NASDAQ_URL).text)
+    other = parse_other_listed(client.get(OTHER_URL).text)
+    secs = nasdaq + other
+    sec = parse_sec_tickers(client.get(SEC_TICKERS_URL).json())
+    for s in secs:
+        hit = sec.get(normalize_symbol(s.symbol))
+        s.cik = hit[0] if hit else None
+    return secs
 
 
 def parse_sec_tickers(data: dict) -> dict[str, tuple[int, str]]:
