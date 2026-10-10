@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import sys
+import time
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
@@ -69,11 +70,19 @@ def ensure(dataset: str, name: str, entry: dict) -> str:
         return str(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".part")
-    with requests.get(RELEASE_URL.format(release=entry.get("release", "veri-arsivi"), asset=entry["asset"]), stream=True, timeout=600) as r:
-        r.raise_for_status()
-        with tmp.open("wb") as f:
-            for chunk in r.iter_content(1 << 22):
-                f.write(chunk)
+    url = RELEASE_URL.format(release=entry.get("release", "veri-arsivi"), asset=entry["asset"])
+    for attempt in range(5):  # büyük dosyalarda bağlantı kopabilir: kısa beklemeyle yeniden dene
+        try:
+            with requests.get(url, stream=True, timeout=600) as r:
+                r.raise_for_status()
+                with tmp.open("wb") as f:
+                    for chunk in r.iter_content(1 << 22):
+                        f.write(chunk)
+            break
+        except (requests.ConnectionError, requests.exceptions.ChunkedEncodingError, requests.Timeout):
+            if attempt == 4:
+                raise
+            time.sleep(2 ** (attempt + 1))
     tmp.replace(path)
     if storage.sha256(path) != entry["sha256"]:
         path.unlink()
