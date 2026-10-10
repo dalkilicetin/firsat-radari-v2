@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 
 import numpy as np
 import pandas as pd
@@ -64,6 +65,11 @@ def producers():
     }
 
 
+def filename(name: str) -> str:
+    """Sinyal adı → güvenli dosya adı (ad '/' ya da boşluk içerebilir)."""
+    return re.sub(r"[^0-9A-Za-z_.-]+", "_", name) + ".parquet"
+
+
 def fingerprint(datasets: list[str]) -> str:
     h = hashlib.sha256()
     for ds in sorted(datasets):
@@ -78,11 +84,11 @@ def load_group(group: str, p: dict, force: bool = False) -> dict[str, pd.DataFra
     meta_path = CACHE / f"{group}.json"
     if not force and meta_path.exists() and json.loads(meta_path.read_text()).get("fingerprint") == fp:
         names = json.loads(meta_path.read_text())["signals"]
-        return {n: pd.read_parquet(CACHE / f"{n}.parquet") for n in names}
+        return {n: pd.read_parquet(CACHE / filename(n)) for n in names}
     sigs = producers()[group](p)
     CACHE.mkdir(parents=True, exist_ok=True)
     for name, df in sigs.items():
-        df.astype("float32").to_parquet(CACHE / f"{name}.parquet")
+        df.astype("float32").to_parquet(CACHE / filename(name))
     meta_path.write_text(json.dumps({"fingerprint": fp, "road": road, "signals": list(sigs)}))
     return {n: df.astype("float32") for n, df in sigs.items()}
 

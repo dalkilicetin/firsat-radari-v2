@@ -113,9 +113,14 @@ def main(which: str) -> None:
                  "risk_bolumu_buyumesi_dusuk": "−risk faktörleri bölümünün uzunluk artışı.",
                  "devamlilik_suphesi": "Son 10-K'da 'substantial doubt ... going concern' ifadesi."}
     elif which == "road4":
-        from radar.research import road4
-        sig, title = road4.signals(p), "4. yol: temadan hisseye"
-        notes = {"tema_ruzgari": "Σ (şirketin son 12 aydaki GDELT tema maruziyeti × temanın 4/52 haftalık ivmesi)."}
+        from radar.research import library
+        sig = {n: df for n, df in library.load_group("road4", p).items()}
+        sig = {n: df.reindex(index=p["price"].index, columns=p["price"].columns) for n, df in sig.items()}
+        title = "4. yol: temadan hisseye (temel sürüm + ön kayıtlı varyantlar)"
+        notes = {"tema_ruzgari": "Temel: Σ (12 aylık tema maruziyeti × 4/52 haftalık tema ivmesi), en yaygın 50 tema hariç.",
+                 "tema_ruzgari_v1_uzun": "Ön kayıt V1: 13/104 haftalık tema ivmesi.",
+                 "tema_ruzgari_v2_nadir": "Ön kayıt V2: en yaygın 500 tema hariç (yalnızca özgül temalar).",
+                 "tema_ruzgari_v3_uzun_nadir": "Ön kayıt V3: V1 + V2."}
     else:
         raise SystemExit(f"bilinmeyen rapor: {which}")
     md = build(sig, p, title, notes)
