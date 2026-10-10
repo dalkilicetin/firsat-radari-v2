@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T00:02:30.278984+00:00",
+ "run_at": "2026-10-10T01:11:02.358676+00:00",
  "sources": [
   {
    "key": "universe",
@@ -13,7 +13,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.4,
+   "duration_s": 0.5,
    "requests": 2,
    "checks": [
     {
@@ -26,7 +26,7 @@
      "name": "Nasdaq listesi güncelliği",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.3 gün önce (sınır 4)",
-     "value": 0.25
+     "value": 0.3
     },
     {
      "name": "Bilinen hisseler listede",
@@ -37,8 +37,8 @@
     {
      "name": "SEC CIK eşleşme oranı",
      "status": "ok",
-     "detail": "3424/3434 = %99.7 adi hisse",
-     "value": 0.9971
+     "detail": "3427/3434 = %99.8 adi hisse",
+     "value": 0.998
     },
     {
      "name": "Doğrulanmış CIK değerleri",
@@ -49,8 +49,8 @@
     {
      "name": "Çapraz kontrol: SEC'te 'Nasdaq' görünenler Nasdaq listesinde",
      "status": "ok",
-     "detail": "4337/4376 = %99.1",
-     "value": 0.9911
+     "detail": "4346/4378 = %99.3",
+     "value": 0.9927
     },
     {
      "name": "Finansal durum dağılımı (risk sinyali)",
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.9,
+   "duration_s": 2.5,
    "requests": 15,
    "checks": [
     {
@@ -355,19 +355,19 @@
     {
      "name": "8-K'larda olay kodu (items) dolu",
      "status": "ok",
-     "detail": "1233/1233 = %100.0",
+     "detail": "1119/1119 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)",
      "status": "ok",
-     "detail": "6755/6756 = %100.0; formlar: {'S-1/A': 1}; örnek: [('S-1/A', '2024-09-03', '2024-08-30T23:09:30.000Z')]",
-     "value": 0.9999
+     "detail": "5884/5885 = %100.0; formlar: {'10-Q': 1}; örnek: [('10-Q', '2019-11-12', '2019-11-08T22:41:40.000Z')]",
+     "value": 0.9998
     },
     {
      "name": "Önceki güne tarihlenen gece kabulleri",
      "status": "info",
-     "detail": "43 dosya — dosyalama tarihi değil kabul anı esas alınır",
+     "detail": "191 dosya — dosyalama tarihi değil kabul anı esas alınır",
      "value": null
     },
     {
@@ -451,9 +451,9 @@
    "roads": [
     1
    ],
-   "status": "warn",
+   "status": "ok",
    "error": null,
-   "duration_s": 6.3,
+   "duration_s": 7.5,
    "requests": 23,
    "checks": [
     {
@@ -477,25 +477,25 @@
     {
      "name": "Rastgele şirketlerde temel kalem (varlık/gelir/kâr) bulunan",
      "status": "ok",
-     "detail": "19/20 = %95.0",
-     "value": 0.95
+     "detail": "20/20 = %100.0",
+     "value": 1.0
     },
     {
      "name": "Zaman tutarlılığı: dosyalama tarihi ≥ dönem sonu",
      "status": "ok",
-     "detail": "349447/349490 = %100.0",
-     "value": 0.9999
+     "detail": "305743/305758 = %100.0",
+     "value": 1.0
     },
     {
      "name": "Güncel hisse sayısı (son 200 gün) bulunan",
-     "status": "warn",
-     "detail": "14/20 = %70.0; eksik/eski: ['PGAC:yok', 'DNMX:2025-12-10', 'CCAQ:yok', 'WENN:yok', 'NUR:yok', 'BID:yok']",
-     "value": 0.7
+     "status": "ok",
+     "detail": "19/20 = %95.0; eksik/eski: ['SRAD:yok']",
+     "value": 0.95
     },
     {
      "name": "Kapsam notu",
      "status": "info",
-     "detail": "0 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
+     "detail": "1 şirket IFRS raporluyor (yabancı), 0 şirkette XBRL yok: []",
      "value": null
     }
    ],
@@ -510,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 7.6,
+   "duration_s": 8.0,
    "requests": 61,
    "checks": [
     {
@@ -662,7 +662,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.7,
+   "duration_s": 0.8,
    "requests": 6,
    "checks": [
     {
@@ -754,7 +754,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.2,
+   "duration_s": 0.3,
    "requests": 1,
    "checks": [
     {
@@ -815,7 +815,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 25.5,
+   "duration_s": 0.8,
    "requests": 4,
    "checks": [
     {
@@ -951,7 +951,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 48.2,
+   "duration_s": 37.5,
    "requests": 38,
    "checks": [
     {
@@ -993,8 +993,8 @@
     {
      "name": "Fiyat güncelliği (medyan hissenin son barı)",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 5)",
-     "value": 2
+     "detail": "en son kayıt 2026-10-09, 1.0 gün önce (sınır 5)",
+     "value": 1
     },
     {
      "name": "5 günden eski son bar (işlem durdurma / likidite riski)",
@@ -1033,7 +1033,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.7,
+   "duration_s": 1.5,
    "requests": 6,
    "checks": [
     {
@@ -1116,49 +1116,49 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 26.1,
+   "duration_s": 34.4,
    "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25)",
-     "value": 0.0
+     "detail": "en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25)",
+     "value": -0.0
     },
     {
      "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
      "status": "ok",
-     "detail": "4,143,183 bayt, md5 eşleşti",
+     "detail": "3,969,681 bayt, md5 eşleşti",
      "value": null
     },
     {
      "name": "15 dakikalık dosyada makale",
      "status": "ok",
-     "detail": "945 (beklenen 500–50,000)",
-     "value": 945
+     "detail": "914 (beklenen 500–50,000)",
+     "value": 914
     },
     {
      "name": "Sütun sayısı = 27",
      "status": "ok",
-     "detail": "945/945 = %100.0",
+     "detail": "914/914 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kurum (Organizations) bilgisi olan",
      "status": "ok",
-     "detail": "730/945 = %77.2",
-     "value": 0.7725
+     "detail": "733/914 = %80.2",
+     "value": 0.802
     },
     {
      "name": "Ton değeri okunabilen",
      "status": "ok",
-     "detail": "945/945 = %100.0",
+     "detail": "914/914 = %100.0",
      "value": 1.0
     },
     {
      "name": "Bu 15 dakikada en çok geçen kurumlar",
      "status": "info",
-     "detail": "united states (55), white house (40), google (36), associated press (27), australian associated (23), national hurricane center (18), national weather service (18), cnn (18)",
+     "detail": "white house (46), united states (46), australian associated (40), national weather service (28), cnn (22), reuters (21), national news desk (20), national hurricane center (18)",
      "value": null
     },
     {
@@ -1170,25 +1170,25 @@
     {
      "name": "Yardımcı: DOC API zaman serisi",
      "status": "info",
-     "detail": "erişilemedi (HTTP 429); ham dosyalar yeterli",
+     "detail": "0 nokta (yardımcı kaynak; durumu etkilemez)",
      "value": null
     }
    ],
    "sample": [
     {
-     "date": "20261010000000",
-     "source": "batonrougepost.com",
-     "orgs": "business incubator association;chandigarh university;grade university;centre for incubation;microsoft;national assessmen"
+     "date": "20261010011500",
+     "source": "times-standard.com",
+     "orgs": "harford elementary school;morgan;department of transportation;cleary transportation inc"
     },
     {
-     "date": "20261010000000",
-     "source": "interior-news.com",
-     "orgs": "b c manufacturing jobs fund"
+     "date": "20261010011500",
+     "source": "midmichigannow.com",
+     "orgs": "national news desk;pew research center;cnn;george washington university;mastercard;money management international;univer"
     },
     {
-     "date": "20261010000000",
-     "source": "mit.edu",
-     "orgs": "research scientist julian klein"
+     "date": "20261010011500",
+     "source": "midmichigannow.com",
+     "orgs": "instagram"
     }
    ]
   },
@@ -1202,7 +1202,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 6.7,
+   "duration_s": 3.6,
    "requests": 6,
    "checks": [
     {
@@ -1336,8 +1336,8 @@
     {
      "name": "Güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
-     "value": 0.05
+     "detail": "en son kayıt 2026-10-09, 0.1 gün önce (sınır 2)",
+     "value": 0.09
     },
     {
      "name": "Geçmiş veri: Ocak 2016 sonuç",
@@ -1349,11 +1349,11 @@
    "sample": [
     {
      "title": "Boro: Nvidia's Open-Source Effort for AI-Assisted Linux Kernel Development",
-     "points": 1
+     "points": 2
     },
     {
      "title": "GPGPU-SIM – Cycle-Level Simulator for Nvidia GPUs with CUDA or OpenCL Workloads",
-     "points": 1
+     "points": 2
     },
     {
      "title": "Nvidia Driver for macOS",
@@ -1371,32 +1371,32 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.5,
+   "duration_s": 1.3,
    "requests": 3,
    "checks": [
     {
      "name": "'Nvidia stock': haber sayısı",
      "status": "ok",
-     "detail": "101 (beklenen 20–200)",
-     "value": 101
+     "detail": "104 (beklenen 20–200)",
+     "value": 104
     },
     {
      "name": "'Nvidia stock': tarihi okunabilen",
      "status": "ok",
-     "detail": "101/101 = %100.0",
+     "detail": "104/104 = %100.0",
      "value": 1.0
     },
     {
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 2)",
-     "value": 0.01
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
+     "value": 0.05
     },
     {
      "name": "'Nvidia stock': tekil başlık",
      "status": "ok",
-     "detail": "100/101 = %99.0",
-     "value": 0.9901
+     "detail": "103/104 = %99.0",
+     "value": 0.9904
     },
     {
      "name": "'Apple earnings': haber sayısı",
@@ -1413,8 +1413,8 @@
     {
      "name": "'Apple earnings': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.2 gün önce (sınır 2)",
-     "value": 0.23
+     "detail": "en son kayıt 2026-10-09, 0.3 gün önce (sınır 2)",
+     "value": 0.28
     },
     {
      "name": "'Apple earnings': tekil başlık",
@@ -1437,8 +1437,8 @@
     {
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.1 gün önce (sınır 2)",
-     "value": 0.1
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
+     "value": 0.04
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -1529,7 +1529,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.0,
+   "duration_s": 1.6,
    "requests": 3,
    "checks": [
     {
@@ -1565,8 +1565,8 @@
     {
      "name": "apple: son push",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.0 gün önce (sınır 3)",
-     "value": 0.03
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 3)",
+     "value": 0.01
     },
     {
      "name": "Kapsam notu",
@@ -1577,19 +1577,19 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/gpu-operator",
-     "NVIDIA/nvcf",
-     "NVIDIA/aicr"
+     "NVIDIA/aicr",
+     "NVIDIA/OpenShell",
+     "NVIDIA/cuda-python"
     ],
     "microsoft": [
-     "microsoft/mxc",
-     "microsoft/garnet",
-     "microsoft/vscode-isort"
+     "microsoft/aspire",
+     "microsoft/BCApps",
+     "microsoft/nvx"
     ],
     "apple": [
+     "apple/coreai-models",
      "apple/swift-network-evolution",
-     "apple/foundationdb",
-     "apple/containerization"
+     "apple/foundationdb"
     ]
    }
   }
