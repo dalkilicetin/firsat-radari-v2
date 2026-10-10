@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import sys
+import threading
 from concurrent.futures import ThreadPoolExecutor
 
 import pandas as pd
@@ -30,9 +31,41 @@ def entries(dataset: str) -> dict[str, dict]:
     return out
 
 
+_VERIFIED = storage.BACKFILL_DIR / ".dogrulanmis.json"
+_LOCK = threading.Lock()  # paralel indirmeler önbellek dosyasını aynı anda güncellemesin
+
+
+def _verified_cache() -> dict:
+    try:
+        return json.loads(_VERIFIED.read_text())
+    except (FileNotFoundError, ValueError):
+        return {}
+
+
+def _is_verified(path, sha: str) -> bool:
+    """sha256 bir kez hesaplanır; dosyanın boyutu ve değişiklik zamanı aynı kaldıkça yeniden hesaplanmaz."""
+    if not path.exists():
+        return False
+    st = path.stat()
+    key = str(path)
+    cache = _verified_cache()
+    if cache.get(key) == [st.st_size, st.st_mtime_ns, sha]:
+        return True
+    if storage.sha256(path) != sha:
+        return False
+    with _LOCK:
+        cache = _verified_cache()
+        cache[key] = [st.st_size, st.st_mtime_ns, sha]
+        _VERIFIED.parent.mkdir(parents=True, exist_ok=True)
+        tmp = _VERIFIED.with_suffix(".tmp")
+        tmp.write_text(json.dumps(cache))
+        tmp.replace(_VERIFIED)
+    return True
+
+
 def ensure(dataset: str, name: str, entry: dict) -> str:
     path = storage.partition_path(dataset, name)
-    if path.exists() and storage.sha256(path) == entry["sha256"]:
+    if _is_verified(path, entry["sha256"]):
         return str(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".part")
