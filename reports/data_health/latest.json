@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T01:11:02.358676+00:00",
+ "run_at": "2026-10-10T06:51:27.522241+00:00",
  "sources": [
   {
    "key": "universe",
@@ -25,8 +25,8 @@
     {
      "name": "Nasdaq listesi güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.3 gün önce (sınır 4)",
-     "value": 0.3
+     "detail": "en son kayıt 2026-10-09, 0.4 gün önce (sınır 4)",
+     "value": 0.39
     },
     {
      "name": "Bilinen hisseler listede",
@@ -55,12 +55,12 @@
     {
      "name": "Finansal durum dağılımı (risk sinyali)",
      "status": "info",
-     "detail": "normal: 3133, yetersiz (deficient): 280, geciken rapor (delinquent): 17, yetersiz+geciken: 4",
+     "detail": "normal: 3133, yetersiz (deficient): 281, geciken rapor (delinquent): 17, yetersiz+geciken: 3",
      "value": {
-      "yetersiz (deficient)": 280,
+      "yetersiz (deficient)": 281,
       "normal": 3133,
       "geciken rapor (delinquent)": 17,
-      "yetersiz+geciken": 4
+      "yetersiz+geciken": 3
      }
     },
     {
@@ -126,8 +126,8 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.9,
-   "requests": 6,
+   "duration_s": 0.7,
+   "requests": 5,
    "checks": [
     {
      "name": "Erişilebilen iş günü sayısı (son 7 iş günü içinde)",
@@ -138,32 +138,8 @@
     {
      "name": "İndeks güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 4)",
-     "value": 2
-    },
-    {
-     "name": "2026-10-02: toplam dosya",
-     "status": "ok",
-     "detail": "7,159 (beklenen 1,500–15,000)",
-     "value": 7159
-    },
-    {
-     "name": "2026-10-02: Form 4 sayısı",
-     "status": "ok",
-     "detail": "3,079 (beklenen 300–6,000)",
-     "value": 3079
-    },
-    {
-     "name": "2026-10-02: kullanılan formlar 1 iş günü içinde yayımlanmış",
-     "status": "ok",
-     "detail": "3463/3463 = %100.0",
-     "value": 1.0
-    },
-    {
-     "name": "2026-10-02: gizli taslak (DRS) — dosyalama ≠ yayım",
-     "status": "info",
-     "detail": "10 kayıt, medyan gecikme 63 gün (geriye dönük testte yayım tarihi esas alınır)",
-     "value": null
+     "detail": "en son kayıt 2026-10-09, 1.0 gün önce (sınır 4)",
+     "value": 1
     },
     {
      "name": "2026-10-05: toplam dosya",
@@ -262,62 +238,86 @@
      "value": null
     },
     {
+     "name": "2026-10-09: toplam dosya",
+     "status": "ok",
+     "detail": "3,216 (beklenen 1,500–15,000)",
+     "value": 3216
+    },
+    {
+     "name": "2026-10-09: Form 4 sayısı",
+     "status": "ok",
+     "detail": "564 (beklenen 300–6,000)",
+     "value": 564
+    },
+    {
+     "name": "2026-10-09: kullanılan formlar 1 iş günü içinde yayımlanmış",
+     "status": "ok",
+     "detail": "1044/1044 = %100.0",
+     "value": 1.0
+    },
+    {
+     "name": "2026-10-09: gizli taslak (DRS) — dosyalama ≠ yayım",
+     "status": "info",
+     "detail": "25 kayıt, medyan gecikme 67 gün (geriye dönük testte yayım tarihi esas alınır)",
+     "value": null
+    },
+    {
      "name": "Haftalık form dağılımı",
      "status": "info",
-     "detail": "4: 7628, 8-K: 943, 13F-HR: 259, SCHEDULE 13D: 60, SCHEDULE 13G: 284, 10-K: 9, 10-Q: 39, S-1: 19, 424B4: 3, NT 10-K: 0",
+     "detail": "4: 5113, 8-K: 907, 13F-HR: 392, SCHEDULE 13D: 58, SCHEDULE 13G: 292, 10-K: 12, 10-Q: 42, S-1: 20, 424B4: 7, NT 10-K: 0",
      "value": {
-      "4": 7628,
-      "8-K": 943,
-      "13F-HR": 259,
-      "10-K": 9,
-      "10-Q": 39,
-      "S-1": 19,
-      "424B4": 3,
+      "4": 5113,
+      "8-K": 907,
+      "13F-HR": 392,
+      "10-K": 12,
+      "10-Q": 42,
+      "S-1": 20,
+      "424B4": 7,
       "NT 10-K": 0
      }
     },
     {
      "name": "Halka arz hazırlığı (S-1/F-1/424B4)",
      "status": "info",
-     "detail": "51 dosya; örnek: ['Basel Medical Group Ltd', '707 Cayman Holdings Ltd.', 'Tracx Logis Ltd.', 'CYABRA, INC.', 'Amaero Inc.', 'Calm Seas Acquisition Corp.', 'Essential Minerals Acquisition Corp', 'Gravity Acquisition Corp.']",
+     "detail": "62 dosya; örnek: ['DarkIris Inc.', 'DarkIris Inc.', 'Retension Pharmaceuticals, Inc.', 'Sunshine Biopharma Inc.', 'TRex Bio, Inc.', 'OPAY Ltd', 'vVARDIS Holding AG', 'Kainan Holding Group Ltd']",
      "value": null
     }
    ],
    "sample": [
     {
      "form": "1-A",
-     "company": "Cahero Nytra Holding LLC",
-     "cik": 2158856,
-     "filed": "2026-10-08",
-     "path": "edgar/data/2158856/0002158856-26-000001.txt"
-    },
-    {
-     "form": "1-A",
-     "company": "Quantum Genesis AI Corp.",
-     "cik": 1663038,
-     "filed": "2026-10-08",
-     "path": "edgar/data/1663038/0001477932-26-006130.txt"
+     "company": "Timeplast, Inc.",
+     "cik": 1933967,
+     "filed": "2026-10-09",
+     "path": "edgar/data/1933967/0001104659-26-114962.txt"
     },
     {
      "form": "1-A POS",
-     "company": "Entrex Carbon Market, Inc.",
-     "cik": 1363598,
-     "filed": "2026-10-08",
-     "path": "edgar/data/1363598/0001363598-26-000006.txt"
+     "company": "MacKenzie Realty Capital, Inc.",
+     "cik": 1550913,
+     "filed": "2026-10-09",
+     "path": "edgar/data/1550913/0001582328-26-000015.txt"
     },
     {
-     "form": "1-A POS",
-     "company": "UNATION, Inc.",
-     "cik": 1549679,
-     "filed": "2026-10-08",
-     "path": "edgar/data/1549679/0001213900-26-107729.txt"
+     "form": "1-SA",
+     "company": "MODE MOBILE, INC.",
+     "cik": 1748441,
+     "filed": "2026-10-09",
+     "path": "edgar/data/1748441/0001493152-26-046559.txt"
     },
     {
-     "form": "1-A/A",
-     "company": "GOA Therapeutics Corp",
-     "cik": 2131824,
-     "filed": "2026-10-08",
-     "path": "edgar/data/2131824/0001213900-26-108022.txt"
+     "form": "1-SA",
+     "company": "Tranquil Healthcare Fund I, LLC",
+     "cik": 2096363,
+     "filed": "2026-10-09",
+     "path": "edgar/data/2096363/0001683168-26-007756.txt"
+    },
+    {
+     "form": "1-SA",
+     "company": "UC Asset LP",
+     "cik": 1723517,
+     "filed": "2026-10-09",
+     "path": "edgar/data/1723517/0001213900-26-108530.txt"
     }
    ]
   },
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.5,
+   "duration_s": 2.0,
    "requests": 15,
    "checks": [
     {
@@ -361,13 +361,13 @@
     {
      "name": "Kabul anı ile dosyalama tarihi tutarlı (zaman damgası)",
      "status": "ok",
-     "detail": "5884/5885 = %100.0; formlar: {'10-Q': 1}; örnek: [('10-Q', '2019-11-12', '2019-11-08T22:41:40.000Z')]",
+     "detail": "5883/5884 = %100.0; formlar: {'10-Q': 1}; örnek: [('10-Q', '2019-11-12', '2019-11-08T22:41:40.000Z')]",
      "value": 0.9998
     },
     {
      "name": "Önceki güne tarihlenen gece kabulleri",
      "status": "info",
-     "detail": "191 dosya — dosyalama tarihi değil kabul anı esas alınır",
+     "detail": "301 dosya — dosyalama tarihi değil kabul anı esas alınır",
      "value": null
     },
     {
@@ -453,7 +453,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 7.5,
+   "duration_s": 5.2,
    "requests": 23,
    "checks": [
     {
@@ -510,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 8.0,
+   "duration_s": 7.7,
    "requests": 61,
    "checks": [
     {
@@ -522,49 +522,49 @@
     {
      "name": "Geçerli işlem kodu",
      "status": "ok",
-     "detail": "108/108 = %100.0",
+     "detail": "106/106 = %100.0",
      "value": 1.0
     },
     {
      "name": "İşlem tarihi ≤ dosyalama tarihi",
      "status": "ok",
-     "detail": "108/108 = %100.0",
+     "detail": "106/106 = %100.0",
      "value": 1.0
     },
     {
      "name": "Hisse adedi > 0",
      "status": "ok",
-     "detail": "108/108 = %100.0",
+     "detail": "106/106 = %100.0",
      "value": 1.0
     },
     {
      "name": "Alım/satışta fiyat > 0",
      "status": "ok",
-     "detail": "51/51 = %100.0",
+     "detail": "48/48 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kod/yön tutarlılığı (P→A, S→D)",
      "status": "ok",
-     "detail": "51/51 = %100.0",
+     "detail": "48/48 = %100.0",
      "value": 1.0
     },
     {
      "name": "Ticker dolu",
      "status": "ok",
-     "detail": "108/108 = %100.0",
+     "detail": "106/106 = %100.0",
      "value": 1.0
     },
     {
      "name": "İşlem kodu dağılımı (örnek)",
      "status": "info",
-     "detail": "S: 46, A: 24, F: 12, M: 11, D: 9, P: 5, J: 1",
+     "detail": "S: 36, A: 24, F: 20, P: 12, M: 11, D: 2, J: 1",
      "value": null
     },
     {
      "name": "Bildirim gecikmesi (gün, medyan / %95)",
      "status": "info",
-     "detail": "2 / 4",
+     "detail": "4 / 35",
      "value": null
     },
     {
@@ -582,74 +582,74 @@
    ],
    "sample": [
     {
-     "issuer_cik": 1437107,
-     "ticker": "WBD",
-     "owner": "Wiedenfels Gunnar",
-     "is_director": false,
-     "is_officer": true,
-     "officer_title": "Chief Financial Officer",
-     "date": "2026-10-06",
-     "code": "D",
-     "shares": 41784.0,
-     "price": 31.0167,
-     "acquired": "D",
-     "owned_after": 649473.0
-    },
-    {
-     "issuer_cik": 1437107,
-     "ticker": "WBD",
-     "owner": "Wiedenfels Gunnar",
-     "is_director": false,
-     "is_officer": true,
-     "officer_title": "Chief Financial Officer",
-     "date": "2026-10-06",
-     "code": "D",
-     "shares": 14140.0,
-     "price": 31.0167,
-     "acquired": "D",
-     "owned_after": 0.0
-    },
-    {
-     "issuer_cik": 1437107,
-     "ticker": "WBD",
-     "owner": "Wiedenfels Gunnar",
-     "is_director": false,
-     "is_officer": true,
-     "officer_title": "Chief Financial Officer",
-     "date": "2026-10-06",
-     "code": "D",
-     "shares": 421941.0,
-     "price": 31.0167,
-     "acquired": "D",
-     "owned_after": 227532.0
-    },
-    {
-     "issuer_cik": 1437107,
-     "ticker": "WBD",
-     "owner": "Wiedenfels Gunnar",
-     "is_director": false,
-     "is_officer": true,
-     "officer_title": "Chief Financial Officer",
-     "date": "2026-10-06",
-     "code": "D",
-     "shares": 227532.0,
-     "price": 31.0167,
-     "acquired": "D",
-     "owned_after": 0.0
-    },
-    {
-     "issuer_cik": 1437107,
-     "ticker": "WBD",
-     "owner": "Wiedenfels Gunnar",
-     "is_director": false,
-     "is_officer": true,
-     "officer_title": "Chief Financial Officer",
+     "issuer_cik": 1107421,
+     "ticker": "TCRT",
+     "owner": "Jerman Michael Allen",
+     "is_director": true,
+     "is_officer": false,
+     "officer_title": "",
      "date": "2026-10-06",
      "code": "A",
-     "shares": 2982465.0,
-     "price": 0.0,
+     "shares": 20990.0,
+     "price": 0.7444,
      "acquired": "A",
-     "owned_after": 2982465.0
+     "owned_after": 44749.0
+    },
+    {
+     "issuer_cik": 1637873,
+     "ticker": "ACVA",
+     "owner": "Chamoun George",
+     "is_director": true,
+     "is_officer": true,
+     "officer_title": "Chief Executive Officer",
+     "date": "2026-10-01",
+     "code": "F",
+     "shares": 10582.0,
+     "price": 10.45,
+     "acquired": "D",
+     "owned_after": 3354525.0
+    },
+    {
+     "issuer_cik": 1637873,
+     "ticker": "ACVA",
+     "owner": "Chamoun George",
+     "is_director": true,
+     "is_officer": true,
+     "officer_title": "Chief Executive Officer",
+     "date": "2026-10-01",
+     "code": "F",
+     "shares": 13401.0,
+     "price": 10.45,
+     "acquired": "D",
+     "owned_after": 3341124.0
+    },
+    {
+     "issuer_cik": 1637873,
+     "ticker": "ACVA",
+     "owner": "Chamoun George",
+     "is_director": true,
+     "is_officer": true,
+     "officer_title": "Chief Executive Officer",
+     "date": "2026-10-01",
+     "code": "F",
+     "shares": 21281.0,
+     "price": 10.45,
+     "acquired": "D",
+     "owned_after": 3319843.0
+    },
+    {
+     "issuer_cik": 1637873,
+     "ticker": "ACVA",
+     "owner": "Chamoun George",
+     "is_director": true,
+     "is_officer": true,
+     "officer_title": "Chief Executive Officer",
+     "date": "2026-10-01",
+     "code": "F",
+     "shares": 9422.0,
+     "price": 10.45,
+     "acquired": "D",
+     "owned_after": 3310421.0
     }
    ]
   },
@@ -662,13 +662,13 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 0.9,
    "requests": 6,
    "checks": [
     {
      "name": "Bu hafta gelen 13F-HR",
      "status": "info",
-     "detail": "259 dosya (çeyrek sonu +45 gün civarında yoğunlaşır)",
+     "detail": "392 dosya (çeyrek sonu +45 gün civarında yoğunlaşır)",
      "value": null
     },
     {
@@ -680,14 +680,14 @@
     {
      "name": "Geçerli CUSIP",
      "status": "ok",
-     "detail": "486/486 = %100.0",
+     "detail": "1289/1289 = %100.0",
      "value": 1.0
     },
     {
      "name": "Değer ve adet pozitif",
      "status": "ok",
-     "detail": "482/486 = %99.2",
-     "value": 0.9918
+     "detail": "1289/1289 = %100.0",
+     "value": 1.0
     },
     {
      "name": "Toplu veri seti sayısı (geriye dönük test için)",
@@ -704,42 +704,42 @@
    ],
    "sample": [
     {
-     "issuer": "ISHARES",
-     "cusip": "464287200",
-     "value": 118725081.0,
-     "shares": 153570.0,
+     "issuer": "3M CO",
+     "cusip": "88579Y101",
+     "value": 51708.0,
+     "shares": 315.0,
      "type": "SH",
      "put_call": ""
     },
     {
-     "issuer": "JP Morgan",
-     "cusip": "46641Q399",
-     "value": 89150114.0,
-     "shares": 641322.0,
+     "issuer": "A10 NETWORKS INC",
+     "cusip": "002121101",
+     "value": 10357.0,
+     "shares": 382.0,
      "type": "SH",
      "put_call": ""
     },
     {
-     "issuer": "ISHARES",
-     "cusip": "46432F339",
-     "value": 47900898.0,
-     "shares": 213386.0,
+     "issuer": "ABBOTT LABORATORIES",
+     "cusip": "002824100",
+     "value": 46154.0,
+     "shares": 467.0,
      "type": "SH",
      "put_call": ""
     },
     {
-     "issuer": "Invesco",
-     "cusip": "46090E103",
-     "value": 36523236.0,
-     "shares": 48725.0,
+     "issuer": "ABBVIE INC",
+     "cusip": "00287Y109",
+     "value": 36623.0,
+     "shares": 140.0,
      "type": "SH",
      "put_call": ""
     },
     {
-     "issuer": "Vanguard",
-     "cusip": "92204A702",
-     "value": 33934909.0,
-     "shares": 264455.0,
+     "issuer": "ACADIA PHARMACEUTICALS INC",
+     "cusip": "004225108",
+     "value": 847.0,
+     "shares": 42.0,
      "type": "SH",
      "put_call": ""
     }
@@ -754,7 +754,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.3,
+   "duration_s": 0.8,
    "requests": 1,
    "checks": [
     {
@@ -815,7 +815,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.8,
+   "duration_s": 1.1,
    "requests": 4,
    "checks": [
     {
@@ -897,7 +897,7 @@
       "internal_id": 348988388,
       "Award ID": "W519TC25FA004",
       "Recipient Name": "AMAZON WEB SERVICES, INC.",
-      "Award Amount": 165881936.34,
+      "Award Amount": 167541936.34,
       "Start Date": "2024-11-22",
       "Awarding Agency": "Department of Defense",
       "awarding_agency_id": 1173,
@@ -949,9 +949,9 @@
     3,
     4
    ],
-   "status": "ok",
+   "status": "warn",
    "error": null,
-   "duration_s": 37.5,
+   "duration_s": 42.3,
    "requests": 38,
    "checks": [
     {
@@ -980,14 +980,14 @@
     },
     {
      "name": "Tek kaynakta görünen %60+ sıçrama (veri hatası şüphesi)",
-     "status": "ok",
-     "detail": "yok",
+     "status": "warn",
+     "detail": "nasdaq:SHAZ 2025-12-26; nasdaq:SHAZ 2026-02-18",
      "value": null
     },
     {
      "name": "İki kaynağın doğruladığı %60+ hareket (gerçek, risk sinyali)",
      "status": "info",
-     "detail": "CXAI 2026-06-04",
+     "detail": "yok",
      "value": null
     },
     {
@@ -1033,7 +1033,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.5,
+   "duration_s": 1.6,
    "requests": 6,
    "checks": [
     {
@@ -1116,49 +1116,49 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 34.4,
+   "duration_s": 21.6,
    "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25)",
-     "value": -0.0
+     "value": -0.01
     },
     {
      "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
      "status": "ok",
-     "detail": "3,969,681 bayt, md5 eşleşti",
+     "detail": "2,600,910 bayt, md5 eşleşti",
      "value": null
     },
     {
      "name": "15 dakikalık dosyada makale",
      "status": "ok",
-     "detail": "914 (beklenen 500–50,000)",
-     "value": 914
+     "detail": "621 (beklenen 500–50,000)",
+     "value": 621
     },
     {
      "name": "Sütun sayısı = 27",
      "status": "ok",
-     "detail": "914/914 = %100.0",
+     "detail": "621/621 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kurum (Organizations) bilgisi olan",
      "status": "ok",
-     "detail": "733/914 = %80.2",
-     "value": 0.802
+     "detail": "480/621 = %77.3",
+     "value": 0.7729
     },
     {
      "name": "Ton değeri okunabilen",
      "status": "ok",
-     "detail": "914/914 = %100.0",
+     "detail": "621/621 = %100.0",
      "value": 1.0
     },
     {
      "name": "Bu 15 dakikada en çok geçen kurumlar",
      "status": "info",
-     "detail": "white house (46), united states (46), australian associated (40), national weather service (28), cnn (22), reuters (21), national news desk (20), national hurricane center (18)",
+     "detail": "australian associated (49), united states (41), instagram (22), cockroach janta party (21), delhi police (19), election commission (18), google (17), high court (13)",
      "value": null
     },
     {
@@ -1170,25 +1170,25 @@
     {
      "name": "Yardımcı: DOC API zaman serisi",
      "status": "info",
-     "detail": "0 nokta (yardımcı kaynak; durumu etkilemez)",
+     "detail": "erişilemedi (HTTP 429); ham dosyalar yeterli",
      "value": null
     }
    ],
    "sample": [
     {
-     "date": "20261010011500",
-     "source": "times-standard.com",
-     "orgs": "harford elementary school;morgan;department of transportation;cleary transportation inc"
+     "date": "20261010070000",
+     "source": "northeasttoday.in",
+     "orgs": "central armed police forces"
     },
     {
-     "date": "20261010011500",
-     "source": "midmichigannow.com",
-     "orgs": "national news desk;pew research center;cnn;george washington university;mastercard;money management international;univer"
+     "date": "20261010070000",
+     "source": "callapple.org",
+     "orgs": "kodak"
     },
     {
-     "date": "20261010011500",
-     "source": "midmichigannow.com",
-     "orgs": "instagram"
+     "date": "20261010070000",
+     "source": "laois-nationalist.ie",
+     "orgs": "heineken;co laois;portlaoise district court"
     }
    ]
   },
@@ -1202,44 +1202,44 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 3.6,
+   "duration_s": 10.3,
    "requests": 6,
    "checks": [
     {
      "name": "Nvidia: gün sayısı (60 gün)",
      "status": "ok",
-     "detail": "59 (beklenen 55–61)",
-     "value": 59
+     "detail": "60 (beklenen 55–61)",
+     "value": 60
     },
     {
      "name": "Nvidia: güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 3)",
-     "value": 2
+     "detail": "en son kayıt 2026-10-09, 1.0 gün önce (sınır 3)",
+     "value": 1
     },
     {
      "name": "Apple_Inc.: gün sayısı (60 gün)",
      "status": "ok",
-     "detail": "59 (beklenen 55–61)",
-     "value": 59
+     "detail": "60 (beklenen 55–61)",
+     "value": 60
     },
     {
      "name": "Apple_Inc.: güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 3)",
-     "value": 2
+     "detail": "en son kayıt 2026-10-09, 1.0 gün önce (sınır 3)",
+     "value": 1
     },
     {
      "name": "Microsoft: gün sayısı (60 gün)",
      "status": "ok",
-     "detail": "59 (beklenen 55–61)",
-     "value": 59
+     "detail": "60 (beklenen 55–61)",
+     "value": 60
     },
     {
      "name": "Microsoft: güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-08, 2.0 gün önce (sınır 3)",
-     "value": 2
+     "detail": "en son kayıt 2026-10-09, 1.0 gün önce (sınır 3)",
+     "value": 1
     },
     {
      "name": "Geçmiş veri: Temmuz 2015 gün sayısı",
@@ -1270,23 +1270,19 @@
     "pageviews": {
      "Nvidia": [
       [
-       "2026-10-06",
-       5246
-      ],
-      [
        "2026-10-07",
        5673
       ],
       [
        "2026-10-08",
        6972
+      ],
+      [
+       "2026-10-09",
+       5529
       ]
      ],
      "Apple_Inc.": [
-      [
-       "2026-10-06",
-       5897
-      ],
       [
        "2026-10-07",
        5774
@@ -1294,13 +1290,13 @@
       [
        "2026-10-08",
        5998
+      ],
+      [
+       "2026-10-09",
+       5763
       ]
      ],
      "Microsoft": [
-      [
-       "2026-10-06",
-       4922
-      ],
       [
        "2026-10-07",
        5119
@@ -1308,6 +1304,10 @@
       [
        "2026-10-08",
        6396
+      ],
+      [
+       "2026-10-09",
+       8884
       ]
      ]
     },
@@ -1330,14 +1330,14 @@
     {
      "name": "Son 7 gün 'nvidia' haberi",
      "status": "ok",
-     "detail": "34 (beklenen 5–100)",
-     "value": 34
+     "detail": "35 (beklenen 5–100)",
+     "value": 35
     },
     {
      "name": "Güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.1 gün önce (sınır 2)",
-     "value": 0.09
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
+     "value": 0.02
     },
     {
      "name": "Geçmiş veri: Ocak 2016 sonuç",
@@ -1348,15 +1348,15 @@
    ],
    "sample": [
     {
-     "title": "Boro: Nvidia's Open-Source Effort for AI-Assisted Linux Kernel Development",
+     "title": "Metal Driver for Nvidia GeForce RTX Cards on macOS 15 Sequoia",
      "points": 2
+    },
+    {
+     "title": "Boro: Nvidia's Open-Source Effort for AI-Assisted Linux Kernel Development",
+     "points": 3
     },
     {
      "title": "GPGPU-SIM – Cycle-Level Simulator for Nvidia GPUs with CUDA or OpenCL Workloads",
-     "points": 2
-    },
-    {
-     "title": "Nvidia Driver for macOS",
      "points": 3
     }
    ]
@@ -1371,32 +1371,32 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.3,
+   "duration_s": 1.6,
    "requests": 3,
    "checks": [
     {
      "name": "'Nvidia stock': haber sayısı",
      "status": "ok",
-     "detail": "104 (beklenen 20–200)",
-     "value": 104
+     "detail": "103 (beklenen 20–200)",
+     "value": 103
     },
     {
      "name": "'Nvidia stock': tarihi okunabilen",
      "status": "ok",
-     "detail": "104/104 = %100.0",
+     "detail": "103/103 = %100.0",
      "value": 1.0
     },
     {
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
-     "value": 0.05
+     "value": 0.02
     },
     {
      "name": "'Nvidia stock': tekil başlık",
      "status": "ok",
-     "detail": "103/104 = %99.0",
-     "value": 0.9904
+     "detail": "102/103 = %99.0",
+     "value": 0.9903
     },
     {
      "name": "'Apple earnings': haber sayısı",
@@ -1413,8 +1413,8 @@
     {
      "name": "'Apple earnings': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-09, 0.3 gün önce (sınır 2)",
-     "value": 0.28
+     "detail": "en son kayıt 2026-10-09, 0.5 gün önce (sınır 2)",
+     "value": 0.52
     },
     {
      "name": "'Apple earnings': tekil başlık",
@@ -1437,8 +1437,8 @@
     {
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
-     "value": 0.04
+     "detail": "en son kayıt 2026-10-10, 0.3 gün önce (sınır 2)",
+     "value": 0.28
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -1460,12 +1460,12 @@
     ],
     "Apple earnings": [
      {
-      "title": "Apple sets Q4 2026 earnings release for November 2 - 9to5Mac",
-      "source": "9to5Mac"
+      "title": "Q4 Earnings Call for Apple Coming on November - iLounge",
+      "source": "iLounge"
      },
      {
-      "title": "Apple to Report Q4 2026 Earnings on November 2 - MacRumors",
-      "source": "MacRumors"
+      "title": "AAPL Stock Slides Nearly 10% — Apple’s Earnings Divide Wall Street, But Retail Sees A Buying Opportunity - Stocktwits",
+      "source": "Stocktwits"
      }
     ],
     "Nasdaq IPO": [
@@ -1529,7 +1529,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.6,
+   "duration_s": 1.9,
    "requests": 3,
    "checks": [
     {
@@ -1565,8 +1565,8 @@
     {
      "name": "apple: son push",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 3)",
-     "value": 0.01
+     "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 3)",
+     "value": 0.13
     },
     {
      "name": "Kapsam notu",
@@ -1577,19 +1577,19 @@
    ],
    "sample": {
     "NVIDIA": [
-     "NVIDIA/aicr",
-     "NVIDIA/OpenShell",
-     "NVIDIA/cuda-python"
+     "NVIDIA/Megatron-LM",
+     "NVIDIA/NemoClaw",
+     "NVIDIA/srt-slurm"
     ],
     "microsoft": [
-     "microsoft/aspire",
-     "microsoft/BCApps",
-     "microsoft/nvx"
+     "microsoft/power-pages-samples",
+     "microsoft/intelligent-terminal",
+     "microsoft/onnxruntime"
     ],
     "apple": [
-     "apple/coreai-models",
+     "apple/foundationdb",
      "apple/swift-network-evolution",
-     "apple/foundationdb"
+     "apple/coreai-models"
     ]
    }
   }
