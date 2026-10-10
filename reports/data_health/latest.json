@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T13:23:19.026967+00:00",
+ "run_at": "2026-10-10T14:33:44.689455+00:00",
  "sources": [
   {
    "key": "universe",
@@ -26,7 +26,7 @@
      "name": "Nasdaq listesi güncelliği",
      "status": "ok",
      "detail": "en son kayıt 2026-10-09, 0.7 gün önce (sınır 4)",
-     "value": 0.66
+     "value": 0.71
     },
     {
      "name": "Bilinen hisseler listede",
@@ -126,7 +126,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.9,
+   "duration_s": 0.7,
    "requests": 5,
    "checks": [
     {
@@ -331,7 +331,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 1.8,
+   "duration_s": 2.0,
    "requests": 15,
    "checks": [
     {
@@ -453,7 +453,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 4.9,
+   "duration_s": 6.7,
    "requests": 23,
    "checks": [
     {
@@ -510,7 +510,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 7.6,
+   "duration_s": 7.7,
    "requests": 61,
    "checks": [
     {
@@ -754,7 +754,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.4,
+   "duration_s": 0.1,
    "requests": 1,
    "checks": [
     {
@@ -813,19 +813,110 @@
    "roads": [
     3
    ],
-   "status": "fail",
-   "error": "FetchError: https://api.usaspending.gov/api/v2/awards/last_updated/ -> 500: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd\"><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=",
-   "duration_s": 31.8,
-   "requests": 5,
+   "status": "ok",
+   "error": null,
+   "duration_s": 1.0,
+   "requests": 4,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "FetchError: https://api.usaspending.gov/api/v2/awards/last_updated/ -> 500: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd\"><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=",
-     "value": "Traceback (most recent call last):\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/health.py\", line 37, in run_source\n    source.run(ctx, rep)\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/sources/usaspending.py\", line 37, in run\n    updated = ctx.client.get(LAST_UPDATED).json().get(\"last_updated\", \"\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 91, in get\n    return self.request(\"GET\", url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/firsat-radari-v2/firsat-radari-v2/radar/http.py\", line 88, in request\n    raise FetchError(url, status, last_error)\nradar.http.FetchError: https://api.usaspending.gov/api/v2/awards/last_updated/ -> 500: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd\"><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=\n"
+     "name": "Veritabanı güncelliği",
+     "status": "ok",
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 10)",
+     "value": 0
+    },
+    {
+     "name": "Palantir: son 1 yıl sözleşme",
+     "status": "ok",
+     "detail": "50 kayıt, tutarlar sayısal: 50/50",
+     "value": null
+    },
+    {
+     "name": "Microsoft: son 1 yıl sözleşme",
+     "status": "ok",
+     "detail": "50 kayıt, tutarlar sayısal: 50/50",
+     "value": null
+    },
+    {
+     "name": "Amazon Web Services: son 1 yıl sözleşme",
+     "status": "ok",
+     "detail": "50 kayıt, tutarlar sayısal: 50/50",
+     "value": null
     }
    ],
-   "sample": null
+   "sample": {
+    "Palantir": [
+     {
+      "internal_id": 355423040,
+      "Award ID": "W9128Z26FA001",
+      "Recipient Name": "PALANTIR USG INC",
+      "Award Amount": 637552404.79,
+      "Start Date": "2025-10-15",
+      "Awarding Agency": "Department of Defense",
+      "awarding_agency_id": 1173,
+      "agency_slug": "department-of-defense",
+      "generated_internal_id": "CONT_AWD_W9128Z26FA001_9700_W519TC25D0039_9700"
+     },
+     {
+      "internal_id": 291199463,
+      "Award ID": "70CTD022FR0000170",
+      "Recipient Name": "PALANTIR TECHNOLOGIES INC.",
+      "Award Amount": 170765322.37,
+      "Start Date": "2022-09-26",
+      "Awarding Agency": "Department of Homeland Security",
+      "awarding_agency_id": 766,
+      "agency_slug": "department-of-homeland-security",
+      "generated_internal_id": "CONT_AWD_70CTD022FR0000170_7012_GS35F0086U_4730"
+     }
+    ],
+    "Microsoft": [
+     {
+      "internal_id": 306490593,
+      "Award ID": "HC102822F0982",
+      "Recipient Name": "MICROSOFT CORPORATION",
+      "Award Amount": 219964603.76,
+      "Start Date": "2022-09-30",
+      "Awarding Agency": "Department of Defense",
+      "awarding_agency_id": 1173,
+      "agency_slug": "department-of-defense",
+      "generated_internal_id": "CONT_AWD_HC102822F0982_9700_HC102817D0001_9700"
+     },
+     {
+      "internal_id": 306489269,
+      "Award ID": "HC102821F1170",
+      "Recipient Name": "MICROSOFT CORPORATION",
+      "Award Amount": 172503499.89,
+      "Start Date": "2021-09-30",
+      "Awarding Agency": "Department of Defense",
+      "awarding_agency_id": 1173,
+      "agency_slug": "department-of-defense",
+      "generated_internal_id": "CONT_AWD_HC102821F1170_9700_HC102817D0001_9700"
+     }
+    ],
+    "Amazon Web Services": [
+     {
+      "internal_id": 348988388,
+      "Award ID": "W519TC25FA004",
+      "Recipient Name": "AMAZON WEB SERVICES, INC.",
+      "Award Amount": 167541936.34,
+      "Start Date": "2024-11-22",
+      "Awarding Agency": "Department of Defense",
+      "awarding_agency_id": 1173,
+      "agency_slug": "department-of-defense",
+      "generated_internal_id": "CONT_AWD_W519TC25FA004_9700_HC105023D0005_9700"
+     },
+     {
+      "internal_id": 281081747,
+      "Award ID": "47QDCB21F0015",
+      "Recipient Name": "AMAZON WEB SERVICES, INC.",
+      "Award Amount": 104554319.03,
+      "Start Date": "2021-06-14",
+      "Awarding Agency": "General Services Administration",
+      "awarding_agency_id": 614,
+      "agency_slug": "general-services-administration",
+      "generated_internal_id": "CONT_AWD_47QDCB21F0015_4732_47QTCA19D000C_4732"
+     }
+    ]
+   }
   },
   {
    "key": "uspto",
@@ -860,7 +951,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 45.1,
+   "duration_s": 38.1,
    "requests": 38,
    "checks": [
     {
@@ -1025,49 +1116,49 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 54.5,
-   "requests": 7,
+   "duration_s": 21.2,
+   "requests": 5,
    "checks": [
     {
      "name": "Ham dosya akışı güncelliği",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25)",
-     "value": -0.0
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25)",
+     "value": 0.0
     },
     {
-     "name": "İndirilen dosya bütünlüğü (önceki dosya, zip CRC)",
+     "name": "İndirilen dosya bütünlüğü (boyut + MD5)",
      "status": "ok",
-     "detail": "listelenen dosya henüz yayımlanmamıştı; 3,400,344 bayt, CRC sağlam",
+     "detail": "3,695,766 bayt, md5 eşleşti",
      "value": null
     },
     {
      "name": "15 dakikalık dosyada makale",
      "status": "ok",
-     "detail": "771 (beklenen 500–50,000)",
-     "value": 771
+     "detail": "813 (beklenen 500–50,000)",
+     "value": 813
     },
     {
      "name": "Sütun sayısı = 27",
      "status": "ok",
-     "detail": "771/771 = %100.0",
+     "detail": "813/813 = %100.0",
      "value": 1.0
     },
     {
      "name": "Kurum (Organizations) bilgisi olan",
      "status": "ok",
-     "detail": "564/771 = %73.2",
-     "value": 0.7315
+     "detail": "609/813 = %74.9",
+     "value": 0.7491
     },
     {
      "name": "Ton değeri okunabilen",
      "status": "ok",
-     "detail": "771/771 = %100.0",
+     "detail": "813/813 = %100.0",
      "value": 1.0
     },
     {
      "name": "Bu 15 dakikada en çok geçen kurumlar",
      "status": "info",
-     "detail": "united states (44), white house (37), google (33), associated press (32), instagram (21), national hurricane centre (17), cockroach janta party (16), delhi police (15)",
+     "detail": "united states (48), associated press (44), white house (28), xinhua (21), instagram (21), google (19), facebook (18), cnn (16)",
      "value": null
     },
     {
@@ -1079,25 +1170,25 @@
     {
      "name": "Yardımcı: DOC API zaman serisi",
      "status": "info",
-     "detail": "0 nokta (yardımcı kaynak; durumu etkilemez)",
+     "detail": "erişilemedi (HTTP 429); ham dosyalar yeterli",
      "value": null
     }
    ],
    "sample": [
     {
-     "date": "20261010131500",
-     "source": "kbs.co.kr",
-     "orgs": ""
+     "date": "20261010143000",
+     "source": "nypost.com",
+     "orgs": "medianews group;york state department of transportation"
     },
     {
-     "date": "20261010131500",
-     "source": "kysdc.com",
-     "orgs": "whitley separation divides the panel;hillman college;howard university;hampton university"
+     "date": "20261010143000",
+     "source": "prokerala.com",
+     "orgs": "operations group;ahmedabad rural police"
     },
     {
-     "date": "20261010131500",
-     "source": "foxnews.com",
-     "orgs": "instagram"
+     "date": "20261010143000",
+     "source": "nbcmontana.com",
+     "orgs": "national hurricane center"
     }
    ]
   },
@@ -1111,7 +1202,7 @@
    ],
    "status": "warn",
    "error": null,
-   "duration_s": 5.7,
+   "duration_s": 15.0,
    "requests": 6,
    "checks": [
     {
@@ -1233,7 +1324,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 0.6,
+   "duration_s": 0.7,
    "requests": 2,
    "checks": [
     {
@@ -1245,8 +1336,8 @@
     {
      "name": "Güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
-     "value": 0.13
+     "detail": "en son kayıt 2026-10-10, 0.2 gün önce (sınır 2)",
+     "value": 0.18
     },
     {
      "name": "Geçmiş veri: Ocak 2016 sonuç",
@@ -1298,8 +1389,8 @@
     {
      "name": "'Nvidia stock': güncellik",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 2)",
-     "value": 0.03
+     "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
+     "value": 0.05
     },
     {
      "name": "'Nvidia stock': tekil başlık",
@@ -1323,7 +1414,7 @@
      "name": "'Apple earnings': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
-     "value": 0.09
+     "value": 0.14
     },
     {
      "name": "'Apple earnings': tekil başlık",
@@ -1347,7 +1438,7 @@
      "name": "'Nasdaq IPO': güncellik",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.1 gün önce (sınır 2)",
-     "value": 0.06
+     "value": 0.11
     },
     {
      "name": "'Nasdaq IPO': tekil başlık",
@@ -1438,7 +1529,7 @@
    ],
    "status": "ok",
    "error": null,
-   "duration_s": 2.5,
+   "duration_s": 1.7,
    "requests": 3,
    "checks": [
     {
@@ -1451,7 +1542,7 @@
      "name": "NVIDIA: son push",
      "status": "ok",
      "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 3)",
-     "value": 0.01
+     "value": 0.0
     },
     {
      "name": "microsoft: depo sayısı (ilk sayfa)",
@@ -1474,8 +1565,8 @@
     {
      "name": "apple: son push",
      "status": "ok",
-     "detail": "en son kayıt 2026-10-10, 0.4 gün önce (sınır 3)",
-     "value": 0.4
+     "detail": "en son kayıt 2026-10-10, 0.0 gün önce (sınır 3)",
+     "value": 0.02
     },
     {
      "name": "Kapsam notu",
@@ -1487,18 +1578,18 @@
    "sample": {
     "NVIDIA": [
      "NVIDIA/NemoClaw",
-     "NVIDIA/Model-Optimizer",
-     "NVIDIA/MatX"
+     "NVIDIA/bmcweb",
+     "NVIDIA/nsmd"
     ],
     "microsoft": [
-     "microsoft/power-platform-skills",
+     "microsoft/PowerToys",
      "microsoft/amplifier-unified",
-     "microsoft/intelligent-terminal"
+     "microsoft/quicreach"
     ],
     "apple": [
+     "apple/swift-binary-parsing",
      "apple/foundationdb",
-     "apple/swift-network-evolution",
-     "apple/coreai-models"
+     "apple/swift-network-evolution"
     ]
    }
   }

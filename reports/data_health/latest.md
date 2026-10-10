@@ -1,28 +1,28 @@
-# Veri Sağlık Raporu — 2026-10-10 13:23 UTC
+# Veri Sağlık Raporu — 2026-10-10 14:33 UTC
 
-🟢 11 kullanılabilir · 🟡 5 dikkat · 🔴 1 kullanılamaz
+🟢 12 kullanılabilir · 🟡 5 dikkat · 🔴 0 kullanılamaz
 
 Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = güvenilir ama dolaylı.
 
 | Kaynak | Sınıf | Yol | Durum | Süre | İstek |
 |---|---|---|---|---|---|
 | [Hisse evreni (Nasdaq + SEC)](#universe) | 1 | 1, 2, 3, 4 | 🟢 Kullanılabilir | 0.5 sn | 2 |
-| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 0.9 sn | 5 |
-| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 1.8 sn | 15 |
-| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 4.9 sn | 23 |
-| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.6 sn | 61 |
+| [SEC günlük dosya indeksi](#sec_index) | 1 | 1, 3 | 🟢 Kullanılabilir | 0.7 sn | 5 |
+| [SEC şirket dosya geçmişi](#sec_submissions) | 1 | 1, 3 | 🟢 Kullanılabilir | 2.0 sn | 15 |
+| [SEC XBRL finansal verileri](#sec_xbrl) | 1 | 1 | 🟡 Dikkat | 6.7 sn | 23 |
+| [SEC Form 4 (içeriden işlemler)](#sec_form4) | 1 | 3 | 🟢 Kullanılabilir | 7.7 sn | 61 |
 | [SEC 13F (fon pozisyonları)](#sec_13f) | 1 | 3 | 🟢 Kullanılabilir | 0.7 sn | 6 |
-| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.4 sn | 1 |
-| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🔴 Kullanılamaz | 31.8 sn | 5 |
+| [FINRA açığa satış hacmi](#finra) | 1 | 3 | 🟢 Kullanılabilir | 0.1 sn | 1 |
+| [USAspending devlet sözleşmeleri](#usaspending) | 1 | 3 | 🟢 Kullanılabilir | 1.0 sn | 4 |
 | [USPTO patentleri (PatentsView)](#uspto) | 1 | 3 | 🟡 Dikkat | 0.0 sn | 0 |
-| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟡 Dikkat | 45.1 sn | 38 |
+| [Günlük fiyatlar (Yahoo ↔ Nasdaq)](#prices) | 2 | 1, 2, 3, 4 | 🟡 Dikkat | 38.1 sn | 38 |
 | [FRED makro ve emtia serileri](#fred) | 1 | 1, 4 | 🟢 Kullanılabilir | 1.5 sn | 6 |
-| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 54.5 sn | 7 |
-| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 5.7 sn | 6 |
-| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.6 sn | 2 |
+| [GDELT haber akışı](#gdelt) | 2 | 2, 4 | 🟢 Kullanılabilir | 21.2 sn | 5 |
+| [Wikipedia ilgisi + Wikidata eşleştirmesi](#wikipedia) | 2 | 2, 4 | 🟡 Dikkat | 15.0 sn | 6 |
+| [Hacker News](#hackernews) | 2 | 2, 4 | 🟢 Kullanılabilir | 0.7 sn | 2 |
 | [Google News RSS](#gnews) | 2 | 2, 4 | 🟢 Kullanılabilir | 1.5 sn | 3 |
 | [Reddit](#reddit) | 2 | 2, 4 | 🟡 Dikkat | 4.1 sn | 3 |
-| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 2.5 sn | 3 |
+| [GitHub aktivitesi](#github) | 2 | 3 | 🟢 Kullanılabilir | 1.7 sn | 3 |
 
 <a id="universe"></a>
 ## 🟢 Hisse evreni (Nasdaq + SEC)
@@ -135,11 +135,14 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Evren kapsamı | 🟢 | 3364/3434 = %98.0 |
 
 <a id="usaspending"></a>
-## 🔴 USAspending devlet sözleşmeleri
+## 🟢 USAspending devlet sözleşmeleri
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Çalışma hatası | 🔴 | FetchError: https://api.usaspending.gov/api/v2/awards/last_updated/ -> 500: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd"><html><head><meta name="viewport" content="width=device-width, initial-scale= |
+| Veritabanı güncelliği | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 10) |
+| Palantir: son 1 yıl sözleşme | 🟢 | 50 kayıt, tutarlar sayısal: 50/50 |
+| Microsoft: son 1 yıl sözleşme | 🟢 | 50 kayıt, tutarlar sayısal: 50/50 |
+| Amazon Web Services: son 1 yıl sözleşme | 🟢 | 50 kayıt, tutarlar sayısal: 50/50 |
 
 <a id="uspto"></a>
 ## 🟡 USPTO patentleri (PatentsView)
@@ -182,15 +185,15 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 
 | Kontrol | Durum | Detay |
 |---|---|---|
-| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-10, -0.0 gün önce (sınır 0.25) |
-| İndirilen dosya bütünlüğü (önceki dosya, zip CRC) | 🟢 | listelenen dosya henüz yayımlanmamıştı; 3,400,344 bayt, CRC sağlam |
-| 15 dakikalık dosyada makale | 🟢 | 771 (beklenen 500–50,000) |
-| Sütun sayısı = 27 | 🟢 | 771/771 = %100.0 |
-| Kurum (Organizations) bilgisi olan | 🟢 | 564/771 = %73.2 |
-| Ton değeri okunabilen | 🟢 | 771/771 = %100.0 |
-| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | united states (44), white house (37), google (33), associated press (32), instagram (21), national hurricane centre (17), cockroach janta party (16), delhi police (15) |
+| Ham dosya akışı güncelliği | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 0.25) |
+| İndirilen dosya bütünlüğü (boyut + MD5) | 🟢 | 3,695,766 bayt, md5 eşleşti |
+| 15 dakikalık dosyada makale | 🟢 | 813 (beklenen 500–50,000) |
+| Sütun sayısı = 27 | 🟢 | 813/813 = %100.0 |
+| Kurum (Organizations) bilgisi olan | 🟢 | 609/813 = %74.9 |
+| Ton değeri okunabilen | 🟢 | 813/813 = %100.0 |
+| Bu 15 dakikada en çok geçen kurumlar | ℹ️ | united states (48), associated press (44), white house (28), xinhua (21), instagram (21), google (19), facebook (18), cnn (16) |
 | Geçmiş veri: 1 Mart 2015 dosyası makale | 🟢 | 1,209 (beklenen 100–50,000) |
-| Yardımcı: DOC API zaman serisi | ℹ️ | 0 nokta (yardımcı kaynak; durumu etkilemez) |
+| Yardımcı: DOC API zaman serisi | ℹ️ | erişilemedi (HTTP 429); ham dosyalar yeterli |
 
 <a id="wikipedia"></a>
 ## 🟡 Wikipedia ilgisi + Wikidata eşleştirmesi
@@ -214,7 +217,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | Kontrol | Durum | Detay |
 |---|---|---|
 | Son 7 gün 'nvidia' haberi | 🟢 | 36 (beklenen 5–100) |
-| Güncellik | 🟢 | en son kayıt 2026-10-10, 0.1 gün önce (sınır 2) |
+| Güncellik | 🟢 | en son kayıt 2026-10-10, 0.2 gün önce (sınır 2) |
 | Geçmiş veri: Ocak 2016 sonuç | 🟢 | 30 (beklenen 1–10,000) |
 
 <a id="gnews"></a>
@@ -224,7 +227,7 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 |---|---|---|
 | 'Nvidia stock': haber sayısı | 🟢 | 104 (beklenen 20–200) |
 | 'Nvidia stock': tarihi okunabilen | 🟢 | 104/104 = %100.0 |
-| 'Nvidia stock': güncellik | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 2) |
+| 'Nvidia stock': güncellik | 🟢 | en son kayıt 2026-10-10, 0.1 gün önce (sınır 2) |
 | 'Nvidia stock': tekil başlık | 🟢 | 103/104 = %99.0 |
 | 'Apple earnings': haber sayısı | 🟢 | 100 (beklenen 20–200) |
 | 'Apple earnings': tarihi okunabilen | 🟢 | 100/100 = %100.0 |
@@ -255,5 +258,5 @@ Kırmızı kaynaklar o hafta puanlamada kullanılmaz. Sınıf: 1 = resmî, 2 = g
 | microsoft: depo sayısı (ilk sayfa) | 🟢 | 30 (beklenen 10–30) |
 | microsoft: son push | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 3) |
 | apple: depo sayısı (ilk sayfa) | 🟢 | 30 (beklenen 10–30) |
-| apple: son push | 🟢 | en son kayıt 2026-10-10, 0.4 gün önce (sınır 3) |
+| apple: son push | 🟢 | en son kayıt 2026-10-10, 0.0 gün önce (sınır 3) |
 | Kapsam notu | ℹ️ | Yalnızca açık kaynak yapan şirketlerde anlamlı; şirket ↔ organizasyon eşleştirmesi 3. aşamada |
