@@ -3,10 +3,10 @@
  "partitions": {
   "2014": {
    "partition": "2014",
-   "fetched_at": "2026-10-10T08:31:43+00:00",
+   "fetched_at": "2026-10-10T09:25:37+00:00",
    "rows": 2283,
-   "bytes": 109177017,
-   "sha256": "0c99345d388e3818950825c67a49e42b41581eabecbe750025c35f2d9ea92c28",
+   "bytes": 109177016,
+   "sha256": "f273fbb55e47a1fb10d3cec29eb2d3990818b413d1068126a5c280790ffd2a6c",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -27,7 +27,7 @@
    },
    "asset": "tenk__2014.parquet",
    "status": "ok",
-   "duration_s": 517.3,
+   "duration_s": 587.1,
    "requests": 2283,
    "checks": [
     {
@@ -58,7 +58,7 @@
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "ok",
-     "detail": "0.082 (beklenen 0.010–0.200)"
+     "detail": "0.081 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -74,10 +74,10 @@
   },
   "2015": {
    "partition": "2015",
-   "fetched_at": "2026-10-10T08:31:45+00:00",
+   "fetched_at": "2026-10-10T09:25:37+00:00",
    "rows": 2434,
-   "bytes": 121128864,
-   "sha256": "0caa4e9bf46bd355a106ee5e12b5c54fd32aa0747cb3a276535f94fa343554cd",
+   "bytes": 121128863,
+   "sha256": "0930b3fb4e942c804b6036ef54561428b2d3985b634022fcb0cd36e6f13147b9",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -98,7 +98,7 @@
    },
    "asset": "tenk__2015.parquet",
    "status": "ok",
-   "duration_s": 677.1,
+   "duration_s": 648.0,
    "requests": 2434,
    "checks": [
     {
@@ -129,7 +129,7 @@
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "ok",
-     "detail": "0.157 (beklenen 0.010–0.200)"
+     "detail": "0.153 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -145,10 +145,10 @@
   },
   "2016": {
    "partition": "2016",
-   "fetched_at": "2026-10-10T08:31:46+00:00",
+   "fetched_at": "2026-10-10T09:25:34+00:00",
    "rows": 2421,
-   "bytes": 123334397,
-   "sha256": "94b9b9150ef98c36596a505ac89000624d4cf51cf3cccbe7ea8cef74485747db",
+   "bytes": 123334393,
+   "sha256": "d802cf07069c2336b8d02255773084ce84ff9173047082cf8e3b4ed920b8437b",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -169,7 +169,7 @@
    },
    "asset": "tenk__2016.parquet",
    "status": "ok",
-   "duration_s": 593.6,
+   "duration_s": 491.3,
    "requests": 2421,
    "checks": [
     {
@@ -200,7 +200,7 @@
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "ok",
-     "detail": "0.166 (beklenen 0.010–0.200)"
+     "detail": "0.162 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -216,10 +216,10 @@
   },
   "2017": {
    "partition": "2017",
-   "fetched_at": "2026-10-10T08:40:45+00:00",
+   "fetched_at": "2026-10-10T09:34:12+00:00",
    "rows": 2385,
-   "bytes": 124252155,
-   "sha256": "d98c90d42dc23d00d9a28702d827252a05323266e7bfba0f4f155a048dd33c92",
+   "bytes": 124252151,
+   "sha256": "e476c4547135ad27576009e2bfba48571ef9e4184d90b88f6c876a94d7114c4b",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -240,7 +240,7 @@
    },
    "asset": "tenk__2017.parquet",
    "status": "ok",
-   "duration_s": 429.6,
+   "duration_s": 630.6,
    "requests": 2385,
    "checks": [
     {
@@ -271,7 +271,7 @@
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "ok",
-     "detail": "0.194 (beklenen 0.010–0.200)"
+     "detail": "0.191 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -287,7 +287,7 @@
   },
   "2018": {
    "partition": "2018",
-   "fetched_at": "2026-10-10T08:42:04+00:00",
+   "fetched_at": "2026-10-10T09:35:48+00:00",
    "rows": 2375,
    "bytes": 128560787,
    "sha256": "74c16c039352aa488a34ac05eab22a1d91b135ef55375a323466ced408a377b6",
@@ -311,7 +311,7 @@
    },
    "asset": "tenk__2018.parquet",
    "status": "ok",
-   "duration_s": 443.5,
+   "duration_s": 414.2,
    "requests": 2375,
    "checks": [
     {
@@ -358,7 +358,7 @@
   },
   "2019": {
    "partition": "2019",
-   "fetched_at": "2026-10-10T08:43:29+00:00",
+   "fetched_at": "2026-10-10T09:36:50+00:00",
    "rows": 2406,
    "bytes": 132879319,
    "sha256": "d5da98684748cbe4cd4592e1e526f47e43c36c3ec2b230fc0df9e42eb2e2702c",
@@ -382,7 +382,7 @@
    },
    "asset": "tenk__2019.parquet",
    "status": "ok",
-   "duration_s": 618.1,
+   "duration_s": 639.9,
    "requests": 2406,
    "checks": [
     {
@@ -429,10 +429,10 @@
   },
   "2020": {
    "partition": "2020",
-   "fetched_at": "2026-10-10T08:48:25+00:00",
+   "fetched_at": "2026-10-10T09:43:13+00:00",
    "rows": 2430,
-   "bytes": 139240141,
-   "sha256": "3e011ed6b7e90c25fec73c9e927ac6e21c95bae13eb4c8b7b04b56769e5bb398",
+   "bytes": 139240143,
+   "sha256": "8e6903286d6d6324e973860a3ff7d17766468792d4e6efbdea3fd845037278e8",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -453,7 +453,7 @@
    },
    "asset": "tenk__2020.parquet",
    "status": "ok",
-   "duration_s": 729.0,
+   "duration_s": 633.9,
    "requests": 2430,
    "checks": [
     {
@@ -484,7 +484,7 @@
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "ok",
-     "detail": "0.166 (beklenen 0.010–0.200)"
+     "detail": "0.165 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -500,10 +500,10 @@
   },
   "2021": {
    "partition": "2021",
-   "fetched_at": "2026-10-10T08:49:54+00:00",
+   "fetched_at": "2026-10-10T09:45:06+00:00",
    "rows": 2666,
-   "bytes": 164900307,
-   "sha256": "bc672eb37d9fde356f783255d27a35e86681bc5cc5d3698d1c925b511e150e2a",
+   "bytes": 164900306,
+   "sha256": "1e85bb245aed5fd2ee76a58e62d1f057f1bd0f3674d7743455e0be432c93b469",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -524,7 +524,7 @@
    },
    "asset": "tenk__2021.parquet",
    "status": "ok",
-   "duration_s": 672.7,
+   "duration_s": 1866.4,
    "requests": 2666,
    "checks": [
     {
@@ -571,10 +571,10 @@
   },
   "2022": {
    "partition": "2022",
-   "fetched_at": "2026-10-10T08:54:13+00:00",
+   "fetched_at": "2026-10-10T09:47:53+00:00",
    "rows": 2973,
-   "bytes": 181891001,
-   "sha256": "e5afdece8f00ca2ada9a875e632752e307da3535fc7c5fa5e2941c1f8221aef1",
+   "bytes": 181891000,
+   "sha256": "fbdcff07c4c3b25304fa9115abe17de5d0f161c99ef2233f84dda133d9dfb69e",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -595,7 +595,7 @@
    },
    "asset": "tenk__2022.parquet",
    "status": "ok",
-   "duration_s": 666.3,
+   "duration_s": 1193.1,
    "requests": 2973,
    "checks": [
     {
@@ -626,7 +626,7 @@
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "ok",
-     "detail": "0.183 (beklenen 0.010–0.200)"
+     "detail": "0.181 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -642,10 +642,10 @@
   },
   "2023": {
    "partition": "2023",
-   "fetched_at": "2026-10-10T09:01:06+00:00",
+   "fetched_at": "2026-10-10T09:54:12+00:00",
    "rows": 2893,
-   "bytes": 173929741,
-   "sha256": "da28c4f813a7b62a8b1df59b831a2addcd6a56e90f7e061fd38f5471d74b805d",
+   "bytes": 173929742,
+   "sha256": "2b55a038d1102e75fabf72349869765c44847a168c23f6a0be19d2ee39ea518a",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -666,7 +666,7 @@
    },
    "asset": "tenk__2023.parquet",
    "status": "warn",
-   "duration_s": 990.1,
+   "duration_s": 571.9,
    "requests": 2893,
    "checks": [
     {
@@ -697,7 +697,7 @@
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "warn",
-     "detail": "0.245 (beklenen 0.010–0.200)"
+     "detail": "0.244 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -713,10 +713,10 @@
   },
   "2024": {
    "partition": "2024",
-   "fetched_at": "2026-10-10T09:01:36+00:00",
+   "fetched_at": "2026-10-10T10:04:15+00:00",
    "rows": 2726,
    "bytes": 164878325,
-   "sha256": "ea5cf469b07f0a4a8d830152b0cf7b2b53a7a0a08c8b7e0e3594b249be105d9d",
+   "sha256": "63e3523d78a290811a815c312107fd45a9a7b43a10c6e42a1a2203c2cea5b31c",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -737,7 +737,7 @@
    },
    "asset": "tenk__2024.parquet",
    "status": "warn",
-   "duration_s": 705.7,
+   "duration_s": 1108.0,
    "requests": 2726,
    "checks": [
     {
@@ -784,10 +784,10 @@
   },
   "2025": {
    "partition": "2025",
-   "fetched_at": "2026-10-10T09:05:49+00:00",
+   "fetched_at": "2026-10-10T10:08:13+00:00",
    "rows": 2642,
-   "bytes": 161033315,
-   "sha256": "6d26b92ba88fd97f23f0256886d50cd042099d27200ae49fe4de63bf7ee2b568",
+   "bytes": 161033305,
+   "sha256": "2c1726ad66cc1d1836c0c361029e5ce4e5b021da7f745c1a288fdb5f0fd78a0a",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -808,7 +808,7 @@
    },
    "asset": "tenk__2025.parquet",
    "status": "warn",
-   "duration_s": 800.9,
+   "duration_s": 980.4,
    "requests": 2642,
    "checks": [
     {
@@ -839,7 +839,7 @@
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "warn",
-     "detail": "0.246 (beklenen 0.010–0.200)"
+     "detail": "0.245 (beklenen 0.010–0.200)"
     },
     {
      "name": "Doğrulama: Apple Madde 1'de 'iPhone' geçiyor",
@@ -855,10 +855,10 @@
   },
   "2026": {
    "partition": "2026",
-   "fetched_at": "2026-10-10T09:13:55+00:00",
+   "fetched_at": "2026-10-10T10:16:42+00:00",
    "rows": 2562,
    "bytes": 156215420,
-   "sha256": "dc5af5a4376a9044034c574cc7813020e564c6db113cde3b2296d846937b0274",
+   "sha256": "a4526d105a173ee03423fa5ee35177abf211010fd595f8eb2e992189982decee",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -879,7 +879,7 @@
    },
    "asset": "tenk__2026.parquet",
    "status": "warn",
-   "duration_s": 537.1,
+   "duration_s": 617.7,
    "requests": 2562,
    "checks": [
     {
@@ -910,7 +910,7 @@
     {
      "name": "Devamlılık şüphesi oranı (substantial doubt)",
      "status": "warn",
-     "detail": "0.267 (beklenen 0.010–0.200)"
+     "detail": "0.263 (beklenen 0.010–0.200)"
     },
     {
      "name": "Medyan uzunluk (karakter)",
@@ -924,5 +924,5 @@
  "title": "10-K metinleri (Madde 1, 1A, 7; 2014→)",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-10T09:23:39+00:00"
+ "finalized_at": "2026-10-10T10:27:37+00:00"
 }
