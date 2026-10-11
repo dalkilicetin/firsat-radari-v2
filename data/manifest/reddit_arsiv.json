@@ -3,76 +3,276 @@
  "partitions": {
   "StockMarket_submissions": {
    "partition": "StockMarket_submissions",
-   "fetched_at": "2026-10-11T21:11:37+00:00",
-   "rows": 0,
-   "status": "fail",
-   "duration_s": 33.3,
+   "fetched_at": "2026-10-11T21:41:58+00:00",
+   "rows": 53237,
+   "bytes": 283311,
+   "sha256": "9da41adeaf643707a1285bbe8d9ddf9114066cfb6bd0d744c032009d471f8fbc",
+   "columns": {
+    "kind": "str",
+    "subreddit": "str",
+    "date": "datetime64[us]",
+    "cik": "Int64",
+    "posts": "int64",
+    "mentions": "int64",
+    "score": "int64",
+    "comments": "int64",
+    "pos": "int64",
+    "neg": "int64",
+    "angry": "int64"
+   },
+   "sources": [
+    "https://academictorrents.com/download/56aa49f9653ba545f48df2e33679f014d2829c10.torrent (StockMarket_submissions.zst; yalnızca toplu sayılar saklanır)"
+   ],
+   "notes": {
+    "lines": 161386,
+    "bad": 0,
+    "months": 174
+   },
+   "asset": "reddit_arsiv__StockMarket_submissions.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 79.4,
    "requests": 0,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "RuntimeError: torrent içinde StockMarket_submissions.zst bulunamadı"
+     "name": "Okunabilen satır",
+     "status": "ok",
+     "detail": "161386/161386 = %100.0"
+    },
+    {
+     "name": "Ay sayısı",
+     "status": "info",
+     "detail": "174"
+    },
+    {
+     "name": "En çok anılan şirketler (CIK)",
+     "status": "info",
+     "detail": "1326380:2454, 1411579:2176, 1318605:1723, 320193:1609, 1018724:1010, 2488:817, 789019:790, 1045742:780"
+    },
+    {
+     "name": "Şirket-ay satırı",
+     "status": "ok",
+     "detail": "53,063"
     }
    ]
   },
   "investing_submissions": {
    "partition": "investing_submissions",
-   "fetched_at": "2026-10-11T21:11:20+00:00",
-   "rows": 0,
-   "status": "fail",
-   "duration_s": 30.7,
+   "fetched_at": "2026-10-11T21:40:27+00:00",
+   "rows": 36967,
+   "bytes": 203069,
+   "sha256": "82ea8f8e6c0b7e0f0322ddb83bc330039c64c611e53766a1ecd8c67509195af8",
+   "columns": {
+    "kind": "str",
+    "subreddit": "str",
+    "date": "datetime64[us]",
+    "cik": "Int64",
+    "posts": "int64",
+    "mentions": "int64",
+    "score": "int64",
+    "comments": "int64",
+    "pos": "int64",
+    "neg": "int64",
+    "angry": "int64"
+   },
+   "sources": [
+    "https://academictorrents.com/download/56aa49f9653ba545f48df2e33679f014d2829c10.torrent (investing_submissions.zst; yalnızca toplu sayılar saklanır)"
+   ],
+   "notes": {
+    "lines": 355893,
+    "bad": 0,
+    "months": 180
+   },
+   "asset": "reddit_arsiv__investing_submissions.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 64.5,
    "requests": 0,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "RuntimeError: torrent içinde investing_submissions.zst bulunamadı"
+     "name": "Okunabilen satır",
+     "status": "ok",
+     "detail": "355893/355893 = %100.0"
+    },
+    {
+     "name": "Ay sayısı",
+     "status": "info",
+     "detail": "180"
+    },
+    {
+     "name": "En çok anılan şirketler (CIK)",
+     "status": "info",
+     "detail": "320193:2317, 1318605:2171, 1326380:1654, 2488:1305, 1384710:1263, 789019:1208, 1018724:1185, 1411579:725"
+    },
+    {
+     "name": "Şirket-ay satırı",
+     "status": "ok",
+     "detail": "36,787"
     }
    ]
   },
   "options_submissions": {
    "partition": "options_submissions",
-   "fetched_at": "2026-10-11T21:12:39+00:00",
-   "rows": 0,
-   "status": "fail",
-   "duration_s": 29.0,
+   "fetched_at": "2026-10-11T21:43:47+00:00",
+   "rows": 15350,
+   "bytes": 98139,
+   "sha256": "de59b51c3e5efc09d75393f3fa671ebd4529b2d7aeb7e437a852e4189e1b1718",
+   "columns": {
+    "kind": "str",
+    "subreddit": "str",
+    "date": "datetime64[us]",
+    "cik": "Int64",
+    "posts": "int64",
+    "mentions": "int64",
+    "score": "int64",
+    "comments": "int64",
+    "pos": "int64",
+    "neg": "int64",
+    "angry": "int64"
+   },
+   "sources": [
+    "https://academictorrents.com/download/56aa49f9653ba545f48df2e33679f014d2829c10.torrent (options_submissions.zst; yalnızca toplu sayılar saklanır)"
+   ],
+   "notes": {
+    "lines": 115743,
+    "bad": 0,
+    "months": 138
+   },
+   "asset": "reddit_arsiv__options_submissions.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 57.7,
    "requests": 0,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "RuntimeError: torrent içinde options_submissions.zst bulunamadı"
+     "name": "Okunabilen satır",
+     "status": "ok",
+     "detail": "115743/115743 = %100.0"
+    },
+    {
+     "name": "Ay sayısı",
+     "status": "info",
+     "detail": "138"
+    },
+    {
+     "name": "En çok anılan şirketler (CIK)",
+     "status": "info",
+     "detail": "1318605:2316, 1326380:1835, 320193:1774, 936340:1467, 1411579:1128, 2488:1028, 1018724:856, 789019:816"
+    },
+    {
+     "name": "Şirket-ay satırı",
+     "status": "ok",
+     "detail": "15,212"
     }
    ]
   },
   "pennystocks_submissions": {
    "partition": "pennystocks_submissions",
-   "fetched_at": "2026-10-11T21:12:15+00:00",
-   "rows": 0,
-   "status": "fail",
-   "duration_s": 23.2,
+   "fetched_at": "2026-10-11T21:42:06+00:00",
+   "rows": 27481,
+   "bytes": 171346,
+   "sha256": "153687f344736b7f199521ae996f94c0321a81445d0b20973cbcf546d64dc422",
+   "columns": {
+    "kind": "str",
+    "subreddit": "str",
+    "date": "datetime64[us]",
+    "cik": "Int64",
+    "posts": "int64",
+    "mentions": "int64",
+    "score": "int64",
+    "comments": "int64",
+    "pos": "int64",
+    "neg": "int64",
+    "angry": "int64"
+   },
+   "sources": [
+    "https://academictorrents.com/download/56aa49f9653ba545f48df2e33679f014d2829c10.torrent (pennystocks_submissions.zst; yalnızca toplu sayılar saklanır)"
+   ],
+   "notes": {
+    "lines": 206510,
+    "bad": 0,
+    "months": 133
+   },
+   "asset": "reddit_arsiv__pennystocks_submissions.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 66.8,
    "requests": 0,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "RuntimeError: torrent içinde pennystocks_submissions.zst bulunamadı"
+     "name": "Okunabilen satır",
+     "status": "ok",
+     "detail": "206510/206510 = %100.0"
+    },
+    {
+     "name": "Ay sayısı",
+     "status": "info",
+     "detail": "133"
+    },
+    {
+     "name": "En çok anılan şirketler (CIK)",
+     "status": "info",
+     "detail": "837852:1988, 1766600:1336, 65770:1096, 1411690:937, 1495231:936, 1411579:836, 1430306:802, 1368365:787"
+    },
+    {
+     "name": "Şirket-ay satırı",
+     "status": "ok",
+     "detail": "27,348"
     }
    ]
   },
   "stocks_submissions": {
    "partition": "stocks_submissions",
-   "fetched_at": "2026-10-11T21:10:30+00:00",
-   "rows": 0,
-   "status": "fail",
-   "duration_s": 24.2,
+   "fetched_at": "2026-10-11T21:40:29+00:00",
+   "rows": 58599,
+   "bytes": 344856,
+   "sha256": "24878025332aae6635bd1f14ef4e75f9565397a291628671aea70df80ff02d4c",
+   "columns": {
+    "kind": "str",
+    "subreddit": "str",
+    "date": "datetime64[us]",
+    "cik": "Int64",
+    "posts": "int64",
+    "mentions": "int64",
+    "score": "int64",
+    "comments": "int64",
+    "pos": "int64",
+    "neg": "int64",
+    "angry": "int64"
+   },
+   "sources": [
+    "https://academictorrents.com/download/56aa49f9653ba545f48df2e33679f014d2829c10.torrent (stocks_submissions.zst; yalnızca toplu sayılar saklanır)"
+   ],
+   "notes": {
+    "lines": 339721,
+    "bad": 0,
+    "months": 180
+   },
+   "asset": "reddit_arsiv__stocks_submissions.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 68.0,
    "requests": 0,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "RuntimeError: torrent içinde stocks_submissions.zst bulunamadı"
+     "name": "Okunabilen satır",
+     "status": "ok",
+     "detail": "339721/339721 = %100.0"
+    },
+    {
+     "name": "Ay sayısı",
+     "status": "info",
+     "detail": "180"
+    },
+    {
+     "name": "En çok anılan şirketler (CIK)",
+     "status": "info",
+     "detail": "1326380:4204, 1318605:3958, 320193:3696, 2488:3413, 789019:2883, 1018724:2488, 1411579:2386, 1045810:2104"
+    },
+    {
+     "name": "Şirket-ay satırı",
+     "status": "ok",
+     "detail": "58,419"
     }
    ]
   },
@@ -136,5 +336,5 @@
  "title": "Reddit finans alt-forumları — hisse × ay toplu sayıları (açık arşiv, 2005→2023)",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-11T21:26:43+00:00"
+ "finalized_at": "2026-10-11T21:45:10+00:00"
 }
