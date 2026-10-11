@@ -111,6 +111,7 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
     ftd["price"] = ftd.groupby("cik").price.transform(adjust_reverse_splits)
 
     columns = sec.cik.astype(str)  # hiç fiyatı olmayan üyeler de sütun olarak kalır (kapsamda görünsünler)
+    px, raw_px, dv, ftd, ftd_raw = (f.assign(cik=f.cik.astype(str)) for f in (px, raw_px, dv, ftd, ftd_raw))
     out = {
         "price": weekly_last(pd.concat([px, ex_px, ftd], ignore_index=True), "price", dates),
         "raw": weekly_last(pd.concat([raw_px, ex_raw, ftd_raw], ignore_index=True), "price", dates),
