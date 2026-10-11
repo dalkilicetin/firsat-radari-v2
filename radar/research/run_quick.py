@@ -26,6 +26,17 @@ ROUNDS: dict[str, list[Recipe]] = {
         Recipe("H1g lgbm sıra + dönem, ≥ 5 mn $/gün", "sira", "lgbm", regime=True, min_volume=5e6),
     ],
 }
+# Tur h2: yeni sinyaller (zirveye yakınlık, 6 ay getiri, hacim artışı, kazanç açıklaması tepkisi) + iki aşamalı seçim.
+_R = Recipe("H2a ridge sıra, oynaklık hariç (güvenlik)", "sira", exclude={"dusuk_oynaklik"})
+_RS = Recipe("H2b güvenlik + eleme", "sira", exclude={"dusuk_oynaklik"}, screen=True)
+_L = Recipe("H2c lgbm sıra", "sira", "lgbm")
+_LS = Recipe("H2d lgbm sıra + eleme", "sira", "lgbm", screen=True)
+ROUNDS["h2"] = [
+    _R, _RS, _L, _LS,
+    Recipe("H2e lgbm sıra + eleme, yatırılabilirde eğitim", "sira", "lgbm", screen=True, train_on="yatirilabilir"),
+    Recipe("H2f topluluk (güvenlik + lgbm) + eleme", learner="ensemble", members=[_R, _L], screen=True),
+    Recipe("H2g lgbm sıra + dönem + eleme", "sira", "lgbm", regime=True, screen=True),
+]
 
 
 def main() -> None:

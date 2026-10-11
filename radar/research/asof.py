@@ -51,6 +51,7 @@ class Recipe:
     train_on: str = "tum"              # tum | yatirilabilir (eğitim satırları)
     min_volume: float = 0.0            # seçim filtresi: en az günlük işlem tutarı ($)
     members: list = field(default_factory=list)  # learner="ensemble": puan sıraları ortalanan tarifler
+    screen: bool = False               # önce eleme (geriye bakış bulguları), sonra sıralama
     note: str = ""
 
 

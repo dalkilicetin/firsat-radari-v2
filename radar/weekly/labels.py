@@ -50,6 +50,7 @@ SIGNALS = {
     "getiri_1a": "Son 1 ay getirisi",
     "hacim_artisi": "İşlem hacmi artışı (son 3 ay / 6 ay önce)",
     "fiyat_seviyesi": "Hisse fiyatı ($)",
+    "kazanc_aciklamasi_tepkisi": "Son kazanç açıklamasına fiyat tepkisi (piyasaya göre)",
 }
 
 RISK = {

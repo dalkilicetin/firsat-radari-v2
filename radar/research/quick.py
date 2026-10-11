@@ -98,8 +98,33 @@ class QuickData:
         return fs + [f"donem_{c}" for c in self.reg.columns] if rec.regime else fs
 
 
+# Eleme kuralları (geriye bakış 2010–2022: bu işaretler büyük kaybeden olma olasılığını tutarlı biçimde artırdı).
+# Değerler kesitsel sıralardır (−0,5…+0,5; eksik = 0 → elenmez); olaylarda > 0 = olay var.
+SCREEN = {
+    "zirveye_yakinlik_52h": lambda x: x <= -0.30,          # 52 haftalık zirveden en uzak %20
+    "kazanc_getirisi": lambda x: x <= -0.25,               # kâr / piyasa değeri en düşük %25 (zarar edenler)
+    "devamlilik_suphesi": lambda x: x > 0,                 # denetçinin süreklilik şüphesi
+    "8k_3.02_kayıtsız hisse satışı (sulandırma)": lambda x: x > 0,
+}
+
+
+def screened(d: "QuickData", t: int) -> np.ndarray:
+    out = np.zeros(len(d.cols), dtype=bool)
+    for f, rule in SCREEN.items():
+        if f in d.X:
+            out |= rule(np.asarray(d.X[f][t], dtype=np.float32))
+    return out
+
+
 def score_at(rec: Recipe, d: QuickData, t: int) -> np.ndarray:
     """t haftasında yalnızca geçmişle eğitilmiş modelin puanları (N), puanlanmayan NaN."""
+    out = _score_at(rec, d, t)
+    if rec.screen:
+        out = np.where(screened(d, t), np.nan, out)
+    return out
+
+
+def _score_at(rec: Recipe, d: QuickData, t: int) -> np.ndarray:
     if rec.learner == "ensemble":
         ranks = [pd.Series(score_at(m, d, t)).rank(pct=True).to_numpy() for m in rec.members]
         return np.nanmean(np.stack(ranks), axis=0)
@@ -161,7 +186,7 @@ def summarize(df: pd.DataFrame) -> dict:
 def log(rec: Recipe, df: pd.DataFrame, mode: str = "iterasyon") -> dict:
     entry = {"zaman": time.strftime("%Y-%m-%d %H:%M"), "mod": mode, "deneme": rec.name, "hedef": rec.target,
              "ogrenici": rec.learner, "parametre": rec.params, "donem": rec.regime, "egitim": rec.train_on,
-             "min_hacim": rec.min_volume, "haric": sorted(rec.exclude), "uyeler": [m.name for m in rec.members],
+             "min_hacim": rec.min_volume, "eleme": rec.screen, "haric": sorted(rec.exclude), "uyeler": [m.name for m in rec.members],
              "yillar": list(map(int, df.index)), "ozet": summarize(df),
              "yil_yil": {int(y): {"portfoy": round(r.portfoy, 4), "piyasa": round(r.evren_ort, 4), "yukselen": int(r.yukselen)}
                          for y, r in df.iterrows()}}

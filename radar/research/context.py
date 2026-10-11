@@ -73,7 +73,31 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
     q = etf["QQQ"] / etf["QQQ"].shift(1) - 1
     cov = wret.rolling(52, min_periods=26).cov(q)
     beta = cov.div(q.rolling(52, min_periods=26).var(), axis=0)
-    return {"sektor_getiri_13h": to_stock(r13), "sektor_momentum_12_1": to_stock(r12_1), "beta_qqq": beta}
+    dv = p["dollar_volume"]
+    return {"sektor_getiri_13h": to_stock(r13), "sektor_momentum_12_1": to_stock(r12_1), "beta_qqq": beta,
+            # Geriye bakış analizinde (2010–2022) tutarlı çıkan fiyat/hacim işaretleri
+            "zirveye_yakinlik_52h": price / price.rolling(52, min_periods=26).max(),
+            "getiri_6a": price.shift(1) / price.shift(26) - 1,
+            "hacim_artisi": dv / dv.shift(26),
+            "kazanc_aciklamasi_tepkisi": earnings_reaction(price)}
+
+
+def earnings_reaction(price: pd.DataFrame, hold_weeks: int = 13) -> pd.DataFrame:
+    """Son kazanç açıklamasının (8-K Madde 2.02) olduğu haftada hissenin piyasaya göre getirisi (o haftanın medyan
+    hissesine göre). Açıklamadan sonraki ilk Cuma kapanışında bilinir; sonraki açıklamaya ya da 13 haftaya kadar taşınır."""
+    from radar.research.pit import to_friday
+    f = archive.load("filings", columns=["cik", "form", "filing_date", "items"])
+    e = f[(f.form == "8-K") & f["items"].fillna("").str.contains(r"\b2\.02\b")][["cik", "filing_date"]].copy()
+    e["date"] = to_friday(e.filing_date)
+    e["cik"] = e.cik.astype(str)
+    e = e[e.cik.isin(set(price.columns)) & e.date.isin(price.index)].drop_duplicates(["cik", "date"])
+    wret = price / price.shift(1) - 1
+    abnormal = wret.sub(wret.median(axis=1), axis=0)
+    stacked = abnormal.stack()
+    vals = stacked.reindex(pd.MultiIndex.from_arrays([e.date, e.cik])).to_numpy()
+    ev = pd.DataFrame({"date": e.date.to_numpy(), "cik": e.cik.to_numpy(), "v": vals}).dropna()
+    wide = ev.pivot_table(index="date", columns="cik", values="v", aggfunc="last").reindex(index=price.index, columns=price.columns)
+    return wide.ffill(limit=hold_weeks - 1)
 
 
 def regime(dates: pd.DatetimeIndex) -> pd.DataFrame:
