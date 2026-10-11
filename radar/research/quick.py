@@ -27,8 +27,9 @@ from radar.research.asof import Recipe
 ITER_YEARS = (2013, 2018, 2021)        # yükseliş, düşüş, balon + çöküş
 VALID_YEARS = (2011, 2012, 2014, 2015, 2016, 2017, 2019, 2020)
 LOCKED_YEARS = (2023, 2024, 2025)
-# Kilit açıldıktan sonra (2026-10-11): iyileştirme tüm yıllarda; yeni temiz sınav 2026 yıl başından bugüne + canlı takip.
-ALL_YEARS = tuple(range(2011, 2026))
+# Kullanıcı kararı (2026-10-11): 2023–2025 iyileştirmede KULLANILMAZ; iyileştirme 2011–2022'de, en sonda 2023–2025 tekrar
+# yalnızca test olarak çalıştırılır. 2026 (yıl başından bugüne) ve canlı takip ek sınavdır.
+ALL_YEARS = tuple(range(2011, 2023))
 W = 52
 STEP = 4
 CACHE = config.DATA_DIR / "derived" / "quick"
