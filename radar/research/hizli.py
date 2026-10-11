@@ -63,6 +63,25 @@ UFUK = {"aylik": (4, "getiri", range(1, 13)), "3ay": (13, "getiri_13h", (1, 4, 7
         "1yil": (52, "getiri_52h", (1,)), "2yil": (104, "getiri_104h", (1,))}
 
 
+def grid() -> dict:
+    """Sistematik denemeler: belirti grubu çıkarma + parametre taraması (temel: sıra, likit ≥ 0,5, 20 hisse, 5 yıl)."""
+    base = {"min_likidite": 0.5}
+    ex = {"temel_sira_likit": ("sira", ALL, base)}
+    for g in ALL:
+        ex[f"cikar_{g}"] = ("sira", [x for x in ALL if x != g], base)
+    for k in (10, 30):
+        ex[f"k{k}"] = ("sira", ALL, base | {"k": k})
+    for lq in (0.0, 0.3, 0.7):
+        ex[f"likidite_{lq}"] = ("sira", ALL, {"min_likidite": lq})
+    for pw in (3, 8):
+        ex[f"pencere_{pw}"] = ("sira", ALL, base | {"pencere": pw})
+    ex["sade_model"] = ("sira", ALL, base | {"lgb": {"num_leaves": 7, "min_child_samples": 1500}})
+    ex["karmasik_model"] = ("sira", ALL, base | {"lgb": {"num_leaves": 63, "min_child_samples": 200}, "rounds": 400})
+    for w in (0.25, 0.5):
+        ex[f"karisim_{w}"] = ("karisim", ALL, base | {"w": w})
+    return ex
+
+
 def load(freq: str) -> tuple[pd.DataFrame, list[str]]:
     weeks, col, _ = UFUK[freq]
     df = pd.read_parquet(D / "aylik_cerceve.parquet")
@@ -85,12 +104,19 @@ def score(mode: str, tr: pd.DataFrame, te: pd.DataFrame, feats: list[str], param
         m = lgb.train(p, lgb.Dataset(tr[feats], tr.hedef), ROUNDS)
         lose = lgb.train(p, lgb.Dataset(tr[feats], tr.kaybeden), ROUNDS)
         return m.predict(te[feats]) - params.get("lam", 1.0) * lose.predict(te[feats]), m
-    m = lgb.train(p | {"objective": "regression"}, lgb.Dataset(tr[feats], tr.sira), ROUNDS)
+    if mode == "karisim":  # sıra puanı ile fark puanının dönem içi sıralarının ağırlıklı ortalaması
+        s1, m = score("sira", tr, te, feats, params)
+        s2, _ = score("fark", tr, te, feats, params)
+        r1 = pd.Series(s1, index=te.index).groupby(te.tarih).rank(pct=True)
+        r2 = pd.Series(s2, index=te.index).groupby(te.tarih).rank(pct=True)
+        w = params.get("w", 0.5)
+        return ((1 - w) * r1 + w * r2).to_numpy(), m
+    m = lgb.train(p | {"objective": "regression"}, lgb.Dataset(tr[feats], tr.sira), params.get("rounds", ROUNDS))
     return m.predict(te[feats]), m
 
 
 def run(freq: str, name: str, df: pd.DataFrame, all_feats: list[str]) -> dict:
-    mode, groups, params = EXPERIMENTS[name]
+    mode, groups, params = (EXPERIMENTS | grid())[name]
     feats = [c for c in all_feats if any(GROUPS[g](c) for g in groups)]
     weeks, _, form_months = UFUK[freq]
     gap = pd.Timedelta(weeks=weeks)
@@ -98,7 +124,7 @@ def run(freq: str, name: str, df: pd.DataFrame, all_feats: list[str]) -> dict:
     t0 = time.time()
     for Y in TEST_YEARS:
         start = pd.Timestamp(f"{Y}-01-01")
-        tr = df[(df.tarih + gap < start) & (df.yil >= Y - PENCERE)]
+        tr = df[(df.tarih + gap < start) & (df.yil >= Y - params.get("pencere", PENCERE))]
         te = df[(df.yil == Y) & df.tarih.dt.month.isin(form_months)]
         if "min_likidite" in params:
             tr, te = tr[tr.likidite >= params["min_likidite"]], te[te.likidite >= params["min_likidite"]]
@@ -108,14 +134,14 @@ def run(freq: str, name: str, df: pd.DataFrame, all_feats: list[str]) -> dict:
         gross, net, hits, caps = [], [], [], []
         held: dict = {}
         for _, g in te.groupby("tarih"):
-            top = g.nlargest(K, "puan")
+            top = g.nlargest(params.get("k", K), "puan")
             r = top.getiri.mean()
             rate = dict(zip(top.index.astype(str), cost_rate(top.islem_tutari.fillna(0)).to_numpy()))
-            c = (sum(v for k, v in rate.items() if k not in held) + sum(v for k, v in held.items() if k not in rate)) / K
+            c = (sum(v for k, v in rate.items() if k not in held) + sum(v for k, v in held.items() if k not in rate)) / len(top)
             held = rate
             gross.append(r); net.append(r - c); hits.append(int(top.hedef.sum())); caps.append(r / g.getiri.nlargest(K).mean())
         if net and weeks >= 52:  # tek seçimli ufuklarda dönem sonu satış maliyeti (alış zaten düşüldü)
-            net[-1] -= sum(held.values()) / K
+            net[-1] -= sum(held.values()) / max(len(held), 1)
         per_year = 52 / weeks  # yıllığa çevir (2 yıl ufukta tek seçimin getirisi ^ 1/2)
         if per_year < 1:
             gross, net = [(1 + x) ** per_year - 1 for x in gross], [(1 + x) ** per_year - 1 for x in net]
@@ -139,6 +165,8 @@ def run(freq: str, name: str, df: pd.DataFrame, all_feats: list[str]) -> dict:
 if __name__ == "__main__":
     freqs = sys.argv[1].split(",") if len(sys.argv) > 1 else ["aylik"]
     names = sys.argv[2:] or list(EXPERIMENTS)
+    if names == ["izgara"]:
+        names = list(grid())
     for freq in freqs:
         df, feats = load(freq)
         print(f"=== {freq}: {len(df):,} satır, {len(feats)} belirti", flush=True)
