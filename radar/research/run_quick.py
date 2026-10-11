@@ -72,13 +72,13 @@ ROUNDS["h4"] = [
 ]
 
 # Tur h5: asimetrik puanı güçlendirme (λ, tohum ortalaması, yatırılabilir içinde dilim, dönem).
-def _asym(name, lam, up_t="ust10", down_t="alt10", seeds=1, regime=False, up_params=None):
+def _asym(name, lam, up_t="ust10", down_t="alt10", seeds=1, regime=False, up_params=None, screen=True):
     ups = [Recipe(f"{name} up{s}", up_t, "lgbm", regime=regime, params={"random_state": s} | (up_params or {}))
            for s in range(seeds)]
     downs = [Recipe(f"{name} down{s}", down_t, "lgbm", regime=regime, params={"random_state": s}) for s in range(seeds)]
     if seeds == 1:
-        return Recipe(name, learner="fark", members=[ups[0], downs[0]], screen=True, params={"lam": lam})
-    return Recipe(name, learner="ensemble", screen=True, members=[
+        return Recipe(name, learner="fark", members=[ups[0], downs[0]], screen=screen, params={"lam": lam})
+    return Recipe(name, learner="ensemble", screen=screen, members=[
         Recipe(f"{name} f{s}", learner="fark", members=[u, dn], params={"lam": lam}) for s, (u, dn) in enumerate(zip(ups, downs))])
 ROUNDS["h5"] = [
     _asym("H5a asimetrik λ=3", 3.0),
@@ -96,6 +96,15 @@ ROUNDS["h6"] = [
     _asym("H6d büyük kazanan (+%100) − λ=3 · en kötü %10", 3.0, up_t="kazanan"),
     _asym("H6e asimetrik λ=3, en kötü %20", 3.0, down_t="alt20"),
     _asym("H6f asimetrik λ=2, en kötü %20", 2.0, down_t="alt20"),
+]
+
+_UP2 = Recipe("yukarı ortalama", learner="ensemble", members=[Recipe("u10", "ust10", "lgbm"), Recipe("u100", "kazanan", "lgbm")])
+ROUNDS["h7"] = [
+    _asym("H7a en iyi %5 − λ=3,5 · en kötü %10", 3.5, up_t="ust5"),
+    _asym("H7b asimetrik λ=3,5, elemesiz", 3.5, screen=False),
+    _asym("H7c asimetrik λ=3,5, 3 tohum", 3.5, seeds=3),
+    _asym("H7d en iyi %5 − λ=3,5, elemesiz", 3.5, up_t="ust5", screen=False),
+    _asym("H7e asimetrik λ=3,5, elemesiz, 3 tohum", 3.5, seeds=3, screen=False),
 ]
 
 
