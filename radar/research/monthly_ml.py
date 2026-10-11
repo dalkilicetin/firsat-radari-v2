@@ -22,13 +22,14 @@ import pandas as pd
 from radar import config
 
 FRAME = config.ROOT / "data" / "derived" / "aylik_cerceve.parquet"
-OUT = config.ROOT / "reports" / "research" / "aylik_ml.json"
+OUT_DIR = config.ROOT / "reports" / "research"
 META = {"tarih", "yil", "getiri", "sektor", "sembol"}
 TEST_YEARS = range(2013, 2026)
 K = 20
 PARAMS = dict(objective="binary", learning_rate=0.03, num_leaves=31, min_child_samples=400, feature_fraction=0.6,
               bagging_fraction=0.7, bagging_freq=1, lambda_l2=10.0, verbose=-1, seed=0, num_threads=4)
 ROUNDS = 400
+MODE = "kazanan"
 
 
 def load() -> tuple[pd.DataFrame, list[str]]:
@@ -37,6 +38,8 @@ def load() -> tuple[pd.DataFrame, list[str]]:
     feats = [c for c in df.columns if c not in META and pd.api.types.is_numeric_dtype(df[c])]
     q = df.groupby("tarih").getiri.transform(lambda r: r.rank(pct=True))
     df["hedef"] = (q > 0.95).astype(int)
+    df["kaybeden"] = (q <= 0.05).astype(int)
+    df["sira"] = q
     return df, feats
 
 
@@ -58,8 +61,17 @@ def main() -> dict:
         start = pd.Timestamp(f"{Y}-01-01")
         tr = df[df.tarih + pd.Timedelta(weeks=4) < start]
         te = df[df.yil == Y]
-        model = lgb.train(PARAMS, lgb.Dataset(tr[feats], tr.hedef), ROUNDS)
-        te = te.assign(puan=model.predict(te[feats]))
+        if MODE == "kazanan":
+            model = lgb.train(PARAMS, lgb.Dataset(tr[feats], tr.hedef), ROUNDS)
+            puan = model.predict(te[feats])
+        elif MODE == "fark":  # büyük kazanan olasılığı − büyük kaybeden olasılığı (oynaklığın iki yüzü birbirini götürür)
+            model = lgb.train(PARAMS, lgb.Dataset(tr[feats], tr.hedef), ROUNDS)
+            lose = lgb.train(PARAMS, lgb.Dataset(tr[feats], tr.kaybeden), ROUNDS)
+            puan = model.predict(te[feats]) - lose.predict(te[feats])
+        else:  # sira: sonraki ayın getiri sırası (regresyon)
+            model = lgb.train(PARAMS | {"objective": "regression"}, lgb.Dataset(tr[feats], tr.sira), ROUNDS)
+            puan = model.predict(te[feats])
+        te = te.assign(puan=puan)
         rets, caps, hits = [], [], []
         last = None
         for d, g in te.groupby("tarih"):
@@ -86,11 +98,14 @@ def main() -> dict:
                "rastgele_en_iyi_yuzde5_ten": K * 0.05, "yil": len(res)}
     out = {"ozet": summary, "yillar": rows, "onem_ort": imp_all.head(25).round(4).to_dict(), "onem_yillar": imps,
            "kismi_bagimlilik": {"izgara": list(np.round(np.linspace(0.05, 0.95, 10), 2)), "egriler": pdp}}
-    OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1, default=float))
+    out["mod"] = MODE
+    (OUT_DIR / f"aylik_ml_{MODE}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1, default=float))
     print(json.dumps(summary, ensure_ascii=False, indent=1))
     print("en önemli belirtiler:", list(imp_all.head(12).index))
     return out
 
 
 if __name__ == "__main__":
+    import sys
+    MODE = sys.argv[1] if len(sys.argv) > 1 else "kazanan"
     main()
