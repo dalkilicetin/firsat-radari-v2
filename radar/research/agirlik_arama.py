@@ -182,7 +182,8 @@ def main(freq: str = "6ay", gens: int = 60) -> dict:
         col = res[f"net_{k}"]
         print(f"  {k:9s}: ort {col.mean():+.1%}/yıl, S&P'yi geçtiği yıl {(col > res.spy).sum()}/{len(res)}, "
               f"S&P×3'e ulaştığı yıl {(col >= 3 * res.spy.clip(lower=0)).sum()}/{len(res)}, zararlı {(col < 0).sum()}")
-    summary = {"ufuk": freq, "nesil": gens, "t_esik": __import__("radar.research.belirti_testi", fromlist=["x"]).T_MIN,
+    _bt_mod = __import__("radar.research.belirti_testi", fromlist=["x"])
+    summary = {"ufuk": freq, "nesil": gens, "t_esik": _bt_mod.T_MIN, "n_belirti": _bt_mod.TOP_N,
                "spy_ort": float(res.spy.mean()),
                **{f"{k}_ort": float(res[f"net_{k}"].mean()) for k in ("hassas", "kaba", "ortalama", "esit")}, "net_yillik_ort": float(res.net.mean()), "zararli_yil": int((res.net < 0).sum()),
                "rejimli_yillik_ort": float(res.rejimli.mean()), "rejimli_zararli_yil": int((res.rejimli < 0).sum()),
@@ -190,7 +191,7 @@ def main(freq: str = "6ay", gens: int = 60) -> dict:
                "yil": len(res), "en_iyi_yuzde5_ort": float(res.en_iyi_yuzde5.mean()), "yil_yil_net": [round(x, 3) for x in res.net]}
     out = {"ozet": summary, "yillar": rows, "agirliklar": weights, "belirtiler": feats}
     summary["secim"] = SECIM
-    (OUT_DIR / f"agirlik_arama_{freq}{'_secimli' if SECIM else ''}_t{summary['t_esik']}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    (OUT_DIR / f"agirlik_arama_{freq}{'_secimli' if SECIM else ''}_n{summary['n_belirti']}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
     with (OUT_DIR / "hizli_denemeler.jsonl").open("a") as f:
         f.write(json.dumps({"zaman": time.strftime("%Y-%m-%d %H:%M"), "deneme": f"agirlik_arama_{freq}{'_secimli' if SECIM else ''}", **summary},
                            ensure_ascii=False) + "\n")
@@ -204,5 +205,8 @@ if __name__ == "__main__":
         if a.startswith("t="):  # kesin belirti eşiği (belirti sayısını belirler)
             from radar.research import belirti_testi as _bt
             _bt.T_MIN = float(a[2:])
-    args = [a for a in sys.argv[1:] if a != "secimli" and not a.startswith("t=")]
+        if a.startswith("n="):  # eşik yerine en güçlü N belirti
+            from radar.research import belirti_testi as _bt
+            _bt.TOP_N = int(a[2:])
+    args = [a for a in sys.argv[1:] if a != "secimli" and not a.startswith(("t=", "n="))]
     main(args[0] if args else "6ay", int(args[1]) if len(args) > 1 else 60)

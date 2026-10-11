@@ -53,10 +53,14 @@ def summarize(ic: pd.DataFrame, step: int) -> pd.DataFrame:
     return pd.DataFrame({"ic": mean, "t": t, "tutarlilik": consist, "ay": n})
 
 
+TOP_N = None  # verilirse: eşik yerine tutarlılığı ≥ %70 olanlar arasından |t| en yüksek N belirti
+
+
 def select(ic: pd.DataFrame, step: int) -> dict[str, float]:
-    """Kesin belirtiler ve yönleri (+1/−1) — yalnızca verilen IC satırlarıyla."""
+    """Seçilen belirtiler ve yönleri (+1/−1) — yalnızca verilen IC satırlarıyla (iç içe kullanım)."""
     s = summarize(ic, step)
-    keep = s[(s.t.abs() >= T_MIN) & (s.tutarlilik >= CONSIST_MIN)]
+    s = s[s.tutarlilik >= CONSIST_MIN]
+    keep = s.reindex(s.t.abs().sort_values(ascending=False).index).head(TOP_N) if TOP_N else s[s.t.abs() >= T_MIN]
     return {k: float(np.sign(v)) for k, v in keep.ic.items()}
 
 
