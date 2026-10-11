@@ -251,3 +251,10 @@ def test_url_words_extracts_topic_words():
     from radar.backfill.filings import url_words
     w = url_words("https://www.cnbc.com/2023/05/24/nvidia-earnings-chatgpt-openai-demand.html")
     assert {"nvidia", "earnings", "chatgpt", "openai", "demand"} <= w and "html" not in w and "2023" not in w
+
+
+def test_reddit_tickers_and_tone():
+    from radar.backfill.reddit import tickers_in, tone
+    known = {"NVDA", "GME", "THE", "AI"}
+    assert tickers_in("YOLO $nvda and GME calls, THE moon AI", known) == {"NVDA", "GME"}
+    assert tone("this is rigged, buy calls 🚀") == (True, False, True)

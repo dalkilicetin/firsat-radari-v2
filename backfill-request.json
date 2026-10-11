@@ -1,9 +1,9 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 19,
+ "rev": 20,
  "requests": [
   {
-   "dataset": "gdelt_words"
+   "dataset": "reddit_arsiv"
   }
  ]
 }
