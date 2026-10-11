@@ -235,3 +235,18 @@ def test_unsplit_factor_restores_traded_price():
     })
     f = panel.unsplit_factor(daily)
     assert np.allclose(f, [0.004, 0.08, 0.08, 1.0, 4.0, 1.0, 1.0])
+
+
+def test_exited_daily_accepts_only_series_matching_ftd(monkeypatch):
+    days = pd.bdate_range("2015-01-05", periods=10)
+    ex = pd.concat([
+        pd.DataFrame({"cik": "1", "symbol": "AAA", "date": days, "close": 10.0, "adjclose": 9.5, "volume": 2e5, "split_ratio": np.nan}),
+        # sembol başka şirkete geçmiş: fiyatlar FTD ile uyuşmuyor
+        pd.DataFrame({"cik": "2", "symbol": "BBB", "date": days, "close": 50.0, "adjclose": 50.0, "volume": 1e5, "split_ratio": np.nan}),
+    ])
+    monkeypatch.setattr(panel.archive, "load", lambda *a, **k: ex)
+    gone = pd.DataFrame({"cik": ["1", "2"], "start": pd.Timestamp("2014-01-01"), "end": pd.Timestamp("2016-01-01")})
+    ftd = pd.DataFrame({"cik": ["1"] * 6 + ["2"] * 6, "date": list(days[:6]) * 2, "price": [10.1] * 6 + [5.0] * 6})
+    px, raw, dv = panel.exited_daily(gone, ftd)
+    assert set(px.cik) == {"1"} and np.allclose(raw.price, 10.0) and np.allclose(px.price, 9.5)
+    assert dv.dollar_volume.iloc[-1] == pytest.approx(2e6)

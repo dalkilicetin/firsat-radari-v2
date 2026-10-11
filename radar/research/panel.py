@@ -65,7 +65,7 @@ def weekly_last(df: pd.DataFrame, value: str, dates: pd.DatetimeIndex) -> pd.Dat
 
 def build(force: bool = False) -> dict[str, pd.DataFrame]:
     """price: düzeltilmiş kapanış (getiri için); raw: ham kapanış (düşük fiyat riski için);
-    dollar_volume: 13 haftalık medyan günlük işlem tutarı (yalnızca aktif hisseler; FTD'de hacim yok)."""
+    dollar_volume: 13 haftalık medyan günlük işlem tutarı (Yahoo serisi olanlar; FTD'de hacim yok)."""
     names = ["price", "raw", "dollar_volume"]
     paths = {n: CACHE / f"panel_{n}.parquet" for n in names}
     ident = build_identity()
@@ -94,19 +94,27 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
     ftd["date"] = ftd.settle_date - pd.offsets.BDay(1)
     # Aynı sembolün aynı günkü fiyatı tek şirkete ait olmalı (ör. ZYME: eski ve yeniden kurulan şirket; eski şirketin sembolünü
     # sonradan alan SPAC). Aktif hissenin Yahoo fiyatı varsa o gün FTD gözlemi atılır; yoksa başlangıcı en yakın olan alır.
-    near = daily[daily.symbol.isin(set(ftd.symbol))]
-    yahoo_days = set(zip(near.symbol, near.date))
-    ftd = ftd[[(s, d) not in yahoo_days for s, d in zip(ftd.symbol, ftd.date)]]
+    # Tatile denk gelen tek tük günler de kaçmasın diye: aktif hissenin Yahoo verisinin kapsadığı aralıktaki bütün FTD gözlemleri.
+    span = daily[daily.symbol.isin(set(ftd.symbol))].groupby("symbol").date.agg(["min", "max"])
+    lo, hi = ftd.symbol.map(span["min"]), ftd.symbol.map(span["max"])
+    ftd = ftd[~((ftd.date >= lo - pd.Timedelta(days=7)) & (ftd.date <= hi + pd.Timedelta(days=7)))]
     ftd = ftd.sort_values("start").drop_duplicates(["symbol", "date"], keep="last")
     ftd = ftd.groupby(["cik", "date"]).price.last().reset_index().sort_values(["cik", "date"])
+
+    # Çıkmış şirketlerin günlük Yahoo serisi: FTD fiyatlarıyla örtüşüyorsa (sembol başka şirkete geçmemiş) FTD'nin yerini alır.
+    ex_px, ex_raw, ex_dv = exited_daily(gone, ftd)
+    if len(ex_px):  # Yahoo serisinin kapsadığı aralıkta FTD gözlemi gereksiz
+        cov = ex_px.groupby("cik").date.agg(["min", "max"])
+        c = ftd.cik.astype(str)
+        ftd = ftd[~((ftd.date >= c.map(cov["min"])) & (ftd.date <= c.map(cov["max"])))]
     ftd_raw = ftd.copy()
     ftd["price"] = ftd.groupby("cik").price.transform(adjust_reverse_splits)
 
     columns = sec.cik.astype(str)  # hiç fiyatı olmayan üyeler de sütun olarak kalır (kapsamda görünsünler)
     out = {
-        "price": weekly_last(pd.concat([px, ftd], ignore_index=True), "price", dates),
-        "raw": weekly_last(pd.concat([raw_px, ftd_raw], ignore_index=True), "price", dates),
-        "dollar_volume": weekly_last(dv, "dollar_volume", dates),
+        "price": weekly_last(pd.concat([px, ex_px, ftd], ignore_index=True), "price", dates),
+        "raw": weekly_last(pd.concat([raw_px, ex_raw, ftd_raw], ignore_index=True), "price", dates),
+        "dollar_volume": weekly_last(pd.concat([dv, ex_dv], ignore_index=True), "dollar_volume", dates),
     }
     CACHE.mkdir(parents=True, exist_ok=True)
     for n, df in out.items():
@@ -114,6 +122,36 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
         out[n] = df.reindex(columns=columns)
         out[n].to_parquet(paths[n])
     return out | {"securities": sec}
+
+
+def exited_daily(gone: pd.DataFrame, ftd: pd.DataFrame, tol: float = 0.03, min_match: float = 0.8):
+    """Çıkmış şirketlerin Yahoo günlük serisi (prices_exited) → (düzeltilmiş fiyat, gerçek fiyat, işlem tutarı) uzun tabloları.
+
+    Kabul: FTD ile ortak günlerin en az %80'inde gerçek kapanış FTD fiyatına %3 yakın (en az 5 ortak gün). FTD gözlemi
+    olmayan şirket kabul edilmez (sembolün o şirkete ait olduğu doğrulanamaz)."""
+    empty = pd.DataFrame(columns=["cik", "date", "price"]), pd.DataFrame(columns=["cik", "date", "price"]), \
+        pd.DataFrame(columns=["cik", "date", "dollar_volume"])
+    try:
+        ex = archive.load("prices_exited", columns=["cik", "symbol", "date", "close", "adjclose", "volume", "split_ratio"])
+    except Exception:  # veri seti henüz yüklenmemiş
+        return empty
+    if ex.empty:
+        return empty
+    ex = ex.assign(cik=ex.cik.astype(str)).dropna(subset=["close", "adjclose"])
+    win = gone.assign(cik=gone.cik.astype(str)).set_index("cik")
+    ex = ex[ex.cik.isin(win.index)]
+    ex = ex[(ex.date >= ex.cik.map(win.start) - pd.Timedelta(days=60)) & (ex.date <= ex.cik.map(win.end) + pd.Timedelta(days=10))]
+    ex = ex.reset_index(drop=True)
+    ex["true"] = ex.close * unsplit_factor(ex.assign(symbol=ex.cik))
+    m = ex.merge(ftd.assign(cik=ftd.cik.astype(str)), on=["cik", "date"])
+    ok = (m.true / m.price - 1).abs().le(tol).groupby(m.cik).agg(["mean", "size"])
+    good = set(ok[(ok["mean"] >= min_match) & (ok["size"] >= 5)].index)
+    ex = ex[ex.cik.isin(good)]
+    ex["dollar_volume"] = ex.close * ex.volume
+    dv = (ex.sort_values("date").groupby("cik", group_keys=False)
+          .apply(lambda g: g.set_index("date").dollar_volume.rolling("91D").median().reset_index().assign(cik=g.name)))
+    return (ex.rename(columns={"adjclose": "price"})[["cik", "date", "price"]],
+            ex.assign(price=ex.true)[["cik", "date", "price"]], dv if len(ex) else empty[2])
 
 
 def membership(sec: pd.DataFrame, dates: pd.DatetimeIndex, columns) -> pd.DataFrame:
