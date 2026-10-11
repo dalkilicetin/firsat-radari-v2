@@ -27,6 +27,8 @@ from radar.research.asof import Recipe
 ITER_YEARS = (2013, 2018, 2021)        # yükseliş, düşüş, balon + çöküş
 VALID_YEARS = (2011, 2012, 2014, 2015, 2016, 2017, 2019, 2020)
 LOCKED_YEARS = (2023, 2024, 2025)
+# Kilit açıldıktan sonra (2026-10-11): iyileştirme tüm yıllarda; yeni temiz sınav 2026 yıl başından bugüne + canlı takip.
+ALL_YEARS = tuple(range(2011, 2026))
 W = 52
 STEP = 4
 CACHE = config.DATA_DIR / "derived" / "quick"
@@ -91,6 +93,30 @@ class QuickData:
         self.reg = pd.read_parquet(CACHE / "regime.parquet")
         self.path = ld("path")
 
+    def target(self, name: str):
+        """Hedef dizisi; önbellekte olmayanlar (alt10: dönemin en kötü %10'u) eğitim haftasında hesaplanır."""
+        if name in self.Y:
+            return self.Y[name]
+        cache = self.__dict__.setdefault("_tcache", {})
+
+        class Lazy:
+            def __getitem__(_, s):
+                if (name, s) not in cache:
+                    r = np.where(np.asarray(self.train_u[s]), np.asarray(self.fwd[s], dtype=np.float64), np.nan)
+                    q = pd.Series(r).rank(pct=True).to_numpy()
+                    if name == "alt10":
+                        cache[(name, s)] = np.where(np.isfinite(r), (q <= 0.1).astype(np.float32), np.nan)
+                    else:
+                        raise KeyError(name)
+                return cache[(name, s)]
+        return Lazy()
+
+    def spy(self) -> pd.Series:
+        if not hasattr(self, "_spy"):
+            from radar.research import context
+            self._spy = context.etf_prices(self.dates)["SPY"]
+        return self._spy
+
     def col(self, f: str, t: int) -> np.ndarray:
         if f in self.X:
             return np.asarray(self.X[f][t], dtype=np.float32)
@@ -131,8 +157,11 @@ def _score_at(rec: Recipe, d: QuickData, t: int) -> np.ndarray:
     if rec.learner == "ensemble":
         ranks = [pd.Series(score_at(m, d, t)).rank(pct=True).to_numpy() for m in rec.members]
         return np.nanmean(np.stack(ranks), axis=0)
+    if rec.learner == "fark":  # asimetrik fırsat: P(en iyi %10) − λ · P(en kötü %10)
+        up, down = rec.members
+        return _score_at(up, d, t) - rec.params.get("lam", 1.0) * _score_at(down, d, t)
     feats = d.feats(rec)
-    Y = d.Y[rec.target]
+    Y = d.target(rec.target)
     window = rec.params.get("pencere")  # yalnızca son N haftanın eğitim satırları (piyasa değişimine uyum)
     if window:
         rec = dataclasses.replace(rec, params={k: v for k, v in rec.params.items() if k != "pencere"})
@@ -145,7 +174,9 @@ def _score_at(rec: Recipe, d: QuickData, t: int) -> np.ndarray:
         if m.any():
             Xs.append(np.column_stack([d.col(f, s)[m] for f in feats]))
             ys.append(np.asarray(Y[s])[m])
-    fn = asof._fit(rec, np.vstack(Xs), np.concatenate(ys))
+    # alt10 de ikili (0/1) hedeftir: asof._fit sınıflandırıcıyı ust10 adıyla seçer.
+    fit_rec = dataclasses.replace(rec, target="ust10") if rec.target == "alt10" else rec
+    fn = asof._fit(fit_rec, np.vstack(Xs), np.concatenate(ys))
     m = np.asarray(d.train_u[t])
     out = np.full(len(d.cols), np.nan)
     out[m] = fn(np.column_stack([d.col(f, t)[m] for f in feats]))
@@ -179,9 +210,11 @@ def outcome(d: QuickData, score: np.ndarray, t: int, min_volume: float = 0.0) ->
 
 def run(rec: Recipe, d: QuickData, years=ITER_YEARS) -> pd.DataFrame:
     rows = []
+    spy = d.spy()
     for y in years:
         t = year_start(d.dates, y)
-        rows.append({"yil": y} | outcome(d, score_at(rec, d, t), t, rec.min_volume))
+        res = outcome(d, score_at(rec, d, t), t, rec.min_volume)
+        rows.append({"yil": y, "spy": float(spy.iloc[t + W] / spy.iloc[t] - 1)} | res)
     return pd.DataFrame(rows).set_index("yil")
 
 
@@ -189,7 +222,10 @@ def summarize(df: pd.DataFrame) -> dict:
     return {"ort_getiri": round(df.portfoy.mean(), 4), "ort_piyasa": round(df.evren_ort.mean(), 4),
             "ort_fazla": round((df.portfoy - df.evren_ort).mean(), 4), "kar_yili": int((df.portfoy > 0).sum()),
             "piyasayi_gecen_yil": int((df.portfoy > df.evren_ort).sum()), "en_kotu_fazla": round((df.portfoy - df.evren_ort).min(), 4),
-            "yukselen_hisse_ort": round(df.yukselen.mean(), 1), "yakalama": round(df.portfoy.sum() / df.en_iyi20.sum(), 4)}
+            "yukselen_hisse_ort": round(df.yukselen.mean(), 1), "yakalama": round(df.portfoy.sum() / df.en_iyi20.sum(), 4),
+            "spy_gecen_yil": int((df.portfoy > df.spy).sum()), "en_iyi10_ort": round(df.en_iyi10_icinde.mean(), 2),
+            "hedef": bool((df.portfoy > 0).mean() >= 0.8 and (df.portfoy > df.evren_ort).mean() >= 2 / 3
+                          and (df.portfoy > df.spy).mean() >= 2 / 3 and df.en_iyi10_icinde.mean() >= 4)}
 
 
 def log(rec: Recipe, df: pd.DataFrame, mode: str = "iterasyon") -> dict:

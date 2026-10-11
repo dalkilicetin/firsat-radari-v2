@@ -57,18 +57,37 @@ ROUNDS["h3"] = [
 
 ROUNDS["aday2"] = [ROUNDS["h3"][0]]  # 5 tohum ortalaması: doğrulama yıllarında
 
+# Tur h4 (kilit açıldıktan sonra, 2011–2025 tüm yıllar): yılın en çok yükselenlerini yakalama.
+_UP = Recipe("lgbm en iyi %10", "ust10", "lgbm")
+_DOWN = Recipe("lgbm en kötü %10", "alt10", "lgbm")
+_UPS = [Recipe(f"lgbm en iyi %10 t{s}", "ust10", "lgbm", params={"random_state": s}) for s in range(3)]
+ROUNDS["h4"] = [
+    ROUNDS["h3"][0],
+    Recipe("H4b lgbm en iyi %10 + eleme", "ust10", "lgbm", screen=True),
+    Recipe("H4c asimetrik (λ=1) + eleme", learner="fark", members=[_UP, _DOWN], screen=True),
+    Recipe("H4d asimetrik (λ=0,5) + eleme", learner="fark", members=[_UP, _DOWN], screen=True, params={"lam": 0.5}),
+    Recipe("H4e asimetrik (λ=2) + eleme", learner="fark", members=[_UP, _DOWN], screen=True, params={"lam": 2.0}),
+    Recipe("H4f asimetrik + 5 tohum sıra (topluluk)", learner="ensemble",
+           members=[Recipe("asim", learner="fark", members=[_UP, _DOWN], screen=True), ROUNDS["h3"][0]]),
+]
+
 
 def main() -> None:
     name = sys.argv[1] if len(sys.argv) > 1 else "h1"
     validate = len(sys.argv) > 2 and sys.argv[2] == "dogrula"
-    years = quick.VALID_YEARS if validate else quick.ITER_YEARS
+    all_years = len(sys.argv) > 2 and sys.argv[2] == "tum"
+    years = quick.VALID_YEARS if validate else quick.ALL_YEARS if all_years else quick.ITER_YEARS
     t0 = time.time()
     d = quick.QuickData()
     print(f"veri hazır ({round(time.time() - t0)} sn)", flush=True)
     rows = []
     for rec in ROUNDS[name]:
         df = quick.run(rec, d, years)
-        e = quick.log(rec, df, "dogrulama" if validate else "iterasyon")
+        e = quick.log(rec, df, "dogrulama" if validate else "tum_yillar" if all_years else "iterasyon")
+        if all_years:  # 15 yıl tabloya sığmaz: yalnızca özet (yıl yıl sonuçlar jsonl kaydında)
+            rows.append({"deneme": rec.name} | e["ozet"])
+            print(f"{rec.name} ({round(time.time() - t0)} sn)", flush=True)
+            continue
         rows.append({"deneme": rec.name} | e["ozet"] |
                     {f"{y}": f"{r['portfoy']:+.0%} / piyasa {r['piyasa']:+.0%} ({r['yukselen']}/20 yükseldi)"
                      for y, r in e["yil_yil"].items()})
