@@ -39,7 +39,9 @@ def year_start(dates: pd.DatetimeIndex, year: int) -> int:
 class QuickData:
     def __init__(self, force: bool = False):
         CACHE.mkdir(parents=True, exist_ok=True)
-        fp = library.fingerprint(sorted({d for _, ds in library.GROUPS.values() for d in ds}))
+        import hashlib
+        fp = hashlib.sha256("".join(library.group_fingerprint(g) for g in library.GROUPS).encode()
+                            + (config.ROOT / "radar" / "research" / "asof.py").read_bytes()).hexdigest()[:16]
         meta = CACHE / "meta.json"
         if not force and meta.exists() and json.loads(meta.read_text()).get("fingerprint") == fp:
             self._load()

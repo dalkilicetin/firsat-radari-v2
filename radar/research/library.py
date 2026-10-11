@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -85,9 +86,23 @@ def fingerprint(datasets: list[str]) -> str:
     return h.hexdigest()[:16]
 
 
+# Grubu üreten kod dosyaları: kod değişince (yeni sinyal, düzeltme) önbellek de yenilenir.
+GROUP_CODE = {"piyasa": ["library.py", "fundamentals.py"], "road1": ["road1.py", "fundamentals.py"],
+              "road1_text": ["road1.py"], "road2": ["road2.py"], "road3": ["road3.py", "fundamentals.py"],
+              "road4": ["road4.py"], "baglam": ["context.py", "sectors.py"]}
+
+
+def group_fingerprint(group: str) -> str:
+    h = hashlib.sha256(fingerprint(GROUPS[group][1]).encode())
+    base = Path(__file__).parent
+    for f in GROUP_CODE.get(group, []) + ["pit.py", "panel.py"]:
+        h.update((base / f).read_bytes())
+    return h.hexdigest()[:16]
+
+
 def load_group(group: str, p: dict, force: bool = False) -> dict[str, pd.DataFrame]:
     road, datasets = GROUPS[group]
-    fp = fingerprint(datasets)
+    fp = group_fingerprint(group)
     meta_path = CACHE / f"{group}.json"
     if not force and meta_path.exists() and json.loads(meta_path.read_text()).get("fingerprint") == fp:
         names = json.loads(meta_path.read_text())["signals"]
