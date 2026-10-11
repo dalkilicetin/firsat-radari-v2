@@ -12,6 +12,8 @@ Unutulmaması gereken, bekleyen işler.
 | 7 | GDELT kurum adı → şirket eşleştirmesi | GDELT bazı şirketleri yalnızca tam adla kodluyor ("apple inc", "apple app"; "apple" yok). Şirket başına isim listesi (SEC adı, Wikidata takma adları) gerekli | Claude | ✅ Çözüldü: SEC/Nasdaq adı varyantları, belirsiz ve genel sözcükler hariç (5.431 şirket) |
 | 8 | Borsadan çıkış tarihi kuralı | Form 25 adi hisse dışındaki menkul kıymetler için de verilebiliyor (SVB 2017). Çıkış = son Form 25/15 + fiyat verisinin kesilmesi birlikte | Claude | ✅ Çözüldü: Nasdaq'ın kendi 25-NSE'si (dosya no öneki) + şirketin kendi Form 25'i (borsa geçişi) |
 | 9 | Fiyatı 0 olan "P" (alım) kayıtları | Yanlış kodlanmış özel yerleşim/dönüşüm; açık piyasa alımı sinyalinden çıkarılacak | Claude | ✅ Çözüldü: 0 fiyatlı ve 10 bin $ altı alımlar sinyal dışı |
-| 6 | Haftalık otomatik çalışma | GitHub zamanlaması yalnızca varsayılan branch'te (main) çalışır; sistem main'e alınınca devreye girer | Kullanıcı + Claude | 5. aşama |
+| 6 | Haftalık otomatik çalışma | GitHub zamanlaması yalnızca varsayılan branch'te (main) çalışır; sistem main'e alınınca devreye girer | Kullanıcı + Claude | **En son yapılacak** (kullanıcı kararı 2026-10-11); o zamana kadar seçimler elle güncellenir |
+| 10 | Geriye bakış analizinin ay ay ve hafta hafta sürümü | Yıl yıl PDF'lerin (ne olmalıydı / neden) aylık ve haftalık karşılıkları | Claude | Bekliyor — kullanıcıya hatırlatılacak |
+| 11 | S&P 500'ü geçme hedefi | Ayrı dal: claude/sp500-hedefi; sürüm 3 (claude/firsat-modeli) dondurulmuş haliyle kalır | Claude | Sürüyor |
 
 Secret ekleme: GitHub repo → Settings → Secrets and variables → Actions → New repository secret.
