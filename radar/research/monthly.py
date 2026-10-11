@@ -80,41 +80,51 @@ def main(freq: str = "aylik", first: int = 2010, last: int = 2100) -> pd.DataFra
     long_fwd = {w: panel.forward_returns(price, sec, w).reindex(dates) for w in (13, 26, 52, 104)} if freq == "aylik" else {}
     idx = month_starts(dates) if freq == "aylik" else [i for i in range(len(dates) - h) if first <= dates[i].year <= last]
     events = sorted(n for n, df in sigs.items() if hs.is_event(df)) + ["bilanco_bu_ay_bekleniyor"]
+    # Bellek: bütün haftalık tablolar yerine yalnızca kullanılacak dönem satırları tutulur
+    import gc
+    take = lambda df: df.iloc[idx].copy()
+    sigs = {n: take(df) for n, df in sigs.items()}
+    fwd, inv = take(fwd), take(inv)
+    long_fwd = {w: take(lf) for w, lf in long_fwd.items()}
+    gc.collect()
     day, pairs = road4.load_themes()
     news = news_topics.features(day, pairs, dates[idx], price.columns)
     extra, reg = new_features(p, sector)
+    extra, reg = {n: take(df) for n, df in extra.items()}, take(reg)
+    gc.collect()
     from radar.research import ratios
-    extra |= ratios.signals(p)  # finansal oranlar + teknik göstergeler
+    extra |= {n: take(df) for n, df in ratios.signals(p).items()}  # finansal oranlar + teknik göstergeler
+    gc.collect()
     rising = news_topics.rising_topics(day, pairs, dates[idx], price.columns)
     (out_path.parent / f"yukselen_konular_{freq}.json").write_text(json.dumps(rising.pop("_secilen_konular"), ensure_ascii=False, indent=0))
     news |= rising
-    dv = p["dollar_volume"]
+    dv = take(p["dollar_volume"])
     print(f"hazır ({round(time.time() - t0)} sn), {len(idx)} ay, {len(sigs)} belirti + {len(news)} haber belirtisi", flush=True)
     sym = sec.assign(cik=sec.cik.astype(str)).drop_duplicates("cik").set_index("cik").symbol
     rows = []
-    for t in idx:
+    for k, t in enumerate(idx):
         d = dates[t]
-        u = inv.iloc[t]
-        r = fwd.iloc[t][u].dropna()
+        u = inv.iloc[k]
+        r = fwd.iloc[k][u].dropna()
         if len(r) < 200:
             continue
         f = {"tarih": d, "yil": d.year, "getiri": r.to_numpy(), "sektor": sector.reindex(r.index).to_numpy(),
-             "sembol": sym.reindex(r.index).to_numpy(), "islem_tutari": dv.iloc[t].reindex(r.index).to_numpy()}
+             "sembol": sym.reindex(r.index).to_numpy(), "islem_tutari": dv.iloc[k].reindex(r.index).to_numpy()}
         for w, lf in long_fwd.items():
-            f[f"getiri_{w}h"] = lf.iloc[t].reindex(r.index).to_numpy()
+            f[f"getiri_{w}h"] = lf.iloc[k].reindex(r.index).to_numpy()
         for n, df in sigs.items():
-            v = df.iloc[t].reindex(r.index)
+            v = df.iloc[k].reindex(r.index)
             f[n] = ((v.fillna(0) > 0).astype(np.float32) if n in events else v.rank(pct=True).astype(np.float32)).to_numpy()
         for n, df in news.items():
             f[n] = df.loc[d].reindex(r.index).rank(pct=True).astype(np.float32).to_numpy()
         for n, df in extra.items():
-            f[n] = (df.iloc[t].reindex(r.index) if n == "bilanco_bu_ay_bekleniyor"
-                    else df.iloc[t].reindex(r.index).rank(pct=True)).astype(np.float32).to_numpy()
-        f["likidite"] = dv.iloc[t].reindex(r.index).rank(pct=True).astype(np.float32).to_numpy()
+            f[n] = (df.iloc[k].reindex(r.index) if n == "bilanco_bu_ay_bekleniyor"
+                    else df.iloc[k].reindex(r.index).rank(pct=True)).astype(np.float32).to_numpy()
+        f["likidite"] = dv.iloc[k].reindex(r.index).rank(pct=True).astype(np.float32).to_numpy()
         # Haber–fiyat ayrışması: haber hacmi hızlanıyor, fiyat son 4 haftada henüz tepki vermemiş
         f["haber_fiyat_ayrismasi"] = f["haber_hacmi_ivme"] - f["getiri_1a"]
         for n in reg:  # piyasa rejimi: bütün hisseler için aynı ham değer (öğrenen model etkileşim kurabilsin)
-            f[n] = np.full(len(r), reg[n].iloc[t], dtype=np.float32)
+            f[n] = np.full(len(r), reg[n].iloc[k], dtype=np.float32)
         rows.append(pd.DataFrame(f, index=r.index))
     df = pd.concat(rows)
     df.index.name = "cik"
