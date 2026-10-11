@@ -73,6 +73,16 @@ def main(freq: str = "aylik", first: int = 2010, last: int = 2100) -> pd.DataFra
     t0 = time.time()
     h = H if freq == "aylik" else 1
     out_path = FRAME if freq == "aylik" else FRAME.with_name("haftalik_cerceve.parquet")
+    import gc
+    # Bellek: haber konusu verisi büyük (50M+ satır); önce haber belirtileri hesaplanır, veri bellekten atılır
+    _p = panel.build()
+    _dates = _p["price"].index
+    _idx = month_starts(_dates) if freq == "aylik" else [i for i in range(len(_dates) - h) if first <= _dates[i].year <= last]
+    day, pairs = news_topics.load_lean()
+    news = news_topics.features(day, pairs, _dates[_idx], _p["price"].columns)
+    rising = news_topics.rising_topics(day, pairs, _dates[_idx], _p["price"].columns)
+    del day, pairs, _p
+    gc.collect()
     p, sigs, inv, etf, sector = hs.prepare()
     price, sec, dates = p["price"], p["securities"], p["price"].index
     fwd = panel.forward_returns(price, sec, h).reindex(dates)
@@ -81,21 +91,17 @@ def main(freq: str = "aylik", first: int = 2010, last: int = 2100) -> pd.DataFra
     idx = month_starts(dates) if freq == "aylik" else [i for i in range(len(dates) - h) if first <= dates[i].year <= last]
     events = sorted(n for n, df in sigs.items() if hs.is_event(df)) + ["bilanco_bu_ay_bekleniyor"]
     # Bellek: bütün haftalık tablolar yerine yalnızca kullanılacak dönem satırları tutulur
-    import gc
     take = lambda df: df.iloc[idx].copy()
     sigs = {n: take(df) for n, df in sigs.items()}
     fwd, inv = take(fwd), take(inv)
     long_fwd = {w: take(lf) for w, lf in long_fwd.items()}
     gc.collect()
-    day, pairs = road4.load_themes()
-    news = news_topics.features(day, pairs, dates[idx], price.columns)
     extra, reg = new_features(p, sector)
     extra, reg = {n: take(df) for n, df in extra.items()}, take(reg)
     gc.collect()
     from radar.research import ratios
     extra |= {n: take(df) for n, df in ratios.signals(p).items()}  # finansal oranlar + teknik göstergeler
     gc.collect()
-    rising = news_topics.rising_topics(day, pairs, dates[idx], price.columns)
     (out_path.parent / f"yukselen_konular_{freq}.json").write_text(json.dumps(rising.pop("_secilen_konular"), ensure_ascii=False, indent=0))
     news |= rising
     dv = take(p["dollar_volume"])

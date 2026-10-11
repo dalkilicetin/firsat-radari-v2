@@ -40,6 +40,44 @@ def _family_of() -> dict[str, str]:
     return {t: f for f, ts in FAMILIES.items() for t in ts}
 
 
+def load_lean() -> tuple[pd.DataFrame, pd.DataFrame]:
+    """gdelt_themes'i bellek dostu okur (tema kategori, sayılar tam sayı): (gün × tema, ay × şirket × tema)."""
+    import pyarrow.parquet as pq
+    from radar import archive
+    t = pq.read_table(archive.fetch("gdelt_themes"), columns=["kind", "date", "cik", "theme", "count"],
+                      read_dictionary=["kind", "theme"])
+    df = t.to_pandas()
+    df["count"] = df["count"].astype("float32")
+    day = df[df.kind == "day_theme"][["date", "theme", "count"]].reset_index(drop=True)
+    pairs = df[df.kind == "month_cik_theme"][["date", "cik", "theme", "count"]].reset_index(drop=True)
+    del df, t
+    for x in (day, pairs):
+        x["theme"] = x.theme.astype(str).astype("category") if not isinstance(x.theme.dtype, pd.CategoricalDtype) else x.theme
+    return day, pairs
+
+
+def _month_index(dates: pd.Series) -> np.ndarray:
+    return ((dates.dt.year - 2015) * 12 + dates.dt.month - 1).to_numpy()
+
+
+def _pair_arrays(pairs: pd.DataFrame, cols: pd.Index, nm: int):
+    ci = {int(c): i for i, c in enumerate(cols) if str(c).isdigit()}
+    c = pairs.cik.map(ci).to_numpy(dtype=float, na_value=np.nan)
+    m = _month_index(pairs.date)
+    ok = ~np.isnan(c) & (m >= 0) & (m < nm)
+    if not isinstance(pairs.theme.dtype, pd.CategoricalDtype):
+        pairs["theme"] = pairs.theme.astype("category")
+    return m[ok], c[ok].astype(int), pairs["count"].to_numpy(float)[ok], pairs.theme.cat.codes.to_numpy()[ok]
+
+
+def _day_arrays(day: pd.DataFrame, nm: int):
+    m = _month_index(day.date)
+    ok = (m >= 0) & (m < nm)
+    if not isinstance(day.theme.dtype, pd.CategoricalDtype):
+        day["theme"] = day.theme.astype("category")
+    return m[ok], day["count"].to_numpy(float)[ok], day.theme.cat.codes.to_numpy()[ok]
+
+
 def features(day: pd.DataFrame, pairs: pd.DataFrame, dates: pd.DatetimeIndex, columns) -> dict[str, pd.DataFrame]:
     """dates × columns tabloları (yalnızca istenen tarihler; aylık çerçeve için)."""
     fam = _family_of()
@@ -50,24 +88,22 @@ def features(day: pd.DataFrame, pairs: pd.DataFrame, dates: pd.DatetimeIndex, co
     nm, nc, nf = len(months), len(cols), len(FAMILIES)
     fnames = list(FAMILIES)
 
-    pr = pairs.assign(cik=pairs.cik.astype(str))
-    pr = pr[pr.cik.isin(ci)]
-    m_idx = pr.date.dt.to_period("M").map(mi)
-    pr = pr.assign(m=m_idx, c=pr.cik.map(ci)).dropna(subset=["m"])
+    fidx = {t: fnames.index(f) for t, f in fam.items()}
+    pm, pc, pv, pt = _pair_arrays(pairs, cols, nm)
     total = np.zeros((nm, nc))
-    np.add.at(total, (pr.m.astype(int).to_numpy(), pr.c.to_numpy()), pr["count"].to_numpy(float))
+    np.add.at(total, (pm, pc), pv)
     famc = np.zeros((nf, nm, nc))
-    sub = pr[pr.theme.isin(fam)]
-    np.add.at(famc, (sub.theme.map({t: fnames.index(f) for t, f in fam.items()}).to_numpy(), sub.m.astype(int).to_numpy(),
-                     sub.c.to_numpy()), sub["count"].to_numpy(float))
+    code_f = np.array([fidx.get(t, -1) for t in pairs.theme.cat.categories])[pt]
+    sel = code_f >= 0
+    np.add.at(famc, (code_f[sel], pm[sel], pc[sel]), pv[sel])
 
     # Bütün haberlerde ailenin payı (ay bazında)
-    dd = day.assign(m=day.date.dt.to_period("M").map(mi)).dropna(subset=["m"])
-    g_total = np.bincount(dd.m.astype(int), weights=dd["count"].to_numpy(float), minlength=nm)
-    dsub = dd[dd.theme.isin(fam)]
+    dm, dv, dt = _day_arrays(day, nm)
+    g_total = np.bincount(dm, weights=dv, minlength=nm)
     g_fam = np.zeros((nf, nm))
-    np.add.at(g_fam, (dsub.theme.map({t: fnames.index(f) for t, f in fam.items()}).to_numpy(), dsub.m.astype(int).to_numpy()),
-              dsub["count"].to_numpy(float))
+    dcode = np.array([fidx.get(t, -1) for t in day.theme.cat.categories])[dt]
+    dsel = dcode >= 0
+    np.add.at(g_fam, (dcode[dsel], dm[dsel]), dv[dsel])
 
     def window(a: np.ndarray, end: int, n: int) -> np.ndarray:  # [end-n+1, end] toplamı (son eksen hariç ilk eksen ay)
         lo = max(end - n + 1, 0)
@@ -110,20 +146,29 @@ def rising_topics(day: pd.DataFrame, pairs: pd.DataFrame, dates: pd.DatetimeInde
     ci = {c: i for i, c in enumerate(cols)}
     months = pd.period_range("2015-01", pd.Timestamp(dates.max()).to_period("M"), freq="M")
     mi = {m: i for i, m in enumerate(months)}
-    themes = pd.Index(sorted(set(day.theme)))
-    ti = {t: i for i, t in enumerate(themes)}
-    dd = day.assign(m=day.date.dt.to_period("M").map(mi)).dropna(subset=["m"])
+    themes = pd.Index(day.theme.cat.categories)
+    dm, dv, dt = _day_arrays(day, len(months))
     G = np.zeros((len(months), len(themes)))
-    np.add.at(G, (dd.m.astype(int).to_numpy(), dd.theme.map(ti).to_numpy()), dd["count"].to_numpy(float))
+    np.add.at(G, (dm, dt), dv)
     gtot = G.sum(1)
-    pr = pairs.assign(cik=pairs.cik.astype(str))
-    pr = pr[pr.cik.isin(ci) & pr.theme.isin(ti)]
-    pm = pr.date.dt.to_period("M").map(mi).to_numpy()
-    ok = ~pd.isna(pm)
-    pm = pm[ok].astype(int); pc = pr.cik.map(ci).to_numpy()[ok]; pt = pr.theme.map(ti).to_numpy()[ok]
-    pv = pr["count"].to_numpy(float)[ok]
+    # şirket-tema satırlarındaki tema kodlarını gün tablosunun kategori sırasına çevir
+    pm, pc, pv, pt_raw = _pair_arrays(pairs, cols, len(months))
+    remap = pd.Index(themes).get_indexer(pairs.theme.cat.categories)
+    pt = remap[pt_raw]
+    ok = pt >= 0
+    pm, pc, pv, pt = pm[ok], pc[ok], pv[ok], pt[ok]
     ctot = np.zeros((len(months), len(cols)))
     np.add.at(ctot, (pm, pc), pv)
+    # Şirketlerle ilgisiz sınıflama dalları (etnik köken, dil, terör örgütü, siyasi parti, hayvan türleri, unvanlar...)
+    IRRELEVANT = ("TAX_ETHNICITY", "TAX_WORLDLANGUAGES", "TAX_TERROR_GROUP", "TAX_POLITICAL_PARTY", "TAX_WORLDMAMMALS",
+                  "TAX_WORLDFISH", "TAX_WORLDBIRDS", "TAX_WORLDREPTILES", "TAX_WORLDARACHNIDS", "TAX_WORLDINSECTS",
+                  "TAX_WEAPONS", "TAX_FNCACT", "TAX_MILITARY_TITLE", "TAX_RELIGION", "SOC_POINTSOFINTEREST", "CRISISLEX",
+                  "KILL", "ARREST", "TERROR", "ARMEDCONFLICT", "MILITARY", "PROTEST", "UNREST", "REBELS", "SEIGE", "RELEASE_HOSTAGE",
+                  "WB_2516", "WB_2433", "WB_2432", "USPEC_POLITICS", "LEADER", "ELECTION", "TAX_DISEASE_FEAR")
+    relevant = np.array([not str(t).startswith(IRRELEVANT) for t in themes])
+    # şirket haberlerinde gerçekten geçen konular: şirket-tema tablosunda toplam payı en yüksek 3000 tema
+    company_share = np.bincount(pt, weights=pv, minlength=len(themes))
+    relevant &= company_share >= np.sort(company_share)[-3000] if len(themes) > 3000 else relevant
     expo = np.full((len(dates), len(cols)), np.nan)
     turn = np.full((len(dates), len(cols)), np.nan)
     chosen = {}
@@ -135,7 +180,7 @@ def rising_topics(day: pd.DataFrame, pairs: pd.DataFrame, dates: pd.DatetimeInde
         share_s = G[s_lo:end + 1].sum(0) / max(gtot[s_lo:end + 1].sum(), 1)
         base = G[l_lo:l_hi + 1].sum(0)
         share_l = base / max(gtot[l_lo:l_hi + 1].sum(), 1)
-        mom = np.where(base >= min_base, np.log((share_s + 1e-7) / (share_l + 1e-7)), -np.inf)
+        mom = np.where((base >= min_base) & relevant, np.log((share_s + 1e-7) / (share_l + 1e-7)), -np.inf)
         top = np.argsort(-mom)[:top_n]
         top = top[np.isfinite(mom[top]) & (mom[top] > 0)]
         chosen[str(pd.Timestamp(t).date())] = [str(themes[k]) for k in top[:10]]
