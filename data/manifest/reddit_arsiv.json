@@ -78,16 +78,56 @@
   },
   "wallstreetbets_submissions": {
    "partition": "wallstreetbets_submissions",
-   "fetched_at": "2026-10-11T21:10:38+00:00",
-   "rows": 0,
-   "status": "fail",
-   "duration_s": 28.4,
+   "fetched_at": "2026-10-11T21:22:17+00:00",
+   "rows": 72632,
+   "bytes": 472589,
+   "sha256": "9d94bd0c5340cc00d654c3301801f4f194e9de1c943f01af43d0af2b0c2ea939",
+   "columns": {
+    "kind": "str",
+    "subreddit": "str",
+    "date": "datetime64[us]",
+    "cik": "Int64",
+    "posts": "int64",
+    "mentions": "int64",
+    "score": "int64",
+    "comments": "int64",
+    "pos": "int64",
+    "neg": "int64",
+    "angry": "int64"
+   },
+   "sources": [
+    "https://academictorrents.com/download/56aa49f9653ba545f48df2e33679f014d2829c10.torrent (wallstreetbets_submissions.zst; yalnızca toplu sayılar saklanır)"
+   ],
+   "notes": {
+    "lines": 2349125,
+    "bad": 0,
+    "months": 141
+   },
+   "asset": "reddit_arsiv__wallstreetbets_submissions.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 238.1,
    "requests": 0,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "RuntimeError: torrent içinde wallstreetbets_submissions.zst bulunamadı"
+     "name": "Okunabilen satır",
+     "status": "ok",
+     "detail": "2349125/2349125 = %100.0"
+    },
+    {
+     "name": "Ay sayısı",
+     "status": "info",
+     "detail": "141"
+    },
+    {
+     "name": "En çok anılan şirketler (CIK)",
+     "status": "info",
+     "detail": "1326380:191237, 1411579:97519, 924613:23103, 1318605:21746, 886158:16407, 1321655:13607, 2488:11887, 1766600:10508"
+    },
+    {
+     "name": "Şirket-ay satırı",
+     "status": "ok",
+     "detail": "72,491"
     }
    ]
   }
@@ -96,5 +136,5 @@
  "title": "Reddit finans alt-forumları — hisse × ay toplu sayıları (açık arşiv, 2005→2023)",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-11T21:13:35+00:00"
+ "finalized_at": "2026-10-11T21:26:43+00:00"
 }
