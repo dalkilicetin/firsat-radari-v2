@@ -31,6 +31,7 @@ from radar.weekly.pdf import Styles, _table, pct
 
 OUT = config.ROOT / "reports" / "research" / "5_belirtiler_raporu.pdf"
 JSON = config.ROOT / "reports" / "research" / "belirtiler.json"
+FRAME = config.ROOT / "data" / "derived" / "belirti_cercevesi.parquet"
 YEARS = range(2010, 2026)
 WIN = 0.05
 
@@ -148,6 +149,10 @@ def tree_rules(df: pd.DataFrame, cont: list[str]) -> list[dict]:
 def main() -> None:
     p, sigs, inv, etf, sector = hs.prepare()
     df, cont, events = build_frame(p, sigs, inv, sector)
+    FRAME.parent.mkdir(parents=True, exist_ok=True)
+    df.assign(sembol=p["securities"].assign(cik=lambda x: x.cik.astype(str)).drop_duplicates("cik").set_index("cik").symbol
+              .reindex(df.index).to_numpy()).to_parquet(FRAME)  # hedef arama motoru (target_search) bunu okur
+    (FRAME.parent / "belirti_cercevesi_olaylar.json").write_text(json.dumps(sorted(events), ensure_ascii=False))
     qt, vt, et, stb, rules = quintile_table(df, cont), volatile_table(df, cont), event_table(df, events), sector_table(df), tree_rules(df, cont)
     JSON.write_text(json.dumps({"dilim": qt.round(3).to_dict(orient="records"), "oynak": vt.round(2).to_dict(orient="records"),
                                 "olay": et.round(3).to_dict(orient="records"), "kurallar": rules}, ensure_ascii=False, indent=1, default=str))
