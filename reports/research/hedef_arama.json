@@ -1,0 +1,737 @@
+{
+ "ozet": {
+  "iterasyon": 3000,
+  "test_yakalama_ort": 0.10857709660679636,
+  "test_getiri_ort": 0.30700785295423194,
+  "en_iyi20_ort": 2.8251588448707867,
+  "hedefe_ulasan_yil": 0,
+  "yil": 13,
+  "en_iyi20_den_ort": 0.5384615384615384,
+  "en_iyi_yuzde5_ten_ort": 2.5384615384615383,
+  "rastgele_en_iyi_yuzde5_ten": 1.0,
+  "ezber_tavani_yakalama_ort": 0.15683530132839626,
+  "ezber_kurali": {
+   "havuz": [
+    "tema_ruzgari_v2_nadir ≥ 0.02",
+    "dusuk_oynaklik ≤ 0.40"
+   ],
+   "eleme": [
+    "8k_1.01_önemli anlaşma",
+    "wiki_ani_ilgi",
+    "8k_7.01_kamuyu aydınlatma (FD)",
+    "8k_2.01_satın alma/elden çıkarma tamamlandı",
+    "8k_1.02_anlaşma feshi",
+    "icerden_alim_kumesi_3plus",
+    "haber_ani_artis",
+    "ust_yonetici_alimi_90g"
+   ],
+   "puan": [
+    "0.09 × icerden_alici_sayisi_90g (yakın iyi 0.47)"
+   ]
+  }
+ },
+ "yillar": [
+  {
+   "yil": 2013,
+   "egitim_yakalama": 0.219,
+   "test_getiri": 0.3293196007707464,
+   "en_iyi20": 3.028543807754823,
+   "test_yakalama": 0.10873859573287262,
+   "en_iyi20_den": 0,
+   "en_iyi_yuzde5_ten": 0,
+   "secim": [
+    "BIOC",
+    "RENT",
+    "OMN",
+    "CALM",
+    "WSCI",
+    "AFOP",
+    "DNB",
+    "SPA",
+    "SSNC",
+    "BIIB",
+    "UFS",
+    "FIO",
+    "AVID",
+    "QLIK",
+    "EDE",
+    "EMC",
+    "ENSG",
+    "EGOV",
+    "NATI",
+    "ALLT"
+   ]
+  },
+  {
+   "yil": 2014,
+   "egitim_yakalama": 0.194,
+   "test_getiri": 0.27341189590200166,
+   "en_iyi20": 2.058479951956948,
+   "test_yakalama": 0.13282222916092792,
+   "en_iyi20_den": 0,
+   "en_iyi_yuzde5_ten": 4,
+   "secim": [
+    "IMGN",
+    "ARWR",
+    "IONS",
+    "PCRX",
+    "SRDX",
+    "ALKS",
+    "ACAD",
+    "EXAS",
+    "SGEN",
+    "NPSP",
+    "OMER",
+    "BMRN",
+    "CLDX",
+    "INCY",
+    "GHDX",
+    "XOXO",
+    "REGN",
+    "BIIB",
+    "LGND",
+    "DXCM"
+   ]
+  },
+  {
+   "yil": 2015,
+   "egitim_yakalama": 0.192,
+   "test_getiri": 0.2715777866662232,
+   "en_iyi20": 1.5141653656584653,
+   "test_yakalama": 0.17935807595765613,
+   "en_iyi20_den": 3,
+   "en_iyi_yuzde5_ten": 4,
+   "secim": [
+    "AGTC",
+    "VECO",
+    "DYAX",
+    "TSEM",
+    "JKS",
+    "NBIX",
+    "PRXL",
+    "PTX",
+    "ADPT",
+    "ARDX",
+    "LLTC",
+    "MNK",
+    "ZSPH",
+    "SPWR",
+    "AGN",
+    "PETX",
+    "IDTI",
+    "EPRS",
+    "RARE",
+    "ADEP"
+   ]
+  },
+  {
+   "yil": 2016,
+   "egitim_yakalama": 0.203,
+   "test_getiri": 0.05041324640723923,
+   "en_iyi20": 2.8734426797261854,
+   "test_yakalama": 0.01754454569876549,
+   "en_iyi20_den": 0,
+   "en_iyi_yuzde5_ten": 1,
+   "secim": [
+    "IMPR",
+    "NTCT",
+    "MATR",
+    "TWOU",
+    "ALRM",
+    "QTWO",
+    "HUBS",
+    "TCX",
+    "CENTA",
+    "GLOB",
+    "PCTY",
+    "CVT",
+    "RNG",
+    "ACET",
+    "WEB",
+    "DBVT",
+    "LJPC",
+    "HDP",
+    "SCSC",
+    "FENX"
+   ]
+  },
+  {
+   "yil": 2017,
+   "egitim_yakalama": 0.178,
+   "test_getiri": 0.3344020041369101,
+   "en_iyi20": 2.889591094216006,
+   "test_yakalama": 0.11572641015065108,
+   "en_iyi20_den": 0,
+   "en_iyi_yuzde5_ten": 3,
+   "secim": [
+    "CY",
+    "VECO",
+    "FSLR",
+    "DQ",
+    "CSIQ",
+    "SEDG",
+    "RMP",
+    "LRCX",
+    "AMBA",
+    "PXD",
+    "EPM",
+    "AAOI",
+    "SWKS",
+    "LSCC",
+    "ENLK",
+    "ENLC",
+    "SMLP",
+    "ESTE",
+    "AZTA",
+    "APLP"
+   ]
+  },
+  {
+   "yil": 2018,
+   "egitim_yakalama": 0.17,
+   "test_getiri": 0.13390246984100754,
+   "en_iyi20": 1.589817650687711,
+   "test_yakalama": 0.08422504919547537,
+   "en_iyi20_den": 1,
+   "en_iyi_yuzde5_ten": 4,
+   "secim": [
+    "AVID",
+    "APTI",
+    "WB",
+    "GRVY",
+    "SPLK",
+    "BAND",
+    "META",
+    "NOW",
+    "SAP",
+    "TTWO",
+    "XYZ",
+    "TTD",
+    "VEEV",
+    "HUBS",
+    "SNAP",
+    "GWRE",
+    "LDOS",
+    "EPAM",
+    "GEN",
+    "SSNC"
+   ]
+  },
+  {
+   "yil": 2019,
+   "egitim_yakalama": 0.14,
+   "test_getiri": 0.38562967737295367,
+   "en_iyi20": 3.0768877363341303,
+   "test_yakalama": 0.12533108466037213,
+   "en_iyi20_den": 0,
+   "en_iyi_yuzde5_ten": 3,
+   "secim": [
+    "ICPT",
+    "FRO",
+    "ACAD",
+    "KEYW",
+    "IRWD",
+    "AKTS",
+    "CALX",
+    "ITCI",
+    "BRSL",
+    "NVTA",
+    "MXL",
+    "SNDA",
+    "CATM",
+    "MTSI",
+    "AXDX",
+    "XONE",
+    "KTOS",
+    "SPPI",
+    "EXTR",
+    "EIGI"
+   ]
+  },
+  {
+   "yil": 2020,
+   "egitim_yakalama": 0.158,
+   "test_getiri": 0.43042334270703775,
+   "en_iyi20": 4.847990863711013,
+   "test_yakalama": 0.088783860120058,
+   "en_iyi20_den": 0,
+   "en_iyi_yuzde5_ten": 0,
+   "secim": [
+    "NVDA",
+    "INTC",
+    "TSM",
+    "MRVL",
+    "AMAT",
+    "LRCX",
+    "ASML",
+    "TXN",
+    "TER",
+    "AAOI",
+    "CLS",
+    "MCHP",
+    "ON",
+    "FSLR",
+    "STM",
+    "TSEM",
+    "FLEX",
+    "JBL",
+    "MTSI",
+    "TTMI"
+   ]
+  },
+  {
+   "yil": 2021,
+   "egitim_yakalama": 0.161,
+   "test_getiri": 0.48160760990606477,
+   "en_iyi20": 3.2710401527793485,
+   "test_yakalama": 0.14723378112520288,
+   "en_iyi20_den": 0,
+   "en_iyi_yuzde5_ten": 2,
+   "secim": [
+    "MU",
+    "AMD",
+    "MRVL",
+    "AMAT",
+    "LRCX",
+    "MPWR",
+    "CLS",
+    "FSLR",
+    "STM",
+    "FLEX",
+    "MTSI",
+    "AMKR",
+    "SITM",
+    "UMC",
+    "FORM",
+    "SANM",
+    "SIMO",
+    "SEDG",
+    "AMBA",
+    "ACMR"
+   ]
+  },
+  {
+   "yil": 2022,
+   "egitim_yakalama": 0.154,
+   "test_getiri": 0.055605074612081154,
+   "en_iyi20": 1.8494850823102962,
+   "test_yakalama": 0.030065165241896258,
+   "en_iyi20_den": 0,
+   "en_iyi_yuzde5_ten": 4,
+   "secim": [
+    "FBIN",
+    "CVCO",
+    "MHO",
+    "CCS",
+    "HOV",
+    "BZH",
+    "DFH",
+    "JELD",
+    "TPH",
+    "XOM",
+    "SHEL",
+    "HAL",
+    "BP",
+    "PBR",
+    "CNQ",
+    "OKE",
+    "EXE",
+    "SU",
+    "CVE",
+    "APA"
+   ]
+  },
+  {
+   "yil": 2023,
+   "egitim_yakalama": 0.151,
+   "test_getiri": 0.28296212860090836,
+   "en_iyi20": 2.741004458589825,
+   "test_yakalama": 0.103233005591857,
+   "en_iyi20_den": 0,
+   "en_iyi_yuzde5_ten": 2,
+   "secim": [
+    "PBR",
+    "CVE",
+    "PR",
+    "AR",
+    "RRC",
+    "SM",
+    "LBRT",
+    "PTEN",
+    "MGY",
+    "CNX",
+    "YPF",
+    "VIST",
+    "PARR",
+    "NOG",
+    "AROC",
+    "CRK",
+    "PUMP",
+    "OII",
+    "CLMT",
+    "EC"
+   ]
+  },
+  {
+   "yil": 2024,
+   "egitim_yakalama": 0.129,
+   "test_getiri": 0.5613432949981974,
+   "en_iyi20": 3.313830903594524,
+   "test_yakalama": 0.16939406726797868,
+   "en_iyi20_den": 2,
+   "en_iyi_yuzde5_ten": 2,
+   "secim": [
+    "SLP",
+    "PLTR",
+    "NOW",
+    "CRWD",
+    "SNOW",
+    "SHOP",
+    "IONQ",
+    "DDOG",
+    "APLD",
+    "RBLX",
+    "MDB",
+    "SAP",
+    "PATH",
+    "ZS",
+    "TTWO",
+    "XYZ",
+    "TTD",
+    "VEEV",
+    "HUBS",
+    "TWLO"
+   ]
+  },
+  {
+   "yil": 2025,
+   "egitim_yakalama": 0.152,
+   "test_getiri": 0.40050395648364345,
+   "en_iyi20": 3.6727852360009465,
+   "test_yakalama": 0.10904638598463921,
+   "en_iyi20_den": 1,
+   "en_iyi_yuzde5_ten": 4,
+   "secim": [
+    "UMC",
+    "LASR",
+    "TTMI",
+    "TSEM",
+    "CRUS",
+    "CRCT",
+    "SKYT",
+    "SANM",
+    "PLXS",
+    "SITM",
+    "INTA",
+    "CLS",
+    "KVYO",
+    "ALKT",
+    "UIS",
+    "WEAV",
+    "EVER",
+    "IONQ",
+    "CVLT",
+    "CEVA"
+   ]
+  }
+ ],
+ "kurallar": {
+  "2013": {
+   "havuz": [
+    "tahakkuklar_dusuk ≥ 0.21"
+   ],
+   "eleme": [
+    "8k_7.01_kamuyu aydınlatma (FD)",
+    "8k_8.01_diğer olaylar",
+    "8k_1.02_anlaşma feshi",
+    "icerden_alim_kumesi_3plus",
+    "ust_yonetici_alimi_90g",
+    "8k_5.02_yönetici değişikliği"
+   ],
+   "puan": [
+    "0.91 × metin_benzerligi_yonetim (yakın iyi 0.66)",
+    "0.97 × kisa_vade_donus (yüksek iyi)",
+    "0.34 × tema_ruzgari_v2_nadir (düşük iyi)",
+    "0.01 × haber_ton_degisimi (düşük iyi)",
+    "0.88 × kurumsal_hisse_degisimi_payi (yakın iyi 0.28)"
+   ]
+  },
+  "2014": {
+   "havuz": [
+    "sektor_momentum_12_1 ≥ 0.75"
+   ],
+   "eleme": [
+    "8k_8.01_diğer olaylar",
+    "wiki_ani_ilgi",
+    "8k_3.02_kayıtsız hisse satışı (sulandırma)",
+    "devamlilik_suphesi",
+    "ust_yonetici_alimi_90g",
+    "8k_2.03_yeni borç yükümlülüğü",
+    "8k_1.02_anlaşma feshi"
+   ],
+   "puan": [
+    "0.65 × arge_yogunlugu (yüksek iyi)",
+    "0.39 × serbest_nakit_getirisi (yakın iyi 0.65)",
+    "0.59 × sektor_momentum_12_1 (yüksek iyi)",
+    "0.26 × sektor_momentum_12_1 (düşük iyi)",
+    "0.32 × kurumsal_hisse_degisimi_payi (düşük iyi)"
+   ]
+  },
+  "2015": {
+   "havuz": [
+    "risk_bolumu_buyumesi_dusuk ≥ 0.45"
+   ],
+   "eleme": [
+    "ust_yonetici_alimi_90g",
+    "wiki_ani_ilgi",
+    "8k_5.02_yönetici değişikliği",
+    "devamlilik_suphesi",
+    "8k_7.01_kamuyu aydınlatma (FD)"
+   ],
+   "puan": [
+    "1.00 × sektor_momentum_12_1 (yüksek iyi)",
+    "0.67 × kurumsal_hisse_degisimi_payi (yüksek iyi)"
+   ]
+  },
+  "2016": {
+   "havuz": [
+    "dusuk_oynaklik ≤ 0.63"
+   ],
+   "eleme": [
+    "8k_5.02_yönetici değişikliği",
+    "8k_8.01_diğer olaylar",
+    "icerden_alim_kumesi_3plus",
+    "8k_1.02_anlaşma feshi"
+   ],
+   "puan": [
+    "0.38 × sektor_momentum_12_1 (yüksek iyi)",
+    "0.47 × kurumsal_sahip_degisimi (yüksek iyi)"
+   ]
+  },
+  "2017": {
+   "havuz": [
+    "metin_benzerligi_yonetim ≤ 0.56"
+   ],
+   "eleme": [
+    "haber_ani_artis",
+    "8k_1.01_önemli anlaşma",
+    "ust_yonetici_alimi_90g",
+    "8k_2.01_satın alma/elden çıkarma tamamlandı",
+    "devamlilik_suphesi",
+    "8k_5.02_yönetici değişikliği",
+    "wiki_ani_ilgi",
+    "8k_2.03_yeni borç yükümlülüğü"
+   ],
+   "puan": [
+    "0.98 × sektor_momentum_12_1 (yüksek iyi)",
+    "0.88 × buyume_ivmesi (düşük iyi)"
+   ]
+  },
+  "2018": {
+   "havuz": [
+    "momentum_12_1 ≥ 0.43",
+    "icerden_alim_tutar_piyasa_degeri ≥ 0.35"
+   ],
+   "eleme": [
+    "8k_1.01_önemli anlaşma",
+    "8k_8.01_diğer olaylar",
+    "8k_5.02_yönetici değişikliği",
+    "8k_3.02_kayıtsız hisse satışı (sulandırma)",
+    "haber_ani_artis",
+    "8k_2.01_satın alma/elden çıkarma tamamlandı",
+    "8k_2.03_yeni borç yükümlülüğü",
+    "devamlilik_suphesi"
+   ],
+   "puan": [
+    "0.99 × sektor_momentum_12_1 (yüksek iyi)",
+    "0.18 × tema_ruzgari_v2_nadir (yakın iyi 0.57)"
+   ]
+  },
+  "2019": {
+   "havuz": [
+    "haber_ivmesi ≥ 0.19"
+   ],
+   "eleme": [
+    "haber_ani_artis",
+    "8k_7.01_kamuyu aydınlatma (FD)",
+    "8k_3.02_kayıtsız hisse satışı (sulandırma)",
+    "8k_2.03_yeni borç yükümlülüğü",
+    "wiki_ani_ilgi"
+   ],
+   "puan": [
+    "0.48 × dusuk_oynaklik (yakın iyi 0.18)",
+    "0.66 × haber_ton_degisimi (yakın iyi 0.38)",
+    "0.74 × buyume_ivmesi (düşük iyi)",
+    "0.63 × kazanc_getirisi (düşük iyi)",
+    "0.11 × varlik_buyumesi_dusuk (yüksek iyi)",
+    "0.50 × beta_qqq (yakın iyi 0.74)"
+   ]
+  },
+  "2020": {
+   "havuz": [],
+   "eleme": [
+    "ust_yonetici_alimi_90g",
+    "8k_5.02_yönetici değişikliği",
+    "icerden_alim_kumesi_3plus",
+    "8k_8.01_diğer olaylar",
+    "8k_1.02_anlaşma feshi",
+    "wiki_ani_ilgi",
+    "8k_2.03_yeni borç yükümlülüğü"
+   ],
+   "puan": [
+    "0.26 × sektor_momentum_12_1 (yüksek iyi)"
+   ]
+  },
+  "2021": {
+   "havuz": [
+    "kucuk_boyut ≤ 0.77",
+    "dusuk_oynaklik ≤ 0.62",
+    "sektor_getiri_13h ≤ 0.83"
+   ],
+   "eleme": [
+    "8k_1.01_önemli anlaşma",
+    "8k_3.02_kayıtsız hisse satışı (sulandırma)",
+    "8k_2.01_satın alma/elden çıkarma tamamlandı",
+    "8k_2.03_yeni borç yükümlülüğü",
+    "ust_yonetici_alimi_90g"
+   ],
+   "puan": [
+    "0.01 × sektor_momentum_12_1 (yüksek iyi)"
+   ]
+  },
+  "2022": {
+   "havuz": [
+    "risk_bolumu_buyumesi_dusuk ≥ 0.46"
+   ],
+   "eleme": [
+    "icerden_alim_kumesi_3plus",
+    "ust_yonetici_alimi_90g",
+    "8k_1.02_anlaşma feshi",
+    "8k_1.01_önemli anlaşma",
+    "haber_ani_artis",
+    "8k_5.02_yönetici değişikliği",
+    "8k_3.02_kayıtsız hisse satışı (sulandırma)"
+   ],
+   "puan": [
+    "0.81 × sektor_momentum_12_1 (yüksek iyi)"
+   ]
+  },
+  "2023": {
+   "havuz": [
+    "dusuk_oynaklik ≤ 0.66",
+    "fiyat_seviyesi ≤ 0.48"
+   ],
+   "eleme": [
+    "8k_1.01_önemli anlaşma",
+    "wiki_ani_ilgi",
+    "icerden_alim_kumesi_3plus",
+    "8k_1.02_anlaşma feshi",
+    "8k_2.03_yeni borç yükümlülüğü"
+   ],
+   "puan": [
+    "0.18 × sektor_momentum_12_1 (yüksek iyi)"
+   ]
+  },
+  "2024": {
+   "havuz": [],
+   "eleme": [
+    "8k_1.01_önemli anlaşma",
+    "8k_8.01_diğer olaylar",
+    "8k_1.02_anlaşma feshi",
+    "wiki_ani_ilgi",
+    "ust_yonetici_alimi_90g",
+    "haber_ani_artis",
+    "8k_2.03_yeni borç yükümlülüğü"
+   ],
+   "puan": [
+    "0.47 × sektor_momentum_12_1 (yüksek iyi)",
+    "0.65 × geri_alim_getirisi (yakın iyi 0.49)"
+   ]
+  },
+  "2025": {
+   "havuz": [
+    "kucuk_boyut ≥ 0.20"
+   ],
+   "eleme": [
+    "8k_1.01_önemli anlaşma",
+    "8k_8.01_diğer olaylar",
+    "haber_ani_artis",
+    "8k_1.02_anlaşma feshi",
+    "icerden_alim_kumesi_3plus",
+    "8k_2.01_satın alma/elden çıkarma tamamlandı",
+    "8k_3.02_kayıtsız hisse satışı (sulandırma)",
+    "8k_2.03_yeni borç yükümlülüğü"
+   ],
+   "puan": [
+    "1.00 × sektor_momentum_12_1 (yüksek iyi)",
+    "0.59 × kurumsal_sahip_degisimi (yakın iyi 0.89)"
+   ]
+  }
+ },
+ "ezber_yillar": {
+  "2010": {
+   "getiri": 0.4081911560702487,
+   "yakalama": 0.18919134669569235
+  },
+  "2011": {
+   "getiri": -0.08419288086510338,
+   "yakalama": -0.06379326587110835
+  },
+  "2012": {
+   "getiri": 0.2087761018269249,
+   "yakalama": 0.10529906654540654
+  },
+  "2013": {
+   "getiri": 0.5397966047944498,
+   "yakalama": 0.17823635352814063
+  },
+  "2014": {
+   "getiri": 0.21385733137401677,
+   "yakalama": 0.10389089831587026
+  },
+  "2015": {
+   "getiri": 0.14026037720601925,
+   "yakalama": 0.09263213938658821
+  },
+  "2016": {
+   "getiri": 0.2965629347904172,
+   "yakalama": 0.10320823062970481
+  },
+  "2017": {
+   "getiri": 0.43645027258457886,
+   "yakalama": 0.151042226513712
+  },
+  "2018": {
+   "getiri": 0.0892245094576995,
+   "yakalama": 0.05612248009644593
+  },
+  "2019": {
+   "getiri": 0.6548948854337341,
+   "yakalama": 0.21284328241822362
+  },
+  "2020": {
+   "getiri": 1.2965568862974712,
+   "yakalama": 0.2674421059665509
+  },
+  "2021": {
+   "getiri": 0.37201192593385013,
+   "yakalama": 0.11372893897916776
+  },
+  "2022": {
+   "getiri": -0.3381089717680551,
+   "yakalama": -0.18281248927171886
+  },
+  "2023": {
+   "getiri": 0.9883038590262216,
+   "yakalama": 0.3605626601332411
+  },
+  "2024": {
+   "getiri": 1.7675420780446616,
+   "yakalama": 0.5333833045395897
+  },
+  "2025": {
+   "getiri": 1.0591855088872297,
+   "yakalama": 0.2883875426488337
+  }
+ }
+}
