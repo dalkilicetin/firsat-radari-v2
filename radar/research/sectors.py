@@ -39,8 +39,11 @@ def classify(sec: pd.DataFrame, sic: pd.Series | None = None) -> pd.Series:
     code = sic.reindex(s.index).fillna("")
     name = s.name.fillna("")
     out = pd.Series("faaliyet", index=s.index)
-    excluded = code.str.match(r"^(?:60[2-3]\d|671\d|63\d\d|64\d\d|6798|6722|6726|6799)$")
-    out[excluded | ((code == "") & name.str.contains(FINANCE_NAME))] = "finans"
+    excluded = code.str.match(r"^(?:60[2-3]\d|611\d|671\d|63\d\d|64\d\d|6798|6722|6726|6799)$")
+    # SIC kodu boş + adında capital/finance/lending/investment/credit: neredeyse her zaman yatırım şirketi (BDC)
+    # (ör. Gladstone Capital Corp, Bain Capital Specialty Finance); faaliyet şirketlerinin hemen hepsinin SIC kodu vardır.
+    fund_like = name.str.contains(r"\b(?:capital|finance|lending|investment|credit)\b", case=False)
+    out[excluded | ((code == "") & (name.str.contains(FINANCE_NAME) | fund_like))] = "finans"
     out[(code == "6770") | name.str.contains(SPAC_NAME)] = "spac"
     return out
 
