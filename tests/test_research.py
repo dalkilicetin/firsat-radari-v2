@@ -224,3 +224,14 @@ def test_exit_price_ignores_placeholder_and_bankruptcy_needs_collapse():
     assert not identity.collapsed(ok, "TKTM", d[-1])            # satın alma: iflas sayılmaz
     bad = ok.assign(price=np.linspace(10, 0.2, 60))
     assert identity.collapsed(bad, "X", d[-1])
+
+
+def test_unsplit_factor_restores_traded_price():
+    # WKHS benzeri: 2020'de 0,05 ve 0,08 ters bölünme sonrası düzeltilmiş fiyat 100 → gerçek 0,4; NVDA benzeri 4:1 ileri bölünme.
+    daily = pd.DataFrame({
+        "symbol": ["W", "W", "W", "W", "N", "N", "N"],
+        "date": pd.to_datetime(["2020-01-02", "2021-01-04", "2022-01-03", "2023-01-03", "2020-01-02", "2021-07-20", "2022-01-03"]),
+        "split_ratio": [np.nan, 0.05, np.nan, 0.08, np.nan, 4.0, np.nan],
+    })
+    f = panel.unsplit_factor(daily)
+    assert np.allclose(f, [0.004, 0.08, 0.08, 1.0, 4.0, 1.0, 1.0])

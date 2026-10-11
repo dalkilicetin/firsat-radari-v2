@@ -41,6 +41,15 @@ def adjust_reverse_splits(px: np.ndarray) -> np.ndarray:
     return px * factor
 
 
+def unsplit_factor(daily: pd.DataFrame) -> np.ndarray:
+    """Her satır için: aynı sembolde o tarihten SONRA gerçekleşen bölünme oranlarının çarpımı (bölünme günü dahil değil)."""
+    d = daily[["symbol", "date", "split_ratio"]].copy()
+    d["r"] = d.split_ratio.where(d.split_ratio > 0).fillna(1.0)
+    d = d.sort_values(["symbol", "date"], ascending=[True, False])
+    after = d.groupby("symbol").r.cumprod() / d.r  # tersten kümülatif çarpım, kendi günü hariç
+    return after.reindex(daily.index).to_numpy()
+
+
 def weekly_last(df: pd.DataFrame, value: str, dates: pd.DatetimeIndex) -> pd.DataFrame:
     """Uzun tablo (cik, date, value) → geniş tablo: her Cuma için o güne kadarki son değer (STALE_DAYS sınırlı)."""
     wide = df.pivot_table(index="date", columns="cik", values=value, aggfunc="last").sort_index()
@@ -66,11 +75,13 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
 
     dates = fridays()
     active = sec[sec.status == "aktif"]
-    daily = archive.load("prices", columns=["symbol", "date", "adjclose", "close", "volume"])
+    daily = archive.load("prices", columns=["symbol", "date", "adjclose", "close", "volume", "split_ratio"])
     daily = daily.merge(active[["symbol", "cik"]], on="symbol")
-    daily["dollar_volume"] = daily.close * daily.volume
+    daily["dollar_volume"] = daily.close * daily.volume  # ikisi de bölünmeye göre düzeltilmiş; çarpım gerçek işlem tutarıdır
     px = daily.rename(columns={"adjclose": "price"})[["cik", "date", "price"]]
-    raw_px = daily.rename(columns={"close": "price"})[["cik", "date", "price"]]
+    # Yahoo "close" sonraki bölünmelere göre düzeltilmiştir (WKHS 2020 başı 9.210 $, NVDA 2015 0,5 $ görünür).
+    # O gün gerçekten işlem gören fiyat: close × o tarihten sonraki bölünme oranlarının çarpımı.
+    raw_px = daily.assign(price=daily.close * unsplit_factor(daily))[["cik", "date", "price"]]
     dv = (daily.sort_values("date").groupby("cik", group_keys=False)
           .apply(lambda g: g.set_index("date").dollar_volume.rolling("91D").median().reset_index().assign(cik=g.name)))
 
@@ -81,6 +92,12 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
     ftd = ftd[(ftd.settle_date >= ftd.start - pd.Timedelta(days=60)) & (ftd.settle_date <= ftd.end + pd.Timedelta(days=10))]
     # FTD fiyatı takas tarihinden önceki işlem gününün kapanışıdır.
     ftd["date"] = ftd.settle_date - pd.offsets.BDay(1)
+    # Aynı sembolün aynı günkü fiyatı tek şirkete ait olmalı (ör. ZYME: eski ve yeniden kurulan şirket; eski şirketin sembolünü
+    # sonradan alan SPAC). Aktif hissenin Yahoo fiyatı varsa o gün FTD gözlemi atılır; yoksa başlangıcı en yakın olan alır.
+    near = daily[daily.symbol.isin(set(ftd.symbol))]
+    yahoo_days = set(zip(near.symbol, near.date))
+    ftd = ftd[[(s, d) not in yahoo_days for s, d in zip(ftd.symbol, ftd.date)]]
+    ftd = ftd.sort_values("start").drop_duplicates(["symbol", "date"], keep="last")
     ftd = ftd.groupby(["cik", "date"]).price.last().reset_index().sort_values(["cik", "date"])
     ftd_raw = ftd.copy()
     ftd["price"] = ftd.groupby("cik").price.transform(adjust_reverse_splits)
