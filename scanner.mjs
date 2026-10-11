@@ -39,7 +39,8 @@ async function td(path){
 
 async function wikiTickers(page){
   const r = await fetch("https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=wikitext&page="+encodeURIComponent(page),
-    {headers:{ "User-Agent":"firsat-radari-scanner/1.0" }});
+    {headers:{ "User-Agent":"firsat-radari-scanner/1.1 (https://github.com/dalkilicetin/firsat-radari-v2; github-actions)", "Api-User-Agent":"firsat-radari-scanner/1.1 (https://github.com/dalkilicetin/firsat-radari-v2)" }});
+  if(!r.ok) throw new Error("Wikipedia HTTP "+r.status);
   const j = await r.json();
   const txt = j?.parse?.wikitext?.["*"] || "";
   const out = new Set();
@@ -88,24 +89,38 @@ async function fredLast(id){
   try{
     const r = await fetch("https://fred.stlouisfed.org/graph/fredgraph.csv?id="+id);
     const lines = (await r.text()).trim().split("\n").reverse();
-    for(const ln of lines){ const m = ln.match(/^\d{4}-\d{2}-\d{2},\s*(-?[0-9.]+)\s*$/); if(m) return parseFloat(m[1]); }
+    // FRED tatil/eksik günleri "." yazar — eski regex "."yı sayı sanıp NaN (JSON'da null) döndürüyordu
+    for(const ln of lines){ const m = ln.match(/^\d{4}-\d{2}-\d{2},\s*(-?\d+(?:\.\d+)?)\s*$/); if(m) return parseFloat(m[1]); }
   }catch(e){} return null;
 }
 out.macro.t10y2y = await fredLast("T10Y2Y");        // faiz eğrisi (negatif = ters)
 out.macro.hy = await fredLast("BAMLH0A0HYM2");      // yüksek getirili tahvil spreadi
+// FRED bazen boş dönüyor (Tem-Eki arası 8 gece null yazıldı) → önceki değeri taşı
+for(const k of ["t10y2y","hy"]) if(out.macro[k]==null && prev.macro && prev.macro[k]!=null) out.macro[k] = prev.macro[k];
 console.log("VIX:", out.vix, "| makro:", out.macro);
 
 // ---- 2) Evren ----
+// 13.08.2026'dan beri Wikipedia çekimi sessizce başarısızdı → evren 1089'dan 601'e düştü, ~490 hisse
+// 2 ay taranmadı. Artık hata loglanıyor ve wiki düşerse önceki gecenin evreni kullanılıyor.
 const merged = new Set(EMBEDDED);
-try{ (await wikiTickers("List of S%26P 500 companies")).forEach(t=>merged.add(t)); }catch(e){}
-try{ (await wikiTickers("Nasdaq-100")).forEach(t=>merged.add(t)); }catch(e){}
-try{ const ru = await wikiTickers("Russell 1000 Index"); if(ru.size>200) ru.forEach(t=>merged.add(t)); }catch(e){}
+const wikiDurum = {};
+for(const [ad, sayfa, min] of [["sp500","List of S%26P 500 companies",400],["ndx","Nasdaq-100",80],["r1000","Russell 1000 Index",200]]){
+  try{ const t = await wikiTickers(sayfa); wikiDurum[ad] = t.size; if(t.size>=min) t.forEach(x=>merged.add(x)); }
+  catch(e){ wikiDurum[ad] = "HATA: "+e.message; }
+}
+console.log("Wikipedia:", wikiDurum);
+const prevUni = (prev.dynUni && prev.dynUni.list) || [];
+let uniKaynak = "wiki";
+if(merged.size < EMBEDDED.length + 150 && prevUni.length > merged.size){
+  prevUni.forEach(t=>merged.add(t)); uniKaynak = "önceki gece (wiki başarısız)";
+  console.log("UYARI: Wikipedia evreni gelmedi — önceki gecenin evreni kullanılıyor:", prevUni.length);
+}
 TREE_EXTRA.forEach(t=>merged.add(t));
 const ONE_OK = new Set(["A","C","D","F","J","K","L","O","S","T","V","U"]);
 const ETF_BLACKLIST = new Set(["QQQ","SPY","DIA","IWM","VOO","VTI","GLD","SLV"]);
 const DEAD = prev.dead || {};
 const UNI = [...merged].filter(t=>/^[A-Z]{1,5}(\.[A-Z])?$/.test(t) && (t.length>1 || ONE_OK.has(t)) && !ETF_BLACKLIST.has(t) && (DEAD[t]||0) < 2);
-out.dynUni = {list:UNI, date:iso(new Date()), src:"Actions gece taraması"};
+out.dynUni = {list:UNI, date:iso(new Date()), src:"Actions gece taraması · "+uniKaynak, wiki:wikiDurum};
 console.log("Evren:", UNI.length);
 
 // ---- 3) Ekran taraması (metric) ----
@@ -127,6 +142,35 @@ for(const s of UNI){
   await sleep(FH_GAP);
 }
 
+// ---- Yarım koşu koruması ----
+// 31.08.2026: 601 hissenin sadece 221'i tarandı ama dosya yine yazıldı → o günün raporu bozuk çıktı.
+// Ekranın %85'inden azı geldiyse eski dosyayı koru, iş adımı hata versin (commit adımı çalışmaz).
+{
+  const dolu = UNI.filter(s=>out.screen[s] && out.screen[s].r52w!=null).length;
+  console.log("Ekran kapsamı:", dolu, "/", UNI.length);
+  if(dolu < UNI.length*0.85){ console.error("YARIM TARAMA — sonuç yazılmadı, önceki gece korunuyor."); process.exit(1); }
+}
+
+// ---- TREND + DÜZELTME (v5.16 ana sıralama) ----
+// Sebep: 12.07–10.10.2026 gece verisinde iki şey İKİ YARIDA DA tuttu:
+//  (1) Uzun vadeli kazananlar (52h getiri, son çeyrek HARİÇ) kazanmaya devam etti; en zayıf %40 SPY'ın gerisinde kaldı
+//      (kurumsal fon akışı yavaş gelir — trend kalıcı).
+//  (2) Son 1-3 ayda en çok koşanlar SPY'ın gerisinde kaldı (kısa vadeli aşırı uzama geri verilir).
+// Kural: 12-3 momentum evrende ilk %30 + son çeyrek düzeltme yapmış (3-1 momentum medyan altı) + sağlam (≥2 mlr$, kârlı).
+// Geriye dönük: ilk 10, 20 günde SPY'a göre ort. +%5.9 (Tem-Ağu +4.9, Eyl-Eki +10.0); eski r13w sıralaması +%0.7.
+const trendRank = {};
+{
+  const rows = [];
+  for(const s of UNI){ const x=out.screen[s];
+    if(!x || x.r52w==null || x.r13w==null || x.mtd==null) continue;
+    rows.push({s, mom:(1+x.r52w/100)/(1+x.r13w/100)-1, pull:(1+x.r13w/100)/(1+x.mtd/100)-1});
+  }
+  const pct = (arr, v) => { let lo=0, hi=arr.length; while(lo<hi){ const m=(lo+hi)>>1; if(arr[m]<v) lo=m+1; else hi=m; } return lo/arr.length; };
+  const ms = rows.map(r=>r.mom).sort((a,b)=>a-b), ps = rows.map(r=>r.pull).sort((a,b)=>a-b);
+  for(const r of rows) trendRank[r.s] = [+pct(ms,r.mom).toFixed(2), +(1-pct(ps,r.pull)).toFixed(2)];
+}
+out.trendRank = trendRank;   // s -> [momPct, düzeltmePct] — uygulama da aynı kuralı kullanır
+
 // adaylar
 const spin = new Set(WATCH.spin||[]);
 const solid = s => spin.has(s) || ((out.screen[s]?.mcap||0)>=2000 && !!out.screen[s]?.pe);
@@ -134,7 +178,10 @@ const STRONG = new Set(["A","C?","D","ERKEN+UCUZ?"]);
 const qualifies = pats => pats.some(p=>STRONG.has(p)) || pats.filter(p=>p!=="BIÇAK?").length>=2;
 const CAND = UNI.filter(s => { const p = stage1(out.screen[s]); return p.length && qualifies(p) && solid(s); });
 const DISC = UNI.filter(s => { const x=out.screen[s]; return x && (x.mcap||0)>=300 && (x.mcap||0)<2000 && qualifies(stage1(x)); });
-console.log("Core aday:", CAND.length, "| Discovery:", DISC.length);
+const solidStrict = s => (out.screen[s]?.mcap||0)>=2000 && !!out.screen[s]?.pe;
+const TREND = UNI.filter(s => { const t=trendRank[s]; return t && t[0]>=0.7 && t[1]>=0.5 && solidStrict(s); })
+  .sort((a,b)=>(trendRank[b][0]+trendRank[b][1])-(trendRank[a][0]+trendRank[a][1]));
+console.log("Core aday:", CAND.length, "| Discovery:", DISC.length, "| Trend+düzeltme:", TREND.length);
 
 // ---- 4) Profiller (artımlı: eksik/30 gün eskimiş) ----
 const needProf = UNI.filter(s => !out.prof[s] || !out.prof[s].date || (Date.now()-new Date(out.prof[s].date))>30*86400000);
@@ -146,8 +193,10 @@ for(const s of needProf){
   await sleep(FH_GAP);
 }
 
-// ---- 5) Fiyatlar (adaylar + izleme + nabız örneklemi) ----
-const QUOTE_SET = [...new Set(["SPY", ...CAND, ...DISC.slice(0,40), ...WATCH.other, ...WATCH.micro, ...NDX35])];
+// ---- 5) Fiyatlar — TÜM evren ----
+// Eskiden sadece adaylar (~240) fiyatlanıyordu: ŞOK taraması evrenin yarısını göremiyordu ve
+// önerilerin sonradan ne yaptığı ölçülemiyordu (karne). +1 çağrı/hisse ≈ +10-19 dk.
+const QUOTE_SET = [...new Set(["SPY", ...TREND, ...CAND, ...DISC.slice(0,40), ...WATCH.other, ...WATCH.micro, ...NDX35, ...UNI])];
 for(const s of QUOTE_SET){
   try{ const q = await fh("/quote?symbol="+s); if(q?.c) out.quotes[s]={price:q.c, chgPct:q.dp}; }catch(e){}
   await sleep(FH_GAP);
@@ -177,7 +226,7 @@ const RUMOR_WORDS = ["talks","rumor","rumour","in discussions","reportedly","con
 const SCANDAL_WORDS = ["fraud","investigation","sec probe","accounting","short report","short seller","subpoena","lawsuit alleging","restatement"];
 const CATALYST_WORDS = ["new ceo","ceo appoint","spin-off","spinoff","cost cutting","restructuring","new product","launches","fda approval","fda clear","ai ","artificial intelligence","datacenter","data center","hyperscaler","capacity expansion","factory","fab ","expands production","record backlog","guidance raise","raises guidance"];
 const deepNews = new Set([...WATCH.other, ...WATCH.micro]);
-const FIN_SET = [...new Set([...CAND, ...DISC.slice(0,25), ...WATCH.other, ...WATCH.micro])];
+const FIN_SET = [...new Set([...TREND.slice(0,30), ...CAND, ...DISC.slice(0,25), ...WATCH.other, ...WATCH.micro])];
 const from30 = iso(new Date(Date.now()-30*86400000)), from90 = iso(new Date(Date.now()-90*86400000));
 for(const s of FIN_SET){
   const rec = {date:iso(new Date()), news:[], scandal:false, epsSurprise:null, catN:0};
@@ -239,16 +288,16 @@ for(const s of METAL_ETF){
 try{
   const to = iso(new Date(Date.now()+45*86400000));
   const j = await fh("/calendar/earnings?from="+iso(new Date())+"&to="+to);
-  const mine = new Set([...CAND, ...WATCH.other, ...WATCH.micro]);
+  const mine = new Set([...TREND.slice(0,30), ...CAND, ...WATCH.other, ...WATCH.micro]);
   out.earnCal = {date:iso(new Date()), list:(j?.earningsCalendar||[]).filter(e=>mine.has(e.symbol)).map(e=>({s:e.symbol,d:e.date}))};
 }catch(e){}
 
 // ---- 10) Sıralama geçmişi (GitHub'da kalıcı) ----
-// Basit günlük sıralama: adaylar 13 haftalık getiriye göre — uygulamadaki yıldız
-// sıralamasının kaba bir vekili. Amaç: cihaz değişse de "dün neredeydi" bilgisi kalsın.
+// v5.16: sıralama artık TREND+DÜZELTME skoruna göre (eski: 13 haftalık getiri — en çok koşanı
+// üste koyuyordu, ölçümde 11-30. sıralar 10 günde SPY'ın %1.7 gerisinde kaldı).
 out.rankHist = prev.rankHist || {};
 {
-  const ordered = [...CAND].sort((a,b)=>((out.screen[b]||{}).r13w||0)-((out.screen[a]||{}).r13w||0)).slice(0,30);
+  const ordered = TREND.slice(0,30);
   const d = iso(new Date());
   out.rankHist[d] = ordered;
   const keys = Object.keys(out.rankHist).sort(); while(keys.length>60){ delete out.rankHist[keys.shift()]; }
@@ -269,7 +318,7 @@ out.moonHist = prev.moonHist || {};
     const f = out.fin[s] || {};
     const revG = x.revG, revStrong = (revG!=null && revG>15);
     const insBuy = (f.insBuyers||0) >= 1;
-    const eps = (f.epsSurprise!=null && f.epsSurprise >= 8);
+    const eps = (f.epsSurprise!=null && f.epsSurprise >= 8);   // bilgi amaçlı — artık tetik değil
     const ser = out.series[s];
     let r3m = null;
     if(ser && ser.closes && ser.closes.length>=4){ const c=ser.closes; r3m = c[0]/c[Math.min(3,c.length-1)]-1; }
@@ -277,9 +326,13 @@ out.moonHist = prev.moonHist || {};
     const turning = (r3m!=null && r3m>0);
     const hi = (x.r52w!=null && x.r52w>=120);
     const dip = (x.r52w!=null && x.r52w<40);
-    // Kural 3 — güçlü temel + tetik (app.js ile birebir): zayıf marj+gelir tek EPS ile fitile giremez
+    // Kural 3 — güçlü temel + tetik (app.js ile birebir).
+    // v5.16: tetik SADECE insider alımı. Ölçüm (20g, SPY'a göre): EPS tetikli fitil −%4.7 (n=393),
+    // "dönüş+gelir" tetikli −%5.7 (n=82), insider tetikli +%3.2 (n=36). Sebep: epsSurprise son raporun
+    // (2-3 ay önceki olabilir) sürprizi — çoktan fiyatlanmış; gelir büyümesi de herkesin bildiği veri.
+    // Insider kendi parasıyla alan, şirketi en iyi bilen kişi — tek bilgi avantajlı tetik.
     const gucluTemel = (revG!=null && revG>=30) || (dl>=5);
-    const tetik = insBuy || eps || (turning && revStrong);
+    const tetik = insBuy;
     const gucluTetik = gucluTemel && tetik;
     let tier;
     if(hi) tier = "gec";
@@ -304,6 +357,45 @@ out.moonHist = prev.moonHist || {};
   const mk = Object.keys(out.moonHist).sort(); while(mk.length>30){ delete out.moonHist[mk.shift()]; }
   console.log("Moonshot adayı:", cand.length, "(fitil/kurulum/geç:",
     cand.filter(c=>c.tier==="fitil").length, "/", cand.filter(c=>c.tier==="kurulum").length, "/", cand.filter(c=>c.tier==="gec").length, ")");
+}
+
+// ---- 12) KARNE — öneriler sonra ne yaptı? (hedef: SPY'ı geçmek) ----
+// Her gece önerileri giriş fiyatıyla kaydet; 7/14/28 gün önceki önerileri bugünkü fiyatla SPY'a karşı ölç.
+// Bu elle analiz etmeden modelin tuttuğunu/tutmadığını gösterir.
+out.picks = prev.picks || {};
+out.karneHist = prev.karneHist || {};
+{
+  const d = iso(new Date());
+  const px = s => (out.quotes[s]||{}).price;
+  const kayit = list => list.filter(s=>px(s)).slice(0,10).map(s=>[s, px(s)]);
+  const mh = (out.moonHist[d]||[]);
+  // Bölünme/spin-off şüphesi: tek günde −%50'den sert "düşüş" (CTVA 02.10.2026 −%84) gerçek çöküş değil
+  const sok = Object.entries(out.quotes).filter(([s,q])=>q.chgPct!=null && q.chgPct<=-8 && q.chgPct>-50 && (out.screen[s]?.mcap||0)>=2000)
+    .sort((a,b)=>a[1].chgPct-b[1].chgPct).map(([s])=>s);
+  out.picks[d] = { spy: px("SPY"),
+    trend: kayit(TREND), fitil: kayit(mh.filter(c=>c.tier==="fitil").map(c=>c.s)),
+    gec: kayit(mh.filter(c=>c.tier==="gec").map(c=>c.s)), sok: kayit(sok) };
+  const pk = Object.keys(out.picks).sort(); while(pk.length>70) delete out.picks[pk.shift()];
+
+  const karne = {};
+  const spyNow = px("SPY");
+  for(const h of [7,14,28]){
+    const hedef = iso(new Date(Date.now()-h*86400000));
+    const gun = Object.keys(out.picks).filter(k=>k<=hedef).sort().pop();
+    if(!gun || !spyNow || !out.picks[gun].spy || gun < iso(new Date(Date.now()-(h+5)*86400000))) continue;
+    const spyR = spyNow/out.picks[gun].spy-1;
+    for(const liste of ["trend","fitil","gec","sok"]){
+      const r = (out.picks[gun][liste]||[]).map(([s,p0])=>px(s)?px(s)/p0-1:null).filter(v=>v!=null && Math.abs(v)<0.6);
+      if(!r.length) continue;
+      const ort = r.reduce((a,b)=>a+b,0)/r.length;
+      karne[liste+"_"+h] = {gun, n:r.length, ort:+(100*ort).toFixed(2), spy:+(100*spyR).toFixed(2),
+        fark:+(100*(ort-spyR)).toFixed(2), isabet:Math.round(100*r.filter(v=>v>spyR).length/r.length)};
+    }
+  }
+  out.karne = karne;
+  out.karneHist[d] = karne;
+  const kk = Object.keys(out.karneHist).sort(); while(kk.length>90) delete out.karneHist[kk.shift()];
+  console.log("Karne:", JSON.stringify(karne));
 }
 
 mkdirSync("data", {recursive:true});
