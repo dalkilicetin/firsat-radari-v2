@@ -62,24 +62,27 @@ def new_features(p: dict, sector: pd.Series) -> tuple[dict[str, pd.DataFrame], p
     return out, reg
 
 
-def month_starts(dates: pd.DatetimeIndex) -> list[int]:
+def month_starts(dates: pd.DatetimeIndex, h: int = H) -> list[int]:
     s = pd.Series(range(len(dates)), index=dates)
     first = s.groupby(dates.to_period("M")).min()
-    return [int(i) for i in first.to_numpy() if dates[i].year >= 2010 and i + H < len(dates)]
+    return [int(i) for i in first.to_numpy() if dates[i].year >= 2010 and i + h < len(dates)]
 
 
-def main() -> pd.DataFrame:
+def main(freq: str = "aylik", first: int = 2010, last: int = 2100) -> pd.DataFrame:
+    """freq: 'aylik' (her ayın ilk Cuması, 4 hafta getiri) ya da 'haftalik' (her Cuma, 1 hafta getiri; first–last yılları)."""
     t0 = time.time()
+    h = H if freq == "aylik" else 1
+    out_path = FRAME if freq == "aylik" else FRAME.with_name("haftalik_cerceve.parquet")
     p, sigs, inv, etf, sector = hs.prepare()
     price, sec, dates = p["price"], p["securities"], p["price"].index
-    fwd = panel.forward_returns(price, sec, H).reindex(dates)
-    idx = month_starts(dates)
+    fwd = panel.forward_returns(price, sec, h).reindex(dates)
+    idx = month_starts(dates) if freq == "aylik" else [i for i in range(len(dates) - h) if first <= dates[i].year <= last]
     events = sorted(n for n, df in sigs.items() if hs.is_event(df)) + ["bilanco_bu_ay_bekleniyor"]
     day, pairs = road4.load_themes()
     news = news_topics.features(day, pairs, dates[idx], price.columns)
     extra, reg = new_features(p, sector)
     rising = news_topics.rising_topics(day, pairs, dates[idx], price.columns)
-    (FRAME.parent / "yukselen_konular.json").write_text(json.dumps(rising.pop("_secilen_konular"), ensure_ascii=False, indent=0))
+    (out_path.parent / f"yukselen_konular_{freq}.json").write_text(json.dumps(rising.pop("_secilen_konular"), ensure_ascii=False, indent=0))
     news |= rising
     dv = p["dollar_volume"]
     print(f"hazır ({round(time.time() - t0)} sn), {len(idx)} ay, {len(sigs)} belirti + {len(news)} haber belirtisi", flush=True)
@@ -110,11 +113,15 @@ def main() -> pd.DataFrame:
     df = pd.concat(rows)
     df.index.name = "cik"
     FRAME.parent.mkdir(parents=True, exist_ok=True)
-    df.to_parquet(FRAME)
+    df.to_parquet(out_path)
     EVENTS.write_text(json.dumps(events, ensure_ascii=False))
-    print(f"{len(df):,} satır, {df.tarih.nunique()} ay ({round(time.time() - t0)} sn) → {FRAME}")
+    print(f"{len(df):,} satır, {df.tarih.nunique()} dönem ({round(time.time() - t0)} sn) → {out_path}")
     return df
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "haftalik":
+        main("haftalik", int(sys.argv[2]) if len(sys.argv) > 2 else 2013, int(sys.argv[3]) if len(sys.argv) > 3 else 2021)
+    else:
+        main()
