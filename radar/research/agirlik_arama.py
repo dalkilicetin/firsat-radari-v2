@@ -96,6 +96,8 @@ def evolve(b: Block, idx: list[int], valid: list[int], nfeat: int, gens: int, se
             sigma *= 0.97
         cands.append((best_w, best_v, b.value(best_w, valid)))
     w, fit, val = max(cands, key=lambda c: c[2])  # doğrulama yıllarına göre seçim
+    norm = [c[0] / max(np.abs(c[0]).sum(), 1e-9) for c in cands]
+    evolve.mean_w = np.mean(norm, axis=0)  # başlangıçların ortalama dağılımı ("optimumların ortalaması")
     return w, fit, val
 
 
@@ -140,6 +142,20 @@ def main(freq: str = "6ay", gens: int = 60) -> dict:
                 mask, init = None, None
         w, fit, val = evolve(b, search_idx, valid_idx, len(feats), gens, seed=Y, mask=mask, init=init)
         test = [i for i, d in enumerate(b.dates) if d.year == Y and d.month in form_months]
+        tot_w = max(np.abs(w).sum(), 1e-9)
+        variants = {"hassas": w,
+                    "kaba": np.round(w / tot_w / 0.05) * 0.05,
+                    "ortalama": evolve.mean_w,
+                    "esit": (np.sign(init) if init is not None else np.sign(w) * (np.abs(w) > 0.02 * tot_w))}
+        for vname, wv in variants.items():
+            nets = []
+            for i in test:
+                pv = b.picks(wv, i) if np.abs(wv).sum() > 0 else b.picks(w, i)
+                nets.append(float(b.R[i][pv].mean() - b.C[i][pv].mean()))
+            variants[vname] = float(np.prod(1 + np.array(nets)) - 1)
+        i0 = spy.index.get_indexer([pd.Timestamp(f"{Y}-01-01")], method="bfill")[0]
+        i1 = spy.index.get_indexer([pd.Timestamp(f"{Y + 1}-01-01")], method="bfill")[0]
+        spy_y = float(spy.iloc[min(i1, len(spy) - 1)] / spy.iloc[i0] - 1)
         gross, net, hits, caps, gated = [], [], [], [], []
         for i in test:
             p = b.picks(w, i)
@@ -151,21 +167,30 @@ def main(freq: str = "6ay", gens: int = 60) -> dict:
         rows.append({"yil": Y, "net": float(np.prod(1 + np.array(net)) - 1), "brut": float(np.prod(1 + np.array(gross)) - 1),
                      "rejimli": float(np.prod(1 + np.array(gated)) - 1), "savunma_donem": int(sum(risk_off(b.dates[i]) for i in test)),
                      "en_iyi_yuzde5": float(np.mean(hits)), "yakalama": float(np.mean(caps)),
-                     "arama": round(fit, 4), "dogrulama": round(val, 4)})
+                     "arama": round(fit, 4), "dogrulama": round(val, 4), "spy": spy_y,
+                     "secilen_belirti": int(mask.sum()) if mask is not None else len(feats),
+                     **{f"net_{k}": v for k, v in variants.items()}})
         top = np.argsort(-np.abs(w))[:12]
         tot = np.abs(w).sum()
         weights[str(Y)] = {feats[j]: round(float(w[j] / tot), 4) for j in top}
-        print(f"{Y}: net {rows[-1]['net']:+.0%} (rejimli {rows[-1]['rejimli']:+.0%}), en iyi %5'ten {np.mean(hits):.1f}, "
+        print(f"{Y}: hassas {variants['hassas']:+.0%} kaba {variants['kaba']:+.0%} ortalama {variants['ortalama']:+.0%} "
+              f"eşit {variants['esit']:+.0%} | S&P {spy_y:+.0%} | belirti {rows[-1]['secilen_belirti']}, en iyi %5'ten {np.mean(hits):.1f}, "
               f"arama {fit:+.3f} doğrulama {val:+.3f} [{round(time.time() - t0)} sn]  ağırlık: "
               + ", ".join(f"{feats[j]} {w[j] / tot:+.0%}" for j in top[:5]), flush=True)
     res = pd.DataFrame(rows)
-    summary = {"ufuk": freq, "nesil": gens, "net_yillik_ort": float(res.net.mean()), "zararli_yil": int((res.net < 0).sum()),
+    for k in ("hassas", "kaba", "ortalama", "esit"):
+        col = res[f"net_{k}"]
+        print(f"  {k:9s}: ort {col.mean():+.1%}/yıl, S&P'yi geçtiği yıl {(col > res.spy).sum()}/{len(res)}, "
+              f"S&P×3'e ulaştığı yıl {(col >= 3 * res.spy.clip(lower=0)).sum()}/{len(res)}, zararlı {(col < 0).sum()}")
+    summary = {"ufuk": freq, "nesil": gens, "t_esik": __import__("radar.research.belirti_testi", fromlist=["x"]).T_MIN,
+               "spy_ort": float(res.spy.mean()),
+               **{f"{k}_ort": float(res[f"net_{k}"].mean()) for k in ("hassas", "kaba", "ortalama", "esit")}, "net_yillik_ort": float(res.net.mean()), "zararli_yil": int((res.net < 0).sum()),
                "rejimli_yillik_ort": float(res.rejimli.mean()), "rejimli_zararli_yil": int((res.rejimli < 0).sum()),
                "rejimli_yil_yil": [round(x, 3) for x in res.rejimli],
                "yil": len(res), "en_iyi_yuzde5_ort": float(res.en_iyi_yuzde5.mean()), "yil_yil_net": [round(x, 3) for x in res.net]}
     out = {"ozet": summary, "yillar": rows, "agirliklar": weights, "belirtiler": feats}
     summary["secim"] = SECIM
-    (OUT_DIR / f"agirlik_arama_{freq}{'_secimli' if SECIM else ''}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    (OUT_DIR / f"agirlik_arama_{freq}{'_secimli' if SECIM else ''}_t{summary['t_esik']}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
     with (OUT_DIR / "hizli_denemeler.jsonl").open("a") as f:
         f.write(json.dumps({"zaman": time.strftime("%Y-%m-%d %H:%M"), "deneme": f"agirlik_arama_{freq}{'_secimli' if SECIM else ''}", **summary},
                            ensure_ascii=False) + "\n")
@@ -175,5 +200,9 @@ def main(freq: str = "6ay", gens: int = 60) -> dict:
 
 if __name__ == "__main__":
     SECIM = "secimli" in sys.argv
-    args = [a for a in sys.argv[1:] if a != "secimli"]
+    for a in sys.argv[1:]:
+        if a.startswith("t="):  # kesin belirti eşiği (belirti sayısını belirler)
+            from radar.research import belirti_testi as _bt
+            _bt.T_MIN = float(a[2:])
+    args = [a for a in sys.argv[1:] if a != "secimli" and not a.startswith("t=")]
     main(args[0] if args else "6ay", int(args[1]) if len(args) > 1 else 60)

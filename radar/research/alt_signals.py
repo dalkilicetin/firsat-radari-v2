@@ -142,3 +142,27 @@ def word_features(dates: pd.DatetimeIndex, columns, top_n: int = 50) -> dict[str
         nn = np.bincount(oc[omask][new], weights=ov[omask][new], minlength=nc)
         out["yeni_kurum_orani"][i, ohas] = nn[ohas] / otot[ohas]
     return {k: pd.DataFrame(v, index=dates, columns=[str(x) for x in columns]) for k, v in out.items()}
+
+
+def augment_frame(path=None) -> None:
+    """Aylık çerçeveye Reddit ve haber kelimesi belirtilerini (dönem içi yüzdelik) ekler; çerçeveyi yeniden kurmadan."""
+    from radar import config
+    from radar.research import panel
+    path = path or config.ROOT / "data" / "derived" / "aylik_cerceve.parquet"
+    df = pd.read_parquet(path)
+    dates = pd.DatetimeIndex(sorted(df.tarih.unique()))
+    cols = panel.build()["price"].columns
+    feats = reddit_features(dates, cols) | word_features(dates, cols)
+    for name, wide in feats.items():
+        long = wide.stack().rename("v").reset_index()
+        long.columns = ["tarih", "cik", "v"]
+        long["v"] = long.groupby("tarih").v.rank(pct=True)
+        key = pd.MultiIndex.from_arrays([df.tarih, df.index.astype(str)])
+        m = long.set_index(["tarih", "cik"]).v
+        df[name] = m.reindex(key).to_numpy(dtype="float32")
+        print(name, f"dolu: %{df[name].notna().mean() * 100:.0f}", flush=True)
+    df.to_parquet(path)
+
+
+if __name__ == "__main__":
+    augment_frame()
