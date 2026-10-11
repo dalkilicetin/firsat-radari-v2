@@ -1,0 +1,100 @@
+{
+ "dataset": "reddit_arsiv",
+ "partitions": {
+  "StockMarket_submissions": {
+   "partition": "StockMarket_submissions",
+   "fetched_at": "2026-10-11T21:11:37+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 33.3,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "RuntimeError: torrent içinde StockMarket_submissions.zst bulunamadı"
+    }
+   ]
+  },
+  "investing_submissions": {
+   "partition": "investing_submissions",
+   "fetched_at": "2026-10-11T21:11:20+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 30.7,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "RuntimeError: torrent içinde investing_submissions.zst bulunamadı"
+    }
+   ]
+  },
+  "options_submissions": {
+   "partition": "options_submissions",
+   "fetched_at": "2026-10-11T21:12:39+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 29.0,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "RuntimeError: torrent içinde options_submissions.zst bulunamadı"
+    }
+   ]
+  },
+  "pennystocks_submissions": {
+   "partition": "pennystocks_submissions",
+   "fetched_at": "2026-10-11T21:12:15+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 23.2,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "RuntimeError: torrent içinde pennystocks_submissions.zst bulunamadı"
+    }
+   ]
+  },
+  "stocks_submissions": {
+   "partition": "stocks_submissions",
+   "fetched_at": "2026-10-11T21:10:30+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 24.2,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "RuntimeError: torrent içinde stocks_submissions.zst bulunamadı"
+    }
+   ]
+  },
+  "wallstreetbets_submissions": {
+   "partition": "wallstreetbets_submissions",
+   "fetched_at": "2026-10-11T21:10:38+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 28.4,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "RuntimeError: torrent içinde wallstreetbets_submissions.zst bulunamadı"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [],
+ "title": "Reddit finans alt-forumları — hisse × ay toplu sayıları (açık arşiv, 2005→2023)",
+ "removed_assets": [],
+ "derived": {},
+ "finalized_at": "2026-10-11T21:13:35+00:00"
+}
