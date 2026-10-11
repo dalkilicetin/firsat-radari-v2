@@ -1,0 +1,598 @@
+{
+ "dataset": "gdelt_words",
+ "partitions": {
+  "2015": {
+   "partition": "2015",
+   "fetched_at": "2026-10-11T19:04:22+00:00",
+   "rows": 1120917,
+   "bytes": 5233597,
+   "sha256": "26ecc88b2efa153a26a9b836298de5a7368e9410824970aeb6f919d754032f76",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 7584,
+    "missing": 58,
+    "days": 316
+   },
+   "asset": "gdelt_words__2015.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 3052.5,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "7526/7584 = %99.2"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "3,881 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "nvidia, tech, gaming, shield, review, graphics, product, geforce"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "intel, google, microsoft, samsung, qualcomm, facebook, nasdaq, united states"
+    }
+   ]
+  },
+  "2016": {
+   "partition": "2016",
+   "fetched_at": "2026-10-11T19:04:15+00:00",
+   "rows": 1407948,
+   "bytes": 6505648,
+   "sha256": "cc30ce94c779027b122cc9050d5c54eb3a9beadc252818680088a72795885cc3",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8784,
+    "missing": 10,
+    "days": 366
+   },
+   "asset": "gdelt_words__2016.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 4573.6,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8774/8784 = %99.9"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "4,115 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "nvidia, node, tech, gaming, geforce, desktop, stocks, adgrp"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "intel, google, ibm, microsoft, nasdaq, facebook, samsung, cloud expo inc"
+    }
+   ]
+  },
+  "2017": {
+   "partition": "2017",
+   "fetched_at": "2026-10-11T19:04:17+00:00",
+   "rows": 1447355,
+   "bytes": 6648942,
+   "sha256": "0ba5c692be54e0fa3cf4d5e66d7001cf58aad3227540a1027d93cad70acf3132",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 258,
+    "days": 365
+   },
+   "asset": "gdelt_words__2017.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 4117.5,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8502/8760 = %97.1"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "4,212 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "node, nvidia, stocks, tech, stock, technology, gaming, pressreleases"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "ibm, javits center, cloud expo inc, ulitzer inc, international cloud expo, santa clara convention center, technology evangelist at softlayergeneral session, windstreamcloud expo power panel"
+    }
+   ]
+  },
+  "2018": {
+   "partition": "2018",
+   "fetched_at": "2026-10-11T19:04:14+00:00",
+   "rows": 1466381,
+   "bytes": 6700315,
+   "sha256": "86c25fce2df19338c3bab294854e34067a76d3efde2790b4f052dc3a2205ecff",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 270,
+    "days": 365
+   },
+   "asset": "gdelt_words__2018.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 3615.7,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "warn",
+     "detail": "8490/8760 = %96.9"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "4,453 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "nvidia, stocks, tech, technology, gaming, stock, geforce, graphics"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "intel, nasdaq, google, microsoft, facebook, united states, ibm, twitter"
+    }
+   ]
+  },
+  "2019": {
+   "partition": "2019",
+   "fetched_at": "2026-10-11T19:55:39+00:00",
+   "rows": 1377032,
+   "bytes": 6294661,
+   "sha256": "e97f9ebafee650c125fb5c829c368322ff616286beb1089110cf105e6176fc23",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 3,
+    "days": 365
+   },
+   "asset": "gdelt_words__2019.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 2510.8,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8757/8760 = %100.0"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "4,468 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "stocks, nvidia, trade, tech, gaming, china, technology, higher"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "nasdaq, intel, united states, microsoft, google, facebook, reuters, federal reserve"
+    }
+   ]
+  },
+  "2020": {
+   "partition": "2020",
+   "fetched_at": "2026-10-11T20:04:52+00:00",
+   "rows": 1067091,
+   "bytes": 4918027,
+   "sha256": "4bfd162888c2c46e42b89c4f1cf48ae88cd5d3d7579e1b35fc452788ca391baa",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8784,
+    "missing": 662,
+    "days": 366
+   },
+   "asset": "gdelt_words__2020.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 2471.3,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "warn",
+     "detail": "8122/8784 = %92.5"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "4,144 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "nvidia, stocks, tech, gaming, geforce, intel, technology, stock"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "intel, microsoft, nasdaq, google, united states, facebook, samsung, sony"
+    }
+   ]
+  },
+  "2021": {
+   "partition": "2021",
+   "fetched_at": "2026-10-11T20:13:20+00:00",
+   "rows": 1058302,
+   "bytes": 4835831,
+   "sha256": "8313b19533878855354a8636dfccb7e67b72d532df843211cd48d2f7cfa19d18",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 157,
+    "days": 365
+   },
+   "asset": "gdelt_words__2021.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 2476.6,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8603/8760 = %98.2"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "4,412 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "nvidia, stocks, gaming, tech, stock, geforce, wall, intel"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "intel, microsoft, nasdaq, united states, facebook, google, federal reserve, samsung"
+    }
+   ]
+  },
+  "2022": {
+   "partition": "2022",
+   "fetched_at": "2026-10-11T20:20:51+00:00",
+   "rows": 1009203,
+   "bytes": 4614312,
+   "sha256": "00a8af8799cff9a9e3afd918ed4c8ef1e8806ea6ec957e01d843e2990af97603",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 21,
+    "days": 365
+   },
+   "asset": "gdelt_words__2022.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1966.4,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8739/8760 = %99.8"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "4,628 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "nvidia, stocks, stock, tech, gaming, investing, wall, source"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "nasdaq, intel, microsoft, federal reserve, united states, google, samsung, facebook"
+    }
+   ]
+  },
+  "2023": {
+   "partition": "2023",
+   "fetched_at": "2026-10-11T20:37:53+00:00",
+   "rows": 1210412,
+   "bytes": 5397776,
+   "sha256": "6b07b91e1b3664aced89d43bb08f6950fa51ad2c36c032711ce3f7186fb21a8a",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 39,
+    "days": 365
+   },
+   "asset": "gdelt_words__2023.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 2487.6,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8721/8760 = %99.6"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "5,063 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "nvidia, stock, stocks, wall, today, tech, street, investing"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "microsoft, nasdaq, federal reserve, intel, google, united states, reuters, facebook"
+    }
+   ]
+  },
+  "2024": {
+   "partition": "2024",
+   "fetched_at": "2026-10-11T20:46:26+00:00",
+   "rows": 1228454,
+   "bytes": 5288110,
+   "sha256": "b2aa4c7e14a8a82e0fd00a54d62f34d627266b889c7a5cacfde5d7e1bc79cdbd",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8784,
+    "missing": 0,
+    "days": 366
+   },
+   "asset": "gdelt_words__2024.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 2333.6,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "8784/8784 = %100.0"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "4,922 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "stock, nvidia, stocks, wall, tech, investing, today, street"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "nasdaq, microsoft, federal reserve, google, intel, united states, reuters, bloomberg"
+    }
+   ]
+  },
+  "2025": {
+   "partition": "2025",
+   "fetched_at": "2026-10-11T20:53:58+00:00",
+   "rows": 896589,
+   "bytes": 4038381,
+   "sha256": "e78f351941d2b22991513377e7622edc1b7712bc1e953d14f9cf989cfba5f688",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 8760,
+    "missing": 421,
+    "days": 365
+   },
+   "asset": "gdelt_words__2025.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 1364.6,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "warn",
+     "detail": "8339/8760 = %95.2"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "4,652 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "nvidia, stock, stocks, tech, trump, wall, investing, china"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "nasdaq, microsoft, united states, google, federal reserve, intel, white house, oracle"
+    }
+   ]
+  },
+  "2026": {
+   "partition": "2026",
+   "fetched_at": "2026-10-11T20:55:03+00:00",
+   "rows": 662484,
+   "bytes": 2944150,
+   "sha256": "5b83423ba80bf7d57f1a1d04ed09e5abfbeeb6d4eea364cb282aa533ec63e6fb",
+   "columns": {
+    "kind": "str",
+    "date": "datetime64[s]",
+    "cik": "Int64",
+    "token": "str",
+    "count": "int64"
+   },
+   "sources": [
+    "http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"
+   ],
+   "notes": {
+    "slots": 6792,
+    "missing": 1,
+    "days": 283
+   },
+   "asset": "gdelt_words__2026.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 1701.7,
+   "requests": 0,
+   "checks": [
+    {
+     "name": "İndirilen örneklem dosyası",
+     "status": "ok",
+     "detail": "6791/6792 = %100.0"
+    },
+    {
+     "name": "Kelime verisi olan şirket",
+     "status": "ok",
+     "detail": "4,500 (beklenen 300–8,000)"
+    },
+    {
+     "name": "Örnek: NVIDIA haber adreslerinde en sık kelimeler",
+     "status": "info",
+     "detail": "stocks, nvidia, stock, tech, investing, earnings, technology, wall"
+    },
+    {
+     "name": "Örnek: NVIDIA ile birlikte anılan kurumlar",
+     "status": "info",
+     "detail": "microsoft, nasdaq, intel, google, united states, netflix, federal reserve, broadcom"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [],
+ "title": "GDELT adres kelimeleri ve birlikte anılan kurumlar (yeni konu keşfi)",
+ "removed_assets": [],
+ "derived": {},
+ "finalized_at": "2026-10-11T21:25:48+00:00"
+}
