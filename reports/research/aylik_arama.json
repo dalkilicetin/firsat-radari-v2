@@ -1,0 +1,445 @@
+{
+ "ozet": {
+  "iterasyon": 3000,
+  "yakalama_ort": 0.006630297873248536,
+  "aylik_getiri_ort": 0.019088088444318956,
+  "yillik_bilesik_ort": 0.2851647056951155,
+  "aylik_en_iyi20_ort": 0.6777859964292711,
+  "en_iyi_yuzde5_ten_aylik": 1.2166666666666666,
+  "rastgele_en_iyi_yuzde5_ten": 1.0,
+  "yil": 10
+ },
+ "yillar": [
+  {
+   "yil": 2016,
+   "egitim": 0.0379,
+   "dogrulama": -0.004,
+   "ay": 12,
+   "aylik_getiri_ort": 0.017248690993334276,
+   "yillik_bilesik": 0.21275028546029895,
+   "aylik_en_iyi20_ort": 0.5637657180076102,
+   "yakalama_ort": 0.004367457496127644,
+   "en_iyi_yuzde5_ten_aylik": 0.8333333333333334,
+   "son_ay_secim": [
+    "FIT",
+    "EFII",
+    "LECO",
+    "CUDA",
+    "WERN",
+    "FTNT",
+    "CMTL",
+    "NMBL",
+    "EXPE",
+    "MMYT",
+    "MRCY",
+    "GPRO",
+    "HCKT",
+    "ESIO",
+    "SILC",
+    "CRDS",
+    "WDC",
+    "INFN",
+    "NTAP",
+    "NDSN"
+   ]
+  },
+  {
+   "yil": 2017,
+   "egitim": 0.0397,
+   "dogrulama": 0.0128,
+   "ay": 12,
+   "aylik_getiri_ort": 0.013966354645548518,
+   "yillik_bilesik": 0.1756483091725256,
+   "aylik_en_iyi20_ort": 0.5673562559906078,
+   "yakalama_ort": 0.029578658625467935,
+   "en_iyi_yuzde5_ten_aylik": 0.3333333333333333,
+   "son_ay_secim": [
+    "LLY",
+    "JNJ",
+    "ABBV",
+    "MRK",
+    "PFE",
+    "ISRG",
+    "ABT",
+    "BSX",
+    "SYK",
+    "MDT",
+    "BMY",
+    "NVO",
+    "VRTX",
+    "REGN",
+    "HCA",
+    "MMM",
+    "ZTS",
+    "AZN",
+    "ALNY",
+    "BDX"
+   ]
+  },
+  {
+   "yil": 2018,
+   "egitim": 0.0232,
+   "dogrulama": 0.0318,
+   "ay": 12,
+   "aylik_getiri_ort": 0.01273468156325639,
+   "yillik_bilesik": 0.1559656187892613,
+   "aylik_en_iyi20_ort": 0.4728601401608754,
+   "yakalama_ort": 0.01706434850994556,
+   "en_iyi_yuzde5_ten_aylik": 0.9166666666666666,
+   "son_ay_secim": [
+    "AMZN",
+    "MRVL",
+    "MSTR",
+    "TMUS",
+    "ISRG",
+    "TER",
+    "MELI",
+    "NEM",
+    "MPWR",
+    "CDNS",
+    "ADP",
+    "WDAY",
+    "FTNT",
+    "MDB",
+    "TEAM",
+    "ECHO",
+    "KMB",
+    "MNST",
+    "ROP",
+    "IBKR"
+   ]
+  },
+  {
+   "yil": 2019,
+   "egitim": 0.0266,
+   "dogrulama": 0.0312,
+   "ay": 12,
+   "aylik_getiri_ort": 0.01183180408980046,
+   "yillik_bilesik": 0.12547684483719768,
+   "aylik_en_iyi20_ort": 0.583855313195479,
+   "yakalama_ort": 0.011950049589191417,
+   "en_iyi_yuzde5_ten_aylik": 1.0,
+   "son_ay_secim": [
+    "AMGN",
+    "GILD",
+    "MRNA",
+    "IQV",
+    "ARGX",
+    "BIIB",
+    "CRL",
+    "INCY",
+    "NBIX",
+    "MEDP",
+    "TECH",
+    "ICLR",
+    "RGEN",
+    "EXEL",
+    "CRSP",
+    "BNTX",
+    "QGEN",
+    "TWST",
+    "KRYS",
+    "IOVA"
+   ]
+  },
+  {
+   "yil": 2020,
+   "egitim": 0.0266,
+   "dogrulama": 0.0343,
+   "ay": 12,
+   "aylik_getiri_ort": 0.055002272903158345,
+   "yillik_bilesik": 0.7175995873234697,
+   "aylik_en_iyi20_ort": 0.8320323554238681,
+   "yakalama_ort": 0.012600275492707083,
+   "en_iyi_yuzde5_ten_aylik": 1.75,
+   "son_ay_secim": [
+    "MSTR",
+    "SMCI",
+    "DDOG",
+    "MARA",
+    "FSLR",
+    "INSM",
+    "ROKU",
+    "CLSK",
+    "RVMD",
+    "CELH",
+    "FUTU",
+    "SITM",
+    "BBIO",
+    "NTNX",
+    "GFI",
+    "FORM",
+    "HALO",
+    "CYTK",
+    "ARWR",
+    "SEDG"
+   ]
+  },
+  {
+   "yil": 2021,
+   "egitim": 0.0288,
+   "dogrulama": 0.0203,
+   "ay": 12,
+   "aylik_getiri_ort": -0.012889543797715003,
+   "yillik_bilesik": -0.167314153604341,
+   "aylik_en_iyi20_ort": 0.8530422364443266,
+   "yakalama_ort": -0.027338553241552894,
+   "en_iyi_yuzde5_ten_aylik": 0.5,
+   "son_ay_secim": [
+    "BE",
+    "QCOM",
+    "APH",
+    "DHR",
+    "ONDS",
+    "NOK",
+    "TT",
+    "ROP",
+    "EMR",
+    "FN",
+    "KEYS",
+    "ROK",
+    "MKSI",
+    "WAT",
+    "A",
+    "ILMN",
+    "HUBB",
+    "MTD",
+    "ONTO",
+    "WWD"
+   ]
+  },
+  {
+   "yil": 2022,
+   "egitim": 0.0256,
+   "dogrulama": 0.0066,
+   "ay": 12,
+   "aylik_getiri_ort": -0.04001518350620085,
+   "yillik_bilesik": -0.4248514507035618,
+   "aylik_en_iyi20_ort": 0.6134540683400239,
+   "yakalama_ort": -0.0984483028157835,
+   "en_iyi_yuzde5_ten_aylik": 0.75,
+   "son_ay_secim": [
+    "PLTR",
+    "TSM",
+    "LITE",
+    "MRVL",
+    "MSTR",
+    "WDC",
+    "AMAT",
+    "LRCX",
+    "APP",
+    "COST",
+    "CSCO",
+    "CRWD",
+    "ADBE",
+    "INTU",
+    "LIN",
+    "SHOP",
+    "SMCI",
+    "CRDO",
+    "ISRG",
+    "TER"
+   ]
+  },
+  {
+   "yil": 2023,
+   "egitim": 0.0229,
+   "dogrulama": 0.0018,
+   "ay": 12,
+   "aylik_getiri_ort": 0.011825461820869987,
+   "yillik_bilesik": 0.12371622407109584,
+   "aylik_en_iyi20_ort": 0.6708225065364303,
+   "yakalama_ort": 0.011407572842382923,
+   "en_iyi_yuzde5_ten_aylik": 0.8333333333333334,
+   "son_ay_secim": [
+    "MSFT",
+    "META",
+    "GOOGL",
+    "PLTR",
+    "ORCL",
+    "APP",
+    "CRM",
+    "NOW",
+    "CRWD",
+    "ADBE",
+    "INTU",
+    "SNOW",
+    "SHOP",
+    "IONQ",
+    "SNPS",
+    "DDOG",
+    "NET",
+    "CDNS",
+    "APLD",
+    "ADP"
+   ]
+  },
+  {
+   "yil": 2024,
+   "egitim": 0.024,
+   "dogrulama": -0.0144,
+   "ay": 12,
+   "aylik_getiri_ort": 0.08402518793635755,
+   "yillik_bilesik": 1.4788847578791517,
+   "aylik_en_iyi20_ort": 0.7716585121166082,
+   "yakalama_ort": 0.09212523484111036,
+   "en_iyi_yuzde5_ten_aylik": 3.4166666666666665,
+   "son_ay_secim": [
+    "AMZN",
+    "LITE",
+    "MRVL",
+    "MSTR",
+    "LRCX",
+    "HOOD",
+    "APP",
+    "V",
+    "STX",
+    "COST",
+    "COIN",
+    "KLAC",
+    "RKLB",
+    "ADBE",
+    "INTU",
+    "SOFI",
+    "ASTS",
+    "LIN",
+    "CRDO",
+    "ALAB"
+   ]
+  },
+  {
+   "yil": 2025,
+   "egitim": 0.0118,
+   "dogrulama": 0.0586,
+   "ay": 12,
+   "aylik_getiri_ort": 0.03715115779477989,
+   "yillik_bilesik": 0.453771033726057,
+   "aylik_en_iyi20_ort": 0.8490128580768816,
+   "yakalama_ort": 0.012996237392888833,
+   "en_iyi_yuzde5_ten_aylik": 1.8333333333333333,
+   "son_ay_secim": [
+    "AMZN",
+    "LITE",
+    "MSTR",
+    "HOOD",
+    "APP",
+    "CRWV",
+    "COIN",
+    "IREN",
+    "KLAC",
+    "CRWD",
+    "INTU",
+    "SOFI",
+    "LIN",
+    "SHOP",
+    "CRDO",
+    "ALAB",
+    "ARM",
+    "ISRG",
+    "MELI",
+    "DASH"
+   ]
+  }
+ ],
+ "kurallar": {
+  "2016": {
+   "havuz": [],
+   "eleme": [
+    "8k_3.02_kayıtsız hisse satışı (sulandırma)",
+    "8k_8.01_diğer olaylar",
+    "8k_2.01_satın alma/elden çıkarma tamamlandı"
+   ],
+   "puan": [
+    "1.00 × haber_yz_teknoloji_ruzgar (yakın iyi 0.81)",
+    "0.82 × sektor_momentum_12_1 (yakın iyi 0.75)"
+   ]
+  },
+  "2017": {
+   "havuz": [],
+   "eleme": [],
+   "puan": [
+    "0.75 × sektor_momentum_12_1 (yakın iyi 0.70)"
+   ]
+  },
+  "2018": {
+   "havuz": [],
+   "eleme": [
+    "8k_1.01_önemli anlaşma"
+   ],
+   "puan": [
+    "0.68 × haber_hukuk_sorunu_pay (düşük iyi)"
+   ]
+  },
+  "2019": {
+   "havuz": [],
+   "eleme": [
+    "icerden_alim_kumesi_3plus",
+    "wiki_ani_ilgi",
+    "8k_2.03_yeni borç yükümlülüğü"
+   ],
+   "puan": [
+    "0.99 × sektor_getiri_13h (yüksek iyi)"
+   ]
+  },
+  "2020": {
+   "havuz": [
+    "dusuk_oynaklik ≤ 0.37"
+   ],
+   "eleme": [
+    "wiki_ani_ilgi",
+    "icerden_alim_kumesi_3plus",
+    "haber_ani_artis",
+    "8k_1.01_önemli anlaşma"
+   ],
+   "puan": [
+    "0.89 × haber_finansal_sikinti_pay (yakın iyi 0.26)"
+   ]
+  },
+  "2021": {
+   "havuz": [],
+   "eleme": [
+    "8k_8.01_diğer olaylar"
+   ],
+   "puan": [
+    "1.00 × sektor_momentum_12_1 (yakın iyi 0.70)"
+   ]
+  },
+  "2022": {
+   "havuz": [],
+   "eleme": [
+    "8k_1.01_önemli anlaşma"
+   ],
+   "puan": [
+    "0.64 × haber_kripto_pay (yakın iyi 0.34)"
+   ]
+  },
+  "2023": {
+   "havuz": [],
+   "eleme": [
+    "devamlilik_suphesi"
+   ],
+   "puan": [
+    "0.67 × sektor_getiri_13h (yüksek iyi)"
+   ]
+  },
+  "2024": {
+   "havuz": [],
+   "eleme": [],
+   "puan": [
+    "0.01 × haber_siber_pay (yakın iyi 0.35)"
+   ]
+  },
+  "2025": {
+   "havuz": [
+    "icerden_alici_sayisi_90g ≤ 0.86"
+   ],
+   "eleme": [
+    "wiki_ani_ilgi",
+    "8k_3.02_kayıtsız hisse satışı (sulandırma)"
+   ],
+   "puan": [
+    "0.71 × haber_uzay_savunma_devlet_ivme (yakın iyi 0.60)"
+   ]
+  }
+ }
+}
