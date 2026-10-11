@@ -250,3 +250,10 @@ def test_exited_daily_accepts_only_series_matching_ftd(monkeypatch):
     px, raw, dv = panel.exited_daily(gone, ftd)
     assert set(px.cik) == {"1"} and np.allclose(raw.price, 10.0) and np.allclose(px.price, 9.5)
     assert dv.dollar_volume.iloc[-1] == pytest.approx(2e6)
+
+
+def test_clean_name_drops_security_descriptors():
+    from radar.research.road2 import clean_name
+    assert clean_name("Lockheed Martin Corporation Common Stock") == "lockheed martin corporation"
+    assert clean_name("Johnson Outdoors Inc. - Class A Common Stock") == "johnson outdoors inc"
+    assert clean_name("Class Acceleration Corp") == "class acceleration corp"

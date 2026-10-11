@@ -25,8 +25,14 @@ GENERIC = {"apple", "target", "visa", "amazon", "alphabet", "meta", "block", "ma
            "water", "food", "media", "network", "systems", "technologies", "therapeutics", "pharmaceuticals", "bio"}
 
 
+# Borsa listesindeki menkul kıymet ekleri ("Common Stock", "Class A Ordinary Shares"...) haberlerde geçmez.
+SECURITY_DESC = re.compile(r"\s+(?:-\s+)?(?:class [a-z]\b.*|(?:new )?common (?:stock|shares).*|ordinary shares.*|"
+                           r"american depositary.*|depositary shares.*|sponsored adr.*|adrs?\b.*|units?\b.*|warrants?\b.*|"
+                           r"subordinate voting shares.*|shares of beneficial interest.*)$", re.IGNORECASE)
+
+
 def clean_name(name: str) -> str:
-    n = str(name).split(" - ")[0].lower()
+    n = SECURITY_DESC.sub("", str(name).split(" - ")[0]).lower()
     n = n.replace("&", " and ")
     return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]", " ", n)).strip()
 
