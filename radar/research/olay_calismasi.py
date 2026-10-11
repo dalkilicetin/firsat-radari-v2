@@ -1,7 +1,7 @@
 """Olay çalışması — "şu olursa yüksek kâr belirtisidir": python -m radar.research.olay_calismasi
 
 Bir olay hissede gerçekleştiği hafta (o Cuma bilinen bilgiyle), sonraki 4 / 13 / 26 haftada hisse piyasaya göre ne yaptı?
-Evren: alınabilir faaliyet şirketleri (olay haftasında). Fazla getiri = hisse getirisi − aynı haftanın evren medyanı.
+Evren: alınabilir faaliyet şirketleri (olay haftasında). Fazla getiri = hisse getirisi − aynı haftanın evren ortalaması (eşit ağırlıklı).
 Olay = ilk gerçekleştiği hafta (taşınan bayraklarda başlangıç anı).
 Ölçütler: olay sayısı, ortalama ve medyan fazla getiri, isabet (fazla getiri > 0), büyük kazanan katı (ufkun en iyi %5'ine
 girme ÷ %5), büyük kaybeden katı, t (aynı haftadaki olaylar tek gözlem: hafta ortalamaları üzerinden), yıl tutarlılığı.
@@ -114,7 +114,7 @@ def study(ev: dict[str, pd.DataFrame], p: dict, inv: pd.DataFrame) -> pd.DataFra
     exc, top, bot = {}, {}, {}
     for h, r in fwd.items():
         r = np.where(U, r, np.nan)
-        med = np.nanmedian(r, axis=1, keepdims=True)
+        med = np.nanmean(r, axis=1, keepdims=True)  # ortalama: çarpık dağılımda medyan, olayları olduğundan iyi gösterir
         exc[h] = r - med
         q = pd.DataFrame(r).rank(axis=1, pct=True).to_numpy()
         top[h], bot[h] = q > 0.95, q <= 0.05
@@ -175,7 +175,7 @@ def render(df: pd.DataFrame) -> None:
     cnt = df.sinif.value_counts()
     story = [Paragraph("Rapor 7 — Olay belirtileri: \"şu olursa yüksek kâr belirtisidir\"", st.h1),
              Paragraph("Her olay, hissede gerçekleştiği hafta (o gün bilinen bilgiyle) ele alınır ve hissenin sonraki 1, 3 ve 6 ayda "
-                       "aynı haftanın evren medyanına göre fazla getirisi ölçülür. Dönem 2010–2025; evren alınabilir faaliyet şirketleri "
+                       "aynı haftanın evren ortalamasına göre fazla getirisi ölçülür. Dönem 2010–2025; evren alınabilir faaliyet şirketleri "
                        "(≥ 5 $, ≥ 1 mn $/gün; banka, sigorta, GYO, fon, SPAC hariç). t değeri aynı haftadaki olayları tek gözlem sayar. "
                        "<b>Yüksek kâr belirtisi</b>: 3 ayda ort. ≥ +%2, t ≥ 3, yılların ≥ %70'inde aynı yön. <b>Uyarı</b>: tersi. "
                        "<b>Büyük hareket</b>: hem büyük kazanan hem büyük kaybeden olasılığı ≥ 1,5 kat (yön belirsiz, oynaklık habercisi). "
