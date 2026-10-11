@@ -1,6 +1,6 @@
 # 🔴 Reddit finans alt-forumları — hisse × ay toplu sayıları (açık arşiv, 2005→2023)
 
-Son güncelleme: 2026-10-11T21:13:35+00:00 · 6 bölüm · 0 satır
+Son güncelleme: 2026-10-11T21:26:43+00:00 · 6 bölüm · 72,632 satır
 
 ## Veri seti kontrolleri
 
@@ -16,4 +16,4 @@ Son güncelleme: 2026-10-11T21:13:35+00:00 · 6 bölüm · 0 satır
 | options_submissions | 🔴 Kullanılamaz | 0 | Çalışma hatası: RuntimeError: torrent içinde options_submissions.zst bulunamadı |
 | pennystocks_submissions | 🔴 Kullanılamaz | 0 | Çalışma hatası: RuntimeError: torrent içinde pennystocks_submissions.zst bulunamadı |
 | stocks_submissions | 🔴 Kullanılamaz | 0 | Çalışma hatası: RuntimeError: torrent içinde stocks_submissions.zst bulunamadı |
-| wallstreetbets_submissions | 🔴 Kullanılamaz | 0 | Çalışma hatası: RuntimeError: torrent içinde wallstreetbets_submissions.zst bulunamadı |
+| wallstreetbets_submissions | 🟢 Kullanılabilir | 72,632 |  |
