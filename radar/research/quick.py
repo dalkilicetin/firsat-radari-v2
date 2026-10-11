@@ -12,6 +12,7 @@ değişince parmak izi değişir ve yeniden hazırlanır.
 
 from __future__ import annotations
 
+import dataclasses
 import json
 import time
 
@@ -132,8 +133,12 @@ def _score_at(rec: Recipe, d: QuickData, t: int) -> np.ndarray:
         return np.nanmean(np.stack(ranks), axis=0)
     feats = d.feats(rec)
     Y = d.Y[rec.target]
+    window = rec.params.get("pencere")  # yalnızca son N haftanın eğitim satırları (piyasa değişimine uyum)
+    if window:
+        rec = dataclasses.replace(rec, params={k: v for k, v in rec.params.items() if k != "pencere"})
+    stop = max(-1, t - W - window) if window else -1
     Xs, ys = [], []
-    for s in range(t - W, -1, -STEP):
+    for s in range(t - W, stop, -STEP):
         m = np.asarray(d.train_u[s]) & np.isfinite(Y[s])
         if rec.train_on != "tum":
             m &= np.asarray(d.eval_u[s])
@@ -149,9 +154,11 @@ def _score_at(rec: Recipe, d: QuickData, t: int) -> np.ndarray:
 
 def outcome(d: QuickData, score: np.ndarray, t: int, min_volume: float = 0.0) -> dict:
     r = np.asarray(d.fwd[t])
-    ok = np.asarray(d.eval_u[t]) & np.isfinite(r) & np.isfinite(score)
-    idx = np.flatnonzero(ok)
-    pickable = idx[np.nan_to_num(np.asarray(d.dv[t])[idx]) >= min_volume] if min_volume else idx
+    universe = np.asarray(d.eval_u[t]) & np.isfinite(r)
+    idx = np.flatnonzero(universe)                      # piyasa ve "en iyi 20" tüm evrenden (elenenler dahil)
+    pickable = np.flatnonzero(universe & np.isfinite(score))
+    if min_volume:
+        pickable = pickable[np.nan_to_num(np.asarray(d.dv[t])[pickable]) >= min_volume]
     picks = pickable[np.argsort(-score[pickable])][:asof.PICKS]
     best = idx[np.argsort(-r[idx])][:asof.PICKS]
     cost = 2 * bt.cost_rate(pd.Series(np.asarray(d.dv[t])[picks])).to_numpy()

@@ -23,7 +23,8 @@ SPAC_NAME = re.compile(
 # SIC kodu olmayanlar için: ad finans şirketine işaret ediyorsa.
 FINANCE_NAME = re.compile(
     r"\b(?:bank|bancorp|bancshares|bancorporation|financial\s+corp|finance\s+corp|bdc|business\s+development|"
-    r"investment\s+corp|insurance|capital\s+southwest|real\s+estate\s+investment|reit)\b", re.IGNORECASE)
+    r"investment\s+corp|insurance|capital\s+southwest|real\s+estate\s+investment|reit|direct\s+lending|"
+    r"specialty\s+lending|lending\s+(?:corp|fund)|credit\s+(?:fund|income)|income\s+fund)\b", re.IGNORECASE)
 
 
 def load_sic() -> pd.Series:

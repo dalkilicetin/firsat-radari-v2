@@ -38,6 +38,25 @@ ROUNDS["h2"] = [
     Recipe("H2g lgbm sıra + dönem + eleme", "sira", "lgbm", regime=True, screen=True),
 ]
 
+# Doğrulama adayları (h2'nin en iyileri): iterasyonda kullanılmamış yıllarda bir kez çalıştırılır.
+ROUNDS["aday1"] = [_L, _LS, _R]
+
+# Tur h3: LightGBM'in yıldan yıla dalgalanmasını azaltma.
+_NOISY = {"wiki_ilgi_ivmesi", "wiki_ani_ilgi", "haber_ivmesi", "haber_ani_artis", "haber_ton_degisimi",
+          "haber_ton_seviyesi", "tema_ruzgari", "tema_ruzgari_v1_uzun", "tema_ruzgari_v2_nadir", "tema_ruzgari_v3_uzun_nadir"}
+_SEEDS = [Recipe(f"lgbm tohum {s}", "sira", "lgbm", params={"random_state": s}) for s in range(5)]
+ROUNDS["h3"] = [
+    Recipe("H3a lgbm 5 tohum ortalaması", learner="ensemble", members=_SEEDS),
+    Recipe("H3b lgbm güçlü düzenleme", "sira", "lgbm",
+           params={"n_estimators": 400, "num_leaves": 7, "min_child_samples": 1000, "learning_rate": 0.03}),
+    Recipe("H3c lgbm son 6 yıl", "sira", "lgbm", params={"pencere": 6 * 52}),
+    Recipe("H3d lgbm, haber/tema sinyalleri hariç", "sira", "lgbm", exclude=_NOISY),
+    Recipe("H3e lgbm + güvenlik (eşit ağırlık)", learner="ensemble", members=[_L, _R]),
+    Recipe("H3f 5 tohum + güvenlik", learner="ensemble", members=_SEEDS + [_R] * 5),
+]
+
+ROUNDS["aday2"] = [ROUNDS["h3"][0]]  # 5 tohum ortalaması: doğrulama yıllarında
+
 
 def main() -> None:
     name = sys.argv[1] if len(sys.argv) > 1 else "h1"
