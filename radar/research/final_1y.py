@@ -57,7 +57,7 @@ def main() -> None:
         picks += [{"yil": y, "sira": i + 1, "sembol": s, "getiri": g} for i, (s, g) in enumerate(res["secim"])]
         print(y, kind(y), f"model {res['portfoy']:+.1%} SPY {spy:+.1%}", flush=True)
         if y in quick.LOCKED_YEARS:
-            quick.log(MODEL, pd.DataFrame([{"yil": y} | res]).set_index("yil"), "test_v2" if V2 else "kilitli_acilis")
+            quick.log(MODEL, pd.DataFrame([{"yil": y, "spy": spy} | res]).set_index("yil"), "test_v2" if V2 else "kilitli_acilis")
 
     # 2026: yıl başından bugüne; ve bugünkü seçim
     t26, tl = quick.year_start(d.dates, 2026), len(d.dates) - 1
