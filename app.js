@@ -1,5 +1,5 @@
 "use strict";
-const APP_VERSION = "5.15";
+const APP_VERSION = "5.16";
 // ================= FIRSAT RADARI v4 =================
 const NDX = ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","COST","NFLX","AMD","PEP","ADBE","CSCO","QCOM","TMUS","INTU","AMAT","TXN","CMCSA","ISRG","HON","BKNG","AMGN","VRTX","ADP","SBUX","PANW","GILD","MU","ADI","INTC","LRCX","MDLZ","REGN","KLAC","SNPS","CDNS","PDD","MELI","CTAS","CSX","MAR","ORLY","CRWD","ABNB","FTNT","NXPI","PCAR","ROP","WDAY","DASH","ADSK","CPRT","PAYX","ROST","MNST","CHTR","AEP","ODFL","KDP","FAST","DDOG","EA","GEHC","EXC","VRSK","CCEP","XEL","CTSH","KHC","IDXX","TTWO","FANG","ON","ZS","DXCM","TEAM","CSGP","BKR","WBD","GFS","MDB","MRVL","BIIB","ARM","LULU","AXON","CDW","TTD","PLTR","APP","MSTR","LIN","ASML","AZN","SMCI","ILMN","ANSS"];
 const EMBEDDED_UNIVERSE = "A,AAPL,ABBV,ABNB,ABT,ACN,ADBE,ADI,ADM,ADP,ADSK,AEE,AEP,AES,AFL,AIG,AIZ,AJG,AKAM,ALB,ALGN,ALL,ALLE,AMAT,AMCR,AMD,AME,AMGN,AMP,AMT,AMZN,ANET,ANSS,AON,AOS,APA,APD,APH,APTV,ARE,ATO,AVB,AVGO,AVY,AWK,AXON,AXP,AZO,BA,BAC,BALL,BAX,BBY,BDX,BEN,BG,BIIB,BK,BKNG,BKR,BLDR,BLK,BMY,BR,BRK.B,BRO,BSX,BX,BXP,C,CAG,CAH,CARR,CAT,CB,CBOE,CBRE,CCI,CCL,CDNS,CDW,CE,CEG,CF,CFG,CHD,CHRW,CHTR,CI,CINF,CL,CLX,CMCSA,CME,CMG,CMI,CMS,CNC,CNP,COF,COO,COP,COST,CPB,CPRT,CPT,CRL,CRM,CSCO,CSGP,CSX,CTAS,CTSH,CTVA,CVS,CVX,CZR,D,DAL,DD,DE,DECK,DFS,DG,DGX,DHI,DHR,DIS,DLR,DLTR,DOC,DOV,DOW,DPZ,DRI,DTE,DUK,DVA,DVN,DXCM,EA,EBAY,ECL,ED,EFX,EG,EIX,EL,ELV,EMN,EMR,ENPH,EOG,EPAM,EQIX,EQR,EQT,ES,ESS,ETN,ETR,EVRG,EW,EXC,EXPD,EXPE,EXR,F,FANG,FAST,FCX,FDS,FDX,FE,FFIV,FI,FICO,FIS,FITB,FMC,FOX,FOXA,FRT,FSLR,FTNT,FTV,GD,GDDY,GE,GEHC,GEN,GILD,GIS,GL,GLW,GM,GNRC,GOOG,GOOGL,GPC,GPN,GRMN,GS,GWW,HAL,HAS,HBAN,HCA,HD,HES,HIG,HII,HLT,HOLX,HON,HPE,HPQ,HRL,HSIC,HST,HSY,HUBB,HUM,HWM,IBM,ICE,IDXX,IEX,IFF,ILMN,INCY,INTC,INTU,INVH,IP,IPG,IQV,IR,IRM,ISRG,IT,ITW,IVZ,J,JBHT,JCI,JKHY,JNJ,JNPR,JPM,K,KDP,KEY,KEYS,KHC,KIM,KKR,KLAC,KMB,KMI,KMX,KO,KR,KVUE,L,LDOS,LEN,LH,LHX,LIN,LKQ,LLY,LMT,LNT,LOW,LRCX,LULU,LUV,LVS,LW,LYB,LYV,MA,MAA,MAR,MAS,MCD,MCHP,MCK,MCO,MDLZ,MDT,MET,META,MGM,MHK,MKC,MKTX,MLM,MMC,MMM,MNST,MO,MOH,MOS,MPC,MPWR,MRK,MRNA,MS,MSCI,MSFT,MSI,MTB,MTCH,MTD,MU,NCLH,NDAQ,NDSN,NEE,NEM,NFLX,NI,NKE,NOC,NOW,NRG,NSC,NTAP,NTRS,NUE,NVDA,NVR,NWS,NWSA,NXPI,O,ODFL,OKE,OMC,ON,ORCL,ORLY,OTIS,OXY,PANW,PARA,PAYC,PAYX,PCAR,PCG,PEG,PEP,PFE,PFG,PG,PGR,PH,PHM,PKG,PLD,PM,PNC,PNR,PNW,PODD,POOL,PPG,PPL,PRU,PSA,PSX,PTC,PWR,PYPL,QCOM,QRVO,RCL,REG,REGN,RF,RJF,RL,RMD,ROK,ROL,ROP,ROST,RSG,RTX,RVTY,SBAC,SBUX,SCHW,SHW,SJM,SLB,SMCI,SNA,SNPS,SO,SOLV,SPG,SPGI,SRE,STE,STLD,STT,STX,STZ,SWK,SWKS,SYF,SYK,SYY,T,TAP,TDG,TDY,TECH,TEL,TER,TFC,TGT,TJX,TMO,TMUS,TPR,TRGP,TRMB,TROW,TRV,TSCO,TSLA,TSN,TT,TTWO,TXN,TXT,TYL,UAL,UBER,UDR,UHS,ULTA,UNH,UNP,UPS,URI,USB,V,VICI,VLO,VLTO,VMC,VRSK,VRSN,VRTX,VST,VTR,VTRS,VZ,WAB,WAT,WBD,WDC,WEC,WELL,WFC,WM,WMB,WMT,WRB,WST,WTW,WY,WYNN,XEL,XOM,XYL,YUM,ZBH,ZBRA,ZTS,PDD,MELI,CRWD,DASH,WDAY,MDB,MRVL,ARM,TTD,PLTR,APP,MSTR,ASML,AZN,TEAM,ZS,DDOG,GFS,CCEP,CLS,SNDK,IONQ,RGTI,QBTS,COHR,LITE,ONTO,NBIS,CRDO,ALAB,VRT,NVT,MOD,FIX,EME,IESC,STRL,PWP,HIMS,SOFI,HOOD,AFRM,RKLB,ASTS,LUNR,PL,IREN,CIFR,WULF,APLD,NOK,ERIC,BP,SHOP,SE,NET,SNOW,OKTA,TWLO,U,RBLX,PATH,DKNG,PENN,LGIH,TMHC,MTH,KBH,TOL,GRBK,SKY,CVCO,ZYME,EXAS,NTRA,GH,TXG,PACB,QGEN,AXTI,AEHR,CAMT,UCTT,ICHR,FORM,ACLS,COHU,KLIC,PLAB,VECO,AMBA,SITM,POWI,SLAB,CRUS,SYNA,MTSI,WOLF,NVTS,AOSL,DIOD".split(",");
@@ -33,6 +33,12 @@ function universe(){ return (dynUni.list && dynUni.list.length>=300) ? dynUni.li
 let screen = store.get("screen", {});
 let prof = store.get("prof", {}); // sym -> {name, ind, date} (30 gün önbellek) // sym -> {mtd,r13w,r52w,hi52,pe,ps,mcap,date}
 let vix = store.get("vix", {val:null, date:"", manual:false});
+let trendRank = store.get("trendRank", {}); // sym -> [12-3 momentum yüzdeliği, son çeyrek düzeltme yüzdeliği] (gece taraması)
+// v5.16 TREND+DÜZELTME: uzun vadeli kazanan (evrende ilk %30) + son çeyrekte geri çekilmiş (medyan altı koşu).
+// 12.07–10.10.2026 ölçümü: ilk 10, 20 günde SPY'a göre +%5.9 (iki yarıda da pozitif).
+function isTrend(s){ const t = trendRank[s]; return !!t && t[0]>=0.7 && t[1]>=0.5; }
+function isWeakTrend(s){ const t = trendRank[s]; return !!t && t[0]<0.4; } // en zayıf %40: 20g SPY'a göre −%5.1 (Eyl-Eki)
+function trendList(){ return Object.keys(trendRank).filter(s=>isTrend(s) && solidScreen(s)).sort((a,b)=>(trendRank[b][0]+trendRank[b][1])-(trendRank[a][0]+trendRank[a][1])); }
 let running = false;
 let curSec = "durum", patTab = "hepsi";
 
@@ -122,6 +128,7 @@ function patterns(sym){
   if(f.gmT!==null && f.gm5!==null && f.gmT > f.gm5 + 2) out.push(["MARJ","Brüt marj genişliyor — darboğaz/fiyatlama gücü vekili","p"]);
   if(r.r3m>0 && f.pe && f.pe<15 && r.off5y>=0.30) out.push(["ERKEN+UCUZ","Momentum başladı + hâlâ ucuz + zirveden uzak","g"]);
   if(f.ps && f.ps>30 && !out.some(p=>p[0]==="RULE40") && out.some(p=>["A","D","E","DÖNÜŞ"].includes(p[0]))) out.push(["PAHALI","F/S > 30 — değerleme uyarısı","a"]);
+  if(isTrend(sym)) out.push(["TREND","Uzun vadeli kazanan + son çeyrekte düzeltme — ölçümde SPY'ı en istikrarlı geçen kural","g"]);
   // MOONSHOT: AMD/SanDisk reçetesi — marj dönüşü ZORUNLU gate + dip/erken konum
   const ms = moonshot(sym, r, f);
   if(ms) out.push(["MOONSHOT", ms.badgeTip, "m"]);
@@ -193,12 +200,17 @@ function moonshot(sym, r, f){
   // Güçlü temel = gelir patlaması (revG≥30) VEYA belirgin marj dönüşü (marjD≥5).
   // Zayıf temelli (düşük marj + düşük gelir) hisse, tek EPS sürprizi/insider ile fitile giremez.
   const gucluTemel = (revG!=null && revG>=30) || (marjDelta>=5);
-  const tetik = insBuy || eps || (turning && revStrong);
+  // v5.16: tetik SADECE insider alımı. 12.07–10.10.2026 ölçümü (20g, SPY'a göre): EPS tetikli fitil −%4.7,
+  // dönüş+gelir tetikli −%5.7, insider tetikli +%3.2. epsSurprise son raporun (aylar önce olabilir)
+  // sürprizi → çoktan fiyatlanmış. Insider = kendi parasıyla alan, şirketi en iyi bilen kişi.
+  const tetik = insBuy;
   const gucluTetik = gucluTemel && tetik;
   let tier, verb, action, tone;
   if(hi){
-    tier = "⚠️ GEÇ"; verb = "Hareket büyük ölçüde olmuş"; tone = "a";
-    action = "Marj dönüşü çoktan fiyatlanmış (1y +%"+Math.round(r52w)+"). Kovalama riski yüksek — geri çekilmeyi bekle, tepeden girme.";
+    // v5.16: eskiden "⚠️ GEÇ — kovalama" deniyordu; ölçümde en iyi kademe buydu (20g SPY'a göre +%5.7,
+    // iki yarıda da pozitif). Marj dönüşü + güçlü fiyat trendi = kurumsal para hâlâ giriyor.
+    tier = "📈 TREND LİDERİ"; verb = "Marj dönüşü fiyata yansıyor, trend sürüyor"; tone = "g";
+    action = "1y +%"+Math.round(r52w)+". Ölçümde bu kademe SPY'ı geçti — ama oynaklık yüksek: tek seferde değil kademeli gir, sert trend kırılımında (ay −%15) çık.";
   } else if(gucluTetik && (turning || !dip)){
     tier = "🔥 FİTİL"; verb = "Kurulum + güçlü tetik birlikte"; tone = "g";
     const checks = ["katalizör gerçek mi (earnings/ürün/anlaşma)"];
@@ -207,7 +219,7 @@ function moonshot(sym, r, f){
     action = "Hem marj dönüşü hem güçlü tetik var. AL demiyorum — şunları KENDİN doğrula: "+checks.join("; ")+".";
   } else {
     tier = "🌱 KURULUM"; verb = "Marj dönüşü var, güçlü tetik henüz yok"; tone = "p";
-    action = "Temel dönüş doğrulandı (marj +"+marjDelta.toFixed(1)+" puan) ama momentum/insider/güçlü gelir henüz yok. İzleme listesine al, katalizör (earnings/ürün) tarihini takip et. Henüz kovalama.";
+    action = "Temel dönüş doğrulandı (marj +"+marjDelta.toFixed(1)+" puan) ama insider alımı yok. Ölçümde bu kademe SPY'ın gerisinde kaldı (20g −%2.4) — sadece izle, fiyat trendi ya da insider alımı gelince bak.";
   }
   const badgeTip = "MOONSHOT ["+tier+"] — marj dönüşü +"+marjDelta.toFixed(1)+" puan"+(revStrong?", gelir +%"+Math.round(revG):"");
   return {tier, verb, action, tone, marjDelta, revG, r52w, off5y, insBuy, eps, turning, revStrong, badgeTip};
@@ -237,6 +249,9 @@ async function loadRemote(){
     Object.assign(etf, j.etf||{});        store.set("etf", etf);
     if(j.earnCal && j.earnCal.list){ earnCal = {date:today(), list:j.earnCal.list}; store.set("earnCal", earnCal); }
     if(j.macro){ store.set("macro", j.macro); }
+    if(j.trendRank){ trendRank = j.trendRank; store.set("trendRank", trendRank); }
+    if(j.karne){ store.set("karne", j.karne); }
+    if(j.karneHist){ store.set("karneHist", j.karneHist); }
     // GitHub'daki sıralama geçmişini yerelle birleştir (yerelde olmayan günleri ekle)
     if(j.rankHist){
       const local = store.get("rankHist", {});
@@ -362,9 +377,10 @@ function stage1(s){ // ön eleme pattern adayları
   if(x.mtd<0 && x.r13w<0 && x.r52w<0) out.push("BIÇAK?");
   if(x.gmT!==null && x.gm5!==null && x.gmT > x.gm5 + 2) out.push("MARJ");
   if(x.r13w>0 && x.pe && x.pe<15 && x.hi52 && x.r52w<0) out.push("ERKEN+UCUZ?");
+  if(isTrend(s)) out.push("TREND");
   return out;
 }
-const STRONG_PATS = new Set(["A","C?","D","ERKEN+UCUZ?"]);
+const STRONG_PATS = new Set(["A","C?","D","ERKEN+UCUZ?","TREND"]);
 function qualifies(pats){ return pats.some(p=>STRONG_PATS.has(p)) || pats.filter(p=>p!=="BIÇAK?").length>=2; }
 function candidates(){ // Core: ≥2 milyar $ + kârlı + güçlü sinyal (veya 2+ sinyal)
   const c = [];
@@ -709,11 +725,30 @@ function renderDurum(){
   for(const s of allSyms()){ const p = patterns(s); for(const [c] of p.list) counts[c]=(counts[c]||0)+1; }
   const nice = Object.entries(counts).map(([k,v])=>k+": "+v).join(" • ");
   const nextE = (earnCal.list||[]).slice(0,3).map(e=>e.s+" "+e.d.slice(5)).join(", ");
-  $("summaryBox").innerHTML = (nice?("Pattern sayıları — "+nice+"<br>"):"Pattern verisi henüz yükleniyor.<br>") + (nextE?("Yaklaşan bilanço: "+nextE):"");
+  $("summaryBox").innerHTML = karneHtml() + (nice?("Pattern sayıları — "+nice+"<br>"):"Pattern verisi henüz yükleniyor.<br>") + (nextE?("Yaklaşan bilanço: "+nextE):"");
+}
+// v5.16 KARNE: gece taraması önerileri giriş fiyatıyla kaydeder; 7/14/28 gün sonra SPY'a karşı ölçer.
+// Hedef SPY'ı geçmek — model tutmuyorsa burada görünür.
+function karneHtml(){
+  const k = store.get("karne", null), kh = store.get("karneHist", {});
+  if(!k || !Object.keys(k).length) return '<div style="margin-bottom:6px;"><b>📊 Karne:</b> öneri geçmişi birikiyor (ilk sonuç ~7 gün sonra).</div>';
+  const AD = {trend:"📈 Trend+düzeltme", fitil:"🔥 Fitil", gec:"📈 Trend lideri", sok:"⚡ Şok"};
+  const renk = v => v>0 ? "var(--green)" : "var(--red)";
+  const rows = [];
+  for(const l of ["trend","fitil","gec","sok"]){
+    const cells = [7,14,28].map(h=>{ const z = k[l+"_"+h];
+      return z ? '<span style="color:'+renk(z.fark)+'">'+(z.fark>0?"+":"")+z.fark.toFixed(1)+'%</span> <small>('+z.isabet+'%)</small>' : '<span class="muted">—</span>'; });
+    // son 30 gecenin 14 günlük karne ortalaması
+    const hist = Object.keys(kh).sort().slice(-30).map(d=>(kh[d]||{})[l+"_14"]).filter(Boolean);
+    const ort = hist.length ? hist.reduce((a,z)=>a+z.fark,0)/hist.length : null;
+    rows.push('<tr><td>'+AD[l]+'</td><td>'+cells.join('</td><td>')+'</td><td>'+(ort==null?'—':'<b style="color:'+renk(ort)+'">'+(ort>0?"+":"")+ort.toFixed(1)+'%</b> <small>n='+hist.length+'</small>')+'</td></tr>');
+  }
+  return '<div style="margin-bottom:8px;"><b>📊 Karne — öneriler SPY\'a göre</b> <small class="muted">(fark, parantez: SPY\'ı yenen oranı)</small>'+
+    '<table style="width:100%;font-size:11.5px;margin-top:4px;border-collapse:collapse;"><tr class="muted"><td></td><td>7g</td><td>14g</td><td>28g</td><td>14g ort (30 gece)</td></tr>'+rows.join("")+'</table></div>';
 }
 
 let moonTab = "hepsi";
-const MOON_TABS = [["hepsi","Tümü"],["🌱","🌱 Kurulum"],["🔥","🔥 Fitil"],["⚠️","⚠️ Geç"]];
+const MOON_TABS = [["hepsi","Tümü"],["🌱","🌱 Kurulum"],["🔥","🔥 Fitil"],["📈","📈 Trend lideri"]];
 // Moonshot evreni: sadece derin veri (series/fin) olan hisseler moonshot hesabına girer.
 // candidates + izleme + keşif taraması — moonshot() gate zaten çoğunu eler.
 function moonUniverse(){
@@ -727,8 +762,8 @@ function moonList(){
     const ms = moonshot(s, r, fin[s]);
     if(ms) out.push([s, ms]);
   }
-  // sırala: FİTİL > KURULUM > GEÇ, her grup içinde marjDelta yüksek üste
-  const rank = t => t.startsWith("🔥")?0 : t.startsWith("🌱")?1 : 2;
+  // sırala: FİTİL > TREND LİDERİ > KURULUM (v5.16: ölçülen başarıya göre), her grup içinde marjDelta yüksek üste
+  const rank = t => t.startsWith("🔥")?0 : t.startsWith("📈")?1 : 2;
   out.sort((a,b)=> rank(a[1].tier)-rank(b[1].tier) || (b[1].marjDelta-a[1].marjDelta));
   return out;
 }
@@ -785,7 +820,7 @@ function renderMoon(){
     const stats = [];
     stats.push('<span class="chip m">marj +'+ms.marjDelta.toFixed(1)+'</span>');
     if(ms.revStrong) stats.push('<span class="chip g">gelir +%'+Math.round(ms.revG)+'</span>');
-    if(ms.r52w!=null) stats.push('<span class="chip'+(ms.r52w>=120?' a':'')+'">1y '+Math.round(ms.r52w)+'%</span>');
+    if(ms.r52w!=null) stats.push('<span class="chip'+(ms.r52w>=120?' g':'')+'">1y '+Math.round(ms.r52w)+'%</span>');
     if(ms.insBuy) stats.push('<span class="chip g">👔 insider '+(f.insBuyers)+'</span>');
     if(ms.eps) stats.push('<span class="chip b">💰 EPS sürpriz</span>');
     const inOther = otherList().includes(s);
@@ -1134,13 +1169,14 @@ function reasonsFor(s){
   const deep = !!series[s];
   const pros = [], cons = [];
   let conv = 0;
-  const W = {A:2,B:2,C:1,C2:1,D:2,E:3,"DÖNÜŞ":2,"MARJ":2,"KALİTE":2,"ERKEN+UCUZ":2,"SPIN-MOM":1};
+  const W = {A:2,B:2,C:1,C2:1,D:2,E:3,"DÖNÜŞ":2,"MARJ":2,"KALİTE":2,"ERKEN+UCUZ":2,"SPIN-MOM":1,"TREND":4};
   const NAME = {A:"trend içi düzeltme", B:"kaybedenin dönüşü (5y dip + dönüş başladı)",
     C:"olay bazlı sert düşüş — geçiciyse fırsat", D:"momentum devamı (zirveye yakın)",
     E:"bilanço sürprizi drift penceresi", "DÖNÜŞ":"5y zirvesinden −%50+ sonrası 3 ay pozitif",
     "MARJ":"brüt marj genişliyor (fiyatlama gücü)", "ERKEN+UCUZ":"momentum başladı + hâlâ ucuz",
     "KALİTE":"kalite: ROE>15 + gelir büyüyor", "SPIN-MOM":"spin-off momentumu pozitif",
-    "C2":"büyük/kaliteli şirkette sert düşüş — olayı incele"};
+    "C2":"büyük/kaliteli şirkette sert düşüş — olayı incele",
+    "TREND":"trend + düzeltme: 1 yılın kazananı, son çeyrekte soluklanmış"};
   const pats = deep ? patterns(s).list : stage1(s).map(p=>[p.replace("?",""), "", ""]);
   for(const [code, label] of pats){
     if(code==="BIÇAK") return null;
@@ -1179,6 +1215,8 @@ function reasonsFor(s){
     conv -= 1;
   }
   if(f.scandal){ cons.push("skandal/soruşturma — OLAY İNCELE"); conv -= 4; }
+  // v5.16: uzun vadeli momentumu en zayıf %40'ta olanlar ölçümde SPY'ın belirgin gerisinde kaldı
+  if(isWeakTrend(s)){ cons.push("uzun vadeli trend zayıf (evrenin alt %40'ı) — SPY'ı geçme ihtimali düşük"); conv -= 2; }
   // Kural 5 — DEAD-CAT / ENKAZ: aşırı 1y sıçrama + negatif brüt marj/derin zarar = iflas-sonrası spekülasyon
   const r52w_ = x.r52w;
   if(r52w_!=null && r52w_>300 && ((gmT!=null&&gmT<0) || (netM!=null&&netM<-30))){
@@ -1208,7 +1246,7 @@ function themeOf(sym){
   return TICKER_THEME[sym] || null;
 }
 const PAT_TR = {A:"↩ Sağlıklı Düzeltme", B:"🔥 Dipten Dönüş", C:"⚡ Olay Bazlı Düşüş", D:"🚀 Güçlü Trend",
-  E:"💰 Bilanço Gücü", "DÖNÜŞ":"🔥 Dipten Dönüş", "ERKEN+UCUZ":"🎯 Ucuz Kalite"};
+  E:"💰 Bilanço Gücü", "DÖNÜŞ":"🔥 Dipten Dönüş", "ERKEN+UCUZ":"🎯 Ucuz Kalite", "TREND":"📈 Trend + Düzeltme"};
 function evaluate(sym){
   const f = fin[sym]||{}, x = screen[sym]||{};
   const deep = !!series[sym];
@@ -1241,7 +1279,7 @@ function evaluate(sym){
 
   // K3 KATALİZÖR (0-3): neden şimdi?
   let kat = 0; const katTxt = [];
-  for(const p of pats) if(PAT_TR[p] && ["E","A","D","B","DÖNÜŞ","C","ERKEN+UCUZ"].includes(p)){ kat = Math.max(kat, ["E"].includes(p)?2:1); katTxt.push(PAT_TR[p]); }
+  for(const p of pats) if(PAT_TR[p] && ["E","A","D","B","DÖNÜŞ","C","ERKEN+UCUZ","TREND"].includes(p)){ kat = Math.max(kat, ["E","TREND"].includes(p)?2:1); katTxt.push(PAT_TR[p]); }
   if((f.insBuyers||0)>=3){ kat+=1; katTxt.push("👔 Küme insider ("+f.insBuyers+")"); }
   if((f.news||[]).filter(n=>n.type==="conf").length>=2){ kat+=1; katTxt.push("🏭 Anlaşma akışı"); }
   if((f.catN||0)>=2){ kat+=1; katTxt.push("⚡ Katalizör haberleri"); }
@@ -1257,6 +1295,7 @@ function evaluate(sym){
   if(f.industry && FIN_INDUSTRIES.some(w=>(f.industry||"").includes(w))) riskTxt.push("finans — bilanço krizi görünmez");
   const av = g("avgVol"); if(av!=null && av<0.3) riskTxt.push("likidite düşük");
   if(!deep) riskTxt.push("ön eleme");
+  if(isWeakTrend(sym)) riskTxt.push("uzun vadeli trend zayıf");
 
   // DOKTOR KURALLARI (toplama değil, birlikte yorum)
   let stars, verdict;
@@ -1563,7 +1602,9 @@ function top10(){
     if(rol && !skor[s].roller.includes(rol)) skor[s].roller.push(rol);
   };
 
-  // 1) Yüksek conviction adaylar (ana kaynak)
+  // 0) TREND + DÜZELTME — v5.16 ana kaynak (ölçülen en istikrarlı SPY-üstü kural)
+  trendList().slice(0, 15).forEach((s, i) => ekle(s, 10 - i*0.15, "📈 trend+düzeltme"));
+  // 1) Yüksek conviction adaylar
   const pool = dedupeClasses([...new Set([...candidates(), ...otherList(), ...microList()])]);
   for(const s of pool){
     const r = reasonsFor(s);
@@ -1571,24 +1612,18 @@ function top10(){
     if(r.conviction >= 7) ekle(s, r.conviction, "güçlü aday");
     else if(r.conviction >= 5) ekle(s, r.conviction * 0.7, "aday");
   }
-  // 2) Moonshot FİTİL — en yüksek asimetri
+  // 2) Moonshot FİTİL (artık sadece insider tetikli) + TREND LİDERİ.
+  // v5.16: 🌱 kurulum bonusu kaldırıldı — ölçümde 20g SPY'a göre −%2.4.
   for(const [s, ms] of moonList()){
-    if(ms.tier.startsWith("🔥")) ekle(s, 8, "🚀 fitil");
-    else if(ms.tier.startsWith("🌱") && ms.marjDelta >= 8) ekle(s, 4, "🌱 kurulum");
+    if(ms.tier.startsWith("🔥")) ekle(s, 8, "🚀 fitil (insider)");
+    else if(ms.tier.startsWith("📈")) ekle(s, 6, "📈 trend lideri");
   }
-  // 3) ŞOK — sadece DEV/NDX olanlar (kaliteli panik = fırsat olabilir)
-  // Puan şiddete göre ölçeklenir: kaliteli bir devin tarihi çöküşü (IBM -%25),
-  // sıradan bir adaydan daha fazla dikkat hak eder — "bak ve karar ver" demek için.
-  for(const it of shockList().slice(0, 10)){
-    if(!(it.dev || it.ndx)) continue;
-    const siddet = Math.abs(it.gun!=null ? it.gun : (it.ay||0));
-    let puan = 6;
-    if(it.gun!=null){                       // günlük şok = en acil
-      puan = 8 + Math.min(siddet/2, 8);     // -%25 → 8+8 = 16
-    } else {
-      puan = 5 + Math.min(siddet/6, 3);     // aylık düşüş daha yumuşak
-    }
-    ekle(it.s, puan, "⚡ şok");
+  // 3) ŞOK — sadece GÜNLÜK şok, sağlam şirket (≥2 mlr$).
+  // v5.16 ölçümü: günlük ≥%8 düşen sağlam hisse 5 günde SPY'a göre +%5 (iki yarıda da), 20 günde etki sıfır →
+  // bu bir "1 haftalık toparlanma" sinyali, uzun vadeli alım değil. Aylık düşüşün (mtd ≤ −12) ölçülen avantajı yok → çıkarıldı.
+  for(const it of shockList().slice(0, 15)){
+    if(it.gun==null || it.mcap < 2000) continue;
+    ekle(it.s, 7 + Math.min(Math.abs(it.gun)/5, 3), "⚡ şok (1 hafta toparlanma)");
   }
 
   // Ceza: raporun uyardığı riskler
@@ -1601,6 +1636,7 @@ function top10(){
     if(/marj daralıyor/.test(c)) skor[s].puan -= 4;
     if(/anormal yüksek/.test(c)) skor[s].puan -= 2;
     if(/skandal/.test(c)) skor[s].puan -= 15;
+    if(isWeakTrend(s) && !skor[s].roller.some(r=>r.includes("şok"))) skor[s].puan -= 4;
     skor[s].cons = r.cons || [];
     skor[s].pros = r.pros || [];
     skor[s].conv = r.conviction;
@@ -1632,7 +1668,8 @@ function shockList(){
   for(const s of evren){
     const q = quotes[s], x = screen[s]||{}, f = fin[s]||{};
     const mcap = (f.mcap ?? x.mcap) || 0;
-    const gun = (q && typeof q.chgPct==="number") ? q.chgPct : null;   // günlük %
+    // −%50'den sert tek gün "düşüş" = büyük ihtimalle bölünme/spin-off (CTVA 02.10.2026 −%84) → şok sayma
+    const gun = (q && typeof q.chgPct==="number" && q.chgPct > -50) ? q.chgPct : null;   // günlük %
     const ay  = (typeof x.mtd==="number") ? x.mtd : null;              // ay başından beri %
     const ceyrek = (typeof x.r13w==="number") ? x.r13w : null;
     let etiket=null, aksiyon=null, siddet=0;
