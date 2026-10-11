@@ -117,12 +117,45 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
         "raw": weekly_last(pd.concat([raw_px, ex_raw, ftd_raw], ignore_index=True), "price", dates),
         "dollar_volume": weekly_last(pd.concat([dv, ex_dv], ignore_index=True), "dollar_volume", dates),
     }
-    CACHE.mkdir(parents=True, exist_ok=True)
     for n, df in out.items():
         df.columns = df.columns.astype(str)
         out[n] = df.reindex(columns=columns)
+    # Birleşmede hayatta kalan şirketin Yahoo geçmişi çoğu zaman öncülün geçmişidir (AAL ← US Airways/LCC, VTRS ← MYL,
+    # LIN ← PX). Aynı fiyat iki kez sayılmasın: öncülün çıkışına kadar o geçmiş öncüle ait, hayatta kalandan silinir.
+    for gone_c, act_c, end in successor_overlaps(out["raw"], sec):
+        mask = out["raw"].index <= end
+        for n in out:
+            out[n].loc[mask, act_c] = np.nan
+    CACHE.mkdir(parents=True, exist_ok=True)
+    for n in out:
         out[n].to_parquet(paths[n])
     return out | {"securities": sec}
+
+
+def successor_overlaps(raw: pd.DataFrame, sec: pd.DataFrame, tol: float = 0.03, min_match: float = 0.85,
+                       min_weeks: int = 26) -> list[tuple[str, str, pd.Timestamp]]:
+    """(çıkmış öncül, aktif hayatta kalan, öncülün çıkış tarihi): öncülün fiyatlı haftalarının ≥ %85'inde gerçek fiyatlar %3 içinde.
+    SPAC'ler (≈10 $ düz seri, birbirine benzer) ve neredeyse hiç oynamayan seriler değerlendirilmez."""
+    from radar.research.sectors import classify
+    s = sec.assign(cik=sec.cik.astype(str)).drop_duplicates("cik").set_index("cik").reindex(raw.columns)
+    kind = classify(sec).reindex(raw.columns)
+    act = raw.columns[s.status.to_numpy() == "aktif"]
+    A = raw[act].to_numpy(np.float32)
+    out = []
+    for c in raw.columns[(s.status.to_numpy() == "çıktı") & (kind.to_numpy() == "faaliyet")]:
+        x = raw[c].to_numpy(np.float32)
+        v = np.isfinite(x) & (raw.index <= s.at[c, "end"])
+        if v.sum() < min_weeks or np.std(np.diff(np.log(x[v]))) < 0.02:
+            continue
+        sub, xv = A[v], x[v][:, None]
+        n = np.isfinite(sub).sum(0)
+        frac = (np.abs(sub - xv) <= tol * xv).sum(0) / np.maximum(n, 1)
+        hits = [j for j in np.flatnonzero((n >= min_weeks) & (frac >= min_match))
+                if np.nanstd(np.diff(np.log(sub[:, j][np.isfinite(sub[:, j])]))) >= 0.02]
+        if len(hits) > 3:  # düz (SPAC benzeri) seri birçok şirkete "benzer": gerçek öncül-ardıl değil
+            continue
+        out.extend((c, act[j], s.at[c, "end"]) for j in hits)
+    return out
 
 
 def exited_daily(gone: pd.DataFrame, ftd: pd.DataFrame, tol: float = 0.03, min_match: float = 0.8):
