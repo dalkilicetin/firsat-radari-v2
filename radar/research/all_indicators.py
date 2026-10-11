@@ -159,7 +159,7 @@ def main() -> None:
 
     cnt = {k: len(has(k)) for k in TAGS}
     story = [
-        Paragraph("Belirtiler Raporu — şimdiye kadar bulunan tüm belirtiler", st.h1),
+        Paragraph("Rapor 6 — Belirtiler ve etki oranları (tüm belirtiler)", st.h1),
         Paragraph(f"Bu rapor {len(df)} işaretin tamamını tek yerde toplar: Rapor 2 (geriye bakış), Rapor 3 (teşhis: işaretlerin yıl yıl "
                   "getiriyle ilişkisi), iç içe test (her yıl yalnızca geçmişe bakarak seçilen işaretler) ve Rapor 5 (her yılın en çok "
                   "yükselen %5'ini ayıran belirtiler). Dönem 2010/2011–2025; evren alınabilir faaliyet şirketleri (Nasdaq + NYSE + NYSE "
@@ -185,14 +185,14 @@ def main() -> None:
                   "Bir işaret birden çok hüküm alabilir (ör. küçük şirket: hem havuz hem uyarı).", st.body),
         Paragraph("Neye bakmalıyız — kontrol listesi", st.h2),
         Paragraph("<b>Adım 1 – Havuz:</b> oynak, küçük, düşük fiyatlı, kârı piyasa değerine göre düşük hisseler (büyük kazananların "
-                  "çoğu buradan; sığ ağaç kuralında bu havuzda büyük kazanan oranı %14, genel %5).<br/>"
-                  "<b>Adım 2 – Havuz içinde seç:</b> son 12 ay güçlü fiyat (momentum), 52 haftalık zirveye yakın, son 6 ay güçlü, "
-                  "Ar-Ge orta-yüksek (aşırı değil), haber sayısı artıyor ve ton iyileşiyor, içeriden alım tutarı yüksek, 10-K iş tanımı "
-                  "geçen yıla benzer (iş modeli istikrarlı).<br/>"
+                  "çoğu buradan; sığ ağaç kuralında bu havuzda büyük kazanan oranı %15, genel %5 — ama büyük kaybeden oranı da yüksek).<br/>"
+                  "<b>Adım 2 – Havuz içinde seç:</b> son 12 ay güçlü fiyat (momentum; oynak grupta en güçlü ayırıcı, 16 yılın 13'ünde), "
+                  "52 haftalık zirveye yakın, son 6 ay güçlü, Ar-Ge harcaması yüksek dilimde (aşırı uçta değil), haber sayısı artıyor, "
+                  "sektörün son 1 yılı güçlü.<br/>"
                   "<b>Adım 3 – Ele:</b> denetçi süreklilik şüphesi, kayıtsız hisse satışı (sulandırma), 52 haftalık dibe yakın, çok "
                   "düşük fiyat + yükselmeyen fiyat.<br/>"
                   "<b>Sektör:</b> tek başına belirti değil — her yıl başka sektör öne çıktı (2012 madencilik/inşaat, 2016 madencilik, "
-                  "2020 biyoteknoloji/yazılım, 2025 madencilik); sektörün son 1 yıllık gücü zayıf bir yardımcı.", st.body),
+                  "2020 biyoteknoloji/yazılım, 2025 madencilik); sektörün son 1 yıllık gücü yardımcı.", st.body),
         PageBreak(), Paragraph("1. Ana tablo — her işaret tek satırda", st.h2),
         Paragraph("IC: yıl başı değer ile sonraki 52 hafta getirisinin sıra korelasyonu (+0,05 bu alanda güçlüdür). Dilim: işaretin en "
                   "güçlü %20'lik dilimi; katlar o dilimde büyük kazanan (en iyi %5) / büyük kaybeden (en kötü %5) olma olasılığının genel "
@@ -230,10 +230,10 @@ def main() -> None:
         Paragraph(", ".join(lab(s) for s in zy.isaret) + ".", st.body),
         Paragraph("10. Haberler (2. ve 4. yol) — durum", st.h2),
         Paragraph("Şimdiye kadarki haber işaretleri (GDELT haber sayısı, ton, Wikipedia ilgisi, tema rüzgârı) genel getiride tutarsız; "
-                  "ama büyük kazanan tarafında iki net belirti verdiler: haber sayısının artışı (yüksek dilim: kazanan 1,53 kat, "
-                  "kaybeden 0,73 kat) ve haber tonunun iyileşmesi (çok yüksek dilim: 1,41 / 1,00). Haber verisi 2015 sonrasını kapsadığı "
-                  "için yıl sayısı azdır (6–10 yıl). Şirket × haber konusu verisi (GDELT konuları, NYSE dahil) yeniden yükleniyor; "
-                  "geldiğinde konu bazlı işaretler (ör. 'yapay zekâ', 'FDA onayı', 'sözleşme' haberlerindeki artış) bu rapora eklenecek.", st.body),
+                  "ama büyük kazanan tarafında net bir belirti verdiler: haber sayısının artışı (yüksek dilim: kazanan 1,53 kat, "
+                  "kaybeden 0,78 kat). Haber tonunun iyileşmesi düzeltilmiş veriyle artık net ayırıcı değil. Haber verisi 2015 sonrasını kapsadığı "
+                  "için yıl sayısı azdır (6–10 yıl). Şirket × haber konusu verisi (GDELT konuları, NYSE dahil) yüklendi; "
+                  "konu bazlı işaretler (ör. 'yapay zekâ', 'FDA onayı', 'sözleşme' haberlerindeki artış) hedef aramaya eklenecek.", st.body),
         Paragraph("11. Henüz bakılamayan belirtiler", st.h2),
         Paragraph("• Sosyal medya (Reddit, X, TikTok, Instagram): veri erişimi gerekiyor (Reddit anahtarı kullanıcıda).<br/>"
                   "• Patent başvuruları: PatentsView anahtarı bekleniyor.<br/>"

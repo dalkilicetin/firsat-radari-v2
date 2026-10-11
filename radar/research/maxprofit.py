@@ -51,6 +51,11 @@ def main() -> None:
         notes = []
         if (steps == 0).sum() > 10:
             notes.append("seyrek fiyat (SEC FTD)")
+        rp = raw[[t, t1], i]
+        if out == "borsada" and np.isfinite(rp).all() and np.isfinite(path[[0, -1]]).all():
+            ratio = (rp[1] / rp[0]) / (path[-1] / path[0])
+            if abs(np.log(ratio)) > np.log(1.5):  # fiyat oranı getiriyle uyuşmuyor: arada bölünme var
+                notes.append(f"yıl içinde bölünme ({1 / ratio:.3g}:1)" if ratio < 1 else f"yıl içinde ters bölünme (1:{ratio:.3g})")
         w = path[1:] / path[:-1] - 1
         if np.nanmax(w, initial=0) > 1.5:
             notes.append(f"tek hafta +{np.nanmax(w):.0%}")
