@@ -1,10 +1,9 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 18,
+ "rev": 19,
  "requests": [
   {
-   "dataset": "gdelt_themes",
-   "force": true
+   "dataset": "gdelt_words"
   }
  ]
 }

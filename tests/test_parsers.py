@@ -245,3 +245,9 @@ def test_parse_other_listed_keeps_nyse_common_only():
     secs = universe.parse_other_listed(text)
     common = {s.symbol: s.exchange for s in secs if s.is_common}
     assert common == {"JPM": "N", "UEC": "A", "BRK.B": "N"}
+
+
+def test_url_words_extracts_topic_words():
+    from radar.backfill.filings import url_words
+    w = url_words("https://www.cnbc.com/2023/05/24/nvidia-earnings-chatgpt-openai-demand.html")
+    assert {"nvidia", "earnings", "chatgpt", "openai", "demand"} <= w and "html" not in w and "2023" not in w

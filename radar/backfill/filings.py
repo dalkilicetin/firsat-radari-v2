@@ -15,6 +15,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+import re
 import zipfile
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta
@@ -287,3 +288,88 @@ class GdeltThemes(Dataset):
         rep.add("En sık temalar", Status.INFO, ", ".join(f"{t} ({n:,})" for t, n in top.items()))
         nv = pairs[pairs.cik == 1045810].groupby("theme")["count"].sum().nlargest(5)
         rep.add("Örnek: NVIDIA'nın en yoğun temaları", Status.INFO, ", ".join(nv.index) or "yok")
+
+
+# Adres (URL) kelimelerinde anlamsız/genel sözcükler.
+URL_STOP = set("""html htm index article articles news story stories world business markets market www com php aspx
+amp the and for with from that this have will your about after over into more than says said year years new week
+2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026 video watch live update updates report reports latest
+local national politics sport sports opinion home page content posts post blog category tag tags""".split())
+
+
+def url_words(url: str) -> set[str]:
+    """Haber adresinin yol kısmındaki kelimeler (ör. .../nvidia-openai-chatgpt-deal → nvidia, openai, chatgpt, deal)."""
+    path = url.split("://", 1)[-1].split("/", 1)[-1].lower()
+    return {w for w in re.split(r"[^a-z0-9]+", path) if 4 <= len(w) <= 24 and not w.isdigit() and w not in URL_STOP
+            and not re.fullmatch(r"[0-9a-f]{8,}", w)}
+
+
+class GdeltWords(Dataset):
+    """Yeni konuları keşfetmek için GDELT'in sabit tema sınıflaması dışındaki sinyaller (2015→).
+
+    Aynı saatlik örneklemden (kind sütunu):
+    - month_word: ay × adres kelimesi → bütün haberlerde geçiş sayısı (≥ 20)
+    - month_cik_word: ay × şirket × adres kelimesi → şirketin adının geçtiği haberlerde (şirket başına en sık 60)
+    - month_cik_org: ay × şirket × birlikte anılan kurum → (şirket başına en sık 40)
+    Yeni kavramlar (ör. 'chatgpt', 'openai', 'glp1') sınıflamada yokken adreslerde ve kurum adlarında görünür.
+    """
+    name = "gdelt_words"
+    title = "GDELT adres kelimeleri ve birlikte anılan kurumlar (yeni konu keşfi)"
+    max_parallel = 4
+
+    def partitions(self, client: HttpClient, today: date) -> list[str]:
+        return [str(y) for y in range(2015, today.year + 1)]
+
+    def load(self, client: HttpClient, partition: str) -> Loaded:
+        from collections import Counter, defaultdict
+        from radar.identity import build
+        from radar.research.road2 import aliases
+        alias = dict(aliases(build()["securities"]).itertuples(index=False, name=None))
+        year = int(partition)
+        start = max(date(year, 1, 1), GKG_START)
+        end = min(date(year, 12, 31), date.today() - timedelta(days=1))
+        days = [start + timedelta(days=i) for i in range((end - start).days + 1)]
+        month_words: dict = defaultdict(Counter)
+        cik_words: dict = defaultdict(Counter)
+        cik_orgs: dict = defaultdict(Counter)
+        missing = 0
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            for d in days:
+                month = d.replace(day=1)
+                for blob in pool.map(_fetch, [gkg_url(d, h) for h in SLOT_HOURS]):
+                    if blob is None:
+                        missing += 1
+                        continue
+                    try:
+                        rows = gdelt.read_gkg(blob)
+                    except (zipfile.BadZipFile, ValueError, csv.Error):
+                        missing += 1
+                        continue
+                    for r in rows:
+                        if len(r) != gdelt.GKG_COLUMNS:
+                            continue
+                        words = url_words(r[gdelt.COL_URL])
+                        month_words[month].update(words)
+                        orgs = [o for o in r[gdelt.COL_ORGS].split(";") if o]
+                        ciks = {alias[o] for o in orgs if o in alias}
+                        for c in ciks:
+                            cik_words[(month, c)].update(words)
+                            cik_orgs[(month, c)].update(o for o in set(orgs) if alias.get(o) != c)
+        rows = [("month_word", m, None, w, n) for m, cnt in month_words.items() for w, n in cnt.items() if n >= 20]
+        rows += [("month_cik_word", m, c, w, n) for (m, c), cnt in cik_words.items() for w, n in cnt.most_common(60) if n >= 2]
+        rows += [("month_cik_org", m, c, o, n) for (m, c), cnt in cik_orgs.items() for o, n in cnt.most_common(40) if n >= 2]
+        df = pd.DataFrame(rows, columns=["kind", "date", "cik", "token", "count"])
+        df["date"] = pd.to_datetime(df.date)
+        df["cik"] = df.cik.astype("Int64")
+        return Loaded(df, ["http://data.gdeltproject.org/gdeltv2/<YYYYMMDDHH0000>.gkg.csv.zip"],
+                      {"slots": len(days) * len(SLOT_HOURS), "missing": missing, "days": len(days)})
+
+    def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
+        df, notes = loaded.df, loaded.notes
+        rep.expect_min_ratio("İndirilen örneklem dosyası", notes["slots"] - notes["missing"], notes["slots"], 0.97, 0.9)
+        cw = df[df.kind == "month_cik_word"]
+        rep.expect_range("Kelime verisi olan şirket", cw.cik.nunique(), 300, 8000)
+        nv = cw[cw.cik == 1045810].groupby("token")["count"].sum().nlargest(8)
+        rep.add("Örnek: NVIDIA haber adreslerinde en sık kelimeler", Status.INFO, ", ".join(nv.index) or "yok")
+        co = df[(df.kind == "month_cik_org") & (df.cik == 1045810)].groupby("token")["count"].sum().nlargest(8)
+        rep.add("Örnek: NVIDIA ile birlikte anılan kurumlar", Status.INFO, ", ".join(co.index) or "yok")
