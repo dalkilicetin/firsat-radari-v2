@@ -104,6 +104,16 @@ def main(freq: str = "6ay", gens: int = 60) -> dict:
     feats = [c for c in df.columns if c not in META and pd.api.types.is_numeric_dtype(df[c])
              and not c.startswith(("piyasa_",))]  # piyasa rejimi bütün hisseler için aynı: doğrusal puanda etkisiz
     b = Block(df, feats)
+    # Piyasa rejimi kapısı (önceden belirlenmiş, ayarlanmaz): S&P 500, 40 haftalık ortalamasının altındaysa savunma = SPY tut
+    from radar.research import context
+    spy = context.etf_prices(pd.date_range("2008-12-26", pd.Timestamp.today(), freq="W-FRI"))["SPY"].dropna()
+    spy_ma = spy.rolling(40, min_periods=30).mean()
+    def spy_fwd(d):
+        i = spy.index.get_indexer([d], method="ffill")[0]
+        return float(spy.iloc[min(i + weeks, len(spy) - 1)] / spy.iloc[i] - 1)
+    def risk_off(d):
+        i = spy.index.get_indexer([d], method="ffill")[0]
+        return bool(spy.iloc[i] < spy_ma.iloc[i])
     gap = pd.Timedelta(weeks=weeks)
     rows, weights = [], {}
     for Y in TEST_YEARS:
@@ -114,24 +124,28 @@ def main(freq: str = "6ay", gens: int = 60) -> dict:
         valid_idx = [i for i in known if b.dates[i] >= cut]
         w, fit, val = evolve(b, search_idx, valid_idx, len(feats), gens, seed=Y)
         test = [i for i, d in enumerate(b.dates) if d.year == Y and d.month in form_months]
-        gross, net, hits, caps = [], [], [], []
+        gross, net, hits, caps, gated = [], [], [], [], []
         for i in test:
             p = b.picks(w, i)
             r = float(b.R[i][p].mean())
             gross.append(r); net.append(r - float(b.C[i][p].mean()))
+            gated.append(spy_fwd(b.dates[i]) - 0.001 if risk_off(b.dates[i]) else net[-1])
             hits.append(int((b.R[i][p] >= np.quantile(b.R[i], 0.95)).sum())); caps.append(r / b.best[i])
         per_year = 52 / weeks
         rows.append({"yil": Y, "net": float(np.prod(1 + np.array(net)) - 1), "brut": float(np.prod(1 + np.array(gross)) - 1),
+                     "rejimli": float(np.prod(1 + np.array(gated)) - 1), "savunma_donem": int(sum(risk_off(b.dates[i]) for i in test)),
                      "en_iyi_yuzde5": float(np.mean(hits)), "yakalama": float(np.mean(caps)),
                      "arama": round(fit, 4), "dogrulama": round(val, 4)})
         top = np.argsort(-np.abs(w))[:12]
         tot = np.abs(w).sum()
         weights[str(Y)] = {feats[j]: round(float(w[j] / tot), 4) for j in top}
-        print(f"{Y}: net {rows[-1]['net']:+.0%} (brüt {rows[-1]['brut']:+.0%}), en iyi %5'ten {np.mean(hits):.1f}, "
+        print(f"{Y}: net {rows[-1]['net']:+.0%} (rejimli {rows[-1]['rejimli']:+.0%}), en iyi %5'ten {np.mean(hits):.1f}, "
               f"arama {fit:+.3f} doğrulama {val:+.3f} [{round(time.time() - t0)} sn]  ağırlık: "
               + ", ".join(f"{feats[j]} {w[j] / tot:+.0%}" for j in top[:5]), flush=True)
     res = pd.DataFrame(rows)
     summary = {"ufuk": freq, "nesil": gens, "net_yillik_ort": float(res.net.mean()), "zararli_yil": int((res.net < 0).sum()),
+               "rejimli_yillik_ort": float(res.rejimli.mean()), "rejimli_zararli_yil": int((res.rejimli < 0).sum()),
+               "rejimli_yil_yil": [round(x, 3) for x in res.rejimli],
                "yil": len(res), "en_iyi_yuzde5_ort": float(res.en_iyi_yuzde5.mean()), "yil_yil_net": [round(x, 3) for x in res.net]}
     out = {"ozet": summary, "yillar": rows, "agirliklar": weights, "belirtiler": feats}
     (OUT_DIR / f"agirlik_arama_{freq}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
