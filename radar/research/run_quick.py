@@ -72,13 +72,14 @@ ROUNDS["h4"] = [
 ]
 
 # Tur h5: asimetrik puanı güçlendirme (λ, tohum ortalaması, yatırılabilir içinde dilim, dönem).
-def _asym(name, lam, up_t="ust10", down_t="alt10", seeds=1, regime=False, up_params=None, screen=True):
+def _asym(name, lam, up_t="ust10", down_t="alt10", seeds=1, regime=False, up_params=None, screen=True, rules=None):
     ups = [Recipe(f"{name} up{s}", up_t, "lgbm", regime=regime, params={"random_state": s} | (up_params or {}))
            for s in range(seeds)]
     downs = [Recipe(f"{name} down{s}", down_t, "lgbm", regime=regime, params={"random_state": s}) for s in range(seeds)]
     if seeds == 1:
-        return Recipe(name, learner="fark", members=[ups[0], downs[0]], screen=screen, params={"lam": lam})
-    return Recipe(name, learner="ensemble", screen=screen, members=[
+        return Recipe(name, learner="fark", members=[ups[0], downs[0]], screen=screen,
+                      params={"lam": lam} | ({"eleme": rules} if rules else {}))
+    return Recipe(name, learner="ensemble", screen=screen, params={"eleme": rules} if rules else {}, members=[
         Recipe(f"{name} f{s}", learner="fark", members=[u, dn], params={"lam": lam}) for s, (u, dn) in enumerate(zip(ups, downs))])
 ROUNDS["h5"] = [
     _asym("H5a asimetrik λ=3", 3.0),
@@ -105,6 +106,15 @@ ROUNDS["h7"] = [
     _asym("H7c asimetrik λ=3,5, 3 tohum", 3.5, seeds=3),
     _asym("H7d en iyi %5 − λ=3,5, elemesiz", 3.5, up_t="ust5", screen=False),
     _asym("H7e asimetrik λ=3,5, elemesiz, 3 tohum", 3.5, seeds=3, screen=False),
+]
+
+_DANGER = ["devamlilik_suphesi", "8k_3.02_kayıtsız hisse satışı (sulandırma)"]  # yalnızca gerçek tehlike işaretleri
+ROUNDS["h8"] = [
+    _asym("H8a asimetrik λ=3,5, tehlike elemesi", 3.5, rules=_DANGER),
+    _asym("H8b asimetrik λ=3, tehlike elemesi", 3.0, rules=_DANGER),
+    _asym("H8c asimetrik λ=4, tehlike elemesi", 4.0, rules=_DANGER),
+    _asym("H8d asimetrik λ=3,5, tehlike elemesi, 5 tohum", 3.5, seeds=5, rules=_DANGER),
+    _asym("H8e asimetrik λ=4, elemesiz, 3 tohum", 4.0, seeds=3, screen=False),
 ]
 
 

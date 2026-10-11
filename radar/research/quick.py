@@ -146,9 +146,11 @@ SCREEN = {
 }
 
 
-def screened(d: "QuickData", t: int) -> np.ndarray:
+def screened(d: "QuickData", t: int, rules=None) -> np.ndarray:
     out = np.zeros(len(d.cols), dtype=bool)
     for f, rule in SCREEN.items():
+        if rules is not None and f not in rules:
+            continue
         if f in d.X:
             out |= rule(np.asarray(d.X[f][t], dtype=np.float32))
     return out
@@ -157,8 +159,8 @@ def screened(d: "QuickData", t: int) -> np.ndarray:
 def score_at(rec: Recipe, d: QuickData, t: int) -> np.ndarray:
     """t haftasında yalnızca geçmişle eğitilmiş modelin puanları (N), puanlanmayan NaN."""
     out = _score_at(rec, d, t)
-    if rec.screen:
-        out = np.where(screened(d, t), np.nan, out)
+    if rec.screen:  # params["eleme"]: yalnızca bu kurallar (verilmezse hepsi)
+        out = np.where(screened(d, t, rec.params.get("eleme")), np.nan, out)
     return out
 
 
