@@ -26,7 +26,9 @@ from radar.backfill.base import Dataset, Loaded
 from radar.http import HttpClient
 from radar.quality import SourceReport, Status
 
-TORRENT = "https://academictorrents.com/download/56aa49f9653ba545f48df2e33679f014d2829c10.torrent"
+TORRENTS = ["https://academictorrents.com/download/56aa49f9653ba545f48df2e33679f014d2829c10.torrent",
+            "https://huggingface.co/datasets/SicariusSicariiStuff/Reddit_2005-2023/resolve/main/Reddit_Data.torrent"]
+TORRENT = TORRENTS[0]
 SUBREDDITS = ["wallstreetbets", "stocks", "investing", "StockMarket", "pennystocks", "options"]
 
 STOP = set("""THE AND FOR YOLO CEO CFO CTO IPO ETF USA GDP FED SEC IMO LOL ATH EPS ITM OTM WSB EOD ALL ARE CAN NOW NEW ONE OUT
@@ -64,19 +66,27 @@ class RedditArchive(Dataset):
         return [f"{s}_submissions" for s in SUBREDDITS]
 
     def _download(self, partition: str, work: Path) -> Path:
-        tor = work / "a.torrent"
-        subprocess.run(["curl", "-sSL", "-o", str(tor), TORRENT], check=True, timeout=300)
-        listing = subprocess.run(["aria2c", "--show-files", str(tor)], capture_output=True, text=True, check=True).stdout
-        idx = None
-        for line in listing.splitlines():
-            m = re.match(r"\s*(\d+)\|(.+)$", line)
-            if m and m.group(2).strip().endswith(f"/{partition}.zst"):
-                idx = m.group(1)
-        if idx is None:
-            raise RuntimeError(f"torrent içinde {partition}.zst bulunamadı")
-        subprocess.run(["aria2c", f"--select-file={idx}", "--seed-time=0", "--file-allocation=none", "--bt-stop-timeout=900",
-                        "--max-connection-per-server=8", "-d", str(work), str(tor)], check=True, timeout=4 * 3600)
-        return next(work.rglob(f"{partition}.zst"))
+        notes = []
+        want = f"{partition}.zst".lower()
+        for k, url in enumerate(TORRENTS):
+            tor = work / f"t{k}.torrent"
+            r = subprocess.run(["curl", "-sSL", "-A", "Mozilla/5.0", "-o", str(tor), url], timeout=300)
+            if r.returncode != 0 or not tor.exists() or not tor.read_bytes()[:1] == b"d":  # bencode sözlüğü 'd' ile başlar
+                notes.append(f"{url}: torrent değil ({tor.stat().st_size if tor.exists() else 0} bayt)")
+                continue
+            listing = subprocess.run(["aria2c", "--show-files", str(tor)], capture_output=True, text=True).stdout
+            files = re.findall(r"^\s*(\d+)\|(.+?)\s*$", listing, re.MULTILINE)
+            idx = next((i for i, path in files if path.lower().replace("\\", "/").endswith("/" + want) or path.lower() == want), None)
+            if idx is None:
+                notes.append(f"{url}: {len(files)} dosya, örnek: {[f for _, f in files[:3]]}")
+                continue
+            subprocess.run(["aria2c", f"--select-file={idx}", "--seed-time=0", "--file-allocation=none", "--bt-stop-timeout=900",
+                            "--max-connection-per-server=8", "-d", str(work), str(tor)], check=True, timeout=4 * 3600)
+            found = [f for f in work.rglob("*.zst") if f.name.lower() == want]
+            if found:
+                return found[0]
+            notes.append(f"{url}: indirildi ama dosya yok")
+        raise RuntimeError(f"{partition}.zst bulunamadı — " + " | ".join(notes))
 
     def load(self, client: HttpClient, partition: str) -> Loaded:
         import zstandard

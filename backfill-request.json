@@ -1,9 +1,10 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 20,
+ "rev": 21,
  "requests": [
   {
-   "dataset": "reddit_arsiv"
+   "dataset": "reddit_arsiv",
+   "only": "wallstreetbets_submissions"
   }
  ]
 }
