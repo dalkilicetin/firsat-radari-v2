@@ -23,7 +23,7 @@ from radar.research.backtest import cost_rate
 
 D = config.ROOT / "data" / "derived"
 LOG = config.ROOT / "reports" / "research" / "hizli_denemeler.jsonl"
-META = {"tarih", "yil", "getiri", "sektor", "sembol", "islem_tutari"}
+META = {"tarih", "yil", "getiri", "sektor", "sembol", "islem_tutari", "getiri_13h", "getiri_26h", "getiri_52h", "getiri_104h"}
 TEST_YEARS = (2018, 2019, 2020, 2021)
 PENCERE = 5
 K = 20
@@ -58,10 +58,19 @@ EXPERIMENTS = {
 }
 
 
+# Ufuk → (hafta, hedef sütunu, yıl içindeki seçim ayları)
+UFUK = {"aylik": (4, "getiri", range(1, 13)), "3ay": (13, "getiri_13h", (1, 4, 7, 10)), "6ay": (26, "getiri_26h", (1, 7)),
+        "1yil": (52, "getiri_52h", (1,)), "2yil": (104, "getiri_104h", (1,))}
+
+
 def load(freq: str) -> tuple[pd.DataFrame, list[str]]:
-    df = pd.read_parquet(D / ("aylik_cerceve.parquet" if freq == "aylik" else "haftalik_cerceve.parquet"))
-    df = df[np.isfinite(df.getiri) & (df.yil >= min(TEST_YEARS) - PENCERE - 1) & (df.yil <= max(TEST_YEARS))].copy()
-    feats = [c for c in df.columns if c not in META and pd.api.types.is_numeric_dtype(df[c])]
+    weeks, col, _ = UFUK[freq]
+    df = pd.read_parquet(D / "aylik_cerceve.parquet")
+    df = df[(df.yil >= min(TEST_YEARS) - PENCERE - 3) & (df.yil <= max(TEST_YEARS))].copy()
+    df["getiri"] = df[col]
+    df = df[np.isfinite(df.getiri)]
+    feats = [c for c in df.columns if c not in META and not c.startswith("getiri_") or c in ("getiri_6a", "getiri_1a")]
+    feats = [c for c in feats if c not in META and pd.api.types.is_numeric_dtype(df[c])]
     q = df.groupby("tarih").getiri.rank(pct=True)
     df["hedef"], df["kaybeden"], df["sira"] = (q > 0.95).astype(int), (q <= 0.05).astype(int), q
     return df, feats
@@ -83,13 +92,14 @@ def score(mode: str, tr: pd.DataFrame, te: pd.DataFrame, feats: list[str], param
 def run(freq: str, name: str, df: pd.DataFrame, all_feats: list[str]) -> dict:
     mode, groups, params = EXPERIMENTS[name]
     feats = [c for c in all_feats if any(GROUPS[g](c) for g in groups)]
-    gap = pd.Timedelta(weeks=4 if freq == "aylik" else 1)
+    weeks, _, form_months = UFUK[freq]
+    gap = pd.Timedelta(weeks=weeks)
     years, imps = [], pd.Series(0.0, index=feats)
     t0 = time.time()
     for Y in TEST_YEARS:
         start = pd.Timestamp(f"{Y}-01-01")
         tr = df[(df.tarih + gap < start) & (df.yil >= Y - PENCERE)]
-        te = df[df.yil == Y]
+        te = df[(df.yil == Y) & df.tarih.dt.month.isin(form_months)]
         if "min_likidite" in params:
             tr, te = tr[tr.likidite >= params["min_likidite"]], te[te.likidite >= params["min_likidite"]]
         s, model = score(mode, tr, te, feats, params)
@@ -104,6 +114,11 @@ def run(freq: str, name: str, df: pd.DataFrame, all_feats: list[str]) -> dict:
             c = (sum(v for k, v in rate.items() if k not in held) + sum(v for k, v in held.items() if k not in rate)) / K
             held = rate
             gross.append(r); net.append(r - c); hits.append(int(top.hedef.sum())); caps.append(r / g.getiri.nlargest(K).mean())
+        if net and weeks >= 52:  # tek seçimli ufuklarda dönem sonu satış maliyeti (alış zaten düşüldü)
+            net[-1] -= sum(held.values()) / K
+        per_year = 52 / weeks  # yıllığa çevir (2 yıl ufukta tek seçimin getirisi ^ 1/2)
+        if per_year < 1:
+            gross, net = [(1 + x) ** per_year - 1 for x in gross], [(1 + x) ** per_year - 1 for x in net]
         years.append({"yil": Y, "brut": float(np.prod(1 + np.array(gross)) - 1), "net": float(np.prod(1 + np.array(net)) - 1),
                       "en_iyi_yuzde5": float(np.mean(hits)), "yakalama": float(np.mean(caps))})
     res = pd.DataFrame(years)
@@ -122,9 +137,10 @@ def run(freq: str, name: str, df: pd.DataFrame, all_feats: list[str]) -> dict:
 
 
 if __name__ == "__main__":
-    freq = sys.argv[1] if len(sys.argv) > 1 else "aylik"
+    freqs = sys.argv[1].split(",") if len(sys.argv) > 1 else ["aylik"]
     names = sys.argv[2:] or list(EXPERIMENTS)
-    df, feats = load(freq)
-    print(f"{freq}: {len(df):,} satır, {len(feats)} belirti", flush=True)
-    for n in names:
-        run(freq, n, df, feats)
+    for freq in freqs:
+        df, feats = load(freq)
+        print(f"=== {freq}: {len(df):,} satır, {len(feats)} belirti", flush=True)
+        for n in names:
+            run(freq, n, df, feats)

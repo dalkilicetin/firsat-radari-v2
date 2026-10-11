@@ -76,6 +76,8 @@ def main(freq: str = "aylik", first: int = 2010, last: int = 2100) -> pd.DataFra
     p, sigs, inv, etf, sector = hs.prepare()
     price, sec, dates = p["price"], p["securities"], p["price"].index
     fwd = panel.forward_returns(price, sec, h).reindex(dates)
+    # Uzun ufuklar (3 ay, 6 ay, 1 yıl, 2 yıl): aynı çerçevede ek hedef sütunları (gerçekleşmemişse boş)
+    long_fwd = {w: panel.forward_returns(price, sec, w).reindex(dates) for w in (13, 26, 52, 104)} if freq == "aylik" else {}
     idx = month_starts(dates) if freq == "aylik" else [i for i in range(len(dates) - h) if first <= dates[i].year <= last]
     events = sorted(n for n, df in sigs.items() if hs.is_event(df)) + ["bilanco_bu_ay_bekleniyor"]
     day, pairs = road4.load_themes()
@@ -96,6 +98,8 @@ def main(freq: str = "aylik", first: int = 2010, last: int = 2100) -> pd.DataFra
             continue
         f = {"tarih": d, "yil": d.year, "getiri": r.to_numpy(), "sektor": sector.reindex(r.index).to_numpy(),
              "sembol": sym.reindex(r.index).to_numpy(), "islem_tutari": dv.iloc[t].reindex(r.index).to_numpy()}
+        for w, lf in long_fwd.items():
+            f[f"getiri_{w}h"] = lf.iloc[t].reindex(r.index).to_numpy()
         for n, df in sigs.items():
             v = df.iloc[t].reindex(r.index)
             f[n] = ((v.fillna(0) > 0).astype(np.float32) if n in events else v.rank(pct=True).astype(np.float32)).to_numpy()
