@@ -1,0 +1,92 @@
+"""Belirti testi: her belirtinin tek başına etkisi (3 ay ve 6 ay ufuk). python -m radar.research.belirti_testi
+
+Ölçüm (her ay, alınabilir faaliyet şirketleri):
+- IC: belirti yüzdeliği ile sonraki ufuk getirisinin sıra korelasyonu (Spearman).
+- t: ufuk çakışmasın diye yalnızca her k'inci ayın IC'leriyle (3 ay → her 3. ay, 6 ay → her 6. ay) ort / (std/√n).
+- Yıl tutarlılığı: yıllık ortalama IC'nin genel ortalamayla aynı işaretli olduğu yıl oranı.
+- Büyük kazanan katı: belirtinin en yüksek ve en düşük %20'sinde ufkun en iyi %5'ine girme olasılığı ÷ %5.
+Kesin belirti: |t| ≥ 3 ve yıl tutarlılığı ≥ %70 (124 belirtide şans eseri "anlamlı" çıkanları elemek için sıkı eşik).
+ic_by_month() iç içe seçim için de kullanılır (agirlik_arama: her test yılında yalnızca önceki aylarla seçim).
+Çıktı: reports/research/belirti_testi.json
+"""
+
+from __future__ import annotations
+
+import json
+
+import numpy as np
+import pandas as pd
+
+from radar import config
+
+D = config.ROOT / "data" / "derived"
+OUT = config.ROOT / "reports" / "research" / "belirti_testi.json"
+META = {"tarih", "yil", "getiri", "sektor", "sembol", "islem_tutari", "getiri_13h", "getiri_26h", "getiri_52h", "getiri_104h"}
+UFUK = {"3ay": ("getiri_13h", 3), "6ay": ("getiri_26h", 6)}
+T_MIN, CONSIST_MIN = 3.0, 0.7
+
+
+def features(df: pd.DataFrame) -> list[str]:
+    return [c for c in df.columns if c not in META and pd.api.types.is_numeric_dtype(df[c]) and not c.startswith("piyasa_")]
+
+
+def ic_by_month(df: pd.DataFrame, feats: list[str], col: str) -> pd.DataFrame:
+    """ay × belirti Spearman IC (yüzdelikler zaten sıra; getiri sıraya çevrilir)."""
+    rows = {}
+    for d, g in df.groupby("tarih"):
+        r = g[col]
+        ok = r.notna()
+        if ok.sum() < 200:
+            continue
+        rr = r[ok].rank(pct=True)
+        X = g.loc[ok, feats]
+        rows[d] = X.corrwith(rr, method="pearson")  # X yüzdelik (sıra) olduğundan Pearson ≈ Spearman
+    return pd.DataFrame(rows).T.sort_index()
+
+
+def summarize(ic: pd.DataFrame, step: int) -> pd.DataFrame:
+    sub = ic.iloc[::step]
+    mean, sd, n = sub.mean(), sub.std(), sub.notna().sum()
+    t = mean / (sd / np.sqrt(n))
+    yearly = ic.groupby(ic.index.year).mean()
+    consist = (np.sign(yearly) == np.sign(mean)).sum() / yearly.notna().sum()
+    return pd.DataFrame({"ic": mean, "t": t, "tutarlilik": consist, "ay": n})
+
+
+def select(ic: pd.DataFrame, step: int) -> dict[str, float]:
+    """Kesin belirtiler ve yönleri (+1/−1) — yalnızca verilen IC satırlarıyla."""
+    s = summarize(ic, step)
+    keep = s[(s.t.abs() >= T_MIN) & (s.tutarlilik >= CONSIST_MIN)]
+    return {k: float(np.sign(v)) for k, v in keep.ic.items()}
+
+
+def winner_lift(df: pd.DataFrame, feats: list[str], col: str) -> pd.DataFrame:
+    d = df[df[col].notna()]
+    top = d.groupby("tarih")[col].rank(pct=True) > 0.95
+    out = {}
+    for f in feats:
+        x = d[f]
+        hi, lo = x >= 0.8, x <= 0.2
+        out[f] = {"ust_dilim_kat": float(top[hi].mean() / 0.05) if hi.any() else np.nan,
+                  "alt_dilim_kat": float(top[lo].mean() / 0.05) if lo.any() else np.nan}
+    return pd.DataFrame(out).T
+
+
+def main() -> dict:
+    df = pd.read_parquet(D / "aylik_cerceve.parquet")
+    feats = features(df)
+    out = {}
+    for name, (col, step) in UFUK.items():
+        ic = ic_by_month(df, feats, col)
+        s = summarize(ic, step).join(winner_lift(df, feats, col))
+        s["kesin"] = (s.t.abs() >= T_MIN) & (s.tutarlilik >= CONSIST_MIN)
+        s = s.sort_values("t", key=abs, ascending=False)
+        out[name] = s.round(4).reset_index(names="belirti").to_dict(orient="records")
+        print(f"=== {name}: {len(feats)} belirti, {int(s.kesin.sum())} kesin")
+        print(s.head(30).round(3).to_string())
+    OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1, default=float))
+    return out
+
+
+if __name__ == "__main__":
+    main()

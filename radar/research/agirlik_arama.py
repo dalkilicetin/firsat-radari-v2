@@ -34,6 +34,7 @@ POP, ELITE = 40, 10
 L1 = 0.002
 RESTARTS = 3
 VALID_YEARS = 2
+SECIM = False  # True: her test yılında yalnızca geçmişte "kesin" çıkan belirtiler
 
 
 class Block:
@@ -74,15 +75,18 @@ class Block:
         return np.argpartition(-s, K)[:K]
 
 
-def evolve(b: Block, idx: list[int], valid: list[int], nfeat: int, gens: int, seed: int) -> tuple[np.ndarray, float, float]:
+def evolve(b: Block, idx: list[int], valid: list[int], nfeat: int, gens: int, seed: int,
+           mask: np.ndarray | None = None, init: np.ndarray | None = None) -> tuple[np.ndarray, float, float]:
+    """mask: yalnızca seçili belirtiler (diğer ağırlıklar 0); init: başlangıç yönleri (seçimdeki işaretler)."""
     rng = np.random.default_rng(seed)
+    mask = np.ones(nfeat) if mask is None else mask
     cands = []
     for _ in range(RESTARTS):
-        mean = rng.normal(0, 0.3, nfeat)
+        mean = (rng.normal(0, 0.3, nfeat) if init is None else init + rng.normal(0, 0.1, nfeat)) * mask
         sigma = 0.3
         best_w, best_v = mean.copy(), -np.inf
         for g in range(gens):
-            pop = mean + sigma * rng.normal(size=(POP, nfeat))
+            pop = (mean + sigma * rng.normal(size=(POP, nfeat))) * mask
             vals = b.value_pop(pop, idx) - L1 * np.abs(pop).sum(1)
             order = np.argsort(-vals)
             if vals[order[0]] > best_v:
@@ -104,6 +108,10 @@ def main(freq: str = "6ay", gens: int = 60) -> dict:
     feats = [c for c in df.columns if c not in META and pd.api.types.is_numeric_dtype(df[c])
              and not c.startswith(("piyasa_",))]  # piyasa rejimi bütün hisseler için aynı: doğrusal puanda etkisiz
     b = Block(df, feats)
+    ic_all = None
+    if SECIM:
+        from radar.research import belirti_testi as bt
+        ic_all = bt.ic_by_month(df, feats, "getiri")
     # Piyasa rejimi kapısı (önceden belirlenmiş, ayarlanmaz): S&P 500, 40 haftalık ortalamasının altındaysa savunma = SPY tut
     from radar.research import context
     spy = context.etf_prices(pd.date_range("2008-12-26", pd.Timestamp.today(), freq="W-FRI"))["SPY"].dropna()
@@ -122,7 +130,15 @@ def main(freq: str = "6ay", gens: int = 60) -> dict:
         cut = pd.Timestamp(f"{Y - VALID_YEARS}-01-01")
         search_idx = [i for i in known if b.dates[i] + gap < cut]
         valid_idx = [i for i in known if b.dates[i] >= cut]
-        w, fit, val = evolve(b, search_idx, valid_idx, len(feats), gens, seed=Y)
+        mask = init = None
+        if SECIM:  # iç içe belirti seçimi: yalnızca Y başından önce getirisi gerçekleşmiş aylarla "kesin" belirtiler
+            from radar.research import belirti_testi as bt
+            sel = bt.select(ic_all[ic_all.index + gap < start], bt.UFUK[freq][1])
+            mask = np.array([1.0 if f in sel else 0.0 for f in feats])
+            init = np.array([0.3 * sel.get(f, 0.0) for f in feats])
+            if mask.sum() == 0:
+                mask, init = None, None
+        w, fit, val = evolve(b, search_idx, valid_idx, len(feats), gens, seed=Y, mask=mask, init=init)
         test = [i for i, d in enumerate(b.dates) if d.year == Y and d.month in form_months]
         gross, net, hits, caps, gated = [], [], [], [], []
         for i in test:
@@ -148,13 +164,16 @@ def main(freq: str = "6ay", gens: int = 60) -> dict:
                "rejimli_yil_yil": [round(x, 3) for x in res.rejimli],
                "yil": len(res), "en_iyi_yuzde5_ort": float(res.en_iyi_yuzde5.mean()), "yil_yil_net": [round(x, 3) for x in res.net]}
     out = {"ozet": summary, "yillar": rows, "agirliklar": weights, "belirtiler": feats}
-    (OUT_DIR / f"agirlik_arama_{freq}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    summary["secim"] = SECIM
+    (OUT_DIR / f"agirlik_arama_{freq}{'_secimli' if SECIM else ''}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
     with (OUT_DIR / "hizli_denemeler.jsonl").open("a") as f:
-        f.write(json.dumps({"zaman": time.strftime("%Y-%m-%d %H:%M"), "deneme": f"agirlik_arama_{freq}", **summary},
+        f.write(json.dumps({"zaman": time.strftime("%Y-%m-%d %H:%M"), "deneme": f"agirlik_arama_{freq}{'_secimli' if SECIM else ''}", **summary},
                            ensure_ascii=False) + "\n")
     print(json.dumps(summary, ensure_ascii=False, indent=1))
     return out
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "6ay", int(sys.argv[2]) if len(sys.argv) > 2 else 60)
+    SECIM = "secimli" in sys.argv
+    args = [a for a in sys.argv[1:] if a != "secimli"]
+    main(args[0] if args else "6ay", int(args[1]) if len(args) > 1 else 60)
