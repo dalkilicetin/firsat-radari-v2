@@ -41,6 +41,10 @@ GROUPS = {
     "metin": lambda c: c.startswith(("metin_", "risk_bolumu", "devamlilik")),
     "kurumsal_olay": lambda c: c.startswith(("8k_", "icerden", "ust_yonetici", "kurumsal_", "geri_alim")),
     "haber": lambda c: c.startswith(("haber_", "wiki_", "tema_", "yukselen_")),
+    "oranlar": lambda c: c in {"defter_fiyat", "satis_fiyat", "favok_fd", "temettu_verimi", "nakit_piyasa", "ozsermaye_karliligi",
+                                "aktif_karliligi", "brut_kar_aktif", "brut_marj", "faaliyet_marji", "borc_ozsermaye", "cari_oran",
+                                "faiz_karsilama", "altman_z", "piotroski_f", "kar_buyumesi", "hisse_sayisi_degisimi"},
+    "teknik": lambda c: c in {"rsi_14h", "ort_10h_uzaklik", "ort_40h_uzaklik", "macd", "bollinger_konum"},
     "yeni": lambda c: c in {"bilanco_uzerinden_hafta", "bilanco_bu_ay_bekleniyor", "sektorun_gerisinde", "oynaklik_genislemesi",
                              "max_haftalik_4h", "kirilim", "kazanc_aciklamasi_tepkisi"},
 }

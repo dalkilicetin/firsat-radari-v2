@@ -122,6 +122,13 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
         out[n] = df.reindex(columns=columns)
     # Birleşmede hayatta kalan şirketin Yahoo geçmişi çoğu zaman öncülün geçmişidir (AAL ← US Airways/LCC, VTRS ← MYL,
     # LIN ← PX). Aynı fiyat iki kez sayılmasın: öncülün çıkışına kadar o geçmiş öncüle ait, hayatta kalandan silinir.
+    # Holding yeniden yapılanması (ör. XOM 2026: yeni CIK): yeni kaydın Yahoo geçmişi SEC'e kaydından yıllar önce başlıyorsa,
+    # eski kaydın çıkışına kadarki fiyatlar eski kayda (bilanço, 8-K ve içeriden işlemlerin bağlı olduğu CIK) aittir.
+    for gone_c, act_c, end in reorg_pairs(out["price"], sec):
+        mask = out["price"].index <= end
+        for n in out:
+            out[n].loc[mask, gone_c] = out[n].loc[mask, act_c]
+            out[n].loc[mask, act_c] = np.nan
     for gone_c, act_c, end in successor_overlaps(out["raw"], sec):
         mask = out["raw"].index <= end
         for n in out:
@@ -130,6 +137,32 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
     for n in out:
         out[n].to_parquet(paths[n])
     return out | {"securities": sec}
+
+
+def reorg_pairs(price: pd.DataFrame, sec: pd.DataFrame) -> list[tuple[str, str, pd.Timestamp]]:
+    from radar.research.road2 import clean_name
+    """(eski CIK, yeni CIK, eski kaydın çıkış tarihi): aynı sembol; yeni CIK'in ilk SEC kaydı, fiyat geçmişinin
+    başlangıcından en az 2 yıl sonra ve eski kaydın çıkışından en fazla 1 yıl önce (yani yeni kayıt, eski şirketin devamı)."""
+    f = archive.load("filings", columns=["cik", "filing_date"])
+    first_filing = f.assign(cik=f.cik.astype(str)).groupby("cik").filing_date.min()
+    s = sec.assign(cik=sec.cik.astype(str))
+    act, gone = s[s.status == "aktif"], s[s.status == "çıktı"]
+    out = []
+    for r in gone.merge(act, on="symbol", suffixes=("_g", "_a")).itertuples():
+        if r.cik_a not in price.columns or r.cik_g not in price.columns or pd.isna(r.end_g):
+            continue
+        pa = price[r.cik_a].dropna()
+        ff = first_filing.get(r.cik_a)
+        if len(pa) < 52 or ff is None or pd.isna(ff):
+            continue
+        if not (ff >= pa.index[0] + pd.Timedelta(days=730) and ff >= r.end_g - pd.Timedelta(days=365) and pa.index[0] < r.end_g):
+            continue
+        # Aynı şirket mi? Adın ilk anlamlı kelimesi uyuşmalı (sembolü sonradan alan başka şirketi ayıklar: NEWP, ARIS...)
+        w = lambda n: (clean_name(n).replace("the ", "", 1).split() or [""])[0]
+        a, g = w(r.name_a), w(r.name_g)
+        if len(a) >= 4 and len(g) >= 4 and (a.startswith(g) or g.startswith(a)):
+            out.append((r.cik_g, r.cik_a, r.end_g))
+    return out
 
 
 def successor_overlaps(raw: pd.DataFrame, sec: pd.DataFrame, tol: float = 0.03, min_match: float = 0.85,

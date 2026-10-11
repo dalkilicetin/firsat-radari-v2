@@ -83,6 +83,8 @@ def main(freq: str = "aylik", first: int = 2010, last: int = 2100) -> pd.DataFra
     day, pairs = road4.load_themes()
     news = news_topics.features(day, pairs, dates[idx], price.columns)
     extra, reg = new_features(p, sector)
+    from radar.research import ratios
+    extra |= ratios.signals(p)  # finansal oranlar + teknik göstergeler
     rising = news_topics.rising_topics(day, pairs, dates[idx], price.columns)
     (out_path.parent / f"yukselen_konular_{freq}.json").write_text(json.dumps(rising.pop("_secilen_konular"), ensure_ascii=False, indent=0))
     news |= rising
