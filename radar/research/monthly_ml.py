@@ -20,10 +20,11 @@ import numpy as np
 import pandas as pd
 
 from radar import config
+from radar.research.backtest import UNKNOWN_COST, cost_rate
 
 FRAME = config.ROOT / "data" / "derived" / "aylik_cerceve.parquet"
 OUT_DIR = config.ROOT / "reports" / "research"
-META = {"tarih", "yil", "getiri", "sektor", "sembol"}
+META = {"tarih", "yil", "getiri", "sektor", "sembol", "islem_tutari"}
 TEST_YEARS = range(2013, 2026)
 K = 20
 PARAMS = dict(objective="binary", learning_rate=0.03, num_leaves=31, min_child_samples=400, feature_fraction=0.6,
@@ -72,21 +73,31 @@ def main() -> dict:
             model = lgb.train(PARAMS | {"objective": "regression"}, lgb.Dataset(tr[feats], tr.sira), ROUNDS)
             puan = model.predict(te[feats])
         te = te.assign(puan=puan)
-        rets, caps, hits = [], [], []
+        rets, caps, hits, nets = [], [], [], []
         last = None
+        held: dict[str, float] = {}  # cik → tek yön maliyet oranı (bir önceki ayın portföyü)
         for d, g in te.groupby("tarih"):
             top = g.nlargest(K, "puan")
             best = g.getiri.nlargest(K).mean()
             rets.append(top.getiri.mean())
+            # Maliyet: yeni girenlerin alışı + çıkanların satışı (tek yön oran, işlem tutarı dilimine göre; backtest.cost_rate)
+            rate = cost_rate(top.islem_tutari.fillna(0)) if "islem_tutari" in top else pd.Series(UNKNOWN_COST, index=top.index)
+            now = dict(zip(top.index.astype(str), rate.to_numpy()))
+            buys = sum(v for c, v in now.items() if c not in held)
+            sells = sum(v for c, v in held.items() if c not in now)
+            nets.append(top.getiri.mean() - (buys + sells) / K)
+            held = now
             caps.append(top.getiri.mean() / best)
             hits.append(int(top.hedef.sum()))
             last = top.sembol.astype(str).tolist()
         rets = np.array(rets)
+        nets = np.array(nets)
         imp = pd.Series(model.feature_importance("gain"), index=feats)
         imps[str(Y)] = (imp / imp.sum()).sort_values(ascending=False).head(15).round(4).to_dict()
         rows.append({"yil": Y, "aylik_getiri_ort": float(rets.mean()), "yillik_bilesik": float(np.prod(1 + rets) - 1),
-                     "yakalama_ort": float(np.mean(caps)), "en_iyi_yuzde5_ten_aylik": float(np.mean(hits)), "son_ay_secim": last})
-        print(f"{Y}: yakalama {np.mean(caps):.1%}, aylık ort. {rets.mean():+.1%}, yıllık bileşik {rows[-1]['yillik_bilesik']:+.0%}, "
+                     "yakalama_ort": float(np.mean(caps)), "en_iyi_yuzde5_ten_aylik": float(np.mean(hits)), "son_ay_secim": last,
+                     "net_aylik_ort": float(nets.mean()), "net_yillik_bilesik": float(np.prod(1 + nets) - 1)})
+        print(f"{Y}: yakalama {np.mean(caps):.1%}, aylık ort. {rets.mean():+.1%}, yıllık bileşik {rows[-1]['yillik_bilesik']:+.0%} (maliyet sonrası {rows[-1]['net_yillik_bilesik']:+.0%}), "
               f"en iyi %5'ten {np.mean(hits):.1f}/ay [{round(time.time() - t0)} sn]", flush=True)
     res = pd.DataFrame(rows)
     # Son modelin (2025 testi için eğitilen) en önemli belirtileri ve değer aralıkları
@@ -95,7 +106,9 @@ def main() -> dict:
     pdp = {f: partial_dependence(model, tr_last[feats], f) for f in imp_all.head(12).index}
     summary = {"yakalama_ort": float(res.yakalama_ort.mean()), "aylik_getiri_ort": float(res.aylik_getiri_ort.mean()),
                "yillik_bilesik_ort": float(res.yillik_bilesik.mean()), "en_iyi_yuzde5_ten_aylik": float(res.en_iyi_yuzde5_ten_aylik.mean()),
-               "rastgele_en_iyi_yuzde5_ten": K * 0.05, "yil": len(res)}
+               "rastgele_en_iyi_yuzde5_ten": K * 0.05, "yil": len(res),
+               "net_aylik_ort": float(res.net_aylik_ort.mean()), "net_yillik_bilesik_ort": float(res.net_yillik_bilesik.mean()),
+               "zararli_yil_net": int((res.net_yillik_bilesik < 0).sum())}
     out = {"ozet": summary, "yillar": rows, "onem_ort": imp_all.head(25).round(4).to_dict(), "onem_yillar": imps,
            "kismi_bagimlilik": {"izgara": list(np.round(np.linspace(0.05, 0.95, 10), 2)), "egriler": pdp}}
     out["mod"] = MODE

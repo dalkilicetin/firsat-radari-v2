@@ -97,3 +97,63 @@ def features(day: pd.DataFrame, pairs: pd.DataFrame, dates: pd.DatetimeIndex, co
                            (window(g_fam[k][:, None], end - SHORT, LONG)[0] / max(gl, 1) + 1e-6))
             out[f"haber_{f}_ruzgar"][i, has] = g_mom * (f12[has] / np.maximum(tot_12[has], 1))
     return {k: pd.DataFrame(v, index=dates, columns=cols) for k, v in out.items()}
+
+
+def rising_topics(day: pd.DataFrame, pairs: pd.DataFrame, dates: pd.DatetimeIndex, columns, top_n: int = 30,
+                  min_base: float = 2000) -> dict[str, pd.DataFrame]:
+    """Elle seçilmiş liste olmadan: her tarihte, yalnızca o güne kadarki haberlere bakarak, bütün konular arasında payı
+    en hızlı yükselen top_n konuyu seç (son 3 ay payı ÷ önceki 12 ay payı; önceki 12 ayda en az min_base geçiş).
+    - yukselen_konu_maruziyeti: şirketin son 12 ay haberlerinin ne kadarı bu yükselen konularda (ivmeyle ağırlıklı)
+    - yukselen_konuya_yonelis: şirketin bu konulardaki payının son 3 ayda önceki 12 aya göre artışı
+    Konu listesi her ay kendiliğinden değişir; geçmişte olmayan / önemsiz olan konu yükselince listeye girer."""
+    cols = pd.Index([str(c) for c in columns])
+    ci = {c: i for i, c in enumerate(cols)}
+    months = pd.period_range("2015-01", pd.Timestamp(dates.max()).to_period("M"), freq="M")
+    mi = {m: i for i, m in enumerate(months)}
+    themes = pd.Index(sorted(set(day.theme)))
+    ti = {t: i for i, t in enumerate(themes)}
+    dd = day.assign(m=day.date.dt.to_period("M").map(mi)).dropna(subset=["m"])
+    G = np.zeros((len(months), len(themes)))
+    np.add.at(G, (dd.m.astype(int).to_numpy(), dd.theme.map(ti).to_numpy()), dd["count"].to_numpy(float))
+    gtot = G.sum(1)
+    pr = pairs.assign(cik=pairs.cik.astype(str))
+    pr = pr[pr.cik.isin(ci) & pr.theme.isin(ti)]
+    pm = pr.date.dt.to_period("M").map(mi).to_numpy()
+    ok = ~pd.isna(pm)
+    pm = pm[ok].astype(int); pc = pr.cik.map(ci).to_numpy()[ok]; pt = pr.theme.map(ti).to_numpy()[ok]
+    pv = pr["count"].to_numpy(float)[ok]
+    ctot = np.zeros((len(months), len(cols)))
+    np.add.at(ctot, (pm, pc), pv)
+    expo = np.full((len(dates), len(cols)), np.nan)
+    turn = np.full((len(dates), len(cols)), np.nan)
+    chosen = {}
+    for i, t in enumerate(dates):
+        end = mi.get(pd.Timestamp(t).to_period("M") - 1, -1)
+        if end < SHORT + LONG - 1:
+            continue
+        s_lo, l_lo, l_hi = end - SHORT + 1, end - SHORT - LONG + 1, end - SHORT
+        share_s = G[s_lo:end + 1].sum(0) / max(gtot[s_lo:end + 1].sum(), 1)
+        base = G[l_lo:l_hi + 1].sum(0)
+        share_l = base / max(gtot[l_lo:l_hi + 1].sum(), 1)
+        mom = np.where(base >= min_base, np.log((share_s + 1e-7) / (share_l + 1e-7)), -np.inf)
+        top = np.argsort(-mom)[:top_n]
+        top = top[np.isfinite(mom[top]) & (mom[top] > 0)]
+        chosen[str(pd.Timestamp(t).date())] = [str(themes[k]) for k in top[:10]]
+        w = np.zeros(len(themes)); w[top] = mom[top]
+        sel = w[pt] > 0
+        in12 = sel & (pm >= end - LONG + 1) & (pm <= end)
+        in3 = sel & (pm >= s_lo) & (pm <= end)
+        inl = sel & (pm >= l_lo) & (pm <= l_hi)
+        e12 = np.bincount(pc[in12], weights=pv[in12] * w[pt[in12]], minlength=len(cols))
+        c3 = np.bincount(pc[in3], weights=pv[in3], minlength=len(cols))
+        cl = np.bincount(pc[inl], weights=pv[inl], minlength=len(cols))
+        t12 = ctot[end - LONG + 1:end + 1].sum(0)
+        t3 = ctot[s_lo:end + 1].sum(0)
+        tl = ctot[l_lo:l_hi + 1].sum(0)
+        has = t12 >= 20
+        expo[i, has] = e12[has] / t12[has]
+        turn[i, has] = np.log((c3[has] / np.maximum(t3[has], 1) + 1e-4) / (cl[has] / np.maximum(tl[has], 1) + 1e-4))
+    out = {"yukselen_konu_maruziyeti": pd.DataFrame(expo, index=dates, columns=cols),
+           "yukselen_konuya_yonelis": pd.DataFrame(turn, index=dates, columns=cols)}
+    out["_secilen_konular"] = chosen  # rapor için: her ay seçilen ilk 10 yükselen konu
+    return out

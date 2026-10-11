@@ -78,6 +78,10 @@ def main() -> pd.DataFrame:
     day, pairs = road4.load_themes()
     news = news_topics.features(day, pairs, dates[idx], price.columns)
     extra, reg = new_features(p, sector)
+    rising = news_topics.rising_topics(day, pairs, dates[idx], price.columns)
+    (FRAME.parent / "yukselen_konular.json").write_text(json.dumps(rising.pop("_secilen_konular"), ensure_ascii=False, indent=0))
+    news |= rising
+    dv = p["dollar_volume"]
     print(f"hazır ({round(time.time() - t0)} sn), {len(idx)} ay, {len(sigs)} belirti + {len(news)} haber belirtisi", flush=True)
     sym = sec.assign(cik=sec.cik.astype(str)).drop_duplicates("cik").set_index("cik").symbol
     rows = []
@@ -88,7 +92,7 @@ def main() -> pd.DataFrame:
         if len(r) < 200:
             continue
         f = {"tarih": d, "yil": d.year, "getiri": r.to_numpy(), "sektor": sector.reindex(r.index).to_numpy(),
-             "sembol": sym.reindex(r.index).to_numpy()}
+             "sembol": sym.reindex(r.index).to_numpy(), "islem_tutari": dv.iloc[t].reindex(r.index).to_numpy()}
         for n, df in sigs.items():
             v = df.iloc[t].reindex(r.index)
             f[n] = ((v.fillna(0) > 0).astype(np.float32) if n in events else v.rank(pct=True).astype(np.float32)).to_numpy()
@@ -97,6 +101,7 @@ def main() -> pd.DataFrame:
         for n, df in extra.items():
             f[n] = (df.iloc[t].reindex(r.index) if n == "bilanco_bu_ay_bekleniyor"
                     else df.iloc[t].reindex(r.index).rank(pct=True)).astype(np.float32).to_numpy()
+        f["likidite"] = dv.iloc[t].reindex(r.index).rank(pct=True).astype(np.float32).to_numpy()
         # Haber–fiyat ayrışması: haber hacmi hızlanıyor, fiyat son 4 haftada henüz tepki vermemiş
         f["haber_fiyat_ayrismasi"] = f["haber_hacmi_ivme"] - f["getiri_1a"]
         for n in reg:  # piyasa rejimi: bütün hisseler için aynı ham değer (öğrenen model etkileşim kurabilsin)
