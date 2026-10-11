@@ -23,13 +23,19 @@ from radar.research import context, quick
 from radar.research.run_quick import ROUNDS
 from radar.weekly.pdf import Styles, _table, pct, tr_date
 
-OUT_PDF = config.ROOT / "reports" / "research" / "bir_yil_raporu.pdf"
-OUT_CSV = config.ROOT / "reports" / "research" / "bir_yil_secimler.csv"
-MODEL = ROUNDS["h3"][0]  # H3a: 5 tohumlu LightGBM ortalaması
+import sys
+
+# Sürüm 2 (2026-10-11): asimetrik fırsat modeli H8a; iyileştirme yalnızca 2011–2022, test 2023–2025.
+V2 = len(sys.argv) > 1 and sys.argv[1] == "v2"
+OUT_PDF = config.ROOT / "reports" / "research" / ("bir_yil_raporu_v2.pdf" if V2 else "bir_yil_raporu.pdf")
+OUT_CSV = config.ROOT / "reports" / "research" / ("bir_yil_secimler_v2.csv" if V2 else "bir_yil_secimler.csv")
+MODEL = ROUNDS["h8"][0] if V2 else ROUNDS["h3"][0]  # H8a asimetrik λ=3,5 + tehlike elemesi | H3a 5 tohum
 YEARS = range(2011, 2026)
 
 
 def kind(y: int) -> str:
+    if V2:
+        return "TEST (iyileştirmede kullanılmadı)" if y in quick.LOCKED_YEARS else "geliştirme"
     return "iterasyon" if y in quick.ITER_YEARS else "KİLİTLİ (ilk açılış)" if y in quick.LOCKED_YEARS else "doğrulama"
 
 
@@ -51,7 +57,7 @@ def main() -> None:
         picks += [{"yil": y, "sira": i + 1, "sembol": s, "getiri": g} for i, (s, g) in enumerate(res["secim"])]
         print(y, kind(y), f"model {res['portfoy']:+.1%} SPY {spy:+.1%}", flush=True)
         if y in quick.LOCKED_YEARS:
-            quick.log(MODEL, pd.DataFrame([{"yil": y} | res]).set_index("yil"), "kilitli_acilis")
+            quick.log(MODEL, pd.DataFrame([{"yil": y} | res]).set_index("yil"), "test_v2" if V2 else "kilitli_acilis")
 
     # 2026: yıl başından bugüne; ve bugünkü seçim
     t26, tl = quick.year_start(d.dates, 2026), len(d.dates) - 1
@@ -78,25 +84,34 @@ def main() -> None:
     print(f"bitti ({round(time.time() - t0)} sn)")
 
 
+MODEL_TEXT = (
+    "<b>Model (sürüm 2)</b>: asimetrik fırsat puanı = P(yılın en iyi %10'u) − 3,5 × P(yılın en kötü %10'u); iki LightGBM "
+    "sınıflandırıcısı, 51 sinyal. Önce yalnızca gerçek tehlike işaretleri elenir (sulandırma, denetçinin süreklilik şüphesi). "
+    "<b>Yıl türleri</b>: model 2011–2022 üzerinde iyileştirildi (yaklaşık 60 deneme); <b>2023–2025 iyileştirmede hiç "
+    "kullanılmadı ve bu raporda yalnızca test olarak çalıştırıldı</b>." if V2 else
+    "<b>Model</b>: 5 farklı tohumla eğitilmiş LightGBM ağaç modellerinin ortalaması; 51 sinyal (finansallar, 10-K metni, "
+    "yönetici alımları, 8-K olayları, fon pozisyonları, haber, sektör ETF'leri, kazanç açıklaması tepkisi, fiyat/hacim). "
+    "<b>Yıl türleri</b>: iterasyon yılları (2013, 2018, 2021) model seçilirken kullanıldı; doğrulama yılları bir kez "
+    "kontrol için kullanıldı; <b>kilitli yıllar (2023–2025) bu raporda ilk ve tek kez açıldı</b> — modelin gerçek sınavı.")
+
+
 def render(df, picks, d, ytd, now, names) -> None:
     st = Styles()
     pk = pd.DataFrame(picks)
-    groups = {"iterasyon": df.tur == "iterasyon", "doğrulama": df.tur == "doğrulama", "kilitli": df.tur.str.startswith("KİLİTLİ")}
+    groups = ({"geliştirme 2011–2022": df.tur == "geliştirme", "TEST 2023–2025": df.tur.str.startswith("TEST")} if V2 else
+              {"iterasyon": df.tur == "iterasyon", "doğrulama": df.tur == "doğrulama", "kilitli": df.tur.str.startswith("KİLİTLİ")})
     summ = [["Yıl grubu", "Yıl", "Model ort.", "S&P 500 ort.", "Kârda biten yıl", "S&P'yi geçen yıl", "20 hisseden yükselen (ort.)"]]
     for g, m in list(groups.items()) + [("hepsi", df.tur.notna())]:
         s = df[m]
         summ.append([g, str(len(s)), pct(s.model.mean(), 1), pct(s.spy.mean(), 1), f"{int((s.model > 0).sum())}/{len(s)}",
                      f"{int((s.model > s.spy).sum())}/{len(s)}", f"{s.yukselen.mean():.1f}"])
     story = [
-        Paragraph("1 Yıl Vadesi — Kontrol Noktası Raporu", st.h1),
+        Paragraph("1 Yıl Vadesi — " + ("Sürüm 2 (asimetrik fırsat modeli)" if V2 else "Kontrol Noktası Raporu"), st.h1),
         Paragraph("Soru: Model her yılın ilk Cuma'sında, yalnızca o güne kadar bilinen verilerle çalıştırılsaydı ve seçtiği 20 hisse "
                   "eşit ağırlıkla alınsaydı, 1 yıl sonra ne olurdu? Alım-satım maliyeti düşüldü; borsadan çıkanlar çıkış değeriyle, "
                   "iflas edenler 0 ile hesaplandı. Evren: Nasdaq + NYSE + NYSE American faaliyet şirketleri (banka, sigorta, GYO, "
                   "fon, SPAC hariç), fiyat ≥ 5 $, günlük işlem ≥ 1 mn $.", st.body),
-        Paragraph("<b>Model</b>: 5 farklı tohumla eğitilmiş LightGBM ağaç modellerinin ortalaması; 51 sinyal (finansallar, 10-K metni, "
-                  "yönetici alımları, 8-K olayları, fon pozisyonları, haber, sektör ETF'leri, kazanç açıklaması tepkisi, fiyat/hacim). "
-                  "<b>Yıl türleri</b>: iterasyon yılları (2013, 2018, 2021) model seçilirken kullanıldı; doğrulama yılları bir kez "
-                  "kontrol için kullanıldı; <b>kilitli yıllar (2023–2025) bu raporda ilk ve tek kez açıldı</b> — modelin gerçek sınavı.", st.box),
+        Paragraph(MODEL_TEXT, st.box),
         Paragraph("Özet", st.h2), _table(st, summ, [x * cm for x in (3, 1.4, 2.6, 2.8, 3.2, 3.2, 4.4)]), Spacer(1, 6)]
     data = [["Yıl", "Tür", "Model", "S&P 500", "Medyan hisseden iyi", "Yükselen", "Yol boyu en büyük düşüş", "Sonradan bakınca en iyi 20",
              "Modelin seçtiği 'en iyi 20'den"]]
