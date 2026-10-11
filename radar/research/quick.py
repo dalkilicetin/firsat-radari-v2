@@ -107,6 +107,11 @@ class QuickData:
                     q = pd.Series(r).rank(pct=True).to_numpy()
                     if name == "alt10":
                         cache[(name, s)] = np.where(np.isfinite(r), (q <= 0.1).astype(np.float32), np.nan)
+                    elif name in ("ust10_y", "alt10_y"):  # dilim yalnızca yatırılabilir hisseler içinde
+                        ry = np.where(np.asarray(self.eval_u[s]), r, np.nan)
+                        qy = pd.Series(ry).rank(pct=True).to_numpy()
+                        hit = qy >= 0.9 if name == "ust10_y" else qy <= 0.1
+                        cache[(name, s)] = np.where(np.isfinite(ry), hit.astype(np.float32), np.nan)
                     else:
                         raise KeyError(name)
                 return cache[(name, s)]
@@ -176,7 +181,7 @@ def _score_at(rec: Recipe, d: QuickData, t: int) -> np.ndarray:
             Xs.append(np.column_stack([d.col(f, s)[m] for f in feats]))
             ys.append(np.asarray(Y[s])[m])
     # alt10 de ikili (0/1) hedeftir: asof._fit sınıflandırıcıyı ust10 adıyla seçer.
-    fit_rec = dataclasses.replace(rec, target="ust10") if rec.target == "alt10" else rec
+    fit_rec = dataclasses.replace(rec, target="ust10") if rec.target in ("alt10", "ust10_y", "alt10_y") else rec
     fn = asof._fit(fit_rec, np.vstack(Xs), np.concatenate(ys))
     m = np.asarray(d.train_u[t])
     out = np.full(len(d.cols), np.nan)

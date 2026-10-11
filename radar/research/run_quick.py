@@ -71,6 +71,23 @@ ROUNDS["h4"] = [
            members=[Recipe("asim", learner="fark", members=[_UP, _DOWN], screen=True), ROUNDS["h3"][0]]),
 ]
 
+# Tur h5: asimetrik puanı güçlendirme (λ, tohum ortalaması, yatırılabilir içinde dilim, dönem).
+def _asym(name, lam, up_t="ust10", down_t="alt10", seeds=1, regime=False):
+    ups = [Recipe(f"{name} up{s}", up_t, "lgbm", regime=regime, params={"random_state": s}) for s in range(seeds)]
+    downs = [Recipe(f"{name} down{s}", down_t, "lgbm", regime=regime, params={"random_state": s}) for s in range(seeds)]
+    if seeds == 1:
+        return Recipe(name, learner="fark", members=[ups[0], downs[0]], screen=True, params={"lam": lam})
+    return Recipe(name, learner="ensemble", screen=True, members=[
+        Recipe(f"{name} f{s}", learner="fark", members=[u, dn], params={"lam": lam}) for s, (u, dn) in enumerate(zip(ups, downs))])
+ROUNDS["h5"] = [
+    _asym("H5a asimetrik λ=3", 3.0),
+    _asym("H5b asimetrik λ=4", 4.0),
+    _asym("H5c asimetrik λ=2, 3 tohum", 2.0, seeds=3),
+    _asym("H5d asimetrik λ=2, yatırılabilir içinde dilim", 2.0, "ust10_y", "alt10_y"),
+    _asym("H5e asimetrik λ=2 + dönem", 2.0, regime=True),
+    _asym("H5f asimetrik λ=3, yatırılabilir dilim, 3 tohum", 3.0, "ust10_y", "alt10_y", seeds=3),
+]
+
 
 def main() -> None:
     name = sys.argv[1] if len(sys.argv) > 1 else "h1"
