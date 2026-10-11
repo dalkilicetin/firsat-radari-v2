@@ -20,7 +20,7 @@ SPAC_NAME = re.compile(
     r"\bacquisitions?\b(?:\s+[ivx\d]+)?\s+(?:corp|co\b|company|limited|ltd|inc|holdings?)"
     r"|\bspac\b|\bmerger\s+corp|\bcapital\s+corp(?:oration)?\s+[ivx]+\b|\bblank\s+check",
     re.IGNORECASE)
-# SIC kodu olmayanlar için: ad finans şirketine işaret ediyorsa.
+# Ad finans şirketine (banka, GYO, fon, sigorta) işaret ediyorsa.
 FINANCE_NAME = re.compile(
     r"\b(?:bank|bancorp|bancshares|bancorporation|financial\s+corp|finance\s+corp|bdc|business\s+development|"
     r"investment\s+corp|insurance|capital\s+southwest|real\s+estate\s+investment|reit|direct\s+lending|"
@@ -43,7 +43,9 @@ def classify(sec: pd.DataFrame, sic: pd.Series | None = None) -> pd.Series:
     # SIC kodu boş + adında capital/finance/lending/investment/credit: neredeyse her zaman yatırım şirketi (BDC)
     # (ör. Gladstone Capital Corp, Bain Capital Specialty Finance); faaliyet şirketlerinin hemen hepsinin SIC kodu vardır.
     fund_like = name.str.contains(r"\b(?:capital|finance|lending|investment|credit)\b", case=False)
-    out[excluded | ((code == "") & (name.str.contains(FINANCE_NAME) | fund_like))] = "finans"
+    # Ad, SIC kodundan güvenilirdir: SIC bazen yanıltıcı (Plumas Bancorp 6153, Gladstone Commercial REIT 6519).
+    # Banka/GYO/fon adı taşıyanlar SIC ne olursa olsun hariç.
+    out[excluded | name.str.contains(FINANCE_NAME) | ((code == "") & fund_like)] = "finans"
     out[(code == "6770") | name.str.contains(SPAC_NAME)] = "spac"
     return out
 
