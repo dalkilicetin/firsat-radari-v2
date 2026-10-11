@@ -62,9 +62,8 @@ def events(p: dict, sigs: dict) -> dict[str, pd.DataFrame]:
         e = ex[ex.item == item].drop_duplicates(["cik", "date"])
         if len(e) < 50:
             continue
-        m = pd.DataFrame(False, index=dates, columns=cols)
         idx_d, idx_c = dates.get_indexer(e.date), cols.get_indexer(e.cik)
-        arr = m.to_numpy()
+        arr = np.zeros((len(dates), len(cols)), dtype=bool)
         arr[idx_d, idx_c] = True
         out[f"8-K {item}: {name}"] = pd.DataFrame(arr, index=dates, columns=cols)
     # Kurumsal ve metin olayları (taşınan bayrakların başlangıcı)
