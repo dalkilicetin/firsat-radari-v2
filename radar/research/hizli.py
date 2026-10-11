@@ -85,7 +85,7 @@ def grid() -> dict:
 def load(freq: str) -> tuple[pd.DataFrame, list[str]]:
     weeks, col, _ = UFUK[freq]
     df = pd.read_parquet(D / "aylik_cerceve.parquet")
-    df = df[(df.yil >= min(TEST_YEARS) - PENCERE - 3) & (df.yil <= max(TEST_YEARS))].copy()
+    df = df[(df.yil >= min(TEST_YEARS) - 11) & (df.yil <= max(TEST_YEARS))].copy()
     df["getiri"] = df[col]
     df = df[np.isfinite(df.getiri)]
     feats = [c for c in df.columns if c not in META and not c.startswith("getiri_") or c in ("getiri_6a", "getiri_1a")]
@@ -156,15 +156,21 @@ def run(freq: str, name: str, df: pd.DataFrame, all_feats: list[str]) -> dict:
            "onemli": [f"{k} {v:.0%}" for k, v in imp.head(8).items()], "sure_sn": round(time.time() - t0)}
     with LOG.open("a") as f:
         f.write(json.dumps(out, ensure_ascii=False) + "\n")
-    print(f"{name:16s} net {out['net_yillik_ort']:+.0%}/yıl (brüt {out['brut_yillik_ort']:+.0%}), zararlı {out['zararli_yil']}/4, "
+    print(f"{name:16s} net {out['net_yillik_ort']:+.0%}/yıl (brüt {out['brut_yillik_ort']:+.0%}), zararlı {out['zararli_yil']}/{len(TEST_YEARS)}, "
           f"en iyi %5'ten {out['en_iyi_yuzde5_ort']:.1f}, yıllar {out['yil_yil_net']} [{out['sure_sn']} sn]  önemli: {out['onemli'][:4]}",
           flush=True)
     return out
 
 
 if __name__ == "__main__":
-    freqs = sys.argv[1].split(",") if len(sys.argv) > 1 else ["aylik"]
-    names = sys.argv[2:] or list(EXPERIMENTS)
+    args = sys.argv[1:]
+    if "--yillar" in args:  # ör. --yillar 2013-2017,2022-2025 (aramada kullanılmamış yıllarda doğrulama)
+        i = args.index("--yillar")
+        spec = args[i + 1]
+        del args[i:i + 2]
+        TEST_YEARS = tuple(y for part in spec.split(",") for y in range(int(part.split("-")[0]), int(part.split("-")[-1]) + 1))
+    freqs = args[0].split(",") if args else ["aylik"]
+    names = args[1:] or list(EXPERIMENTS)
     if names == ["izgara"]:
         names = list(grid())
     for freq in freqs:
