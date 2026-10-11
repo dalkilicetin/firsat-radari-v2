@@ -1,7 +1,7 @@
 {
  "surum": "v3",
  "dondurulma": "2026-10-09",
- "kod": "7230f59",
+ "kod": "5f60988",
  "kurallar": {
   "min_pay": 0.7,
   "min_istikrar": 0.5,
@@ -38,23 +38,23 @@
   "JCI",
   "UTMD",
   "SCHW",
-  "GOOD",
   "SCSC",
   "TEL",
   "INMD",
   "MD",
   "ZD",
   "MCO",
-  "PLBC",
   "PFE",
   "RICK",
   "CENTA",
   "VLGEA",
-  "NATH",
   "YORW",
+  "NATH",
   "ACU",
   "PBYI",
-  "CNXN"
+  "CNXN",
+  "CASS",
+  "SWBI"
  ],
  "yil_basi": {
   "tarih": "2026-01-02",
@@ -66,8 +66,8 @@
    "AMRX",
    "MYE",
    "JNJ",
-   "DCI",
    "PIPR",
+   "DCI",
    "YORW",
    "HWM",
    "REGN",
@@ -88,8 +88,8 @@
    0.5727,
    0.6721,
    0.2811,
-   -0.0239,
    -0.2357,
+   -0.0239,
    0.0011,
    0.0656,
    -0.0346,
@@ -98,12 +98,12 @@
    0.311,
    0.8716,
    0.2986,
-   NaN,
+   null,
    0.5382,
    0.0565
   ],
   "model": 0.24619848538049044,
-  "evren": 0.08850339807599403,
+  "evren": 0.08810565055976136,
   "spy": 0.14854457948180633
  }
 }
