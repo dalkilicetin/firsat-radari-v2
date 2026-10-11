@@ -8,6 +8,7 @@ Bölüm düzeyinde her hissenin son 60 günü Nasdaq'ın kendi servisiyle çapra
 from __future__ import annotations
 
 from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
 
 import pandas as pd
 
@@ -131,6 +132,63 @@ class DailyPrices(Dataset):
                        if not any((r.symbol, r.date + pd.Timedelta(days=k)) in split_days for k in range(-3, 4))]
         rep.add("Bölünme dışı %80+ günlük hareket", Status.INFO,
                 f"{len(unexplained)} adet (çoğu küçük şirket haberi; tek kaynak, 3. aşamada ikinci kaynakla doğrulanacak): {unexplained[:10]}")
+
+
+EXITED_LIST = Path(__file__).resolve().parents[2] / "data" / "exited_symbols.csv"
+YAHOO_RANGE = ("https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1={start}&period2={end}"
+               "&interval=1d&events=split,div&includeAdjustedClose=true")
+
+
+class ExitedPrices(Dataset):
+    """Borsadan çıkmış şirketlerin günlük fiyatı (Yahoo, yalnızca borsada oldukları aralık).
+
+    Liste data/exited_symbols.csv (kimlik katmanından: cik, sembol, başlangıç, bitiş). Sembol sonradan başka şirkete
+    geçmiş olabilir; bu yüzden burada ham veri saklanır, panelde SEC FTD fiyatlarıyla örtüşen seriler kabul edilir.
+    """
+    name = "prices_exited"
+    title = "Borsadan çıkmış şirketlerin günlük fiyatı (Yahoo; FTD ile doğrulanır)"
+    max_parallel = 4
+
+    def partitions(self, client: HttpClient, today: date) -> list[str]:
+        return list(GROUPS)
+
+    def load(self, client: HttpClient, partition: str) -> Loaded:
+        lst = pd.read_csv(EXITED_LIST, parse_dates=["start", "end"])
+        lst = lst[[in_group(s, partition) for s in lst.symbol.astype(str)]]
+        frames, missing = [], []
+        for r in lst.itertuples():
+            lo = max(int((r.start - pd.Timedelta(days=90)).timestamp()), 1230768000)
+            hi = int((r.end + pd.Timedelta(days=15)).timestamp())
+            try:
+                data = client.get(YAHOO_RANGE.format(sym=str(r.symbol).replace(".", "-"), start=lo, end=hi)).json()
+            except (FetchError, ValueError):
+                missing.append(r.symbol)
+                continue
+            series, _ = prices.parse_yahoo(data)
+            if not series:
+                missing.append(r.symbol)
+                continue
+            splits, _ = parse_yahoo_events(data)
+            split_on = {x["date"]: x["ratio"] for x in splits}
+            frames.append(pd.DataFrame({
+                "cik": str(r.cik), "symbol": r.symbol, "date": pd.to_datetime(list(series)),
+                "close": [v["close"] for v in series.values()], "adjclose": [v["adjclose"] for v in series.values()],
+                "volume": [v["volume"] for v in series.values()], "split_ratio": [split_on.get(d) for d in series],
+            }))
+        df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame(
+            columns=["cik", "symbol", "date", "close", "adjclose", "volume", "split_ratio"])
+        return Loaded(df, [YAHOO_RANGE.format(sym="<sembol>", start="<başlangıç>", end="<bitiş>")],
+                      {"symbols": len(lst), "missing": missing})
+
+    def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
+        notes, df = loaded.notes, loaded.df
+        got = notes["symbols"] - len(notes["missing"])
+        # Eski çıkışların çoğu Yahoo'da yok; kapsam bilgi amaçlıdır (eksikler FTD fiyatıyla kalır).
+        rep.add("Fiyatı gelen çıkmış şirket", Status.INFO, f"{got}/{notes['symbols']}")
+        if len(df):
+            rep.expect_min_ratio("Pozitif kapanış", int((df.close > 0).sum()), len(df), 0.999, 0.99)
+            dup = df.duplicated(["cik", "date"]).sum()
+            rep.add("Yinelenen gün", Status.OK if dup == 0 else Status.WARN, f"{dup}")
 
 
 class WikipediaViews(Dataset):
