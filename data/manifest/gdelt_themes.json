@@ -3,10 +3,10 @@
  "partitions": {
   "2015": {
    "partition": "2015",
-   "fetched_at": "2026-10-11T12:07:46+00:00",
-   "rows": 3129101,
-   "bytes": 9969571,
-   "sha256": "3714faf816e66c8629df28464ecc532d39a6cd2e3e6a127bc84d3c5e0b46a1fa",
+   "fetched_at": "2026-10-11T18:28:25+00:00",
+   "rows": 4160164,
+   "bytes": 13053799,
+   "sha256": "aece7be89c0003f49183c8e9a6a904e2534b5c4a5c323f0b9b355fb44de4ebf2",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -25,7 +25,7 @@
    "asset": "gdelt_themes__2015.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 2886.2,
+   "duration_s": 3202.4,
    "requests": 0,
    "checks": [
     {
@@ -41,7 +41,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,076 (beklenen 300–6,000)"
+     "detail": "4,005 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -57,10 +57,10 @@
   },
   "2016": {
    "partition": "2016",
-   "fetched_at": "2026-10-11T12:07:48+00:00",
-   "rows": 4174143,
-   "bytes": 13036621,
-   "sha256": "74d42ef717d7b82512e7de971f1dd223769199e68ffafea5f174d20bfaa990f3",
+   "fetched_at": "2026-10-11T18:28:18+00:00",
+   "rows": 5635238,
+   "bytes": 17420849,
+   "sha256": "bea5386b30c578b4510ba50dc3e7114aa86c1022c94ac215fc6b95a158cffc35",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -79,7 +79,7 @@
    "asset": "gdelt_themes__2016.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 4420.9,
+   "duration_s": 4538.1,
    "requests": 0,
    "checks": [
     {
@@ -95,7 +95,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,256 (beklenen 300–6,000)"
+     "detail": "4,251 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -111,10 +111,10 @@
   },
   "2017": {
    "partition": "2017",
-   "fetched_at": "2026-10-11T12:07:46+00:00",
-   "rows": 4032356,
-   "bytes": 12520742,
-   "sha256": "f0543d31940e1193c32b5c698dd3f9bb3608e3f62dcbf626dc06537b667088e8",
+   "fetched_at": "2026-10-11T18:28:15+00:00",
+   "rows": 5490592,
+   "bytes": 16908319,
+   "sha256": "31a9660aabbd26e0f5d5e5f06a46d91f04ba0481f387452011fd64cab330a43d",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -133,7 +133,7 @@
    "asset": "gdelt_themes__2017.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 2658.3,
+   "duration_s": 2925.0,
    "requests": 0,
    "checks": [
     {
@@ -149,7 +149,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,255 (beklenen 300–6,000)"
+     "detail": "4,294 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -165,10 +165,10 @@
   },
   "2018": {
    "partition": "2018",
-   "fetched_at": "2026-10-11T12:07:50+00:00",
-   "rows": 3876796,
-   "bytes": 12020778,
-   "sha256": "d1a928dc90bcd43f5221630b644f9fca57758582dab17b79ba22f02b8da0667c",
+   "fetched_at": "2026-10-11T18:28:19+00:00",
+   "rows": 5286778,
+   "bytes": 16246142,
+   "sha256": "19b4c586480d6be0c716c455fa0ec64dc3968394c8766e391906772fd31b56c4",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -187,7 +187,7 @@
    "asset": "gdelt_themes__2018.parquet",
    "release": "veri-arsivi-2009",
    "status": "warn",
-   "duration_s": 3554.7,
+   "duration_s": 3817.9,
    "requests": 0,
    "checks": [
     {
@@ -203,7 +203,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,383 (beklenen 300–6,000)"
+     "detail": "4,499 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -219,10 +219,10 @@
   },
   "2019": {
    "partition": "2019",
-   "fetched_at": "2026-10-11T12:52:30+00:00",
-   "rows": 3620031,
-   "bytes": 11164779,
-   "sha256": "c8ac7dcb77889301d37f3d8c31b856bb73a80c6f45d44df3e4fa5e776f8c512f",
+   "fetched_at": "2026-10-11T19:17:23+00:00",
+   "rows": 4904449,
+   "bytes": 14880570,
+   "sha256": "7366668ea6a04bd293f875c8cc29abd8002c14ea13a2e1db4a4f24428c2e48e5",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -241,7 +241,7 @@
    "asset": "gdelt_themes__2019.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 2890.2,
+   "duration_s": 2874.9,
    "requests": 0,
    "checks": [
     {
@@ -257,7 +257,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,388 (beklenen 300–6,000)"
+     "detail": "4,530 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -273,10 +273,10 @@
   },
   "2020": {
    "partition": "2020",
-   "fetched_at": "2026-10-11T12:56:16+00:00",
-   "rows": 2975054,
-   "bytes": 9200995,
-   "sha256": "c15fea3f14979cefc76f226193e09f9d6cb9a6d4f51d785a25461c3d1582717c",
+   "fetched_at": "2026-10-11T19:22:12+00:00",
+   "rows": 4031681,
+   "bytes": 12229585,
+   "sha256": "c00c99ff469a94e71f53d218548c03d22a3feff29a5cc431dbbe486f005db52d",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -295,7 +295,7 @@
    "asset": "gdelt_themes__2020.parquet",
    "release": "veri-arsivi-2009",
    "status": "warn",
-   "duration_s": 2432.5,
+   "duration_s": 2001.7,
    "requests": 0,
    "checks": [
     {
@@ -311,7 +311,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,092 (beklenen 300–6,000)"
+     "detail": "4,183 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -327,10 +327,10 @@
   },
   "2021": {
    "partition": "2021",
-   "fetched_at": "2026-10-11T13:07:31+00:00",
-   "rows": 2857307,
-   "bytes": 8708154,
-   "sha256": "04f28e90e6e1738ab9abe4e90d992427df76e37dabf4cf60ec6c29089a735675",
+   "fetched_at": "2026-10-11T19:32:23+00:00",
+   "rows": 3869001,
+   "bytes": 11702325,
+   "sha256": "97da90989bdd8c73a66bf78f5e1013bf3c94a8ead8a8f8e3043a216323c12fc5",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -349,7 +349,7 @@
    "asset": "gdelt_themes__2021.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 2287.4,
+   "duration_s": 2318.3,
    "requests": 0,
    "checks": [
     {
@@ -365,7 +365,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,296 (beklenen 300–6,000)"
+     "detail": "4,422 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -381,10 +381,10 @@
   },
   "2022": {
    "partition": "2022",
-   "fetched_at": "2026-10-11T13:21:51+00:00",
-   "rows": 2747222,
-   "bytes": 8456145,
-   "sha256": "b184ff93901a2ccca19a62719c80242641c3dd183dac86a60827c6f278d6bb6e",
+   "fetched_at": "2026-10-11T19:44:21+00:00",
+   "rows": 3701311,
+   "bytes": 11140269,
+   "sha256": "25f8c78c0eb175c8d72d82068b19a2710febffe5cfcfabb07190cf161ba3314e",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -403,7 +403,7 @@
    "asset": "gdelt_themes__2022.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 1977.9,
+   "duration_s": 2264.8,
    "requests": 0,
    "checks": [
     {
@@ -419,7 +419,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,407 (beklenen 300–6,000)"
+     "detail": "4,623 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -435,10 +435,10 @@
   },
   "2023": {
    "partition": "2023",
-   "fetched_at": "2026-10-11T13:37:13+00:00",
-   "rows": 3274946,
-   "bytes": 10126059,
-   "sha256": "74b4bd42d67936be8c6ff569345db1e19a50675e4f64fa3b34d7749b009e6a23",
+   "fetched_at": "2026-10-11T19:55:57+00:00",
+   "rows": 4465734,
+   "bytes": 13569491,
+   "sha256": "6f7c5376c54f54b04e977ca5cd519cbe2a60f75bb8371f4fa528ace1b74994d1",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -457,7 +457,7 @@
    "asset": "gdelt_themes__2023.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 2699.3,
+   "duration_s": 2745.2,
    "requests": 0,
    "checks": [
     {
@@ -473,7 +473,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,713 (beklenen 300–6,000)"
+     "detail": "5,115 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -489,10 +489,10 @@
   },
   "2024": {
    "partition": "2024",
-   "fetched_at": "2026-10-11T13:41:01+00:00",
-   "rows": 3138316,
-   "bytes": 9610591,
-   "sha256": "faa5b8eae152aaf54d645d4d3d5f0b849f0fde40f8f01fa41c8a56af537d21ef",
+   "fetched_at": "2026-10-11T20:05:38+00:00",
+   "rows": 4322153,
+   "bytes": 12981026,
+   "sha256": "853559c6f8e0e00cbe4ed37d68ad90d218458e01afa6fba6b04d8fcb7142f79f",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -511,7 +511,7 @@
    "asset": "gdelt_themes__2024.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 1882.6,
+   "duration_s": 1690.5,
    "requests": 0,
    "checks": [
     {
@@ -527,7 +527,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,558 (beklenen 300–6,000)"
+     "detail": "5,013 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -543,10 +543,10 @@
   },
   "2025": {
    "partition": "2025",
-   "fetched_at": "2026-10-11T13:46:04+00:00",
-   "rows": 2588911,
-   "bytes": 8080197,
-   "sha256": "97717679e24d6d27b0fe967610c52585ac395c08a3b457cfd77920e70a04c5cd",
+   "fetched_at": "2026-10-11T20:11:24+00:00",
+   "rows": 3541878,
+   "bytes": 10794157,
+   "sha256": "e6ed1678d6072ca337ec9a634106d51898ec65037503848a7911f367204185d8",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -565,7 +565,7 @@
    "asset": "gdelt_themes__2025.parquet",
    "release": "veri-arsivi-2009",
    "status": "warn",
-   "duration_s": 2009.4,
+   "duration_s": 1783.5,
    "requests": 0,
    "checks": [
     {
@@ -581,7 +581,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,279 (beklenen 300–6,000)"
+     "detail": "4,757 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -597,10 +597,10 @@
   },
   "2026": {
    "partition": "2026",
-   "fetched_at": "2026-10-11T13:56:02+00:00",
-   "rows": 2014020,
-   "bytes": 6183061,
-   "sha256": "1429efa0c5f972b18647b0bd5096c0e29a52351dcfbd4d23bdb9a72a7d8a0166",
+   "fetched_at": "2026-10-11T20:22:29+00:00",
+   "rows": 2757920,
+   "bytes": 8298097,
+   "sha256": "a3ca79eb89b369215e4f1e222e7fec78c12f7f11057697031c699bbecac5bee9",
    "columns": {
     "kind": "str",
     "date": "datetime64[s]",
@@ -619,7 +619,7 @@
    "asset": "gdelt_themes__2026.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 1514.3,
+   "duration_s": 1404.7,
    "requests": 0,
    "checks": [
     {
@@ -635,7 +635,7 @@
     {
      "name": "Tema maruziyeti olan şirket",
      "status": "ok",
-     "detail": "3,103 (beklenen 300–6,000)"
+     "detail": "4,574 (beklenen 300–6,000)"
     },
     {
      "name": "En sık temalar",
@@ -654,5 +654,5 @@
  "title": "GDELT tema geçmişi (günlük tema sayıları + şirket-tema maruziyeti)",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-11T14:22:37+00:00"
+ "finalized_at": "2026-10-11T20:46:24+00:00"
 }
