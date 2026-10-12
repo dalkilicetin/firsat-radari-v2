@@ -40,11 +40,12 @@ GROUPS = {
                               "serbest_nakit_getirisi", "kazanc_getirisi", "tahakkuklar_dusuk", "varlik_buyumesi_dusuk"},
     "metin": lambda c: c.startswith(("metin_", "risk_bolumu", "devamlilik")),
     "kurumsal_olay": lambda c: c.startswith(("8k_", "icerden", "ust_yonetici", "kurumsal_", "geri_alim")),
-    "haber": lambda c: c.startswith(("haber_", "wiki_", "tema_", "yukselen_")),
+    "haber": lambda c: c.startswith(("haber_", "wiki_", "tema_", "yukselen_konu")),
     "oranlar": lambda c: c in {"defter_fiyat", "satis_fiyat", "favok_fd", "temettu_verimi", "nakit_piyasa", "ozsermaye_karliligi",
                                 "aktif_karliligi", "brut_kar_aktif", "brut_marj", "faaliyet_marji", "borc_ozsermaye", "cari_oran",
                                 "faiz_karsilama", "altman_z", "piotroski_f", "kar_buyumesi", "hisse_sayisi_degisimi"},
     "teknik": lambda c: c in {"rsi_14h", "ort_10h_uzaklik", "ort_40h_uzaklik", "macd", "bollinger_konum"},
+    "alternatif": lambda c: c.startswith(("reddit_", "yukselen_kelime", "yukselen_kurum", "yeni_kurum")),
     "yeni": lambda c: c in {"bilanco_uzerinden_hafta", "bilanco_bu_ay_bekleniyor", "sektorun_gerisinde", "oynaklik_genislemesi",
                              "max_haftalik_4h", "kirilim", "kazanc_aciklamasi_tepkisi"},
 }
@@ -59,6 +60,11 @@ EXPERIMENTS = {
     "sira_yenisiz": ("sira", [g for g in ALL if g != "yeni"], {}),
     "sira_likit": ("sira", ALL, {"min_likidite": 0.5}),
     "fark_likit": ("fark", ALL, {"min_likidite": 0.5}),
+    # Yeni verinin katkısı (en istikrarlı ayar: sıra, 10 hisse, 5 yıl pencere)
+    "en_iyi_hepsi": ("sira", ALL, {"k": 10}),
+    "en_iyi_alternatifsiz": ("sira", [g for g in ALL if g != "alternatif"], {"k": 10}),
+    "en_iyi_haber_alternatifsiz": ("sira", [g for g in ALL if g not in ("alternatif", "haber")], {"k": 10}),
+    "en_iyi_oransiz": ("sira", [g for g in ALL if g not in ("oranlar", "teknik")], {"k": 10}),
 }
 
 
