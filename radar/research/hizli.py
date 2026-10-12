@@ -76,6 +76,10 @@ EXPERIMENTS = {
     "t5_k20": ("sira", ALL, {"k": 20, "seeds": 5}),
     "t5_onerisiz": ("sira", [g for g in ALL if g != "oneriler"], {"k": 10, "seeds": 5}),
     "t5_k20_onerisiz": ("sira", [g for g in ALL if g != "oneriler"], {"k": 20, "seeds": 5}),
+    "ust_sira": ("ust_sira", ALL, {"k": 10}),
+    "ust_sira_us1": ("ust_sira", ALL, {"k": 10, "us": 1.0}),
+    "ust_sira_us3": ("ust_sira", ALL, {"k": 10, "us": 3.0}),
+    "ust_sira_t200": ("ust_sira", ALL, {"k": 10, "trunc": 200}),
     "en_iyi_fark_hepsi": ("fark", ALL, {"k": 10}),
     "en_iyi_k20": ("sira", ALL, {"k": 20}),
 }
@@ -125,6 +129,14 @@ def score(mode: str, tr: pd.DataFrame, te: pd.DataFrame, feats: list[str], param
         r = np.mean([pd.Series(o[0], index=te.index).groupby(te.tarih).rank(pct=True).to_numpy() for o in outs], axis=0)
         return r, outs[0][1]
     p = BASE | {"deterministic": True, "force_row_wise": True} | params.get("lgb", {})
+    if mode == "ust_sira":  # lambdarank: her tarih bir sorgu; yalnızca ilk sıraların doğruluğu ödüllendirilir (NDCG@k)
+        tr = tr.sort_values("tarih")
+        lab = np.minimum((tr.sira.to_numpy() * 20).astype(int), 19)
+        q = lgb.Dataset(tr[feats], lab, group=tr.groupby("tarih", sort=True).size().to_numpy())
+        pr = p | {"objective": "lambdarank", "metric": "ndcg", "lambdarank_truncation_level": params.get("trunc", 50),
+                  "eval_at": [10], "label_gain": [float(i) ** params.get("us", 2.0) for i in range(20)]}
+        m = lgb.train(pr, q, params.get("rounds", ROUNDS))
+        return m.predict(te[feats]), m
     if mode == "kazanan":
         m = lgb.train(p, lgb.Dataset(tr[feats], tr.hedef), ROUNDS)
         return m.predict(te[feats]), m
