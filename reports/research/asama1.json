@@ -1702,16 +1702,16 @@
     "hata": 0
    },
    "karsilastirilan": 200,
-   "tolerans_icinde": 197,
-   "saglayan_pay": 0.985,
+   "tolerans_icinde": 198,
+   "saglayan_pay": 0.99,
    "goreli_hata_dagilimi": {
     "count": 200.0,
-    "mean": 0.06504,
-    "std": 0.63848,
+    "mean": 0.06386,
+    "std": 0.63837,
     "min": 0.0,
     "50%": 0.0,
     "90%": 0.0,
-    "99%": 0.29483,
+    "99%": 0.05962,
     "max": 6.8095
    },
    "mutlak_hata_medyan": 0.0,
@@ -1723,14 +1723,6 @@
      "bagimsiz": 0.02577,
      "mutlak_hata": 0.17549,
      "goreli_hata": 6.8095
-    },
-    {
-     "cik": "785815",
-     "tarih": "2015-06-12",
-     "bizim": 0.16536,
-     "bagimsiz": 0.13361,
-     "mutlak_hata": 0.03174,
-     "goreli_hata": 0.23759
     },
     {
      "cik": "1743340",
@@ -1781,116 +1773,20 @@
     "hata": 0
    },
    "karsilastirilan": 200,
-   "tolerans_icinde": 184,
-   "saglayan_pay": 0.92,
+   "tolerans_icinde": 199,
+   "saglayan_pay": 0.995,
    "goreli_hata_dagilimi": {
     "count": 200.0,
-    "mean": 0.01253,
-    "std": 0.07452,
+    "mean": 0.00428,
+    "std": 0.06055,
     "min": 0.0,
     "50%": 0.0,
-    "90%": 0.00461,
-    "99%": 0.23166,
+    "90%": 0.0,
+    "99%": 0.0,
     "max": 0.85636
    },
    "mutlak_hata_medyan": 0.0,
    "sapanlar": [
-    {
-     "cik": "1174850",
-     "tarih": "2015-12-18",
-     "bizim": 0.08063,
-     "bagimsiz": 0.07981,
-     "mutlak_hata": 0.00082,
-     "goreli_hata": 0.01025
-    },
-    {
-     "cik": "1109354",
-     "tarih": "2015-04-03",
-     "bizim": 0.01875,
-     "bagimsiz": 0.01784,
-     "mutlak_hata": 0.00091,
-     "goreli_hata": 0.05115
-    },
-    {
-     "cik": "1328571",
-     "tarih": "2012-09-14",
-     "bizim": -0.06245,
-     "bagimsiz": -0.06749,
-     "mutlak_hata": 0.00503,
-     "goreli_hata": -0.07459
-    },
-    {
-     "cik": "1369868",
-     "tarih": "2019-11-08",
-     "bizim": 0.03273,
-     "bagimsiz": 0.02833,
-     "mutlak_hata": 0.0044,
-     "goreli_hata": 0.15548
-    },
-    {
-     "cik": "825410",
-     "tarih": "2014-12-26",
-     "bizim": 0.01657,
-     "bagimsiz": 0.01407,
-     "mutlak_hata": 0.0025,
-     "goreli_hata": 0.17783
-    },
-    {
-     "cik": "1486299",
-     "tarih": "2017-01-27",
-     "bizim": 0.15008,
-     "bagimsiz": 0.15191,
-     "mutlak_hata": 0.00182,
-     "goreli_hata": -0.01201
-    },
-    {
-     "cik": "1332551",
-     "tarih": "2015-06-12",
-     "bizim": 0.10993,
-     "bagimsiz": 0.11166,
-     "mutlak_hata": 0.00173,
-     "goreli_hata": -0.01552
-    },
-    {
-     "cik": "1174850",
-     "tarih": "2016-02-26",
-     "bizim": 0.08193,
-     "bagimsiz": 0.0811,
-     "mutlak_hata": 0.00083,
-     "goreli_hata": 0.01025
-    },
-    {
-     "cik": "1369868",
-     "tarih": "2017-06-16",
-     "bizim": 0.04341,
-     "bagimsiz": 0.03532,
-     "mutlak_hata": 0.00809,
-     "goreli_hata": 0.22919
-    },
-    {
-     "cik": "1357615",
-     "tarih": "2024-02-09",
-     "bizim": 0.02636,
-     "bagimsiz": 0.02608,
-     "mutlak_hata": 0.00027,
-     "goreli_hata": 0.01053
-    },
-    {
-     "cik": "1333274",
-     "tarih": "2014-05-23",
-     "bizim": -0.0502,
-     "bagimsiz": -0.05138,
-     "mutlak_hata": 0.00118,
-     "goreli_hata": -0.02301
-    },
-    {
-     "cik": "1500217",
-     "tarih": "2013-08-23",
-     "bizim": 0.04232,
-     "bagimsiz": 0.02865,
-     "mutlak_hata": 0.01366,
-     "goreli_hata": 0.47689
-    },
     {
      "cik": "1743340",
      "tarih": "2020-10-16",
@@ -1898,22 +1794,6 @@
      "bagimsiz": -1.0809,
      "mutlak_hata": 0.92564,
      "goreli_hata": -0.85636
-    },
-    {
-     "cik": "789570",
-     "tarih": "2024-08-09",
-     "bizim": 0.11613,
-     "bagimsiz": 0.10087,
-     "mutlak_hata": 0.01526,
-     "goreli_hata": 0.15124
-    },
-    {
-     "cik": "749037",
-     "tarih": "2014-06-27",
-     "bizim": 0.06189,
-     "bagimsiz": 0.06322,
-     "mutlak_hata": 0.00133,
-     "goreli_hata": -0.021
     }
    ]
   },
@@ -1929,28 +1809,20 @@
     "hata": 0
    },
    "karsilastirilan": 200,
-   "tolerans_icinde": 191,
-   "saglayan_pay": 0.955,
+   "tolerans_icinde": 199,
+   "saglayan_pay": 0.995,
    "goreli_hata_dagilimi": {
     "count": 200.0,
-    "mean": 0.01032,
-    "std": 0.07558,
+    "mean": 0.00423,
+    "std": 0.05987,
     "min": 0.0,
     "50%": 0.0,
     "90%": 0.0,
-    "99%": 0.15874,
+    "99%": 0.0,
     "max": 0.84674
    },
-   "mutlak_hata_medyan": 1.048561720784491e-08,
+   "mutlak_hata_medyan": 8.004132440175837e-09,
    "sapanlar": [
-    {
-     "cik": "1360901",
-     "tarih": "2014-07-18",
-     "bizim": 0.28551,
-     "bagimsiz": 0.25586,
-     "mutlak_hata": 0.02964,
-     "goreli_hata": 0.11585
-    },
     {
      "cik": "1530238",
      "tarih": "2022-02-25",
@@ -1958,62 +1830,6 @@
      "bagimsiz": 0.52327,
      "mutlak_hata": 0.44307,
      "goreli_hata": -0.84674
-    },
-    {
-     "cik": "789570",
-     "tarih": "2017-03-24",
-     "bizim": 0.67539,
-     "bagimsiz": 0.4214,
-     "mutlak_hata": 0.25399,
-     "goreli_hata": 0.60274
-    },
-    {
-     "cik": "1530238",
-     "tarih": "2019-08-16",
-     "bizim": 0.04484,
-     "bagimsiz": 0.03885,
-     "mutlak_hata": 0.00599,
-     "goreli_hata": 0.15425
-    },
-    {
-     "cik": "792985",
-     "tarih": "2014-01-31",
-     "bizim": 0.28989,
-     "bagimsiz": 0.28683,
-     "mutlak_hata": 0.00306,
-     "goreli_hata": 0.01067
-    },
-    {
-     "cik": "1108109",
-     "tarih": "2015-06-19",
-     "bizim": 0.62362,
-     "bagimsiz": 0.61177,
-     "mutlak_hata": 0.01184,
-     "goreli_hata": 0.01936
-    },
-    {
-     "cik": "1109354",
-     "tarih": "2024-06-21",
-     "bizim": 0.14934,
-     "bagimsiz": 0.1475,
-     "mutlak_hata": 0.00183,
-     "goreli_hata": 0.01244
-    },
-    {
-     "cik": "1004989",
-     "tarih": "2012-03-16",
-     "bizim": 0.34104,
-     "bagimsiz": 0.30112,
-     "mutlak_hata": 0.03992,
-     "goreli_hata": 0.13256
-    },
-    {
-     "cik": "1041514",
-     "tarih": "2019-01-04",
-     "bizim": 2.71389,
-     "bagimsiz": 2.3614,
-     "mutlak_hata": 0.35249,
-     "goreli_hata": 0.14927
     }
    ]
   },
