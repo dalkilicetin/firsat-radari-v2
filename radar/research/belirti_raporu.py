@@ -185,8 +185,9 @@ def build(img_dir: Path) -> Path:
         "oranı kadar küçük hesaplandığı bulundu (NVDA 2024: 2.979 mr $ yerine 304 mr $). Değerleme belirtileri bundan etkileniyordu. "
         "Hata düzeltildi; bu rapordaki belirti ölçümleri düzeltme öncesi çerçeveden gelir ve tabloda işaretlidir.",
         "<b>Sızıntı yok.</b> 148 belirtinin 148'i gelecek bilgisi testinden geçti; SEC'e kabul anından önce hiçbir bilgi görünmüyor.",
-        "<b>Kilitli son dönem.</b> 2025–2026 kilitlendi. Belirti testi ve bundan sonraki her seçim yalnızca 2013–2024 ile yapılır; "
-        "kilitli döneme en sonda bir kez bakılacak.",
+        "<b>Kilitli son dönem (yarı temiz).</b> 2025–2026 kilitlendi; belirti testi ve bundan sonraki her seçim yalnızca 2013–2024 ile "
+        "yapılır. Ancak 2025 sonuçları önceki denemelerde görüldü ve ön kayıttaki son dönem (Temmuz 2025 →) 4. aşamada bir kez kullanıldı. "
+        "Bu yüzden tamamen temiz tek test, Ekim 2026'dan itibaren kaydedilen canlı seçimlerin takibidir.",
         "<b>Çoklu test düzeltmesi uygulandı.</b> Benjamini–Hochberg düzeltmesinden sonra da kesin kalan belirti sayısı: "
         f"{int((df.durum.str.startswith(('Fırsat', 'Risk'))).sum())} / {len(df)} (q &lt; 0,05, |t| ≥ 3, yılların ≥ %70'inde aynı yön).",
     ]
@@ -198,6 +199,37 @@ def build(img_dir: Path) -> Path:
         "Yüksek değer daha yüksek getiriyle ilişkili; kesin", "Yüksek değer daha düşük getiriyle ilişkili; kötü adayları elemek için",
         "Kesin değil ama sınırda (q < 0,10 ya da |t| ≥ 2)", "Anlamlı etki yok", "Canlıda üretilemiyor ya da veri eksik",
         "Başka bir belirtiyle r ≥ 0,9"])], [5 * cm, 2 * cm, W - 7 * cm]))
+    E.append(PageBreak())
+
+    # 1b. Hedef
+    E += [para(st, "Proje hedefi ve başarı ölçütleri", st.h1)]
+    hedef = [
+        ("Amaç", "ABD borsalarında (Nasdaq, NYSE, NYSE American) işlem gören faaliyet şirketleri arasından geleceğin büyük kazananlarını, "
+                 "yükselişleri başlamadan önce bulmak. Örnek: yapay zekâ döneminin başında NVDA, kamu sözleşmeleriyle PLTR; tersi için Çin "
+                 "pazarında gerileyen otomotiv şirketleri."),
+        ("Nicel hedef", "Görmediği yıllarda S&P 500'ün 3 katı yıllık getiri. 2013–2025'te S&P ortalaması +%15,4 → hedef ≈ +%46/yıl, "
+                        "işlem maliyeti düşüldükten sonra."),
+        ("İlk hedef (vazgeçildi)", "Geriye bakış 'en yüksek kâr' raporundaki (Rapor 4) oranları %10 toleransla tutturmak. Rapor 4 her yılın "
+                                   "gerçekleşmiş kazananlarını sonradan seçtiği için ulaşılabilir bir hedef değil, bir tavan; S&P×3 hedefine geçildi."),
+        ("Yöntem ilkesi", "Ezber yok: her sonuç yalnızca modelin eğitimde görmediği verilerle ölçülür. Amaç belirtileri, oranlarını ve "
+                          "parametrelerini doğru bulmak; geçmişi açıklamak değil."),
+        ("Kapsam", "Banka, sigorta, GYO, fon/BDC, SPAC ve eğitim şirketleri (SIC 611x) hariç; HOOD, COIN gibi aracı/borsa şirketleri dahil. "
+                   "Borsadan çıkan şirketler dahil (hayatta kalma yanlılığı yok)."),
+        ("Ufuk ve çözünürlük", "Aylık karar; 1, 3, 6, 12 ve 24 aylık tutma süreleri test edilir (haftalık çok kısa bulundu)."),
+        ("Bilgi kaynakları", "Fiyat, finansal tablolar, SEC belgeleri ve haberler. Haberler kritik: daha önce hiç görülmemiş konuların "
+                             "yükselişini yakalayabilmek gerekir. Alışılmadık belirtiler de denenir (ör. sosyal medyada bir hisse "
+                             "hakkındaki öfke yoğunluğu)."),
+    ]
+    E.append(_table(st, [["Konu", "Açıklama"]] + [[a, para(st, b, st.cell)] for a, b in hedef], [4 * cm, W - 4 * cm]))
+    E += [Spacer(1, 8), para(st, "Ön kayıtlı başarı ölçütleri (10 Ekim 2026, sonuçlara bakılmadan yazıldı)", st.h3)]
+    olcut = [["Ölçüt", "Tanım", "Bugünkü durum"],
+             ["Getiri hedefi", "Görmediği yıllarda net yıllık getiri ≥ S&P × 3 (≈ +%46)", "Ulaşılmadı: dürüst seçimle +%15,6, tek ayarla +%26"],
+             ["Büyük kazanan oranı", "Puanı en yüksek %10'da +%100 kazananların oranı ≥ genel oranın 1,5 katı; bootstrap %90 alt sınır > 1",
+              "Belirti düzeyinde ölçülüyor (kazanan katı); model düzeyinde yeniden ölçülecek"],
+             ["Basit kıyas", "Aynı oran, yalnızca 'en yüksek oynaklık' ile seçilen %10'dan yüksek olmalı", "Ölçülecek"],
+             ["Portföy", "İlk %10 eşit ağırlıklı portföy, maliyet sonrası, evrenin eşit ağırlıklı portföyünden düşük olmamalı", "Ölçülecek"],
+             ["Sızıntı", "Hiçbir belirti, açıklandığı andan önce görünmemeli", "Sağlandı: 148/148"]]
+    E.append(_table(st, [[para(st, c, st.cell) for c in row] if i else row for i, row in enumerate(olcut)], [4 * cm, 13 * cm, W - 17 * cm]))
     E.append(PageBreak())
 
     # 2. Yöntem
@@ -259,6 +291,82 @@ def build(img_dir: Path) -> Path:
            ["Eksik finansal kalemler", "4 kalem → indirildi", "Temettü (XOM tipi), azınlık paylı özsermaye, iki amortisman kalemi; ayrıca faiz gideri kalemleri"],
            ["Tutarlılık (çerçeve ↔ kaynak)", "yeniden koşulacak", "Düzeltme sırasında kod karıştığı için tamamlanamadı"]]
     E.append(_table(st, [[para(st, str(c), st.cell) for c in row] if i else row for i, row in enumerate(dog)], [5 * cm, 4.5 * cm, W - 9.5 * cm]))
+    E.append(PageBreak())
+
+    # 4b. İncelemeciler için ayrıntılar
+    E += [para(st, "İncelemeciler için ayrıntılar", st.h1), para(st, "Veri kaynakları", st.h2)]
+    kaynak = [["Kaynak", "İçerik", "Dönem", "Zaman damgası", "Bilinen sorun"],
+              ["Yahoo günlük fiyat", "Kapanış, düzeltilmiş kapanış, hacim, bölünme", "2009 →", "işlem günü", "Borsadan çıkmışların çoğu yok"],
+              ["SEC fails-to-deliver", "Borsadan çıkmışların seyrek fiyatı, CUSIP eşleşmesi", "2009 →", "takas günü − 1", "Seyrek; hacim yok"],
+              ["SEC finansal tablo veri setleri", "XBRL; 60 kalem", "2009 Q3 →", "SEC kabul anı", "2009 ilk yarı neredeyse boş"],
+              ["SEC belge listesi", "8-K maddeleri, 13D/13G, NT 10-K/Q, S-1/S-3, Form 25/15", "tamamı", "kabul anı", "—"],
+              ["SEC Form 3/4/5", "İçeriden işlemler", "2009 →", "kabul anı", "—"],
+              ["SEC 13F", "Kurumsal pozisyonlar", "2013 Q3 – 2023 Q4", "dönem sonu + 46 gün", "2024 sonrası bölümler eksik"],
+              ["10-K metinleri", "Madde 1, 1A, 7", "2008 →", "kabul anı", "—"],
+              ["GDELT", "Haber konuları, ton, kurum, tema", "2015 →", "yayın günü (ay bitince)", "2015 öncesi yok"],
+              ["Wikipedia", "Günlük görüntülenme", "2015-07 →", "gün", "Az şirket eşleşiyor"],
+              ["Reddit arşivi", "6 alt forum, yalnızca toplamlar", "→ 2024 ortası", "gönderi zamanı", "Güncel veri yok"],
+              ["Bilanço bültenleri", "8-K 2.02 ekleri, metin özellikleri", "2009 →", "kabul anı", "Henüz modelde değil"],
+              ["FINRA açığa satış", "Ay × sembol açığa satış hacmi", "2009-08 →", "ay sonu", "Henüz modelde değil"],
+              ["FRED", "Makro seriler", "uzun", "yayın", "Kullanılmıyor (yalnızca risksiz faiz)"]]
+    E.append(_table(st, [[para(st, c, st.cell) for c in row] if i else row for i, row in enumerate(kaynak)],
+                    [4.5 * cm, 6.5 * cm, 3.5 * cm, 4 * cm, W - 18.5 * cm]))
+    E += [para(st, "Evren, panel ve model ayarları", st.h2)]
+    ayar = [
+        ("Panel", "Haftalık (Cuma kapanışı). Gerçek işlem fiyatı bölünmelerden arındırılır. Holding yeniden yapılanmaları ve aynı şirketin "
+                  "sembol değişiklikleri birleştirilir. Borsadan çıkışta son geçerli fiyat, iflasta (8-K 1.03) 0."),
+        ("Evren", "Ay başında fiyat ≥ 1 $ ve (işlem tutarı bilinmiyorsa dahil) günlük işlem ≥ 1 M$; ayda ~2.700 hisse, 201 ay, ~580 bin satır. "
+                  "Önceki sürüm ≥ 5 $ idi; 1 $'a inince yıllık getiri +%20'den +%25'e çıktı (son yıllarda büyük kazananların %20–30'u 5 $ altındaydı)."),
+        ("Belirti biçimi", "Her belirti her ay kendi içinde yüzdelik sıraya çevrilir (aykırı değer etkisi yok). Olaylar 0/1. Eksik değer boş bırakılır."),
+        ("Model", "LightGBM regresyon; hedef: 3 aylık getirinin ay içi sırası. 200 ağaç, öğrenme hızı 0,05, 31 yaprak, yaprak başına en az 400 "
+                  "gözlem, belirti örnekleme %60, satır örnekleme %70, L2 cezası 10. Eğitim: test yılından önceki 5 yıl, son 13 hafta boşluk. "
+                  "5 tohumun sıra ortalaması (tek koşunun rastgeleliği ±5 puan/yıl)."),
+        ("Temiz belirti seti", "Reddit (6), wiki_ani_ilgi, haber_ani_artis ve 3 kopya modelden çıkarıldı; içeriden alım yoksa 0."),
+    ]
+    E.append(_table(st, [["Konu", "Açıklama"]] + [[a, para(st, b, st.cell)] for a, b in ayar], [4 * cm, W - 4 * cm]))
+    E.append(PageBreak())
+    E += [para(st, "Denenenler ve sonuçları (görmediği yıllar)", st.h2)]
+    deneme = [["Deneme", "Sonuç", "Karar"],
+              ["Sürüm 3: istikrarlı işaretler + ridge (yıllık)", "S&P × 1,1–1,5", "Donduruldu, temel alındı"],
+              ["Aylık çerçeve + LightGBM, 3 ay, 10 hisse", "+%20 (≥5 $) → +%25–29 (≥1 $)", "Ana model"],
+              ["6 ay tutma", "+%13–14", "S&P altında"],
+              ["Ayar ızgarası (64 ayar, meta seçim)", "Geriye bakınca +%37, dürüst +%15,6", "Ayar aramak kazandırmıyor"],
+              ["Evrimsel doğrusal ağırlık taraması", "+%10–28, 2–5 zararlı yıl", "Ağaç modelinden daha oynak"],
+              ["Büyük kazanan hedefi (en iyi %5)", "+%1–7", "Daha kötü"],
+              ["Lambdarank (ilk sıraları optimize)", "+%6–14", "Daha kötü; piyango hisselerine yöneliyor"],
+              ["Piyasa rejimi kapısı", "İyileştirme yok", "Reddedildi"],
+              ["Haber (GDELT) ve alternatif veri", "≈ +3 puan", "Tutuldu (Reddit hariç)"],
+              ["Finansal oranlar ve teknik göstergeler", "≈ +8 puan", "Tutuldu"],
+              ["Literatür belirtileri (MAX, IVOL, 13D, ihraç...)", "Gürültü bandında", "Tutuldu (risk belirtileri)"],
+              ["Emsal momentumu, devralma olasılığı", "Gürültü bandında (±4)", "Tutuldu"],
+              ["main dalındaki 'trend + düzeltme' kuralı", "2010–2026'da başarısız", "Kullanılmıyor"],
+              ["Kâhin testi (düzeneğin kontrolü)", "IC 0,12 → ≈ +%45; IC 0,06 → ≈ +%25", "Düzenek doğru; S&P×3 için IC ≈ 0,12 gerekli"],
+              ["Puan dilimi profili", "En kötü dilim −%2,4, en iyi +%1,3 / çeyrek", "Model tek yönlü ama zayıf; gücü daha çok kötüleri ayırmakta"]]
+    E.append(_table(st, [[para(st, c, st.cell) for c in row] if i else row for i, row in enumerate(deneme)], [9 * cm, 7 * cm, W - 16 * cm]))
+    E += [para(st, "Bilinen sınırlamalar", st.h2)]
+    sinir = [
+        "Kilitli dönem yarı temiz: 2025 sonuçları görüldü; tek temiz test canlı takip.",
+        "Deneme sayısı yüksek: belirti düzeyinde FDR uygulandı, ama ayar ve model düzeyinde yüzlerce deneme yapıldı; dürüst ölçü meta seçimdir.",
+        "Borsadan çıkmış hisselerin %92'sinin fiyatı seyrek FTD kayıtlarından; bu satırlarda işlem tutarı yok (satırların %33'ü, 2010'da %57).",
+        "Maliyet modeli işlem tutarına göre kademeli; düşük fiyatlı hisselerde alış-satış farkı daha yüksek olabilir (×2 stres testi bekliyor).",
+        "Bölünme hatası ve eksik finansal kalemler düzeltildi ama düzeltilmiş veriyle sonuçlar henüz ölçülmedi.",
+        "Analist beklentisi verisi yok (kazanç sürprizi analistsiz ölçülüyor).",
+        "Yalnızca uzun pozisyon; açığa satış ya da kaldıraç yok. Vergi düşülmedi.",
+    ]
+    for x in sinir:
+        E.append(para(st, "• " + x))
+    E += [para(st, "Yeniden üretme", st.h2),
+          para(st, "Depo: github.com/dalkilicetin/firsat-radari-v2, dal claude/firsat-modeli. Veri: GitHub Releases + manifest (sha256). "
+                   "Çerçeve: RADAR_MIN_PRICE=1 python -m radar.research.monthly, ardından alt_signals, yeni_belirtiler, oneriler emsal,devralma. "
+                   "Belirti testi: python -m radar.research.belirti_testi --son=2024. Model: python -m radar.research.hizli 3ay t5_temiz. "
+                   "Doğrulama: python -m radar.research.belirti_dogrulama. Denetim: python -m radar.research.denetim --son=2024."),
+          para(st, "İncelemecilere sorular", st.h2)]
+    for x in ["S&P×3 hedefi bu evren ve veriyle gerçekçi mi; değilse hangi ara hedefi önerirsiniz?",
+              "Kilitli dönem yarı temiz; canlı takip dışında güvenilir bir son test önerisi var mı?",
+              "Model gücünü daha çok kötü hisseleri ayırarak kazanıyor. Büyük kazananı bulmak için hangi belirti ya da hedef tanımını önerirsiniz?",
+              "Borsadan çıkmış hisselerin fiyatı için ücretli kaynak (ör. EODHD) gerekli mi, yoksa FTD + çıkış değeri yeterli mi?",
+              "Ücretsiz ve zaman damgalı geçmişi olan, henüz kullanmadığımız bir veri kaynağı biliyor musunuz?"]:
+        E.append(para(st, "• " + x))
     E.append(PageBreak())
 
     # 5. Akış ve ilişki
