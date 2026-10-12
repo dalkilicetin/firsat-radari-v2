@@ -97,7 +97,8 @@ def splits(p: dict) -> dict:
                   "Aynı hafta yeni rapor gelen olaylarda (a) ve (b) ayrıştırılamaz, ayrı sayılır. Küçük oranlı düzeltmelerde hisse sayısı "
                   "değişmediği için (a) uygulanmaz.",
            "turler": {}}
-    m = d[d.durum == "ölçüldü"]
+    m = d[d.durum == "ölçüldü"].copy()
+    m["yeni_rapor_ayni_hafta"] = m.yeni_rapor_ayni_hafta.astype(bool)  # ölçülmeyen olaylarda boş kaldığı için nesne tipindeydi
     for tur, g in m.groupby("tur"):
         out = {"olay": int(len(g)), "ayni_hafta_yeni_rapor": int(g.yeni_rapor_ayni_hafta.sum())}
         for k, (col, tol, desc) in checks.items():
