@@ -33,6 +33,7 @@ TARGETS = ("sira", "fark")
 KS = (5, 10, 20, 30)
 LIQ = (0.0, 0.3)
 WINDOWS = (5, 8)
+SEEDS = 3  # tohum ortalaması: tek koşunun ±5 puanlık rastgeleliğini bastırır
 
 
 def evaluate(te: pd.DataFrame, scores: np.ndarray, k: int, weeks: int) -> float:
@@ -71,7 +72,7 @@ def run_horizon(freq: str, results: dict) -> None:
                 tr, te = tr[tr.likidite >= liq], te[te.likidite >= liq]
             if len(tr) < 5000 or te.empty:
                 continue
-            s, _ = hizli.score(target, tr, te, feats, {})
+            s, _ = hizli.score(target, tr, te, feats, {"seeds": SEEDS})
             for k in KS:
                 key = f"{freq}|{target}|k{k}|lik{liq}|p{window}"
                 results.setdefault(key, {})[Y] = evaluate(te, s, k, weeks)

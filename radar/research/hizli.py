@@ -51,6 +51,7 @@ GROUPS = {
                                   "gelir_surprizi"},
     "yeni": lambda c: c in {"bilanco_uzerinden_hafta", "bilanco_bu_ay_bekleniyor", "sektorun_gerisinde", "oynaklik_genislemesi",
                              "max_haftalik_4h", "kirilim", "kazanc_aciklamasi_tepkisi"},
+    "oneriler": lambda c: c.startswith(("emsal_", "devralma_", "bulten_", "aciga_satis_")),
 }
 ALL = list(GROUPS)
 
@@ -73,6 +74,8 @@ EXPERIMENTS = {
     "t5_literatursuz": ("sira", [g for g in ALL if g != "literatur"], {"k": 10, "seeds": 5}),
     "t5_yeni_veri_yok": ("sira", [g for g in ALL if g not in ("literatur", "alternatif", "oranlar", "teknik")], {"k": 10, "seeds": 5}),
     "t5_k20": ("sira", ALL, {"k": 20, "seeds": 5}),
+    "t5_onerisiz": ("sira", [g for g in ALL if g != "oneriler"], {"k": 10, "seeds": 5}),
+    "t5_k20_onerisiz": ("sira", [g for g in ALL if g != "oneriler"], {"k": 20, "seeds": 5}),
     "en_iyi_fark_hepsi": ("fark", ALL, {"k": 10}),
     "en_iyi_k20": ("sira", ALL, {"k": 20}),
 }
