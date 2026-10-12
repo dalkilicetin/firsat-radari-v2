@@ -166,24 +166,65 @@ def line_items() -> dict:
             "sinir": "5 şirket × 2 yıl × en çok 5 kalem: arşivin bu kalemleri doğru okuduğunu gösterir; tüm veri kümesinin doğruluğunu kanıtlamaz."}
 
 
-def shares_fallback() -> dict:
-    """Ağırlıklı ortalama hisse sayısı, dönem sonu (dolaşımdaki) sayının yerine kullanıldığında ne kadar hata yapar?
-    Her ikisini de veren raporlarda karşılaştırılır; yedeğin kaç şirket ve raporda devreye girdiği sayılır."""
+def shares_fallback(p: dict) -> dict:
+    """Dönem sonu (dolaşımdaki) hisse sayısı ile ağırlıklı ortalama hisse sayısı.
+    1) ikisinin de bulunduğu şirket ve rapor sayısı; 2) mutlak ve göreli farkların dağılımı; 3) farkın şirket büyüklüğü ve
+    hisse ihracı / geri alımla ilişkisi; 4) yedek (ağırlıklı ortalama) kullanılınca çerçevede etkilenen satırlar ve piyasa
+    değerine dayalı sıralamanın ne kadar değiştiği. Belirti seçimi ve model yok; yalnızca düzeltmenin etkisi ölçülür."""
     fin = fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate"])
-    out_ = fundamentals.shares_outstanding(fin)
     plain = fin[fin.segments == ""]
     w = plain[(plain.tag == "WeightedAverageNumberOfSharesOutstandingBasic") & (plain.qtrs > 0)]
     w = w[w.ddate == w.groupby("adsh").ddate.transform("max")].sort_values(["adsh", "qtrs"]).drop_duplicates("adsh")
-    o = fin[fin.tag.isin(fundamentals.SHARE_TAGS)].groupby("adsh").value.max()
-    both = w.set_index("adsh").value.to_frame("agirlikli").join(o.rename("donem_sonu"), how="inner")
-    both = both[(both.donem_sonu > 0) & (both.agirlikli > 0)]
-    r = both.agirlikli / both.donem_sonu - 1
-    have_out = set(fin[fin.tag.isin(fundamentals.SHARE_TAGS)].cik)
-    fb_ciks = set(out_.cik) - have_out
-    return {"karsilastirilan_rapor": int(len(r)), "fark_dagilimi": r.describe(percentiles=[0.01, 0.05, 0.25, 0.5, 0.75, 0.95, 0.99]).round(4).to_dict(),
-            "pay_5_icinde": float((r.abs() <= 0.05).mean()), "pay_20_disinda": float((r.abs() > 0.2).mean()),
-            "yedek_kullanan_sirket": int(len(fb_ciks)),
-            "not": "Ağırlıklı ortalama dönem içi bir ortalamadır, dönem sonu sayısıyla aynı şey değildir; kullanılıp kullanılmayacağı kullanıcı kararıdır."}
+    o = fundamentals.shares_outstanding(fin[fin.tag.isin(fundamentals.SHARE_TAGS) | (fin.tag == "__yok__")])  # yedeksiz dönem sonu sayısı
+    o_adsh = fin[fin.tag.isin(fundamentals.SHARE_TAGS)].groupby("adsh").agg(cik=("cik", "first"), accepted=("accepted", "first"))
+    o_val = fin[fin.tag.isin(fundamentals.SHARE_TAGS)].groupby("adsh").value.max()
+    both = w.set_index("adsh")[["cik", "accepted", "value"]].rename(columns={"value": "agirlikli"}).join(o_val.rename("donem_sonu"), how="inner")
+    both = both[(both.donem_sonu > 0) & (both.agirlikli > 0)].copy()
+    both["goreli"] = both.agirlikli / both.donem_sonu - 1
+    both["mutlak"] = (both.agirlikli - both.donem_sonu).abs()
+    # büyüklük: rapor anındaki piyasa değeri dilimi; ihraç/geri alım: dönem sonu sayısının bir yıl önceki rapora göre değişimi
+    both = both.sort_values(["cik", "accepted"])
+    both["yillik_degisim"] = both.groupby("cik").donem_sonu.pct_change(4, fill_method=None)
+    raw = p["raw"]
+    fri = to_friday(both.accepted)
+    ri = raw.index.searchsorted(fri.to_numpy()) - 1
+    ci = raw.columns.get_indexer(both.cik.astype(int).astype(str))
+    okk = (ri >= 0) & (ci >= 0)
+    px = np.full(len(both), np.nan)
+    px[okk] = raw.to_numpy()[ri[okk], ci[okk]]
+    both["piyasa_degeri"] = px * both.donem_sonu
+    both["buyukluk_dilimi"] = pd.qcut(both.piyasa_degeri.rank(method="first"), 5, labels=["en küçük", "2", "3", "4", "en büyük"])
+    both["sermaye_hareketi"] = pd.cut(both.yillik_degisim, [-np.inf, -0.03, 0.10, np.inf], labels=["geri alım (≤ −%3)", "durağan", "ihraç (≥ +%10)"])
+    by_size = both.groupby("buyukluk_dilimi", observed=True).goreli.apply(lambda x: x.abs().median()).round(4).to_dict()
+    by_cap = both.groupby("sermaye_hareketi", observed=True).goreli.apply(lambda x: x.abs().median()).round(4).to_dict()
+    # 4) çerçevede etki: yedek kullanılan şirketlerin satırları ve piyasa değeri sırasındaki değişim (ikisi de bulunan raporlarda simülasyon)
+    have_out = set(fin[fin.tag.isin(fundamentals.SHARE_TAGS)].cik.astype(str))
+    full = fundamentals.shares_outstanding(fin)
+    fb = set(full.cik.astype(str)) - have_out
+    df = pd.read_parquet(FRAME, columns=["tarih", "yil"])
+    rows_fb = df.index.astype(str).isin(fb)
+    sim = both.dropna(subset=["piyasa_degeri"]).copy()
+    sim["yil"] = pd.to_datetime(sim.accepted).dt.year
+    sim["pd_agirlikli"] = sim.piyasa_degeri * (1 + sim.goreli)
+    rank_shift = sim.groupby("yil").apply(lambda g: (g.piyasa_degeri.rank(pct=True) - g.pd_agirlikli.rank(pct=True)).abs().median())
+    return {
+        "1_ikisi_de_bulunan": {"sirket": int(both.cik.nunique()), "rapor": int(len(both))},
+        "2_fark_dagilimi": {"goreli": both.goreli.describe(percentiles=[0.01, 0.05, 0.25, 0.5, 0.75, 0.95, 0.99]).round(4).to_dict(),
+                            "mutlak_hisse_medyan": float(both.mutlak.median()), "pay_mutlak_5_icinde": float((both.goreli.abs() <= 0.05).mean()),
+                            "pay_mutlak_20_disinda": float((both.goreli.abs() > 0.2).mean())},
+        "3_iliski": {"buyukluk_dilimine_gore_medyan_mutlak_goreli_fark": {str(k): v for k, v in by_size.items()},
+                     "sermaye_hareketine_gore_medyan_mutlak_goreli_fark": {str(k): v for k, v in by_cap.items()}},
+        "4_cerceve_etkisi": {"yedek_kullanan_sirket": len(fb), "etkilenen_cerceve_satiri": int(rows_fb.sum()),
+                             "etkilenen_pay": float(rows_fb.mean()),
+                             "etkilenen_belirtiler": ["kucuk_boyut", "kazanc_getirisi", "serbest_nakit_getirisi", "defter_fiyat", "satis_fiyat",
+                                                      "favok_fd", "temettu_verimi", "nakit_piyasa", "altman_z", "hisse_sayisi_degisimi",
+                                                      "piotroski_f", "geri_alim_getirisi", "icerden_alim_tutar_piyasa_degeri", "devralma_olasiligi"],
+                             "simulasyon_piyasa_degeri_sirasi_medyan_mutlak_kayma": {int(k): round(float(v), 4) for k, v in rank_shift.items()},
+                             "simulasyon_notu": "İki ölçümün de bulunduğu raporlarda dönem sonu yerine ağırlıklı ortalama kullanılsaydı piyasa "
+                                                "değerinin yıl içi yüzdelik sırası ne kadar kayardı (0,01 = 1 yüzdelik puan)."},
+        "not": "Ağırlıklı ortalama dönem içi bir ortalamadır (EPS gibi dönemsel hesaplar için); piyasa değeri için doğru ölçü dönem sonu "
+               "sayısıdır. Yedeğin kullanılıp kullanılmayacağı kullanıcı kararıdır.",
+    }
 
 
 # --- Oranlar: bileşenlerden bağımsız yeniden hesap ------------------------------------------------------------
@@ -342,20 +383,14 @@ def exit_classes(p: dict) -> pd.DataFrame:
             rows.append({"cik": c, "sembol": r.symbol, "kaynak": "C", "neden": "D" if r.bankrupt else "E", "not": "panelde fiyat yok"})
             continue
         lw, lraw = rawser.index[-1], float(rawser.iloc[-1])
-        src = "C"
-        g = dmap.get(c)
-        if g is not None:
-            m = g[g.fri == lw]
-            if len(m) and (np.abs(m.close / lraw - 1) <= 0.01).any():
-                src = "A"
-        if src == "C":
-            f = fmap.get(r.symbol)
-            if f is not None:
-                m = f[f.fri == lw]
-                if len(m) and (np.abs(m.price / lraw - 1) <= 0.01).any():
-                    src = "B"
+        g, f = dmap.get(c), fmap.get(r.symbol)
+        ma = g[(g.fri == lw) & (np.abs(g.close / lraw - 1) <= 0.01)] if g is not None else []
+        mb = f[(f.fri == lw) & (np.abs(f.price / lraw - 1) <= 0.01)] if f is not None else []
+        src = "A" if len(ma) else ("B" if len(mb) else "C")
         rows.append({"cik": c, "sembol": r.symbol, "cikis": str(pd.Timestamp(r.end).date()), "son_fiyat_haftasi": str(lw.date()),
-                     "son_islem_fiyati": lraw, "kaynak": src, "neden": "D" if r.bankrupt else "E"})
+                     "son_islem_fiyati": lraw, "kaynak": src, "neden": "D" if r.bankrupt else "E",
+                     "a_aday": int(len(ma)), "b_aday": int(len(mb)), "ikisi_de_uydu": bool(len(ma) and len(mb)),
+                     "coklu_aday": bool(len(ma) > 1 or len(mb) > 1)})
     d = pd.DataFrame(rows)
     d.to_csv(config.ROOT / "reports" / "research" / "asama1_cikislar.csv", index=False)
     return d
@@ -400,7 +435,16 @@ def exits(p: dict, tab: dict) -> dict:
     d = pd.DataFrame(rows)
     yr = d.groupby(d.donem.str[:4])
     ann = {col: yr[col].apply(lambda x: np.prod(1 + x) - 1).mean() for col in d.columns if col[:2] in ("s1", "s2", "s3")}
+    n = len(cls)
     return {"siniflar": cls.groupby(["kaynak", "neden"]).size().rename("sirket").reset_index().to_dict(orient="records"),
+            "pay": {k: round(float((cls.kaynak == k).mean()), 4) for k in ("A", "B", "C")}, "sirket": int(n),
+            "ikisi_de_uydu": int(cls.get("ikisi_de_uydu", pd.Series(dtype=bool)).fillna(False).sum()),
+            "coklu_aday": int(cls.get("coklu_aday", pd.Series(dtype=bool)).fillna(False).sum()),
+            "tolerans_kurali": "Panelin son işlem fiyatı (bölünmeden arındırılmış ham kapanış, yuvarlanmamış) ile aday kaydın fiyatı "
+                               "(Yahoo kapanışı ya da FTD fiyatı, sent hassasiyetinde) arasında |aday/son − 1| ≤ 0,01; aynı Cuma haftası. "
+                               "Birden çok aday uyarsa kaynak yine doğrulanmış sayılır, kayıt 'çoklu aday' olarak işaretlenir.",
+            "sinir": "C grubunda verinin eksik olması ile gerçek ekonomik kayıp mevcut veriyle ayırt edilemez; satın alma ile borsadan "
+                     "atılma (E içinde) ayrımı da yapılamıyor.",
             "sinif_tanimi": exit_classes.__doc__,
             "evren_esit_agirlik_yillik": {k: round(float(v), 5) for k, v in ann.items()},
             "not": "Evren düzeyinde etki (model yok). s1/s2/s3 = son fiyat / son fiyat × 0,5 / 0; '_B' yalnızca FTD'si doğrulanan, '_C' yalnızca "
@@ -484,7 +528,7 @@ def main(parts: list[str]) -> dict:
     res = json.loads(OUT.read_text()) if OUT.exists() else {}
     p = panel.build()
     tab = dates_table(p)
-    steps = {"tarih": lambda: tab, "neweywest": nw_check, "kalem": line_items, "hisse_yedegi": shares_fallback, "bolunme": lambda: splits(p),
+    steps = {"tarih": lambda: tab, "neweywest": nw_check, "kalem": line_items, "hisse_yedegi": lambda: shares_fallback(p), "bolunme": lambda: splits(p),
              "oran": lambda: ratios_check(p), "eksik": missing, "cikis": lambda: exits(p, tab)}
     for k in parts:
         try:
