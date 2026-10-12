@@ -26,13 +26,25 @@ def _shares(p):
 
 
 # --- Bölünmeler ------------------------------------------------------------------------------------------------
+def split_type(r: float) -> str:
+    if r <= 0 or not np.isfinite(r) or r > 1000 or r < 1 / 1000:
+        return "bozuk kayıt"
+    if r >= 1.3:
+        return "bölünme"
+    if r <= 1 / 1.3:
+        return "ters bölünme"
+    return "küçük oranlı düzeltme (hisse temettüsü / ayrılma olası)"
+
+
 def splits(p: dict) -> dict:
+    """Yahoo bölünme kayıtlarındaki her olay için ayrı ayrı: oran geçerliliği, tarih (işlem fiyatı o hafta oranla sıçradı mı),
+    düzeltilmiş fiyat sürekliliği, hisse sayısı düzeltmesi (a), piyasa değeri sürekliliği (b), ilk kapak sayısı (c).
+    Tüm olaylar reports/research/asama1_bolunme.csv'ye yazılır; bozuk kayıtlar silinmez, sınıflandırılır."""
     sec = p["securities"].assign(cik=lambda x: x.cik.astype(str))
     act = sec[sec.status == "aktif"].drop_duplicates("symbol")[["symbol", "cik"]]
     ev = archive.load("prices", columns=["symbol", "date", "split_ratio"])
     ev = ev[ev.split_ratio.notna() & (ev.split_ratio != 1)].merge(act, on="symbol")
-    bad = ev[ev.split_ratio <= 0]
-    ev = ev[(ev.split_ratio > 0) & (ev.date >= "2010-01-01")]
+    ev = ev[ev.date >= "2010-01-01"]
     price, raw = p["price"], p["raw"]
     sh_long, shares = _shares(p)
     sh_long = sh_long.assign(cik=sh_long.cik.astype(str), fri=to_friday(sh_long.accepted))
@@ -42,50 +54,68 @@ def splits(p: dict) -> dict:
     idx = price.index
     rows = []
     for r in ev.itertuples():
-        c = r.cik
-        if c not in price.columns:
+        c, ratio = r.cik, float(r.split_ratio)
+        row = {"cik": c, "sembol": r.symbol, "tarih": str(r.date.date()), "oran": ratio, "tur": split_type(ratio)}
+        if row["tur"] == "bozuk kayıt" or c not in price.columns:
+            row["durum"] = "oran geçersiz" if row["tur"] == "bozuk kayıt" else "evrende değil"
+            rows.append(row)
             continue
-        i = idx.searchsorted(r.date)  # bölünme gününü içeren haftanın Cuması
+        i = idx.searchsorted(r.date)
         if i < 1 or i >= len(idx):
+            row["durum"] = "panel dışı tarih"
+            rows.append(row)
             continue
         t0, t1 = idx[i - 1], idx[i]
         g = by_cik.get(c, empty)
-        new_filing = ((g.fri > t0) & (g.fri <= t1)).any()
-        s0, s1 = shares.at[t0, c], shares.at[t1, c]
-        m0, m1 = mcap.at[t0, c], mcap.at[t1, c]
+        row["yeni_rapor_ayni_hafta"] = bool(((g.fri > t0) & (g.fri <= t1)).any())
         pr = price.at[t1, c] / price.at[t0, c] - 1
-        a = s1 / s0 / r.split_ratio - 1 if s0 and np.isfinite(s0) else np.nan
-        b = (m1 / m0 - 1) - pr if m0 and np.isfinite(m0) else np.nan
-        # (c) bölünmeden sonraki ilk raporun kapak sayısı ↔ bir hafta önceki düzeltilmiş sayımız
+        rr = raw.at[t1, c] / raw.at[t0, c] - 1
+        row["duz_fiyat_getirisi"] = pr
+        row["tarih_hatasi"] = (1 + rr) * ratio / (1 + pr) - 1 if np.isfinite(pr) and np.isfinite(rr) else np.nan  # 0: ham fiyat tam o hafta oranla değişti
+        s0, s1, m0, m1 = shares.at[t0, c], shares.at[t1, c], mcap.at[t0, c], mcap.at[t1, c]
+        row["hisse_once"], row["hisse_sonra"] = s0, s1
+        row["a_oran_hatasi"] = s1 / s0 / ratio - 1 if s0 and np.isfinite(s0) else np.nan
+        row["b_sureklilik_puan"] = (m1 / m0 - 1) - pr if m0 and np.isfinite(m0) else np.nan
         nxt = g[g.fri > t1].head(1)
-        cc = np.nan
-        if len(nxt):
+        row["c_kapak_farki"] = np.nan
+        if len(nxt) and (nxt.fri.iloc[0] - t1).days <= 200:
             j = idx.searchsorted(nxt.fri.iloc[0]) - 1
-            if 0 <= j < len(idx) and (nxt.fri.iloc[0] - t1).days <= 200:
-                ours = shares.at[idx[j], c]
-                cc = ours / nxt.value.iloc[0] - 1 if ours and np.isfinite(ours) else np.nan
-        rows.append({"cik": c, "sembol": r.symbol, "tarih": str(r.date.date()), "oran": float(r.split_ratio), "yeni_rapor_ayni_hafta": bool(new_filing),
-                     "a_oran_hatasi": a, "b_sureklilik_puan": b, "c_kapak_farki": cc})
+            ours = shares.at[idx[j], c] if 0 <= j < len(idx) else np.nan
+            if ours and np.isfinite(ours):
+                row["c_kapak_farki"] = ours / nxt.value.iloc[0] - 1
+        row["durum"] = "ölçüldü"
+        rows.append(row)
     d = pd.DataFrame(rows)
-    usable = d[~d.yeni_rapor_ayni_hafta]
-    ok_a = usable.a_oran_hatasi.abs() <= 0.01
-    ok_b = usable.b_sureklilik_puan.abs() <= 0.02
-    ok_c = d.c_kapak_farki.dropna().abs() <= 0.02
-    res = {
-        "olay": int(len(d)), "bozuk_oran_kaydi": int(len(bad)), "ayni_hafta_yeni_rapor_disarida": int(d.yeni_rapor_ayni_hafta.sum()),
-        "a": {"olcu": "hisse sayısı düzeltmesi / bilinen oran", "kosul": "±%1, ≥ %99", "olcum": int(usable.a_oran_hatasi.notna().sum()),
-              "saglayan_pay": float(ok_a[usable.a_oran_hatasi.notna()].mean())},
-        "b": {"olcu": "piyasa değeri değişimi − düzeltilmiş fiyat getirisi", "kosul": "≤ 2 puan, ≥ %99",
-              "olcum": int(usable.b_sureklilik_puan.notna().sum()), "saglayan_pay": float(ok_b[usable.b_sureklilik_puan.notna()].mean())},
-        "c": {"olcu": "bölünme sonrası ilk kapak sayısı / bizim düzeltilmiş sayı", "kosul": "±%2, ≥ %99",
-              "olcum": int(ok_c.size), "saglayan_pay": float(ok_c.mean()) if ok_c.size else None},
-        "not": "(a) yapısal olarak döngüseldir: düzeltme oranı fiyat serisindeki bölünmeden gelir; bağımsız kanıt (b) ve özellikle (c)'dir.",
-    }
-    for k, col, tol in (("a", "a_oran_hatasi", 0.01), ("b", "b_sureklilik_puan", 0.02)):
-        bad_rows = usable[usable[col].abs() > tol]
-        res[k]["sapanlar"] = bad_rows.head(40).round(4).to_dict(orient="records")
-    res["c"]["sapanlar"] = d[d.c_kapak_farki.abs() > 0.02].head(40).round(4).to_dict(orient="records")
-    res["c"]["sapan_dagilim"] = d.c_kapak_farki.dropna().describe(percentiles=[0.01, 0.05, 0.5, 0.95, 0.99]).round(4).to_dict()
+    d.to_csv(config.ROOT / "reports" / "research" / "asama1_bolunme.csv", index=False)
+    checks = {"tarih": ("tarih_hatasi", 0.02, "ham fiyat bölünme haftasında oranla değişti (±%2)"),
+              "fiyat": ("duz_fiyat_getirisi", 0.5, "düzeltilmiş fiyatta bölünme haftası sıçraması yok (|getiri| < %50)"),
+              "a": ("a_oran_hatasi", 0.01, "hisse sayısı düzeltmesi = bilinen oran (±%1)"),
+              "b": ("b_sureklilik_puan", 0.02, "piyasa değeri değişimi = düzeltilmiş fiyat getirisi (≤ 2 puan)"),
+              "c": ("c_kapak_farki", 0.02, "bölünme sonrası ilk kapak sayısı = bizim düzeltilmiş sayımız (±%2)")}
+    res = {"olay_toplam": int(len(d)), "tur_dagilimi": d.tur.value_counts().to_dict(), "durum_dagilimi": d.durum.value_counts().to_dict(),
+           "not": "(a) yapısal olarak döngüseldir (düzeltme oranı fiyat serisinden gelir); bağımsız kanıt (b) ve özellikle (c)'dir. "
+                  "Aynı hafta yeni rapor gelen olaylarda (a) ve (b) ayrıştırılamaz, ayrı sayılır. Küçük oranlı düzeltmelerde hisse sayısı "
+                  "değişmediği için (a) uygulanmaz.",
+           "turler": {}}
+    m = d[d.durum == "ölçüldü"]
+    for tur, g in m.groupby("tur"):
+        out = {"olay": int(len(g)), "ayni_hafta_yeni_rapor": int(g.yeni_rapor_ayni_hafta.sum())}
+        for k, (col, tol, desc) in checks.items():
+            gg = g if k in ("tarih", "fiyat", "c") else g[~g.yeni_rapor_ayni_hafta]
+            if tur.startswith("küçük") and k == "a":
+                continue
+            v = gg[col].dropna()
+            ok = v.abs() <= tol if k != "fiyat" else v.abs() < tol
+            out[k] = {"kontrol": desc, "olcum": int(len(v)), "basarisiz": int((~ok).sum()), "saglayan_pay": float(ok.mean()) if len(v) else None}
+        res["turler"][tur] = out
+    # bölünmesiz hisselerde düzeltme değer değiştirmemeli
+    from radar.research.pit import FUNDAMENTAL_MAX_AGE, pit
+    split_ciks = set(d.cik)
+    others = [c for c in price.columns if c not in split_ciks]
+    plain_w = pit(sh_long.rename(columns={"accepted": "date"})[["cik", "date", "value"]], idx, pd.Index(others), FUNDAMENTAL_MAX_AGE)
+    diff = (shares[others] / plain_w - 1).abs()
+    res["bolunmesiz"] = {"hisse": len(others), "hucre": int(diff.notna().sum().sum()), "farkli_hucre": int((diff > 1e-9).sum().sum()),
+                         "en_buyuk_fark": float(np.nanmax(diff.to_numpy())) if diff.notna().any().any() else 0.0}
     return res
 
 
@@ -102,6 +132,9 @@ KNOWN = {  # (cik, mali yıl sonu): {kalem: değer}
     ("1045810", "2020-01-26"): {"Gelir": 10918, "Faaliyet kârı": 2846, "Net kâr": 2796, "Varlıklar": 17315, "Özsermaye": 12204},
     ("1045810", "2024-01-28"): {"Gelir": 60922, "Faaliyet kârı": 32972, "Net kâr": 29760, "Varlıklar": 65728, "Özsermaye": 42978},
 }
+TABLO = {"Gelir": ("gelir tablosu", "dönem içi, 12 ay"), "Faaliyet kârı": ("gelir tablosu", "dönem içi, 12 ay"),
+         "Net kâr": ("gelir tablosu", "dönem içi, 12 ay"), "Varlıklar": ("bilanço", "dönem sonu"), "Özsermaye": ("bilanço", "dönem sonu")}
+SIRKET = {"320193": "Apple", "789019": "Microsoft", "21344": "Coca-Cola", "34088": "Exxon Mobil", "1045810": "NVIDIA"}
 TAGS = {"Gelir": ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "SalesRevenueNet",
                   "RevenueFromContractWithCustomerIncludingAssessedTax"],
         "Faaliyet kârı": ["OperatingIncomeLoss"], "Net kâr": ["NetIncomeLoss", "ProfitLoss"], "Varlıklar": ["Assets"],
@@ -109,7 +142,7 @@ TAGS = {"Gelir": ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedT
 
 
 def line_items() -> dict:
-    fin = fundamentals.plain(fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate", "form"]))
+    fin = fundamentals.plain(fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate", "form", "uom"]))
     fin = fin.assign(cik=fin.cik.astype(str))
     rows = []
     for (cik, fy), items in KNOWN.items():
@@ -121,11 +154,36 @@ def line_items() -> dict:
             cand = cand.assign(prio=cand.tag.map({t: i for i, t in enumerate(TAGS[k])})).sort_values(["prio", "accepted"])
             got = float(cand.value.iloc[0]) / 1e6 if len(cand) else np.nan
             err = got / exp - 1 if np.isfinite(got) else np.nan
-            rows.append({"cik": cik, "donem": fy, "kalem": k, "10-K": exp, "arsiv": round(got, 1) if np.isfinite(got) else None,
-                         "fark": None if not np.isfinite(err) else round(err, 5), "gecti": bool(np.isfinite(err) and abs(err) <= 0.005),
-                         "etiket": cand.tag.iloc[0] if len(cand) else None})
+            top = cand.iloc[0] if len(cand) else None
+            rows.append({"sirket": SIRKET[cik], "cik": cik, "mali_yil_sonu": fy, "kalem": k, "kaynak": f"{SIRKET[cik]} 10-K, mali yıl {fy[:4]}, {TABLO[k][0]}",
+                         "olcum_niteligi": TABLO[k][1], "birim": "milyon USD", "10-K": exp,
+                         "arsiv_etiketi": top.tag if top is not None else None, "arsiv_belge": top.adsh if top is not None else None,
+                         "arsiv_belge_turu": top.form if top is not None else None, "arsiv_birimi": top.uom if top is not None else None,
+                         "arsiv": round(got, 1) if np.isfinite(got) else None,
+                         "fark": None if not np.isfinite(err) else round(err, 5), "gecti": bool(np.isfinite(err) and abs(err) <= 0.005)})
     d = pd.DataFrame(rows)
-    return {"kosul": "±%0,5", "olcum": int(len(d)), "gecen": int(d.gecti.sum()), "satirlar": d.to_dict(orient="records")}
+    return {"kosul": "±%0,5", "olcum": int(len(d)), "gecen": int(d.gecti.sum()), "satirlar": d.to_dict(orient="records"),
+            "sinir": "5 şirket × 2 yıl × en çok 5 kalem: arşivin bu kalemleri doğru okuduğunu gösterir; tüm veri kümesinin doğruluğunu kanıtlamaz."}
+
+
+def shares_fallback() -> dict:
+    """Ağırlıklı ortalama hisse sayısı, dönem sonu (dolaşımdaki) sayının yerine kullanıldığında ne kadar hata yapar?
+    Her ikisini de veren raporlarda karşılaştırılır; yedeğin kaç şirket ve raporda devreye girdiği sayılır."""
+    fin = fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate"])
+    out_ = fundamentals.shares_outstanding(fin)
+    plain = fin[fin.segments == ""]
+    w = plain[(plain.tag == "WeightedAverageNumberOfSharesOutstandingBasic") & (plain.qtrs > 0)]
+    w = w[w.ddate == w.groupby("adsh").ddate.transform("max")].sort_values(["adsh", "qtrs"]).drop_duplicates("adsh")
+    o = fin[fin.tag.isin(fundamentals.SHARE_TAGS)].groupby("adsh").value.max()
+    both = w.set_index("adsh").value.to_frame("agirlikli").join(o.rename("donem_sonu"), how="inner")
+    both = both[(both.donem_sonu > 0) & (both.agirlikli > 0)]
+    r = both.agirlikli / both.donem_sonu - 1
+    have_out = set(fin[fin.tag.isin(fundamentals.SHARE_TAGS)].cik)
+    fb_ciks = set(out_.cik) - have_out
+    return {"karsilastirilan_rapor": int(len(r)), "fark_dagilimi": r.describe(percentiles=[0.01, 0.05, 0.25, 0.5, 0.75, 0.95, 0.99]).round(4).to_dict(),
+            "pay_5_icinde": float((r.abs() <= 0.05).mean()), "pay_20_disinda": float((r.abs() > 0.2).mean()),
+            "yedek_kullanan_sirket": int(len(fb_ciks)),
+            "not": "Ağırlıklı ortalama dönem içi bir ortalamadır, dönem sonu sayısıyla aynı şey değildir; kullanılıp kullanılmayacağı kullanıcı kararıdır."}
 
 
 # --- Oranlar: bileşenlerden bağımsız yeniden hesap ------------------------------------------------------------
@@ -138,7 +196,7 @@ def ratios_check(p: dict, n: int = 200) -> dict:
     rng = np.random.default_rng(20261012)
     dates = p["price"].index[(p["price"].index >= "2012-01-01") & (p["price"].index <= "2024-12-31")]
     cols = p["price"].columns
-    sub_cols = pd.Index(rng.choice(cols, size=min(1500, len(cols)), replace=False))
+    sub_cols = pd.Index(rng.choice(cols, size=min(600, len(cols)), replace=False))
     sub = {"price": p["price"][sub_cols], "raw": p["raw"][sub_cols]}
     rs = R.signals(sub)
     r1s = r1(sub)
@@ -154,34 +212,59 @@ def ratios_check(p: dict, n: int = 200) -> dict:
         f = f[f.ddate == f.ddate.max()]
         f = f.assign(prio=f.tag.map({x: i for i, x in enumerate(tags)})).sort_values("prio")
         return float(f.value.iloc[0])
-    checks = {"brut_marj": lambda c, t: latest(c, t, ["GrossProfit"], 4) / latest(c, t, R.REVENUE, 4),
-              "faaliyet_marji": lambda c, t: latest(c, t, ["OperatingIncomeLoss"], 4) / latest(c, t, R.REVENUE, 4),
-              "cari_oran": lambda c, t: latest(c, t, ["AssetsCurrent"], 0) / latest(c, t, ["LiabilitiesCurrent"], 0),
-              "kazanc_getirisi": lambda c, t: latest(c, t, ["NetIncomeLoss", "ProfitLoss"], 4) / mcap.at[t, c],
-              "defter_fiyat": lambda c, t: latest(c, t, R.EQUITY, 0) / mcap.at[t, c]}
+    def div(a, b):
+        if b == 0:
+            raise ZeroDivisionError
+        return a / b
+    checks = {"brut_marj": lambda c, t: div(latest(c, t, ["GrossProfit"], 4), latest(c, t, R.REVENUE, 4)),
+              "faaliyet_marji": lambda c, t: div(latest(c, t, ["OperatingIncomeLoss"], 4), latest(c, t, R.REVENUE, 4)),
+              "cari_oran": lambda c, t: div(latest(c, t, ["AssetsCurrent"], 0), latest(c, t, ["LiabilitiesCurrent"], 0)),
+              "kazanc_getirisi": lambda c, t: div(latest(c, t, ["NetIncomeLoss", "ProfitLoss"], 4), mcap.at[t, c]),
+              "defter_fiyat": lambda c, t: div(latest(c, t, R.EQUITY, 0), mcap.at[t, c])}
     src = {k: (r1s[k] if k == "kazanc_getirisi" else rs[k]) for k in checks}
     out = {}
+    clip = {"brut_marj": (-2, 1), "faaliyet_marji": (-5, 1), "cari_oran": (0, 20), "kazanc_getirisi": (-2, 2), "defter_fiyat": (-5, 5)}
     for k, fn in checks.items():
-        res, tries = [], 0
-        while len(res) < n and tries < n * 20:
-            tries += 1
+        res, cnt = [], {"denenen": 0, "bizde_eksik": 0, "bagimsiz_eksik_bilesen": 0, "sifir_payda": 0, "kirpma_disi": 0,
+                        "ikisi_de_eksik": 0, "hata": 0}
+        while len(res) < n and cnt["denenen"] < n * 30:
+            cnt["denenen"] += 1
             c, t = str(rng.choice(sub_cols)), dates[rng.integers(len(dates))]
             ours = src[k].at[t, c] if c in src[k] else np.nan
-            if not np.isfinite(ours):
-                continue
             try:
                 ind = fn(c, t)
+            except ZeroDivisionError:
+                cnt["sifir_payda"] += 1
+                continue
             except Exception:
+                cnt["hata"] += 1
                 continue
-            if not np.isfinite(ind) or ind == 0:
+            if np.isfinite(ind) and ind == 0 and k in ("kazanc_getirisi",):
+                pass
+            if not np.isfinite(ours) and not np.isfinite(ind):
+                cnt["ikisi_de_eksik"] += 1
                 continue
-            res.append({"cik": c, "tarih": str(t.date()), "bizim": float(ours), "bagimsiz": float(ind), "fark": float(ours / ind - 1)})
+            if not np.isfinite(ours):
+                cnt["bizde_eksik"] += 1  # bağımsız hesap var, bizde yok: kapsama farkı
+                continue
+            if not np.isfinite(ind):
+                cnt["bagimsiz_eksik_bilesen"] += 1
+                continue
+            lo, hi = clip[k]
+            if not (lo < ind < hi):
+                cnt["kirpma_disi"] += 1  # bizde kırpılmış uç değer; karşılaştırılmaz
+                continue
+            res.append({"cik": c, "tarih": str(t.date()), "bizim": float(ours), "bagimsiz": float(ind),
+                        "mutlak_hata": float(abs(ours - ind)), "goreli_hata": float(ours / ind - 1) if ind else np.nan})
         d = pd.DataFrame(res)
-        clipped = {"brut_marj": (-2, 1), "faaliyet_marji": (-5, 1), "cari_oran": (0, 20), "kazanc_getirisi": (-2, 2), "defter_fiyat": (-5, 5)}[k]
-        d = d[(d.bagimsiz > clipped[0]) & (d.bagimsiz < clipped[1])]  # kırpılan uç değerler karşılaştırılmaz
-        ok = d.fark.abs() <= 0.01
-        out[k] = {"kosul": "±%1, ≥ %99", "olcum": int(len(d)), "saglayan_pay": float(ok.mean()) if len(d) else None,
+        ok = d.goreli_hata.abs() <= 0.01
+        out[k] = {"kosul": "göreli ±%1, karşılaştırılanların ≥ %99'u", "sayim": cnt, "karsilastirilan": int(len(d)),
+                  "tolerans_icinde": int(ok.sum()), "saglayan_pay": float(ok.mean()) if len(d) else None,
+                  "goreli_hata_dagilimi": d.goreli_hata.abs().describe(percentiles=[0.5, 0.9, 0.99]).round(5).to_dict() if len(d) else {},
+                  "mutlak_hata_medyan": float(d.mutlak_hata.median()) if len(d) else None,
                   "sapanlar": d[~ok].head(15).round(5).to_dict(orient="records")}
+    out["not"] = ("Örneklem sabit tohumla (20261012) rastgele şirket-tarih çiftlerinden; eksik bileşenli ve uç değerli kayıtlar atılmaz, "
+                  "ayrı sayılır. Payda sıfırsa bağımsız hesap 'sıfır payda' sayılır (bizim kodda payda > 0 şartı var).")
     return out
 
 
@@ -195,12 +278,21 @@ def dates_table(p: dict) -> dict:
             if len(first):
                 rows.append(first[0])
     rows = pd.DatetimeIndex(rows)
-    tab = pd.DataFrame({"baslangic": rows[:-1], "bitis": rows[1:]})
-    tab["hafta"] = ((tab.bitis - tab.baslangic).dt.days // 7).astype(int)
-    overlap = (tab.baslangic.iloc[1:].to_numpy() < tab.bitis.iloc[:-1].to_numpy()).sum()
-    return {"donem": int(len(tab)), "hafta_dagilimi": tab.hafta.value_counts().sort_index().to_dict(), "cakisma": int(overlap),
-            "13_haftadan_kisa": int((tab.hafta < 13).sum()),
-            "tablo": [{"baslangic": str(a.date()), "bitis": str(b.date()), "hafta": int(h)} for a, b, h in tab.itertuples(index=False)]}
+    tab = pd.DataFrame({"olcum_tarihi": rows[:-1], "sonraki_olcum": rows[1:]})
+    tab["veri_kesim_fiyat"] = tab.olcum_tarihi  # o Cuma'nın kapanışı
+    tab["veri_kesim_sec"] = tab.olcum_tarihi - pd.Timedelta(days=1)  # SEC: Perşembe gün sonuna kadar kabul edilenler (to_friday kuralı)
+    tab["getiri_baslangic"] = tab.olcum_tarihi
+    tab["getiri_bitis"] = tab.sonraki_olcum
+    tab["hafta"] = ((tab.getiri_bitis - tab.getiri_baslangic).dt.days // 7).astype(int)
+    tab["onceki_ile_cakisma_gun"] = [0] + [max(0, (a - b).days) for a, b in zip(tab.getiri_bitis.iloc[:-1], tab.getiri_baslangic.iloc[1:])]
+    tab["sabit_13h_olsaydi_cakisma_gun"] = [0] + [max(0, (a + pd.Timedelta(weeks=13) - b).days)
+                                                  for a, b in zip(tab.getiri_baslangic.iloc[:-1], tab.getiri_baslangic.iloc[1:])]
+    fmt = lambda x: str(pd.Timestamp(x).date())
+    return {"donem": int(len(tab)), "hafta_dagilimi": tab.hafta.value_counts().sort_index().to_dict(),
+            "cakisma": int((tab.onceki_ile_cakisma_gun > 0).sum()),
+            "sabit_13_hafta_olsaydi_cakisan": int((tab.sabit_13h_olsaydi_cakisma_gun > 0).sum()),
+            "not": "Pencere çakışması ile veri sızıntısı ayrı sorunlardır; sızıntı belirti_dogrulama (T4 zamanlama, T5 sızıntı) ile ayrıca sınanır.",
+            "tablo": [{k: (fmt(v) if isinstance(v, pd.Timestamp) else int(v)) for k, v in r.items()} for r in tab.to_dict(orient="records")]}
 
 
 # --- Eksik veri dağılımı --------------------------------------------------------------------------------------
@@ -223,41 +315,96 @@ def missing() -> dict:
 
 
 # --- Çıkış senaryoları ----------------------------------------------------------------------------------------
+def exit_classes(p: dict) -> pd.DataFrame:
+    """Her borsadan çıkan şirket için son geçerli fiyatın kaynağı ve çıkış nedeni.
+    Fiyat kaynağı: A = son fiyat günlük fiyat arşivinde (Yahoo, borsadan çıkmışlar) aynı hafta ve ±%1 fiyatla bulundu;
+    B = son fiyat bir SEC FTD kaydında aynı hafta ve ±%1 fiyatla bulundu (kaynak doğrulandı, kayıt seyrek);
+    C = kaynak doğrulanamadı. Neden: D = iflas (8-K 1.03; ön kayıt gereği çıkış değeri 0), E = diğer çıkışlar
+    (satın alma, birleşme, borsa değişikliği vb.; ayrım mevcut veriyle yapılamıyor)."""
+    price, sec = p["price"], p["securities"]
+    s = sec.assign(cik=sec.cik.astype(str)).drop_duplicates("cik", keep="last").set_index("cik")
+    gone = s[s.status == "çıktı"]
+    daily = archive.load("prices_exited", columns=["cik", "date", "close", "adjclose"])
+    daily = daily.assign(cik=daily.cik.astype(str), fri=to_friday(daily.date - pd.Timedelta(days=1)))
+    dmap = {c: g for c, g in daily.groupby("cik")}
+    ftd = archive.load("ftd", columns=["settle_date", "symbol", "price"])
+    ftd = ftd[ftd.price > 0]
+    ftd = ftd.assign(date=ftd.settle_date - pd.offsets.BDay(1))
+    ftd = ftd.assign(fri=to_friday(ftd.date - pd.Timedelta(days=1)))
+    fmap = {sym: g for sym, g in ftd.groupby("symbol")}
+    rows = []
+    for c, r in gone.iterrows():
+        if c not in price.columns:
+            continue
+        ser = price[c][price.index <= r.end + pd.Timedelta(days=10)].dropna()
+        rawser = p["raw"][c][p["raw"].index <= r.end + pd.Timedelta(days=10)].dropna()
+        if ser.empty:
+            rows.append({"cik": c, "sembol": r.symbol, "kaynak": "C", "neden": "D" if r.bankrupt else "E", "not": "panelde fiyat yok"})
+            continue
+        lw, lraw = rawser.index[-1], float(rawser.iloc[-1])
+        src = "C"
+        g = dmap.get(c)
+        if g is not None:
+            m = g[g.fri == lw]
+            if len(m) and (np.abs(m.close / lraw - 1) <= 0.01).any():
+                src = "A"
+        if src == "C":
+            f = fmap.get(r.symbol)
+            if f is not None:
+                m = f[f.fri == lw]
+                if len(m) and (np.abs(m.price / lraw - 1) <= 0.01).any():
+                    src = "B"
+        rows.append({"cik": c, "sembol": r.symbol, "cikis": str(pd.Timestamp(r.end).date()), "son_fiyat_haftasi": str(lw.date()),
+                     "son_islem_fiyati": lraw, "kaynak": src, "neden": "D" if r.bankrupt else "E"})
+    d = pd.DataFrame(rows)
+    d.to_csv(config.ROOT / "reports" / "research" / "asama1_cikislar.csv", index=False)
+    return d
+
+
 def exits(p: dict, tab: dict) -> dict:
-    price, dv, sec = p["price"], p["dollar_volume"], p["securities"]
+    price, sec = p["price"], p["securities"]
+    cls = exit_classes(p).set_index("cik")
     s = sec.assign(cik=sec.cik.astype(str)).drop_duplicates("cik", keep="last").set_index("cik").reindex(price.columns)
-    gone = s.status.to_numpy() == "çıktı"
     member = panel.membership(sec, price.index, price.columns) & price.notna()
     rows = []
     for w in tab["tablo"]:
-        t0, t1 = pd.Timestamp(w["baslangic"]), pd.Timestamp(w["bitis"])
+        t0, t1 = pd.Timestamp(w["getiri_baslangic"]), pd.Timestamp(w["getiri_bitis"])
         if t0.year > 2024:
             continue
         u = member.loc[t0] & (p["raw"].loc[t0] >= 1)
         cols = price.columns[u.to_numpy()]
         end = s.end.reindex(cols)
-        ex = cols[gone[price.columns.get_indexer(cols)] & (end > t0).to_numpy() & (end <= t1).to_numpy()]
-        res = {}
+        ex = [c for c in cols[(end > t0).to_numpy() & (end <= t1).to_numpy()] if c in cls.index]
+        base = price.loc[t1, cols] / price.loc[t0, cols] - 1
+        ev = {}
+        for c in ex:
+            ser = price[c][(price.index > t0) & (price.index <= s.at[c, "end"] + pd.Timedelta(days=10))].dropna()
+            last = ser.iloc[-1] if len(ser) else price.at[t0, c]
+            ev[c] = (last / price.at[t0, c] - 1, cls.at[c, "kaynak"], cls.at[c, "neden"])
+        out = {"donem": w["getiri_baslangic"], "evren": int(len(cols)), "cikan": len(ex)}
+        for k in ("A", "B", "C"):
+            out[f"cikan_{k}"] = sum(1 for v in ev.values() if v[1] == k and v[2] == "E")
+        out["cikan_D"] = sum(1 for v in ev.values() if v[2] == "D")
         for name, mult in (("s1", 1.0), ("s2", 0.5), ("s3", 0.0)):
-            r = price.loc[t1, cols] / price.loc[t0, cols] - 1
-            for c in ex:
-                before = price[c][(price.index > t0) & (price.index <= s.at[c, "end"] + pd.Timedelta(days=10))].dropna()
-                last = before.iloc[-1] if len(before) else price.at[t0, c]
-                lastw = before.index[-1] if len(before) else t0
-                ftd = pd.isna(dv.at[lastw, c])
-                if s.at[c, "bankrupt"]:
-                    val = 0.0
-                else:
-                    val = last * (mult if ftd else 1.0)
-                r[c] = val / price.at[t0, c] - 1
-            res[name] = float(r.mean())
-        n_ftd = sum(1 for c in ex if not s.at[c, "bankrupt"])
-        rows.append({"donem": w["baslangic"], "evren": int(len(cols)), "cikan": int(len(ex)), "ftd_fiyatli_cikis_ust_sinir": n_ftd, **res})
+            for which in ("BC", "B", "C"):
+                r = base.copy()
+                for c, (ret, src, why) in ev.items():
+                    if why == "D":
+                        r[c] = -1.0
+                    elif src in which:
+                        r[c] = (1 + ret) * mult - 1  # alış fiyatına göre: son fiyat × çarpan
+                    else:
+                        r[c] = ret
+                out[f"{name}_{which}"] = float(r.mean())
+        rows.append(out)
     d = pd.DataFrame(rows)
-    yr = d.groupby(d.donem.str[:4]).agg(s1=("s1", lambda x: np.prod(1 + x) - 1), s2=("s2", lambda x: np.prod(1 + x) - 1),
-                                        s3=("s3", lambda x: np.prod(1 + x) - 1), cikan=("cikan", "sum"))
-    return {"not": "Evrenin eşit ağırlıklı çeyrek getirisi; senaryolar yalnızca iflas dışı ve son fiyatı hacimsiz (FTD) çıkışları değiştirir.",
-            "yillik_ortalama": {k: float(yr[k].mean()) for k in ("s1", "s2", "s3")}, "yillar": yr.round(4).to_dict(orient="index"),
+    yr = d.groupby(d.donem.str[:4])
+    ann = {col: yr[col].apply(lambda x: np.prod(1 + x) - 1).mean() for col in d.columns if col[:2] in ("s1", "s2", "s3")}
+    return {"siniflar": cls.groupby(["kaynak", "neden"]).size().rename("sirket").reset_index().to_dict(orient="records"),
+            "sinif_tanimi": exit_classes.__doc__,
+            "evren_esit_agirlik_yillik": {k: round(float(v), 5) for k, v in ann.items()},
+            "not": "Evren düzeyinde etki (model yok). s1/s2/s3 = son fiyat / son fiyat × 0,5 / 0; '_B' yalnızca FTD'si doğrulanan, '_C' yalnızca "
+                   "kaynağı belirsiz, '_BC' ikisi birden değiştirilir. Portföy düzeyindeki etki 3a aşamasında raporlanır.",
             "donemler": d.round(5).to_dict(orient="records")}
 
 
@@ -277,7 +424,42 @@ def newey_west(y: np.ndarray, X: np.ndarray, lags: int = 4) -> tuple[np.ndarray,
     return b, np.sqrt(np.diag(V))
 
 
+def nw_loop(y, X, lags):
+    """Bağımsız uygulama: açık döngülerle toplam (matris kısayolu yok)."""
+    A = np.column_stack([np.ones(len(y)), X])
+    b = np.linalg.lstsq(A, y, rcond=None)[0]
+    e = y - A @ b
+    k = A.shape[1]
+    S = np.zeros((k, k))
+    for t in range(len(y)):
+        S += e[t] ** 2 * np.outer(A[t], A[t])
+    for L in range(1, lags + 1):
+        w = 1 - L / (lags + 1)
+        for t in range(L, len(y)):
+            S += w * e[t] * e[t - L] * (np.outer(A[t], A[t - L]) + np.outer(A[t - L], A[t]))
+    Ai = np.linalg.inv(A.T @ A)
+    return np.sqrt(np.diag(Ai @ S @ Ai))
+
+
 def nw_check() -> dict:
+    """Elle örnek + rastgele durumlar: gecikme 0–6, gözlem 8–80, 1–6 açıklayıcı; matris uygulaması döngülü uygulamayla aynı olmalı.
+    Gecikme 0'da sonuç White (değişen varyansa dayanıklı) hatasına eşit olmalı."""
+    rng = np.random.default_rng(20261012)
+    cases, fails = 0, []
+    for lags in range(0, 7):
+        for n in (8, 20, 48, 80):
+            for k in (1, 3, 6):
+                if n <= k + 2 + lags:
+                    continue
+                X = rng.normal(size=(n, k))
+                y = X @ rng.normal(size=k) + np.cumsum(rng.normal(size=n)) * 0.3  # seri korelasyonlu hata
+                _, se = newey_west(y, X, lags)
+                se2 = nw_loop(y, X, lags)
+                cases += 1
+                if not np.allclose(se, se2, rtol=1e-10, atol=1e-12):
+                    fails.append({"gecikme": lags, "gozlem": n, "aciklayici": k})
+    
+
     """Elle hesaplanabilir örnek: tek değişkenli, 6 gözlem, gecikme 1 — matris formülüyle döngülü toplam formülü aynı olmalı."""
     y = np.array([1.0, 2.0, 1.5, 3.0, 2.5, 4.0])
     x = np.array([0.0, 1.0, 1.0, 2.0, 2.0, 3.0])
@@ -291,15 +473,18 @@ def nw_check() -> dict:
         S += 0.5 * e[t] * e[t - 1] * (np.outer(A[t], A[t - 1]) + np.outer(A[t - 1], A[t]))
     Ai = np.linalg.inv(A.T @ A)
     se_manual = np.sqrt(np.diag(Ai @ S @ Ai))
-    return {"katsayi": b.round(6).tolist(), "se_fonksiyon": se.round(8).tolist(), "se_elle": se_manual.round(8).tolist(),
-            "gecti": bool(np.allclose(se, se_manual))}
+    return {"elle_ornek": {"katsayi": b.round(6).tolist(), "se_fonksiyon": se.round(8).tolist(), "se_elle": se_manual.round(8).tolist(),
+                           "gecti": bool(np.allclose(se, se_manual))},
+            "rastgele_durum": cases, "basarisiz_durum": fails,
+            "gecti": bool(np.allclose(se, se_manual)) and not fails,
+            "sinir": "Uygulamanın formülle tutarlılığını gösterir; çok küçük örneklemde HAC hatalarının kendisi yanlı olabilir (yöntem sınırı)."}
 
 
 def main(parts: list[str]) -> dict:
     res = json.loads(OUT.read_text()) if OUT.exists() else {}
     p = panel.build()
     tab = dates_table(p)
-    steps = {"tarih": lambda: tab, "neweywest": nw_check, "kalem": line_items, "bolunme": lambda: splits(p),
+    steps = {"tarih": lambda: tab, "neweywest": nw_check, "kalem": line_items, "hisse_yedegi": shares_fallback, "bolunme": lambda: splits(p),
              "oran": lambda: ratios_check(p), "eksik": missing, "cikis": lambda: exits(p, tab)}
     for k in parts:
         try:
@@ -313,4 +498,4 @@ def main(parts: list[str]) -> dict:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1].split(",") if len(sys.argv) > 1 else ["tarih", "neweywest", "kalem", "bolunme", "oran", "eksik", "cikis"])
+    main(sys.argv[1].split(",") if len(sys.argv) > 1 else ["tarih", "neweywest", "kalem", "hisse_yedegi", "bolunme", "oran", "eksik", "cikis"])

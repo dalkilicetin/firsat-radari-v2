@@ -787,5 +787,1247 @@
     "etiket": "StockholdersEquity"
    }
   ]
+ },
+ "bolunme": {
+  "olay": 3434,
+  "bozuk_oran_kaydi": 0,
+  "ayni_hafta_yeni_rapor_disarida": 176,
+  "a": {
+   "olcu": "hisse sayısı düzeltmesi / bilinen oran",
+   "kosul": "±%1, ≥ %99",
+   "olcum": 2424,
+   "saglayan_pay": 0.898102310231023,
+   "sapanlar": [
+    {
+     "cik": "8670",
+     "sembol": "ADP",
+     "tarih": "2014-10-01",
+     "oran": 1.139,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.122,
+     "b_sureklilik_puan": -0.126,
+     "c_kapak_farki": -0.0033
+    },
+    {
+     "cik": "1822523",
+     "sembol": "AFCG",
+     "tarih": "2024-07-10",
+     "oran": 1.461,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.053,
+     "b_sureklilik_puan": 0.0425,
+     "c_kapak_farki": 0.5384
+    },
+    {
+     "cik": "1232582",
+     "sembol": "AHT",
+     "tarih": "2019-10-28",
+     "oran": 1.012,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0119,
+     "b_sureklilik_puan": -0.012,
+     "c_kapak_farki": 0.0108
+    },
+    {
+     "cik": "946644",
+     "sembol": "AIM",
+     "tarih": "2026-02-10",
+     "oran": 1.031,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0301,
+     "b_sureklilik_puan": -0.034,
+     "c_kapak_farki": -0.0996
+    },
+    {
+     "cik": "922864",
+     "sembol": "AIV",
+     "tarih": "2020-12-01",
+     "oran": 0.807,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0772,
+     "b_sureklilik_puan": -0.0835,
+     "c_kapak_farki": 9.061
+    },
+    {
+     "cik": "922864",
+     "sembol": "AIV",
+     "tarih": "2020-12-15",
+     "oran": 9.295,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0836,
+     "b_sureklilik_puan": 0.0866,
+     "c_kapak_farki": 9.061
+    },
+    {
+     "cik": "1518461",
+     "sembol": "AMPG",
+     "tarih": "2021-02-17",
+     "oran": 0.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 19.0,
+     "b_sureklilik_puan": 12.5268,
+     "c_kapak_farki": 9.6601
+    },
+    {
+     "cik": "1734342",
+     "sembol": "AMTB",
+     "tarih": "2018-10-24",
+     "oran": 0.3333,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 2.0,
+     "b_sureklilik_puan": 1.9048,
+     "c_kapak_farki": 2.0
+    },
+    {
+     "cik": "2969",
+     "sembol": "APD",
+     "tarih": "2016-10-03",
+     "oran": 1.081,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0749,
+     "b_sureklilik_puan": -0.0789,
+     "c_kapak_farki": 0.0009
+    },
+    {
+     "cik": "1521332",
+     "sembol": "APTV",
+     "tarih": "2017-12-05",
+     "oran": 1.193,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1618,
+     "b_sureklilik_puan": -0.1589,
+     "c_kapak_farki": -0.0
+    },
+    {
+     "cik": "1428205",
+     "sembol": "ARR",
+     "tarih": "2023-10-02",
+     "oran": 0.2,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0329,
+     "b_sureklilik_puan": 0.0291,
+     "c_kapak_farki": -0.1093
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2013-10-08",
+     "oran": 1.249,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1994,
+     "b_sureklilik_puan": -0.2147,
+     "c_kapak_farki": 2.1504
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2014-09-03",
+     "oran": 1.202,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1681,
+     "b_sureklilik_puan": -0.1736,
+     "c_kapak_farki": -0.1375
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2015-10-06",
+     "oran": 1.15,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1304,
+     "b_sureklilik_puan": -0.1549,
+     "c_kapak_farki": -0.7919
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2016-10-06",
+     "oran": 1.15,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1304,
+     "b_sureklilik_puan": -0.1219,
+     "c_kapak_farki": -0.1213
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2018-10-11",
+     "oran": 1.182,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.154,
+     "b_sureklilik_puan": -0.1443,
+     "c_kapak_farki": -0.1403
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2026-06-15",
+     "oran": 1.253,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.2019,
+     "b_sureklilik_puan": -0.2123,
+     "c_kapak_farki": NaN
+    },
+    {
+     "cik": "1056903",
+     "sembol": "AWR",
+     "tarih": "2013-09-04",
+     "oran": 2.0,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0131,
+     "b_sureklilik_puan": 0.0129,
+     "c_kapak_farki": 0.0213
+    },
+    {
+     "cik": "701985",
+     "sembol": "BBWI",
+     "tarih": "2021-08-03",
+     "oran": 1.237,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1916,
+     "b_sureklilik_puan": -0.1825,
+     "c_kapak_farki": 0.0453
+    },
+    {
+     "cik": "1094831",
+     "sembol": "BGC",
+     "tarih": "2018-12-03",
+     "oran": 1.555,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0164,
+     "b_sureklilik_puan": 0.0148,
+     "c_kapak_farki": 0.5383
+    },
+    {
+     "cik": "885245",
+     "sembol": "BKE",
+     "tarih": "2014-01-13",
+     "oran": 1.0241,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0235,
+     "b_sureklilik_puan": -0.0491,
+     "c_kapak_farki": -0.0001
+    },
+    {
+     "cik": "1275101",
+     "sembol": "BOTJ",
+     "tarih": "2021-06-24",
+     "oran": 1.1,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0909,
+     "b_sureklilik_puan": -0.0933,
+     "c_kapak_farki": -0.0879
+    },
+    {
+     "cik": "908255",
+     "sembol": "BWA",
+     "tarih": "2023-07-05",
+     "oran": 1.136,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1197,
+     "b_sureklilik_puan": -0.125,
+     "c_kapak_farki": NaN
+    },
+    {
+     "cik": "1472072",
+     "sembol": "CCM",
+     "tarih": "2014-01-16",
+     "oran": 1.1384,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.1607,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": 0.3277
+    },
+    {
+     "cik": "1527762",
+     "sembol": "CD",
+     "tarih": "2023-02-28",
+     "oran": 0.9,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.1111,
+     "b_sureklilik_puan": 0.1145,
+     "c_kapak_farki": -0.649
+    },
+    {
+     "cik": "1409493",
+     "sembol": "CIM",
+     "tarih": "2015-04-07",
+     "oran": 0.2,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0303,
+     "b_sureklilik_puan": 0.0307,
+     "c_kapak_farki": 0.0302
+    },
+    {
+     "cik": "1166691",
+     "sembol": "CMCSA",
+     "tarih": "2026-01-05",
+     "oran": 1.067,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0628,
+     "b_sureklilik_puan": -0.0643,
+     "c_kapak_farki": 0.014
+    },
+    {
+     "cik": "908311",
+     "sembol": "CMCT",
+     "tarih": "2019-09-03",
+     "oran": 0.3333,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.3103,
+     "b_sureklilik_puan": -0.0,
+     "c_kapak_farki": 0.3103
+    },
+    {
+     "cik": "908311",
+     "sembol": "CMCT",
+     "tarih": "2024-09-25",
+     "oran": 1.02,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0196,
+     "b_sureklilik_puan": -0.0061,
+     "c_kapak_farki": -0.7269
+    },
+    {
+     "cik": "1070412",
+     "sembol": "CNX",
+     "tarih": "2017-11-29",
+     "oran": 1.2,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1667,
+     "b_sureklilik_puan": -0.1835,
+     "c_kapak_farki": 0.0284
+    },
+    {
+     "cik": "803164",
+     "sembol": "COFS",
+     "tarih": "2017-05-08",
+     "oran": 1.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0476,
+     "b_sureklilik_puan": -0.0501,
+     "c_kapak_farki": -0.0009
+    },
+    {
+     "cik": "803164",
+     "sembol": "COFS",
+     "tarih": "2018-05-09",
+     "oran": 1.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0476,
+     "b_sureklilik_puan": -0.0479,
+     "c_kapak_farki": 0.0025
+    },
+    {
+     "cik": "1270436",
+     "sembol": "COHN",
+     "tarih": "2017-09-05",
+     "oran": 0.1,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0171,
+     "b_sureklilik_puan": 0.0166,
+     "c_kapak_farki": 0.0218
+    },
+    {
+     "cik": "2003977",
+     "sembol": "CRE",
+     "tarih": "2026-02-13",
+     "oran": 0.0833,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 11.0,
+     "b_sureklilik_puan": 8.7017,
+     "c_kapak_farki": 10.172
+    },
+    {
+     "cik": "17313",
+     "sembol": "CSWC",
+     "tarih": "2013-08-16",
+     "oran": 4.0,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0265,
+     "b_sureklilik_puan": 0.0265,
+     "c_kapak_farki": NaN
+    },
+    {
+     "cik": "23795",
+     "sembol": "CTO",
+     "tarih": "2020-11-18",
+     "oran": 1.228,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1857,
+     "b_sureklilik_puan": -0.2082,
+     "c_kapak_farki": -0.2037
+    },
+    {
+     "cik": "23795",
+     "sembol": "CTO",
+     "tarih": "2022-07-01",
+     "oran": 3.0,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0173,
+     "b_sureklilik_puan": 0.0176,
+     "c_kapak_farki": 2.0162
+    },
+    {
+     "cik": "1488813",
+     "sembol": "CUBI",
+     "tarih": "2014-05-22",
+     "oran": 1.1,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0909,
+     "b_sureklilik_puan": -0.0926,
+     "c_kapak_farki": -0.0911
+    },
+    {
+     "cik": "1868419",
+     "sembol": "CYCU",
+     "tarih": "2025-12-15",
+     "oran": 1.018,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0177,
+     "b_sureklilik_puan": -0.0155,
+     "c_kapak_farki": -0.269
+    },
+    {
+     "cik": "1108109",
+     "sembol": "CYH",
+     "tarih": "2016-04-22",
+     "oran": 1.21,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1736,
+     "b_sureklilik_puan": -0.2251,
+     "c_kapak_farki": -0.0088
+    }
+   ]
+  },
+  "b": {
+   "olcu": "piyasa değeri değişimi − düzeltilmiş fiyat getirisi",
+   "kosul": "≤ 2 puan, ≥ %99",
+   "olcum": 2424,
+   "saglayan_pay": 0.9207920792079208,
+   "sapanlar": [
+    {
+     "cik": "8670",
+     "sembol": "ADP",
+     "tarih": "2014-10-01",
+     "oran": 1.139,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.122,
+     "b_sureklilik_puan": -0.126,
+     "c_kapak_farki": -0.0033
+    },
+    {
+     "cik": "1822523",
+     "sembol": "AFCG",
+     "tarih": "2024-07-10",
+     "oran": 1.461,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.053,
+     "b_sureklilik_puan": 0.0425,
+     "c_kapak_farki": 0.5384
+    },
+    {
+     "cik": "946644",
+     "sembol": "AIM",
+     "tarih": "2026-02-10",
+     "oran": 1.031,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0301,
+     "b_sureklilik_puan": -0.034,
+     "c_kapak_farki": -0.0996
+    },
+    {
+     "cik": "922864",
+     "sembol": "AIV",
+     "tarih": "2020-12-01",
+     "oran": 0.807,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0772,
+     "b_sureklilik_puan": -0.0835,
+     "c_kapak_farki": 9.061
+    },
+    {
+     "cik": "922864",
+     "sembol": "AIV",
+     "tarih": "2020-12-15",
+     "oran": 9.295,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0836,
+     "b_sureklilik_puan": 0.0866,
+     "c_kapak_farki": 9.061
+    },
+    {
+     "cik": "1518461",
+     "sembol": "AMPG",
+     "tarih": "2021-02-17",
+     "oran": 0.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 19.0,
+     "b_sureklilik_puan": 12.5268,
+     "c_kapak_farki": 9.6601
+    },
+    {
+     "cik": "1734342",
+     "sembol": "AMTB",
+     "tarih": "2018-10-24",
+     "oran": 0.3333,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 2.0,
+     "b_sureklilik_puan": 1.9048,
+     "c_kapak_farki": 2.0
+    },
+    {
+     "cik": "2969",
+     "sembol": "APD",
+     "tarih": "2016-10-03",
+     "oran": 1.081,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0749,
+     "b_sureklilik_puan": -0.0789,
+     "c_kapak_farki": 0.0009
+    },
+    {
+     "cik": "1521332",
+     "sembol": "APTV",
+     "tarih": "2017-12-05",
+     "oran": 1.193,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1618,
+     "b_sureklilik_puan": -0.1589,
+     "c_kapak_farki": -0.0
+    },
+    {
+     "cik": "1428205",
+     "sembol": "ARR",
+     "tarih": "2023-10-02",
+     "oran": 0.2,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0329,
+     "b_sureklilik_puan": 0.0291,
+     "c_kapak_farki": -0.1093
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2013-10-08",
+     "oran": 1.249,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1994,
+     "b_sureklilik_puan": -0.2147,
+     "c_kapak_farki": 2.1504
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2014-09-03",
+     "oran": 1.202,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1681,
+     "b_sureklilik_puan": -0.1736,
+     "c_kapak_farki": -0.1375
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2015-10-06",
+     "oran": 1.15,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1304,
+     "b_sureklilik_puan": -0.1549,
+     "c_kapak_farki": -0.7919
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2016-10-06",
+     "oran": 1.15,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1304,
+     "b_sureklilik_puan": -0.1219,
+     "c_kapak_farki": -0.1213
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2018-10-11",
+     "oran": 1.182,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.154,
+     "b_sureklilik_puan": -0.1443,
+     "c_kapak_farki": -0.1403
+    },
+    {
+     "cik": "8063",
+     "sembol": "ATRO",
+     "tarih": "2026-06-15",
+     "oran": 1.253,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.2019,
+     "b_sureklilik_puan": -0.2123,
+     "c_kapak_farki": NaN
+    },
+    {
+     "cik": "701985",
+     "sembol": "BBWI",
+     "tarih": "2021-08-03",
+     "oran": 1.237,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1916,
+     "b_sureklilik_puan": -0.1825,
+     "c_kapak_farki": 0.0453
+    },
+    {
+     "cik": "885245",
+     "sembol": "BKE",
+     "tarih": "2014-01-13",
+     "oran": 1.0241,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0235,
+     "b_sureklilik_puan": -0.0491,
+     "c_kapak_farki": -0.0001
+    },
+    {
+     "cik": "1275101",
+     "sembol": "BOTJ",
+     "tarih": "2021-06-24",
+     "oran": 1.1,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0909,
+     "b_sureklilik_puan": -0.0933,
+     "c_kapak_farki": -0.0879
+    },
+    {
+     "cik": "908255",
+     "sembol": "BWA",
+     "tarih": "2023-07-05",
+     "oran": 1.136,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1197,
+     "b_sureklilik_puan": -0.125,
+     "c_kapak_farki": NaN
+    },
+    {
+     "cik": "1527762",
+     "sembol": "CD",
+     "tarih": "2023-02-28",
+     "oran": 0.9,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.1111,
+     "b_sureklilik_puan": 0.1145,
+     "c_kapak_farki": -0.649
+    },
+    {
+     "cik": "1409493",
+     "sembol": "CIM",
+     "tarih": "2015-04-07",
+     "oran": 0.2,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0303,
+     "b_sureklilik_puan": 0.0307,
+     "c_kapak_farki": 0.0302
+    },
+    {
+     "cik": "1166691",
+     "sembol": "CMCSA",
+     "tarih": "2026-01-05",
+     "oran": 1.067,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0628,
+     "b_sureklilik_puan": -0.0643,
+     "c_kapak_farki": 0.014
+    },
+    {
+     "cik": "1070412",
+     "sembol": "CNX",
+     "tarih": "2017-11-29",
+     "oran": 1.2,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1667,
+     "b_sureklilik_puan": -0.1835,
+     "c_kapak_farki": 0.0284
+    },
+    {
+     "cik": "803164",
+     "sembol": "COFS",
+     "tarih": "2017-05-08",
+     "oran": 1.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0476,
+     "b_sureklilik_puan": -0.0501,
+     "c_kapak_farki": -0.0009
+    },
+    {
+     "cik": "803164",
+     "sembol": "COFS",
+     "tarih": "2018-05-09",
+     "oran": 1.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0476,
+     "b_sureklilik_puan": -0.0479,
+     "c_kapak_farki": 0.0025
+    },
+    {
+     "cik": "2003977",
+     "sembol": "CRE",
+     "tarih": "2026-02-13",
+     "oran": 0.0833,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 11.0,
+     "b_sureklilik_puan": 8.7017,
+     "c_kapak_farki": 10.172
+    },
+    {
+     "cik": "17313",
+     "sembol": "CSWC",
+     "tarih": "2013-08-16",
+     "oran": 4.0,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0265,
+     "b_sureklilik_puan": 0.0265,
+     "c_kapak_farki": NaN
+    },
+    {
+     "cik": "23795",
+     "sembol": "CTO",
+     "tarih": "2020-11-18",
+     "oran": 1.228,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1857,
+     "b_sureklilik_puan": -0.2082,
+     "c_kapak_farki": -0.2037
+    },
+    {
+     "cik": "1488813",
+     "sembol": "CUBI",
+     "tarih": "2014-05-22",
+     "oran": 1.1,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0909,
+     "b_sureklilik_puan": -0.0926,
+     "c_kapak_farki": -0.0911
+    },
+    {
+     "cik": "1108109",
+     "sembol": "CYH",
+     "tarih": "2016-04-22",
+     "oran": 1.21,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1736,
+     "b_sureklilik_puan": -0.2251,
+     "c_kapak_farki": -0.0088
+    },
+    {
+     "cik": "739421",
+     "sembol": "CZFS",
+     "tarih": "2024-06-14",
+     "oran": 1.01,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0099,
+     "b_sureklilik_puan": -0.0208,
+     "c_kapak_farki": -0.0099
+    },
+    {
+     "cik": "313616",
+     "sembol": "DHR",
+     "tarih": "2023-10-02",
+     "oran": 1.128,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1135,
+     "b_sureklilik_puan": -0.1121,
+     "c_kapak_farki": -0.0009
+    },
+    {
+     "cik": "12239",
+     "sembol": "DOMH",
+     "tarih": "2019-10-28",
+     "oran": 1.113,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1015,
+     "b_sureklilik_puan": -0.1078,
+     "c_kapak_farki": -0.1051
+    },
+    {
+     "cik": "1878897",
+     "sembol": "DOUG",
+     "tarih": "2023-06-21",
+     "oran": 1.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0476,
+     "b_sureklilik_puan": -0.0441,
+     "c_kapak_farki": -0.0476
+    },
+    {
+     "cik": "29905",
+     "sembol": "DOV",
+     "tarih": "2018-05-09",
+     "oran": 1.238,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1922,
+     "b_sureklilik_puan": -0.2006,
+     "c_kapak_farki": 0.0183
+    },
+    {
+     "cik": "940944",
+     "sembol": "DRI",
+     "tarih": "2015-11-10",
+     "oran": 1.1187,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1061,
+     "b_sureklilik_puan": -0.1045,
+     "c_kapak_farki": NaN
+    },
+    {
+     "cik": "771999",
+     "sembol": "DSS",
+     "tarih": "2023-04-27",
+     "oran": 1.077,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0715,
+     "b_sureklilik_puan": -0.0726,
+     "c_kapak_farki": 0.0
+    },
+    {
+     "cik": "936340",
+     "sembol": "DTE",
+     "tarih": "2021-07-01",
+     "oran": 1.175,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.1489,
+     "b_sureklilik_puan": -0.149,
+     "c_kapak_farki": -0.0001
+    },
+    {
+     "cik": "799165",
+     "sembol": "DWSN",
+     "tarih": "2013-04-26",
+     "oran": 1.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0476,
+     "b_sureklilik_puan": -0.0502,
+     "c_kapak_farki": -0.0083
+    }
+   ]
+  },
+  "c": {
+   "olcu": "bölünme sonrası ilk kapak sayısı / bizim düzeltilmiş sayı",
+   "kosul": "±%2, ≥ %99",
+   "olcum": 2188,
+   "saglayan_pay": 0.37477148080438755,
+   "sapanlar": [
+    {
+     "cik": "1090872",
+     "sembol": "A",
+     "tarih": "2014-11-03",
+     "oran": 1.398,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0023,
+     "b_sureklilik_puan": 0.0024,
+     "c_kapak_farki": 0.3978
+    },
+    {
+     "cik": "320193",
+     "sembol": "AAPL",
+     "tarih": "2014-06-09",
+     "oran": 7.0,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0056,
+     "b_sureklilik_puan": 0.0055,
+     "c_kapak_farki": -0.999
+    },
+    {
+     "cik": "1576873",
+     "sembol": "ABAT",
+     "tarih": "2023-09-11",
+     "oran": 0.0667,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.0281
+    },
+    {
+     "cik": "1800",
+     "sembol": "ABT",
+     "tarih": "2013-01-02",
+     "oran": 2.0842,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0,
+     "b_sureklilik_puan": -0.0,
+     "c_kapak_farki": 1.0947
+    },
+    {
+     "cik": "1755953",
+     "sembol": "ABTC",
+     "tarih": "2022-11-08",
+     "oran": 0.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.6147
+    },
+    {
+     "cik": "1755953",
+     "sembol": "ABTC",
+     "tarih": "2024-02-09",
+     "oran": 0.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.0338
+    },
+    {
+     "cik": "1755953",
+     "sembol": "ABTC",
+     "tarih": "2025-09-03",
+     "oran": 0.2,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": -0.0,
+     "c_kapak_farki": -0.9839
+    },
+    {
+     "cik": "1755953",
+     "sembol": "ABTC",
+     "tarih": "2026-07-06",
+     "oran": 0.0667,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.0303
+    },
+    {
+     "cik": "1173313",
+     "sembol": "ABVC",
+     "tarih": "2015-08-13",
+     "oran": 0.0002,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.9998
+    },
+    {
+     "cik": "1173313",
+     "sembol": "ABVC",
+     "tarih": "2019-05-08",
+     "oran": 0.0556,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.3283
+    },
+    {
+     "cik": "843006",
+     "sembol": "ACCS",
+     "tarih": "2011-10-31",
+     "oran": 0.1,
+     "yeni_rapor_ayni_hafta": true,
+     "a_oran_hatasi": -0.9,
+     "b_sureklilik_puan": -0.9783,
+     "c_kapak_farki": -0.9009
+    },
+    {
+     "cik": "1720580",
+     "sembol": "ACET",
+     "tarih": "2020-09-16",
+     "oran": 0.1429,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": -0.0,
+     "c_kapak_farki": -0.7342
+    },
+    {
+     "cik": "1720580",
+     "sembol": "ACET",
+     "tarih": "2025-12-30",
+     "oran": 0.0625,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.4572
+    },
+    {
+     "cik": "949858",
+     "sembol": "ACHV",
+     "tarih": "2017-08-03",
+     "oran": 0.0909,
+     "yeni_rapor_ayni_hafta": true,
+     "a_oran_hatasi": 0.0006,
+     "b_sureklilik_puan": 0.0005,
+     "c_kapak_farki": -0.7617
+    },
+    {
+     "cik": "949858",
+     "sembol": "ACHV",
+     "tarih": "2018-05-24",
+     "oran": 0.1,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.6992
+    },
+    {
+     "cik": "949858",
+     "sembol": "ACHV",
+     "tarih": "2020-07-31",
+     "oran": 0.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.191
+    },
+    {
+     "cik": "1635077",
+     "sembol": "ACON",
+     "tarih": "2024-01-04",
+     "oran": 0.0625,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.3768
+    },
+    {
+     "cik": "1635077",
+     "sembol": "ACON",
+     "tarih": "2025-01-30",
+     "oran": 0.003,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.9981
+    },
+    {
+     "cik": "1635077",
+     "sembol": "ACON",
+     "tarih": "2025-03-28",
+     "oran": 0.037,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": -0.0,
+     "c_kapak_farki": -0.9981
+    },
+    {
+     "cik": "1332551",
+     "sembol": "ACR",
+     "tarih": "2015-09-01",
+     "oran": 0.25,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": 0.0785
+    },
+    {
+     "cik": "1332551",
+     "sembol": "ACR",
+     "tarih": "2021-02-17",
+     "oran": 0.3333,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0,
+     "b_sureklilik_puan": -0.0,
+     "c_kapak_farki": 0.0527
+    },
+    {
+     "cik": "1736243",
+     "sembol": "ACXP",
+     "tarih": "2025-08-05",
+     "oran": 0.05,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.2384
+    },
+    {
+     "cik": "1273685",
+     "sembol": "ADAM",
+     "tarih": "2023-03-09",
+     "oran": 0.25,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": -0.0,
+     "c_kapak_farki": 0.043
+    },
+    {
+     "cik": "1513525",
+     "sembol": "ADIL",
+     "tarih": "2023-08-07",
+     "oran": 0.04,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0,
+     "b_sureklilik_puan": -0.0,
+     "c_kapak_farki": -0.0476
+    },
+    {
+     "cik": "1513525",
+     "sembol": "ADIL",
+     "tarih": "2026-02-06",
+     "oran": 0.04,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.1418
+    },
+    {
+     "cik": "1941029",
+     "sembol": "ADVB",
+     "tarih": "2026-02-20",
+     "oran": 0.05,
+     "yeni_rapor_ayni_hafta": true,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.2172
+    },
+    {
+     "cik": "882291",
+     "sembol": "AEMD",
+     "tarih": "2019-10-15",
+     "oran": 0.0667,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.0476
+    },
+    {
+     "cik": "882291",
+     "sembol": "AEMD",
+     "tarih": "2025-06-09",
+     "oran": 0.125,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.1305
+    },
+    {
+     "cik": "882291",
+     "sembol": "AEMD",
+     "tarih": "2025-10-20",
+     "oran": 0.1,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": -0.0,
+     "c_kapak_farki": -0.6587
+    },
+    {
+     "cik": "882291",
+     "sembol": "AEMD",
+     "tarih": "2026-08-04",
+     "oran": 0.2,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.3421
+    },
+    {
+     "cik": "1853044",
+     "sembol": "AERT",
+     "tarih": "2026-06-12",
+     "oran": 0.125,
+     "yeni_rapor_ayni_hafta": true,
+     "a_oran_hatasi": -0.0341,
+     "b_sureklilik_puan": -0.0316,
+     "c_kapak_farki": 0.0743
+    },
+    {
+     "cik": "1822523",
+     "sembol": "AFCG",
+     "tarih": "2024-07-10",
+     "oran": 1.461,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.053,
+     "b_sureklilik_puan": 0.0425,
+     "c_kapak_farki": 0.5384
+    },
+    {
+     "cik": "4977",
+     "sembol": "AFL",
+     "tarih": "2018-03-19",
+     "oran": 2.0,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0058,
+     "b_sureklilik_puan": 0.0056,
+     "c_kapak_farki": 0.0233
+    },
+    {
+     "cik": "1156041",
+     "sembol": "AGIG",
+     "tarih": "2020-08-03",
+     "oran": 0.08,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.2561
+    },
+    {
+     "cik": "1156041",
+     "sembol": "AGIG",
+     "tarih": "2025-06-09",
+     "oran": 0.1,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.178
+    },
+    {
+     "cik": "1495932",
+     "sembol": "AGNT",
+     "tarih": "2021-02-16",
+     "oran": 2.0,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.0294
+    },
+    {
+     "cik": "1446159",
+     "sembol": "AGPU",
+     "tarih": "2016-10-28",
+     "oran": 0.04,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": -0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.0872
+    },
+    {
+     "cik": "1446159",
+     "sembol": "AGPU",
+     "tarih": "2025-09-30",
+     "oran": 0.0667,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.1659
+    },
+    {
+     "cik": "1232582",
+     "sembol": "AHT",
+     "tarih": "2013-11-20",
+     "oran": 1.49,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": 0.5117
+    },
+    {
+     "cik": "1232582",
+     "sembol": "AHT",
+     "tarih": "2021-07-19",
+     "oran": 0.1,
+     "yeni_rapor_ayni_hafta": false,
+     "a_oran_hatasi": 0.0,
+     "b_sureklilik_puan": 0.0,
+     "c_kapak_farki": -0.5066
+    }
+   ],
+   "sapan_dagilim": {
+    "count": 2188.0,
+    "mean": 12.2963,
+    "std": 508.4716,
+    "min": -1.0,
+    "1%": -0.999,
+    "5%": -0.9666,
+    "50%": -0.0421,
+    "95%": 0.3712,
+    "99%": 3.0942,
+    "max": 23710.8148
+   }
+  },
+  "not": "(a) yapısal olarak döngüseldir: düzeltme oranı fiyat serisindeki bölünmeden gelir; bağımsız kanıt (b) ve özellikle (c)'dir."
  }
 }
