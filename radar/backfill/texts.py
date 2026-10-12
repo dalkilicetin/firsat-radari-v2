@@ -131,3 +131,78 @@ class TenKTexts(Dataset):
             rep.add("Doğrulama: Apple Madde 1'de 'iPhone' geçiyor", Status.OK if ok else Status.FAIL, "evet" if ok else "hayır")
         rep.add("Medyan uzunluk (karakter)", Status.INFO,
                 ", ".join(f"{k}: {int(df[k].str.len().median()):,}" for k in KEEP))
+
+
+# --- Bilanço basın bültenleri (8-K Madde 2.02, EX-99.1) — yalnızca sayısal metin özellikleri saklanır -------------------
+
+LM_POS = set("""achieve achieved achievement attractive beat beneficial benefit best better boost breakthrough exceed exceeded exceeding
+excellent exceptional favorable gain gained gains great greater growth highest improve improved improvement improving increase
+increased momentum outperform outperformed positive profitable progress record records robust solid strength strengthen strong
+stronger strongest success successful surpass surpassed upside""".split())
+LM_NEG = set("""adverse adversely challenging challenge challenges decline declined declines declining decrease decreased deficit
+deteriorate deteriorated deterioration difficult disappoint disappointing downturn impairment impaired loss losses lower negative
+pressure pressures restructuring shortfall slowdown slowed slower soft softer softness unfavorable weak weaker weakness
+headwind headwinds delay delayed uncertainty volatile""".split())
+GUIDE = r"(?:guidance|outlook|forecast|full[- ]year (?:revenue|earnings|eps)|fiscal (?:year )?20\d\d (?:revenue|earnings|eps))"
+UP = re.compile(r"\b(?:rais(?:e|es|ed|ing)|increas(?:e|es|ed|ing)|improv(?:e|es|ed|ing)|lift(?:s|ed)?|boost(?:s|ed)?|"
+                r"upgrad(?:e|ed|ing))\b(?:\W+\w+){0,6}?\W+" + GUIDE, re.IGNORECASE)
+DOWN = re.compile(r"\b(?:lower(?:s|ed|ing)?|reduc(?:e|es|ed|ing)|cut(?:s|ting)?|withdr(?:aw|ew|awn|awing)|suspend(?:s|ed|ing)?|"
+                  r"narrow(?:s|ed)?\W+(?:\w+\W+){0,3}?(?:low|bottom))\b(?:\W+\w+){0,6}?\W+" + GUIDE, re.IGNORECASE)
+WORD_RE = re.compile(r"[a-z]+")
+
+
+def release_features(text: str) -> dict:
+    t = text[:200_000]
+    words = WORD_RE.findall(t.lower())
+    n = max(len(words), 1)
+    pos = sum(w in LM_POS for w in words)
+    neg = sum(w in LM_NEG for w in words)
+    return {"kelime": len(words), "olumlu": pos / n, "olumsuz": neg / n, "ton": (pos - neg) / max(pos + neg, 1),
+            "rehberlik_yukari": len(UP.findall(t)), "rehberlik_asagi": len(DOWN.findall(t)),
+            "rekor": len(re.findall(r"\brecord\b", t, re.IGNORECASE)),
+            "beklenti_ustu": len(re.findall(r"\b(?:exceed(?:ed|s)?|above|ahead of|beat)\b\W+(?:\w+\W+){0,3}?(?:expectations|guidance|consensus)",
+                                            t, re.IGNORECASE))}
+
+
+class EarningsReleases(Dataset):
+    """8-K Madde 2.02 basın bültenleri (EX-99.1): ton, rehberlik yükseltme/düşürme, rekor ve beklenti üstü ifadeleri.
+    Ham metin saklanmaz; bülten başına sayısal özellikler. Point-in-time: SEC kabul zamanı."""
+    name = "bilanco_bulteni"
+    title = "Bilanço basın bültenleri — metin özellikleri (8-K 2.02, 2009→)"
+    max_parallel = 4
+
+    def partitions(self, client: HttpClient, today: date) -> list[str]:
+        return [f"{y}h{h}" for y in range(2009, today.year + 1) for h in (1, 2) if date(y, 1 if h == 1 else 7, 1) <= today]
+
+    def load(self, client: HttpClient, partition: str) -> Loaded:
+        from radar import archive
+        year, half = int(partition[:4]), int(partition[-1])
+        f = archive.load("filings", columns=["cik", "form", "filing_date", "accepted", "accession", "primary_doc", "items"])
+        f = f[(f.form == "8-K") & f["items"].fillna("").str.contains(r"\b2\.02\b") & (f.filing_date.dt.year == year)
+              & ((f.filing_date.dt.month <= 6) == (half == 1)) & f.cik.isin(universe_ciks())]
+        rows, failed = [], 0
+        for r in f.itertuples():
+            base = f"https://www.sec.gov/Archives/edgar/data/{r.cik}/{r.accession.replace('-', '')}"
+            try:
+                items = client.get(base + "/index.json", retries=2).json().get("directory", {}).get("item", [])
+                names = [i["name"] for i in items if re.search(r"ex-?99(?:[._-]?0?1)?\D", i["name"].lower() + ".")
+                         and i["name"].lower().endswith((".htm", ".html", ".txt"))]
+                doc = names[0] if names else r.primary_doc
+                text = html_to_text(client.get(f"{base}/{doc}", retries=2).text)
+            except (FetchError, ValueError, KeyError):
+                failed += 1
+                continue
+            rows.append({"cik": r.cik, "accession": r.accession, "filing_date": r.filing_date, "accepted": r.accepted,
+                         "ek99": bool(names), **release_features(text)})
+        return Loaded(pd.DataFrame(rows), ["https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"],
+                      {"filings": len(f), "failed": failed})
+
+    def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
+        df, n = loaded.df, loaded.notes["filings"]
+        rep.expect_min_ratio("İndirilen bülten", n - loaded.notes["failed"], max(n, 1), 0.97, 0.9)
+        if df.empty:
+            return
+        rep.expect_min_ratio("EX-99 bulundu", int(df.ek99.sum()), len(df), 0.85, 0.7)
+        rep.add("Rehberlik yükseltme geçen bülten", Status.INFO, f"%{(df.rehberlik_yukari > 0).mean() * 100:.1f}")
+        rep.add("Rehberlik düşürme geçen bülten", Status.INFO, f"%{(df.rehberlik_asagi > 0).mean() * 100:.1f}")
+        rep.add("Medyan kelime", Status.INFO, f"{int(df.kelime.median()):,}")

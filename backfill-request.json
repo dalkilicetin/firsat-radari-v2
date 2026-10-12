@@ -1,10 +1,12 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 22,
+ "rev": 23,
  "requests": [
   {
-   "dataset": "reddit_arsiv",
-   "only": "stocks_submissions,investing_submissions,StockMarket_submissions,pennystocks_submissions,options_submissions"
+   "dataset": "bilanco_bulteni"
+  },
+  {
+   "dataset": "finra_aciga_satis"
   }
  ]
 }
