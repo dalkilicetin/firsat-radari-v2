@@ -54,6 +54,9 @@ GROUPS = {
     "oneriler": lambda c: c.startswith(("emsal_", "devralma_", "bulten_", "aciga_satis_")),
 }
 ALL = list(GROUPS)
+# Denetimde çıkarılanlar: verisi 2024 ortasında biten Reddit (canlıda yok), pratikte sabit olanlar, r ≥ 0,9 kopyalar
+CIKAR = {"reddit_anilma", "reddit_anilma_ivme", "reddit_ofke_payi", "reddit_olumlu_payi", "reddit_olumsuz_payi", "reddit_puan",
+         "wiki_ani_ilgi", "haber_ani_artis", "sektorun_gerisinde", "aktif_karliligi", "ort_40h_uzaklik"}
 
 # Denemeler: ad → (hedef türü, belirti grupları, ek ayar)
 EXPERIMENTS = {
@@ -80,6 +83,8 @@ EXPERIMENTS = {
     "ust_sira_us1": ("ust_sira", ALL, {"k": 10, "us": 1.0}),
     "ust_sira_us3": ("ust_sira", ALL, {"k": 10, "us": 3.0}),
     "ust_sira_t200": ("ust_sira", ALL, {"k": 10, "trunc": 200}),
+    "t5_temiz": ("sira", ALL, {"k": 10, "seeds": 5, "cikar": True}),
+    "t5_k20_temiz": ("sira", ALL, {"k": 20, "seeds": 5, "cikar": True}),
     "en_iyi_fark_hepsi": ("fark", ALL, {"k": 10}),
     "en_iyi_k20": ("sira", ALL, {"k": 20}),
 }
@@ -117,6 +122,10 @@ def load(freq: str) -> tuple[pd.DataFrame, list[str]]:
     df = df[np.isfinite(df.getiri)]
     feats = [c for c in df.columns if c not in META and not c.startswith("getiri_") or c in ("getiri_6a", "getiri_1a")]
     feats = [c for c in feats if c not in META and pd.api.types.is_numeric_dtype(df[c])]
+    # Denetim düzeltmesi: içeriden alım yoksa belirti boş değil 0 (alım yapan / yapmayan ayrımı modele görünsün)
+    for c in ("icerden_alici_sayisi_90g", "icerden_alim_tutar_piyasa_degeri"):
+        if c in df:
+            df[c] = df[c].fillna(0.0)
     q = df.groupby("tarih").getiri.rank(pct=True)
     df["hedef"], df["kaybeden"], df["sira"] = (q > 0.95).astype(int), (q <= 0.05).astype(int), q
     return df, feats
@@ -157,7 +166,7 @@ def score(mode: str, tr: pd.DataFrame, te: pd.DataFrame, feats: list[str], param
 
 def run(freq: str, name: str, df: pd.DataFrame, all_feats: list[str]) -> dict:
     mode, groups, params = (EXPERIMENTS | grid())[name]
-    feats = [c for c in all_feats if any(GROUPS[g](c) for g in groups)]
+    feats = [c for c in all_feats if any(GROUPS[g](c) for g in groups) and not (params.get("cikar") and c in CIKAR)]
     weeks, _, form_months = UFUK[freq]
     gap = pd.Timedelta(weeks=weeks)
     years, imps = [], pd.Series(0.0, index=feats)
