@@ -390,12 +390,18 @@ def exit_classes(p: dict) -> pd.DataFrame:
             continue
         lw, lraw = rawser.index[-1], float(rawser.iloc[-1])
         g, f = dmap.get(c), fmap.get(r.symbol)
-        ma = g[(g.fri == lw) & (np.abs(g.close / lraw - 1) <= 0.01)] if g is not None else []
-        mb = f[(f.fri == lw) & (np.abs(f.price / lraw - 1) <= 0.01)] if f is not None else []
+        # Panel son gerçek fiyatı çıkışa kadar taşır; kaynak kaydı son 6 hafta içinde, aynı fiyatla aranır, gecikme kaydedilir.
+        lo = lw - pd.Timedelta(weeks=6)
+        ma = g[(g.fri <= lw) & (g.fri >= lo) & (np.abs(g.close / lraw - 1) <= 0.01)] if g is not None else g
+        mb = f[(f.fri <= lw) & (f.fri >= lo) & (np.abs(f.price / lraw - 1) <= 0.01)] if f is not None else f
+        ma = ma if ma is not None else []
+        mb = mb if mb is not None else []
         src = "A" if len(ma) else ("B" if len(mb) else "C")
+        hit = ma if len(ma) else mb
+        lag_w = int((lw - hit.fri.max()).days // 7) if len(hit) else None
         rows.append({"cik": c, "sembol": r.symbol, "cikis": str(pd.Timestamp(r.end).date()), "son_fiyat_haftasi": str(lw.date()),
                      "son_islem_fiyati": lraw, "kaynak": src, "neden": "D" if r.bankrupt else "E",
-                     "a_aday": int(len(ma)), "b_aday": int(len(mb)), "ikisi_de_uydu": bool(len(ma) and len(mb)),
+                     "a_aday": int(len(ma)), "b_aday": int(len(mb)), "ikisi_de_uydu": bool(len(ma) and len(mb)), "tasima_hafta": lag_w,
                      "coklu_aday": bool(len(ma) > 1 or len(mb) > 1)})
     d = pd.DataFrame(rows)
     d.to_csv(config.ROOT / "reports" / "research" / "asama1_cikislar.csv", index=False)
@@ -446,8 +452,10 @@ def exits(p: dict, tab: dict) -> dict:
             "pay": {k: round(float((cls.kaynak == k).mean()), 4) for k in ("A", "B", "C")}, "sirket": int(n),
             "ikisi_de_uydu": int(cls.get("ikisi_de_uydu", pd.Series(dtype=bool)).fillna(False).sum()),
             "coklu_aday": int(cls.get("coklu_aday", pd.Series(dtype=bool)).fillna(False).sum()),
+            "tasima_hafta_dagilimi": cls.get("tasima_hafta", pd.Series(dtype=float)).value_counts().sort_index().to_dict(),
             "tolerans_kurali": "Panelin son işlem fiyatı (bölünmeden arındırılmış ham kapanış, yuvarlanmamış) ile aday kaydın fiyatı "
-                               "(Yahoo kapanışı ya da FTD fiyatı, sent hassasiyetinde) arasında |aday/son − 1| ≤ 0,01; aynı Cuma haftası. "
+                               "(Yahoo kapanışı ya da FTD fiyatı, sent hassasiyetinde) arasında |aday/son − 1| ≤ 0,01; aday kayıt panelin son "
+                               "fiyat haftası ya da önceki 6 hafta içinde (panel son gerçek fiyatı çıkışa kadar taşır; gecikme 'taşıma' olarak kaydedilir). "
                                "Birden çok aday uyarsa kaynak yine doğrulanmış sayılır, kayıt 'çoklu aday' olarak işaretlenir.",
             "sinir": "C grubunda verinin eksik olması ile gerçek ekonomik kayıp mevcut veriyle ayırt edilemez; satın alma ile borsadan "
                      "atılma (E içinde) ayrımı da yapılamıyor.",
