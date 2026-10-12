@@ -1,12 +1,10 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 24,
+ "rev": 25,
  "requests": [
   {
-   "dataset": "bilanco_bulteni"
-  },
-  {
-   "dataset": "finra_aciga_satis"
+   "dataset": "financials",
+   "force": true
   }
  ]
 }

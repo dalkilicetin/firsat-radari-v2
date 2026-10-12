@@ -24,5 +24,1008 @@
    "test": "olay sayacı: kabul 2020-01-17 09:00 → ilk görünme 2020-01-24",
    "gecti": true
   }
- ]
+ ],
+ "T4_bolunme": [
+  {
+   "test": "piyasa değeri bölünme (1045810, 2024-06-10, 10:1): önce 2,979 mr $, sonra 304 mr $",
+   "gecti": false
+  },
+  {
+   "test": "piyasa değeri bölünme (1045810, 2021-07-20, 4:1): önce 450 mr $, sonra 126 mr $",
+   "gecti": false
+  },
+  {
+   "test": "piyasa değeri bölünme (320193, 2020-08-31, 4:1): önce 2,139 mr $, sonra 458 mr $",
+   "gecti": false
+  },
+  {
+   "test": "piyasa değeri bölünme (1318605, 2020-08-31, 5:1): önce 412 mr $, sonra 82 mr $",
+   "gecti": false
+  },
+  {
+   "test": "piyasa değeri bölünme (1018724, 2022-06-06, 20:1): önce 1,246 mr $, sonra 59 mr $",
+   "gecti": false
+  },
+  {
+   "test": "piyasa değeri bölünme (1652044, 2022-07-18, 20:1): önce 1,473 mr $, sonra 1,536 mr $",
+   "gecti": true
+  }
+ ],
+ "T3_bilinen": [
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "kazanc_getirisi",
+   "beklenen": 0.04253846153846154,
+   "bulunan": 0.041811456980007086,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "brut_marj",
+   "beklenen": 0.378,
+   "bulunan": 0.378177672624588,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "faaliyet_marji",
+   "beklenen": 0.246,
+   "bulunan": 0.24572016298770905,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "temettu_verimi",
+   "beklenen": 0.010846153846153846,
+   "bulunan": 0.010683653876185417,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "cari_oran",
+   "beklenen": 1.54,
+   "bulunan": 1.5401256084442139,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "piyasa_degeri",
+   "beklenen": 1300000000000.0,
+   "bulunan": 1321551650936.7676,
+   "gecti": true
+  },
+  {
+   "cik": "789019",
+   "tarih": "2020-01-03",
+   "belirti": "kazanc_getirisi",
+   "beklenen": 0.03239669421487604,
+   "bulunan": 0.032405513740125846,
+   "gecti": true
+  },
+  {
+   "cik": "789019",
+   "tarih": "2020-01-03",
+   "belirti": "brut_marj",
+   "beklenen": 0.659,
+   "bulunan": 0.6590195894241333,
+   "gecti": true
+  },
+  {
+   "cik": "789019",
+   "tarih": "2020-01-03",
+   "belirti": "faaliyet_marji",
+   "beklenen": 0.341,
+   "bulunan": 0.3413698077201843,
+   "gecti": true
+  },
+  {
+   "cik": "789019",
+   "tarih": "2020-01-03",
+   "belirti": "piyasa_degeri",
+   "beklenen": 1210000000000.0,
+   "bulunan": 1210905042724.6094,
+   "gecti": true
+  },
+  {
+   "cik": "21344",
+   "tarih": "2020-01-03",
+   "belirti": "temettu_verimi",
+   "beklenen": 0.029,
+   "bulunan": NaN,
+   "gecti": false
+  },
+  {
+   "cik": "21344",
+   "tarih": "2020-01-03",
+   "belirti": "brut_marj",
+   "beklenen": 0.64,
+   "bulunan": 0.6305248141288757,
+   "gecti": true
+  },
+  {
+   "cik": "21344",
+   "tarih": "2020-01-03",
+   "belirti": "piyasa_degeri",
+   "beklenen": 237000000000.0,
+   "bulunan": NaN,
+   "gecti": false
+  },
+  {
+   "cik": "34088",
+   "tarih": "2023-01-06",
+   "belirti": "kazanc_getirisi",
+   "beklenen": 0.051111111111111114,
+   "bulunan": 0.050619280432119496,
+   "gecti": true
+  },
+  {
+   "cik": "34088",
+   "tarih": "2023-01-06",
+   "belirti": "temettu_verimi",
+   "beklenen": 0.033,
+   "bulunan": 0.0,
+   "gecti": false
+  },
+  {
+   "cik": "34088",
+   "tarih": "2023-01-06",
+   "belirti": "piyasa_degeri",
+   "beklenen": 450000000000.0,
+   "bulunan": 455162534973.14453,
+   "gecti": true
+  },
+  {
+   "cik": "1045810",
+   "tarih": "2024-01-05",
+   "belirti": "piyasa_degeri",
+   "beklenen": 1210000000000.0,
+   "bulunan": 1210732023010.254,
+   "gecti": true
+  },
+  {
+   "cik": "1045810",
+   "tarih": "2024-07-05",
+   "belirti": "piyasa_degeri",
+   "beklenen": 3080000000000.0,
+   "bulunan": 310045124511.71875,
+   "gecti": false
+  },
+  {
+   "cik": "1045810",
+   "tarih": "2024-07-05",
+   "belirti": "kazanc_getirisi",
+   "beklenen": 0.009675324675324675,
+   "bulunan": 0.09598602799146795,
+   "gecti": false
+  },
+  {
+   "cik": "1045810",
+   "tarih": "2024-07-05",
+   "belirti": "hisse_sayisi_degisimi",
+   "beklenen": 0.0,
+   "bulunan": -0.0008109807968139648,
+   "gecti": true
+  },
+  {
+   "cik": "1045810",
+   "tarih": "2024-10-04",
+   "belirti": "hisse_sayisi_degisimi",
+   "beklenen": 0.0,
+   "bulunan": -0.0008109807968139648,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-10-02",
+   "belirti": "hisse_sayisi_degisimi",
+   "beklenen": -0.05,
+   "bulunan": -0.05460923910140991,
+   "gecti": true
+  }
+ ],
+ "T6_yon": {
+  "dusuk_oynaklik": {
+   "olcu": -1.0,
+   "gecti": true,
+   "tur": "ölçüyle ters yönde olmalı"
+  },
+  "kucuk_boyut": {
+   "olcu": -1.0,
+   "gecti": true,
+   "tur": "ölçüyle ters yönde olmalı"
+  },
+  "ivol_3a": {
+   "olcu": 0.895,
+   "gecti": true,
+   "tur": "ölçüyle aynı yönde olmalı"
+  },
+  "max_gunluk_1a": {
+   "olcu": 0.709,
+   "gecti": true,
+   "tur": "ölçüyle aynı yönde olmalı"
+  }
+ },
+ "T2_bagimsiz": {
+  "momentum_12_1": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "günlük fiyattan Spearman"
+  },
+  "getiri_1a": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "günlük fiyattan Spearman"
+  },
+  "getiri_6a": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "günlük fiyattan Spearman"
+  },
+  "zirveye_yakinlik_52h": {
+   "olcu": 0.9864,
+   "gecti": true,
+   "tur": "günlük fiyattan Spearman"
+  },
+  "dusuk_oynaklik": {
+   "olcu": 0.9545,
+   "gecti": true,
+   "tur": "günlük fiyattan Spearman"
+  },
+  "fiyat_seviyesi": {
+   "olcu": 0.7695,
+   "gecti": false,
+   "tur": "günlük fiyattan Spearman"
+  }
+ },
+ "T5_sizinti": {
+  "momentum_12_1": {
+   "ic_1hafta": 0.0296,
+   "ic_2hafta": 0.0216,
+   "gecti": true
+  },
+  "kisa_vade_donus": {
+   "ic_1hafta": 0.0204,
+   "ic_2hafta": 0.0017,
+   "gecti": true
+  },
+  "dusuk_oynaklik": {
+   "ic_1hafta": 0.0395,
+   "ic_2hafta": 0.0524,
+   "gecti": true
+  },
+  "kucuk_boyut": {
+   "ic_1hafta": -0.0357,
+   "ic_2hafta": -0.0468,
+   "gecti": true
+  },
+  "gelir_buyumesi": {
+   "ic_1hafta": 0.0042,
+   "ic_2hafta": 0.0144,
+   "gecti": true
+  },
+  "buyume_ivmesi": {
+   "ic_1hafta": 0.005,
+   "ic_2hafta": 0.0066,
+   "gecti": true
+  },
+  "brut_marj_degisimi": {
+   "ic_1hafta": 0.0114,
+   "ic_2hafta": 0.0158,
+   "gecti": true
+  },
+  "faaliyet_marji_degisimi": {
+   "ic_1hafta": 0.003,
+   "ic_2hafta": 0.0082,
+   "gecti": true
+  },
+  "arge_yogunlugu": {
+   "ic_1hafta": -0.0214,
+   "ic_2hafta": -0.0021,
+   "gecti": true
+  },
+  "serbest_nakit_getirisi": {
+   "ic_1hafta": 0.0207,
+   "ic_2hafta": 0.0213,
+   "gecti": true
+  },
+  "kazanc_getirisi": {
+   "ic_1hafta": 0.0281,
+   "ic_2hafta": 0.0275,
+   "gecti": true
+  },
+  "tahakkuklar_dusuk": {
+   "ic_1hafta": -0.0089,
+   "ic_2hafta": -0.0112,
+   "gecti": true
+  },
+  "varlik_buyumesi_dusuk": {
+   "ic_1hafta": -0.0061,
+   "ic_2hafta": -0.0088,
+   "gecti": true
+  },
+  "metin_benzerligi_is_tanimi": {
+   "ic_1hafta": 0.0091,
+   "ic_2hafta": 0.0068,
+   "gecti": true
+  },
+  "metin_benzerligi_riskler": {
+   "ic_1hafta": 0.0055,
+   "ic_2hafta": 0.0053,
+   "gecti": true
+  },
+  "metin_benzerligi_yonetim": {
+   "ic_1hafta": 0.0131,
+   "ic_2hafta": 0.0094,
+   "gecti": true
+  },
+  "metin_benzerligi_ortalama": {
+   "ic_1hafta": 0.0116,
+   "ic_2hafta": 0.0095,
+   "gecti": true
+  },
+  "risk_bolumu_buyumesi_dusuk": {
+   "ic_1hafta": 0.0005,
+   "ic_2hafta": -0.0002,
+   "gecti": true
+  },
+  "devamlilik_suphesi": {
+   "ic_1hafta": -0.0222,
+   "ic_2hafta": -0.0229,
+   "gecti": true
+  },
+  "wiki_ilgi_ivmesi": {
+   "ic_1hafta": 0.0186,
+   "ic_2hafta": 0.0047,
+   "gecti": true
+  },
+  "wiki_ani_ilgi": {
+   "ic_1hafta": 0.0037,
+   "ic_2hafta": -0.0011,
+   "gecti": true
+  },
+  "haber_ivmesi": {
+   "ic_1hafta": 0.0098,
+   "ic_2hafta": -0.0046,
+   "gecti": true
+  },
+  "haber_ani_artis": {
+   "ic_1hafta": 0.0007,
+   "ic_2hafta": -0.0015,
+   "gecti": true
+  },
+  "haber_ton_degisimi": {
+   "ic_1hafta": 0.0009,
+   "ic_2hafta": 0.0013,
+   "gecti": true
+  },
+  "haber_ton_seviyesi": {
+   "ic_1hafta": 0.0081,
+   "ic_2hafta": 0.0054,
+   "gecti": true
+  },
+  "icerden_alici_sayisi_90g": {
+   "ic_1hafta": -0.0131,
+   "ic_2hafta": -0.0081,
+   "gecti": true
+  },
+  "icerden_alim_kumesi_3plus": {
+   "ic_1hafta": -0.0058,
+   "ic_2hafta": -0.0049,
+   "gecti": true
+  },
+  "icerden_alim_tutar_piyasa_degeri": {
+   "ic_1hafta": -0.0286,
+   "ic_2hafta": -0.0298,
+   "gecti": true
+  },
+  "ust_yonetici_alimi_90g": {
+   "ic_1hafta": -0.0044,
+   "ic_2hafta": -0.0049,
+   "gecti": true
+  },
+  "kurumsal_sahip_degisimi": {
+   "ic_1hafta": 0.0167,
+   "ic_2hafta": 0.012,
+   "gecti": true
+  },
+  "kurumsal_hisse_degisimi_payi": {
+   "ic_1hafta": -0.0017,
+   "ic_2hafta": 0.0033,
+   "gecti": true
+  },
+  "8k_1.01_önemli anlaşma": {
+   "ic_1hafta": -0.0095,
+   "ic_2hafta": -0.0064,
+   "gecti": true
+  },
+  "8k_1.02_anlaşma feshi": {
+   "ic_1hafta": -0.0021,
+   "ic_2hafta": -0.0016,
+   "gecti": true
+  },
+  "8k_2.01_satın alma/elden çıkarma tamamlandı": {
+   "ic_1hafta": -0.0062,
+   "ic_2hafta": -0.0014,
+   "gecti": true
+  },
+  "8k_2.03_yeni borç yükümlülüğü": {
+   "ic_1hafta": -0.0016,
+   "ic_2hafta": 0.0008,
+   "gecti": true
+  },
+  "8k_3.02_kayıtsız hisse satışı (sulandırma)": {
+   "ic_1hafta": -0.0089,
+   "ic_2hafta": -0.0147,
+   "gecti": true
+  },
+  "8k_5.02_yönetici değişikliği": {
+   "ic_1hafta": -0.003,
+   "ic_2hafta": -0.0019,
+   "gecti": true
+  },
+  "8k_7.01_kamuyu aydınlatma (FD)": {
+   "ic_1hafta": -0.0027,
+   "ic_2hafta": -0.0024,
+   "gecti": true
+  },
+  "8k_8.01_diğer olaylar": {
+   "ic_1hafta": -0.004,
+   "ic_2hafta": -0.0025,
+   "gecti": true
+  },
+  "geri_alim_getirisi": {
+   "ic_1hafta": -0.0023,
+   "ic_2hafta": 0.0052,
+   "gecti": true
+  },
+  "tema_ruzgari": {
+   "ic_1hafta": 0.0023,
+   "ic_2hafta": -0.0054,
+   "gecti": true
+  },
+  "tema_ruzgari_v1_uzun": {
+   "ic_1hafta": 0.0113,
+   "ic_2hafta": 0.0015,
+   "gecti": true
+  },
+  "tema_ruzgari_v2_nadir": {
+   "ic_1hafta": 0.0032,
+   "ic_2hafta": -0.0022,
+   "gecti": true
+  },
+  "tema_ruzgari_v3_uzun_nadir": {
+   "ic_1hafta": 0.0075,
+   "ic_2hafta": 0.0004,
+   "gecti": true
+  },
+  "sektor_getiri_13h": {
+   "ic_1hafta": 0.0093,
+   "ic_2hafta": 0.0074,
+   "gecti": true
+  },
+  "sektor_momentum_12_1": {
+   "ic_1hafta": 0.0111,
+   "ic_2hafta": 0.0139,
+   "gecti": true
+  },
+  "beta_qqq": {
+   "ic_1hafta": -0.0043,
+   "ic_2hafta": -0.0161,
+   "gecti": true
+  },
+  "zirveye_yakinlik_52h": {
+   "ic_1hafta": 0.0297,
+   "ic_2hafta": 0.0415,
+   "gecti": true
+  },
+  "getiri_6a": {
+   "ic_1hafta": 0.0224,
+   "ic_2hafta": 0.0199,
+   "gecti": true
+  },
+  "hacim_artisi": {
+   "ic_1hafta": 0.0056,
+   "ic_2hafta": 0.0058,
+   "gecti": true
+  },
+  "kazanc_aciklamasi_tepkisi": {
+   "ic_1hafta": 0.0086,
+   "ic_2hafta": 0.0095,
+   "gecti": true
+  },
+  "getiri_1a": {
+   "ic_1hafta": -0.0106,
+   "ic_2hafta": -0.0029,
+   "gecti": true
+  },
+  "fiyat_seviyesi": {
+   "ic_1hafta": 0.0401,
+   "ic_2hafta": 0.0513,
+   "gecti": true
+  },
+  "haber_yz_teknoloji_pay": {
+   "ic_1hafta": 0.0145,
+   "ic_2hafta": 0.0159,
+   "gecti": true
+  },
+  "haber_yz_teknoloji_ivme": {
+   "ic_1hafta": 0.0008,
+   "ic_2hafta": -0.002,
+   "gecti": true
+  },
+  "haber_yz_teknoloji_ruzgar": {
+   "ic_1hafta": 0.0119,
+   "ic_2hafta": 0.0141,
+   "gecti": true
+  },
+  "haber_uzay_savunma_devlet_pay": {
+   "ic_1hafta": 0.0135,
+   "ic_2hafta": 0.0092,
+   "gecti": true
+  },
+  "haber_uzay_savunma_devlet_ivme": {
+   "ic_1hafta": -0.0045,
+   "ic_2hafta": -0.0019,
+   "gecti": true
+  },
+  "haber_uzay_savunma_devlet_ruzgar": {
+   "ic_1hafta": 0.0074,
+   "ic_2hafta": -0.0057,
+   "gecti": true
+  },
+  "haber_inovasyon_patent_pay": {
+   "ic_1hafta": 0.0017,
+   "ic_2hafta": 0.0072,
+   "gecti": true
+  },
+  "haber_inovasyon_patent_ivme": {
+   "ic_1hafta": 0.0016,
+   "ic_2hafta": 0.0063,
+   "gecti": true
+  },
+  "haber_inovasyon_patent_ruzgar": {
+   "ic_1hafta": -0.0042,
+   "ic_2hafta": 0.0061,
+   "gecti": true
+  },
+  "haber_saglik_ilac_pay": {
+   "ic_1hafta": 0.0031,
+   "ic_2hafta": 0.0114,
+   "gecti": true
+  },
+  "haber_saglik_ilac_ivme": {
+   "ic_1hafta": 0.0026,
+   "ic_2hafta": -0.0029,
+   "gecti": true
+  },
+  "haber_saglik_ilac_ruzgar": {
+   "ic_1hafta": -0.0019,
+   "ic_2hafta": -0.0142,
+   "gecti": true
+  },
+  "haber_enerji_emtia_pay": {
+   "ic_1hafta": 0.0167,
+   "ic_2hafta": 0.0013,
+   "gecti": true
+  },
+  "haber_enerji_emtia_ivme": {
+   "ic_1hafta": -0.0025,
+   "ic_2hafta": 0.0028,
+   "gecti": true
+  },
+  "haber_enerji_emtia_ruzgar": {
+   "ic_1hafta": -0.0033,
+   "ic_2hafta": -0.0039,
+   "gecti": true
+  },
+  "haber_kripto_pay": {
+   "ic_1hafta": 0.0159,
+   "ic_2hafta": 0.0085,
+   "gecti": true
+  },
+  "haber_kripto_ivme": {
+   "ic_1hafta": 0.002,
+   "ic_2hafta": -0.0026,
+   "gecti": true
+  },
+  "haber_kripto_ruzgar": {
+   "ic_1hafta": 0.0022,
+   "ic_2hafta": -0.0004,
+   "gecti": true
+  },
+  "haber_borsa_olaylari_pay": {
+   "ic_1hafta": 0.0041,
+   "ic_2hafta": 0.0088,
+   "gecti": true
+  },
+  "haber_borsa_olaylari_ivme": {
+   "ic_1hafta": -0.0012,
+   "ic_2hafta": -0.0024,
+   "gecti": true
+  },
+  "haber_borsa_olaylari_ruzgar": {
+   "ic_1hafta": -0.0032,
+   "ic_2hafta": -0.0067,
+   "gecti": true
+  },
+  "haber_ticaret_cin_yaptirim_pay": {
+   "ic_1hafta": 0.0095,
+   "ic_2hafta": 0.0019,
+   "gecti": true
+  },
+  "haber_ticaret_cin_yaptirim_ivme": {
+   "ic_1hafta": 0.0063,
+   "ic_2hafta": 0.0021,
+   "gecti": true
+  },
+  "haber_ticaret_cin_yaptirim_ruzgar": {
+   "ic_1hafta": -0.0014,
+   "ic_2hafta": 0.0006,
+   "gecti": true
+  },
+  "haber_hukuk_sorunu_pay": {
+   "ic_1hafta": 0.0074,
+   "ic_2hafta": 0.0119,
+   "gecti": true
+  },
+  "haber_hukuk_sorunu_ivme": {
+   "ic_1hafta": 0.0038,
+   "ic_2hafta": 0.0048,
+   "gecti": true
+  },
+  "haber_hukuk_sorunu_ruzgar": {
+   "ic_1hafta": -0.0014,
+   "ic_2hafta": 0.0012,
+   "gecti": true
+  },
+  "haber_finansal_sikinti_pay": {
+   "ic_1hafta": 0.0122,
+   "ic_2hafta": 0.0049,
+   "gecti": true
+  },
+  "haber_finansal_sikinti_ivme": {
+   "ic_1hafta": 0.0016,
+   "ic_2hafta": 0.0004,
+   "gecti": true
+  },
+  "haber_finansal_sikinti_ruzgar": {
+   "ic_1hafta": -0.0039,
+   "ic_2hafta": -0.0074,
+   "gecti": true
+  },
+  "haber_siber_pay": {
+   "ic_1hafta": 0.0164,
+   "ic_2hafta": 0.0131,
+   "gecti": true
+  },
+  "haber_siber_ivme": {
+   "ic_1hafta": -0.0046,
+   "ic_2hafta": -0.0076,
+   "gecti": true
+  },
+  "haber_siber_ruzgar": {
+   "ic_1hafta": -0.0028,
+   "ic_2hafta": -0.0012,
+   "gecti": true
+  },
+  "haber_hacmi": {
+   "ic_1hafta": 0.0168,
+   "ic_2hafta": 0.0165,
+   "gecti": true
+  },
+  "haber_hacmi_ivme": {
+   "ic_1hafta": 0.0025,
+   "ic_2hafta": 0.0023,
+   "gecti": true
+  },
+  "yukselen_konu_maruziyeti": {
+   "ic_1hafta": 0.0146,
+   "ic_2hafta": 0.0117,
+   "gecti": true
+  },
+  "yukselen_konuya_yonelis": {
+   "ic_1hafta": 0.0075,
+   "ic_2hafta": 0.003,
+   "gecti": true
+  },
+  "bilanco_uzerinden_hafta": {
+   "ic_1hafta": 0.0058,
+   "ic_2hafta": 0.008,
+   "gecti": true
+  },
+  "bilanco_bu_ay_bekleniyor": {
+   "ic_1hafta": 0.0009,
+   "ic_2hafta": 0.0062,
+   "gecti": true
+  },
+  "sektor_4h": {
+   "ic_1hafta": 0.0117,
+   "ic_2hafta": -0.0018,
+   "gecti": true
+  },
+  "sektorun_gerisinde": {
+   "ic_1hafta": 0.0154,
+   "ic_2hafta": 0.0019,
+   "gecti": true
+  },
+  "oynaklik_genislemesi": {
+   "ic_1hafta": 0.0007,
+   "ic_2hafta": 0.0019,
+   "gecti": true
+  },
+  "max_haftalik_4h": {
+   "ic_1hafta": -0.0241,
+   "ic_2hafta": -0.0307,
+   "gecti": true
+  },
+  "kirilim": {
+   "ic_1hafta": 0.015,
+   "ic_2hafta": 0.0167,
+   "gecti": true
+  },
+  "defter_fiyat": {
+   "ic_1hafta": -0.0057,
+   "ic_2hafta": -0.0144,
+   "gecti": true
+  },
+  "satis_fiyat": {
+   "ic_1hafta": -0.0001,
+   "ic_2hafta": -0.012,
+   "gecti": true
+  },
+  "favok_fd": {
+   "ic_1hafta": 0.0225,
+   "ic_2hafta": 0.021,
+   "gecti": true
+  },
+  "temettu_verimi": {
+   "ic_1hafta": 0.0141,
+   "ic_2hafta": 0.0104,
+   "gecti": true
+  },
+  "nakit_piyasa": {
+   "ic_1hafta": -0.0176,
+   "ic_2hafta": -0.0233,
+   "gecti": true
+  },
+  "ozsermaye_karliligi": {
+   "ic_1hafta": 0.0306,
+   "ic_2hafta": 0.0308,
+   "gecti": true
+  },
+  "aktif_karliligi": {
+   "ic_1hafta": 0.0319,
+   "ic_2hafta": 0.0289,
+   "gecti": true
+  },
+  "brut_kar_aktif": {
+   "ic_1hafta": 0.0173,
+   "ic_2hafta": 0.0176,
+   "gecti": true
+  },
+  "brut_marj": {
+   "ic_1hafta": 0.0103,
+   "ic_2hafta": 0.0235,
+   "gecti": true
+  },
+  "faaliyet_marji": {
+   "ic_1hafta": 0.0292,
+   "ic_2hafta": 0.0284,
+   "gecti": true
+  },
+  "borc_ozsermaye": {
+   "ic_1hafta": 0.0057,
+   "ic_2hafta": 0.0071,
+   "gecti": true
+  },
+  "cari_oran": {
+   "ic_1hafta": -0.0045,
+   "ic_2hafta": -0.0071,
+   "gecti": true
+  },
+  "faiz_karsilama": {
+   "ic_1hafta": 0.0351,
+   "ic_2hafta": 0.0289,
+   "gecti": true
+  },
+  "altman_z": {
+   "ic_1hafta": 0.0269,
+   "ic_2hafta": 0.0353,
+   "gecti": true
+  },
+  "piotroski_f": {
+   "ic_1hafta": 0.023,
+   "ic_2hafta": 0.0188,
+   "gecti": true
+  },
+  "kar_buyumesi": {
+   "ic_1hafta": 0.0128,
+   "ic_2hafta": 0.012,
+   "gecti": true
+  },
+  "hisse_sayisi_degisimi": {
+   "ic_1hafta": -0.0223,
+   "ic_2hafta": -0.0171,
+   "gecti": true
+  },
+  "rsi_14h": {
+   "ic_1hafta": 0.0081,
+   "ic_2hafta": 0.015,
+   "gecti": true
+  },
+  "ort_10h_uzaklik": {
+   "ic_1hafta": -0.0089,
+   "ic_2hafta": 0.0059,
+   "gecti": true
+  },
+  "ort_40h_uzaklik": {
+   "ic_1hafta": 0.0154,
+   "ic_2hafta": 0.0211,
+   "gecti": true
+  },
+  "macd": {
+   "ic_1hafta": 0.025,
+   "ic_2hafta": 0.0237,
+   "gecti": true
+  },
+  "bollinger_konum": {
+   "ic_1hafta": 0.0004,
+   "ic_2hafta": 0.0087,
+   "gecti": true
+  },
+  "likidite": {
+   "ic_1hafta": 0.0257,
+   "ic_2hafta": 0.0243,
+   "gecti": true
+  },
+  "haber_fiyat_ayrismasi": {
+   "ic_1hafta": 0.0073,
+   "ic_2hafta": 0.0121,
+   "gecti": true
+  },
+  "piyasa_4h": {
+   "ic_1hafta": null,
+   "ic_2hafta": null,
+   "gecti": true
+  },
+  "piyasa_52h": {
+   "ic_1hafta": null,
+   "ic_2hafta": null,
+   "gecti": true
+  },
+  "piyasa_oynaklik_13h": {
+   "ic_1hafta": null,
+   "ic_2hafta": null,
+   "gecti": true
+  },
+  "reddit_anilma": {
+   "ic_1hafta": -0.0003,
+   "ic_2hafta": -0.0043,
+   "gecti": true
+  },
+  "reddit_anilma_ivme": {
+   "ic_1hafta": -0.0039,
+   "ic_2hafta": 0.0014,
+   "gecti": true
+  },
+  "reddit_ofke_payi": {
+   "ic_1hafta": 0.0011,
+   "ic_2hafta": 0.0024,
+   "gecti": true
+  },
+  "reddit_olumlu_payi": {
+   "ic_1hafta": 0.0237,
+   "ic_2hafta": 0.0109,
+   "gecti": true
+  },
+  "reddit_olumsuz_payi": {
+   "ic_1hafta": 0.0134,
+   "ic_2hafta": 0.018,
+   "gecti": true
+  },
+  "reddit_puan": {
+   "ic_1hafta": 0.0283,
+   "ic_2hafta": 0.0268,
+   "gecti": true
+  },
+  "yukselen_kelime_maruziyeti": {
+   "ic_1hafta": 0.0079,
+   "ic_2hafta": 0.0047,
+   "gecti": true
+  },
+  "yukselen_kurum_birlikteligi": {
+   "ic_1hafta": 0.0122,
+   "ic_2hafta": 0.0082,
+   "gecti": true
+  },
+  "yeni_kurum_orani": {
+   "ic_1hafta": -0.0132,
+   "ic_2hafta": -0.0111,
+   "gecti": true
+  },
+  "fip_bilgi_surekliligi": {
+   "ic_1hafta": 0.0115,
+   "ic_2hafta": 0.0081,
+   "gecti": true
+  },
+  "max_gunluk_1a": {
+   "ic_1hafta": -0.0242,
+   "ic_2hafta": -0.0371,
+   "gecti": true
+  },
+  "ivol_3a": {
+   "ic_1hafta": -0.036,
+   "ic_2hafta": -0.0438,
+   "gecti": true
+  },
+  "aktivist_13d": {
+   "ic_1hafta": -0.0092,
+   "ic_2hafta": -0.0063,
+   "gecti": true
+  },
+  "aktivist_13d_degisiklik": {
+   "ic_1hafta": -0.0094,
+   "ic_2hafta": -0.0047,
+   "gecti": true
+  },
+  "pasif_13g_yeni": {
+   "ic_1hafta": -0.0108,
+   "ic_2hafta": 0.0019,
+   "gecti": true
+  },
+  "gec_rapor_bildirimi": {
+   "ic_1hafta": -0.0141,
+   "ic_2hafta": -0.0133,
+   "gecti": true
+  },
+  "hisse_ihraci": {
+   "ic_1hafta": -0.0167,
+   "ic_2hafta": -0.0048,
+   "gecti": true
+  },
+  "sektor_ma_dalgasi": {
+   "ic_1hafta": -0.0161,
+   "ic_2hafta": -0.0097,
+   "gecti": true
+  },
+  "sue_fiyat": {
+   "ic_1hafta": 0.0042,
+   "ic_2hafta": 0.0057,
+   "gecti": true
+  },
+  "gelir_surprizi": {
+   "ic_1hafta": 0.0158,
+   "ic_2hafta": 0.0123,
+   "gecti": true
+  },
+  "emsal_getiri_1a": {
+   "ic_1hafta": 0.0167,
+   "ic_2hafta": -0.0023,
+   "gecti": true
+  },
+  "emsal_getiri_3a": {
+   "ic_1hafta": 0.0154,
+   "ic_2hafta": 0.0101,
+   "gecti": true
+  },
+  "emsal_farki_1a": {
+   "ic_1hafta": 0.0222,
+   "ic_2hafta": 0.0021,
+   "gecti": true
+  },
+  "devralma_olasiligi": {
+   "ic_1hafta": -0.0327,
+   "ic_2hafta": -0.0331,
+   "gecti": true
+  }
+ },
+ "T1_tutarlilik": {
+  "hata": "AttributeError: module 'radar.research.fundamentals' has no attribute 'shares_wide'"
+ }
 }

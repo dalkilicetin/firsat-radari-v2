@@ -37,7 +37,7 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
 
     B = lambda tags: P(balance(fin, tags))
     A = lambda tags: P(annual(fin, tags))
-    shares = P(fundamentals.shares_outstanding(all_fin))
+    shares = fundamentals.shares_wide(fundamentals.shares_outstanding(all_fin), price, raw).astype("float32")  # bölünmeye göre düzeltilmiş
     mcap = (shares * raw).where(shares * raw > 0)
     equity, assets, liab = B(EQUITY), B(["Assets"]), B(["Liabilities"])
     cur_a, cur_l = B(["AssetsCurrent"]), B(["LiabilitiesCurrent"])
@@ -45,7 +45,7 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
     debt = B(DEBT_LT).fillna(0) + B(DEBT_ST).fillna(0)
     retained = B(["RetainedEarningsAccumulatedDeficit"])
     rev, ni, gp, op = A(REVENUE), A(["NetIncomeLoss", "ProfitLoss"]), A(["GrossProfit"]), A(["OperatingIncomeLoss"])
-    da, interest, div = A(DA), A(["InterestExpense"]), A(DIV)
+    da, interest, div = A(DA), A(["InterestExpense", "InterestExpenseNonoperating", "InterestExpenseDebt"]), A(DIV)
     ocf = A(["NetCashProvidedByUsedInOperatingActivities"])
     nig = by_filing(fin, ["NetIncomeLoss", "ProfitLoss"], [1, 4])
     nig = nig.assign(value=((nig.cur - nig.prev) / nig.prev.abs()).where(nig.prev.abs() > 0))

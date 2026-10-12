@@ -138,7 +138,7 @@ def t3_known(p: dict) -> list[dict]:
     from radar.research.road1 import signals as r1
     r1s = r1(sub)
     sh = fundamentals.shares_outstanding(fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate"]))
-    shares = pit(sh.rename(columns={"accepted": "date"}), sub["price"].index, sub["price"].columns, FUNDAMENTAL_MAX_AGE)
+    shares = fundamentals.shares_wide(sh, sub["price"], sub["raw"])
     mcap = shares * sub["raw"]
     src = rs | {k: v for k, v in r1s.items() if k in ("kazanc_getirisi",)} | {"piyasa_degeri": mcap}
     out = []
@@ -182,7 +182,7 @@ def t4_split(p: dict) -> list[dict]:
              ("1018724", "2022-06-06", 20), ("1652044", "2022-07-18", 20)]
     ciks = sorted({c[0] for c in cases} & set(p["price"].columns))
     sh = fundamentals.shares_outstanding(fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate"]))
-    shares = pit(sh.rename(columns={"accepted": "date"}), p["price"].index, pd.Index(ciks), FUNDAMENTAL_MAX_AGE)
+    shares = fundamentals.shares_wide(sh, p["price"][ciks], p["raw"][ciks])
     mcap = shares * p["raw"][ciks]
     out = []
     for cik, day, ratio in cases:
@@ -226,7 +226,7 @@ def t6_direction(df: pd.DataFrame, p: dict) -> dict[str, dict]:
     wret = price / price.shift(1) - 1
     vol = wret.rolling(26, min_periods=13).std().reindex(dates)
     sh = fundamentals.shares_outstanding(fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate"]))
-    shares = pit(sh.rename(columns={"accepted": "date"}), price.index, price.columns, FUNDAMENTAL_MAX_AGE)
+    shares = fundamentals.shares_wide(sh, price, p["raw"])
     mcap = (shares * p["raw"]).reindex(dates)
     out = {}
     for n, ref, want in (("dusuk_oynaklik", vol, -1), ("kucuk_boyut", mcap, -1), ("ivol_3a", vol, 1), ("max_gunluk_1a", vol, 1)):

@@ -37,7 +37,10 @@ TAGS = {
     "NetCashProvidedByUsedInOperatingActivities", "NetCashProvidedByUsedInInvestingActivities",
     "NetCashProvidedByUsedInFinancingActivities", "PaymentsToAcquirePropertyPlantAndEquipment",
     "PaymentsForRepurchaseOfCommonStock", "PaymentsOfDividends", "ProceedsFromIssuanceOfCommonStock",
-    "PaymentsToAcquireBusinessesNetOfCashAcquired",
+    "PaymentsToAcquireBusinessesNetOfCashAcquired", "PaymentsOfDividendsCommonStock", "CommonStockDividendsPerShareDeclared",
+    # Doğrulamada eksik bulunanlar (kod kullanıyordu, arşivde yoktu): FAVÖK amortismanı, azınlık paylı özsermaye, faiz gideri
+    "DepreciationAndAmortization", "DepreciationAmortizationAndAccretionNet",
+    "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest", "InterestExpenseNonoperating", "InterestExpenseDebt",
     # Hisse sayısı (sulandırma)
     "CommonStockSharesOutstanding", "WeightedAverageNumberOfSharesOutstandingBasic",
     "WeightedAverageNumberOfDilutedSharesOutstanding", "EntityCommonStockSharesOutstanding", "EntityPublicFloat",

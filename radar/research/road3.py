@@ -104,7 +104,7 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
     price, raw = p["price"], p["raw"]
     dates, cols = price.index, price.columns
     sh = fundamentals.shares_outstanding(fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate"]))
-    shares = pit(sh.rename(columns={"accepted": "date"}), dates, cols, FUNDAMENTAL_MAX_AGE)
+    shares = fundamentals.shares_wide(sh, price, raw)  # bölünmeye göre düzeltilmiş
     out = {}
     out |= insider_signals(dates, cols, shares, raw)
     out |= holdings_signals(dates, cols, shares)

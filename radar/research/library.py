@@ -46,7 +46,7 @@ def market_signals(p: dict) -> dict[str, pd.DataFrame]:
     price, raw = p["price"], p["raw"]
     wret = price / price.shift(1) - 1
     sh = fundamentals.shares_outstanding(fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate"]))
-    shares = pit(sh.rename(columns={"accepted": "date"}), price.index, price.columns, FUNDAMENTAL_MAX_AGE)
+    shares = fundamentals.shares_wide(sh, price, raw)  # bölünmeye göre düzeltilmiş
     return {
         "momentum_12_1": price.shift(4) / price.shift(52) - 1,
         "kisa_vade_donus": -(price / price.shift(1) - 1),

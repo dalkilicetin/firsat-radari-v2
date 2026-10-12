@@ -81,7 +81,7 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
 
     fcf = ocf.merge(capex, on=["adsh", "cik", "accepted"], how="left", suffixes=("", "_cx"))
     fcf_v = P(fcf, fcf.value - fcf.value_cx.fillna(0))
-    mcap = P(shares, shares.value) * raw
+    mcap = fundamentals.shares_wide(shares, price, raw) * raw  # bölünmeye göre düzeltilmiş
     acc = ni.merge(ocf, on=["adsh", "cik", "accepted"], suffixes=("_ni", "_ocf")).merge(assets, on=["adsh", "cik", "accepted"])
     accruals = P(acc, (acc.value_ni - acc.value_ocf) / acc.value)
     assets_w = P(assets, assets.value)
