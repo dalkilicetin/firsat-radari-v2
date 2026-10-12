@@ -1,0 +1,28 @@
+{
+ "T4_zamanlama": [
+  {
+   "test": "pit: kabul 2020-01-15 17:30 → ilk görünme 2020-01-17",
+   "gecti": true
+  },
+  {
+   "test": "olay sayacı: kabul 2020-01-15 17:30 → ilk görünme 2020-01-17",
+   "gecti": true
+  },
+  {
+   "test": "pit: kabul 2020-01-17 18:00 → ilk görünme 2020-01-24",
+   "gecti": true
+  },
+  {
+   "test": "olay sayacı: kabul 2020-01-17 18:00 → ilk görünme 2020-01-24",
+   "gecti": true
+  },
+  {
+   "test": "pit: kabul 2020-01-17 09:00 → ilk görünme 2020-01-24",
+   "gecti": true
+  },
+  {
+   "test": "olay sayacı: kabul 2020-01-17 09:00 → ilk görünme 2020-01-24",
+   "gecti": true
+  }
+ ]
+}
