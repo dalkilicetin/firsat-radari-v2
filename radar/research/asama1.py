@@ -231,9 +231,12 @@ def shares_fallback(p: dict) -> dict:
 def ratios_check(p: dict, n: int = 200) -> dict:
     from radar.research import ratios as R
     from radar.research.road1 import signals as r1
-    fin = fundamentals.plain(fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate", "form"]))
+    need = set(R.REVENUE) | set(R.EQUITY) | {"GrossProfit", "OperatingIncomeLoss", "AssetsCurrent", "LiabilitiesCurrent", "NetIncomeLoss", "ProfitLoss"}
+    fin = fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate"])
+    fin = fin[(fin.segments == "") & fin.tag.isin(need)]  # bellek: yalnızca gereken kalemler
     fin = fin.assign(cik=fin.cik.astype(str), fri=to_friday(fin.accepted))
     fin_by = {c: g for c, g in fin.groupby("cik")}
+    del fin
     rng = np.random.default_rng(20261012)
     dates = p["price"].index[(p["price"].index >= "2012-01-01") & (p["price"].index <= "2024-12-31")]
     cols = p["price"].columns
@@ -245,7 +248,9 @@ def ratios_check(p: dict, n: int = 200) -> dict:
     mcap = shares * sub["raw"]
 
     def latest(cik, t, tags, qtrs):
-        f = fin_by.get(cik, fin.iloc[:0])
+        f = fin_by.get(cik)
+        if f is None:
+            return np.nan
         f = f[f.tag.isin(tags) & (f.qtrs == qtrs) & (f.fri <= t)]
         if f.empty:
             return np.nan
@@ -534,7 +539,8 @@ def main(parts: list[str]) -> dict:
         try:
             res[k] = steps[k]()
         except Exception as e:
-            res[k] = {"hata": f"{type(e).__name__}: {e}"}
+            import traceback
+            res[k] = {"hata": f"{type(e).__name__}: {e}", "iz": traceback.format_exc()[-2500:]}
         short = {kk: vv for kk, vv in res[k].items() if kk not in ("tablo", "satirlar", "ayrinti", "donemler", "sapanlar")} if isinstance(res[k], dict) else res[k]
         print(f"=== {k}", json.dumps(short, ensure_ascii=False, default=str)[:3000], flush=True)
         OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str))
