@@ -11,6 +11,8 @@ sonra eklenir.
 
 from __future__ import annotations
 
+import os
+
 from dataclasses import dataclass
 
 import numpy as np
@@ -53,6 +55,10 @@ def prepare():
     sigs |= extra_signals(p)
     unis = sectors.operating_universes(p)
     inv = unis[[k for k in unis if k != "tümü"][0]]
+    floor = float(os.environ.get("RADAR_MIN_PRICE", "5"))
+    if floor != 5:  # deneme: fiyat tabanı (ör. 1 $) — büyük kazananların bir kısmı yıl başında 5 $'ın altında
+        dv = p["dollar_volume"]
+        inv = unis["tümü"] & (p["raw"] >= floor) & ((dv >= 1e6) | dv.isna())
     etf = context.etf_prices(p["price"].index)
     sic = sectors.load_sic().reindex(p["price"].columns).fillna("")
     sector = pd.Series([ETF_NAMES.get(context.etf_for_sic(c), "Diğer") for c in sic], index=p["price"].columns)
