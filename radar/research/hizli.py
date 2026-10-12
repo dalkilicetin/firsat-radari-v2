@@ -85,6 +85,8 @@ EXPERIMENTS = {
     "ust_sira_t200": ("ust_sira", ALL, {"k": 10, "trunc": 200}),
     "t5_temiz": ("sira", ALL, {"k": 10, "seeds": 5, "cikar": True}),
     "t5_k20_temiz": ("sira", ALL, {"k": 20, "seeds": 5, "cikar": True}),
+    "t5_temiz_bultensiz": ("sira", ALL, {"k": 10, "seeds": 5, "cikar": True, "haric": ("bulten_", "aciga_satis_")}),
+    "t5_k20_temiz_bultensiz": ("sira", ALL, {"k": 20, "seeds": 5, "cikar": True, "haric": ("bulten_", "aciga_satis_")}),
     "en_iyi_fark_hepsi": ("fark", ALL, {"k": 10}),
     "en_iyi_k20": ("sira", ALL, {"k": 20}),
 }
@@ -166,7 +168,8 @@ def score(mode: str, tr: pd.DataFrame, te: pd.DataFrame, feats: list[str], param
 
 def run(freq: str, name: str, df: pd.DataFrame, all_feats: list[str]) -> dict:
     mode, groups, params = (EXPERIMENTS | grid())[name]
-    feats = [c for c in all_feats if any(GROUPS[g](c) for g in groups) and not (params.get("cikar") and c in CIKAR)]
+    feats = [c for c in all_feats if any(GROUPS[g](c) for g in groups) and not (params.get("cikar") and c in CIKAR)
+             and not c.startswith(tuple(params.get("haric", ())))]
     weeks, _, form_months = UFUK[freq]
     gap = pd.Timedelta(weeks=weeks)
     years, imps = [], pd.Series(0.0, index=feats)
