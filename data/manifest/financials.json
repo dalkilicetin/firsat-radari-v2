@@ -3,7 +3,7 @@
  "partitions": {
   "2009q1": {
    "partition": "2009q1",
-   "fetched_at": "2026-10-10T16:24:30+00:00",
+   "fetched_at": "2026-10-12T18:22:18+00:00",
    "rows": 0,
    "bytes": 7388,
    "sha256": "479b3ba7b15011653df7feeed4de38fe352c2ca5717a6435ec1eb72cfc6ba3ff",
@@ -37,7 +37,7 @@
    "asset": "financials__2009q1.parquet",
    "release": "veri-arsivi-2009",
    "status": "fail",
-   "duration_s": 0.8,
+   "duration_s": 1.1,
    "requests": 2,
    "checks": [
     {
@@ -84,10 +84,10 @@
   },
   "2009q2": {
    "partition": "2009q2",
-   "fetched_at": "2026-10-10T16:24:36+00:00",
-   "rows": 1015,
-   "bytes": 23552,
-   "sha256": "827f8ba3be228802a473fe69237d76b910167e7c87a7c87721017745562b79c2",
+   "fetched_at": "2026-10-12T18:22:17+00:00",
+   "rows": 1076,
+   "bytes": 24283,
+   "sha256": "e2350111da0f470db75fde3c780d8d2f3e7f22f16fd68bd66ad9d7537c0b2017",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -122,7 +122,7 @@
    "asset": "financials__2009q2.parquet",
    "release": "veri-arsivi-2009",
    "status": "fail",
-   "duration_s": 0.4,
+   "duration_s": 0.5,
    "requests": 2,
    "checks": [
     {
@@ -133,22 +133,22 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "fail",
-     "detail": "1,015 (beklenen 5,000–3,000,000)"
+     "detail": "1,076 (beklenen 5,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "1015/1015 = %100.0"
+     "detail": "1076/1076 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "1015/1015 = %100.0"
+     "detail": "1076/1076 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "1015/1015 = %100.0"
+     "detail": "1076/1076 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
@@ -158,7 +158,7 @@
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "1015/1015 = %100.0"
+     "detail": "1076/1076 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -169,10 +169,10 @@
   },
   "2009q3": {
    "partition": "2009q3",
-   "fetched_at": "2026-10-10T16:24:42+00:00",
-   "rows": 30098,
-   "bytes": 429337,
-   "sha256": "f5506418fb6c3d3b84f626b0c8de0b22a21e6cc055a1e47a5c5f24ee69e93c2a",
+   "fetched_at": "2026-10-12T18:22:18+00:00",
+   "rows": 32255,
+   "bytes": 457056,
+   "sha256": "347a91bc77d4af0339920900cc3697ef4c9a98f3704445a9d64043363535d039",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -207,7 +207,7 @@
    "asset": "financials__2009q3.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 0.7,
+   "duration_s": 1.3,
    "requests": 2,
    "checks": [
     {
@@ -218,22 +218,22 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "30,098 (beklenen 5,000–3,000,000)"
+     "detail": "32,255 (beklenen 5,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "30098/30098 = %100.0"
+     "detail": "32255/32255 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "30098/30098 = %100.0"
+     "detail": "32255/32255 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "30016/30098 = %99.7"
+     "detail": "32165/32255 = %99.7"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
@@ -243,7 +243,7 @@
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "30097/30098 = %100.0"
+     "detail": "32254/32255 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -259,10 +259,10 @@
   },
   "2009q4": {
    "partition": "2009q4",
-   "fetched_at": "2026-10-10T16:24:51+00:00",
-   "rows": 33219,
-   "bytes": 471830,
-   "sha256": "cac204f3fffbf2f319c7148821cb9dfae039c655398971f8d73e6901d4e789ae",
+   "fetched_at": "2026-10-12T18:22:41+00:00",
+   "rows": 35622,
+   "bytes": 502586,
+   "sha256": "93d5a4fe91d35d28ef9cf85ff1e5ac8153086c12345b19fe1632c17c49761ed0",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -299,7 +299,7 @@
    "asset": "financials__2009q4.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 1.1,
+   "duration_s": 1.0,
    "requests": 2,
    "checks": [
     {
@@ -310,22 +310,22 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "33,219 (beklenen 5,000–3,000,000)"
+     "detail": "35,622 (beklenen 5,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "33219/33219 = %100.0"
+     "detail": "35622/35622 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "33219/33219 = %100.0"
+     "detail": "35622/35622 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "33219/33219 = %100.0"
+     "detail": "35622/35622 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
@@ -335,7 +335,7 @@
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "33206/33219 = %100.0"
+     "detail": "35608/35622 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -351,10 +351,10 @@
   },
   "2010q1": {
    "partition": "2010q1",
-   "fetched_at": "2026-10-10T16:24:56+00:00",
-   "rows": 33518,
-   "bytes": 486467,
-   "sha256": "9ba59a62192854bc9de1ee10de6164ded4707d596522a3c6602a4e83574ab762",
+   "fetched_at": "2026-10-12T18:22:44+00:00",
+   "rows": 36339,
+   "bytes": 523644,
+   "sha256": "1576c175089e1d9c1d7f052f25a177b1250cb3754cb40e91a4bb7b155650a2e7",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -392,7 +392,7 @@
    "asset": "financials__2010q1.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 0.9,
+   "duration_s": 1.1,
    "requests": 2,
    "checks": [
     {
@@ -403,22 +403,22 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "33,518 (beklenen 5,000–3,000,000)"
+     "detail": "36,339 (beklenen 5,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "33518/33518 = %100.0"
+     "detail": "36339/36339 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "33518/33518 = %100.0"
+     "detail": "36339/36339 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "33451/33518 = %99.8"
+     "detail": "36262/36339 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
@@ -428,7 +428,7 @@
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "33518/33518 = %100.0"
+     "detail": "36339/36339 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -444,10 +444,10 @@
   },
   "2010q2": {
    "partition": "2010q2",
-   "fetched_at": "2026-10-10T16:24:56+00:00",
-   "rows": 27947,
-   "bytes": 409039,
-   "sha256": "8827b18f30da7de12a9a0924514e2b23a5b929d55f7bc54612d412b2e5320fdf",
+   "fetched_at": "2026-10-12T18:22:48+00:00",
+   "rows": 29985,
+   "bytes": 435166,
+   "sha256": "41af4bbe9ab9634aafbc822c0649bbdb4224f490c7d2b6742e438e32c4980acd",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -480,7 +480,7 @@
      "20-F/A": 6,
      "40-F/A": 1
     },
-    "empty_values": 0
+    "empty_values": 3
    },
    "asset": "financials__2010q2.parquet",
    "release": "veri-arsivi-2009",
@@ -496,32 +496,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "27,947 (beklenen 5,000–3,000,000)"
+     "detail": "29,985 (beklenen 5,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "27947/27947 = %100.0"
+     "detail": "29985/29985 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "27947/27947 = %100.0"
+     "detail": "29985/29985 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "27830/27947 = %99.6"
+     "detail": "29858/29985 = %99.6"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "0 satır"
+     "detail": "3 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "27946/27947 = %100.0"
+     "detail": "29984/29985 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -537,10 +537,10 @@
   },
   "2010q3": {
    "partition": "2010q3",
-   "fetched_at": "2026-10-10T16:25:08+00:00",
-   "rows": 96803,
-   "bytes": 1468798,
-   "sha256": "bc242fb8b9beec1472c2e003a516e358ca00e603c47b12b81becc04e0ef17d6a",
+   "fetched_at": "2026-10-12T18:23:10+00:00",
+   "rows": 103363,
+   "bytes": 1560840,
+   "sha256": "2ec951537886224421b6a319d1743164d8149a313135dc54887c712bd57caf65",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -573,12 +573,12 @@
      "10-K/A": 6,
      "20-F": 3
     },
-    "empty_values": 94
+    "empty_values": 112
    },
    "asset": "financials__2010q3.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 2.0,
+   "duration_s": 1.9,
    "requests": 2,
    "checks": [
     {
@@ -589,32 +589,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "96,803 (beklenen 5,000–3,000,000)"
+     "detail": "103,363 (beklenen 5,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "96803/96803 = %100.0"
+     "detail": "103363/103363 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "96803/96803 = %100.0"
+     "detail": "103363/103363 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "96803/96803 = %100.0"
+     "detail": "103363/103363 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "94 satır"
+     "detail": "112 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "96797/96803 = %100.0"
+     "detail": "103355/103363 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -630,10 +630,10 @@
   },
   "2010q4": {
    "partition": "2010q4",
-   "fetched_at": "2026-10-10T16:25:15+00:00",
-   "rows": 102252,
-   "bytes": 1569648,
-   "sha256": "3a0ebb58a95e868c772ccfb5475d8a2801c1ef1a853baed7a1a3a1c214577b9f",
+   "fetched_at": "2026-10-12T18:23:08+00:00",
+   "rows": 108972,
+   "bytes": 1666565,
+   "sha256": "5c2a6391f125ae4ddd77f99de2b9902cf7b22d23c448e6042b18e975dc46c54b",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -665,12 +665,12 @@
      "10-K/A": 3,
      "20-F/A": 2
     },
-    "empty_values": 111
+    "empty_values": 132
    },
    "asset": "financials__2010q4.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 1.9,
+   "duration_s": 2.4,
    "requests": 2,
    "checks": [
     {
@@ -681,32 +681,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "102,252 (beklenen 5,000–3,000,000)"
+     "detail": "108,972 (beklenen 5,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "102252/102252 = %100.0"
+     "detail": "108972/108972 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "102252/102252 = %100.0"
+     "detail": "108972/108972 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "102172/102252 = %99.9"
+     "detail": "108890/108972 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "111 satır"
+     "detail": "132 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "102250/102252 = %100.0"
+     "detail": "108969/108972 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -722,10 +722,10 @@
   },
   "2011q1": {
    "partition": "2011q1",
-   "fetched_at": "2026-10-10T16:25:18+00:00",
-   "rows": 110989,
-   "bytes": 1716677,
-   "sha256": "953e9ab2c9b27dfedd69df511e4dfd2127f9a4abaf07ba4a74be9eeb7ed894f3",
+   "fetched_at": "2026-10-12T18:23:12+00:00",
+   "rows": 118808,
+   "bytes": 1826210,
+   "sha256": "88343f0492177b049fcce47e11637c7ec9595ee6e2f75111a540bb290dad46ae",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -761,12 +761,12 @@
      "10-KT": 1,
      "40-F/A": 1
     },
-    "empty_values": 109
+    "empty_values": 111
    },
    "asset": "financials__2011q1.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 2.2,
+   "duration_s": 2.1,
    "requests": 2,
    "checks": [
     {
@@ -777,32 +777,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "110,989 (beklenen 5,000–3,000,000)"
+     "detail": "118,808 (beklenen 5,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "110989/110989 = %100.0"
+     "detail": "118808/118808 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "110989/110989 = %100.0"
+     "detail": "118808/118808 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "110551/110989 = %99.6"
+     "detail": "118360/118808 = %99.6"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "109 satır"
+     "detail": "111 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "110985/110989 = %100.0"
+     "detail": "118803/118808 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -818,10 +818,10 @@
   },
   "2011q2": {
    "partition": "2011q2",
-   "fetched_at": "2026-10-10T16:25:21+00:00",
-   "rows": 95620,
-   "bytes": 1501860,
-   "sha256": "479dc4a5ac0f59bf8362ce10b08166a7b8b4a5c3188ae57bef0b893c9fc860a9",
+   "fetched_at": "2026-10-12T18:23:30+00:00",
+   "rows": 101843,
+   "bytes": 1594404,
+   "sha256": "6c5f4bad0774b50c39549e5abcca7ea1fc8b1cfb3572c875b7e516f4320d98a9",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -855,12 +855,12 @@
      "10-K/A": 10,
      "40-F/A": 4
     },
-    "empty_values": 96
+    "empty_values": 114
    },
    "asset": "financials__2011q2.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 1.7,
+   "duration_s": 2.2,
    "requests": 2,
    "checks": [
     {
@@ -871,32 +871,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "95,620 (beklenen 5,000–3,000,000)"
+     "detail": "101,843 (beklenen 5,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "95620/95620 = %100.0"
+     "detail": "101843/101843 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "95620/95620 = %100.0"
+     "detail": "101843/101843 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "95620/95620 = %100.0"
+     "detail": "101843/101843 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "96 satır"
+     "detail": "114 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "95614/95620 = %100.0"
+     "detail": "101831/101843 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -912,10 +912,10 @@
   },
   "2011q3": {
    "partition": "2011q3",
-   "fetched_at": "2026-10-10T16:25:23+00:00",
-   "rows": 407750,
-   "bytes": 6516271,
-   "sha256": "469d21d182046d342f371a57095e9f3844282dbe71e52b706d3a6f1b78adf02f",
+   "fetched_at": "2026-10-12T18:23:35+00:00",
+   "rows": 427197,
+   "bytes": 6807578,
+   "sha256": "32a49635d008d6fc4d46db7478d96473f66bdd14c1c5d1e9f4502035052af341",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -948,7 +948,7 @@
      "10-K/A": 12,
      "20-F": 6
     },
-    "empty_values": 4209
+    "empty_values": 4368
    },
    "asset": "financials__2011q3.parquet",
    "release": "veri-arsivi-2009",
@@ -964,32 +964,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "407,750 (beklenen 100,000–3,000,000)"
+     "detail": "427,197 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "407750/407750 = %100.0"
+     "detail": "427197/427197 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "407750/407750 = %100.0"
+     "detail": "427197/427197 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "407529/407750 = %99.9"
+     "detail": "426970/427197 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,209 satır"
+     "detail": "4,368 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "407707/407750 = %100.0"
+     "detail": "427143/427197 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1005,10 +1005,10 @@
   },
   "2011q4": {
    "partition": "2011q4",
-   "fetched_at": "2026-10-10T16:25:30+00:00",
-   "rows": 423526,
-   "bytes": 6847811,
-   "sha256": "fd53c86b39acac4e09bc75129d9bbca94856721399ab08548837d5cbb1caf48b",
+   "fetched_at": "2026-10-12T18:23:38+00:00",
+   "rows": 442740,
+   "bytes": 7148231,
+   "sha256": "2fcb23034e1d54b23d751fc72cdb7945bcd091f5037b7cd84c0822e40b2213a0",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -1042,12 +1042,12 @@
      "10-KT": 2,
      "20-F/A": 2
     },
-    "empty_values": 4638
+    "empty_values": 4767
    },
    "asset": "financials__2011q4.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 7.2,
+   "duration_s": 7.3,
    "requests": 2,
    "checks": [
     {
@@ -1058,32 +1058,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "423,526 (beklenen 100,000–3,000,000)"
+     "detail": "442,740 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "423526/423526 = %100.0"
+     "detail": "442740/442740 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "423526/423526 = %100.0"
+     "detail": "442740/442740 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "421554/423526 = %99.5"
+     "detail": "440664/442740 = %99.5"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,638 satır"
+     "detail": "4,767 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "423459/423526 = %100.0"
+     "detail": "442661/442740 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1099,10 +1099,10 @@
   },
   "2012q1": {
    "partition": "2012q1",
-   "fetched_at": "2026-10-10T16:25:36+00:00",
-   "rows": 434022,
-   "bytes": 7064762,
-   "sha256": "64d7f18cdec5873034ffdd7b56cb13509bcee3fae3775337b72e9d1c2ba29c3f",
+   "fetched_at": "2026-10-12T18:23:55+00:00",
+   "rows": 454627,
+   "bytes": 7383465,
+   "sha256": "e330625583a6b8afb0d87a6f519b32b02f5385c683a01199358fe48288de7fff",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -1139,12 +1139,12 @@
      "10-QT": 3,
      "40-F/A": 1
     },
-    "empty_values": 4778
+    "empty_values": 4870
    },
    "asset": "financials__2012q1.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 8.0,
+   "duration_s": 8.3,
    "requests": 2,
    "checks": [
     {
@@ -1155,32 +1155,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "434,022 (beklenen 100,000–3,000,000)"
+     "detail": "454,627 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "434022/434022 = %100.0"
+     "detail": "454627/454627 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "434022/434022 = %100.0"
+     "detail": "454627/454627 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "432749/434022 = %99.7"
+     "detail": "453302/454627 = %99.7"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,778 satır"
+     "detail": "4,870 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "433977/434022 = %100.0"
+     "detail": "454573/454627 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1196,10 +1196,10 @@
   },
   "2012q2": {
    "partition": "2012q2",
-   "fetched_at": "2026-10-10T16:25:38+00:00",
-   "rows": 420082,
-   "bytes": 7007472,
-   "sha256": "a46d551d3ceeb29cf95b6343d71462fe5170b7ac7d2fc35c2e2b9740a0c7c769",
+   "fetched_at": "2026-10-12T18:24:09+00:00",
+   "rows": 438382,
+   "bytes": 7293573,
+   "sha256": "50f21ddf25786a8b2d661c2833cc96f360756f3b2b2644def03b66522933381a",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -1236,12 +1236,12 @@
      "40-F/A": 2,
      "10-QT": 1
     },
-    "empty_values": 7920
+    "empty_values": 8044
    },
    "asset": "financials__2012q2.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 7.7,
+   "duration_s": 8.5,
    "requests": 2,
    "checks": [
     {
@@ -1252,32 +1252,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "420,082 (beklenen 100,000–3,000,000)"
+     "detail": "438,382 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "420082/420082 = %100.0"
+     "detail": "438382/438382 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "420082/420082 = %100.0"
+     "detail": "438382/438382 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "419379/420082 = %99.8"
+     "detail": "437661/438382 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "7,920 satır"
+     "detail": "8,044 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "420007/420082 = %100.0"
+     "detail": "438300/438382 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1293,10 +1293,10 @@
   },
   "2012q3": {
    "partition": "2012q3",
-   "fetched_at": "2026-10-10T16:25:41+00:00",
-   "rows": 441817,
-   "bytes": 7233777,
-   "sha256": "d2505a62d749cc0742ccceae8471b5b1396f71d7072a6d14700adae9adee45f8",
+   "fetched_at": "2026-10-12T18:24:11+00:00",
+   "rows": 461840,
+   "bytes": 7539043,
+   "sha256": "1df1f7d0d57af1b15765798c3a09f307fc6f03ea6a49322c88939efd8bcacbb0",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -1331,12 +1331,12 @@
      "10-KT": 2,
      "40-F/A": 1
     },
-    "empty_values": 8310
+    "empty_values": 8469
    },
    "asset": "financials__2012q3.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 10.2,
+   "duration_s": 9.4,
    "requests": 2,
    "checks": [
     {
@@ -1347,32 +1347,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "441,817 (beklenen 100,000–3,000,000)"
+     "detail": "461,840 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "441817/441817 = %100.0"
+     "detail": "461840/461840 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "441817/441817 = %100.0"
+     "detail": "461840/461840 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "441305/441817 = %99.9"
+     "detail": "461318/461840 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "8,310 satır"
+     "detail": "8,469 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "441722/441817 = %100.0"
+     "detail": "461730/461840 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1388,10 +1388,10 @@
   },
   "2012q4": {
    "partition": "2012q4",
-   "fetched_at": "2026-10-10T16:25:43+00:00",
-   "rows": 452553,
-   "bytes": 7373624,
-   "sha256": "60a40d5977513128a4f1133f8c55dd8c9e3433072dd451968fbdae91f6ed8ea6",
+   "fetched_at": "2026-10-12T18:24:32+00:00",
+   "rows": 473074,
+   "bytes": 7699990,
+   "sha256": "cdfbae566ade4ca74c27e7d4786fa5d5ed4ac3d2aed5c1019105963ab8b03844",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -1427,12 +1427,12 @@
      "40-F/A": 2,
      "10-QT": 1
     },
-    "empty_values": 8720
+    "empty_values": 8928
    },
    "asset": "financials__2012q4.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 9.2,
+   "duration_s": 12.2,
    "requests": 2,
    "checks": [
     {
@@ -1443,32 +1443,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "452,553 (beklenen 100,000–3,000,000)"
+     "detail": "473,074 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "452553/452553 = %100.0"
+     "detail": "473074/473074 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "452553/452553 = %100.0"
+     "detail": "473074/473074 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "451370/452553 = %99.7"
+     "detail": "471858/473074 = %99.7"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "8,720 satır"
+     "detail": "8,928 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "452491/452553 = %100.0"
+     "detail": "472997/473074 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1484,10 +1484,10 @@
   },
   "2013q1": {
    "partition": "2013q1",
-   "fetched_at": "2026-10-10T16:25:37+00:00",
-   "rows": 453257,
-   "bytes": 7380588,
-   "sha256": "5b21fee3edd7681c38ac1032a86c6e7203e683cb93f3eab62d4e1fb589e22815",
+   "fetched_at": "2026-10-12T18:24:50+00:00",
+   "rows": 473914,
+   "bytes": 7702553,
+   "sha256": "efc939a05bd452c4cca78cb7cf15d485f3b8c09cffa38c5be4b48470dc68cb91",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -1523,12 +1523,12 @@
      "20-F/A": 11,
      "10-QT": 3
     },
-    "empty_values": 6116
+    "empty_values": 6273
    },
    "asset": "financials__2013q1.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 8.1,
+   "duration_s": 9.7,
    "requests": 2,
    "checks": [
     {
@@ -1539,32 +1539,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "453,257 (beklenen 100,000–3,000,000)"
+     "detail": "473,914 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "453257/453257 = %100.0"
+     "detail": "473914/473914 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "453257/453257 = %100.0"
+     "detail": "473914/473914 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "452570/453257 = %99.8"
+     "detail": "473183/473914 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,116 satır"
+     "detail": "6,273 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "453232/453257 = %100.0"
+     "detail": "473872/473914 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1580,10 +1580,10 @@
   },
   "2013q2": {
    "partition": "2013q2",
-   "fetched_at": "2026-10-10T16:25:47+00:00",
-   "rows": 424113,
-   "bytes": 7076680,
-   "sha256": "8d687278c5d7a9908e26df1fbc08b442169a9e82f8c143b288597d3634c92fe0",
+   "fetched_at": "2026-10-12T18:24:44+00:00",
+   "rows": 442703,
+   "bytes": 7375577,
+   "sha256": "0cf88da6686e5ec4284adbe2e376432971dcbbf8aaf6cdd4215d968206710470",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -1620,12 +1620,12 @@
      "40-F": 3,
      "10-QT": 1
     },
-    "empty_values": 9718
+    "empty_values": 9924
    },
    "asset": "financials__2013q2.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 8.0,
+   "duration_s": 9.1,
    "requests": 2,
    "checks": [
     {
@@ -1636,32 +1636,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "424,113 (beklenen 100,000–3,000,000)"
+     "detail": "442,703 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "424113/424113 = %100.0"
+     "detail": "442703/442703 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "424113/424113 = %100.0"
+     "detail": "442703/442703 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "423596/424113 = %99.9"
+     "detail": "442171/442703 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "9,718 satır"
+     "detail": "9,924 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "424054/424113 = %100.0"
+     "detail": "442633/442703 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1677,10 +1677,10 @@
   },
   "2013q3": {
    "partition": "2013q3",
-   "fetched_at": "2026-10-10T16:25:46+00:00",
-   "rows": 439708,
-   "bytes": 7204911,
-   "sha256": "6ff98927f469aede662c995312e0cab03306fee16ce9f8e4d8aa33edc5e62026",
+   "fetched_at": "2026-10-12T18:25:09+00:00",
+   "rows": 459774,
+   "bytes": 7505968,
+   "sha256": "5c6464471289a66e55ebc9327de906d44adeab971797ce0dc85bbc43f816ea9a",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -1715,12 +1715,12 @@
      "10-KT": 1,
      "40-F": 1
     },
-    "empty_values": 9766
+    "empty_values": 10002
    },
    "asset": "financials__2013q3.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 7.1,
+   "duration_s": 11.7,
    "requests": 2,
    "checks": [
     {
@@ -1731,32 +1731,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "439,708 (beklenen 100,000–3,000,000)"
+     "detail": "459,774 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "439708/439708 = %100.0"
+     "detail": "459774/459774 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "439708/439708 = %100.0"
+     "detail": "459774/459774 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "439246/439708 = %99.9"
+     "detail": "459286/459774 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "9,766 satır"
+     "detail": "10,002 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "439661/439708 = %100.0"
+     "detail": "459714/459774 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1772,10 +1772,10 @@
   },
   "2013q4": {
    "partition": "2013q4",
-   "fetched_at": "2026-10-10T16:25:52+00:00",
-   "rows": 435366,
-   "bytes": 7078695,
-   "sha256": "2eecbce5a10c4dc546934e2efeadcf994f367e761c845a6808558d8756da4d08",
+   "fetched_at": "2026-10-12T18:25:22+00:00",
+   "rows": 455744,
+   "bytes": 7395041,
+   "sha256": "1225c5177cbfdcb02c9ea87fd0b82021f6c04e00de1aa3f9f1117c5d07bb732a",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -1810,12 +1810,12 @@
      "10-QT": 3,
      "40-F/A": 1
     },
-    "empty_values": 8747
+    "empty_values": 8968
    },
    "asset": "financials__2013q4.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 9.5,
+   "duration_s": 9.6,
    "requests": 2,
    "checks": [
     {
@@ -1826,32 +1826,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "435,366 (beklenen 100,000–3,000,000)"
+     "detail": "455,744 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "435366/435366 = %100.0"
+     "detail": "455744/455744 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "435366/435366 = %100.0"
+     "detail": "455744/455744 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "433861/435366 = %99.7"
+     "detail": "454177/455744 = %99.7"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "8,747 satır"
+     "detail": "8,968 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "435330/435366 = %100.0"
+     "detail": "455693/455744 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1867,10 +1867,10 @@
   },
   "2014q1": {
    "partition": "2014q1",
-   "fetched_at": "2026-10-10T16:25:50+00:00",
-   "rows": 470031,
-   "bytes": 7676364,
-   "sha256": "ec3ca16c63cbb5c3144f40ae4c032cb9a4b8820b85cee0e98f3cb61480250fb0",
+   "fetched_at": "2026-10-12T18:25:29+00:00",
+   "rows": 491599,
+   "bytes": 8012382,
+   "sha256": "c5a55dcc666a8e1c600802381bb448531f45f630261d8b28f46dec4aaadd6120",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -1905,12 +1905,12 @@
      "10-KT": 16,
      "20-F/A": 6
     },
-    "empty_values": 6975
+    "empty_values": 7166
    },
    "asset": "financials__2014q1.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 9.7,
+   "duration_s": 12.0,
    "requests": 2,
    "checks": [
     {
@@ -1921,32 +1921,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "470,031 (beklenen 100,000–3,000,000)"
+     "detail": "491,599 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "470031/470031 = %100.0"
+     "detail": "491599/491599 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "470031/470031 = %100.0"
+     "detail": "491599/491599 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "469088/470031 = %99.8"
+     "detail": "490601/491599 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,975 satır"
+     "detail": "7,166 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "470015/470031 = %100.0"
+     "detail": "491560/491599 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -1962,10 +1962,10 @@
   },
   "2014q2": {
    "partition": "2014q2",
-   "fetched_at": "2026-10-10T16:26:01+00:00",
-   "rows": 392342,
-   "bytes": 6519048,
-   "sha256": "078e3ae85abfa74406762ed24f674c29274e3db8bd353c403d7f6a7361b64a4e",
+   "fetched_at": "2026-10-12T18:25:43+00:00",
+   "rows": 410404,
+   "bytes": 6815454,
+   "sha256": "4aa499fc8f438c89eba525513ed1b7fcddf2c5822d88eef90cb288effd9c897b",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2002,12 +2002,12 @@
      "10-QT": 4,
      "40-F/A": 1
     },
-    "empty_values": 9456
+    "empty_values": 9642
    },
    "asset": "financials__2014q2.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 8.5,
+   "duration_s": 10.0,
    "requests": 2,
    "checks": [
     {
@@ -2018,32 +2018,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "392,342 (beklenen 100,000–3,000,000)"
+     "detail": "410,404 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "392342/392342 = %100.0"
+     "detail": "410404/410404 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "392342/392342 = %100.0"
+     "detail": "410404/410404 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "391792/392342 = %99.9"
+     "detail": "409828/410404 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "9,456 satır"
+     "detail": "9,642 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "392309/392342 = %100.0"
+     "detail": "410360/410404 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2059,10 +2059,10 @@
   },
   "2014q3": {
    "partition": "2014q3",
-   "fetched_at": "2026-10-10T16:26:07+00:00",
-   "rows": 418358,
-   "bytes": 6784053,
-   "sha256": "7154576e9d6d0364de3a71532b743807e279e3defd2e7186e03f1b30735f858a",
+   "fetched_at": "2026-10-12T18:25:59+00:00",
+   "rows": 438535,
+   "bytes": 7099159,
+   "sha256": "965f0cd801a0e0bbc21be7cf5045a742b19de0af5485ae3c5252cd63908714ec",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2098,12 +2098,12 @@
      "40-F": 1,
      "10-QT": 1
     },
-    "empty_values": 8076
+    "empty_values": 8227
    },
    "asset": "financials__2014q3.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 7.9,
+   "duration_s": 10.4,
    "requests": 2,
    "checks": [
     {
@@ -2114,32 +2114,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "418,358 (beklenen 100,000–3,000,000)"
+     "detail": "438,535 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "418358/418358 = %100.0"
+     "detail": "438535/438535 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "418358/418358 = %100.0"
+     "detail": "438535/438535 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "417781/418358 = %99.9"
+     "detail": "437941/438535 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "8,076 satır"
+     "detail": "8,227 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "418339/418358 = %100.0"
+     "detail": "438510/438535 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2155,10 +2155,10 @@
   },
   "2014q4": {
    "partition": "2014q4",
-   "fetched_at": "2026-10-10T16:26:09+00:00",
-   "rows": 417006,
-   "bytes": 6814817,
-   "sha256": "d9eb27b3cd4cacb41365d6075c0e0cb82a42a0a55bf510f6672efbd9dd12f02d",
+   "fetched_at": "2026-10-12T18:26:08+00:00",
+   "rows": 437192,
+   "bytes": 7119964,
+   "sha256": "b90352b3f3912f23ae996de1602d4af92a829d6733c59e98102091a68f231770",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2192,12 +2192,12 @@
      "20-F": 5,
      "10-QT": 2
     },
-    "empty_values": 7371
+    "empty_values": 7526
    },
    "asset": "financials__2014q4.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 9.4,
+   "duration_s": 10.4,
    "requests": 2,
    "checks": [
     {
@@ -2208,32 +2208,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "417,006 (beklenen 100,000–3,000,000)"
+     "detail": "437,192 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "417006/417006 = %100.0"
+     "detail": "437192/437192 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "417006/417006 = %100.0"
+     "detail": "437192/437192 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "416794/417006 = %99.9"
+     "detail": "436971/437192 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "7,371 satır"
+     "detail": "7,526 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "416940/417006 = %100.0"
+     "detail": "437120/437192 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2249,10 +2249,10 @@
   },
   "2015q1": {
    "partition": "2015q1",
-   "fetched_at": "2026-10-10T12:51:38+00:00",
-   "rows": 454618,
-   "bytes": 7456669,
-   "sha256": "4cca15535c04ce773fb5bf03f0f52c2041e22125918cfdd94b1626aa1825d103",
+   "fetched_at": "2026-10-12T18:26:23+00:00",
+   "rows": 476544,
+   "bytes": 7804096,
+   "sha256": "dc439d6e3b39e958e708d4a6c9df2893f30929681baf52e644a59d9d15dbcc03",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2288,11 +2288,12 @@
      "10-QT": 4,
      "20-F/A": 3
     },
-    "empty_values": 5383
+    "empty_values": 5482
    },
    "asset": "financials__2015q1.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 13.1,
+   "duration_s": 8.8,
    "requests": 2,
    "checks": [
     {
@@ -2303,32 +2304,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "454,618 (beklenen 100,000–3,000,000)"
+     "detail": "476,544 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "454618/454618 = %100.0"
+     "detail": "476544/476544 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "454618/454618 = %100.0"
+     "detail": "476544/476544 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "453874/454618 = %99.8"
+     "detail": "475746/476544 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,383 satır"
+     "detail": "5,482 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "454603/454618 = %100.0"
+     "detail": "476525/476544 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2344,10 +2345,10 @@
   },
   "2015q2": {
    "partition": "2015q2",
-   "fetched_at": "2026-10-10T12:51:37+00:00",
-   "rows": 365321,
-   "bytes": 6133968,
-   "sha256": "92e71a36287e580065247b875839fcf906e1e6e074f40043355346b37aded335",
+   "fetched_at": "2026-10-12T18:26:37+00:00",
+   "rows": 382776,
+   "bytes": 6404510,
+   "sha256": "fb2994f3a082cf515be7e9e21e2272386fcf386a040f4ea367b25840b1e08865",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2382,11 +2383,12 @@
      "10-KT": 4,
      "40-F": 2
     },
-    "empty_values": 6754
+    "empty_values": 6851
    },
    "asset": "financials__2015q2.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 7.0,
+   "duration_s": 8.1,
    "requests": 2,
    "checks": [
     {
@@ -2397,32 +2399,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "365,321 (beklenen 100,000–3,000,000)"
+     "detail": "382,776 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "365321/365321 = %100.0"
+     "detail": "382776/382776 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "365321/365321 = %100.0"
+     "detail": "382776/382776 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "364816/365321 = %99.9"
+     "detail": "382239/382776 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,754 satır"
+     "detail": "6,851 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "365297/365321 = %100.0"
+     "detail": "382749/382776 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2438,10 +2440,10 @@
   },
   "2015q3": {
    "partition": "2015q3",
-   "fetched_at": "2026-10-10T12:51:36+00:00",
-   "rows": 399466,
-   "bytes": 6557648,
-   "sha256": "7f310c013ccc71ee757499276785e120f7461f933d6fd9431a0ebac9e6ce4dab",
+   "fetched_at": "2026-10-12T18:26:44+00:00",
+   "rows": 419522,
+   "bytes": 6864754,
+   "sha256": "d7f3b91cf34143f47fd8208ccb9770d771851fc77c42a0ea19a9bfe22ead866c",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2477,11 +2479,12 @@
      "10-QT": 2,
      "40-F": 1
     },
-    "empty_values": 6616
+    "empty_values": 6709
    },
    "asset": "financials__2015q3.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 8.3,
+   "duration_s": 8.7,
    "requests": 2,
    "checks": [
     {
@@ -2492,32 +2495,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "399,466 (beklenen 100,000–3,000,000)"
+     "detail": "419,522 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "399466/399466 = %100.0"
+     "detail": "419522/419522 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "399466/399466 = %100.0"
+     "detail": "419522/419522 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "398784/399466 = %99.8"
+     "detail": "418798/419522 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,616 satır"
+     "detail": "6,709 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "399447/399466 = %100.0"
+     "detail": "419498/419522 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2533,10 +2536,10 @@
   },
   "2015q4": {
    "partition": "2015q4",
-   "fetched_at": "2026-10-10T12:52:10+00:00",
-   "rows": 395389,
-   "bytes": 6461684,
-   "sha256": "2e6309f9a401b1d5180997ac61b275abb569f029f5a3efd838522a66f6c696b3",
+   "fetched_at": "2026-10-12T18:26:58+00:00",
+   "rows": 415514,
+   "bytes": 6763852,
+   "sha256": "f7b373a683828eca42ff34bd998151edf60ad040ede5a6f48534406c3676d8f9",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2571,11 +2574,12 @@
      "10-KT": 2,
      "40-F/A": 1
     },
-    "empty_values": 6448
+    "empty_values": 6532
    },
    "asset": "financials__2015q4.parquet",
-   "status": "ok",
-   "duration_s": 9.4,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 7.0,
    "requests": 2,
    "checks": [
     {
@@ -2586,32 +2590,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "395,389 (beklenen 100,000–3,000,000)"
+     "detail": "415,514 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "395389/395389 = %100.0"
+     "detail": "415514/415514 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "395389/395389 = %100.0"
+     "detail": "415514/415514 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "395322/395389 = %100.0"
+     "detail": "415447/415514 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,448 satır"
+     "detail": "6,532 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "395357/395389 = %100.0"
+     "detail": "415476/415514 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2622,15 +2626,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "1,697 satır, 417 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "342,204,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2016q1": {
    "partition": "2016q1",
-   "fetched_at": "2026-10-10T12:52:11+00:00",
-   "rows": 437191,
-   "bytes": 7125470,
-   "sha256": "d679575622c44c4714a34d58842db29b32865d573b624a37f9ef77f0a21faa86",
+   "fetched_at": "2026-10-12T18:27:16+00:00",
+   "rows": 458919,
+   "bytes": 7471384,
+   "sha256": "b51959958a1d79a8431948463e67ccc72434269f8d19f359d71d5df8b45abba8",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2666,11 +2675,12 @@
      "10-QT": 2,
      "20-F/A": 1
     },
-    "empty_values": 4133
+    "empty_values": 4214
    },
    "asset": "financials__2016q1.parquet",
-   "status": "ok",
-   "duration_s": 9.8,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 8.7,
    "requests": 2,
    "checks": [
     {
@@ -2681,32 +2691,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "437,191 (beklenen 100,000–3,000,000)"
+     "detail": "458,919 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "437191/437191 = %100.0"
+     "detail": "458919/458919 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "437191/437191 = %100.0"
+     "detail": "458919/458919 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "436533/437191 = %99.8"
+     "detail": "458229/458919 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,133 satır"
+     "detail": "4,214 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "437184/437191 = %100.0"
+     "detail": "458906/458919 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2717,15 +2727,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "1,975 satır, 463 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "687,348,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2016q2": {
    "partition": "2016q2",
-   "fetched_at": "2026-10-10T12:52:17+00:00",
-   "rows": 338547,
-   "bytes": 5643185,
-   "sha256": "9b7a475e69258cb6af61565b7c9c47fe8ac16ea235315b3ac4046ef8999dd1ce",
+   "fetched_at": "2026-10-12T18:27:15+00:00",
+   "rows": 355140,
+   "bytes": 5898079,
+   "sha256": "3c8b9704063c7be49a4a22893fc08c9e2ace45c48ad88bd08feceb3fbe7793b1",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2761,11 +2776,12 @@
      "20-F/A": 3,
      "10-QT": 1
     },
-    "empty_values": 5562
+    "empty_values": 5655
    },
    "asset": "financials__2016q2.parquet",
-   "status": "ok",
-   "duration_s": 7.9,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 6.7,
    "requests": 2,
    "checks": [
     {
@@ -2776,32 +2792,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "338,547 (beklenen 100,000–3,000,000)"
+     "detail": "355,140 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "338547/338547 = %100.0"
+     "detail": "355140/355140 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "338547/338547 = %100.0"
+     "detail": "355140/355140 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "338229/338547 = %99.9"
+     "detail": "354816/355140 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,562 satır"
+     "detail": "5,655 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "338499/338547 = %100.0"
+     "detail": "355089/355140 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2812,15 +2828,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "1,888 satır, 443 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "686,792,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2016q3": {
    "partition": "2016q3",
-   "fetched_at": "2026-10-10T12:52:46+00:00",
-   "rows": 335655,
-   "bytes": 5344068,
-   "sha256": "3ca35417681aed4336af4de725e5d349fc864de207c55264b34f995d3ebe2540",
+   "fetched_at": "2026-10-12T18:27:29+00:00",
+   "rows": 353190,
+   "bytes": 5622932,
+   "sha256": "fbfd741ba830311352ba0d12d5af3b1f6e7699a7e658d3a7cbd88d1bc4a63a13",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2854,11 +2875,12 @@
      "10-KT": 2,
      "40-F": 1
     },
-    "empty_values": 4957
+    "empty_values": 5030
    },
    "asset": "financials__2016q3.parquet",
-   "status": "ok",
-   "duration_s": 5.9,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 5.7,
    "requests": 2,
    "checks": [
     {
@@ -2869,32 +2891,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "335,655 (beklenen 100,000–3,000,000)"
+     "detail": "353,190 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "335655/335655 = %100.0"
+     "detail": "353190/353190 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "335655/335655 = %100.0"
+     "detail": "353190/353190 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "335550/335655 = %100.0"
+     "detail": "353083/353190 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,957 satır"
+     "detail": "5,030 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "335632/335655 = %100.0"
+     "detail": "353163/353190 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2905,15 +2927,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "1,561 satır, 386 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "686,778,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2016q4": {
    "partition": "2016q4",
-   "fetched_at": "2026-10-10T12:52:48+00:00",
-   "rows": 370447,
-   "bytes": 6049332,
-   "sha256": "02a8dffacda1ec2100773e8f2b56d871978d988ae6ca4ffe6246823f3f692787",
+   "fetched_at": "2026-10-12T18:27:49+00:00",
+   "rows": 389577,
+   "bytes": 6346257,
+   "sha256": "f6f8489cc0b8d825dbe24af660b96f42d78a7bd6b6d067588ae19a634fcfa5a0",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -2948,11 +2975,12 @@
      "10-QT": 3,
      "10-KT": 3
     },
-    "empty_values": 5578
+    "empty_values": 5667
    },
    "asset": "financials__2016q4.parquet",
-   "status": "ok",
-   "duration_s": 6.4,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 8.2,
    "requests": 2,
    "checks": [
     {
@@ -2963,32 +2991,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "370,447 (beklenen 100,000–3,000,000)"
+     "detail": "389,577 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "370447/370447 = %100.0"
+     "detail": "389577/389577 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "370447/370447 = %100.0"
+     "detail": "389577/389577 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "368851/370447 = %99.6"
+     "detail": "387920/389577 = %99.6"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,578 satır"
+     "detail": "5,667 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "370437/370447 = %100.0"
+     "detail": "389565/389577 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -2999,15 +3027,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "1,739 satır, 423 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "689,136,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2017q1": {
    "partition": "2017q1",
-   "fetched_at": "2026-10-10T12:52:50+00:00",
-   "rows": 421161,
-   "bytes": 6858384,
-   "sha256": "f45b627a59598829e60deb755793c091229a665eb4274afbcc82f9576c7c36c7",
+   "fetched_at": "2026-10-12T18:27:51+00:00",
+   "rows": 442333,
+   "bytes": 7196659,
+   "sha256": "ccdf56b8381b996557d3609fe16a3641e4be1fa315e36663ddfa722af523087e",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3044,11 +3077,12 @@
      "40-F/A": 2,
      "20-F/A": 1
     },
-    "empty_values": 4435
+    "empty_values": 4521
    },
    "asset": "financials__2017q1.parquet",
-   "status": "ok",
-   "duration_s": 7.7,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 10.8,
    "requests": 2,
    "checks": [
     {
@@ -3059,32 +3093,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "421,161 (beklenen 100,000–3,000,000)"
+     "detail": "442,333 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "421161/421161 = %100.0"
+     "detail": "442333/442333 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "421161/421161 = %100.0"
+     "detail": "442333/442333 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "420015/421161 = %99.7"
+     "detail": "441118/442333 = %99.7"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,435 satır"
+     "detail": "4,521 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "421157/421161 = %100.0"
+     "detail": "442324/442333 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -3095,15 +3129,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,031 satır, 465 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "691,293,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2017q2": {
    "partition": "2017q2",
-   "fetched_at": "2026-10-10T12:53:13+00:00",
-   "rows": 322377,
-   "bytes": 5424143,
-   "sha256": "876234c20738556f86f6dc8d4a14383fa837dae9cec361eed7f9357b1abc42b2",
+   "fetched_at": "2026-10-12T18:27:54+00:00",
+   "rows": 338399,
+   "bytes": 5672011,
+   "sha256": "001bd9ea9fdef6fea1188e3ad2bfdfcc00917bab298147cf535e2ae5343779c1",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3140,11 +3179,12 @@
      "40-F": 2,
      "40-F/A": 1
     },
-    "empty_values": 6077
+    "empty_values": 6161
    },
    "asset": "financials__2017q2.parquet",
-   "status": "ok",
-   "duration_s": 7.0,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 6.3,
    "requests": 2,
    "checks": [
     {
@@ -3155,32 +3195,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "322,377 (beklenen 100,000–3,000,000)"
+     "detail": "338,399 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "322377/322377 = %100.0"
+     "detail": "338399/338399 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "322377/322377 = %100.0"
+     "detail": "338399/338399 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "322299/322377 = %100.0"
+     "detail": "338319/338399 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,077 satır"
+     "detail": "6,161 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "322357/322377 = %100.0"
+     "detail": "338378/338399 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -3191,15 +3231,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "1,861 satır, 449 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "692,108,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2017q3": {
    "partition": "2017q3",
-   "fetched_at": "2026-10-10T12:53:14+00:00",
-   "rows": 358234,
-   "bytes": 5839433,
-   "sha256": "63eea92d8df2c0bdf181d463af1539f40fc1407e0a72959315595139e27f4488",
+   "fetched_at": "2026-10-12T18:28:27+00:00",
+   "rows": 376481,
+   "bytes": 6114024,
+   "sha256": "86ef9613e898fd80e8c255bf8efb3c9cd7a1cf87bdc9b7f4f790ce9771f25b9e",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3235,11 +3280,12 @@
      "40-F": 1,
      "10-QT": 1
     },
-    "empty_values": 5572
+    "empty_values": 5663
    },
    "asset": "financials__2017q3.parquet",
-   "status": "ok",
-   "duration_s": 5.8,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 7.5,
    "requests": 2,
    "checks": [
     {
@@ -3250,32 +3296,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "358,234 (beklenen 100,000–3,000,000)"
+     "detail": "376,481 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "358234/358234 = %100.0"
+     "detail": "376481/376481 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "358234/358234 = %100.0"
+     "detail": "376481/376481 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "357975/358234 = %99.9"
+     "detail": "376221/376481 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,572 satır"
+     "detail": "5,663 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "358193/358234 = %100.0"
+     "detail": "376437/376481 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -3286,15 +3332,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "1,804 satır, 429 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "692,876,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2017q4": {
    "partition": "2017q4",
-   "fetched_at": "2026-10-10T12:53:15+00:00",
-   "rows": 367476,
-   "bytes": 6016494,
-   "sha256": "a243a62372d0286c26c945b8b545c009dfd4e184d6e7f7d06e1f3c63446a5556",
+   "fetched_at": "2026-10-12T18:28:26+00:00",
+   "rows": 385865,
+   "bytes": 6281070,
+   "sha256": "7f7c4a0481074e3f0404bade607be4b77fdd4799bc331bfd192dd5892a75c467",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3329,11 +3380,12 @@
      "10-KT": 2,
      "10-QT": 1
     },
-    "empty_values": 6015
+    "empty_values": 6076
    },
    "asset": "financials__2017q4.parquet",
-   "status": "ok",
-   "duration_s": 5.0,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 7.8,
    "requests": 2,
    "checks": [
     {
@@ -3344,32 +3396,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "367,476 (beklenen 100,000–3,000,000)"
+     "detail": "385,865 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "367476/367476 = %100.0"
+     "detail": "385865/385865 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "367476/367476 = %100.0"
+     "detail": "385865/385865 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "366252/367476 = %99.7"
+     "detail": "384591/385865 = %99.7"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,015 satır"
+     "detail": "6,076 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "367453/367476 = %100.0"
+     "detail": "385841/385865 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -3380,15 +3432,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "1,841 satır, 447 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "694,790,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2018q1": {
    "partition": "2018q1",
-   "fetched_at": "2026-10-10T12:53:44+00:00",
-   "rows": 411195,
-   "bytes": 6702843,
-   "sha256": "4f0dadb0e384563a71cb0ca4d1869b49fc186ab34d25a2d444c32e4b920d07ee",
+   "fetched_at": "2026-10-12T18:28:57+00:00",
+   "rows": 431477,
+   "bytes": 7017157,
+   "sha256": "5f64587a2e991fb2b06c85089187c82600ef99cbc880606cad290771e9f9504b",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3425,11 +3482,12 @@
      "40-F/A": 3,
      "10-QT": 1
     },
-    "empty_values": 4193
+    "empty_values": 4266
    },
    "asset": "financials__2018q1.parquet",
-   "status": "ok",
-   "duration_s": 10.8,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 7.5,
    "requests": 2,
    "checks": [
     {
@@ -3440,32 +3498,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "411,195 (beklenen 100,000–3,000,000)"
+     "detail": "431,477 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "411195/411195 = %100.0"
+     "detail": "431477/431477 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "411195/411195 = %100.0"
+     "detail": "431477/431477 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "410208/411195 = %99.8"
+     "detail": "430439/431477 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,193 satır"
+     "detail": "4,266 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "411195/411195 = %100.0"
+     "detail": "431476/431477 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -3476,15 +3534,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,144 satır, 476 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "694,783,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2018q2": {
    "partition": "2018q2",
-   "fetched_at": "2026-10-10T12:53:45+00:00",
-   "rows": 351937,
-   "bytes": 5962098,
-   "sha256": "54c79ecdd6fb4df0cc6177bbf28eeedec4eb22ce0e4058a77722aacf8221c151",
+   "fetched_at": "2026-10-12T18:29:02+00:00",
+   "rows": 368175,
+   "bytes": 6219474,
+   "sha256": "366a583e33b71e3dea750f924cce227d56349c72a219f1dece6ddd9d9eb755bd",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3521,11 +3584,12 @@
      "40-F/A": 7,
      "10-QT": 2
     },
-    "empty_values": 6222
+    "empty_values": 6277
    },
    "asset": "financials__2018q2.parquet",
-   "status": "ok",
-   "duration_s": 8.0,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 19.1,
    "requests": 2,
    "checks": [
     {
@@ -3536,32 +3600,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "351,937 (beklenen 100,000–3,000,000)"
+     "detail": "368,175 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "351937/351937 = %100.0"
+     "detail": "368175/368175 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "351937/351937 = %100.0"
+     "detail": "368175/368175 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "351526/351937 = %99.9"
+     "detail": "367745/368175 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,222 satır"
+     "detail": "6,277 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "351920/351937 = %100.0"
+     "detail": "368157/368175 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -3572,15 +3636,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,129 satır, 488 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "694,945,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2018q3": {
    "partition": "2018q3",
-   "fetched_at": "2026-10-10T12:53:45+00:00",
-   "rows": 376388,
-   "bytes": 6142529,
-   "sha256": "ca20edade3ba9c24328070e21d6b8b451c0147b038ae566c8022315134ad6bf7",
+   "fetched_at": "2026-10-12T18:29:33+00:00",
+   "rows": 394359,
+   "bytes": 6410229,
+   "sha256": "6dda4be0b75b56ac3e5607281958fc471cc12e703e8db87c282785bd0f43639b",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3616,11 +3685,12 @@
      "10-QT": 3,
      "40-F": 1
     },
-    "empty_values": 5842
+    "empty_values": 5903
    },
    "asset": "financials__2018q3.parquet",
-   "status": "ok",
-   "duration_s": 6.8,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 9.3,
    "requests": 2,
    "checks": [
     {
@@ -3631,32 +3701,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "376,388 (beklenen 100,000–3,000,000)"
+     "detail": "394,359 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "376388/376388 = %100.0"
+     "detail": "394359/394359 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "376388/376388 = %100.0"
+     "detail": "394359/394359 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "376175/376388 = %99.9"
+     "detail": "394137/394359 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,842 satır"
+     "detail": "5,903 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "376356/376388 = %100.0"
+     "detail": "394325/394359 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -3667,15 +3737,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,019 satır, 463 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "695,946,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2018q4": {
    "partition": "2018q4",
-   "fetched_at": "2026-10-10T12:54:16+00:00",
-   "rows": 383660,
-   "bytes": 4670828,
-   "sha256": "204ee6b50448bbb4166f02b011afedff0d5b6095b6063815e8a2f35fadc7f2d4",
+   "fetched_at": "2026-10-12T18:29:50+00:00",
+   "rows": 401999,
+   "bytes": 4844857,
+   "sha256": "bd6241fcba651e9d1409130118ef98eececa67a4b46d081ea63bd550bbb18f37",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3710,11 +3785,12 @@
      "40-F": 7,
      "10-KT": 2
     },
-    "empty_values": 5989
+    "empty_values": 6063
    },
    "asset": "financials__2018q4.parquet",
-   "status": "ok",
-   "duration_s": 10.0,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 8.9,
    "requests": 2,
    "checks": [
     {
@@ -3725,32 +3801,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "383,660 (beklenen 100,000–3,000,000)"
+     "detail": "401,999 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "383660/383660 = %100.0"
+     "detail": "401999/401999 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "383660/383660 = %100.0"
+     "detail": "401999/401999 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "382582/383660 = %99.7"
+     "detail": "400859/401999 = %99.7"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,989 satır"
+     "detail": "6,063 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "383629/383660 = %100.0"
+     "detail": "401966/401999 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -3761,15 +3837,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,130 satır, 487 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "695,957,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2019q1": {
    "partition": "2019q1",
-   "fetched_at": "2026-10-10T12:54:18+00:00",
-   "rows": 415294,
-   "bytes": 6759589,
-   "sha256": "ca6069a2f895f17d75c2259f35c54893871627815cb62fe438fd9c75f9a6fbe9",
+   "fetched_at": "2026-10-12T18:30:08+00:00",
+   "rows": 434670,
+   "bytes": 7062551,
+   "sha256": "cc161794cd03241163c50585cb9a879fd05fa4f1b53adb8c041bb45af669ed07",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3806,11 +3887,12 @@
      "10-QT": 4,
      "40-F/A": 2
     },
-    "empty_values": 4078
+    "empty_values": 4151
    },
    "asset": "financials__2019q1.parquet",
-   "status": "ok",
-   "duration_s": 9.1,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 9.2,
    "requests": 2,
    "checks": [
     {
@@ -3821,32 +3903,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "415,294 (beklenen 100,000–3,000,000)"
+     "detail": "434,670 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "415294/415294 = %100.0"
+     "detail": "434670/434670 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "415294/415294 = %100.0"
+     "detail": "434670/434670 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "414793/415294 = %99.9"
+     "detail": "434131/434670 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,078 satır"
+     "detail": "4,151 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "415290/415294 = %100.0"
+     "detail": "434663/434670 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -3857,15 +3939,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,289 satır, 511 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "695,556,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2019q2": {
    "partition": "2019q2",
-   "fetched_at": "2026-10-10T12:54:20+00:00",
-   "rows": 362929,
-   "bytes": 6092947,
-   "sha256": "108c242e4b612958bd54c27229329d05bb1ee736390a59611b5cb31ee88c26aa",
+   "fetched_at": "2026-10-12T18:30:04+00:00",
+   "rows": 381320,
+   "bytes": 6382251,
+   "sha256": "b8d91b2da25d81671effa5528d603d36d07dbae1ba5a5fa83e86317c105dd8c2",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3902,11 +3989,12 @@
      "10-KT": 3,
      "10-QT": 1
     },
-    "empty_values": 6709
+    "empty_values": 6894
    },
    "asset": "financials__2019q2.parquet",
-   "status": "ok",
-   "duration_s": 8.7,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 10.6,
    "requests": 2,
    "checks": [
     {
@@ -3917,32 +4005,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "362,929 (beklenen 100,000–3,000,000)"
+     "detail": "381,320 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "362929/362929 = %100.0"
+     "detail": "381320/381320 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "362929/362929 = %100.0"
+     "detail": "381320/381320 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "362865/362929 = %100.0"
+     "detail": "381255/381320 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,709 satır"
+     "detail": "6,894 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "362912/362929 = %100.0"
+     "detail": "381300/381320 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -3953,15 +4041,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,586 satır, 535 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "694,782,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2019q3": {
    "partition": "2019q3",
-   "fetched_at": "2026-10-10T12:54:53+00:00",
-   "rows": 388599,
-   "bytes": 6357900,
-   "sha256": "b7dd6a4fc2c17c4b6d201e100d315c6f5209a6fe8371e5c6828083db9fd9debc",
+   "fetched_at": "2026-10-12T18:30:29+00:00",
+   "rows": 410881,
+   "bytes": 6699694,
+   "sha256": "71958e6ba82e121ffb1122491d59c1cbc74971be9eda0e4dc8874b47ac06bc87",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -3998,11 +4091,12 @@
      "10-KT": 1,
      "10-QT": 1
     },
-    "empty_values": 5866
+    "empty_values": 5951
    },
    "asset": "financials__2019q3.parquet",
-   "status": "ok",
-   "duration_s": 9.0,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 11.0,
    "requests": 2,
    "checks": [
     {
@@ -4013,32 +4107,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "388,599 (beklenen 100,000–3,000,000)"
+     "detail": "410,881 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "388599/388599 = %100.0"
+     "detail": "410881/410881 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "388599/388599 = %100.0"
+     "detail": "410881/410881 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "388546/388599 = %100.0"
+     "detail": "410824/410881 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,866 satır"
+     "detail": "5,951 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "388588/388599 = %100.0"
+     "detail": "410867/410881 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -4049,15 +4143,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,329 satır, 478 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "694,050,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2019q4": {
    "partition": "2019q4",
-   "fetched_at": "2026-10-10T12:54:46+00:00",
-   "rows": 402141,
-   "bytes": 6591096,
-   "sha256": "11dcdaf4721fa6e9e2aa1633aafe101468c1f5a55d197f86219a9e7fefc46e83",
+   "fetched_at": "2026-10-12T18:30:41+00:00",
+   "rows": 426154,
+   "bytes": 6963021,
+   "sha256": "f6c16a91b6e8e0675135b64317c888ecc615e93a0826e1821712acb80d4b62c8",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -4093,11 +4192,12 @@
      "10-KT": 3,
      "40-F/A": 2
     },
-    "empty_values": 6293
+    "empty_values": 6372
    },
    "asset": "financials__2019q4.parquet",
-   "status": "ok",
-   "duration_s": 7.4,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 10.0,
    "requests": 2,
    "checks": [
     {
@@ -4108,32 +4208,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "402,141 (beklenen 100,000–3,000,000)"
+     "detail": "426,154 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "402141/402141 = %100.0"
+     "detail": "426154/426154 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "402141/402141 = %100.0"
+     "detail": "426154/426154 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "400400/402141 = %99.6"
+     "detail": "424305/426154 = %99.6"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,293 satır"
+     "detail": "6,372 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "402130/402141 = %100.0"
+     "detail": "426141/426154 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -4144,15 +4244,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,410 satır, 503 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "690,906,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2020q1": {
    "partition": "2020q1",
-   "fetched_at": "2026-10-10T12:54:48+00:00",
-   "rows": 419643,
-   "bytes": 6862993,
-   "sha256": "f8a2528bc4c9eef63853b6cf38b6bc0c3728c6e60c29d8ab3b01bec144a75e5c",
+   "fetched_at": "2026-10-12T18:30:38+00:00",
+   "rows": 439630,
+   "bytes": 7177632,
+   "sha256": "269c7fd686afab3d77e050a24c781050dd334b572e830ec4b602f185cc0b942a",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -4188,11 +4293,12 @@
      "20-F/A": 5,
      "40-F/A": 3
     },
-    "empty_values": 4834
+    "empty_values": 4951
    },
    "asset": "financials__2020q1.parquet",
-   "status": "ok",
-   "duration_s": 10.1,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 8.8,
    "requests": 2,
    "checks": [
     {
@@ -4203,32 +4309,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "419,643 (beklenen 100,000–3,000,000)"
+     "detail": "439,630 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "419643/419643 = %100.0"
+     "detail": "439630/439630 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "419643/419643 = %100.0"
+     "detail": "439630/439630 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "418805/419643 = %99.8"
+     "detail": "438747/439630 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,834 satır"
+     "detail": "4,951 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "419635/419643 = %100.0"
+     "detail": "439618/439630 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -4239,15 +4345,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,429 satır, 546 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "688,335,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2020q2": {
    "partition": "2020q2",
-   "fetched_at": "2026-10-10T12:55:20+00:00",
-   "rows": 336756,
-   "bytes": 5635762,
-   "sha256": "c9e9753e652d11d6f6d804b471d8d6290854049a7945975a55a08351d4e80a38",
+   "fetched_at": "2026-10-12T18:31:11+00:00",
+   "rows": 354033,
+   "bytes": 5914084,
+   "sha256": "6dfe95724332f5a9da4490e5cf6f5a5ecc02c87e35a8b9e0e1894e99a0fb3b54",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -4283,11 +4394,12 @@
      "10-KT": 4,
      "40-F/A": 3
     },
-    "empty_values": 4773
+    "empty_values": 4840
    },
    "asset": "financials__2020q2.parquet",
-   "status": "ok",
-   "duration_s": 8.1,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 8.8,
    "requests": 2,
    "checks": [
     {
@@ -4298,32 +4410,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "336,756 (beklenen 100,000–3,000,000)"
+     "detail": "354,033 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "336756/336756 = %100.0"
+     "detail": "354033/354033 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "336756/336756 = %100.0"
+     "detail": "354033/354033 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "336151/336756 = %99.8"
+     "detail": "353402/354033 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,773 satır"
+     "detail": "4,840 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "336746/336756 = %100.0"
+     "detail": "354021/354033 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -4334,15 +4446,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,677 satır, 570 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "683,972,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2020q3": {
    "partition": "2020q3",
-   "fetched_at": "2026-10-10T12:55:23+00:00",
-   "rows": 389881,
-   "bytes": 6380355,
-   "sha256": "74e93bc7e38aa05dc2dd72b5463f2f8c670d9fa68b7a43fdcddb7484cdb3326b",
+   "fetched_at": "2026-10-12T18:31:11+00:00",
+   "rows": 412028,
+   "bytes": 6722454,
+   "sha256": "14f50a763ce6e869b3d930ce296b343a0331a5b989413830d159561727516e28",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -4378,11 +4495,12 @@
      "40-F/A": 1,
      "10-QT": 1
     },
-    "empty_values": 4745
+    "empty_values": 4827
    },
    "asset": "financials__2020q3.parquet",
-   "status": "ok",
-   "duration_s": 8.6,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 9.7,
    "requests": 2,
    "checks": [
     {
@@ -4393,32 +4511,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "389,881 (beklenen 100,000–3,000,000)"
+     "detail": "412,028 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "389881/389881 = %100.0"
+     "detail": "412028/412028 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "389881/389881 = %100.0"
+     "detail": "412028/412028 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "389605/389881 = %99.9"
+     "detail": "411741/412028 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,745 satır"
+     "detail": "4,827 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "389858/389881 = %100.0"
+     "detail": "411999/412028 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -4429,15 +4547,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,464 satır, 529 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "681,215,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2020q4": {
    "partition": "2020q4",
-   "fetched_at": "2026-10-10T12:55:29+00:00",
-   "rows": 391517,
-   "bytes": 6330531,
-   "sha256": "4822b758b1514566dccfd50a602b5c1863074928ae48f235fb5252fde2d960e2",
+   "fetched_at": "2026-10-12T18:31:19+00:00",
+   "rows": 414708,
+   "bytes": 6688997,
+   "sha256": "3036ce18da06b3e0277dd8b4fde2bcecd5658867f6b2d4c2972fd053c68e67a1",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -4472,11 +4595,12 @@
      "20-F/A": 4,
      "10-QT": 2
     },
-    "empty_values": 4562
+    "empty_values": 4631
    },
    "asset": "financials__2020q4.parquet",
-   "status": "ok",
-   "duration_s": 10.5,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 8.2,
    "requests": 2,
    "checks": [
     {
@@ -4487,32 +4611,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "391,517 (beklenen 100,000–3,000,000)"
+     "detail": "414,708 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "391517/391517 = %100.0"
+     "detail": "414708/414708 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "391517/391517 = %100.0"
+     "detail": "414708/414708 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "391437/391517 = %100.0"
+     "detail": "414626/414708 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,562 satır"
+     "detail": "4,631 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "391500/391517 = %100.0"
+     "detail": "414685/414708 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -4523,15 +4647,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "2,820 satır, 653 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "677,724,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2021q1": {
    "partition": "2021q1",
-   "fetched_at": "2026-10-10T12:55:48+00:00",
-   "rows": 405668,
-   "bytes": 6679168,
-   "sha256": "999dc02118e14533bcf8b015e3f85bfd9af0ddf470db439e4305e9ee0723dcb8",
+   "fetched_at": "2026-10-12T18:31:49+00:00",
+   "rows": 425449,
+   "bytes": 6989212,
+   "sha256": "d047826ce6699e9de227eff003adfe300cf29c236801c4acb81a14e7f9f675b9",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -4568,11 +4697,12 @@
      "40-F/A": 3,
      "10-QT": 1
     },
-    "empty_values": 3469
+    "empty_values": 3532
    },
    "asset": "financials__2021q1.parquet",
-   "status": "ok",
-   "duration_s": 6.1,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 9.7,
    "requests": 2,
    "checks": [
     {
@@ -4583,32 +4713,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "405,668 (beklenen 100,000–3,000,000)"
+     "detail": "425,449 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "405668/405668 = %100.0"
+     "detail": "425449/425449 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "405668/405668 = %100.0"
+     "detail": "425449/425449 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "404792/405668 = %99.8"
+     "detail": "424544/425449 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "3,469 satır"
+     "detail": "3,532 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "405650/405668 = %100.0"
+     "detail": "425427/425449 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -4619,15 +4749,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "3,047 satır, 761 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "675,222,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2021q2": {
    "partition": "2021q2",
-   "fetched_at": "2026-10-10T12:56:00+00:00",
-   "rows": 367477,
-   "bytes": 6178333,
-   "sha256": "75b5587e1084ce9b8682cc98e137679c27f03619fd6335687185809742cb9aa2",
+   "fetched_at": "2026-10-12T18:31:46+00:00",
+   "rows": 385048,
+   "bytes": 6450557,
+   "sha256": "9e155de25c0ed20fab97138a7d5e054cad024939f46b48a9a24d520fb70bcb04",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -4664,10 +4799,11 @@
      "40-F/A": 7,
      "10-QT": 1
     },
-    "empty_values": 5057
+    "empty_values": 5118
    },
    "asset": "financials__2021q2.parquet",
-   "status": "ok",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
    "duration_s": 8.7,
    "requests": 2,
    "checks": [
@@ -4679,32 +4815,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "367,477 (beklenen 100,000–3,000,000)"
+     "detail": "385,048 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "367477/367477 = %100.0"
+     "detail": "385048/385048 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "367477/367477 = %100.0"
+     "detail": "385048/385048 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "366996/367477 = %99.9"
+     "detail": "384560/385048 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,057 satır"
+     "detail": "5,118 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "367425/367477 = %100.0"
+     "detail": "384991/385048 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -4715,15 +4851,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "5,035 satır, 1,050 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "671,094,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2021q3": {
    "partition": "2021q3",
-   "fetched_at": "2026-10-10T12:56:01+00:00",
-   "rows": 428344,
-   "bytes": 6977262,
-   "sha256": "058bfffc42d8b86a27a36bd24db603ca9df6fc52bfc2dc072b28f783f33cac20",
+   "fetched_at": "2026-10-12T18:31:47+00:00",
+   "rows": 450732,
+   "bytes": 7332042,
+   "sha256": "86b88152c5472bfa33c63fd6edb234ec1eefa2ee71634559323ef33126c174c8",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -4760,11 +4901,12 @@
      "10-KT": 1,
      "10-QT": 1
     },
-    "empty_values": 6198
+    "empty_values": 6293
    },
    "asset": "financials__2021q3.parquet",
-   "status": "ok",
-   "duration_s": 9.6,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 7.0,
    "requests": 2,
    "checks": [
     {
@@ -4775,32 +4917,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "428,344 (beklenen 100,000–3,000,000)"
+     "detail": "450,732 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "428344/428344 = %100.0"
+     "detail": "450732/450732 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "428344/428344 = %100.0"
+     "detail": "450732/450732 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "428136/428344 = %100.0"
+     "detail": "450520/450732 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,198 satır"
+     "detail": "6,293 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "428298/428344 = %100.0"
+     "detail": "450679/450732 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -4811,15 +4953,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,955 satır, 1,086 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "667,637,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2021q4": {
    "partition": "2021q4",
-   "fetched_at": "2026-10-10T12:56:18+00:00",
-   "rows": 447323,
-   "bytes": 7239868,
-   "sha256": "5bfa2fd68c04fc6ba33006d1e9c2167894c3a7373b03ef075eb8b9262b2bb203",
+   "fetched_at": "2026-10-12T18:32:17+00:00",
+   "rows": 471370,
+   "bytes": 7602020,
+   "sha256": "eec9d3ff1177f32d6a52e41ea50dd1670d15d5150bccb7af5b4abd5ec80a9a3f",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -4855,11 +5002,12 @@
      "40-F/A": 7,
      "10-KT": 4
     },
-    "empty_values": 5789
+    "empty_values": 5895
    },
    "asset": "financials__2021q4.parquet",
-   "status": "ok",
-   "duration_s": 10.6,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 8.4,
    "requests": 2,
    "checks": [
     {
@@ -4870,32 +5018,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "447,323 (beklenen 100,000–3,000,000)"
+     "detail": "471,370 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "447323/447323 = %100.0"
+     "detail": "471370/471370 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "447323/447323 = %100.0"
+     "detail": "471370/471370 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "446928/447323 = %99.9"
+     "detail": "470967/471370 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,789 satır"
+     "detail": "5,895 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "447311/447323 = %100.0"
+     "detail": "471353/471370 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -4906,15 +5054,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "5,387 satır, 1,195 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "664,682,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2022q1": {
    "partition": "2022q1",
-   "fetched_at": "2026-10-10T12:56:34+00:00",
-   "rows": 403385,
-   "bytes": 6624762,
-   "sha256": "c4ec86ad7ca532e9b83c78944a65026ee18a2ef9f469374681460f78ce2a6b0c",
+   "fetched_at": "2026-10-12T18:32:14+00:00",
+   "rows": 422812,
+   "bytes": 6945599,
+   "sha256": "f3a1e4d0043df1a3714effcbeb78374e8d436575466a60bb5e1aa0bdacf2a05a",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -4951,11 +5104,12 @@
      "10-QT": 5,
      "40-F/A": 3
     },
-    "empty_values": 4338
+    "empty_values": 4416
    },
    "asset": "financials__2022q1.parquet",
-   "status": "ok",
-   "duration_s": 9.9,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 7.2,
    "requests": 2,
    "checks": [
     {
@@ -4966,32 +5120,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "403,385 (beklenen 100,000–3,000,000)"
+     "detail": "422,812 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "403385/403385 = %100.0"
+     "detail": "422812/422812 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "403385/403385 = %100.0"
+     "detail": "422812/422812 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "402480/403385 = %99.8"
+     "detail": "421842/422812 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,338 satır"
+     "detail": "4,416 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "403371/403385 = %100.0"
+     "detail": "422792/422812 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -5002,15 +5156,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "5,132 satır, 1,136 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "662,121,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2022q2": {
    "partition": "2022q2",
-   "fetched_at": "2026-10-10T12:56:35+00:00",
-   "rows": 406032,
-   "bytes": 6822934,
-   "sha256": "d28e86b430c75bbbc47bf49591ec2bff842077fc36decef699b4cefe6167e984",
+   "fetched_at": "2026-10-12T18:32:22+00:00",
+   "rows": 424009,
+   "bytes": 7114364,
+   "sha256": "e9fa4859c5d976ab32e34cafcd67fd755a0d53edb86f6ecc1b9f9cea78aa4f7c",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -5047,11 +5206,12 @@
      "10-KT": 3,
      "10-QT": 2
     },
-    "empty_values": 5781
+    "empty_values": 5846
    },
    "asset": "financials__2022q2.parquet",
-   "status": "ok",
-   "duration_s": 9.3,
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 10.8,
    "requests": 2,
    "checks": [
     {
@@ -5062,32 +5222,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "406,032 (beklenen 100,000–3,000,000)"
+     "detail": "424,009 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "406032/406032 = %100.0"
+     "detail": "424009/424009 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "406032/406032 = %100.0"
+     "detail": "424009/424009 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "405647/406032 = %99.9"
+     "detail": "423602/424009 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,781 satır"
+     "detail": "5,846 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "405989/406032 = %100.0"
+     "detail": "423962/424009 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -5098,15 +5258,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "6,364 satır, 1,365 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "warn",
+     "detail": "658,763,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2022q3": {
    "partition": "2022q3",
-   "fetched_at": "2026-10-10T12:56:50+00:00",
-   "rows": 458442,
-   "bytes": 7399360,
-   "sha256": "d4456f064599b09a42c6cbf6aa2f69c432a5035b9ffa08ab971b961a200e0df6",
+   "fetched_at": "2026-10-12T18:32:44+00:00",
+   "rows": 480837,
+   "bytes": 7761986,
+   "sha256": "3d1c86223a1f84122c9a4d21fd6077e36bf552a708899769662c3da3df1af774",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -5143,11 +5308,12 @@
      "40-F/A": 4,
      "10-KT": 4
     },
-    "empty_values": 5669
+    "empty_values": 5745
    },
    "asset": "financials__2022q3.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 9.7,
+   "duration_s": 9.9,
    "requests": 2,
    "checks": [
     {
@@ -5158,32 +5324,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "458,442 (beklenen 100,000–3,000,000)"
+     "detail": "480,837 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "458442/458442 = %100.0"
+     "detail": "480837/480837 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "458442/458442 = %100.0"
+     "detail": "480837/480837 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "458210/458442 = %99.9"
+     "detail": "480597/480837 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,669 satır"
+     "detail": "5,745 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "458424/458442 = %100.0"
+     "detail": "480816/480837 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -5194,15 +5360,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "5,400 satır, 1,230 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "13,078,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2022q4": {
    "partition": "2022q4",
-   "fetched_at": "2026-10-10T12:57:04+00:00",
-   "rows": 473809,
-   "bytes": 7589999,
-   "sha256": "a4f173d9af23514a279382ee1ed62a73e98acc0076e5cc5653229482724b1dc2",
+   "fetched_at": "2026-10-12T18:32:49+00:00",
+   "rows": 498227,
+   "bytes": 7965198,
+   "sha256": "766cf4dd34459dad0adf9a261ffea229aaf651f30745ff708e108312c58beb53",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -5237,11 +5408,12 @@
      "40-F": 12,
      "40-F/A": 2
     },
-    "empty_values": 6105
+    "empty_values": 6174
    },
    "asset": "financials__2022q4.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 7.1,
+   "duration_s": 11.3,
    "requests": 2,
    "checks": [
     {
@@ -5252,32 +5424,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "473,809 (beklenen 100,000–3,000,000)"
+     "detail": "498,227 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "473809/473809 = %100.0"
+     "detail": "498227/498227 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "473809/473809 = %100.0"
+     "detail": "498227/498227 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "469979/473809 = %99.2"
+     "detail": "494253/498227 = %99.2"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "6,105 satır"
+     "detail": "6,174 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "473805/473809 = %100.0"
+     "detail": "498220/498227 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -5288,15 +5460,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "5,423 satır, 1,216 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,971,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2023q1": {
    "partition": "2023q1",
-   "fetched_at": "2026-10-10T12:57:09+00:00",
-   "rows": 401670,
-   "bytes": 6618443,
-   "sha256": "52ae9a3fafb880efbb3bd7a436bdfe2ed3e607a2dd8ad3fd13d4d325581007d6",
+   "fetched_at": "2026-10-12T18:32:59+00:00",
+   "rows": 421302,
+   "bytes": 6918417,
+   "sha256": "9a45e1339d936f52f804834307e5c760d8359a812e62455d3348c7cd6d85e1c4",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -5333,11 +5510,12 @@
      "40-F/A": 4,
      "10-QT": 1
     },
-    "empty_values": 3603
+    "empty_values": 3661
    },
    "asset": "financials__2023q1.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 10.6,
+   "duration_s": 10.5,
    "requests": 2,
    "checks": [
     {
@@ -5348,32 +5526,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "401,670 (beklenen 100,000–3,000,000)"
+     "detail": "421,302 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "401670/401670 = %100.0"
+     "detail": "421302/421302 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "401670/401670 = %100.0"
+     "detail": "421302/421302 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "401414/401670 = %99.9"
+     "detail": "421040/421302 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "3,603 satır"
+     "detail": "3,661 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "401670/401670 = %100.0"
+     "detail": "421300/421302 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -5384,15 +5562,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,304 satır, 968 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,849,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2023q2": {
    "partition": "2023q2",
-   "fetched_at": "2026-10-10T12:57:21+00:00",
-   "rows": 402612,
-   "bytes": 6758139,
-   "sha256": "1cd82be4aeecc49602a6a5aa4d875223405072e97da8a37499d8f64308631d6b",
+   "fetched_at": "2026-10-12T18:33:23+00:00",
+   "rows": 421032,
+   "bytes": 7054780,
+   "sha256": "dbfcee25ee504a3d6eb992ed5bc7e22edf2a0db132aa707b9bcd10d1d511199d",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -5429,11 +5612,12 @@
      "40-F/A": 5,
      "10-QT": 2
     },
-    "empty_values": 5025
+    "empty_values": 5102
    },
    "asset": "financials__2023q2.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 11.7,
+   "duration_s": 12.3,
    "requests": 2,
    "checks": [
     {
@@ -5444,32 +5628,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "402,612 (beklenen 100,000–3,000,000)"
+     "detail": "421,032 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "402612/402612 = %100.0"
+     "detail": "421032/421032 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "402612/402612 = %100.0"
+     "detail": "421032/421032 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "402417/402612 = %100.0"
+     "detail": "420827/421032 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,025 satır"
+     "detail": "5,102 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "402563/402612 = %100.0"
+     "detail": "420979/421032 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -5480,15 +5664,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "5,581 satır, 1,114 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,722,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2023q3": {
    "partition": "2023q3",
-   "fetched_at": "2026-10-10T12:57:37+00:00",
-   "rows": 442273,
-   "bytes": 7065269,
-   "sha256": "4a67ef4c3048c2317d9df7252b4726cff98644973f19dce0e23351f93ab7c0ef",
+   "fetched_at": "2026-10-12T18:33:19+00:00",
+   "rows": 464658,
+   "bytes": 7422982,
+   "sha256": "f666e88d100bc85b976d067f48c79b78362e52cd434708e5c109ba8effccbd87",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -5523,11 +5712,12 @@
      "40-F": 7,
      "10-KT": 2
     },
-    "empty_values": 4559
+    "empty_values": 4626
    },
    "asset": "financials__2023q3.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 10.9,
+   "duration_s": 8.5,
    "requests": 2,
    "checks": [
     {
@@ -5538,32 +5728,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "442,273 (beklenen 100,000–3,000,000)"
+     "detail": "464,658 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "442273/442273 = %100.0"
+     "detail": "464658/464658 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "442273/442273 = %100.0"
+     "detail": "464658/464658 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "441796/442273 = %99.9"
+     "detail": "464166/464658 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,559 satır"
+     "detail": "4,626 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "442243/442273 = %100.0"
+     "detail": "464625/464658 = %100.0"
     },
     {
      "name": "Doğrulanmış gerçek: CIK 789019 RevenueFromContractWithCustomerExcludingAssessedTax 2023-06-30",
@@ -5579,15 +5769,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,385 satır, 935 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,629,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2023q4": {
    "partition": "2023q4",
-   "fetched_at": "2026-10-10T12:57:40+00:00",
-   "rows": 450806,
-   "bytes": 7220278,
-   "sha256": "4d9ec01fb4e7cca601e3627f374528c16dd62862d719e8cd25a17f3af3ffa5ba",
+   "fetched_at": "2026-10-12T18:33:57+00:00",
+   "rows": 474958,
+   "bytes": 7598475,
+   "sha256": "60d9c6f59ad45e03be20790ea263f8cca4e1d69ca90caae3a17400bc0bc27edd",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -5622,11 +5817,12 @@
      "40-F": 11,
      "10-KT": 1
     },
-    "empty_values": 4854
+    "empty_values": 4921
    },
    "asset": "financials__2023q4.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 8.4,
+   "duration_s": 12.7,
    "requests": 2,
    "checks": [
     {
@@ -5637,32 +5833,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "450,806 (beklenen 100,000–3,000,000)"
+     "detail": "474,958 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "450806/450806 = %100.0"
+     "detail": "474958/474958 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "450806/450806 = %100.0"
+     "detail": "474958/474958 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "448800/450806 = %99.6"
+     "detail": "472864/474958 = %99.6"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,854 satır"
+     "detail": "4,921 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "450789/450806 = %100.0"
+     "detail": "474937/474958 = %100.0"
     },
     {
      "name": "Doğrulanmış gerçek: CIK 320193 RevenueFromContractWithCustomerExcludingAssessedTax 2023-09-30",
@@ -5678,15 +5874,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,313 satır, 909 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,541,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2024q1": {
    "partition": "2024q1",
-   "fetched_at": "2026-10-10T12:57:56+00:00",
-   "rows": 364119,
-   "bytes": 6013151,
-   "sha256": "ba2b8ed3cf8cb71533f1c9f20c255bec71a6846abd491fce099b006848c322e9",
+   "fetched_at": "2026-10-12T18:33:50+00:00",
+   "rows": 382377,
+   "bytes": 6299529,
+   "sha256": "be382a155d3e6639acf381934b8ac63d31bea4ec93556f339600d14a2c883805",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -5722,11 +5923,12 @@
      "10-KT": 5,
      "10-QT": 3
     },
-    "empty_values": 2674
+    "empty_values": 2740
    },
    "asset": "financials__2024q1.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 10.9,
+   "duration_s": 10.2,
    "requests": 2,
    "checks": [
     {
@@ -5737,32 +5939,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "364,119 (beklenen 100,000–3,000,000)"
+     "detail": "382,377 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "364119/364119 = %100.0"
+     "detail": "382377/382377 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "364119/364119 = %100.0"
+     "detail": "382377/382377 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "363392/364119 = %99.8"
+     "detail": "381596/382377 = %99.8"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "2,674 satır"
+     "detail": "2,740 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "364109/364119 = %100.0"
+     "detail": "382364/382377 = %100.0"
     },
     {
      "name": "Doğrulanmış gerçek: CIK 1045810 Revenues 2024-01-31",
@@ -5778,15 +5980,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "3,562 satır, 744 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,460,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2024q2": {
    "partition": "2024q2",
-   "fetched_at": "2026-10-10T12:58:12+00:00",
-   "rows": 395453,
-   "bytes": 6594432,
-   "sha256": "b9d481af1237512fd0b602744419f53a0c279dcdfa0c5bca417d2915edecde47",
+   "fetched_at": "2026-10-12T18:34:04+00:00",
+   "rows": 413590,
+   "bytes": 6889945,
+   "sha256": "2aeffa5f7975a953ba2c22c8eea4635914eaba2b5f7d6a6977dfaf84766d9b8d",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -5822,11 +6029,12 @@
      "40-F/A": 3,
      "10-KT": 2
     },
-    "empty_values": 4625
+    "empty_values": 4684
    },
    "asset": "financials__2024q2.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 11.4,
+   "duration_s": 9.2,
    "requests": 2,
    "checks": [
     {
@@ -5837,32 +6045,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "395,453 (beklenen 100,000–3,000,000)"
+     "detail": "413,590 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "395453/395453 = %100.0"
+     "detail": "413590/413590 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "395453/395453 = %100.0"
+     "detail": "413590/413590 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "395413/395453 = %100.0"
+     "detail": "413549/413590 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,625 satır"
+     "detail": "4,684 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "395405/395453 = %100.0"
+     "detail": "413541/413590 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -5873,15 +6081,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,988 satır, 940 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,381,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2024q3": {
    "partition": "2024q3",
-   "fetched_at": "2026-10-10T12:58:08+00:00",
-   "rows": 416732,
-   "bytes": 6724305,
-   "sha256": "d381ea676ce8226706bcaa3e897daf7445d03082a8d2937a8427e4c32d5d6e49",
+   "fetched_at": "2026-10-12T18:34:30+00:00",
+   "rows": 443217,
+   "bytes": 7136470,
+   "sha256": "d35712c43ab20d037771d8fff130e1c62f11bd93ee27e1f99cadca7d3694ba07",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -5917,11 +6130,12 @@
      "10-KT": 3,
      "10-QT": 1
     },
-    "empty_values": 4206
+    "empty_values": 4327
    },
    "asset": "financials__2024q3.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 8.6,
+   "duration_s": 12.3,
    "requests": 2,
    "checks": [
     {
@@ -5932,32 +6146,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "416,732 (beklenen 100,000–3,000,000)"
+     "detail": "443,217 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "416732/416732 = %100.0"
+     "detail": "443217/443217 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "416732/416732 = %100.0"
+     "detail": "443217/443217 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "416732/416732 = %100.0"
+     "detail": "443217/443217 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,206 satır"
+     "detail": "4,327 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "416722/416732 = %100.0"
+     "detail": "443206/443217 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -5968,15 +6182,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,051 satır, 827 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,322,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2024q4": {
    "partition": "2024q4",
-   "fetched_at": "2026-10-10T12:58:30+00:00",
-   "rows": 421706,
-   "bytes": 6798573,
-   "sha256": "269b7b1975a9b1a5343bef755cc1f3c64d30061fae805ad6d13948936c104c05",
+   "fetched_at": "2026-10-12T18:34:38+00:00",
+   "rows": 451364,
+   "bytes": 7265840,
+   "sha256": "74fd5e6dd7e3ff152b9f4a984311681568212686efe53a011e052eccd5267765",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -6013,11 +6232,12 @@
      "10-QT": 1,
      "40-F/A": 1
     },
-    "empty_values": 4130
+    "empty_values": 4272
    },
    "asset": "financials__2024q4.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 8.3,
+   "duration_s": 9.3,
    "requests": 2,
    "checks": [
     {
@@ -6028,32 +6248,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "421,706 (beklenen 100,000–3,000,000)"
+     "detail": "451,364 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "421706/421706 = %100.0"
+     "detail": "451364/451364 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "421706/421706 = %100.0"
+     "detail": "451364/451364 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "420420/421706 = %99.7"
+     "detail": "449970/451364 = %99.7"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,130 satır"
+     "detail": "4,272 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "421694/421706 = %100.0"
+     "detail": "451349/451364 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -6064,15 +6284,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,044 satır, 825 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,264,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2025q1": {
    "partition": "2025q1",
-   "fetched_at": "2026-10-10T12:58:38+00:00",
-   "rows": 362798,
-   "bytes": 6011975,
-   "sha256": "b83a90e7c3e1cf22172db1208cd0cf5b4b1796e60616a04bac59cdd1488b4eec",
+   "fetched_at": "2026-10-12T18:34:36+00:00",
+   "rows": 386186,
+   "bytes": 6372181,
+   "sha256": "64ae66c0cc6336f88cb89f0ea2cdd393e04e2cfb8285670fa8a88a76c42d7cf7",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -6108,11 +6333,12 @@
      "10-KT": 6,
      "40-F/A": 1
     },
-    "empty_values": 2641
+    "empty_values": 2700
    },
    "asset": "financials__2025q1.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 11.3,
+   "duration_s": 11.8,
    "requests": 2,
    "checks": [
     {
@@ -6123,32 +6349,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "362,798 (beklenen 100,000–3,000,000)"
+     "detail": "386,186 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "362798/362798 = %100.0"
+     "detail": "386186/386186 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "362798/362798 = %100.0"
+     "detail": "386186/386186 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "362439/362798 = %99.9"
+     "detail": "385802/386186 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "2,641 satır"
+     "detail": "2,700 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "362798/362798 = %100.0"
+     "detail": "386183/386186 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -6159,15 +6385,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "3,891 satır, 815 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,211,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2025q2": {
    "partition": "2025q2",
-   "fetched_at": "2026-10-10T12:58:46+00:00",
-   "rows": 357725,
-   "bytes": 4368564,
-   "sha256": "526b7329ab39bc6c12e6dcc6f9d089d03d17419d281e5e9ac3c0329e1fb89268",
+   "fetched_at": "2026-10-12T18:35:16+00:00",
+   "rows": 379287,
+   "bytes": 4551453,
+   "sha256": "5ec96c5c883ce679e06c19e57ba4e9eec1ba3e659e7d4cc456b29c2f9417129b",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -6203,11 +6434,12 @@
      "10-KT": 2,
      "40-F/A": 1
     },
-    "empty_values": 4144
+    "empty_values": 4261
    },
    "asset": "financials__2025q2.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 9.6,
+   "duration_s": 10.5,
    "requests": 2,
    "checks": [
     {
@@ -6218,32 +6450,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "357,725 (beklenen 100,000–3,000,000)"
+     "detail": "379,287 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "357725/357725 = %100.0"
+     "detail": "379287/379287 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "357725/357725 = %100.0"
+     "detail": "379287/379287 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "357561/357725 = %100.0"
+     "detail": "379119/379287 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,144 satır"
+     "detail": "4,261 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "357715/357725 = %100.0"
+     "detail": "379277/379287 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -6254,15 +6486,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,532 satır, 943 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,155,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2025q3": {
    "partition": "2025q3",
-   "fetched_at": "2026-10-10T12:59:03+00:00",
-   "rows": 399849,
-   "bytes": 6443053,
-   "sha256": "feef327dce6129195337e53cf6e6123fa1ce9546dac6dd4df3d2d106a89e0daa",
+   "fetched_at": "2026-10-12T18:35:13+00:00",
+   "rows": 427928,
+   "bytes": 6876422,
+   "sha256": "353c6c5807c6c7583b90de9e677d88c89ebffbffb20172a1db34ced4cea4355e",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -6298,11 +6535,12 @@
      "10-KT": 3,
      "10-QT": 1
     },
-    "empty_values": 4598
+    "empty_values": 4772
    },
    "asset": "financials__2025q3.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 13.3,
+   "duration_s": 13.2,
    "requests": 2,
    "checks": [
     {
@@ -6313,32 +6551,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "399,849 (beklenen 100,000–3,000,000)"
+     "detail": "427,928 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "399849/399849 = %100.0"
+     "detail": "427928/427928 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "399849/399849 = %100.0"
+     "detail": "427928/427928 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "399457/399849 = %99.9"
+     "detail": "427512/427928 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,598 satır"
+     "detail": "4,772 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "399839/399849 = %100.0"
+     "detail": "427915/427928 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -6349,15 +6587,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,280 satır, 855 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,104,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2025q4": {
    "partition": "2025q4",
-   "fetched_at": "2026-10-10T12:59:12+00:00",
-   "rows": 404967,
-   "bytes": 2488225,
-   "sha256": "42576630983cc2c1bfeb7179757185f4557caf0074003f141fedf2ca946814a3",
+   "fetched_at": "2026-10-12T18:35:10+00:00",
+   "rows": 434544,
+   "bytes": 2634364,
+   "sha256": "bd7b0a15eb46b1a72b309e37b0055f0d830caccbba604abd7c784e96adef1088",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -6392,11 +6635,12 @@
      "20-F/A": 7,
      "10-KT": 2
     },
-    "empty_values": 4517
+    "empty_values": 4676
    },
    "asset": "financials__2025q4.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 10.4,
+   "duration_s": 10.9,
    "requests": 2,
    "checks": [
     {
@@ -6407,32 +6651,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "404,967 (beklenen 100,000–3,000,000)"
+     "detail": "434,544 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "404967/404967 = %100.0"
+     "detail": "434544/434544 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "404967/404967 = %100.0"
+     "detail": "434544/434544 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "404697/404967 = %99.9"
+     "detail": "434256/434544 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,517 satır"
+     "detail": "4,676 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "404963/404967 = %100.0"
+     "detail": "434537/434544 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -6443,15 +6687,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,445 satır, 909 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,077,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2026q1": {
    "partition": "2026q1",
-   "fetched_at": "2026-10-10T12:59:20+00:00",
-   "rows": 351603,
-   "bytes": 4368315,
-   "sha256": "cdc8a5e5be6d8e7266623795550aa69987298c82fa8ad2721a6298cf97051632",
+   "fetched_at": "2026-10-12T18:35:44+00:00",
+   "rows": 374221,
+   "bytes": 4559115,
+   "sha256": "614effac3ac56e727416aa675914f33e5055eac0ec0fbe814d1e6f8c62c08bde",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -6487,11 +6736,12 @@
      "20-F/A": 8,
      "40-F/A": 1
     },
-    "empty_values": 3044
+    "empty_values": 3129
    },
    "asset": "financials__2026q1.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 10.8,
+   "duration_s": 11.3,
    "requests": 2,
    "checks": [
     {
@@ -6502,32 +6752,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "351,603 (beklenen 100,000–3,000,000)"
+     "detail": "374,221 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "351603/351603 = %100.0"
+     "detail": "374221/374221 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "351603/351603 = %100.0"
+     "detail": "374221/374221 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "351064/351603 = %99.8"
+     "detail": "373668/374221 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "3,044 satır"
+     "detail": "3,129 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "351598/351603 = %100.0"
+     "detail": "374213/374221 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -6538,15 +6788,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "4,558 satır, 963 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,088,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2026q2": {
    "partition": "2026q2",
-   "fetched_at": "2026-10-10T12:59:39+00:00",
-   "rows": 353528,
-   "bytes": 2289954,
-   "sha256": "a02525200deecb7195823e30600cfa0e872d1051aef68dfa908dd92ad42a3194",
+   "fetched_at": "2026-10-12T18:35:49+00:00",
+   "rows": 374963,
+   "bytes": 2406568,
+   "sha256": "5b798c2e969bf68d381d7c090befb9ff513f927f2b4d4523b0e8564f760f0963",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -6582,11 +6837,12 @@
      "40-F/A": 3,
      "10-KT": 2
     },
-    "empty_values": 5167
+    "empty_values": 5326
    },
    "asset": "financials__2026q2.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 10.0,
+   "duration_s": 8.4,
    "requests": 2,
    "checks": [
     {
@@ -6597,32 +6853,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "353,528 (beklenen 100,000–3,000,000)"
+     "detail": "374,963 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "353528/353528 = %100.0"
+     "detail": "374963/374963 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "353528/353528 = %100.0"
+     "detail": "374963/374963 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "353149/353528 = %99.9"
+     "detail": "374556/374963 = %99.9"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "5,167 satır"
+     "detail": "5,326 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "353520/353528 = %100.0"
+     "detail": "374952/374963 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -6633,15 +6889,20 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "5,385 satır, 1,139 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,116,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   },
   "2026q3": {
    "partition": "2026q3",
-   "fetched_at": "2026-10-10T12:59:50+00:00",
-   "rows": 390309,
-   "bytes": 2404560,
-   "sha256": "8bdba7c27b69b807635d2065da3af80aa1eee13723c54791a33421989f64fa07",
+   "fetched_at": "2026-10-12T18:35:54+00:00",
+   "rows": 417759,
+   "bytes": 2545321,
+   "sha256": "8d04b0639be1692dbc678cb71caf136ca55d8d547a2082295f444561d96bc0b4",
    "columns": {
     "adsh": "str",
     "cik": "Int64",
@@ -6676,11 +6937,12 @@
      "40-F": 4,
      "10-KT": 3
     },
-    "empty_values": 4495
+    "empty_values": 4651
    },
    "asset": "financials__2026q3.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 12.6,
+   "duration_s": 13.6,
    "requests": 2,
    "checks": [
     {
@@ -6691,32 +6953,32 @@
     {
      "name": "Değer sayısı (temel kalemler)",
      "status": "ok",
-     "detail": "390,309 (beklenen 100,000–3,000,000)"
+     "detail": "417,759 (beklenen 100,000–3,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "390309/390309 = %100.0"
+     "detail": "417759/417759 = %100.0"
     },
     {
      "name": "Dosyalama tarihi çeyrek içinde",
      "status": "ok",
-     "detail": "390309/390309 = %100.0"
+     "detail": "417759/417759 = %100.0"
     },
     {
      "name": "Kabul günü ≤ dosyalama günü (≤3 gün)",
      "status": "ok",
-     "detail": "390267/390309 = %100.0"
+     "detail": "417717/417759 = %100.0"
     },
     {
      "name": "Boş (nil) değer, ayıklandı",
      "status": "info",
-     "detail": "4,495 satır"
+     "detail": "4,651 satır"
     },
     {
      "name": "Dönem sonu ≤ kabul anı",
      "status": "ok",
-     "detail": "390303/390309 = %100.0"
+     "detail": "417752/417759 = %100.0"
     },
     {
      "name": "Form dağılımı",
@@ -6727,6 +6989,11 @@
      "name": "Sınıf bazında hisse sayısı satırı",
      "status": "info",
      "detail": "5,162 satır, 1,044 şirket"
+    },
+    {
+     "name": "Doğrulama: Alphabet sınıf toplamı hisse sayısı",
+     "status": "ok",
+     "detail": "12,230,000,000 (beklenen 11,000,000,000–13,500,000,000)"
     }
    ]
   }
@@ -6745,6 +7012,6 @@
  ],
  "title": "SEC finansal tablo verileri (XBRL, 2009→)",
  "derived": {},
- "finalized_at": "2026-10-10T16:28:25+00:00",
+ "finalized_at": "2026-10-12T18:36:41+00:00",
  "removed_assets": []
 }
