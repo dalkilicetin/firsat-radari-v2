@@ -1545,8 +1545,122 @@
   "not": "Ağırlıklı ortalama dönem içi bir ortalamadır (EPS gibi dönemsel hesaplar için); piyasa değeri için doğru ölçü dönem sonu sayısıdır. Yedeğin kullanılıp kullanılmayacağı kullanıcı kararıdır."
  },
  "bolunme": {
-  "hata": "KeyError: \"None of [Index([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1,\\n       ...\\n       -1, -1, -1, -1, -2, -2, -1, -1, -1, -1],\\n      dtype='object', length=631)] are in the [columns]\"",
-  "iz": "Traceback (most recent call last):\n  File \"/home/user/firsat-radari-v2/radar/research/asama1.py\", line 540, in main\n    res[k] = steps[k]()\n             ~~~~~~~~^^\n  File \"/home/user/firsat-radari-v2/radar/research/asama1.py\", line 536, in <lambda>\n    steps = {\"tarih\": lambda: tab, \"neweywest\": nw_check, \"kalem\": line_items, \"hisse_yedegi\": lambda: shares_fallback(p), \"bolunme\": lambda: splits(p),\n                                                                                                                                              ~~~~~~^^^\n  File \"/home/user/firsat-radari-v2/radar/research/asama1.py\", line 104, in splits\n    gg = g if k in (\"tarih\", \"fiyat\", \"c\") else g[~g.yeni_rapor_ayni_hafta]\n                                                ~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 4384, in __getitem__\n    indexer = self.columns._get_indexer_strict(key, \"columns\")[1]\n              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 6302, in _get_indexer_strict\n    self._raise_if_missing(keyarr, indexer, axis_name)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 6352, in _raise_if_missing\n    raise KeyError(f\"None of [{key}] are in the [{axis_name}]\")\nKeyError: \"None of [Index([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1,\\n       ...\\n       -1, -1, -1, -1, -2, -2, -1, -1, -1, -1],\\n      dtype='object', length=631)] are in the [columns]\"\n"
+  "olay_toplam": 3434,
+  "tur_dagilimi": {
+   "ters bölünme": 2401,
+   "bölünme": 631,
+   "küçük oranlı düzeltme (hisse temettüsü / ayrılma olası)": 395,
+   "bozuk kayıt": 7
+  },
+  "durum_dagilimi": {
+   "ölçüldü": 3427,
+   "oran geçersiz": 7
+  },
+  "not": "(a) yapısal olarak döngüseldir (düzeltme oranı fiyat serisinden gelir); bağımsız kanıt (b) ve özellikle (c)'dir. Aynı hafta yeni rapor gelen olaylarda (a) ve (b) ayrıştırılamaz, ayrı sayılır. Küçük oranlı düzeltmelerde hisse sayısı değişmediği için (a) uygulanmaz.",
+  "turler": {
+   "bölünme": {
+    "olay": 631,
+    "ayni_hafta_yeni_rapor": 25,
+    "tarih": {
+     "kontrol": "ham fiyat bölünme haftasında oranla değişti (±%2)",
+     "olcum": 625,
+     "basarisiz": 2,
+     "saglayan_pay": 0.9968
+    },
+    "fiyat": {
+     "kontrol": "düzeltilmiş fiyatta bölünme haftası sıçraması yok (|getiri| < %50)",
+     "olcum": 625,
+     "basarisiz": 13,
+     "saglayan_pay": 0.9792
+    },
+    "a": {
+     "kontrol": "hisse sayısı düzeltmesi = bilinen oran (±%1)",
+     "olcum": 408,
+     "basarisiz": 23,
+     "saglayan_pay": 0.9436274509803921
+    },
+    "b": {
+     "kontrol": "piyasa değeri değişimi = düzeltilmiş fiyat getirisi (≤ 2 puan)",
+     "olcum": 408,
+     "basarisiz": 9,
+     "saglayan_pay": 0.9779411764705882
+    },
+    "c": {
+     "kontrol": "bölünme sonrası ilk kapak sayısı = bizim düzeltilmiş sayımız (±%2)",
+     "olcum": 389,
+     "basarisiz": 133,
+     "saglayan_pay": 0.6580976863753213
+    }
+   },
+   "küçük oranlı düzeltme (hisse temettüsü / ayrılma olası)": {
+    "olay": 395,
+    "ayni_hafta_yeni_rapor": 21,
+    "tarih": {
+     "kontrol": "ham fiyat bölünme haftasında oranla değişti (±%2)",
+     "olcum": 393,
+     "basarisiz": 27,
+     "saglayan_pay": 0.9312977099236641
+    },
+    "fiyat": {
+     "kontrol": "düzeltilmiş fiyatta bölünme haftası sıçraması yok (|getiri| < %50)",
+     "olcum": 393,
+     "basarisiz": 2,
+     "saglayan_pay": 0.9949109414758269
+    },
+    "b": {
+     "kontrol": "piyasa değeri değişimi = düzeltilmiş fiyat getirisi (≤ 2 puan)",
+     "olcum": 190,
+     "basarisiz": 160,
+     "saglayan_pay": 0.15789473684210525
+    },
+    "c": {
+     "kontrol": "bölünme sonrası ilk kapak sayısı = bizim düzeltilmiş sayımız (±%2)",
+     "olcum": 198,
+     "basarisiz": 93,
+     "saglayan_pay": 0.5303030303030303
+    }
+   },
+   "ters bölünme": {
+    "olay": 2401,
+    "ayni_hafta_yeni_rapor": 130,
+    "tarih": {
+     "kontrol": "ham fiyat bölünme haftasında oranla değişti (±%2)",
+     "olcum": 2388,
+     "basarisiz": 26,
+     "saglayan_pay": 0.9891122278056952
+    },
+    "fiyat": {
+     "kontrol": "düzeltilmiş fiyatta bölünme haftası sıçraması yok (|getiri| < %50)",
+     "olcum": 2388,
+     "basarisiz": 248,
+     "saglayan_pay": 0.8961474036850922
+    },
+    "a": {
+     "kontrol": "hisse sayısı düzeltmesi = bilinen oran (±%1)",
+     "olcum": 1819,
+     "basarisiz": 55,
+     "saglayan_pay": 0.9697636063771303
+    },
+    "b": {
+     "kontrol": "piyasa değeri değişimi = düzeltilmiş fiyat getirisi (≤ 2 puan)",
+     "olcum": 1819,
+     "basarisiz": 23,
+     "saglayan_pay": 0.9873556899395272
+    },
+    "c": {
+     "kontrol": "bölünme sonrası ilk kapak sayısı = bizim düzeltilmiş sayımız (±%2)",
+     "olcum": 1594,
+     "basarisiz": 1136,
+     "saglayan_pay": 0.28732747804265996
+    }
+   }
+  },
+  "bolunmesiz": {
+   "hisse": 9038,
+   "hucre": 2712364,
+   "farkli_hucre": 6568,
+   "en_buyuk_fark": 17998.999999999996
+  }
  },
  "oran": {
   "brut_marj": {
