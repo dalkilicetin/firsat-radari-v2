@@ -91,7 +91,7 @@ def spy_years() -> dict[int, float]:
 
 
 def summarize(results: dict) -> dict:
-    tab = pd.DataFrame(results).T.reindex(columns=list(YEARS))
+    tab = pd.DataFrame({k: {int(y): v for y, v in d.items()} for k, d in results.items()}).T.reindex(columns=list(YEARS))
     spy = pd.Series(spy_years())
     full = tab.dropna()
     mean = full.mean(axis=1).sort_values(ascending=False)
