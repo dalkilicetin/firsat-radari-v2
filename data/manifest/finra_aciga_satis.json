@@ -3,46 +3,130 @@
  "partitions": {
   "2009": {
    "partition": "2009",
-   "fetched_at": "2026-10-12T09:53:42+00:00",
-   "rows": 0,
+   "fetched_at": "2026-10-12T13:43:38+00:00",
+   "rows": 69958,
+   "bytes": 929946,
+   "sha256": "d7fb07d8cd123a59cebc58ed2ffe972a050a74cf19fc1cb016c7c5f4af4de4e3",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20090102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 106
+   },
+   "asset": "finra_aciga_satis__2009.parquet",
+   "release": "veri-arsivi-2009",
    "status": "fail",
-   "duration_s": 152.1,
-   "requests": 609,
+   "duration_s": 261.4,
+   "requests": 1044,
    "checks": [
     {
-     "name": "Çalışma hatası",
+     "name": "Dosyası gelen işlem günü",
      "status": "fail",
-     "detail": "ValueError: could not convert string to float: 'Q'"
+     "detail": "106/261 = %40.6"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.367 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "18,015"
     }
    ]
   },
   "2010": {
    "partition": "2010",
-   "fetched_at": "2026-10-12T09:56:39+00:00",
-   "rows": 0,
-   "status": "fail",
-   "duration_s": 2.0,
-   "requests": 5,
+   "fetched_at": "2026-10-12T13:45:35+00:00",
+   "rows": 172054,
+   "bytes": 2176764,
+   "sha256": "bfd1971ebe9c8790d019ed8156a433f77fe5fc1978f038a1ecb7e8914a9f623c",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20100102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 252
+   },
+   "asset": "finra_aciga_satis__2010.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 261.6,
+   "requests": 1044,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "ValueError: could not convert string to float: 'Q'"
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "252/261 = %96.6"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.391 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "21,901"
     }
    ]
   },
   "2011": {
    "partition": "2011",
-   "fetched_at": "2026-10-12T09:57:01+00:00",
-   "rows": 0,
-   "status": "fail",
-   "duration_s": 4.5,
-   "requests": 1,
+   "fetched_at": "2026-10-12T13:48:10+00:00",
+   "rows": 174636,
+   "bytes": 2189103,
+   "sha256": "4ee57ae31e1bd6cf2154316c5f5bcf40dfee6b697faef4cb3634865627003a5b",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20110102.txt"
+   ],
+   "notes": {
+    "days": 260,
+    "ok_days": 252
+   },
+   "asset": "finra_aciga_satis__2011.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 262.4,
+   "requests": 1040,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "ValueError: could not convert string to float: 'Q'"
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "252/260 = %96.9"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.385 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "21,999"
     }
    ]
   },
@@ -696,5 +780,5 @@
  "title": "FINRA günlük açığa satış hacmi — ay × sembol (2009→)",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-12T10:26:18+00:00"
+ "finalized_at": "2026-10-12T14:07:20+00:00"
 }
