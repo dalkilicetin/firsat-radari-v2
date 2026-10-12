@@ -52,6 +52,8 @@ GROUPS = {
     "yeni": lambda c: c in {"bilanco_uzerinden_hafta", "bilanco_bu_ay_bekleniyor", "sektorun_gerisinde", "oynaklik_genislemesi",
                              "max_haftalik_4h", "kirilim", "kazanc_aciklamasi_tepkisi"},
     "oneriler": lambda c: c.startswith(("emsal_", "devralma_", "bulten_", "aciga_satis_")),
+    "inceleme": lambda c: c.endswith(("_degisim", "_surpriz")) or c in {"nakit_pozitife_gecis", "sikisma", "sikisma_suresi",
+                                                                        "hacim_daralmasi", "kirilim_dayanikliligi", "sikismadan_kirilim"},
 }
 ALL = list(GROUPS)
 # Denetimde çıkarılanlar: verisi 2024 ortasında biten Reddit (canlıda yok), pratikte sabit olanlar, r ≥ 0,9 kopyalar
@@ -87,6 +89,7 @@ EXPERIMENTS = {
     "t5_k20_temiz": ("sira", ALL, {"k": 20, "seeds": 5, "cikar": True}),
     "t5_temiz_bultensiz": ("sira", ALL, {"k": 10, "seeds": 5, "cikar": True, "haric": ("bulten_", "aciga_satis_")}),
     "t5_k20_temiz_bultensiz": ("sira", ALL, {"k": 20, "seeds": 5, "cikar": True, "haric": ("bulten_", "aciga_satis_")}),
+    "t5_temiz_incelemesiz": ("sira", [g for g in ALL if g != "inceleme"], {"k": 10, "seeds": 5, "cikar": True}),
     "en_iyi_fark_hepsi": ("fark", ALL, {"k": 10}),
     "en_iyi_k20": ("sira", ALL, {"k": 20}),
 }
