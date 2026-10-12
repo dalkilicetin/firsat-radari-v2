@@ -50,5 +50,237 @@
    "test": "piyasa değeri bölünme (1652044, 2022-07-18, 20:1): önce 1,473 mr $, sonra 1,536 mr $",
    "gecti": true
   }
- ]
+ ],
+ "T3_bilinen": [
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "kazanc_getirisi",
+   "beklenen": 0.04253846153846154,
+   "bulunan": 0.041811456980007086,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "brut_marj",
+   "beklenen": 0.378,
+   "bulunan": 0.378177672624588,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "faaliyet_marji",
+   "beklenen": 0.246,
+   "bulunan": 0.24572016298770905,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "temettu_verimi",
+   "beklenen": 0.010846153846153846,
+   "bulunan": 0.010683653876185417,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "cari_oran",
+   "beklenen": 1.54,
+   "bulunan": 1.5401256084442139,
+   "gecti": true
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-01-03",
+   "belirti": "piyasa_degeri",
+   "beklenen": 1300000000000.0,
+   "bulunan": 1321551650936.7676,
+   "gecti": true
+  },
+  {
+   "cik": "789019",
+   "tarih": "2020-01-03",
+   "belirti": "kazanc_getirisi",
+   "beklenen": 0.03239669421487604,
+   "bulunan": 0.032405513740125846,
+   "gecti": true
+  },
+  {
+   "cik": "789019",
+   "tarih": "2020-01-03",
+   "belirti": "brut_marj",
+   "beklenen": 0.659,
+   "bulunan": 0.6590195894241333,
+   "gecti": true
+  },
+  {
+   "cik": "789019",
+   "tarih": "2020-01-03",
+   "belirti": "faaliyet_marji",
+   "beklenen": 0.341,
+   "bulunan": 0.3413698077201843,
+   "gecti": true
+  },
+  {
+   "cik": "789019",
+   "tarih": "2020-01-03",
+   "belirti": "piyasa_degeri",
+   "beklenen": 1210000000000.0,
+   "bulunan": 1210905042724.6094,
+   "gecti": true
+  },
+  {
+   "cik": "21344",
+   "tarih": "2020-01-03",
+   "belirti": "temettu_verimi",
+   "beklenen": 0.029,
+   "bulunan": 0.028384283185005188,
+   "gecti": true
+  },
+  {
+   "cik": "21344",
+   "tarih": "2020-01-03",
+   "belirti": "brut_marj",
+   "beklenen": 0.64,
+   "bulunan": 0.6305248141288757,
+   "gecti": true
+  },
+  {
+   "cik": "21344",
+   "tarih": "2020-01-03",
+   "belirti": "piyasa_degeri",
+   "beklenen": 237000000000.0,
+   "bulunan": 234073194122.31445,
+   "gecti": true
+  },
+  {
+   "cik": "34088",
+   "tarih": "2023-01-06",
+   "belirti": "kazanc_getirisi",
+   "beklenen": 0.051111111111111114,
+   "bulunan": 0.050619280432119496,
+   "gecti": true
+  },
+  {
+   "cik": "34088",
+   "tarih": "2023-01-06",
+   "belirti": "temettu_verimi",
+   "beklenen": 0.033,
+   "bulunan": 0.03278828784823418,
+   "gecti": true
+  },
+  {
+   "cik": "34088",
+   "tarih": "2023-01-06",
+   "belirti": "piyasa_degeri",
+   "beklenen": 450000000000.0,
+   "bulunan": 455162534973.14453,
+   "gecti": true
+  },
+  {
+   "cik": "1045810",
+   "tarih": "2024-01-05",
+   "belirti": "piyasa_degeri",
+   "beklenen": 1210000000000.0,
+   "bulunan": 1210732023010.254,
+   "gecti": true
+  },
+  {
+   "cik": "1045810",
+   "tarih": "2024-07-05",
+   "belirti": "piyasa_degeri",
+   "beklenen": 3080000000000.0,
+   "bulunan": 3100851779537.5786,
+   "gecti": true
+  },
+  {
+   "cik": "1045810",
+   "tarih": "2024-07-05",
+   "belirti": "kazanc_getirisi",
+   "beklenen": 0.009675324675324675,
+   "bulunan": 0.009597362955683753,
+   "gecti": true
+  },
+  {
+   "cik": "1045810",
+   "tarih": "2024-07-05",
+   "belirti": "hisse_sayisi_degisimi",
+   "beklenen": 0.0,
+   "bulunan": 2.0,
+   "gecti": false
+  },
+  {
+   "cik": "1045810",
+   "tarih": "2024-10-04",
+   "belirti": "hisse_sayisi_degisimi",
+   "beklenen": 0.0,
+   "bulunan": 2.0,
+   "gecti": false
+  },
+  {
+   "cik": "320193",
+   "tarih": "2020-10-02",
+   "belirti": "hisse_sayisi_degisimi",
+   "beklenen": -0.05,
+   "bulunan": 2.0,
+   "gecti": false
+  }
+ ],
+ "T6_yon": {
+  "dusuk_oynaklik": {
+   "olcu": -1.0,
+   "gecti": true,
+   "tur": "ölçüyle ters yönde olmalı"
+  },
+  "kucuk_boyut": {
+   "olcu": -1.0,
+   "gecti": true,
+   "tur": "ölçüyle ters yönde olmalı"
+  },
+  "ivol_3a": {
+   "olcu": 0.895,
+   "gecti": true,
+   "tur": "ölçüyle aynı yönde olmalı"
+  },
+  "max_gunluk_1a": {
+   "olcu": 0.709,
+   "gecti": true,
+   "tur": "ölçüyle aynı yönde olmalı"
+  }
+ },
+ "T2_bagimsiz": {
+  "momentum_12_1": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "günlük fiyattan Spearman"
+  },
+  "getiri_1a": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "günlük fiyattan Spearman"
+  },
+  "getiri_6a": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "günlük fiyattan Spearman"
+  },
+  "zirveye_yakinlik_52h": {
+   "olcu": 0.9864,
+   "gecti": true,
+   "tur": "günlük fiyattan Spearman"
+  },
+  "dusuk_oynaklik": {
+   "olcu": 0.9545,
+   "gecti": true,
+   "tur": "günlük fiyattan Spearman"
+  },
+  "fiyat_seviyesi": {
+   "olcu": 0.7695,
+   "gecti": false,
+   "tur": "günlük fiyattan Spearman"
+  }
+ }
 }

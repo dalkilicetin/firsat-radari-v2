@@ -60,9 +60,16 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
     gm = gp / pos(rev)
     turnover = rev / pos(assets)
     lag = lambda x: x.shift(52)
+    # Hisse sayısını 52 hafta öncesiyle karşılaştırırken aradaki bölünmeler ayıklanır: düzeltilmiş/ham fiyat oranı (S) yalnızca
+    # bölünmede sıçrar; 52 haftalık S oranı 1/1,3–1,3 dışındaysa (bölünme) önceki sayı o oranla çarpılır, içindeyse (temettü
+    # düzeltmesi) 1 kabul edilir. Aksi halde 10'a 1 bölünme "%900 ihraç" görünür (doğrulama T3, Ekim 2026).
+    S = (raw / price).replace([np.inf, -np.inf], np.nan).ffill()
+    split_f = (S.shift(52) / S)
+    split_f = split_f.where(np.abs(np.log(split_f)) > np.log(1.3), 1.0).fillna(1.0)
+    shares_lag = lag(shares) * split_f
     # Piotroski F-skoru (9 kriter; eksik veri o kriteri 0 sayar; ROA, nakit akışı ve geçen yıl ROA bilinmeli)
     crit = [roa > 0, ocf > 0, roa > lag(roa), ocf > ni, lev < lag(lev), cr > lag(cr),
-            shares <= lag(shares) * 1.01, gm > lag(gm), turnover > lag(turnover)]
+            shares <= shares_lag * 1.01, gm > lag(gm), turnover > lag(turnover)]
     have = (roa.notna() & ocf.notna() & lag(roa).notna()).astype(float)
     pf = sum(c.astype("float32") for c in crit).where(have > 0)
     # Altman Z (halka açık imalat sürümü; finans dışı faaliyet şirketleri için kaba bir iflas riski ölçüsü)
@@ -97,7 +104,7 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
         "altman_z": c(z, -10, 30),
         "piotroski_f": pf.astype("float32"),
         "kar_buyumesi": c(earn_growth, -5, 5),
-        "hisse_sayisi_degisimi": c(shares / lag(shares) - 1, -0.5, 2),
+        "hisse_sayisi_degisimi": c(shares / shares_lag - 1, -0.5, 2),
         "rsi_14h": rsi.astype("float32"),
         "ort_10h_uzaklik": c(w / ma10 - 1, -1, 3),
         "ort_40h_uzaklik": c(w / ma40 - 1, -1, 5),
