@@ -282,5 +282,1159 @@
    "gecti": false,
    "tur": "günlük fiyattan Spearman"
   }
+ },
+ "T5_sizinti": {
+  "momentum_12_1": {
+   "ic_1hafta": 0.0296,
+   "ic_2hafta": 0.0216,
+   "gecti": true
+  },
+  "kisa_vade_donus": {
+   "ic_1hafta": 0.0204,
+   "ic_2hafta": 0.0017,
+   "gecti": true
+  },
+  "dusuk_oynaklik": {
+   "ic_1hafta": 0.0395,
+   "ic_2hafta": 0.0524,
+   "gecti": true
+  },
+  "kucuk_boyut": {
+   "ic_1hafta": -0.0355,
+   "ic_2hafta": -0.0459,
+   "gecti": true
+  },
+  "gelir_buyumesi": {
+   "ic_1hafta": 0.0042,
+   "ic_2hafta": 0.0144,
+   "gecti": true
+  },
+  "buyume_ivmesi": {
+   "ic_1hafta": 0.005,
+   "ic_2hafta": 0.0066,
+   "gecti": true
+  },
+  "brut_marj_degisimi": {
+   "ic_1hafta": 0.0114,
+   "ic_2hafta": 0.0158,
+   "gecti": true
+  },
+  "faaliyet_marji_degisimi": {
+   "ic_1hafta": 0.003,
+   "ic_2hafta": 0.0082,
+   "gecti": true
+  },
+  "arge_yogunlugu": {
+   "ic_1hafta": -0.0214,
+   "ic_2hafta": -0.0021,
+   "gecti": true
+  },
+  "serbest_nakit_getirisi": {
+   "ic_1hafta": 0.02,
+   "ic_2hafta": 0.0189,
+   "gecti": true
+  },
+  "kazanc_getirisi": {
+   "ic_1hafta": 0.0276,
+   "ic_2hafta": 0.0286,
+   "gecti": true
+  },
+  "tahakkuklar_dusuk": {
+   "ic_1hafta": -0.0089,
+   "ic_2hafta": -0.0112,
+   "gecti": true
+  },
+  "varlik_buyumesi_dusuk": {
+   "ic_1hafta": -0.0061,
+   "ic_2hafta": -0.0088,
+   "gecti": true
+  },
+  "metin_benzerligi_is_tanimi": {
+   "ic_1hafta": 0.0091,
+   "ic_2hafta": 0.0068,
+   "gecti": true
+  },
+  "metin_benzerligi_riskler": {
+   "ic_1hafta": 0.0055,
+   "ic_2hafta": 0.0053,
+   "gecti": true
+  },
+  "metin_benzerligi_yonetim": {
+   "ic_1hafta": 0.0131,
+   "ic_2hafta": 0.0094,
+   "gecti": true
+  },
+  "metin_benzerligi_ortalama": {
+   "ic_1hafta": 0.0116,
+   "ic_2hafta": 0.0095,
+   "gecti": true
+  },
+  "risk_bolumu_buyumesi_dusuk": {
+   "ic_1hafta": 0.0005,
+   "ic_2hafta": -0.0002,
+   "gecti": true
+  },
+  "devamlilik_suphesi": {
+   "ic_1hafta": -0.0222,
+   "ic_2hafta": -0.0229,
+   "gecti": true
+  },
+  "wiki_ilgi_ivmesi": {
+   "ic_1hafta": 0.0186,
+   "ic_2hafta": 0.0047,
+   "gecti": true
+  },
+  "wiki_ani_ilgi": {
+   "ic_1hafta": 0.0037,
+   "ic_2hafta": -0.0011,
+   "gecti": true
+  },
+  "haber_ivmesi": {
+   "ic_1hafta": 0.0098,
+   "ic_2hafta": -0.0046,
+   "gecti": true
+  },
+  "haber_ani_artis": {
+   "ic_1hafta": 0.0007,
+   "ic_2hafta": -0.0015,
+   "gecti": true
+  },
+  "haber_ton_degisimi": {
+   "ic_1hafta": 0.0009,
+   "ic_2hafta": 0.0013,
+   "gecti": true
+  },
+  "haber_ton_seviyesi": {
+   "ic_1hafta": 0.0081,
+   "ic_2hafta": 0.0054,
+   "gecti": true
+  },
+  "icerden_alici_sayisi_90g": {
+   "ic_1hafta": -0.0131,
+   "ic_2hafta": -0.0081,
+   "gecti": true
+  },
+  "icerden_alim_kumesi_3plus": {
+   "ic_1hafta": -0.0058,
+   "ic_2hafta": -0.0049,
+   "gecti": true
+  },
+  "icerden_alim_tutar_piyasa_degeri": {
+   "ic_1hafta": -0.0259,
+   "ic_2hafta": -0.0316,
+   "gecti": true
+  },
+  "ust_yonetici_alimi_90g": {
+   "ic_1hafta": -0.0044,
+   "ic_2hafta": -0.0049,
+   "gecti": true
+  },
+  "kurumsal_sahip_degisimi": {
+   "ic_1hafta": 0.0167,
+   "ic_2hafta": 0.012,
+   "gecti": true
+  },
+  "kurumsal_hisse_degisimi_payi": {
+   "ic_1hafta": -0.0016,
+   "ic_2hafta": 0.0015,
+   "gecti": true
+  },
+  "8k_1.01_önemli anlaşma": {
+   "ic_1hafta": -0.0095,
+   "ic_2hafta": -0.0064,
+   "gecti": true
+  },
+  "8k_1.02_anlaşma feshi": {
+   "ic_1hafta": -0.0021,
+   "ic_2hafta": -0.0016,
+   "gecti": true
+  },
+  "8k_2.01_satın alma/elden çıkarma tamamlandı": {
+   "ic_1hafta": -0.0062,
+   "ic_2hafta": -0.0014,
+   "gecti": true
+  },
+  "8k_2.03_yeni borç yükümlülüğü": {
+   "ic_1hafta": -0.0016,
+   "ic_2hafta": 0.0008,
+   "gecti": true
+  },
+  "8k_3.02_kayıtsız hisse satışı (sulandırma)": {
+   "ic_1hafta": -0.0089,
+   "ic_2hafta": -0.0147,
+   "gecti": true
+  },
+  "8k_5.02_yönetici değişikliği": {
+   "ic_1hafta": -0.003,
+   "ic_2hafta": -0.0019,
+   "gecti": true
+  },
+  "8k_7.01_kamuyu aydınlatma (FD)": {
+   "ic_1hafta": -0.0027,
+   "ic_2hafta": -0.0024,
+   "gecti": true
+  },
+  "8k_8.01_diğer olaylar": {
+   "ic_1hafta": -0.004,
+   "ic_2hafta": -0.0025,
+   "gecti": true
+  },
+  "geri_alim_getirisi": {
+   "ic_1hafta": -0.0022,
+   "ic_2hafta": 0.006,
+   "gecti": true
+  },
+  "tema_ruzgari": {
+   "ic_1hafta": 0.0023,
+   "ic_2hafta": -0.0054,
+   "gecti": true
+  },
+  "tema_ruzgari_v1_uzun": {
+   "ic_1hafta": 0.0113,
+   "ic_2hafta": 0.0015,
+   "gecti": true
+  },
+  "tema_ruzgari_v2_nadir": {
+   "ic_1hafta": 0.0032,
+   "ic_2hafta": -0.0022,
+   "gecti": true
+  },
+  "tema_ruzgari_v3_uzun_nadir": {
+   "ic_1hafta": 0.0075,
+   "ic_2hafta": 0.0004,
+   "gecti": true
+  },
+  "sektor_getiri_13h": {
+   "ic_1hafta": 0.0093,
+   "ic_2hafta": 0.0074,
+   "gecti": true
+  },
+  "sektor_momentum_12_1": {
+   "ic_1hafta": 0.0111,
+   "ic_2hafta": 0.0139,
+   "gecti": true
+  },
+  "beta_qqq": {
+   "ic_1hafta": -0.0043,
+   "ic_2hafta": -0.0161,
+   "gecti": true
+  },
+  "zirveye_yakinlik_52h": {
+   "ic_1hafta": 0.0297,
+   "ic_2hafta": 0.0415,
+   "gecti": true
+  },
+  "getiri_6a": {
+   "ic_1hafta": 0.0224,
+   "ic_2hafta": 0.0199,
+   "gecti": true
+  },
+  "hacim_artisi": {
+   "ic_1hafta": 0.0056,
+   "ic_2hafta": 0.0058,
+   "gecti": true
+  },
+  "kazanc_aciklamasi_tepkisi": {
+   "ic_1hafta": 0.0086,
+   "ic_2hafta": 0.0095,
+   "gecti": true
+  },
+  "getiri_1a": {
+   "ic_1hafta": -0.0106,
+   "ic_2hafta": -0.0029,
+   "gecti": true
+  },
+  "fiyat_seviyesi": {
+   "ic_1hafta": 0.0401,
+   "ic_2hafta": 0.0513,
+   "gecti": true
+  },
+  "haber_yz_teknoloji_pay": {
+   "ic_1hafta": 0.0145,
+   "ic_2hafta": 0.0159,
+   "gecti": true
+  },
+  "haber_yz_teknoloji_ivme": {
+   "ic_1hafta": 0.0008,
+   "ic_2hafta": -0.002,
+   "gecti": true
+  },
+  "haber_yz_teknoloji_ruzgar": {
+   "ic_1hafta": 0.0119,
+   "ic_2hafta": 0.0141,
+   "gecti": true
+  },
+  "haber_uzay_savunma_devlet_pay": {
+   "ic_1hafta": 0.0135,
+   "ic_2hafta": 0.0092,
+   "gecti": true
+  },
+  "haber_uzay_savunma_devlet_ivme": {
+   "ic_1hafta": -0.0045,
+   "ic_2hafta": -0.0019,
+   "gecti": true
+  },
+  "haber_uzay_savunma_devlet_ruzgar": {
+   "ic_1hafta": 0.0074,
+   "ic_2hafta": -0.0057,
+   "gecti": true
+  },
+  "haber_inovasyon_patent_pay": {
+   "ic_1hafta": 0.0017,
+   "ic_2hafta": 0.0072,
+   "gecti": true
+  },
+  "haber_inovasyon_patent_ivme": {
+   "ic_1hafta": 0.0016,
+   "ic_2hafta": 0.0063,
+   "gecti": true
+  },
+  "haber_inovasyon_patent_ruzgar": {
+   "ic_1hafta": -0.0042,
+   "ic_2hafta": 0.0061,
+   "gecti": true
+  },
+  "haber_saglik_ilac_pay": {
+   "ic_1hafta": 0.0031,
+   "ic_2hafta": 0.0114,
+   "gecti": true
+  },
+  "haber_saglik_ilac_ivme": {
+   "ic_1hafta": 0.0026,
+   "ic_2hafta": -0.0029,
+   "gecti": true
+  },
+  "haber_saglik_ilac_ruzgar": {
+   "ic_1hafta": -0.0019,
+   "ic_2hafta": -0.0142,
+   "gecti": true
+  },
+  "haber_enerji_emtia_pay": {
+   "ic_1hafta": 0.0167,
+   "ic_2hafta": 0.0013,
+   "gecti": true
+  },
+  "haber_enerji_emtia_ivme": {
+   "ic_1hafta": -0.0025,
+   "ic_2hafta": 0.0028,
+   "gecti": true
+  },
+  "haber_enerji_emtia_ruzgar": {
+   "ic_1hafta": -0.0033,
+   "ic_2hafta": -0.0039,
+   "gecti": true
+  },
+  "haber_kripto_pay": {
+   "ic_1hafta": 0.0159,
+   "ic_2hafta": 0.0085,
+   "gecti": true
+  },
+  "haber_kripto_ivme": {
+   "ic_1hafta": 0.002,
+   "ic_2hafta": -0.0026,
+   "gecti": true
+  },
+  "haber_kripto_ruzgar": {
+   "ic_1hafta": 0.0022,
+   "ic_2hafta": -0.0004,
+   "gecti": true
+  },
+  "haber_borsa_olaylari_pay": {
+   "ic_1hafta": 0.0041,
+   "ic_2hafta": 0.0088,
+   "gecti": true
+  },
+  "haber_borsa_olaylari_ivme": {
+   "ic_1hafta": -0.0012,
+   "ic_2hafta": -0.0024,
+   "gecti": true
+  },
+  "haber_borsa_olaylari_ruzgar": {
+   "ic_1hafta": -0.0032,
+   "ic_2hafta": -0.0067,
+   "gecti": true
+  },
+  "haber_ticaret_cin_yaptirim_pay": {
+   "ic_1hafta": 0.0095,
+   "ic_2hafta": 0.0019,
+   "gecti": true
+  },
+  "haber_ticaret_cin_yaptirim_ivme": {
+   "ic_1hafta": 0.0063,
+   "ic_2hafta": 0.0021,
+   "gecti": true
+  },
+  "haber_ticaret_cin_yaptirim_ruzgar": {
+   "ic_1hafta": -0.0014,
+   "ic_2hafta": 0.0006,
+   "gecti": true
+  },
+  "haber_hukuk_sorunu_pay": {
+   "ic_1hafta": 0.0074,
+   "ic_2hafta": 0.0119,
+   "gecti": true
+  },
+  "haber_hukuk_sorunu_ivme": {
+   "ic_1hafta": 0.0038,
+   "ic_2hafta": 0.0048,
+   "gecti": true
+  },
+  "haber_hukuk_sorunu_ruzgar": {
+   "ic_1hafta": -0.0014,
+   "ic_2hafta": 0.0012,
+   "gecti": true
+  },
+  "haber_finansal_sikinti_pay": {
+   "ic_1hafta": 0.0122,
+   "ic_2hafta": 0.0049,
+   "gecti": true
+  },
+  "haber_finansal_sikinti_ivme": {
+   "ic_1hafta": 0.0016,
+   "ic_2hafta": 0.0004,
+   "gecti": true
+  },
+  "haber_finansal_sikinti_ruzgar": {
+   "ic_1hafta": -0.0039,
+   "ic_2hafta": -0.0074,
+   "gecti": true
+  },
+  "haber_siber_pay": {
+   "ic_1hafta": 0.0164,
+   "ic_2hafta": 0.0131,
+   "gecti": true
+  },
+  "haber_siber_ivme": {
+   "ic_1hafta": -0.0046,
+   "ic_2hafta": -0.0076,
+   "gecti": true
+  },
+  "haber_siber_ruzgar": {
+   "ic_1hafta": -0.0028,
+   "ic_2hafta": -0.0012,
+   "gecti": true
+  },
+  "haber_hacmi": {
+   "ic_1hafta": 0.0168,
+   "ic_2hafta": 0.0165,
+   "gecti": true
+  },
+  "haber_hacmi_ivme": {
+   "ic_1hafta": 0.0025,
+   "ic_2hafta": 0.0023,
+   "gecti": true
+  },
+  "yukselen_konu_maruziyeti": {
+   "ic_1hafta": 0.0146,
+   "ic_2hafta": 0.0117,
+   "gecti": true
+  },
+  "yukselen_konuya_yonelis": {
+   "ic_1hafta": 0.0075,
+   "ic_2hafta": 0.003,
+   "gecti": true
+  },
+  "bilanco_uzerinden_hafta": {
+   "ic_1hafta": 0.0058,
+   "ic_2hafta": 0.008,
+   "gecti": true
+  },
+  "bilanco_bu_ay_bekleniyor": {
+   "ic_1hafta": 0.0009,
+   "ic_2hafta": 0.0062,
+   "gecti": true
+  },
+  "sektor_4h": {
+   "ic_1hafta": 0.0117,
+   "ic_2hafta": -0.0018,
+   "gecti": true
+  },
+  "sektorun_gerisinde": {
+   "ic_1hafta": 0.0154,
+   "ic_2hafta": 0.0019,
+   "gecti": true
+  },
+  "oynaklik_genislemesi": {
+   "ic_1hafta": 0.0007,
+   "ic_2hafta": 0.0019,
+   "gecti": true
+  },
+  "max_haftalik_4h": {
+   "ic_1hafta": -0.0241,
+   "ic_2hafta": -0.0307,
+   "gecti": true
+  },
+  "kirilim": {
+   "ic_1hafta": 0.015,
+   "ic_2hafta": 0.0167,
+   "gecti": true
+  },
+  "defter_fiyat": {
+   "ic_1hafta": -0.0063,
+   "ic_2hafta": -0.0158,
+   "gecti": true
+  },
+  "satis_fiyat": {
+   "ic_1hafta": 0.0,
+   "ic_2hafta": -0.0136,
+   "gecti": true
+  },
+  "favok_fd": {
+   "ic_1hafta": 0.0222,
+   "ic_2hafta": 0.0183,
+   "gecti": true
+  },
+  "temettu_verimi": {
+   "ic_1hafta": 0.0244,
+   "ic_2hafta": 0.0197,
+   "gecti": true
+  },
+  "nakit_piyasa": {
+   "ic_1hafta": -0.0195,
+   "ic_2hafta": -0.0244,
+   "gecti": true
+  },
+  "ozsermaye_karliligi": {
+   "ic_1hafta": 0.0308,
+   "ic_2hafta": 0.0299,
+   "gecti": true
+  },
+  "aktif_karliligi": {
+   "ic_1hafta": 0.0319,
+   "ic_2hafta": 0.0289,
+   "gecti": true
+  },
+  "brut_kar_aktif": {
+   "ic_1hafta": 0.0173,
+   "ic_2hafta": 0.0176,
+   "gecti": true
+  },
+  "brut_marj": {
+   "ic_1hafta": 0.0103,
+   "ic_2hafta": 0.0235,
+   "gecti": true
+  },
+  "faaliyet_marji": {
+   "ic_1hafta": 0.0292,
+   "ic_2hafta": 0.0284,
+   "gecti": true
+  },
+  "borc_ozsermaye": {
+   "ic_1hafta": 0.0047,
+   "ic_2hafta": 0.0074,
+   "gecti": true
+  },
+  "cari_oran": {
+   "ic_1hafta": -0.0045,
+   "ic_2hafta": -0.0071,
+   "gecti": true
+  },
+  "faiz_karsilama": {
+   "ic_1hafta": 0.0376,
+   "ic_2hafta": 0.027,
+   "gecti": true
+  },
+  "altman_z": {
+   "ic_1hafta": 0.0262,
+   "ic_2hafta": 0.0332,
+   "gecti": true
+  },
+  "piotroski_f": {
+   "ic_1hafta": 0.0235,
+   "ic_2hafta": 0.0195,
+   "gecti": true
+  },
+  "kar_buyumesi": {
+   "ic_1hafta": 0.0128,
+   "ic_2hafta": 0.012,
+   "gecti": true
+  },
+  "hisse_sayisi_degisimi": {
+   "ic_1hafta": -0.0206,
+   "ic_2hafta": -0.0159,
+   "gecti": true
+  },
+  "rsi_14h": {
+   "ic_1hafta": 0.0081,
+   "ic_2hafta": 0.015,
+   "gecti": true
+  },
+  "ort_10h_uzaklik": {
+   "ic_1hafta": -0.0089,
+   "ic_2hafta": 0.0059,
+   "gecti": true
+  },
+  "ort_40h_uzaklik": {
+   "ic_1hafta": 0.0154,
+   "ic_2hafta": 0.0211,
+   "gecti": true
+  },
+  "macd": {
+   "ic_1hafta": 0.025,
+   "ic_2hafta": 0.0237,
+   "gecti": true
+  },
+  "bollinger_konum": {
+   "ic_1hafta": 0.0004,
+   "ic_2hafta": 0.0087,
+   "gecti": true
+  },
+  "likidite": {
+   "ic_1hafta": 0.0257,
+   "ic_2hafta": 0.0243,
+   "gecti": true
+  },
+  "haber_fiyat_ayrismasi": {
+   "ic_1hafta": 0.0073,
+   "ic_2hafta": 0.0121,
+   "gecti": true
+  },
+  "piyasa_4h": {
+   "ic_1hafta": null,
+   "ic_2hafta": null,
+   "gecti": true
+  },
+  "piyasa_52h": {
+   "ic_1hafta": null,
+   "ic_2hafta": null,
+   "gecti": true
+  },
+  "piyasa_oynaklik_13h": {
+   "ic_1hafta": null,
+   "ic_2hafta": null,
+   "gecti": true
+  },
+  "reddit_anilma": {
+   "ic_1hafta": -0.0003,
+   "ic_2hafta": -0.0043,
+   "gecti": true
+  },
+  "reddit_anilma_ivme": {
+   "ic_1hafta": -0.0039,
+   "ic_2hafta": 0.0014,
+   "gecti": true
+  },
+  "reddit_ofke_payi": {
+   "ic_1hafta": 0.0011,
+   "ic_2hafta": 0.0024,
+   "gecti": true
+  },
+  "reddit_olumlu_payi": {
+   "ic_1hafta": 0.0237,
+   "ic_2hafta": 0.0109,
+   "gecti": true
+  },
+  "reddit_olumsuz_payi": {
+   "ic_1hafta": 0.0134,
+   "ic_2hafta": 0.018,
+   "gecti": true
+  },
+  "reddit_puan": {
+   "ic_1hafta": 0.0283,
+   "ic_2hafta": 0.0268,
+   "gecti": true
+  },
+  "yukselen_kelime_maruziyeti": {
+   "ic_1hafta": 0.0079,
+   "ic_2hafta": 0.0047,
+   "gecti": true
+  },
+  "yukselen_kurum_birlikteligi": {
+   "ic_1hafta": 0.0122,
+   "ic_2hafta": 0.0082,
+   "gecti": true
+  },
+  "yeni_kurum_orani": {
+   "ic_1hafta": -0.0132,
+   "ic_2hafta": -0.0111,
+   "gecti": true
+  },
+  "fip_bilgi_surekliligi": {
+   "ic_1hafta": 0.0115,
+   "ic_2hafta": 0.0081,
+   "gecti": true
+  },
+  "max_gunluk_1a": {
+   "ic_1hafta": -0.0242,
+   "ic_2hafta": -0.0371,
+   "gecti": true
+  },
+  "ivol_3a": {
+   "ic_1hafta": -0.036,
+   "ic_2hafta": -0.0438,
+   "gecti": true
+  },
+  "aktivist_13d": {
+   "ic_1hafta": -0.0092,
+   "ic_2hafta": -0.0063,
+   "gecti": true
+  },
+  "aktivist_13d_degisiklik": {
+   "ic_1hafta": -0.0094,
+   "ic_2hafta": -0.0047,
+   "gecti": true
+  },
+  "pasif_13g_yeni": {
+   "ic_1hafta": -0.0108,
+   "ic_2hafta": 0.0019,
+   "gecti": true
+  },
+  "gec_rapor_bildirimi": {
+   "ic_1hafta": -0.0141,
+   "ic_2hafta": -0.0133,
+   "gecti": true
+  },
+  "hisse_ihraci": {
+   "ic_1hafta": -0.0167,
+   "ic_2hafta": -0.0048,
+   "gecti": true
+  },
+  "sektor_ma_dalgasi": {
+   "ic_1hafta": -0.0161,
+   "ic_2hafta": -0.0097,
+   "gecti": true
+  },
+  "sue_fiyat": {
+   "ic_1hafta": 0.0042,
+   "ic_2hafta": 0.0057,
+   "gecti": true
+  },
+  "gelir_surprizi": {
+   "ic_1hafta": 0.0158,
+   "ic_2hafta": 0.0123,
+   "gecti": true
+  },
+  "emsal_getiri_1a": {
+   "ic_1hafta": 0.0167,
+   "ic_2hafta": -0.0023,
+   "gecti": true
+  },
+  "emsal_getiri_3a": {
+   "ic_1hafta": 0.0154,
+   "ic_2hafta": 0.0101,
+   "gecti": true
+  },
+  "emsal_farki_1a": {
+   "ic_1hafta": 0.0222,
+   "ic_2hafta": 0.0021,
+   "gecti": true
+  },
+  "devralma_olasiligi": {
+   "ic_1hafta": -0.0326,
+   "ic_2hafta": -0.0328,
+   "gecti": true
+  }
+ },
+ "T1_tutarlilik": {
+  "momentum_12_1": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "kisa_vade_donus": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "dusuk_oynaklik": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "kucuk_boyut": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "gelir_buyumesi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "buyume_ivmesi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "brut_marj_degisimi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "faaliyet_marji_degisimi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "arge_yogunlugu": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "serbest_nakit_getirisi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "kazanc_getirisi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "tahakkuklar_dusuk": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "varlik_buyumesi_dusuk": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "metin_benzerligi_is_tanimi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "metin_benzerligi_riskler": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "metin_benzerligi_yonetim": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "metin_benzerligi_ortalama": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "risk_bolumu_buyumesi_dusuk": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "devamlilik_suphesi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "wiki_ilgi_ivmesi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "wiki_ani_ilgi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "haber_ivmesi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "haber_ani_artis": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "haber_ton_degisimi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "haber_ton_seviyesi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "icerden_alici_sayisi_90g": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "icerden_alim_kumesi_3plus": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "icerden_alim_tutar_piyasa_degeri": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "ust_yonetici_alimi_90g": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "kurumsal_sahip_degisimi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "kurumsal_hisse_degisimi_payi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "8k_1.01_önemli anlaşma": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "8k_1.02_anlaşma feshi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "8k_2.01_satın alma/elden çıkarma tamamlandı": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "8k_2.03_yeni borç yükümlülüğü": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "8k_3.02_kayıtsız hisse satışı (sulandırma)": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "8k_5.02_yönetici değişikliği": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "8k_7.01_kamuyu aydınlatma (FD)": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "8k_8.01_diğer olaylar": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "geri_alim_getirisi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "tema_ruzgari": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "tema_ruzgari_v1_uzun": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "tema_ruzgari_v2_nadir": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "tema_ruzgari_v3_uzun_nadir": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "sektor_getiri_13h": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "sektor_momentum_12_1": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "beta_qqq": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "zirveye_yakinlik_52h": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "getiri_6a": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "hacim_artisi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "kazanc_aciklamasi_tepkisi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "getiri_1a": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "fiyat_seviyesi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "bilanco_uzerinden_hafta": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "bilanco_bu_ay_bekleniyor": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "olay eşleşmesi"
+  },
+  "sektor_4h": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "sektorun_gerisinde": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "oynaklik_genislemesi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "max_haftalik_4h": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "kirilim": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "defter_fiyat": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "satis_fiyat": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "favok_fd": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "temettu_verimi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "nakit_piyasa": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "ozsermaye_karliligi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "aktif_karliligi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "brut_kar_aktif": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "brut_marj": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "faaliyet_marji": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "borc_ozsermaye": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "cari_oran": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "faiz_karsilama": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "altman_z": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "piotroski_f": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "kar_buyumesi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "hisse_sayisi_degisimi": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "rsi_14h": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "ort_10h_uzaklik": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "ort_40h_uzaklik": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "macd": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  },
+  "bollinger_konum": {
+   "olcu": 1.0,
+   "gecti": true,
+   "tur": "Spearman"
+  }
  }
 }

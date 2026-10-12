@@ -77,7 +77,12 @@ def t1_consistency(df: pd.DataFrame, p: dict, events: set[str]) -> dict[str, dic
 def t2_independent(df: pd.DataFrame, p: dict) -> dict[str, dict]:
     sec = p["securities"].assign(cik=lambda x: x.cik.astype(str))
     act = sec[sec.status == "aktif"].drop_duplicates("symbol")[["symbol", "cik"]]
-    d = archive.load("prices", columns=["symbol", "date", "close", "adjclose"]).merge(act, on="symbol")
+    d = archive.load("prices", columns=["symbol", "date", "close", "adjclose", "split_ratio"]).merge(act, on="symbol")
+    # Yahoo 'close' bölünmeye göre düzeltilmiştir; gerçek işlem fiyatı için sonraki bölünmelerin çarpımıyla geri çevrilir
+    d = d.sort_values(["cik", "date"])
+    r = d.split_ratio.where((d.split_ratio > 0) & np.isfinite(d.split_ratio), 1.0).fillna(1.0)
+    after = r[::-1].groupby(d.cik[::-1]).cumprod()[::-1] / r  # bu günden SONRAKİ bölünmelerin çarpımı
+    d["close"] = d.close * after
     adj = d.pivot_table(index="date", columns="cik", values="adjclose", aggfunc="last").sort_index()
     close = d.pivot_table(index="date", columns="cik", values="close", aggfunc="last").sort_index()
     dates = pd.DatetimeIndex(sorted(df.tarih.unique()))
