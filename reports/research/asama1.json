@@ -1547,5 +1547,1709 @@
  "bolunme": {
   "hata": "KeyError: \"None of [Index([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1,\\n       ...\\n       -1, -1, -1, -1, -2, -2, -1, -1, -1, -1],\\n      dtype='object', length=631)] are in the [columns]\"",
   "iz": "Traceback (most recent call last):\n  File \"/home/user/firsat-radari-v2/radar/research/asama1.py\", line 540, in main\n    res[k] = steps[k]()\n             ~~~~~~~~^^\n  File \"/home/user/firsat-radari-v2/radar/research/asama1.py\", line 536, in <lambda>\n    steps = {\"tarih\": lambda: tab, \"neweywest\": nw_check, \"kalem\": line_items, \"hisse_yedegi\": lambda: shares_fallback(p), \"bolunme\": lambda: splits(p),\n                                                                                                                                              ~~~~~~^^^\n  File \"/home/user/firsat-radari-v2/radar/research/asama1.py\", line 104, in splits\n    gg = g if k in (\"tarih\", \"fiyat\", \"c\") else g[~g.yeni_rapor_ayni_hafta]\n                                                ~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 4384, in __getitem__\n    indexer = self.columns._get_indexer_strict(key, \"columns\")[1]\n              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 6302, in _get_indexer_strict\n    self._raise_if_missing(keyarr, indexer, axis_name)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 6352, in _raise_if_missing\n    raise KeyError(f\"None of [{key}] are in the [{axis_name}]\")\nKeyError: \"None of [Index([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1,\\n       ...\\n       -1, -1, -1, -1, -2, -2, -1, -1, -1, -1],\\n      dtype='object', length=631)] are in the [columns]\"\n"
+ },
+ "oran": {
+  "brut_marj": {
+   "kosul": "göreli ±%1, karşılaştırılanların ≥ %99'u",
+   "sayim": {
+    "denenen": 1306,
+    "bizde_eksik": 70,
+    "bagimsiz_eksik_bilesen": 0,
+    "sifir_payda": 13,
+    "kirpma_disi": 1,
+    "ikisi_de_eksik": 1022,
+    "hata": 0
+   },
+   "karsilastirilan": 200,
+   "tolerans_icinde": 200,
+   "saglayan_pay": 1.0,
+   "goreli_hata_dagilimi": {
+    "count": 200.0,
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "50%": 0.0,
+    "90%": 0.0,
+    "99%": 0.0,
+    "max": 0.0
+   },
+   "mutlak_hata_medyan": 0.0,
+   "sapanlar": []
+  },
+  "faaliyet_marji": {
+   "kosul": "göreli ±%1, karşılaştırılanların ≥ %99'u",
+   "sayim": {
+    "denenen": 876,
+    "bizde_eksik": 82,
+    "bagimsiz_eksik_bilesen": 0,
+    "sifir_payda": 11,
+    "kirpma_disi": 12,
+    "ikisi_de_eksik": 571,
+    "hata": 0
+   },
+   "karsilastirilan": 200,
+   "tolerans_icinde": 197,
+   "saglayan_pay": 0.985,
+   "goreli_hata_dagilimi": {
+    "count": 200.0,
+    "mean": 0.06504,
+    "std": 0.63848,
+    "min": 0.0,
+    "50%": 0.0,
+    "90%": 0.0,
+    "99%": 0.29483,
+    "max": 6.8095
+   },
+   "mutlak_hata_medyan": 0.0,
+   "sapanlar": [
+    {
+     "cik": "1916416",
+     "tarih": "2024-08-30",
+     "bizim": 0.20126,
+     "bagimsiz": 0.02577,
+     "mutlak_hata": 0.17549,
+     "goreli_hata": 6.8095
+    },
+    {
+     "cik": "785815",
+     "tarih": "2015-06-12",
+     "bizim": 0.16536,
+     "bagimsiz": 0.13361,
+     "mutlak_hata": 0.03174,
+     "goreli_hata": 0.23759
+    },
+    {
+     "cik": "1743340",
+     "tarih": "2020-11-20",
+     "bizim": -0.40484,
+     "bagimsiz": -0.05815,
+     "mutlak_hata": 0.34669,
+     "goreli_hata": 5.96179
+    }
+   ]
+  },
+  "cari_oran": {
+   "kosul": "göreli ±%1, karşılaştırılanların ≥ %99'u",
+   "sayim": {
+    "denenen": 595,
+    "bizde_eksik": 55,
+    "bagimsiz_eksik_bilesen": 0,
+    "sifir_payda": 0,
+    "kirpma_disi": 7,
+    "ikisi_de_eksik": 333,
+    "hata": 0
+   },
+   "karsilastirilan": 200,
+   "tolerans_icinde": 200,
+   "saglayan_pay": 1.0,
+   "goreli_hata_dagilimi": {
+    "count": 200.0,
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "50%": 0.0,
+    "90%": 0.0,
+    "99%": 0.0,
+    "max": 0.0
+   },
+   "mutlak_hata_medyan": 0.0,
+   "sapanlar": []
+  },
+  "kazanc_getirisi": {
+   "kosul": "göreli ±%1, karşılaştırılanların ≥ %99'u",
+   "sayim": {
+    "denenen": 670,
+    "bizde_eksik": 1,
+    "bagimsiz_eksik_bilesen": 0,
+    "sifir_payda": 0,
+    "kirpma_disi": 9,
+    "ikisi_de_eksik": 460,
+    "hata": 0
+   },
+   "karsilastirilan": 200,
+   "tolerans_icinde": 184,
+   "saglayan_pay": 0.92,
+   "goreli_hata_dagilimi": {
+    "count": 200.0,
+    "mean": 0.01253,
+    "std": 0.07452,
+    "min": 0.0,
+    "50%": 0.0,
+    "90%": 0.00461,
+    "99%": 0.23166,
+    "max": 0.85636
+   },
+   "mutlak_hata_medyan": 0.0,
+   "sapanlar": [
+    {
+     "cik": "1174850",
+     "tarih": "2015-12-18",
+     "bizim": 0.08063,
+     "bagimsiz": 0.07981,
+     "mutlak_hata": 0.00082,
+     "goreli_hata": 0.01025
+    },
+    {
+     "cik": "1109354",
+     "tarih": "2015-04-03",
+     "bizim": 0.01875,
+     "bagimsiz": 0.01784,
+     "mutlak_hata": 0.00091,
+     "goreli_hata": 0.05115
+    },
+    {
+     "cik": "1328571",
+     "tarih": "2012-09-14",
+     "bizim": -0.06245,
+     "bagimsiz": -0.06749,
+     "mutlak_hata": 0.00503,
+     "goreli_hata": -0.07459
+    },
+    {
+     "cik": "1369868",
+     "tarih": "2019-11-08",
+     "bizim": 0.03273,
+     "bagimsiz": 0.02833,
+     "mutlak_hata": 0.0044,
+     "goreli_hata": 0.15548
+    },
+    {
+     "cik": "825410",
+     "tarih": "2014-12-26",
+     "bizim": 0.01657,
+     "bagimsiz": 0.01407,
+     "mutlak_hata": 0.0025,
+     "goreli_hata": 0.17783
+    },
+    {
+     "cik": "1486299",
+     "tarih": "2017-01-27",
+     "bizim": 0.15008,
+     "bagimsiz": 0.15191,
+     "mutlak_hata": 0.00182,
+     "goreli_hata": -0.01201
+    },
+    {
+     "cik": "1332551",
+     "tarih": "2015-06-12",
+     "bizim": 0.10993,
+     "bagimsiz": 0.11166,
+     "mutlak_hata": 0.00173,
+     "goreli_hata": -0.01552
+    },
+    {
+     "cik": "1174850",
+     "tarih": "2016-02-26",
+     "bizim": 0.08193,
+     "bagimsiz": 0.0811,
+     "mutlak_hata": 0.00083,
+     "goreli_hata": 0.01025
+    },
+    {
+     "cik": "1369868",
+     "tarih": "2017-06-16",
+     "bizim": 0.04341,
+     "bagimsiz": 0.03532,
+     "mutlak_hata": 0.00809,
+     "goreli_hata": 0.22919
+    },
+    {
+     "cik": "1357615",
+     "tarih": "2024-02-09",
+     "bizim": 0.02636,
+     "bagimsiz": 0.02608,
+     "mutlak_hata": 0.00027,
+     "goreli_hata": 0.01053
+    },
+    {
+     "cik": "1333274",
+     "tarih": "2014-05-23",
+     "bizim": -0.0502,
+     "bagimsiz": -0.05138,
+     "mutlak_hata": 0.00118,
+     "goreli_hata": -0.02301
+    },
+    {
+     "cik": "1500217",
+     "tarih": "2013-08-23",
+     "bizim": 0.04232,
+     "bagimsiz": 0.02865,
+     "mutlak_hata": 0.01366,
+     "goreli_hata": 0.47689
+    },
+    {
+     "cik": "1743340",
+     "tarih": "2020-10-16",
+     "bizim": -0.15526,
+     "bagimsiz": -1.0809,
+     "mutlak_hata": 0.92564,
+     "goreli_hata": -0.85636
+    },
+    {
+     "cik": "789570",
+     "tarih": "2024-08-09",
+     "bizim": 0.11613,
+     "bagimsiz": 0.10087,
+     "mutlak_hata": 0.01526,
+     "goreli_hata": 0.15124
+    },
+    {
+     "cik": "749037",
+     "tarih": "2014-06-27",
+     "bizim": 0.06189,
+     "bagimsiz": 0.06322,
+     "mutlak_hata": 0.00133,
+     "goreli_hata": -0.021
+    }
+   ]
+  },
+  "defter_fiyat": {
+   "kosul": "göreli ±%1, karşılaştırılanların ≥ %99'u",
+   "sayim": {
+    "denenen": 621,
+    "bizde_eksik": 1,
+    "bagimsiz_eksik_bilesen": 0,
+    "sifir_payda": 0,
+    "kirpma_disi": 10,
+    "ikisi_de_eksik": 410,
+    "hata": 0
+   },
+   "karsilastirilan": 200,
+   "tolerans_icinde": 191,
+   "saglayan_pay": 0.955,
+   "goreli_hata_dagilimi": {
+    "count": 200.0,
+    "mean": 0.01032,
+    "std": 0.07558,
+    "min": 0.0,
+    "50%": 0.0,
+    "90%": 0.0,
+    "99%": 0.15874,
+    "max": 0.84674
+   },
+   "mutlak_hata_medyan": 1.048561720784491e-08,
+   "sapanlar": [
+    {
+     "cik": "1360901",
+     "tarih": "2014-07-18",
+     "bizim": 0.28551,
+     "bagimsiz": 0.25586,
+     "mutlak_hata": 0.02964,
+     "goreli_hata": 0.11585
+    },
+    {
+     "cik": "1530238",
+     "tarih": "2022-02-25",
+     "bizim": 0.08019,
+     "bagimsiz": 0.52327,
+     "mutlak_hata": 0.44307,
+     "goreli_hata": -0.84674
+    },
+    {
+     "cik": "789570",
+     "tarih": "2017-03-24",
+     "bizim": 0.67539,
+     "bagimsiz": 0.4214,
+     "mutlak_hata": 0.25399,
+     "goreli_hata": 0.60274
+    },
+    {
+     "cik": "1530238",
+     "tarih": "2019-08-16",
+     "bizim": 0.04484,
+     "bagimsiz": 0.03885,
+     "mutlak_hata": 0.00599,
+     "goreli_hata": 0.15425
+    },
+    {
+     "cik": "792985",
+     "tarih": "2014-01-31",
+     "bizim": 0.28989,
+     "bagimsiz": 0.28683,
+     "mutlak_hata": 0.00306,
+     "goreli_hata": 0.01067
+    },
+    {
+     "cik": "1108109",
+     "tarih": "2015-06-19",
+     "bizim": 0.62362,
+     "bagimsiz": 0.61177,
+     "mutlak_hata": 0.01184,
+     "goreli_hata": 0.01936
+    },
+    {
+     "cik": "1109354",
+     "tarih": "2024-06-21",
+     "bizim": 0.14934,
+     "bagimsiz": 0.1475,
+     "mutlak_hata": 0.00183,
+     "goreli_hata": 0.01244
+    },
+    {
+     "cik": "1004989",
+     "tarih": "2012-03-16",
+     "bizim": 0.34104,
+     "bagimsiz": 0.30112,
+     "mutlak_hata": 0.03992,
+     "goreli_hata": 0.13256
+    },
+    {
+     "cik": "1041514",
+     "tarih": "2019-01-04",
+     "bizim": 2.71389,
+     "bagimsiz": 2.3614,
+     "mutlak_hata": 0.35249,
+     "goreli_hata": 0.14927
+    }
+   ]
+  },
+  "not": "Örneklem sabit tohumla (20261012) rastgele şirket-tarih çiftlerinden; eksik bileşenli ve uç değerli kayıtlar atılmaz, ayrı sayılır. Payda sıfırsa bağımsız hesap 'sıfır payda' sayılır (bizim kodda payda > 0 şartı var)."
+ },
+ "eksik": {
+  "belirti": 148,
+  "fiyat_dilimine_gore_dengesiz": [
+   "geri_alim_getirisi",
+   "hacim_artisi",
+   "kirilim",
+   "likidite",
+   "fip_bilgi_surekliligi",
+   "max_gunluk_1a",
+   "ivol_3a",
+   "sue_fiyat"
+  ],
+  "ayrinti": {
+   "momentum_12_1": {
+    "dolu": 0.918,
+    "fiyat_dilimi_en_dusuk": 0.88,
+    "fiyat_dilimi_en_yuksek": 0.977,
+    "yil_en_dusuk": 0.662,
+    "yil_en_yuksek": 0.968,
+    "sektor_en_dusuk": 0.871,
+    "dengesiz": false
+   },
+   "kisa_vade_donus": {
+    "dolu": 0.997,
+    "fiyat_dilimi_en_dusuk": 0.994,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 0.995,
+    "yil_en_yuksek": 0.998,
+    "sektor_en_dusuk": 0.995,
+    "dengesiz": false
+   },
+   "dusuk_oynaklik": {
+    "dolu": 0.984,
+    "fiyat_dilimi_en_dusuk": 0.972,
+    "fiyat_dilimi_en_yuksek": 0.997,
+    "yil_en_dusuk": 0.965,
+    "yil_en_yuksek": 0.99,
+    "sektor_en_dusuk": 0.969,
+    "dengesiz": false
+   },
+   "kucuk_boyut": {
+    "dolu": 0.726,
+    "fiyat_dilimi_en_dusuk": 0.655,
+    "fiyat_dilimi_en_yuksek": 0.791,
+    "yil_en_dusuk": 0.165,
+    "yil_en_yuksek": 0.802,
+    "sektor_en_dusuk": 0.203,
+    "dengesiz": false
+   },
+   "gelir_buyumesi": {
+    "dolu": 0.703,
+    "fiyat_dilimi_en_dusuk": 0.614,
+    "fiyat_dilimi_en_yuksek": 0.819,
+    "yil_en_dusuk": 0.177,
+    "yil_en_yuksek": 0.831,
+    "sektor_en_dusuk": 0.324,
+    "dengesiz": false
+   },
+   "buyume_ivmesi": {
+    "dolu": 0.617,
+    "fiyat_dilimi_en_dusuk": 0.515,
+    "fiyat_dilimi_en_yuksek": 0.76,
+    "yil_en_dusuk": 0.036,
+    "yil_en_yuksek": 0.793,
+    "sektor_en_dusuk": 0.272,
+    "dengesiz": false
+   },
+   "brut_marj_degisimi": {
+    "dolu": 0.348,
+    "fiyat_dilimi_en_dusuk": 0.299,
+    "fiyat_dilimi_en_yuksek": 0.408,
+    "yil_en_dusuk": 0.069,
+    "yil_en_yuksek": 0.416,
+    "sektor_en_dusuk": 0.014,
+    "dengesiz": false
+   },
+   "faaliyet_marji_degisimi": {
+    "dolu": 0.621,
+    "fiyat_dilimi_en_dusuk": 0.552,
+    "fiyat_dilimi_en_yuksek": 0.71,
+    "yil_en_dusuk": 0.15,
+    "yil_en_yuksek": 0.73,
+    "sektor_en_dusuk": 0.105,
+    "dengesiz": false
+   },
+   "arge_yogunlugu": {
+    "dolu": 0.257,
+    "fiyat_dilimi_en_dusuk": 0.227,
+    "fiyat_dilimi_en_yuksek": 0.317,
+    "yil_en_dusuk": 0.021,
+    "yil_en_yuksek": 0.332,
+    "sektor_en_dusuk": 0.004,
+    "dengesiz": false
+   },
+   "serbest_nakit_getirisi": {
+    "dolu": 0.574,
+    "fiyat_dilimi_en_dusuk": 0.495,
+    "fiyat_dilimi_en_yuksek": 0.652,
+    "yil_en_dusuk": 0.075,
+    "yil_en_yuksek": 0.776,
+    "sektor_en_dusuk": 0.158,
+    "dengesiz": false
+   },
+   "kazanc_getirisi": {
+    "dolu": 0.664,
+    "fiyat_dilimi_en_dusuk": 0.58,
+    "fiyat_dilimi_en_yuksek": 0.744,
+    "yil_en_dusuk": 0.082,
+    "yil_en_yuksek": 0.784,
+    "sektor_en_dusuk": 0.178,
+    "dengesiz": false
+   },
+   "tahakkuklar_dusuk": {
+    "dolu": 0.641,
+    "fiyat_dilimi_en_dusuk": 0.541,
+    "fiyat_dilimi_en_yuksek": 0.75,
+    "yil_en_dusuk": 0.096,
+    "yil_en_yuksek": 0.843,
+    "sektor_en_dusuk": 0.203,
+    "dengesiz": false
+   },
+   "varlik_buyumesi_dusuk": {
+    "dolu": 0.746,
+    "fiyat_dilimi_en_dusuk": 0.637,
+    "fiyat_dilimi_en_yuksek": 0.865,
+    "yil_en_dusuk": 0.043,
+    "yil_en_yuksek": 0.892,
+    "sektor_en_dusuk": 0.465,
+    "dengesiz": false
+   },
+   "metin_benzerligi_is_tanimi": {
+    "dolu": 0.762,
+    "fiyat_dilimi_en_dusuk": 0.656,
+    "fiyat_dilimi_en_yuksek": 0.883,
+    "yil_en_dusuk": 0.704,
+    "yil_en_yuksek": 0.817,
+    "sektor_en_dusuk": 0.194,
+    "dengesiz": false
+   },
+   "metin_benzerligi_riskler": {
+    "dolu": 0.779,
+    "fiyat_dilimi_en_dusuk": 0.667,
+    "fiyat_dilimi_en_yuksek": 0.9,
+    "yil_en_dusuk": 0.717,
+    "yil_en_yuksek": 0.835,
+    "sektor_en_dusuk": 0.253,
+    "dengesiz": false
+   },
+   "metin_benzerligi_yonetim": {
+    "dolu": 0.782,
+    "fiyat_dilimi_en_dusuk": 0.67,
+    "fiyat_dilimi_en_yuksek": 0.905,
+    "yil_en_dusuk": 0.722,
+    "yil_en_yuksek": 0.838,
+    "sektor_en_dusuk": 0.23,
+    "dengesiz": false
+   },
+   "metin_benzerligi_ortalama": {
+    "dolu": 0.753,
+    "fiyat_dilimi_en_dusuk": 0.647,
+    "fiyat_dilimi_en_yuksek": 0.877,
+    "yil_en_dusuk": 0.698,
+    "yil_en_yuksek": 0.799,
+    "sektor_en_dusuk": 0.192,
+    "dengesiz": false
+   },
+   "risk_bolumu_buyumesi_dusuk": {
+    "dolu": 0.732,
+    "fiyat_dilimi_en_dusuk": 0.62,
+    "fiyat_dilimi_en_yuksek": 0.857,
+    "yil_en_dusuk": 0.658,
+    "yil_en_yuksek": 0.801,
+    "sektor_en_dusuk": 0.232,
+    "dengesiz": false
+   },
+   "devamlilik_suphesi": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "wiki_ilgi_ivmesi": {
+    "dolu": 0.096,
+    "fiyat_dilimi_en_dusuk": 0.054,
+    "fiyat_dilimi_en_yuksek": 0.164,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.18,
+    "sektor_en_dusuk": 0.001,
+    "dengesiz": false
+   },
+   "wiki_ani_ilgi": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "haber_ivmesi": {
+    "dolu": 0.257,
+    "fiyat_dilimi_en_dusuk": 0.184,
+    "fiyat_dilimi_en_yuksek": 0.373,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.532,
+    "sektor_en_dusuk": 0.197,
+    "dengesiz": false
+   },
+   "haber_ani_artis": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "haber_ton_degisimi": {
+    "dolu": 0.246,
+    "fiyat_dilimi_en_dusuk": 0.167,
+    "fiyat_dilimi_en_yuksek": 0.368,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.459,
+    "sektor_en_dusuk": 0.183,
+    "dengesiz": false
+   },
+   "haber_ton_seviyesi": {
+    "dolu": 0.248,
+    "fiyat_dilimi_en_dusuk": 0.169,
+    "fiyat_dilimi_en_yuksek": 0.37,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.459,
+    "sektor_en_dusuk": 0.185,
+    "dengesiz": false
+   },
+   "icerden_alici_sayisi_90g": {
+    "dolu": 0.156,
+    "fiyat_dilimi_en_dusuk": 0.11,
+    "fiyat_dilimi_en_yuksek": 0.199,
+    "yil_en_dusuk": 0.122,
+    "yil_en_yuksek": 0.182,
+    "sektor_en_dusuk": 0.076,
+    "dengesiz": false
+   },
+   "icerden_alim_kumesi_3plus": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "icerden_alim_tutar_piyasa_degeri": {
+    "dolu": 0.119,
+    "fiyat_dilimi_en_dusuk": 0.087,
+    "fiyat_dilimi_en_yuksek": 0.162,
+    "yil_en_dusuk": 0.025,
+    "yil_en_yuksek": 0.151,
+    "sektor_en_dusuk": 0.055,
+    "dengesiz": false
+   },
+   "ust_yonetici_alimi_90g": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "kurumsal_sahip_degisimi": {
+    "dolu": 0.698,
+    "fiyat_dilimi_en_dusuk": 0.66,
+    "fiyat_dilimi_en_yuksek": 0.757,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.897,
+    "sektor_en_dusuk": 0.303,
+    "dengesiz": false
+   },
+   "kurumsal_hisse_degisimi_payi": {
+    "dolu": 0.584,
+    "fiyat_dilimi_en_dusuk": 0.517,
+    "fiyat_dilimi_en_yuksek": 0.649,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.766,
+    "sektor_en_dusuk": 0.148,
+    "dengesiz": false
+   },
+   "8k_1.01_önemli anlaşma": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "8k_1.02_anlaşma feshi": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "8k_2.01_satın alma/elden çıkarma tamamlandı": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "8k_2.03_yeni borç yükümlülüğü": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "8k_3.02_kayıtsız hisse satışı (sulandırma)": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "8k_5.02_yönetici değişikliği": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "8k_7.01_kamuyu aydınlatma (FD)": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "8k_8.01_diğer olaylar": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "geri_alim_getirisi": {
+    "dolu": 0.329,
+    "fiyat_dilimi_en_dusuk": 0.163,
+    "fiyat_dilimi_en_yuksek": 0.532,
+    "yil_en_dusuk": 0.045,
+    "yil_en_yuksek": 0.393,
+    "sektor_en_dusuk": 0.029,
+    "dengesiz": true
+   },
+   "tema_ruzgari": {
+    "dolu": 0.448,
+    "fiyat_dilimi_en_dusuk": 0.409,
+    "fiyat_dilimi_en_yuksek": 0.494,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.734,
+    "sektor_en_dusuk": 0.348,
+    "dengesiz": false
+   },
+   "tema_ruzgari_v1_uzun": {
+    "dolu": 0.416,
+    "fiyat_dilimi_en_dusuk": 0.38,
+    "fiyat_dilimi_en_yuksek": 0.46,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.734,
+    "sektor_en_dusuk": 0.321,
+    "dengesiz": false
+   },
+   "tema_ruzgari_v2_nadir": {
+    "dolu": 0.405,
+    "fiyat_dilimi_en_dusuk": 0.361,
+    "fiyat_dilimi_en_yuksek": 0.464,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.685,
+    "sektor_en_dusuk": 0.316,
+    "dengesiz": false
+   },
+   "tema_ruzgari_v3_uzun_nadir": {
+    "dolu": 0.377,
+    "fiyat_dilimi_en_dusuk": 0.335,
+    "fiyat_dilimi_en_yuksek": 0.431,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.685,
+    "sektor_en_dusuk": 0.291,
+    "dengesiz": false
+   },
+   "sektor_getiri_13h": {
+    "dolu": 0.974,
+    "fiyat_dilimi_en_dusuk": 0.969,
+    "fiyat_dilimi_en_yuksek": 0.984,
+    "yil_en_dusuk": 0.941,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 0.413,
+    "dengesiz": false
+   },
+   "sektor_momentum_12_1": {
+    "dolu": 0.972,
+    "fiyat_dilimi_en_dusuk": 0.966,
+    "fiyat_dilimi_en_yuksek": 0.983,
+    "yil_en_dusuk": 0.941,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 0.368,
+    "dengesiz": false
+   },
+   "beta_qqq": {
+    "dolu": 0.968,
+    "fiyat_dilimi_en_dusuk": 0.947,
+    "fiyat_dilimi_en_yuksek": 0.994,
+    "yil_en_dusuk": 0.932,
+    "yil_en_yuksek": 0.984,
+    "sektor_en_dusuk": 0.941,
+    "dengesiz": false
+   },
+   "zirveye_yakinlik_52h": {
+    "dolu": 0.969,
+    "fiyat_dilimi_en_dusuk": 0.95,
+    "fiyat_dilimi_en_yuksek": 0.995,
+    "yil_en_dusuk": 0.935,
+    "yil_en_yuksek": 0.985,
+    "sektor_en_dusuk": 0.943,
+    "dengesiz": false
+   },
+   "getiri_6a": {
+    "dolu": 0.963,
+    "fiyat_dilimi_en_dusuk": 0.942,
+    "fiyat_dilimi_en_yuksek": 0.994,
+    "yil_en_dusuk": 0.93,
+    "yil_en_yuksek": 0.981,
+    "sektor_en_dusuk": 0.938,
+    "dengesiz": false
+   },
+   "hacim_artisi": {
+    "dolu": 0.653,
+    "fiyat_dilimi_en_dusuk": 0.432,
+    "fiyat_dilimi_en_yuksek": 0.828,
+    "yil_en_dusuk": 0.423,
+    "yil_en_yuksek": 0.955,
+    "sektor_en_dusuk": 0.54,
+    "dengesiz": true
+   },
+   "kazanc_aciklamasi_tepkisi": {
+    "dolu": 0.751,
+    "fiyat_dilimi_en_dusuk": 0.648,
+    "fiyat_dilimi_en_yuksek": 0.868,
+    "yil_en_dusuk": 0.708,
+    "yil_en_yuksek": 0.773,
+    "sektor_en_dusuk": 0.185,
+    "dengesiz": false
+   },
+   "getiri_1a": {
+    "dolu": 0.992,
+    "fiyat_dilimi_en_dusuk": 0.985,
+    "fiyat_dilimi_en_yuksek": 0.999,
+    "yil_en_dusuk": 0.987,
+    "yil_en_yuksek": 0.995,
+    "sektor_en_dusuk": 0.987,
+    "dengesiz": false
+   },
+   "fiyat_seviyesi": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "haber_yz_teknoloji_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_yz_teknoloji_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_yz_teknoloji_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_uzay_savunma_devlet_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_uzay_savunma_devlet_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_uzay_savunma_devlet_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_inovasyon_patent_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_inovasyon_patent_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_inovasyon_patent_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_saglik_ilac_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_saglik_ilac_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_saglik_ilac_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_enerji_emtia_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_enerji_emtia_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_enerji_emtia_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_kripto_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_kripto_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_kripto_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_borsa_olaylari_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_borsa_olaylari_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_borsa_olaylari_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_ticaret_cin_yaptirim_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_ticaret_cin_yaptirim_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_ticaret_cin_yaptirim_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_hukuk_sorunu_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_hukuk_sorunu_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_hukuk_sorunu_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_finansal_sikinti_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_finansal_sikinti_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_finansal_sikinti_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_siber_pay": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_siber_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_siber_ruzgar": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_hacmi": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "haber_hacmi_ivme": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "yukselen_konu_maruziyeti": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "yukselen_konuya_yonelis": {
+    "dolu": 0.441,
+    "fiyat_dilimi_en_dusuk": 0.404,
+    "fiyat_dilimi_en_yuksek": 0.485,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.742,
+    "sektor_en_dusuk": 0.338,
+    "dengesiz": false
+   },
+   "bilanco_uzerinden_hafta": {
+    "dolu": 0.813,
+    "fiyat_dilimi_en_dusuk": 0.728,
+    "fiyat_dilimi_en_yuksek": 0.916,
+    "yil_en_dusuk": 0.769,
+    "yil_en_yuksek": 0.838,
+    "sektor_en_dusuk": 0.202,
+    "dengesiz": false
+   },
+   "bilanco_bu_ay_bekleniyor": {
+    "dolu": 0.813,
+    "fiyat_dilimi_en_dusuk": 0.728,
+    "fiyat_dilimi_en_yuksek": 0.916,
+    "yil_en_dusuk": 0.769,
+    "yil_en_yuksek": 0.838,
+    "sektor_en_dusuk": 0.202,
+    "dengesiz": false
+   },
+   "sektor_4h": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "sektorun_gerisinde": {
+    "dolu": 0.992,
+    "fiyat_dilimi_en_dusuk": 0.985,
+    "fiyat_dilimi_en_yuksek": 0.999,
+    "yil_en_dusuk": 0.987,
+    "yil_en_yuksek": 0.995,
+    "sektor_en_dusuk": 0.987,
+    "dengesiz": false
+   },
+   "oynaklik_genislemesi": {
+    "dolu": 0.979,
+    "fiyat_dilimi_en_dusuk": 0.967,
+    "fiyat_dilimi_en_yuksek": 0.997,
+    "yil_en_dusuk": 0.963,
+    "yil_en_yuksek": 0.988,
+    "sektor_en_dusuk": 0.967,
+    "dengesiz": false
+   },
+   "max_haftalik_4h": {
+    "dolu": 0.996,
+    "fiyat_dilimi_en_dusuk": 0.992,
+    "fiyat_dilimi_en_yuksek": 0.999,
+    "yil_en_dusuk": 0.993,
+    "yil_en_yuksek": 0.997,
+    "sektor_en_dusuk": 0.993,
+    "dengesiz": false
+   },
+   "kirilim": {
+    "dolu": 0.653,
+    "fiyat_dilimi_en_dusuk": 0.433,
+    "fiyat_dilimi_en_yuksek": 0.829,
+    "yil_en_dusuk": 0.424,
+    "yil_en_yuksek": 0.956,
+    "sektor_en_dusuk": 0.54,
+    "dengesiz": true
+   },
+   "defter_fiyat": {
+    "dolu": 0.718,
+    "fiyat_dilimi_en_dusuk": 0.648,
+    "fiyat_dilimi_en_yuksek": 0.783,
+    "yil_en_dusuk": 0.162,
+    "yil_en_yuksek": 0.795,
+    "sektor_en_dusuk": 0.202,
+    "dengesiz": false
+   },
+   "satis_fiyat": {
+    "dolu": 0.584,
+    "fiyat_dilimi_en_dusuk": 0.503,
+    "fiyat_dilimi_en_yuksek": 0.682,
+    "yil_en_dusuk": 0.069,
+    "yil_en_yuksek": 0.735,
+    "sektor_en_dusuk": 0.107,
+    "dengesiz": false
+   },
+   "favok_fd": {
+    "dolu": 0.602,
+    "fiyat_dilimi_en_dusuk": 0.536,
+    "fiyat_dilimi_en_yuksek": 0.654,
+    "yil_en_dusuk": 0.066,
+    "yil_en_yuksek": 0.698,
+    "sektor_en_dusuk": 0.153,
+    "dengesiz": false
+   },
+   "temettu_verimi": {
+    "dolu": 0.723,
+    "fiyat_dilimi_en_dusuk": 0.653,
+    "fiyat_dilimi_en_yuksek": 0.788,
+    "yil_en_dusuk": 0.164,
+    "yil_en_yuksek": 0.8,
+    "sektor_en_dusuk": 0.203,
+    "dengesiz": false
+   },
+   "nakit_piyasa": {
+    "dolu": 0.71,
+    "fiyat_dilimi_en_dusuk": 0.639,
+    "fiyat_dilimi_en_yuksek": 0.776,
+    "yil_en_dusuk": 0.16,
+    "yil_en_yuksek": 0.791,
+    "sektor_en_dusuk": 0.195,
+    "dengesiz": false
+   },
+   "ozsermaye_karliligi": {
+    "dolu": 0.697,
+    "fiyat_dilimi_en_dusuk": 0.593,
+    "fiyat_dilimi_en_yuksek": 0.827,
+    "yil_en_dusuk": 0.103,
+    "yil_en_yuksek": 0.791,
+    "sektor_en_dusuk": 0.221,
+    "dengesiz": false
+   },
+   "aktif_karliligi": {
+    "dolu": 0.768,
+    "fiyat_dilimi_en_dusuk": 0.667,
+    "fiyat_dilimi_en_yuksek": 0.874,
+    "yil_en_dusuk": 0.106,
+    "yil_en_yuksek": 0.898,
+    "sektor_en_dusuk": 0.512,
+    "dengesiz": false
+   },
+   "brut_kar_aktif": {
+    "dolu": 0.37,
+    "fiyat_dilimi_en_dusuk": 0.311,
+    "fiyat_dilimi_en_yuksek": 0.438,
+    "yil_en_dusuk": 0.036,
+    "yil_en_yuksek": 0.428,
+    "sektor_en_dusuk": 0.011,
+    "dengesiz": false
+   },
+   "brut_marj": {
+    "dolu": 0.331,
+    "fiyat_dilimi_en_dusuk": 0.278,
+    "fiyat_dilimi_en_yuksek": 0.396,
+    "yil_en_dusuk": 0.03,
+    "yil_en_yuksek": 0.42,
+    "sektor_en_dusuk": 0.011,
+    "dengesiz": false
+   },
+   "faaliyet_marji": {
+    "dolu": 0.592,
+    "fiyat_dilimi_en_dusuk": 0.515,
+    "fiyat_dilimi_en_yuksek": 0.69,
+    "yil_en_dusuk": 0.073,
+    "yil_en_yuksek": 0.728,
+    "sektor_en_dusuk": 0.1,
+    "dengesiz": false
+   },
+   "borc_ozsermaye": {
+    "dolu": 0.757,
+    "fiyat_dilimi_en_dusuk": 0.665,
+    "fiyat_dilimi_en_yuksek": 0.874,
+    "yil_en_dusuk": 0.211,
+    "yil_en_yuksek": 0.836,
+    "sektor_en_dusuk": 0.246,
+    "dengesiz": false
+   },
+   "cari_oran": {
+    "dolu": 0.771,
+    "fiyat_dilimi_en_dusuk": 0.68,
+    "fiyat_dilimi_en_yuksek": 0.874,
+    "yil_en_dusuk": 0.209,
+    "yil_en_yuksek": 0.838,
+    "sektor_en_dusuk": 0.255,
+    "dengesiz": false
+   },
+   "faiz_karsilama": {
+    "dolu": 0.409,
+    "fiyat_dilimi_en_dusuk": 0.355,
+    "fiyat_dilimi_en_yuksek": 0.463,
+    "yil_en_dusuk": 0.053,
+    "yil_en_yuksek": 0.501,
+    "sektor_en_dusuk": 0.072,
+    "dengesiz": false
+   },
+   "altman_z": {
+    "dolu": 0.393,
+    "fiyat_dilimi_en_dusuk": 0.373,
+    "fiyat_dilimi_en_yuksek": 0.439,
+    "yil_en_dusuk": 0.031,
+    "yil_en_yuksek": 0.535,
+    "sektor_en_dusuk": 0.079,
+    "dengesiz": false
+   },
+   "piotroski_f": {
+    "dolu": 0.566,
+    "fiyat_dilimi_en_dusuk": 0.457,
+    "fiyat_dilimi_en_yuksek": 0.688,
+    "yil_en_dusuk": 0.002,
+    "yil_en_yuksek": 0.807,
+    "sektor_en_dusuk": 0.177,
+    "dengesiz": false
+   },
+   "kar_buyumesi": {
+    "dolu": 0.805,
+    "fiyat_dilimi_en_dusuk": 0.716,
+    "fiyat_dilimi_en_yuksek": 0.898,
+    "yil_en_dusuk": 0.215,
+    "yil_en_yuksek": 0.892,
+    "sektor_en_dusuk": 0.525,
+    "dengesiz": false
+   },
+   "hisse_sayisi_degisimi": {
+    "dolu": 0.639,
+    "fiyat_dilimi_en_dusuk": 0.546,
+    "fiyat_dilimi_en_yuksek": 0.73,
+    "yil_en_dusuk": 0.028,
+    "yil_en_yuksek": 0.775,
+    "sektor_en_dusuk": 0.168,
+    "dengesiz": false
+   },
+   "rsi_14h": {
+    "dolu": 0.983,
+    "fiyat_dilimi_en_dusuk": 0.972,
+    "fiyat_dilimi_en_yuksek": 0.997,
+    "yil_en_dusuk": 0.97,
+    "yil_en_yuksek": 0.989,
+    "sektor_en_dusuk": 0.973,
+    "dengesiz": false
+   },
+   "ort_10h_uzaklik": {
+    "dolu": 0.987,
+    "fiyat_dilimi_en_dusuk": 0.979,
+    "fiyat_dilimi_en_yuksek": 0.998,
+    "yil_en_dusuk": 0.979,
+    "yil_en_yuksek": 0.992,
+    "sektor_en_dusuk": 0.98,
+    "dengesiz": false
+   },
+   "ort_40h_uzaklik": {
+    "dolu": 0.96,
+    "fiyat_dilimi_en_dusuk": 0.937,
+    "fiyat_dilimi_en_yuksek": 0.992,
+    "yil_en_dusuk": 0.912,
+    "yil_en_yuksek": 0.981,
+    "sektor_en_dusuk": 0.933,
+    "dengesiz": false
+   },
+   "macd": {
+    "dolu": 0.97,
+    "fiyat_dilimi_en_dusuk": 0.951,
+    "fiyat_dilimi_en_yuksek": 0.995,
+    "yil_en_dusuk": 0.936,
+    "yil_en_yuksek": 0.985,
+    "sektor_en_dusuk": 0.943,
+    "dengesiz": false
+   },
+   "bollinger_konum": {
+    "dolu": 0.98,
+    "fiyat_dilimi_en_dusuk": 0.967,
+    "fiyat_dilimi_en_yuksek": 0.997,
+    "yil_en_dusuk": 0.962,
+    "yil_en_yuksek": 0.988,
+    "sektor_en_dusuk": 0.966,
+    "dengesiz": false
+   },
+   "likidite": {
+    "dolu": 0.668,
+    "fiyat_dilimi_en_dusuk": 0.442,
+    "fiyat_dilimi_en_yuksek": 0.832,
+    "yil_en_dusuk": 0.43,
+    "yil_en_yuksek": 0.981,
+    "sektor_en_dusuk": 0.549,
+    "dengesiz": true
+   },
+   "haber_fiyat_ayrismasi": {
+    "dolu": 0.438,
+    "fiyat_dilimi_en_dusuk": 0.4,
+    "fiyat_dilimi_en_yuksek": 0.484,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.738,
+    "sektor_en_dusuk": 0.336,
+    "dengesiz": false
+   },
+   "piyasa_4h": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "piyasa_52h": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "piyasa_oynaklik_13h": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "reddit_anilma": {
+    "dolu": 0.841,
+    "fiyat_dilimi_en_dusuk": 0.841,
+    "fiyat_dilimi_en_yuksek": 0.841,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 0.779,
+    "dengesiz": false
+   },
+   "reddit_anilma_ivme": {
+    "dolu": 0.841,
+    "fiyat_dilimi_en_dusuk": 0.841,
+    "fiyat_dilimi_en_yuksek": 0.841,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 0.779,
+    "dengesiz": false
+   },
+   "reddit_ofke_payi": {
+    "dolu": 0.111,
+    "fiyat_dilimi_en_dusuk": 0.08,
+    "fiyat_dilimi_en_yuksek": 0.168,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.383,
+    "sektor_en_dusuk": 0.049,
+    "dengesiz": false
+   },
+   "reddit_olumlu_payi": {
+    "dolu": 0.111,
+    "fiyat_dilimi_en_dusuk": 0.08,
+    "fiyat_dilimi_en_yuksek": 0.168,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.383,
+    "sektor_en_dusuk": 0.049,
+    "dengesiz": false
+   },
+   "reddit_olumsuz_payi": {
+    "dolu": 0.111,
+    "fiyat_dilimi_en_dusuk": 0.08,
+    "fiyat_dilimi_en_yuksek": 0.168,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.383,
+    "sektor_en_dusuk": 0.049,
+    "dengesiz": false
+   },
+   "reddit_puan": {
+    "dolu": 0.111,
+    "fiyat_dilimi_en_dusuk": 0.08,
+    "fiyat_dilimi_en_yuksek": 0.168,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.383,
+    "sektor_en_dusuk": 0.049,
+    "dengesiz": false
+   },
+   "yukselen_kelime_maruziyeti": {
+    "dolu": 0.327,
+    "fiyat_dilimi_en_dusuk": 0.263,
+    "fiyat_dilimi_en_yuksek": 0.427,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.559,
+    "sektor_en_dusuk": 0.26,
+    "dengesiz": false
+   },
+   "yukselen_kurum_birlikteligi": {
+    "dolu": 0.367,
+    "fiyat_dilimi_en_dusuk": 0.31,
+    "fiyat_dilimi_en_yuksek": 0.457,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.616,
+    "sektor_en_dusuk": 0.292,
+    "dengesiz": false
+   },
+   "yeni_kurum_orani": {
+    "dolu": 0.367,
+    "fiyat_dilimi_en_dusuk": 0.31,
+    "fiyat_dilimi_en_yuksek": 0.457,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 0.616,
+    "sektor_en_dusuk": 0.292,
+    "dengesiz": false
+   },
+   "fip_bilgi_surekliligi": {
+    "dolu": 0.64,
+    "fiyat_dilimi_en_dusuk": 0.431,
+    "fiyat_dilimi_en_yuksek": 0.824,
+    "yil_en_dusuk": 0.387,
+    "yil_en_yuksek": 0.938,
+    "sektor_en_dusuk": 0.53,
+    "dengesiz": true
+   },
+   "max_gunluk_1a": {
+    "dolu": 0.666,
+    "fiyat_dilimi_en_dusuk": 0.448,
+    "fiyat_dilimi_en_yuksek": 0.83,
+    "yil_en_dusuk": 0.399,
+    "yil_en_yuksek": 0.978,
+    "sektor_en_dusuk": 0.548,
+    "dengesiz": true
+   },
+   "ivol_3a": {
+    "dolu": 0.662,
+    "fiyat_dilimi_en_dusuk": 0.445,
+    "fiyat_dilimi_en_yuksek": 0.829,
+    "yil_en_dusuk": 0.397,
+    "yil_en_yuksek": 0.969,
+    "sektor_en_dusuk": 0.546,
+    "dengesiz": true
+   },
+   "aktivist_13d": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "aktivist_13d_degisiklik": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "pasif_13g_yeni": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "gec_rapor_bildirimi": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "hisse_ihraci": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "sektor_ma_dalgasi": {
+    "dolu": 1.0,
+    "fiyat_dilimi_en_dusuk": 1.0,
+    "fiyat_dilimi_en_yuksek": 1.0,
+    "yil_en_dusuk": 1.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 1.0,
+    "dengesiz": false
+   },
+   "sue_fiyat": {
+    "dolu": 0.663,
+    "fiyat_dilimi_en_dusuk": 0.516,
+    "fiyat_dilimi_en_yuksek": 0.837,
+    "yil_en_dusuk": 0.203,
+    "yil_en_yuksek": 0.795,
+    "sektor_en_dusuk": 0.186,
+    "dengesiz": true
+   },
+   "gelir_surprizi": {
+    "dolu": 0.629,
+    "fiyat_dilimi_en_dusuk": 0.527,
+    "fiyat_dilimi_en_yuksek": 0.778,
+    "yil_en_dusuk": 0.093,
+    "yil_en_yuksek": 0.759,
+    "sektor_en_dusuk": 0.113,
+    "dengesiz": false
+   },
+   "emsal_getiri_1a": {
+    "dolu": 0.728,
+    "fiyat_dilimi_en_dusuk": 0.63,
+    "fiyat_dilimi_en_yuksek": 0.836,
+    "yil_en_dusuk": 0.659,
+    "yil_en_yuksek": 0.79,
+    "sektor_en_dusuk": 0.179,
+    "dengesiz": false
+   },
+   "emsal_getiri_3a": {
+    "dolu": 0.728,
+    "fiyat_dilimi_en_dusuk": 0.63,
+    "fiyat_dilimi_en_yuksek": 0.836,
+    "yil_en_dusuk": 0.659,
+    "yil_en_yuksek": 0.79,
+    "sektor_en_dusuk": 0.179,
+    "dengesiz": false
+   },
+   "emsal_farki_1a": {
+    "dolu": 0.724,
+    "fiyat_dilimi_en_dusuk": 0.626,
+    "fiyat_dilimi_en_yuksek": 0.836,
+    "yil_en_dusuk": 0.659,
+    "yil_en_yuksek": 0.786,
+    "sektor_en_dusuk": 0.178,
+    "dengesiz": false
+   },
+   "devralma_olasiligi": {
+    "dolu": 0.886,
+    "fiyat_dilimi_en_dusuk": 0.886,
+    "fiyat_dilimi_en_yuksek": 0.886,
+    "yil_en_dusuk": 0.0,
+    "yil_en_yuksek": 1.0,
+    "sektor_en_dusuk": 0.848,
+    "dengesiz": false
+   }
+  }
  }
 }

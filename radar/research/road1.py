@@ -43,16 +43,24 @@ def by_filing(fin: pd.DataFrame, tags: list[str], qtrs: list[int]) -> pd.DataFra
     return out
 
 
+def _first_by_priority(d: pd.DataFrame, tags: list[str]) -> pd.DataFrame:
+    """Aynı raporda birden çok aday etiket varsa listedeki öncelik sırasına göre ilki alınır.
+    (Önceden satır sırasına göre alınıyordu; ör. özsermayede azınlık payı dahil değer ya da net kârda ProfitLoss rastgele
+    seçilebiliyordu — 1. aşama oran doğrulamasında bulundu, Ekim 2026.)"""
+    d = d.assign(_prio=d.tag.map({t: i for i, t in enumerate(tags)})).sort_values(["adsh", "_prio"], kind="stable")
+    return d.groupby(["adsh", "cik", "accepted"]).value.first().reset_index()
+
+
 def balance(fin: pd.DataFrame, tags: list[str]) -> pd.DataFrame:
     d = fin[fin.tag.isin(tags) & (fin.qtrs == 0)]
     d = d[d.ddate == d.groupby("adsh").ddate.transform("max")]
-    return d.groupby(["adsh", "cik", "accepted"]).value.first().reset_index()
+    return _first_by_priority(d, tags)
 
 
 def annual(fin: pd.DataFrame, tags: list[str]) -> pd.DataFrame:
     d = fin[fin.tag.isin(tags) & (fin.qtrs == 4)]
     d = d[d.ddate == d.groupby("adsh").ddate.transform("max")]
-    return d.groupby(["adsh", "cik", "accepted"]).value.first().reset_index()
+    return _first_by_priority(d, tags)
 
 
 def signals(p: dict) -> dict[str, pd.DataFrame]:
