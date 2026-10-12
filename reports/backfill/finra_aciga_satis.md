@@ -1,6 +1,6 @@
 # 🔴 FINRA günlük açığa satış hacmi — ay × sembol (2009→)
 
-Son güncelleme: 2026-10-12T10:26:18+00:00 · 18 bölüm · 2,236,623 satır
+Son güncelleme: 2026-10-12T14:07:20+00:00 · 18 bölüm · 2,653,271 satır
 
 ## Veri seti kontrolleri
 
@@ -11,9 +11,9 @@ Son güncelleme: 2026-10-12T10:26:18+00:00 · 18 bölüm · 2,236,623 satır
 
 | Bölüm | Durum | Satır | Uyarı / hata |
 |---|---|---|---|
-| 2009 | 🔴 Kullanılamaz | 0 | Çalışma hatası: ValueError: could not convert string to float: 'Q' |
-| 2010 | 🔴 Kullanılamaz | 0 | Çalışma hatası: ValueError: could not convert string to float: 'Q' |
-| 2011 | 🔴 Kullanılamaz | 0 | Çalışma hatası: ValueError: could not convert string to float: 'Q' |
+| 2009 | 🔴 Kullanılamaz | 69,958 | Dosyası gelen işlem günü: 106/261 = %40.6 |
+| 2010 | 🟢 Kullanılabilir | 172,054 |  |
+| 2011 | 🟢 Kullanılabilir | 174,636 |  |
 | 2012 | 🟢 Kullanılabilir | 169,635 |  |
 | 2013 | 🟢 Kullanılabilir | 171,400 |  |
 | 2014 | 🟢 Kullanılabilir | 180,664 |  |

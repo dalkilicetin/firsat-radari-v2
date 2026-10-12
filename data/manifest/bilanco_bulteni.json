@@ -3,10 +3,10 @@
  "partitions": {
   "2009h1": {
    "partition": "2009h1",
-   "fetched_at": "2026-10-12T07:00:08+00:00",
+   "fetched_at": "2026-10-12T10:47:55+00:00",
    "rows": 8839,
-   "bytes": 307774,
-   "sha256": "5201644ccd572df5f7a88c8aa2f848926ae6bfaf5040d14b72c144f8ed0820be",
+   "bytes": 358295,
+   "sha256": "9a8a4610454140621833def8c020965d7808aada78fba9f612a703036053b4c3",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -31,9 +31,9 @@
    },
    "asset": "bilanco_bulteni__2009h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2474.4,
-   "requests": 17680,
+   "status": "ok",
+   "duration_s": 2304.9,
+   "requests": 17678,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -41,33 +41,33 @@
      "detail": "8839/8839 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5099/8839 = %57.7"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8649/8839 = %97.9"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%2.7"
+     "detail": "%4.3"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.0"
+     "detail": "%3.5"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,174"
+     "detail": "2,070"
     }
    ]
   },
   "2009h2": {
    "partition": "2009h2",
-   "fetched_at": "2026-10-12T07:00:11+00:00",
+   "fetched_at": "2026-10-12T10:47:56+00:00",
    "rows": 8364,
-   "bytes": 293260,
-   "sha256": "9acbaf8dde039d478f197a92838010c05c738bfa635eebf60c4b41d3fce08e04",
+   "bytes": 343845,
+   "sha256": "7c7d5e3c4a0922142708f9992ed5c7df22925e1d0e6a66972a2b89d4d6b8229f",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -92,9 +92,9 @@
    },
    "asset": "bilanco_bulteni__2009h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 3310.3,
-   "requests": 16732,
+   "status": "ok",
+   "duration_s": 3378.4,
+   "requests": 16745,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -102,33 +102,33 @@
      "detail": "8364/8364 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4864/8364 = %58.2"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8218/8364 = %98.3"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%5.3"
+     "detail": "%8.5"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.0"
+     "detail": "%3.4"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,270"
+     "detail": "2,174"
     }
    ]
   },
   "2010h1": {
    "partition": "2010h1",
-   "fetched_at": "2026-10-12T07:00:08+00:00",
+   "fetched_at": "2026-10-12T10:47:51+00:00",
    "rows": 8527,
-   "bytes": 300286,
-   "sha256": "ef06e2b1091d6c6787e0f05e1fc509f9e5820040c75d13c3388f6ef5149e818c",
+   "bytes": 350548,
+   "sha256": "23f765b658721d4f57a632fd59870ae8d79cb287474c1680ab2d79d61b41e115",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -153,9 +153,9 @@
    },
    "asset": "bilanco_bulteni__2010h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2610.8,
-   "requests": 17057,
+   "status": "ok",
+   "duration_s": 3408.9,
+   "requests": 17066,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -163,33 +163,33 @@
      "detail": "8527/8527 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5006/8527 = %58.7"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8380/8527 = %98.3"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%4.8"
+     "detail": "%7.9"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.1"
+     "detail": "%1.8"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,257"
+     "detail": "2,165"
     }
    ]
   },
   "2010h2": {
    "partition": "2010h2",
-   "fetched_at": "2026-10-12T07:00:10+00:00",
+   "fetched_at": "2026-10-12T10:47:51+00:00",
    "rows": 8165,
-   "bytes": 287233,
-   "sha256": "2ccddee1047c6e8297e2aef304c3505c6f0825f5dbc5f1c557413f1cd4d07da3",
+   "bytes": 336397,
+   "sha256": "46d0cc21372c438c607d618d73720a910c570ba2f669c4b348e0e3cc92d39cbd",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -214,9 +214,9 @@
    },
    "asset": "bilanco_bulteni__2010h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2569.9,
-   "requests": 16332,
+   "status": "ok",
+   "duration_s": 2990.6,
+   "requests": 16341,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -224,33 +224,33 @@
      "detail": "8165/8165 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4860/8165 = %59.5"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8057/8165 = %98.7"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%6.7"
+     "detail": "%10.3"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.5"
+     "detail": "%2.4"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,349"
+     "detail": "2,240"
     }
    ]
   },
   "2011h1": {
    "partition": "2011h1",
-   "fetched_at": "2026-10-12T07:00:12+00:00",
+   "fetched_at": "2026-10-12T10:47:48+00:00",
    "rows": 8359,
-   "bytes": 296181,
-   "sha256": "cd1affdedcb8ec07d99b42cf804bcdc0df5d77e0e8a88f1cfd9fcdc55528eb6d",
+   "bytes": 343373,
+   "sha256": "615850f123c0d04449dcad5f7e58954bbe41c13c9f27fb5feba64ef693a993dc",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -275,9 +275,9 @@
    },
    "asset": "bilanco_bulteni__2011h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2613.2,
-   "requests": 16719,
+   "status": "ok",
+   "duration_s": 2873.5,
+   "requests": 16724,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -285,33 +285,33 @@
      "detail": "8359/8359 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5012/8359 = %60.0"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8225/8359 = %98.4"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%5.0"
+     "detail": "%8.3"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.1"
+     "detail": "%1.7"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,324"
+     "detail": "2,220"
     }
    ]
   },
   "2011h2": {
    "partition": "2011h2",
-   "fetched_at": "2026-10-12T07:00:06+00:00",
+   "fetched_at": "2026-10-12T10:47:48+00:00",
    "rows": 7995,
-   "bytes": 290847,
-   "sha256": "520c81c50d74a99b5619e6c4c4ce96ba173e81750ca5d5bd48ab2393fde270f2",
+   "bytes": 329288,
+   "sha256": "bc3d558b1d9d723e2a15a9d128f5fa2074509e2766d08ef529d75f226680a790",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -336,9 +336,9 @@
    },
    "asset": "bilanco_bulteni__2011h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2404.0,
-   "requests": 15993,
+   "status": "ok",
+   "duration_s": 2104.1,
+   "requests": 15992,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -346,24 +346,24 @@
      "detail": "7995/7995 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5310/7995 = %66.4"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "7893/7995 = %98.7"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%6.7"
+     "detail": "%9.7"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.7"
+     "detail": "%2.7"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,645"
+     "detail": "2,322"
     }
    ]
   },
@@ -552,10 +552,10 @@
   },
   "2013h2": {
    "partition": "2013h2",
-   "fetched_at": "2026-10-12T07:40:30+00:00",
+   "fetched_at": "2026-10-12T10:47:53+00:00",
    "rows": 8052,
-   "bytes": 294727,
-   "sha256": "8056372b443320dd0c064a798a66b2548eb300b4153d78afe7647ec2f464b59a",
+   "bytes": 333614,
+   "sha256": "de25244c41254b6099adcd0699403c96b3f8201b760abce64e0aa9e1a1965fa1",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -580,9 +580,9 @@
    },
    "asset": "bilanco_bulteni__2013h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 3154.2,
-   "requests": 16107,
+   "status": "ok",
+   "duration_s": 2231.8,
+   "requests": 16106,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -590,33 +590,33 @@
      "detail": "8052/8052 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5430/8052 = %67.4"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "7950/8052 = %98.7"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%5.8"
+     "detail": "%8.6"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.3"
+     "detail": "%3.6"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,759"
+     "detail": "2,484"
     }
    ]
   },
   "2014h1": {
    "partition": "2014h1",
-   "fetched_at": "2026-10-12T07:41:45+00:00",
+   "fetched_at": "2026-10-12T10:47:54+00:00",
    "rows": 8437,
-   "bytes": 306190,
-   "sha256": "d7d734da7a8be07af422bb79a0c077b561fba127bf1c50cc42adb42979097378",
+   "bytes": 348582,
+   "sha256": "093854de3ad040eefcbcdb8e822debccd667a5f76b0a01110dbb959ac8a66605",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -641,9 +641,9 @@
    },
    "asset": "bilanco_bulteni__2014h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2647.9,
-   "requests": 16877,
+   "status": "ok",
+   "duration_s": 3014.0,
+   "requests": 16883,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -651,33 +651,33 @@
      "detail": "8437/8437 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5580/8437 = %66.1"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8311/8437 = %98.5"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%4.4"
+     "detail": "%6.6"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.2"
+     "detail": "%2.1"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,630"
+     "detail": "2,429"
     }
    ]
   },
   "2014h2": {
    "partition": "2014h2",
-   "fetched_at": "2026-10-12T07:43:27+00:00",
+   "fetched_at": "2026-10-12T11:23:13+00:00",
    "rows": 8335,
-   "bytes": 303018,
-   "sha256": "a875fc7d5ba751400c309602ad1c1602b6edc987f4c44cf98f4038a87f2497c0",
+   "bytes": 347509,
+   "sha256": "60778a3efe451e9b82ed13080e7f121643b72781cb21fe7cb4dbaf6310f46984",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -702,9 +702,9 @@
    },
    "asset": "bilanco_bulteni__2014h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2474.7,
-   "requests": 16670,
+   "status": "ok",
+   "duration_s": 2287.3,
+   "requests": 16674,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -712,33 +712,33 @@
      "detail": "8335/8335 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5439/8335 = %65.3"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8242/8335 = %98.9"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%6.7"
+     "detail": "%9.9"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.1"
+     "detail": "%3.3"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,664"
+     "detail": "2,548"
     }
    ]
   },
   "2015h1": {
    "partition": "2015h1",
-   "fetched_at": "2026-10-12T07:44:01+00:00",
+   "fetched_at": "2026-10-12T11:25:30+00:00",
    "rows": 8596,
-   "bytes": 309173,
-   "sha256": "41c7de9b908fd7372acf68de3a86addb8394d857f4df55eb055b9cbe297318de",
+   "bytes": 356637,
+   "sha256": "4551caa384e76d64f1a50fe3e0b4ae3cfe81170efca321f69b4161c75a9fd4a7",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -763,9 +763,9 @@
    },
    "asset": "bilanco_bulteni__2015h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2375.9,
-   "requests": 17192,
+   "status": "ok",
+   "duration_s": 3183.2,
+   "requests": 17212,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -773,33 +773,33 @@
      "detail": "8596/8596 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5519/8596 = %64.2"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8461/8596 = %98.4"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%4.4"
+     "detail": "%6.7"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.8"
+     "detail": "%2.8"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,622"
+     "detail": "2,533"
     }
    ]
   },
   "2015h2": {
    "partition": "2015h2",
-   "fetched_at": "2026-10-12T07:44:11+00:00",
+   "fetched_at": "2026-10-12T11:26:46+00:00",
    "rows": 8405,
-   "bytes": 301900,
-   "sha256": "38a2c0c2b8cab6dcdec36859eb10efbc70af269e882c299515ee6ad78cd9fde6",
+   "bytes": 349996,
+   "sha256": "8669a9f88e32b5fad6c614b271f9aa8226d969609222cbe91174c455ba429368",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -824,9 +824,9 @@
    },
    "asset": "bilanco_bulteni__2015h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2252.4,
-   "requests": 16810,
+   "status": "ok",
+   "duration_s": 2210.3,
+   "requests": 16813,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -834,33 +834,33 @@
      "detail": "8405/8405 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5312/8405 = %63.2"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8321/8405 = %99.0"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%6.6"
+     "detail": "%10.3"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.1"
+     "detail": "%3.6"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,671"
+     "detail": "2,617"
     }
    ]
   },
   "2016h1": {
    "partition": "2016h1",
-   "fetched_at": "2026-10-12T07:54:43+00:00",
+   "fetched_at": "2026-10-12T11:36:06+00:00",
    "rows": 8472,
-   "bytes": 303809,
-   "sha256": "2db1297aeb8fbf105ee21a99f6abde036de7cddda700e2c9db22741efb3036f1",
+   "bytes": 353510,
+   "sha256": "a4c6c78f200591ac8e118305c5944649c11ddd0329821007bec1535572d34fe3",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -885,9 +885,9 @@
    },
    "asset": "bilanco_bulteni__2016h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2888.3,
-   "requests": 16953,
+   "status": "ok",
+   "duration_s": 2753.6,
+   "requests": 16947,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -895,33 +895,33 @@
      "detail": "8472/8472 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5259/8472 = %62.1"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8367/8472 = %98.8"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%4.2"
+     "detail": "%7.0"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.6"
+     "detail": "%2.7"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,582"
+     "detail": "2,574"
     }
    ]
   },
   "2016h2": {
    "partition": "2016h2",
-   "fetched_at": "2026-10-12T07:55:43+00:00",
+   "fetched_at": "2026-10-12T11:38:08+00:00",
    "rows": 8023,
-   "bytes": 287892,
-   "sha256": "b46ed7b79c7d5a63733f7d26c588ac66ddd38148f1853bac9602d29efcc55157",
+   "bytes": 334847,
+   "sha256": "f77ce4afd177dba7c6fd1735e2841d5c046e7e25bc0805e86391d32393d6c6d5",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -946,9 +946,9 @@
    },
    "asset": "bilanco_bulteni__2016h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2460.5,
-   "requests": 16048,
+   "status": "ok",
+   "duration_s": 2479.5,
+   "requests": 16047,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -956,33 +956,33 @@
      "detail": "8023/8023 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5047/8023 = %62.9"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "7948/8023 = %99.1"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%6.2"
+     "detail": "%10.0"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.4"
+     "detail": "%3.9"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,671"
+     "detail": "2,722"
     }
    ]
   },
   "2017h1": {
    "partition": "2017h1",
-   "fetched_at": "2026-10-12T08:22:10+00:00",
+   "fetched_at": "2026-10-12T11:38:31+00:00",
    "rows": 8294,
-   "bytes": 299500,
-   "sha256": "ba9f7b2796b8d4e7da63e80310aa904c35854d4bc7a52c4d6352b9aaa88cd319",
+   "bytes": 345529,
+   "sha256": "494721d179d085fee5b1e5a4ddec5d2c4bad4ad7dc13c6639da590e5ae8e9dca",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1007,9 +1007,9 @@
    },
    "asset": "bilanco_bulteni__2017h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2505.6,
-   "requests": 16596,
+   "status": "ok",
+   "duration_s": 3791.8,
+   "requests": 16604,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1017,33 +1017,33 @@
      "detail": "8294/8294 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5208/8294 = %62.8"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8192/8294 = %98.8"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%4.2"
+     "detail": "%7.0"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.4"
+     "detail": "%2.3"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,669"
+     "detail": "2,713"
     }
    ]
   },
   "2017h2": {
    "partition": "2017h2",
-   "fetched_at": "2026-10-12T08:24:02+00:00",
+   "fetched_at": "2026-10-12T11:44:44+00:00",
    "rows": 7948,
-   "bytes": 287736,
-   "sha256": "a44b6eaf89aeaa2e16584d0468ad413278f060ee952d1406b6d18421e7c8d816",
+   "bytes": 333133,
+   "sha256": "6b03614b217fdb4c40e03b0a84ffce64bf04dc99208193b45fc6250055388958",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1068,9 +1068,9 @@
    },
    "asset": "bilanco_bulteni__2017h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2473.5,
-   "requests": 15905,
+   "status": "ok",
+   "duration_s": 2436.3,
+   "requests": 15898,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1078,33 +1078,33 @@
      "detail": "7948/7948 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4889/7948 = %61.5"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "7878/7948 = %99.1"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%7.2"
+     "detail": "%11.4"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.1"
+     "detail": "%3.6"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,658"
+     "detail": "2,791"
     }
    ]
   },
   "2018h1": {
    "partition": "2018h1",
-   "fetched_at": "2026-10-12T08:25:06+00:00",
+   "fetched_at": "2026-10-12T11:44:59+00:00",
    "rows": 8248,
-   "bytes": 295693,
-   "sha256": "bccf8106f102cd66df83db224cfe147daac717b32cc74ffa64f527e6c2967118",
+   "bytes": 345008,
+   "sha256": "3f7fb272f54af970fadcbd4a1c1aa13924dbd31cf22aac828197c16cae9ae62e",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1129,9 +1129,9 @@
    },
    "asset": "bilanco_bulteni__2018h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2363.6,
-   "requests": 16499,
+   "status": "ok",
+   "duration_s": 2193.0,
+   "requests": 16497,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1139,33 +1139,33 @@
      "detail": "8248/8248 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4916/8248 = %59.6"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8125/8248 = %98.5"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%5.2"
+     "detail": "%8.9"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.6"
+     "detail": "%2.5"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,561"
+     "detail": "2,834"
     }
    ]
   },
   "2018h2": {
    "partition": "2018h2",
-   "fetched_at": "2026-10-12T08:26:18+00:00",
+   "fetched_at": "2026-10-12T12:01:48+00:00",
    "rows": 7905,
-   "bytes": 283763,
-   "sha256": "ea85dd18e9d9e243e40c20b0e970be1ff4381310cff15f3c60b3e7ae2556c5fb",
+   "bytes": 331691,
+   "sha256": "6ac15cae2611d9fa81489e099c22ce48bdcb0448e2ee6e7577051e5b40d9cc27",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1190,9 +1190,9 @@
    },
    "asset": "bilanco_bulteni__2018h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2130.9,
-   "requests": 15813,
+   "status": "ok",
+   "duration_s": 2328.5,
+   "requests": 15814,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1200,33 +1200,33 @@
      "detail": "7905/7905 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4689/7905 = %59.3"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "7833/7905 = %99.1"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%7.0"
+     "detail": "%12.3"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.4"
+     "detail": "%3.8"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,606"
+     "detail": "2,925"
     }
    ]
   },
   "2019h1": {
    "partition": "2019h1",
-   "fetched_at": "2026-10-12T08:30:46+00:00",
+   "fetched_at": "2026-10-12T12:04:03+00:00",
    "rows": 8118,
-   "bytes": 289319,
-   "sha256": "3beb7fd87e33221c4538b31544f2888d414f37d565abb9a861a14fc62ba59acf",
+   "bytes": 339589,
+   "sha256": "3f070ca1cdbe73b4c18e3cb457c583c46ed7984718c163b525b21b285d6a8781",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1251,9 +1251,9 @@
    },
    "asset": "bilanco_bulteni__2019h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2701.2,
-   "requests": 16241,
+   "status": "ok",
+   "duration_s": 3449.4,
+   "requests": 16250,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1261,33 +1261,33 @@
      "detail": "8118/8118 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4801/8118 = %59.1"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8009/8118 = %98.7"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%4.2"
+     "detail": "%7.2"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.4"
+     "detail": "%2.2"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,548"
+     "detail": "2,874"
     }
    ]
   },
   "2019h2": {
    "partition": "2019h2",
-   "fetched_at": "2026-10-12T08:33:24+00:00",
+   "fetched_at": "2026-10-12T12:19:01+00:00",
    "rows": 7813,
-   "bytes": 281823,
-   "sha256": "b899770fbe9dbe76ab9c289836625ebcb11507ba7f0a9cbf06fbe499b5e68627",
+   "bytes": 329475,
+   "sha256": "ca762c725e51f6326aada3c30449d5b2a508fef616d4fa9e805ddf984985c8a6",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1312,9 +1312,9 @@
    },
    "asset": "bilanco_bulteni__2019h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 3343.9,
-   "requests": 15639,
+   "status": "ok",
+   "duration_s": 2433.3,
+   "requests": 15631,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1322,33 +1322,33 @@
      "detail": "7813/7813 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4635/7813 = %59.3"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "7765/7813 = %99.4"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%6.9"
+     "detail": "%11.7"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.8"
+     "detail": "%4.4"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,632"
+     "detail": "2,922"
     }
    ]
   },
   "2020h1": {
    "partition": "2020h1",
-   "fetched_at": "2026-10-12T08:37:03+00:00",
+   "fetched_at": "2026-10-12T12:20:10+00:00",
    "rows": 8372,
-   "bytes": 301382,
-   "sha256": "6ad23d911cb78a1232c011841e3addc823cffdf9f995daac82de4b71637d30fe",
+   "bytes": 351198,
+   "sha256": "43daac4fc72322a05318fd74b1366d1a6e6cdfc1df35f62b4b642026a8d2541b",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1373,9 +1373,9 @@
    },
    "asset": "bilanco_bulteni__2020h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2167.5,
-   "requests": 16745,
+   "status": "ok",
+   "duration_s": 2516.5,
+   "requests": 16751,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1383,33 +1383,33 @@
      "detail": "8372/8372 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4950/8372 = %59.1"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8310/8372 = %99.3"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%2.4"
+     "detail": "%3.9"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%7.6"
+     "detail": "%12.4"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,582"
+     "detail": "2,946"
     }
    ]
   },
   "2020h2": {
    "partition": "2020h2",
-   "fetched_at": "2026-10-12T08:43:16+00:00",
+   "fetched_at": "2026-10-12T12:21:54+00:00",
    "rows": 8076,
-   "bytes": 289703,
-   "sha256": "81d8b95cb990a70c1a3034c3089cbce886586bf2047d493604027386f207de09",
+   "bytes": 338656,
+   "sha256": "9c452b43555b3807e4557f1364d31eaea4380887d0d402430b129958d2949516",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1434,9 +1434,9 @@
    },
    "asset": "bilanco_bulteni__2020h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2098.4,
-   "requests": 16154,
+   "status": "ok",
+   "duration_s": 3538.8,
+   "requests": 16169,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1444,33 +1444,33 @@
      "detail": "8076/8076 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4808/8076 = %59.5"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8038/8076 = %99.5"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%4.8"
+     "detail": "%8.0"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%3.3"
+     "detail": "%5.8"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,623"
+     "detail": "3,053"
     }
    ]
   },
   "2021h1": {
    "partition": "2021h1",
-   "fetched_at": "2026-10-12T09:02:11+00:00",
+   "fetched_at": "2026-10-12T12:22:23+00:00",
    "rows": 8608,
-   "bytes": 311332,
-   "sha256": "460ce0fee78e5f0464ab42c91d796882b31c3f24e1026c5bbbdf6db2e0dd4357",
+   "bytes": 359583,
+   "sha256": "d4df1c66d48eb21ca80e461e7c37341f96f82f3cebda770c9e70cc533cf1e2d2",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1495,9 +1495,9 @@
    },
    "asset": "bilanco_bulteni__2021h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2255.1,
-   "requests": 17217,
+   "status": "ok",
+   "duration_s": 2809.2,
+   "requests": 17223,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1505,33 +1505,33 @@
      "detail": "8608/8608 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5307/8608 = %61.7"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8558/8608 = %99.4"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%6.7"
+     "detail": "%10.9"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.1"
+     "detail": "%1.7"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,702"
+     "detail": "2,966"
     }
    ]
   },
   "2021h2": {
    "partition": "2021h2",
-   "fetched_at": "2026-10-12T09:04:23+00:00",
+   "fetched_at": "2026-10-12T12:25:54+00:00",
    "rows": 8574,
-   "bytes": 314818,
-   "sha256": "6e13bdf294efdd58f8de41799f680cfc770b56460c05870fe2bffff9b4c892bc",
+   "bytes": 363258,
+   "sha256": "786ca93e9c7bd665656d15560d4c92f9479c58a5b4d4583fc6dafa7d9fc2951e",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1556,8 +1556,8 @@
    },
    "asset": "bilanco_bulteni__2021h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2205.1,
+   "status": "ok",
+   "duration_s": 2333.9,
    "requests": 17148,
    "checks": [
     {
@@ -1566,33 +1566,33 @@
      "detail": "8574/8574 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5331/8574 = %62.2"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8556/8574 = %99.8"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%9.5"
+     "detail": "%15.7"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.7"
+     "detail": "%2.7"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,800"
+     "detail": "3,035"
     }
    ]
   },
   "2022h1": {
    "partition": "2022h1",
-   "fetched_at": "2026-10-12T09:04:56+00:00",
+   "fetched_at": "2026-10-12T12:41:12+00:00",
    "rows": 9008,
-   "bytes": 325638,
-   "sha256": "a1efe313c503955a78bc941a49f6b126cf67bda84783e677959bbd41271d714f",
+   "bytes": 376387,
+   "sha256": "f24abdf9a5c2c15bd3b01f3b06689612232ead54b390cdb4aa71ca8562017d7f",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1617,9 +1617,9 @@
    },
    "asset": "bilanco_bulteni__2022h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2461.2,
-   "requests": 18016,
+   "status": "ok",
+   "duration_s": 2623.2,
+   "requests": 18018,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1627,33 +1627,33 @@
      "detail": "9008/9008 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5528/9008 = %61.4"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8999/9008 = %99.9"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%5.8"
+     "detail": "%9.7"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.3"
+     "detail": "%2.1"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,719"
+     "detail": "2,973"
     }
    ]
   },
   "2022h2": {
    "partition": "2022h2",
-   "fetched_at": "2026-10-12T09:05:33+00:00",
+   "fetched_at": "2026-10-12T12:42:04+00:00",
    "rows": 8621,
-   "bytes": 312430,
-   "sha256": "482cdf00619b2a140756439544cf34db328041a2fdd70f1dcbeeb639d2904b99",
+   "bytes": 361829,
+   "sha256": "c5c964748cece56d5326721e9b4c312a7ec32462406dbbc309c27bdc356f62f9",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1678,9 +1678,9 @@
    },
    "asset": "bilanco_bulteni__2022h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2560.0,
-   "requests": 17243,
+   "status": "ok",
+   "duration_s": 2618.1,
+   "requests": 17242,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1688,33 +1688,33 @@
      "detail": "8621/8621 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5245/8621 = %60.8"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8617/8621 = %100.0"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%7.1"
+     "detail": "%11.7"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.3"
+     "detail": "%3.7"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,730"
+     "detail": "3,034"
     }
    ]
   },
   "2023h1": {
    "partition": "2023h1",
-   "fetched_at": "2026-10-12T09:13:33+00:00",
+   "fetched_at": "2026-10-12T12:59:58+00:00",
    "rows": 8811,
-   "bytes": 315642,
-   "sha256": "a1a34cb5982540b7fca3b6ded4ada5682b5897bc85cb8e4c97c60293ddc7f3d5",
+   "bytes": 366734,
+   "sha256": "cad4b2a6564b9d8bb3b5a9ee467dbd1a8e1ff01eb2b99ac2249ebb05d3d36614",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1739,9 +1739,9 @@
    },
    "asset": "bilanco_bulteni__2023h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2827.5,
-   "requests": 17623,
+   "status": "ok",
+   "duration_s": 2856.0,
+   "requests": 17622,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1749,33 +1749,33 @@
      "detail": "8811/8811 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "5286/8811 = %60.0"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8808/8811 = %100.0"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%4.3"
+     "detail": "%7.9"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.2"
+     "detail": "%2.1"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,650"
+     "detail": "3,011"
     }
    ]
   },
   "2023h2": {
    "partition": "2023h2",
-   "fetched_at": "2026-10-12T09:16:04+00:00",
+   "fetched_at": "2026-10-12T13:01:54+00:00",
    "rows": 8357,
-   "bytes": 299080,
-   "sha256": "9fd9bacf4f478c1bdc279dc15603314a1dc838ee30af3a7dbea9ec177a79d843",
+   "bytes": 350782,
+   "sha256": "78e0a8c3871882156f8bb9ead3ab596298f28b53938246dd670e89fc0fd1fbfb",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1800,9 +1800,9 @@
    },
    "asset": "bilanco_bulteni__2023h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2236.5,
-   "requests": 16715,
+   "status": "ok",
+   "duration_s": 3896.2,
+   "requests": 16714,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1810,33 +1810,33 @@
      "detail": "8357/8357 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4907/8357 = %58.7"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8352/8357 = %99.9"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%7.7"
+     "detail": "%13.9"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.0"
+     "detail": "%3.8"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,596"
+     "detail": "3,064"
     }
    ]
   },
   "2024h1": {
    "partition": "2024h1",
-   "fetched_at": "2026-10-12T09:18:39+00:00",
+   "fetched_at": "2026-10-12T13:02:36+00:00",
    "rows": 8481,
-   "bytes": 301862,
-   "sha256": "fb739e66b4b30bf056695e1be3ec4ee61d7b62d7fb1d06aa6dae3512369e16a0",
+   "bytes": 355036,
+   "sha256": "8426bdc252fa0979a9246b9ccf85c31abfe58c2723ae3a921dc7f095fc996d28",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1861,9 +1861,9 @@
    },
    "asset": "bilanco_bulteni__2024h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2365.5,
-   "requests": 16964,
+   "status": "ok",
+   "duration_s": 2435.9,
+   "requests": 16962,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1871,33 +1871,33 @@
      "detail": "8481/8481 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4846/8481 = %57.1"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8479/8481 = %100.0"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%4.2"
+     "detail": "%8.6"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.3"
+     "detail": "%2.6"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,497"
+     "detail": "3,044"
     }
    ]
   },
   "2024h2": {
    "partition": "2024h2",
-   "fetched_at": "2026-10-12T09:29:31+00:00",
+   "fetched_at": "2026-10-12T13:05:18+00:00",
    "rows": 8078,
-   "bytes": 287105,
-   "sha256": "9968266a1c6459f5837169f1b3cf0bb7bf1bdbe09885a5d6e77125b10996bd62",
+   "bytes": 339670,
+   "sha256": "169d66a092296d00f01db5e87c4bffe6e2f8127046dfc056c01736c7b843badf",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1922,8 +1922,8 @@
    },
    "asset": "bilanco_bulteni__2024h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2089.5,
+   "status": "ok",
+   "duration_s": 3555.3,
    "requests": 16156,
    "checks": [
     {
@@ -1932,33 +1932,33 @@
      "detail": "8078/8078 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4592/8078 = %56.8"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8074/8078 = %100.0"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%6.9"
+     "detail": "%13.8"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%2.0"
+     "detail": "%3.8"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,537"
+     "detail": "3,118"
     }
    ]
   },
   "2025h1": {
    "partition": "2025h1",
-   "fetched_at": "2026-10-12T09:40:06+00:00",
+   "fetched_at": "2026-10-12T13:09:38+00:00",
    "rows": 8185,
-   "bytes": 289048,
-   "sha256": "1dfa2f3685f6b6e49cd70c29ae614f50dc139a49fb2fd1615f45bf1fd54698bc",
+   "bytes": 340803,
+   "sha256": "05f743d6f4ac3cfcbef97f33962e43672d06434c42d7e5a5b3428cf8da9d41cd",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -1983,9 +1983,9 @@
    },
    "asset": "bilanco_bulteni__2025h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2725.9,
-   "requests": 16378,
+   "status": "ok",
+   "duration_s": 2404.9,
+   "requests": 16370,
    "checks": [
     {
      "name": "İndirilen bülten",
@@ -1993,33 +1993,33 @@
      "detail": "8185/8185 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4647/8185 = %56.8"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "8182/8185 = %100.0"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%3.9"
+     "detail": "%7.4"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.7"
+     "detail": "%3.1"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,491"
+     "detail": "3,133"
     }
    ]
   },
   "2025h2": {
    "partition": "2025h2",
-   "fetched_at": "2026-10-12T09:41:35+00:00",
+   "fetched_at": "2026-10-12T13:21:13+00:00",
    "rows": 7849,
-   "bytes": 279914,
-   "sha256": "6d97d6d37cf14fb35cb459a88f2e58bdf78395b0d11f4b79e21e9f7f3569d724",
+   "bytes": 332664,
+   "sha256": "8af42fd17e36ee762d966dbeff43542db989f2844fa02745afeec952f4de260a",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -2044,8 +2044,8 @@
    },
    "asset": "bilanco_bulteni__2025h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2023.2,
+   "status": "ok",
+   "duration_s": 2381.0,
    "requests": 15698,
    "checks": [
     {
@@ -2054,33 +2054,33 @@
      "detail": "7849/7849 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4411/7849 = %56.2"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "7849/7849 = %100.0"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%8.3"
+     "detail": "%15.6"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.6"
+     "detail": "%3.1"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,532"
+     "detail": "3,178"
     }
    ]
   },
   "2026h1": {
    "partition": "2026h1",
-   "fetched_at": "2026-10-12T09:46:22+00:00",
+   "fetched_at": "2026-10-12T13:25:22+00:00",
    "rows": 8000,
-   "bytes": 281792,
-   "sha256": "4fb9997020d372dc2d5552625f31812c4cc204c0469cc6597319181aa9a848d3",
+   "bytes": 334060,
+   "sha256": "ac3c26aaa9859e10222b8b53589a61757d0411e41270cea519d128d593ec1878",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -2105,8 +2105,8 @@
    },
    "asset": "bilanco_bulteni__2026h1.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 2366.7,
+   "status": "ok",
+   "duration_s": 2274.8,
    "requests": 16000,
    "checks": [
     {
@@ -2115,33 +2115,33 @@
      "detail": "8000/8000 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "4446/8000 = %55.6"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "7999/8000 = %100.0"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%5.5"
+     "detail": "%10.5"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.2"
+     "detail": "%2.1"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,446"
+     "detail": "3,174"
     }
    ]
   },
   "2026h2": {
    "partition": "2026h2",
-   "fetched_at": "2026-10-12T09:48:35+00:00",
+   "fetched_at": "2026-10-12T13:26:12+00:00",
    "rows": 3916,
-   "bytes": 152279,
-   "sha256": "ad38e7fe22d56bb6101e9669a320604567691d66b666357162ec82d6ef6bd0c8",
+   "bytes": 177620,
+   "sha256": "2dc85668632bd1bf077cb37dd834875e53694d680c6abf4840fbc33ed6f64bbf",
    "columns": {
     "cik": "int64",
     "accession": "str",
@@ -2166,8 +2166,8 @@
    },
    "asset": "bilanco_bulteni__2026h2.parquet",
    "release": "veri-arsivi-2009",
-   "status": "fail",
-   "duration_s": 1101.0,
+   "status": "ok",
+   "duration_s": 1136.7,
    "requests": 7832,
    "checks": [
     {
@@ -2176,24 +2176,24 @@
      "detail": "3916/3916 = %100.0"
     },
     {
-     "name": "EX-99 bulundu",
-     "status": "fail",
-     "detail": "2165/3916 = %55.3"
+     "name": "Bülten eki bulundu",
+     "status": "ok",
+     "detail": "3916/3916 = %100.0"
     },
     {
      "name": "Rehberlik yükseltme geçen bülten",
      "status": "info",
-     "detail": "%10.0"
+     "detail": "%19.8"
     },
     {
      "name": "Rehberlik düşürme geçen bülten",
      "status": "info",
-     "detail": "%1.8"
+     "detail": "%3.0"
     },
     {
      "name": "Medyan kelime",
      "status": "info",
-     "detail": "1,496"
+     "detail": "3,229"
     }
    ]
   }
@@ -2202,5 +2202,5 @@
  "title": "Bilanço basın bültenleri — metin özellikleri (8-K 2.02, 2009→)",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-12T10:26:15+00:00"
+ "finalized_at": "2026-10-12T14:07:18+00:00"
 }
