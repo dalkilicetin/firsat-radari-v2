@@ -29,10 +29,10 @@ from radar.research.backtest import cost_rate
 OUT = config.ROOT / "reports" / "research" / "izgara.json"
 SUMMARY = config.ROOT / "reports" / "research" / "izgara_ozet.json"
 YEARS = tuple(range(2013, 2026))
-TARGETS = ("sira", "fark", "karisim")
+TARGETS = ("sira", "fark")
 KS = (5, 10, 20, 30)
-LIQ = (0.0, 0.3, 0.5)
-WINDOWS = (3, 5, 8)
+LIQ = (0.0, 0.3)
+WINDOWS = (5, 8)
 
 
 def evaluate(te: pd.DataFrame, scores: np.ndarray, k: int, weeks: int) -> float:
@@ -57,7 +57,12 @@ def run_horizon(freq: str, results: dict) -> None:
     weeks, _, form_months = hizli.UFUK[freq]
     gap = pd.Timedelta(weeks=weeks)
     t0 = time.time()
+    hizli.ROUNDS = 100  # hız: daha az ve daha büyük adımlı ağaç
+    hizli.BASE["learning_rate"] = 0.1
     for target, window, liq in itertools.product(TARGETS, WINDOWS, LIQ):
+        keys = [f"{freq}|{target}|k{k}|lik{liq}|p{window}" for k in KS]
+        if all(len(results.get(k_, {})) >= len(YEARS) - 1 for k_ in keys):
+            continue  # daha önce bitmiş blok
         for Y in YEARS:
             start = pd.Timestamp(f"{Y}-01-01")
             tr = df[(df.tarih + gap < start) & (df.yil >= Y - window)]
@@ -125,4 +130,4 @@ def main(freqs: list[str]) -> None:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1].split(",") if len(sys.argv) > 1 else ["3ay", "6ay", "1yil", "aylik"])
+    main(sys.argv[1].split(",") if len(sys.argv) > 1 else ["3ay", "6ay"])
