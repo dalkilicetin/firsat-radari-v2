@@ -1,0 +1,700 @@
+{
+ "dataset": "finra_aciga_satis",
+ "partitions": {
+  "2009": {
+   "partition": "2009",
+   "fetched_at": "2026-10-12T09:53:42+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 152.1,
+   "requests": 609,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "ValueError: could not convert string to float: 'Q'"
+    }
+   ]
+  },
+  "2010": {
+   "partition": "2010",
+   "fetched_at": "2026-10-12T09:56:39+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 2.0,
+   "requests": 5,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "ValueError: could not convert string to float: 'Q'"
+    }
+   ]
+  },
+  "2011": {
+   "partition": "2011",
+   "fetched_at": "2026-10-12T09:57:01+00:00",
+   "rows": 0,
+   "status": "fail",
+   "duration_s": 4.5,
+   "requests": 1,
+   "checks": [
+    {
+     "name": "Çalışma hatası",
+     "status": "fail",
+     "detail": "ValueError: could not convert string to float: 'Q'"
+    }
+   ]
+  },
+  "2012": {
+   "partition": "2012",
+   "fetched_at": "2026-10-12T09:57:32+00:00",
+   "rows": 169635,
+   "bytes": 2113229,
+   "sha256": "082560f55de2b73e068a68384a2824edf2415852b4c41ff62f96b46879eee732",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20120102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 250
+   },
+   "asset": "finra_aciga_satis__2012.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 386.4,
+   "requests": 1044,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "250/261 = %95.8"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.366 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "21,648"
+    }
+   ]
+  },
+  "2013": {
+   "partition": "2013",
+   "fetched_at": "2026-10-12T09:58:28+00:00",
+   "rows": 171400,
+   "bytes": 2148504,
+   "sha256": "a3fa7f46c366cc12c27cf4f9ae5845758bdd27fb8844f1be3ff2f8adfbb993bb",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20130102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 252
+   },
+   "asset": "finra_aciga_satis__2013.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 264.1,
+   "requests": 1044,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "252/261 = %96.6"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.355 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "21,471"
+    }
+   ]
+  },
+  "2014": {
+   "partition": "2014",
+   "fetched_at": "2026-10-12T10:01:04+00:00",
+   "rows": 180664,
+   "bytes": 2283021,
+   "sha256": "0d682ecef2553ca60ad19758c9ede4cedf2cb5d2272091e723b58d4dcb8e7e8d",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20140102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 252
+   },
+   "asset": "finra_aciga_satis__2014.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 262.5,
+   "requests": 1044,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "252/261 = %96.6"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.332 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "21,804"
+    }
+   ]
+  },
+  "2015": {
+   "partition": "2015",
+   "fetched_at": "2026-10-12T10:03:22+00:00",
+   "rows": 177539,
+   "bytes": 2252854,
+   "sha256": "caf89b7362e0a904b19d0d736c96def25e0344f5de83b4359bece7f84c84d17f",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20150102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 252
+   },
+   "asset": "finra_aciga_satis__2015.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 263.7,
+   "requests": 1044,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "252/261 = %96.6"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.361 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "21,353"
+    }
+   ]
+  },
+  "2016": {
+   "partition": "2016",
+   "fetched_at": "2026-10-12T10:04:25+00:00",
+   "rows": 176941,
+   "bytes": 2252295,
+   "sha256": "b5f9dd1b3cdfdb3d50d4c39be9c5942b14a6bf52af121300c7824574bf699d83",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20160102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 252
+   },
+   "asset": "finra_aciga_satis__2016.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 261.8,
+   "requests": 1044,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "252/261 = %96.6"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.394 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "21,247"
+    }
+   ]
+  },
+  "2017": {
+   "partition": "2017",
+   "fetched_at": "2026-10-12T10:04:46+00:00",
+   "rows": 184221,
+   "bytes": 2341191,
+   "sha256": "db06f6899f84ba7ee886627ced0589e3ee8d000b6b548842b095c08ba34040e5",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20170102.txt"
+   ],
+   "notes": {
+    "days": 260,
+    "ok_days": 251
+   },
+   "asset": "finra_aciga_satis__2017.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 260.3,
+   "requests": 1040,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "251/260 = %96.5"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.388 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "21,719"
+    }
+   ]
+  },
+  "2018": {
+   "partition": "2018",
+   "fetched_at": "2026-10-12T10:05:50+00:00",
+   "rows": 156653,
+   "bytes": 2088018,
+   "sha256": "1d7ad390643a907273d448cef5a785a5a15034dce1463fff6605a9451a838f51",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20180102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 251
+   },
+   "asset": "finra_aciga_satis__2018.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 179.4,
+   "requests": 717,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "251/261 = %96.2"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.450 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "21,059"
+    }
+   ]
+  },
+  "2019": {
+   "partition": "2019",
+   "fetched_at": "2026-10-12T10:07:20+00:00",
+   "rows": 104706,
+   "bytes": 1482470,
+   "sha256": "76582055e2da3af2625cc8efd0db819cfe1e6e651512ff00a1296177cd84e89b",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20190102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 252
+   },
+   "asset": "finra_aciga_satis__2019.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 65.4,
+   "requests": 261,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "252/261 = %96.6"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.461 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "9,798"
+    }
+   ]
+  },
+  "2020": {
+   "partition": "2020",
+   "fetched_at": "2026-10-12T10:08:14+00:00",
+   "rows": 108455,
+   "bytes": 1567175,
+   "sha256": "feca5ef350f3e467cccaa97e90643bb0f56e7bcd53561d482519c200d54d698a",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20200102.txt"
+   ],
+   "notes": {
+    "days": 262,
+    "ok_days": 253
+   },
+   "asset": "finra_aciga_satis__2020.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 70.6,
+   "requests": 262,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "253/262 = %96.6"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.467 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "10,529"
+    }
+   ]
+  },
+  "2021": {
+   "partition": "2021",
+   "fetched_at": "2026-10-12T10:08:54+00:00",
+   "rows": 130263,
+   "bytes": 1871117,
+   "sha256": "72c85467e1417f90e4108cf276bd57b9ddedf3b86537776d725a342ea8e12a2a",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20210102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 252
+   },
+   "asset": "finra_aciga_satis__2021.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 65.3,
+   "requests": 261,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "252/261 = %96.6"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.448 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "13,102"
+    }
+   ]
+  },
+  "2022": {
+   "partition": "2022",
+   "fetched_at": "2026-10-12T10:09:08+00:00",
+   "rows": 143001,
+   "bytes": 1992717,
+   "sha256": "b2d1075a31e7fedb06ce81be03a27c06bc0c9dde7f3162ec4df7f871b7ad3145",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20220102.txt"
+   ],
+   "notes": {
+    "days": 260,
+    "ok_days": 251
+   },
+   "asset": "finra_aciga_satis__2022.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 65.0,
+   "requests": 260,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "251/260 = %96.5"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.477 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "13,286"
+    }
+   ]
+  },
+  "2023": {
+   "partition": "2023",
+   "fetched_at": "2026-10-12T10:09:15+00:00",
+   "rows": 134986,
+   "bytes": 1884923,
+   "sha256": "d7c56a17a7a013094d3fdd325ca3cb5c3f35412aa59996daecf8f2d4baec317c",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20230102.txt"
+   ],
+   "notes": {
+    "days": 260,
+    "ok_days": 250
+   },
+   "asset": "finra_aciga_satis__2023.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 65.0,
+   "requests": 260,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "250/260 = %96.2"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.491 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "12,991"
+    }
+   ]
+  },
+  "2024": {
+   "partition": "2024",
+   "fetched_at": "2026-10-12T10:09:31+00:00",
+   "rows": 131584,
+   "bytes": 1872674,
+   "sha256": "8cb80902fdff7fdc735b14184debd7e63be8b66b63be94ff98d88cd14d3ac460",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20240102.txt"
+   ],
+   "notes": {
+    "days": 262,
+    "ok_days": 252
+   },
+   "asset": "finra_aciga_satis__2024.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 69.8,
+   "requests": 262,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "252/262 = %96.2"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.487 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "12,580"
+    }
+   ]
+  },
+  "2025": {
+   "partition": "2025",
+   "fetched_at": "2026-10-12T10:09:51+00:00",
+   "rows": 139156,
+   "bytes": 2013226,
+   "sha256": "50a40409678c00b0c1008c7743c9718966dc54b4e9aad1b513790ad92908875f",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20250102.txt"
+   ],
+   "notes": {
+    "days": 261,
+    "ok_days": 250
+   },
+   "asset": "finra_aciga_satis__2025.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 65.7,
+   "requests": 261,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "250/261 = %95.8"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.477 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "13,382"
+    }
+   ]
+  },
+  "2026": {
+   "partition": "2026",
+   "fetched_at": "2026-10-12T10:10:25+00:00",
+   "rows": 127419,
+   "bytes": 2580505,
+   "sha256": "e031979dd2f49c8df5cddd21b268802abdf0c229b299509a20dd477e9f600f57",
+   "columns": {
+    "date": "datetime64[s]",
+    "symbol": "str",
+    "short": "float64",
+    "total": "float64",
+    "days": "int64"
+   },
+   "sources": [
+    "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20260102.txt"
+   ],
+   "notes": {
+    "days": 202,
+    "ok_days": 194
+   },
+   "asset": "finra_aciga_satis__2026.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 56.0,
+   "requests": 202,
+   "checks": [
+    {
+     "name": "Dosyası gelen işlem günü",
+     "status": "ok",
+     "detail": "194/202 = %96.0"
+    },
+    {
+     "name": "Açığa satış payı (toplam)",
+     "status": "ok",
+     "detail": "0.489 (beklenen 0.200–0.700)"
+    },
+    {
+     "name": "Sembol sayısı",
+     "status": "info",
+     "detail": "14,342"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [],
+ "title": "FINRA günlük açığa satış hacmi — ay × sembol (2009→)",
+ "removed_assets": [],
+ "derived": {},
+ "finalized_at": "2026-10-12T10:26:18+00:00"
+}

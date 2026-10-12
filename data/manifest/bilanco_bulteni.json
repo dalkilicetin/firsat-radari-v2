@@ -1,0 +1,2206 @@
+{
+ "dataset": "bilanco_bulteni",
+ "partitions": {
+  "2009h1": {
+   "partition": "2009h1",
+   "fetched_at": "2026-10-12T07:00:08+00:00",
+   "rows": 8839,
+   "bytes": 307774,
+   "sha256": "5201644ccd572df5f7a88c8aa2f848926ae6bfaf5040d14b72c144f8ed0820be",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8839,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2009h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2474.4,
+   "requests": 17680,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8839/8839 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5099/8839 = %57.7"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%2.7"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.0"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,174"
+    }
+   ]
+  },
+  "2009h2": {
+   "partition": "2009h2",
+   "fetched_at": "2026-10-12T07:00:11+00:00",
+   "rows": 8364,
+   "bytes": 293260,
+   "sha256": "9acbaf8dde039d478f197a92838010c05c738bfa635eebf60c4b41d3fce08e04",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8364,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2009h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 3310.3,
+   "requests": 16732,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8364/8364 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4864/8364 = %58.2"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%5.3"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.0"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,270"
+    }
+   ]
+  },
+  "2010h1": {
+   "partition": "2010h1",
+   "fetched_at": "2026-10-12T07:00:08+00:00",
+   "rows": 8527,
+   "bytes": 300286,
+   "sha256": "ef06e2b1091d6c6787e0f05e1fc509f9e5820040c75d13c3388f6ef5149e818c",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8527,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2010h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2610.8,
+   "requests": 17057,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8527/8527 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5006/8527 = %58.7"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%4.8"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.1"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,257"
+    }
+   ]
+  },
+  "2010h2": {
+   "partition": "2010h2",
+   "fetched_at": "2026-10-12T07:00:10+00:00",
+   "rows": 8165,
+   "bytes": 287233,
+   "sha256": "2ccddee1047c6e8297e2aef304c3505c6f0825f5dbc5f1c557413f1cd4d07da3",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8165,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2010h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2569.9,
+   "requests": 16332,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8165/8165 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4860/8165 = %59.5"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%6.7"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.5"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,349"
+    }
+   ]
+  },
+  "2011h1": {
+   "partition": "2011h1",
+   "fetched_at": "2026-10-12T07:00:12+00:00",
+   "rows": 8359,
+   "bytes": 296181,
+   "sha256": "cd1affdedcb8ec07d99b42cf804bcdc0df5d77e0e8a88f1cfd9fcdc55528eb6d",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8359,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2011h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2613.2,
+   "requests": 16719,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8359/8359 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5012/8359 = %60.0"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%5.0"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.1"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,324"
+    }
+   ]
+  },
+  "2011h2": {
+   "partition": "2011h2",
+   "fetched_at": "2026-10-12T07:00:06+00:00",
+   "rows": 7995,
+   "bytes": 290847,
+   "sha256": "520c81c50d74a99b5619e6c4c4ce96ba173e81750ca5d5bd48ab2393fde270f2",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 7995,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2011h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2404.0,
+   "requests": 15993,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "7995/7995 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5310/7995 = %66.4"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%6.7"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.7"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,645"
+    }
+   ]
+  },
+  "2012h1": {
+   "partition": "2012h1",
+   "fetched_at": "2026-10-12T07:00:10+00:00",
+   "rows": 8285,
+   "bytes": 313735,
+   "sha256": "d24d08b818534adeb8a557ad6ece7b92742eeb4a9151724edc7e039c8d7e0f2e",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8285,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2012h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 3252.6,
+   "requests": 16576,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8285/8285 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "warn",
+     "detail": "6248/8285 = %75.4"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%6.1"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.7"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,867"
+    }
+   ]
+  },
+  "2012h2": {
+   "partition": "2012h2",
+   "fetched_at": "2026-10-12T07:00:15+00:00",
+   "rows": 7995,
+   "bytes": 299981,
+   "sha256": "0381900670decf45813c506e4ec29d147f77468fe8370aa54107fa8288d82b1a",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 7995,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2012h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 2315.3,
+   "requests": 15994,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "7995/7995 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "warn",
+     "detail": "5813/7995 = %72.7"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%6.2"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.7"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,875"
+    }
+   ]
+  },
+  "2013h1": {
+   "partition": "2013h1",
+   "fetched_at": "2026-10-12T07:39:15+00:00",
+   "rows": 8208,
+   "bytes": 304455,
+   "sha256": "c794a4fba4df332ea005f50ddb35a0059f911c7c1ae29869462eebb14791ee7f",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8208,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2013h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 3067.0,
+   "requests": 16417,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8208/8208 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "warn",
+     "detail": "5755/8208 = %70.1"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%4.6"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.8"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,727"
+    }
+   ]
+  },
+  "2013h2": {
+   "partition": "2013h2",
+   "fetched_at": "2026-10-12T07:40:30+00:00",
+   "rows": 8052,
+   "bytes": 294727,
+   "sha256": "8056372b443320dd0c064a798a66b2548eb300b4153d78afe7647ec2f464b59a",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8052,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2013h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 3154.2,
+   "requests": 16107,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8052/8052 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5430/8052 = %67.4"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%5.8"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.3"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,759"
+    }
+   ]
+  },
+  "2014h1": {
+   "partition": "2014h1",
+   "fetched_at": "2026-10-12T07:41:45+00:00",
+   "rows": 8437,
+   "bytes": 306190,
+   "sha256": "d7d734da7a8be07af422bb79a0c077b561fba127bf1c50cc42adb42979097378",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8437,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2014h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2647.9,
+   "requests": 16877,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8437/8437 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5580/8437 = %66.1"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%4.4"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.2"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,630"
+    }
+   ]
+  },
+  "2014h2": {
+   "partition": "2014h2",
+   "fetched_at": "2026-10-12T07:43:27+00:00",
+   "rows": 8335,
+   "bytes": 303018,
+   "sha256": "a875fc7d5ba751400c309602ad1c1602b6edc987f4c44cf98f4038a87f2497c0",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8335,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2014h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2474.7,
+   "requests": 16670,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8335/8335 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5439/8335 = %65.3"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%6.7"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.1"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,664"
+    }
+   ]
+  },
+  "2015h1": {
+   "partition": "2015h1",
+   "fetched_at": "2026-10-12T07:44:01+00:00",
+   "rows": 8596,
+   "bytes": 309173,
+   "sha256": "41c7de9b908fd7372acf68de3a86addb8394d857f4df55eb055b9cbe297318de",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8596,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2015h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2375.9,
+   "requests": 17192,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8596/8596 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5519/8596 = %64.2"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%4.4"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.8"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,622"
+    }
+   ]
+  },
+  "2015h2": {
+   "partition": "2015h2",
+   "fetched_at": "2026-10-12T07:44:11+00:00",
+   "rows": 8405,
+   "bytes": 301900,
+   "sha256": "38a2c0c2b8cab6dcdec36859eb10efbc70af269e882c299515ee6ad78cd9fde6",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8405,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2015h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2252.4,
+   "requests": 16810,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8405/8405 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5312/8405 = %63.2"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%6.6"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.1"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,671"
+    }
+   ]
+  },
+  "2016h1": {
+   "partition": "2016h1",
+   "fetched_at": "2026-10-12T07:54:43+00:00",
+   "rows": 8472,
+   "bytes": 303809,
+   "sha256": "2db1297aeb8fbf105ee21a99f6abde036de7cddda700e2c9db22741efb3036f1",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8472,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2016h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2888.3,
+   "requests": 16953,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8472/8472 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5259/8472 = %62.1"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%4.2"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.6"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,582"
+    }
+   ]
+  },
+  "2016h2": {
+   "partition": "2016h2",
+   "fetched_at": "2026-10-12T07:55:43+00:00",
+   "rows": 8023,
+   "bytes": 287892,
+   "sha256": "b46ed7b79c7d5a63733f7d26c588ac66ddd38148f1853bac9602d29efcc55157",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8023,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2016h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2460.5,
+   "requests": 16048,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8023/8023 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5047/8023 = %62.9"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%6.2"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.4"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,671"
+    }
+   ]
+  },
+  "2017h1": {
+   "partition": "2017h1",
+   "fetched_at": "2026-10-12T08:22:10+00:00",
+   "rows": 8294,
+   "bytes": 299500,
+   "sha256": "ba9f7b2796b8d4e7da63e80310aa904c35854d4bc7a52c4d6352b9aaa88cd319",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8294,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2017h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2505.6,
+   "requests": 16596,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8294/8294 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5208/8294 = %62.8"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%4.2"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.4"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,669"
+    }
+   ]
+  },
+  "2017h2": {
+   "partition": "2017h2",
+   "fetched_at": "2026-10-12T08:24:02+00:00",
+   "rows": 7948,
+   "bytes": 287736,
+   "sha256": "a44b6eaf89aeaa2e16584d0468ad413278f060ee952d1406b6d18421e7c8d816",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 7948,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2017h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2473.5,
+   "requests": 15905,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "7948/7948 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4889/7948 = %61.5"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%7.2"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.1"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,658"
+    }
+   ]
+  },
+  "2018h1": {
+   "partition": "2018h1",
+   "fetched_at": "2026-10-12T08:25:06+00:00",
+   "rows": 8248,
+   "bytes": 295693,
+   "sha256": "bccf8106f102cd66df83db224cfe147daac717b32cc74ffa64f527e6c2967118",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8248,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2018h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2363.6,
+   "requests": 16499,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8248/8248 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4916/8248 = %59.6"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%5.2"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.6"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,561"
+    }
+   ]
+  },
+  "2018h2": {
+   "partition": "2018h2",
+   "fetched_at": "2026-10-12T08:26:18+00:00",
+   "rows": 7905,
+   "bytes": 283763,
+   "sha256": "ea85dd18e9d9e243e40c20b0e970be1ff4381310cff15f3c60b3e7ae2556c5fb",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 7905,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2018h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2130.9,
+   "requests": 15813,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "7905/7905 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4689/7905 = %59.3"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%7.0"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.4"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,606"
+    }
+   ]
+  },
+  "2019h1": {
+   "partition": "2019h1",
+   "fetched_at": "2026-10-12T08:30:46+00:00",
+   "rows": 8118,
+   "bytes": 289319,
+   "sha256": "3beb7fd87e33221c4538b31544f2888d414f37d565abb9a861a14fc62ba59acf",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8118,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2019h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2701.2,
+   "requests": 16241,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8118/8118 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4801/8118 = %59.1"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%4.2"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.4"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,548"
+    }
+   ]
+  },
+  "2019h2": {
+   "partition": "2019h2",
+   "fetched_at": "2026-10-12T08:33:24+00:00",
+   "rows": 7813,
+   "bytes": 281823,
+   "sha256": "b899770fbe9dbe76ab9c289836625ebcb11507ba7f0a9cbf06fbe499b5e68627",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 7813,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2019h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 3343.9,
+   "requests": 15639,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "7813/7813 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4635/7813 = %59.3"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%6.9"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.8"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,632"
+    }
+   ]
+  },
+  "2020h1": {
+   "partition": "2020h1",
+   "fetched_at": "2026-10-12T08:37:03+00:00",
+   "rows": 8372,
+   "bytes": 301382,
+   "sha256": "6ad23d911cb78a1232c011841e3addc823cffdf9f995daac82de4b71637d30fe",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8372,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2020h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2167.5,
+   "requests": 16745,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8372/8372 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4950/8372 = %59.1"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%2.4"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%7.6"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,582"
+    }
+   ]
+  },
+  "2020h2": {
+   "partition": "2020h2",
+   "fetched_at": "2026-10-12T08:43:16+00:00",
+   "rows": 8076,
+   "bytes": 289703,
+   "sha256": "81d8b95cb990a70c1a3034c3089cbce886586bf2047d493604027386f207de09",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8076,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2020h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2098.4,
+   "requests": 16154,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8076/8076 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4808/8076 = %59.5"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%4.8"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%3.3"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,623"
+    }
+   ]
+  },
+  "2021h1": {
+   "partition": "2021h1",
+   "fetched_at": "2026-10-12T09:02:11+00:00",
+   "rows": 8608,
+   "bytes": 311332,
+   "sha256": "460ce0fee78e5f0464ab42c91d796882b31c3f24e1026c5bbbdf6db2e0dd4357",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8608,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2021h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2255.1,
+   "requests": 17217,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8608/8608 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5307/8608 = %61.7"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%6.7"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.1"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,702"
+    }
+   ]
+  },
+  "2021h2": {
+   "partition": "2021h2",
+   "fetched_at": "2026-10-12T09:04:23+00:00",
+   "rows": 8574,
+   "bytes": 314818,
+   "sha256": "6e13bdf294efdd58f8de41799f680cfc770b56460c05870fe2bffff9b4c892bc",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8574,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2021h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2205.1,
+   "requests": 17148,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8574/8574 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5331/8574 = %62.2"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%9.5"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.7"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,800"
+    }
+   ]
+  },
+  "2022h1": {
+   "partition": "2022h1",
+   "fetched_at": "2026-10-12T09:04:56+00:00",
+   "rows": 9008,
+   "bytes": 325638,
+   "sha256": "a1efe313c503955a78bc941a49f6b126cf67bda84783e677959bbd41271d714f",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 9008,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2022h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2461.2,
+   "requests": 18016,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "9008/9008 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5528/9008 = %61.4"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%5.8"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.3"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,719"
+    }
+   ]
+  },
+  "2022h2": {
+   "partition": "2022h2",
+   "fetched_at": "2026-10-12T09:05:33+00:00",
+   "rows": 8621,
+   "bytes": 312430,
+   "sha256": "482cdf00619b2a140756439544cf34db328041a2fdd70f1dcbeeb639d2904b99",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8621,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2022h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2560.0,
+   "requests": 17243,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8621/8621 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5245/8621 = %60.8"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%7.1"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.3"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,730"
+    }
+   ]
+  },
+  "2023h1": {
+   "partition": "2023h1",
+   "fetched_at": "2026-10-12T09:13:33+00:00",
+   "rows": 8811,
+   "bytes": 315642,
+   "sha256": "a1a34cb5982540b7fca3b6ded4ada5682b5897bc85cb8e4c97c60293ddc7f3d5",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8811,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2023h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2827.5,
+   "requests": 17623,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8811/8811 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "5286/8811 = %60.0"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%4.3"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.2"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,650"
+    }
+   ]
+  },
+  "2023h2": {
+   "partition": "2023h2",
+   "fetched_at": "2026-10-12T09:16:04+00:00",
+   "rows": 8357,
+   "bytes": 299080,
+   "sha256": "9fd9bacf4f478c1bdc279dc15603314a1dc838ee30af3a7dbea9ec177a79d843",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8357,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2023h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2236.5,
+   "requests": 16715,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8357/8357 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4907/8357 = %58.7"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%7.7"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.0"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,596"
+    }
+   ]
+  },
+  "2024h1": {
+   "partition": "2024h1",
+   "fetched_at": "2026-10-12T09:18:39+00:00",
+   "rows": 8481,
+   "bytes": 301862,
+   "sha256": "fb739e66b4b30bf056695e1be3ec4ee61d7b62d7fb1d06aa6dae3512369e16a0",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8481,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2024h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2365.5,
+   "requests": 16964,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8481/8481 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4846/8481 = %57.1"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%4.2"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.3"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,497"
+    }
+   ]
+  },
+  "2024h2": {
+   "partition": "2024h2",
+   "fetched_at": "2026-10-12T09:29:31+00:00",
+   "rows": 8078,
+   "bytes": 287105,
+   "sha256": "9968266a1c6459f5837169f1b3cf0bb7bf1bdbe09885a5d6e77125b10996bd62",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8078,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2024h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2089.5,
+   "requests": 16156,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8078/8078 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4592/8078 = %56.8"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%6.9"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%2.0"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,537"
+    }
+   ]
+  },
+  "2025h1": {
+   "partition": "2025h1",
+   "fetched_at": "2026-10-12T09:40:06+00:00",
+   "rows": 8185,
+   "bytes": 289048,
+   "sha256": "1dfa2f3685f6b6e49cd70c29ae614f50dc139a49fb2fd1615f45bf1fd54698bc",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8185,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2025h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2725.9,
+   "requests": 16378,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8185/8185 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4647/8185 = %56.8"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%3.9"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.7"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,491"
+    }
+   ]
+  },
+  "2025h2": {
+   "partition": "2025h2",
+   "fetched_at": "2026-10-12T09:41:35+00:00",
+   "rows": 7849,
+   "bytes": 279914,
+   "sha256": "6d97d6d37cf14fb35cb459a88f2e58bdf78395b0d11f4b79e21e9f7f3569d724",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 7849,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2025h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2023.2,
+   "requests": 15698,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "7849/7849 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4411/7849 = %56.2"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%8.3"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.6"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,532"
+    }
+   ]
+  },
+  "2026h1": {
+   "partition": "2026h1",
+   "fetched_at": "2026-10-12T09:46:22+00:00",
+   "rows": 8000,
+   "bytes": 281792,
+   "sha256": "4fb9997020d372dc2d5552625f31812c4cc204c0469cc6597319181aa9a848d3",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 8000,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2026h1.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 2366.7,
+   "requests": 16000,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "8000/8000 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "4446/8000 = %55.6"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%5.5"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.2"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,446"
+    }
+   ]
+  },
+  "2026h2": {
+   "partition": "2026h2",
+   "fetched_at": "2026-10-12T09:48:35+00:00",
+   "rows": 3916,
+   "bytes": 152279,
+   "sha256": "ad38e7fe22d56bb6101e9669a320604567691d66b666357162ec82d6ef6bd0c8",
+   "columns": {
+    "cik": "int64",
+    "accession": "str",
+    "filing_date": "datetime64[us]",
+    "accepted": "datetime64[us, UTC]",
+    "ek99": "bool",
+    "kelime": "int64",
+    "olumlu": "float64",
+    "olumsuz": "float64",
+    "ton": "float64",
+    "rehberlik_yukari": "int64",
+    "rehberlik_asagi": "int64",
+    "rekor": "int64",
+    "beklenti_ustu": "int64"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/<cik>/<accession>/<ex99.1>"
+   ],
+   "notes": {
+    "filings": 3916,
+    "failed": 0
+   },
+   "asset": "bilanco_bulteni__2026h2.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "fail",
+   "duration_s": 1101.0,
+   "requests": 7832,
+   "checks": [
+    {
+     "name": "İndirilen bülten",
+     "status": "ok",
+     "detail": "3916/3916 = %100.0"
+    },
+    {
+     "name": "EX-99 bulundu",
+     "status": "fail",
+     "detail": "2165/3916 = %55.3"
+    },
+    {
+     "name": "Rehberlik yükseltme geçen bülten",
+     "status": "info",
+     "detail": "%10.0"
+    },
+    {
+     "name": "Rehberlik düşürme geçen bülten",
+     "status": "info",
+     "detail": "%1.8"
+    },
+    {
+     "name": "Medyan kelime",
+     "status": "info",
+     "detail": "1,496"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [],
+ "title": "Bilanço basın bültenleri — metin özellikleri (8-K 2.02, 2009→)",
+ "removed_assets": [],
+ "derived": {},
+ "finalized_at": "2026-10-12T10:26:15+00:00"
+}
