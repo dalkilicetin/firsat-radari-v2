@@ -46,6 +46,9 @@ GROUPS = {
                                 "faiz_karsilama", "altman_z", "piotroski_f", "kar_buyumesi", "hisse_sayisi_degisimi"},
     "teknik": lambda c: c in {"rsi_14h", "ort_10h_uzaklik", "ort_40h_uzaklik", "macd", "bollinger_konum"},
     "alternatif": lambda c: c.startswith(("reddit_", "yukselen_kelime", "yukselen_kurum", "yeni_kurum")),
+    "literatur": lambda c: c in {"fip_bilgi_surekliligi", "max_gunluk_1a", "ivol_3a", "aktivist_13d", "aktivist_13d_degisiklik",
+                                  "pasif_13g_yeni", "gec_rapor_bildirimi", "hisse_ihraci", "sektor_ma_dalgasi", "sue_fiyat",
+                                  "gelir_surprizi"},
     "yeni": lambda c: c in {"bilanco_uzerinden_hafta", "bilanco_bu_ay_bekleniyor", "sektorun_gerisinde", "oynaklik_genislemesi",
                              "max_haftalik_4h", "kirilim", "kazanc_aciklamasi_tepkisi"},
 }
@@ -65,6 +68,13 @@ EXPERIMENTS = {
     "en_iyi_alternatifsiz": ("sira", [g for g in ALL if g != "alternatif"], {"k": 10}),
     "en_iyi_haber_alternatifsiz": ("sira", [g for g in ALL if g not in ("alternatif", "haber")], {"k": 10}),
     "en_iyi_oransiz": ("sira", [g for g in ALL if g not in ("oranlar", "teknik")], {"k": 10}),
+    "en_iyi_literatursuz": ("sira", [g for g in ALL if g != "literatur"], {"k": 10}),
+    "t5_hepsi": ("sira", ALL, {"k": 10, "seeds": 5}),
+    "t5_literatursuz": ("sira", [g for g in ALL if g != "literatur"], {"k": 10, "seeds": 5}),
+    "t5_yeni_veri_yok": ("sira", [g for g in ALL if g not in ("literatur", "alternatif", "oranlar", "teknik")], {"k": 10, "seeds": 5}),
+    "t5_k20": ("sira", ALL, {"k": 20, "seeds": 5}),
+    "en_iyi_fark_hepsi": ("fark", ALL, {"k": 10}),
+    "en_iyi_k20": ("sira", ALL, {"k": 20}),
 }
 
 
@@ -106,7 +116,12 @@ def load(freq: str) -> tuple[pd.DataFrame, list[str]]:
 
 
 def score(mode: str, tr: pd.DataFrame, te: pd.DataFrame, feats: list[str], params: dict) -> tuple[np.ndarray, lgb.Booster]:
-    p = BASE | params.get("lgb", {})
+    seeds = params.get("seeds", 1)
+    if seeds > 1:  # tohum ortalaması: tek koşunun rastgeleliği (±5 puan/yıl) sonuçları oynatıyor
+        outs = [score(mode, tr, te, feats, params | {"seeds": 1, "lgb": params.get("lgb", {}) | {"seed": s}}) for s in range(seeds)]
+        r = np.mean([pd.Series(o[0], index=te.index).groupby(te.tarih).rank(pct=True).to_numpy() for o in outs], axis=0)
+        return r, outs[0][1]
+    p = BASE | {"deterministic": True, "force_row_wise": True} | params.get("lgb", {})
     if mode == "kazanan":
         m = lgb.train(p, lgb.Dataset(tr[feats], tr.hedef), ROUNDS)
         return m.predict(te[feats]), m
