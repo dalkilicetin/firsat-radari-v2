@@ -44,12 +44,22 @@ class ShortVolume(Dataset):
                         text = client.get(URL.format(fac=fac, d=d), retries=1).text
                     except FetchError:
                         continue
-                    for line in text.splitlines()[1:]:
+                    lines = text.splitlines()
+                    if not lines:
+                        continue
+                    # Sütunlar başlıktan: eski dosyalarda (≤2011) muaf hacim sütunu yok, sıra farklı
+                    head = [h.strip().lower() for h in lines[0].split("|")]
+                    try:
+                        i_sym, i_short, i_tot = head.index("symbol"), head.index("shortvolume"), head.index("totalvolume")
+                    except ValueError:
+                        continue
+                    for line in lines[1:]:
                         p = line.split("|")
-                        if len(p) < 5 or not p[2].replace(".", "").isdigit():
+                        if len(p) <= max(i_short, i_tot) or not p[i_short].replace(".", "").isdigit() \
+                                or not p[i_tot].replace(".", "").isdigit():
                             continue
-                        v = agg[(d.replace(day=1), p[1])]
-                        v[0] += float(p[2]); v[1] += float(p[4])
+                        v = agg[(d.replace(day=1), p[i_sym])]
+                        v[0] += float(p[i_short]); v[1] += float(p[i_tot])
                         if fac in ("CNMS", "FNSQ"):
                             v[2] += 1
                         got = True

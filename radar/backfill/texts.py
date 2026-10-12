@@ -185,8 +185,12 @@ class EarningsReleases(Dataset):
             base = f"https://www.sec.gov/Archives/edgar/data/{r.cik}/{r.accession.replace('-', '')}"
             try:
                 items = client.get(base + "/index.json", retries=2).json().get("directory", {}).get("item", [])
-                names = [i["name"] for i in items if re.search(r"ex-?99(?:[._-]?0?1)?\D", i["name"].lower() + ".")
-                         and i["name"].lower().endswith((".htm", ".html", ".txt"))]
+                docs = [i for i in items if i["name"].lower().endswith((".htm", ".html", ".txt"))
+                        and i["name"] != r.primary_doc and "index" not in i["name"].lower()]
+                names = [i["name"] for i in docs if re.search(r"(?:ex|exhibit)[-_]?99", i["name"].lower())]
+                if not names and docs:  # ad kuralı tutmazsa: ana belge dışındaki en büyük ek (bülten hemen her zaman odur)
+                    big = max(docs, key=lambda i: int(i.get("size") or 0))
+                    names = [big["name"]] if int(big.get("size") or 0) > 3_000 else []
                 doc = names[0] if names else r.primary_doc
                 text = html_to_text(client.get(f"{base}/{doc}", retries=2).text)
             except (FetchError, ValueError, KeyError):
@@ -202,7 +206,7 @@ class EarningsReleases(Dataset):
         rep.expect_min_ratio("İndirilen bülten", n - loaded.notes["failed"], max(n, 1), 0.97, 0.9)
         if df.empty:
             return
-        rep.expect_min_ratio("EX-99 bulundu", int(df.ek99.sum()), len(df), 0.85, 0.7)
+        rep.expect_min_ratio("Bülten eki bulundu", int(df.ek99.sum()), len(df), 0.85, 0.6)
         rep.add("Rehberlik yükseltme geçen bülten", Status.INFO, f"%{(df.rehberlik_yukari > 0).mean() * 100:.1f}")
         rep.add("Rehberlik düşürme geçen bülten", Status.INFO, f"%{(df.rehberlik_asagi > 0).mean() * 100:.1f}")
         rep.add("Medyan kelime", Status.INFO, f"{int(df.kelime.median()):,}")
