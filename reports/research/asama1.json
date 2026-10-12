@@ -300,5 +300,492 @@
    0.07266411
   ],
   "gecti": true
+ },
+ "kalem": {
+  "kosul": "±%0,5",
+  "olcum": 48,
+  "gecen": 48,
+  "satirlar": [
+   {
+    "cik": "320193",
+    "donem": "2019-09-28",
+    "kalem": "Gelir",
+    "10-K": 260174,
+    "arsiv": 260174.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "RevenueFromContractWithCustomerExcludingAssessedTax"
+   },
+   {
+    "cik": "320193",
+    "donem": "2019-09-28",
+    "kalem": "Faaliyet kârı",
+    "10-K": 63930,
+    "arsiv": 63930.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "OperatingIncomeLoss"
+   },
+   {
+    "cik": "320193",
+    "donem": "2019-09-28",
+    "kalem": "Net kâr",
+    "10-K": 55256,
+    "arsiv": 55256.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "NetIncomeLoss"
+   },
+   {
+    "cik": "320193",
+    "donem": "2019-09-28",
+    "kalem": "Varlıklar",
+    "10-K": 338516,
+    "arsiv": 338516.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Assets"
+   },
+   {
+    "cik": "320193",
+    "donem": "2019-09-28",
+    "kalem": "Özsermaye",
+    "10-K": 90488,
+    "arsiv": 90488.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "StockholdersEquity"
+   },
+   {
+    "cik": "320193",
+    "donem": "2023-09-30",
+    "kalem": "Gelir",
+    "10-K": 383285,
+    "arsiv": 383285.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "RevenueFromContractWithCustomerExcludingAssessedTax"
+   },
+   {
+    "cik": "320193",
+    "donem": "2023-09-30",
+    "kalem": "Faaliyet kârı",
+    "10-K": 114301,
+    "arsiv": 114301.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "OperatingIncomeLoss"
+   },
+   {
+    "cik": "320193",
+    "donem": "2023-09-30",
+    "kalem": "Net kâr",
+    "10-K": 96995,
+    "arsiv": 96995.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "NetIncomeLoss"
+   },
+   {
+    "cik": "320193",
+    "donem": "2023-09-30",
+    "kalem": "Varlıklar",
+    "10-K": 352583,
+    "arsiv": 352583.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Assets"
+   },
+   {
+    "cik": "320193",
+    "donem": "2023-09-30",
+    "kalem": "Özsermaye",
+    "10-K": 62146,
+    "arsiv": 62146.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "StockholdersEquity"
+   },
+   {
+    "cik": "789019",
+    "donem": "2019-06-30",
+    "kalem": "Gelir",
+    "10-K": 125843,
+    "arsiv": 125843.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "RevenueFromContractWithCustomerExcludingAssessedTax"
+   },
+   {
+    "cik": "789019",
+    "donem": "2019-06-30",
+    "kalem": "Faaliyet kârı",
+    "10-K": 42959,
+    "arsiv": 42959.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "OperatingIncomeLoss"
+   },
+   {
+    "cik": "789019",
+    "donem": "2019-06-30",
+    "kalem": "Net kâr",
+    "10-K": 39240,
+    "arsiv": 39240.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "NetIncomeLoss"
+   },
+   {
+    "cik": "789019",
+    "donem": "2019-06-30",
+    "kalem": "Varlıklar",
+    "10-K": 286556,
+    "arsiv": 286556.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Assets"
+   },
+   {
+    "cik": "789019",
+    "donem": "2019-06-30",
+    "kalem": "Özsermaye",
+    "10-K": 102330,
+    "arsiv": 102330.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "StockholdersEquity"
+   },
+   {
+    "cik": "789019",
+    "donem": "2023-06-30",
+    "kalem": "Gelir",
+    "10-K": 211915,
+    "arsiv": 211915.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "RevenueFromContractWithCustomerExcludingAssessedTax"
+   },
+   {
+    "cik": "789019",
+    "donem": "2023-06-30",
+    "kalem": "Faaliyet kârı",
+    "10-K": 88523,
+    "arsiv": 88523.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "OperatingIncomeLoss"
+   },
+   {
+    "cik": "789019",
+    "donem": "2023-06-30",
+    "kalem": "Net kâr",
+    "10-K": 72361,
+    "arsiv": 72361.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "NetIncomeLoss"
+   },
+   {
+    "cik": "789019",
+    "donem": "2023-06-30",
+    "kalem": "Varlıklar",
+    "10-K": 411976,
+    "arsiv": 411976.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Assets"
+   },
+   {
+    "cik": "789019",
+    "donem": "2023-06-30",
+    "kalem": "Özsermaye",
+    "10-K": 206223,
+    "arsiv": 206223.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "StockholdersEquity"
+   },
+   {
+    "cik": "21344",
+    "donem": "2019-12-31",
+    "kalem": "Gelir",
+    "10-K": 37266,
+    "arsiv": 37266.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Revenues"
+   },
+   {
+    "cik": "21344",
+    "donem": "2019-12-31",
+    "kalem": "Faaliyet kârı",
+    "10-K": 10086,
+    "arsiv": 10086.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "OperatingIncomeLoss"
+   },
+   {
+    "cik": "21344",
+    "donem": "2019-12-31",
+    "kalem": "Net kâr",
+    "10-K": 8920,
+    "arsiv": 8920.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "NetIncomeLoss"
+   },
+   {
+    "cik": "21344",
+    "donem": "2019-12-31",
+    "kalem": "Varlıklar",
+    "10-K": 86381,
+    "arsiv": 86381.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Assets"
+   },
+   {
+    "cik": "21344",
+    "donem": "2019-12-31",
+    "kalem": "Özsermaye",
+    "10-K": 18981,
+    "arsiv": 18981.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "StockholdersEquity"
+   },
+   {
+    "cik": "21344",
+    "donem": "2023-12-31",
+    "kalem": "Gelir",
+    "10-K": 45754,
+    "arsiv": 45754.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Revenues"
+   },
+   {
+    "cik": "21344",
+    "donem": "2023-12-31",
+    "kalem": "Faaliyet kârı",
+    "10-K": 11311,
+    "arsiv": 11311.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "OperatingIncomeLoss"
+   },
+   {
+    "cik": "21344",
+    "donem": "2023-12-31",
+    "kalem": "Net kâr",
+    "10-K": 10714,
+    "arsiv": 10714.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "NetIncomeLoss"
+   },
+   {
+    "cik": "21344",
+    "donem": "2023-12-31",
+    "kalem": "Varlıklar",
+    "10-K": 97703,
+    "arsiv": 97703.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Assets"
+   },
+   {
+    "cik": "21344",
+    "donem": "2023-12-31",
+    "kalem": "Özsermaye",
+    "10-K": 25941,
+    "arsiv": 25941.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "StockholdersEquity"
+   },
+   {
+    "cik": "34088",
+    "donem": "2019-12-31",
+    "kalem": "Gelir",
+    "10-K": 264938,
+    "arsiv": 264938.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Revenues"
+   },
+   {
+    "cik": "34088",
+    "donem": "2019-12-31",
+    "kalem": "Net kâr",
+    "10-K": 14340,
+    "arsiv": 14340.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "NetIncomeLoss"
+   },
+   {
+    "cik": "34088",
+    "donem": "2019-12-31",
+    "kalem": "Varlıklar",
+    "10-K": 362597,
+    "arsiv": 362597.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Assets"
+   },
+   {
+    "cik": "34088",
+    "donem": "2019-12-31",
+    "kalem": "Özsermaye",
+    "10-K": 191650,
+    "arsiv": 191650.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "StockholdersEquity"
+   },
+   {
+    "cik": "34088",
+    "donem": "2022-12-31",
+    "kalem": "Gelir",
+    "10-K": 413680,
+    "arsiv": 413680.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Revenues"
+   },
+   {
+    "cik": "34088",
+    "donem": "2022-12-31",
+    "kalem": "Net kâr",
+    "10-K": 55740,
+    "arsiv": 55740.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "NetIncomeLoss"
+   },
+   {
+    "cik": "34088",
+    "donem": "2022-12-31",
+    "kalem": "Varlıklar",
+    "10-K": 369067,
+    "arsiv": 369067.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Assets"
+   },
+   {
+    "cik": "34088",
+    "donem": "2022-12-31",
+    "kalem": "Özsermaye",
+    "10-K": 195049,
+    "arsiv": 195049.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "StockholdersEquity"
+   },
+   {
+    "cik": "1045810",
+    "donem": "2020-01-26",
+    "kalem": "Gelir",
+    "10-K": 10918,
+    "arsiv": 10918.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Revenues"
+   },
+   {
+    "cik": "1045810",
+    "donem": "2020-01-26",
+    "kalem": "Faaliyet kârı",
+    "10-K": 2846,
+    "arsiv": 2846.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "OperatingIncomeLoss"
+   },
+   {
+    "cik": "1045810",
+    "donem": "2020-01-26",
+    "kalem": "Net kâr",
+    "10-K": 2796,
+    "arsiv": 2796.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "NetIncomeLoss"
+   },
+   {
+    "cik": "1045810",
+    "donem": "2020-01-26",
+    "kalem": "Varlıklar",
+    "10-K": 17315,
+    "arsiv": 17315.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Assets"
+   },
+   {
+    "cik": "1045810",
+    "donem": "2020-01-26",
+    "kalem": "Özsermaye",
+    "10-K": 12204,
+    "arsiv": 12204.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "StockholdersEquity"
+   },
+   {
+    "cik": "1045810",
+    "donem": "2024-01-28",
+    "kalem": "Gelir",
+    "10-K": 60922,
+    "arsiv": 60922.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Revenues"
+   },
+   {
+    "cik": "1045810",
+    "donem": "2024-01-28",
+    "kalem": "Faaliyet kârı",
+    "10-K": 32972,
+    "arsiv": 32972.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "OperatingIncomeLoss"
+   },
+   {
+    "cik": "1045810",
+    "donem": "2024-01-28",
+    "kalem": "Net kâr",
+    "10-K": 29760,
+    "arsiv": 29760.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "NetIncomeLoss"
+   },
+   {
+    "cik": "1045810",
+    "donem": "2024-01-28",
+    "kalem": "Varlıklar",
+    "10-K": 65728,
+    "arsiv": 65728.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "Assets"
+   },
+   {
+    "cik": "1045810",
+    "donem": "2024-01-28",
+    "kalem": "Özsermaye",
+    "10-K": 42978,
+    "arsiv": 42978.0,
+    "fark": 0.0,
+    "gecti": true,
+    "etiket": "StockholdersEquity"
+   }
+  ]
  }
 }
