@@ -31,49 +31,41 @@ def plain(fin: pd.DataFrame) -> pd.DataFrame:
 
 
 def shares_outstanding(fin: pd.DataFrame) -> pd.DataFrame:
-    """Rapor başına toplam hisse sayısı: (cik, accepted, value)."""
+    """Rapor başına toplam dönem sonu hisse sayısı: (cik, accepted, asof, value); asof = sayının geçerli olduğu tarih.
+
+    Yalnızca dönem sonu sayısı (kapak ya da bilanço). Ağırlıklı ortalama yedek olarak kullanılmaz (ön kayıt v1.2, 6.1-1);
+    sayısı olmayan raporlarda piyasa değeri ve ondan türeyenler eksik kalır."""
     d = fin[fin.tag.isin(SHARE_TAGS) & (fin.qtrs == 0)].copy()
     d = d[d.ddate == d.groupby(["adsh", "tag"]).ddate.transform("max")]
     d["prio"] = d.tag.map({t: i for i, t in enumerate(SHARE_TAGS)}) * 2 + (d.segments != "").astype(int)
-    whole = d[d.segments == ""].groupby(["adsh", "cik", "accepted", "prio"]).value.first()
-    by_class = d[d.segments != ""].groupby(["adsh", "cik", "accepted", "prio"]).value.sum()
+    whole = d[d.segments == ""].groupby(["adsh", "cik", "accepted", "prio", "ddate"]).value.first()
+    by_class = d[d.segments != ""].groupby(["adsh", "cik", "accepted", "prio", "ddate"]).value.sum()
     both = pd.concat([whole, by_class]).reset_index().sort_values(["adsh", "prio"])
-    out = both.drop_duplicates("adsh")[["adsh", "cik", "accepted", "value"]]
-    # Yedek: dolaşımdaki hisse sayısını hiç vermeyen şirketler (ör. KO) için raporun ağırlıklı ortalama hisse sayısı
-    # (en kısa dönem; yalnızca o şirketin hiçbir raporunda dolaşımdaki sayı yoksa)
-    w = fin[(fin.tag == "WeightedAverageNumberOfSharesOutstandingBasic") & (fin.segments == "") & (fin.qtrs > 0)
-            & ~fin.cik.isin(set(out.cik))]
-    if len(w):
-        w = w[w.ddate == w.groupby("adsh").ddate.transform("max")].sort_values(["adsh", "qtrs"]).drop_duplicates("adsh")
-        out = pd.concat([out, w[["adsh", "cik", "accepted", "value"]]])
-    return out[["cik", "accepted", "value"]]
+    out = both.drop_duplicates("adsh").rename(columns={"ddate": "asof"})
+    return out[["cik", "accepted", "asof", "value"]].reset_index(drop=True)
 
 
-def shares_wide(sh: pd.DataFrame, price: pd.DataFrame, raw: pd.DataFrame, max_age: int | None = None) -> pd.DataFrame:
-    """Hisse sayısı (tarih × cik), rapordan sonraki hisse bölünmelerine göre düzeltilmiş.
+def shares_wide(sh: pd.DataFrame, price: pd.DataFrame, raw: pd.DataFrame | None = None, max_age: int | None = None,
+                events: pd.DataFrame | None = None) -> pd.DataFrame:
+    """Hisse sayısı (tarih × cik), sayının geçerli olduğu tarihten sonraki hisse bölünmelerine göre düzeltilmiş.
 
-    Rapordaki hisse sayısı bir sonraki rapora kadar taşınır; arada bölünme olursa işlem fiyatı (raw) düşer ama sayı eski
-    kalır ve piyasa değeri bölünme oranı kadar küçük görünür (NVDA 2024: 2,98 tn $ → 0,30 tn $). Düzeltme: düzeltilmiş
-    fiyatla işlem fiyatı arasındaki oran (S = raw / price) yalnızca bölünmede sıçrar; rapor anındaki S ile bugünkü S'nin
-    oranı hisse sayısını çarpar. Temettü düzeltmesinden gelen küçük kaymalar (oran 1/1,3–1,3) yok sayılır.
-    """
+    Rapordaki sayı bir sonraki rapora kadar taşınır; arada bölünme olursa işlem fiyatı düşer ama sayı eski kalır
+    (NVDA 2024: 2,98 tn $ → 0,30 tn $). Düzeltme oranı bölünme olay kayıtlarından alınır (ön kayıt v1.2, 6.1-3):
+    C(t) / C(asof), C = o güne kadarki bölünme oranlarının çarpımı (panel.split_events; 1/1,3–1,3 arası kayıtlar hariç).
+    Fiyat oranı (düzeltilmiş / ham) kullanılmaz; o oran temettü düzeltmesini de içerir."""
+    from radar.research import panel
     from radar.research.pit import FUNDAMENTAL_MAX_AGE, pit
     max_age = max_age or FUNDAMENTAL_MAX_AGE
     dates, cols = price.index, price.columns
-    S = (raw / price).replace([np.inf, -np.inf], np.nan).ffill()
+    events = panel.split_events() if events is None else events
     sh = sh.assign(cik=sh.cik.astype(str))
-    day = pd.to_datetime(sh.accepted)
-    if getattr(day.dt, "tz", None) is not None:
-        day = day.dt.tz_convert("America/New_York").dt.tz_localize(None)
-    row = dates.searchsorted(day.dt.normalize().to_numpy(), side="right") - 1
-    col = pd.Index(cols.astype(str)).get_indexer(sh.cik)
-    ok = (row >= 0) & (col >= 0)
-    s_at = np.full(len(sh), -1.0)
-    vals = S.to_numpy()[row[ok], col[ok]]
-    s_at[ok] = np.where(np.isfinite(vals), vals, -1.0)
+    asof = sh["asof"] if "asof" in sh else sh["accepted"]
+    asof = pd.to_datetime(asof)
+    if getattr(asof.dt, "tz", None) is not None:
+        asof = asof.dt.tz_convert("America/New_York").dt.tz_localize(None)
+    c_at = panel.split_cum_at(sh.cik, asof.dt.normalize(), events)
     long = sh.rename(columns={"accepted": "date"})[["cik", "date", "value"]]
     n = pit(long, dates, cols, max_age)
-    s_rep = pit(long.assign(value=s_at), dates, cols, max_age)
-    ratio = (s_rep / S).where(s_rep > 0)
-    ratio = ratio.where(np.abs(np.log(ratio)) > np.log(1.3), 1.0).fillna(1.0)
-    return n * ratio
+    c_rep = pit(long.assign(value=c_at), dates, cols, max_age)
+    c_now = panel.split_cum_wide(dates, cols, events)
+    return n * (c_now / c_rep).fillna(1.0)

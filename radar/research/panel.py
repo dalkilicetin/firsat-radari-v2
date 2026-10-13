@@ -86,29 +86,7 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
           .apply(lambda g: g.set_index("date").dollar_volume.rolling("91D").median().reset_index().assign(cik=g.name)))
 
     gone = sec[sec.status == "çıktı"]
-    ftd = archive.load("ftd", columns=["settle_date", "symbol", "price"])
-    ftd = ftd[ftd.price > 0].merge(gone[["symbol", "cik", "start", "end"]], on="symbol")
-    # Sembol yeniden kullanılmış olabilir: yalnızca üyelik aralığı (+10 gün) içindeki gözlemler.
-    ftd = ftd[(ftd.settle_date >= ftd.start - pd.Timedelta(days=60)) & (ftd.settle_date <= ftd.end + pd.Timedelta(days=10))]
-    # FTD fiyatı takas tarihinden önceki işlem gününün kapanışıdır.
-    ftd["date"] = ftd.settle_date - pd.offsets.BDay(1)
-    # Aynı sembolün aynı günkü fiyatı tek şirkete ait olmalı (ör. ZYME: eski ve yeniden kurulan şirket; eski şirketin sembolünü
-    # sonradan alan SPAC). Aktif hissenin Yahoo fiyatı varsa o gün FTD gözlemi atılır; yoksa başlangıcı en yakın olan alır.
-    # Tatile denk gelen tek tük günler de kaçmasın diye: aktif hissenin Yahoo verisinin kapsadığı aralıktaki bütün FTD gözlemleri.
-    span = daily[daily.symbol.isin(set(ftd.symbol))].groupby("symbol").date.agg(["min", "max"])
-    lo, hi = ftd.symbol.map(span["min"]), ftd.symbol.map(span["max"])
-    ftd = ftd[~((ftd.date >= lo - pd.Timedelta(days=7)) & (ftd.date <= hi + pd.Timedelta(days=7)))]
-    ftd = ftd.sort_values("start").drop_duplicates(["symbol", "date"], keep="last")
-    ftd = ftd.groupby(["cik", "date"]).price.last().reset_index().sort_values(["cik", "date"])
-
-    # Çıkmış şirketlerin günlük Yahoo serisi: FTD fiyatlarıyla örtüşüyorsa (sembol başka şirkete geçmemiş) FTD'nin yerini alır.
-    ex_px, ex_raw, ex_dv = exited_daily(gone, ftd)
-    if len(ex_px):  # Yahoo serisinin kapsadığı aralıkta FTD gözlemi gereksiz
-        cov = ex_px.groupby("cik").date.agg(["min", "max"])
-        c = ftd.cik.astype(str)
-        ftd = ftd[~((ftd.date >= c.map(cov["min"])) & (ftd.date <= c.map(cov["max"])))]
-    ftd_raw = ftd.copy()
-    ftd["price"] = ftd.groupby("cik").price.transform(adjust_reverse_splits)
+    ftd, ftd_raw, (ex_px, ex_raw, ex_dv, _) = _exited_sources(daily, gone)
 
     columns = sec.cik.astype(str)  # hiç fiyatı olmayan üyeler de sütun olarak kalır (kapsamda görünsünler)
     px, raw_px, dv, ftd, ftd_raw = (f.assign(cik=f.cik.astype(str)) for f in (px, raw_px, dv, ftd, ftd_raw))
@@ -137,6 +115,117 @@ def build(force: bool = False) -> dict[str, pd.DataFrame]:
     for n in out:
         out[n].to_parquet(paths[n])
     return out | {"securities": sec}
+
+
+def _exited_sources(daily: pd.DataFrame, gone: pd.DataFrame):
+    """Borsadan çıkmış şirketlerin fiyat kaynakları: FTD (düzeltilmiş, ham) ve Yahoo serisi (exited_daily çıktısı)."""
+    ftd = archive.load("ftd", columns=["settle_date", "symbol", "price"])
+    ftd = ftd[ftd.price > 0].merge(gone[["symbol", "cik", "start", "end"]], on="symbol")
+    # Sembol yeniden kullanılmış olabilir: yalnızca üyelik aralığı (+10 gün) içindeki gözlemler.
+    ftd = ftd[(ftd.settle_date >= ftd.start - pd.Timedelta(days=60)) & (ftd.settle_date <= ftd.end + pd.Timedelta(days=10))]
+    # FTD fiyatı takas tarihinden önceki işlem gününün kapanışıdır.
+    ftd["date"] = ftd.settle_date - pd.offsets.BDay(1)
+    # Aynı sembolün aynı günkü fiyatı tek şirkete ait olmalı (ör. ZYME: eski ve yeniden kurulan şirket; eski şirketin sembolünü
+    # sonradan alan SPAC). Aktif hissenin Yahoo fiyatı varsa o gün FTD gözlemi atılır; yoksa başlangıcı en yakın olan alır.
+    # Tatile denk gelen tek tük günler de kaçmasın diye: aktif hissenin Yahoo verisinin kapsadığı aralıktaki bütün FTD gözlemleri.
+    span = daily[daily.symbol.isin(set(ftd.symbol))].groupby("symbol").date.agg(["min", "max"])
+    lo, hi = ftd.symbol.map(span["min"]), ftd.symbol.map(span["max"])
+    ftd = ftd[~((ftd.date >= lo - pd.Timedelta(days=7)) & (ftd.date <= hi + pd.Timedelta(days=7)))]
+    ftd = ftd.sort_values("start").drop_duplicates(["symbol", "date"], keep="last")
+    ftd = ftd.groupby(["cik", "date"]).price.last().reset_index().sort_values(["cik", "date"])
+
+    # Çıkmış şirketlerin günlük Yahoo serisi: FTD fiyatlarıyla örtüşüyorsa (sembol başka şirkete geçmemiş) FTD'nin yerini alır.
+    ex = exited_daily(gone, ftd)
+    ex_px = ex[0]
+    if len(ex_px):  # Yahoo serisinin kapsadığı aralıkta FTD gözlemi gereksiz
+        cov = ex_px.groupby("cik").date.agg(["min", "max"])
+        c = ftd.cik.astype(str)
+        ftd = ftd[~((ftd.date >= c.map(cov["min"])) & (ftd.date <= c.map(cov["max"])))]
+    ftd_raw = ftd.copy()
+    ftd["price"] = ftd.groupby("cik").price.transform(adjust_reverse_splits)
+    return ftd, ftd_raw, ex
+
+
+SPLIT_MIN = 1.3  # bu oranın altındaki kayıtlar (ayrılma, hisse temettüsü) hisse sayısını düzeltmez (ön kayıt v1.2, 6.2)
+
+
+def split_events(force: bool = False) -> pd.DataFrame:
+    """Bölünme olayları (ön kayıt v1.2, 6.1-3): cik, date, ratio (yeni hisse / eski hisse), source.
+
+    Kaynaklar: Yahoo günlük fiyat kayıtları ('yahoo': işlemdeki hisseler, 'yahoo_cikan': çıkmış hisselerin Yahoo serisi) ve
+    Yahoo serisi olmayan çıkmış hisselerde fiyat panelinin uyguladığı tahmini ters bölünmeler ('ftd_tahmini'). Sembol → şirket
+    eşleştirmesi ve birleşmelerde geçmişin taşınması fiyat paneliyle aynıdır. Bütün oranlar tutulur; eşik uygulanmaz."""
+    path = CACHE / "panel_bolunme_olaylari.parquet"
+    if path.exists() and not force:
+        return pd.read_parquet(path)
+    sec = build_identity()["securities"]
+    active, gone = sec[sec.status == "aktif"], sec[sec.status == "çıktı"]
+    daily = archive.load("prices", columns=["symbol", "date", "split_ratio"])
+    daily = daily.merge(active[["symbol", "cik"]], on="symbol")
+    ev = [daily[(daily.split_ratio > 0) & (daily.split_ratio != 1)][["cik", "date", "split_ratio"]].assign(source="yahoo")]
+    ftd, ftd_raw, ex = _exited_sources(daily, gone)
+    xs = ex[3]
+    ev.append(xs[(xs.split_ratio > 0) & (xs.split_ratio != 1)].assign(source="yahoo_cikan"))
+    # FTD: düzeltilmiş / ham oranı yalnızca tahmini ters bölünmede değişir; değiştiği gözlem bölünme sonrası ilk gözlemdir.
+    f = ftd_raw.assign(k=ftd.price.to_numpy() / ftd_raw.price.to_numpy())
+    prev = f.groupby("cik").k.shift(1)
+    jump = f[prev.notna() & (np.abs(np.log(prev / f.k)) > 1e-9)]
+    ev.append(jump.assign(split_ratio=jump.k / prev[jump.index])[["cik", "date", "split_ratio"]].assign(source="ftd_tahmini"))
+    out = pd.concat(ev, ignore_index=True).rename(columns={"split_ratio": "ratio"})
+    out["cik"] = out.cik.astype(str)
+    out["date"] = pd.to_datetime(out.date)
+    # Birleşme ve yeniden yapılanmalar: fiyat geçmişi nereye taşındıysa olaylar da oraya.
+    p = build()
+    moved = []
+    for gone_c, act_c, end in reorg_pairs(p["price"], sec):
+        m = (out.cik == act_c) & (out.date <= end)
+        moved.append(out[m].assign(cik=gone_c))
+        out = out[~m]
+    for gone_c, act_c, end in successor_overlaps(p["raw"], sec):
+        out = out[~((out.cik == act_c) & (out.date <= end))]
+    out = pd.concat([out, *moved], ignore_index=True).sort_values(["cik", "date"]).reset_index(drop=True)
+    out.to_parquet(path)
+    return out
+
+
+def split_cum(events: pd.DataFrame, min_ratio: float = SPLIT_MIN) -> pd.DataFrame:
+    """Eşiği geçen olaylar (oran ≥ min_ratio ya da ≤ 1/min_ratio) ve şirket içinde kümülatif oran çarpımı (cum)."""
+    e = events[np.abs(np.log(events.ratio)) >= np.log(min_ratio)].sort_values(["cik", "date"]).copy()
+    e["cum"] = e.groupby("cik").ratio.cumprod()
+    return e
+
+
+def split_cum_wide(dates: pd.DatetimeIndex, columns, events: pd.DataFrame | None = None) -> pd.DataFrame:
+    """Her Cuma t için C(t) = o güne kadar (dahil) gerçekleşen bölünme oranlarının çarpımı; olay yoksa 1."""
+    e = split_cum(split_events() if events is None else events)
+    cols = pd.Index(columns).astype(str)
+    out = pd.DataFrame(1.0, index=dates, columns=cols)
+    e = e[e.cik.isin(set(cols))]
+    for cik, g in e.groupby("cik"):
+        k = dates.searchsorted(g.date.to_numpy(), side="left")  # olay tarihinden sonraki ilk Cuma (ya da aynı gün)
+        vals = np.ones(len(dates))
+        for kk, c in zip(k, g.cum.to_numpy()):
+            vals[kk:] = c
+        out[cik] = vals
+    return out
+
+
+def split_cum_at(cik: pd.Series, when: pd.Series, events: pd.DataFrame | None = None) -> np.ndarray:
+    """Her (cik, tarih) için C(tarih): o tarihe kadar (dahil) gerçekleşen bölünme oranlarının çarpımı."""
+    e = split_cum(split_events() if events is None else events)
+    out = np.ones(len(cik))
+    cik = pd.Series(np.asarray(cik).astype(str))
+    when = pd.to_datetime(pd.Series(np.asarray(when)))
+    groups = {c: g for c, g in e.groupby("cik")}
+    for c, idx in cik.groupby(cik).groups.items():
+        g = groups.get(c)
+        if g is None:
+            continue
+        d = g.date.to_numpy()
+        pos = d.searchsorted(when[idx].to_numpy(), side="right") - 1
+        cum = np.concatenate([[1.0], g.cum.to_numpy()])
+        out[np.asarray(idx)] = cum[pos + 1]
+    return out
 
 
 def reorg_pairs(price: pd.DataFrame, sec: pd.DataFrame) -> list[tuple[str, str, pd.Timestamp]]:
@@ -197,7 +286,7 @@ def exited_daily(gone: pd.DataFrame, ftd: pd.DataFrame, tol: float = 0.03, min_m
     Kabul: FTD ile ortak günlerin en az %80'inde gerçek kapanış FTD fiyatına %3 yakın (en az 5 ortak gün). FTD gözlemi
     olmayan şirket kabul edilmez (sembolün o şirkete ait olduğu doğrulanamaz)."""
     empty = pd.DataFrame(columns=["cik", "date", "price"]), pd.DataFrame(columns=["cik", "date", "price"]), \
-        pd.DataFrame(columns=["cik", "date", "dollar_volume"])
+        pd.DataFrame(columns=["cik", "date", "dollar_volume"]), pd.DataFrame(columns=["cik", "date", "split_ratio"])
     try:
         ex = archive.load("prices_exited", columns=["cik", "symbol", "date", "close", "adjclose", "volume", "split_ratio"])
     except Exception:  # veri seti henüz yüklenmemiş
@@ -218,7 +307,8 @@ def exited_daily(gone: pd.DataFrame, ftd: pd.DataFrame, tol: float = 0.03, min_m
     dv = (ex.sort_values("date").groupby("cik", group_keys=False)
           .apply(lambda g: g.set_index("date").dollar_volume.rolling("91D").median().reset_index().assign(cik=g.name)))
     return (ex.rename(columns={"adjclose": "price"})[["cik", "date", "price"]],
-            ex.assign(price=ex.true)[["cik", "date", "price"]], dv if len(ex) else empty[2])
+            ex.assign(price=ex.true)[["cik", "date", "price"]], dv if len(ex) else empty[2],
+            ex[["cik", "date", "split_ratio"]])
 
 
 def membership(sec: pd.DataFrame, dates: pd.DatetimeIndex, columns) -> pd.DataFrame:

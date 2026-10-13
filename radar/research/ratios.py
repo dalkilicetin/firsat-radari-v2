@@ -18,11 +18,37 @@ from radar.research.pit import FUNDAMENTAL_MAX_AGE, pit
 from radar.research.road1 import REVENUE, annual, balance, by_filing, load_fin
 
 EQUITY = ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"]
-DEBT_LT = ["LongTermDebtNoncurrent", "LongTermDebt"]
-DEBT_ST = ["LongTermDebtCurrent", "DebtCurrent"]
+DEBT_TAGS = ["LongTermDebtNoncurrent", "LongTermDebt", "LongTermDebtCurrent", "DebtCurrent"]
 CASH = ["CashAndCashEquivalentsAtCarryingValue", "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"]
 DA = ["DepreciationDepletionAndAmortization", "DepreciationAndAmortization", "DepreciationAmortizationAndAccretionNet"]
 DIV = ["PaymentsOfDividends", "PaymentsOfDividendsCommonStock"]
+
+
+def debt_by_filing(fin: pd.DataFrame) -> pd.DataFrame:
+    """Rapor başına toplam finansal borç (ön kayıt v1.2, 6.1-2): cik, accepted, value, ust (üst sınır), tur, belirsiz.
+
+    us-gaap tanımları: LongTermDebt kısa vadeli kısmı içerir, LongTermDebtNoncurrent içermez; LongTermDebtCurrent yalnızca
+    uzun vadeli borcun kısa vadeli kısmı, DebtCurrent kısa vadeli borçların tamamı. Kısa vadeli kısım iki kez eklenmez."""
+    d = fin[fin.tag.isin(DEBT_TAGS) & (fin.qtrs == 0)]
+    d = d[d.ddate == d.groupby("adsh").ddate.transform("max")]
+    w = d.groupby(["adsh", "cik", "accepted", "tag"]).value.first().unstack("tag").reindex(columns=DEBT_TAGS)
+    nc, lt, ltc, dc = (w[t] for t in DEBT_TAGS)
+    cur = dc.fillna(ltc)  # kısa vadeli borçların tamamı; yoksa uzun vadelinin kısa vadeli kısmı
+    other_st = (dc - ltc).clip(lower=0)  # DebtCurrent içindeki diğer kısa vadeli borçlar
+    value = np.select(
+        [nc.notna(), lt.notna() & ltc.notna(), lt.notna(), cur.notna()],
+        [nc + cur.fillna(0), lt + other_st.fillna(0), lt, cur], np.nan)
+    ambiguous = (nc.isna() & lt.notna() & ltc.isna() & dc.notna()).to_numpy()
+    tur = np.select(
+        [nc.notna() & dc.notna(), nc.notna() & ltc.notna(), nc.notna(), lt.notna() & ltc.notna() & dc.notna(),
+         lt.notna() & ltc.notna(), ambiguous, lt.notna(), dc.notna(), ltc.notna()],
+        ["NC+DC", "NC+LTC", "NC", "LT+(DC-LTC)", "LT (LTC içinde)", "LT, DC belirsiz", "LT", "DC", "LTC"], "")
+    out = w.index.to_frame(index=False)
+    out["value"] = value
+    out["ust"] = np.where(ambiguous, (lt + dc).to_numpy(), value)
+    out["tur"] = tur
+    out["belirsiz"] = ambiguous
+    return out
 
 
 def signals(p: dict) -> dict[str, pd.DataFrame]:
@@ -42,7 +68,7 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
     equity, assets, liab = B(EQUITY), B(["Assets"]), B(["Liabilities"])
     cur_a, cur_l = B(["AssetsCurrent"]), B(["LiabilitiesCurrent"])
     cash = B(CASH)
-    debt = B(DEBT_LT).fillna(0) + B(DEBT_ST).fillna(0)
+    debt = P(debt_by_filing(fin)).fillna(0)  # borç kalemi hiç yoksa 0 (önceki tanımla aynı)
     retained = B(["RetainedEarningsAccumulatedDeficit"])
     rev, ni, gp, op = A(REVENUE), A(["NetIncomeLoss", "ProfitLoss"]), A(["GrossProfit"]), A(["OperatingIncomeLoss"])
     da, interest, div = A(DA), A(["InterestExpense", "InterestExpenseNonoperating", "InterestExpenseDebt"]), A(DIV)
@@ -60,13 +86,12 @@ def signals(p: dict) -> dict[str, pd.DataFrame]:
     gm = gp / pos(rev)
     turnover = rev / pos(assets)
     lag = lambda x: x.shift(52)
-    # Hisse sayısını 52 hafta öncesiyle karşılaştırırken aradaki bölünmeler ayıklanır: düzeltilmiş/ham fiyat oranı (S) yalnızca
-    # bölünmede sıçrar; 52 haftalık S oranı 1/1,3–1,3 dışındaysa (bölünme) önceki sayı o oranla çarpılır, içindeyse (temettü
-    # düzeltmesi) 1 kabul edilir. Aksi halde 10'a 1 bölünme "%900 ihraç" görünür (doğrulama T3, Ekim 2026).
-    S = (raw / price).replace([np.inf, -np.inf], np.nan).ffill()
-    split_f = (S.shift(52) / S)
-    split_f = split_f.where(np.abs(np.log(split_f)) > np.log(1.3), 1.0).fillna(1.0)
-    shares_lag = lag(shares) * split_f
+    # Hisse sayısını 52 hafta öncesiyle karşılaştırırken aradaki bölünmeler ayıklanır: önceki sayı aradaki bölünme olaylarının
+    # oran çarpımıyla çarpılır (ön kayıt v1.2, 6.1-3; olay kayıtları, fiyat oranı değil). Aksi halde 10'a 1 bölünme "%900 ihraç"
+    # görünür (doğrulama T3, Ekim 2026).
+    from radar.research.panel import split_cum_wide
+    C = split_cum_wide(dates, cols)
+    shares_lag = lag(shares) * (C / C.shift(52)).fillna(1.0)
     # Piotroski F-skoru (9 kriter; eksik veri o kriteri 0 sayar; ROA, nakit akışı ve geçen yıl ROA bilinmeli)
     crit = [roa > 0, ocf > 0, roa > lag(roa), ocf > ni, lev < lag(lev), cr > lag(cr),
             shares <= shares_lag * 1.01, gm > lag(gm), turnover > lag(turnover)]
