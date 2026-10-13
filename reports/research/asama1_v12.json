@@ -1530,5 +1530,15 @@
    "ilk_rapor_az": 14,
    "medyan": -0.8791
   }
+ },
+ "hisse_capa": {
+  "etkilenen_rapor": 1294,
+  "sirket": 778,
+  "sinif": {
+   "düzeltilmiş (bölünme sonrası)": 644,
+   "belirsiz": 450,
+   "düzeltilmemiş (bölünme öncesi)": 200
+  },
+  "yorum": "Düzeltilmiş çoğunluktaysa doğru başlangıç kabul tarihidir (geçerlilik tarihi çift düzeltme yapar); düzeltilmemiş çoğunluktaysa geçerlilik tarihi doğrudur."
  }
 }
