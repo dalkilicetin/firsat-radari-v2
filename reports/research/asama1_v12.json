@@ -1540,5 +1540,97 @@
    "düzeltilmemiş (bölünme öncesi)": 200
   },
   "yorum": "Düzeltilmiş çoğunluktaysa doğru başlangıç kabul tarihidir (geçerlilik tarihi çift düzeltme yapar); düzeltilmemiş çoğunluktaysa geçerlilik tarihi doğrudur."
+ },
+ "hucre": {
+  "v11_yontemi_bolunmesiz_degisen_hucre": 6488,
+  "not": "v1.1 sayısı (6.568) ağırlıklı ortalama yedeğiyle hesaplanmıştı; burada yedeksiz dönem sonu sayısıyla yeniden sayıldı.",
+  "neden_dagilimi_hucre": {
+   "FTD tahmini ters bölünme": 4446,
+   "olay kaydı yok, fiyat oranında sıçrama": 694,
+   "çıkmış hissenin Yahoo bölünmesi (v1.1 olay listesinde yoktu)": 1348
+  },
+  "neden_dagilimi_sirket": {
+   "FTD tahmini ters bölünme": 303,
+   "çıkmış hissenin Yahoo bölünmesi (v1.1 olay listesinde yoktu)": 77,
+   "olay kaydı yok, fiyat oranında sıçrama": 39
+  },
+  "aciklanamayan_hucre": 694,
+  "yeni_yontem_olay_kaydi_olmayan_hisse": 8655,
+  "yeni_yontem_degisen_hucre": 0
+ },
+ "hucre_aciklama": {
+  "sirket": {
+   "özel temettü / dağıtım": 32,
+   "olay kaydı eksik bölünme": 7
+  },
+  "hucre": {
+   "olay kaydı eksik bölünme": 181,
+   "özel temettü / dağıtım": 513
+  },
+  "eksik_bolunmeler": [
+   {
+    "cik": "69733",
+    "sembol": "NATH",
+    "durum": "aktif",
+    "tarih": "2015-04-03",
+    "fiyat_orani_sicramasi": 0.6601,
+    "hucre": 11,
+    "sinif": "olay kaydı eksik bölünme"
+   },
+   {
+    "cik": "1952976",
+    "sembol": "NLOP",
+    "durum": "aktif",
+    "tarih": "2026-02-20",
+    "fiyat_orani_sicramasi": 0.6625,
+    "hucre": 8,
+    "sinif": "olay kaydı eksik bölünme"
+   },
+   {
+    "cik": "1941131",
+    "sembol": "TORO",
+    "durum": "aktif",
+    "tarih": "2026-01-23",
+    "fiyat_orani_sicramasi": 0.6795,
+    "hucre": 12,
+    "sinif": "olay kaydı eksik bölünme"
+   },
+   {
+    "cik": "31277",
+    "sembol": "ETN",
+    "durum": "çıktı",
+    "tarih": "2011-03-04",
+    "fiyat_orani_sicramasi": 0.5,
+    "hucre": 52,
+    "sinif": "olay kaydı eksik bölünme"
+   },
+   {
+    "cik": "108772",
+    "sembol": "XRX",
+    "durum": "çıktı",
+    "tarih": "2017-06-16",
+    "fiyat_orani_sicramasi": 4.0,
+    "hucre": 45,
+    "sinif": "olay kaydı eksik bölünme"
+   },
+   {
+    "cik": "1094019",
+    "sembol": "NEWT",
+    "durum": "çıktı",
+    "tarih": "2014-10-24",
+    "fiyat_orani_sicramasi": 5.0,
+    "hucre": 48,
+    "sinif": "olay kaydı eksik bölünme"
+   },
+   {
+    "cik": "1575828",
+    "sembol": "XPRO",
+    "durum": "çıktı",
+    "tarih": "2021-10-08",
+    "fiyat_orani_sicramasi": 6.0,
+    "hucre": 5,
+    "sinif": "olay kaydı eksik bölünme"
+   }
+  ]
  }
 }
