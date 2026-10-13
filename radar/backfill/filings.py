@@ -33,17 +33,21 @@ SUBMISSIONS_ZIP = "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submi
 FORMS = {"8-K", "8-K/A", "10-K", "10-K/A", "10-Q", "20-F", "40-F", "6-K", "NT 10-K", "NT 10-Q", "S-1", "S-1/A", "F-1",
          "424B4", "DEF 14A", "SC 13D", "SC 13D/A", "SC 13G", "SC 13G/A", "SCHEDULE 13D", "SCHEDULE 13D/A",
          "SCHEDULE 13G", "SCHEDULE 13G/A", "25-NSE", "25", "15-12B", "15-12G", "15-15D"}
+PERIODIC = {"10-K", "10-Q", "20-F", "40-F"}  # faaliyet gösteren şirketi belirler
+# Hisse satışı izahnameleri ve kayıt beyanları (ön kayıt v1.2, bölüm 6.3: ters bölünme sonrası ihraç belgesi)
+ISSUE_FORMS = {"424B1", "424B2", "424B3", "424B4", "424B5", "424B7", "S-1", "F-1", "S-3", "S-3/A", "F-3", "F-3/A",
+               "S-3ASR", "F-3ASR", "S-1/A", "F-1/A"}
 # Borsadan çıkışı bildiren formlar.
 DELIST_FORMS = {"25-NSE", "25", "15-12B", "15-12G", "15-15D"}
 
 
-def parse_submission(data: dict) -> list[dict]:
+def parse_submission(data: dict, forms_wanted: set[str] = FORMS) -> list[dict]:
     """Bir şirketin submissions JSON'u (ya da ek sayfası) → dosya satırları."""
     block = data.get("filings", {}).get("recent", data)  # ek sayfalarda doğrudan sütunlar vardır
     forms = block.get("form") or []
     rows = []
     for i, form in enumerate(forms):
-        if form not in FORMS:
+        if form not in forms_wanted:
             continue
         get = lambda k: (block.get(k) or [""] * len(forms))[i]
         rows.append({"form": form, "filing_date": get("filingDate"), "accepted": get("acceptanceDateTime"),
@@ -56,6 +60,7 @@ class Filings(Dataset):
     name = "filings"
     title = "SEC dosyalama geçmişi (8-K olayları, borsadan çıkışlar)"
     max_parallel = 1
+    forms = FORMS
 
     def partitions(self, client: HttpClient, today: date) -> list[str]:
         return [f"snapshot-{today:%Y%m%d}"]
@@ -79,7 +84,7 @@ class Filings(Dataset):
                     companies[cik] = {"name": data.get("name", ""), "tickers": ",".join(data.get("tickers") or []),
                                       "exchanges": ",".join(e or "" for e in data.get("exchanges") or []),
                                       "sic": data.get("sic", ""), "category": data.get("category", "")}
-                for row in parse_submission(data):
+                for row in parse_submission(data, self.forms | PERIODIC):
                     if row["filing_date"] < "2008":  # 2009 başlangıcı için ön tampon
                         continue
                     row["cik"] = cik
@@ -88,7 +93,7 @@ class Filings(Dataset):
                         operating.add(cik)
         path.unlink()
         df = pd.DataFrame(rows)
-        df = df[df.cik.isin(operating)]  # yalnızca faaliyet gösteren (periyodik rapor veren) şirketler
+        df = df[df.cik.isin(operating) & df.form.isin(self.forms)]  # yalnızca faaliyet gösteren (periyodik rapor veren) şirketler
         meta = pd.DataFrame.from_dict(companies, orient="index").rename_axis("cik").reset_index()
         df = df.merge(meta, on="cik", how="left")
         df["filing_date"] = pd.to_datetime(df.filing_date, errors="coerce")
@@ -113,6 +118,24 @@ class Filings(Dataset):
             hit = df[(df.cik == cik) & df.form.isin(DELIST_FORMS)]
             rep.add(f"Borsadan çıkış kaydı: {label}", Status.OK if len(hit) else Status.WARN,
                     f"{sorted(hit.form + ' ' + hit.filing_date.dt.strftime('%Y-%m-%d'))[:3] or 'yok'}")
+
+
+class IssuanceFilings(Filings):
+    """Hisse satışı izahnameleri (424B*) ve kayıt beyanları (S-1, S-3, F-1, F-3). Dosyalama geçmişinden ayrı tutulur;
+    böylece mevcut çerçevenin girdisi değişmez."""
+    name = "ihrac_belgeleri"
+    title = "SEC hisse satışı izahnameleri ve kayıt beyanları (424B*, S-1/S-3/F-1/F-3)"
+    forms = ISSUE_FORMS
+
+    def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
+        df = loaded.df
+        rep.expect_range("Faaliyet gösteren şirket", loaded.notes["companies"], 8_000, 60_000)
+        rep.expect_range("Dosya satırı", len(df), 50_000, 5_000_000)
+        rep.expect_min_ratio("Kabul anı okunabilen", int(df.accepted.notna().sum()), len(df), 0.99, 0.95)
+        counts = df.form.value_counts().to_dict()
+        rep.add("Form dağılımı", Status.INFO, str(counts))
+        for f in ("424B5", "S-3", "424B3"):
+            rep.add(f"{f} kaydı var", Status.OK if counts.get(f, 0) > 1000 else Status.FAIL, f"{counts.get(f, 0):,}")
 
 
 SLOT_HOURS = list(range(24))

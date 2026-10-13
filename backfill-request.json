@@ -1,10 +1,9 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 25,
+ "rev": 26,
  "requests": [
   {
-   "dataset": "financials",
-   "force": true
+   "dataset": "ihrac_belgeleri"
   }
  ]
 }
