@@ -36,11 +36,1499 @@
   }
  },
  "bolunme": {
-  "hata": "AttributeError: 'DataFrame' object has no attribute 'form'",
-  "iz": "Traceback (most recent call last):\n  File \"/home/user/firsat-radari-v2/radar/research/asama1_v12.py\", line 309, in main\n    res[k], d = splits(p)\n                ~~~~~~^^^\n  File \"/home/user/firsat-radari-v2/radar/research/asama1_v12.py\", line 104, in splits\n    row[\"satis_belgesi\"] = \",\".join(sorted(set(win[win.satis].form))) or None\n                                               ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/generic.py\", line 6194, in __getattr__\n    return object.__getattribute__(self, name)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAttributeError: 'DataFrame' object has no attribute 'form'\n"
+  "olay_toplam": 4149,
+  "kaynak_tur": [
+   {
+    "kaynak": "ftd_tahmini",
+    "tur": "tahmini ters bölünme (FTD)",
+    "olay": 563
+   },
+   {
+    "kaynak": "yahoo",
+    "tur": "ayrılma / hisse temettüsü",
+    "olay": 395
+   },
+   {
+    "kaynak": "yahoo",
+    "tur": "bölünme",
+    "olay": 631
+   },
+   {
+    "kaynak": "yahoo",
+    "tur": "ters bölünme",
+    "olay": 2408
+   },
+   {
+    "kaynak": "yahoo_cikan",
+    "tur": "ayrılma / hisse temettüsü",
+    "olay": 10
+   },
+   {
+    "kaynak": "yahoo_cikan",
+    "tur": "bölünme",
+    "olay": 4
+   },
+   {
+    "kaynak": "yahoo_cikan",
+    "tur": "ters bölünme",
+    "olay": 138
+   }
+  ],
+  "durum": {
+   "ölçüldü": 4149
+  },
+  "v12": {
+   "bölünme": {
+    "olay": 635,
+    "ayni_hafta_yeni_rapor": 21,
+    "tarih": {
+     "olcum": 629,
+     "basarisiz": 2,
+     "saglayan_pay": 0.9968
+    },
+    "fiyat": {
+     "olcum": 629,
+     "basarisiz": 13,
+     "saglayan_pay": 0.9793
+    },
+    "a": {
+     "olcum": 360,
+     "basarisiz": 0,
+     "saglayan_pay": 1.0
+    },
+    "b": {
+     "olcum": 360,
+     "basarisiz": 1,
+     "saglayan_pay": 0.9972
+    },
+    "c_belgesiz": {
+     "olcum": 288,
+     "basarisiz": 82,
+     "saglayan_pay": 0.7153
+    },
+    "c_belgeli_kapsam_disi": {
+     "olay": 162,
+     "olculen": 48,
+     "ilk_rapor_fazla": 12,
+     "uyumlu": 18,
+     "ilk_rapor_az_aciklanmamis": 18,
+     "medyan_fark": -0.0022
+    },
+    "c_belgesiz_siniflar": {
+     "saglandi": 206,
+     "sayi_fazla (ilk rapor > bizim)": 13,
+     "sayi_az (ilk rapor < bizim)": 69,
+     "kayit_beyani_var": 17
+    }
+   },
+   "ters bölünme": {
+    "olay": 2546,
+    "ayni_hafta_yeni_rapor": 139,
+    "tarih": {
+     "olcum": 2532,
+     "basarisiz": 27,
+     "saglayan_pay": 0.9893
+    },
+    "fiyat": {
+     "olcum": 2532,
+     "basarisiz": 272,
+     "saglayan_pay": 0.8926
+    },
+    "a": {
+     "olcum": 1939,
+     "basarisiz": 10,
+     "saglayan_pay": 0.9948
+    },
+    "b": {
+     "olcum": 1938,
+     "basarisiz": 11,
+     "saglayan_pay": 0.9943
+    },
+    "c_belgesiz": {
+     "olcum": 643,
+     "basarisiz": 351,
+     "saglayan_pay": 0.4541
+    },
+    "c_belgeli_kapsam_disi": {
+     "olay": 1559,
+     "olculen": 1077,
+     "ilk_rapor_fazla": 837,
+     "uyumlu": 215,
+     "ilk_rapor_az_aciklanmamis": 25,
+     "medyan_fark": -0.294
+    },
+    "c_belgesiz_siniflar": {
+     "saglandi": 292,
+     "sayi_fazla (ilk rapor > bizim)": 327,
+     "sayi_az (ilk rapor < bizim)": 24,
+     "kayit_beyani_var": 175
+    }
+   }
+  },
+  "v11_kurali_ayni_veride": {
+   "olay": 3039,
+   "tarih": {
+    "olcum": 3020,
+    "basarisiz": 28,
+    "saglayan_pay": 0.9907
+   },
+   "fiyat": {
+    "olcum": 3020,
+    "basarisiz": 265,
+    "saglayan_pay": 0.9123
+   },
+   "a": {
+    "olcum": 2171,
+    "basarisiz": 10,
+    "saglayan_pay": 0.9954
+   },
+   "b": {
+    "olcum": 2171,
+    "basarisiz": 11,
+    "saglayan_pay": 0.9949
+   },
+   "c": {
+    "olcum": 1927,
+    "basarisiz": 1233,
+    "saglayan_pay": 0.3601
+   }
+  },
+  "ayrılma / hisse temettüsü": {
+   "olay": 405,
+   "tarih": {
+    "olcum": 403,
+    "basarisiz": 27,
+    "saglayan_pay": 0.933
+   },
+   "fiyat": {
+    "olcum": 403,
+    "basarisiz": 2,
+    "saglayan_pay": 0.995
+   },
+   "b": {
+    "olcum": 154,
+    "basarisiz": 137,
+    "saglayan_pay": 0.1104
+   },
+   "alt_sinif": {
+    "belirsiz": 236,
+    "ayrılma olası": 90,
+    "hisse temettüsü olası": 79
+   }
+  },
+  "tahmini ters bölünme (FTD)": {
+   "olay": 563,
+   "tarih": {
+    "olcum": 470,
+    "basarisiz": 14,
+    "saglayan_pay": 0.9702
+   },
+   "fiyat": {
+    "olcum": 470,
+    "basarisiz": 65,
+    "saglayan_pay": 0.8617
+   },
+   "b": {
+    "olcum": 359,
+    "basarisiz": 0,
+    "saglayan_pay": 1.0
+   },
+   "alt_sinif": {}
+  },
+  "asiri_oranli": [
+   {
+    "cik": "1157075",
+    "sembol": "PMCB",
+    "tarih": "2021-07-12",
+    "oran": 0.0006451612903225806,
+    "kaynak": "yahoo",
+    "tur": "ters bölünme",
+    "asiri_oran": true,
+    "yeni_rapor_ayni_hafta": false,
+    "duz_fiyat_getirisi": -0.1103565336436213,
+    "tarih_hatasi": 2.220446049250313e-16,
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": 2.220446049250313e-16,
+    "c_kapak_farki": -0.04999524675141931,
+    "ilk_rapor": "2021-08-10",
+    "satis_belgesi": "424B5",
+    "kayit_beyani": "S-3",
+    "rapordan_rapora_hisse_degisimi": NaN,
+    "alt_sinif": NaN,
+    "durum": "ölçüldü"
+   },
+   {
+    "cik": "1173313",
+    "sembol": "ABVC",
+    "tarih": "2015-08-13",
+    "oran": 0.0002,
+    "kaynak": "yahoo",
+    "tur": "ters bölünme",
+    "asiri_oran": true,
+    "yeni_rapor_ayni_hafta": false,
+    "duz_fiyat_getirisi": -0.9998800000150359,
+    "tarih_hatasi": -4.4009240696141205e-13,
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": 0.0,
+    "c_kapak_farki": -0.9998,
+    "ilk_rapor": "2015-08-19",
+    "satis_belgesi": NaN,
+    "kayit_beyani": NaN,
+    "rapordan_rapora_hisse_degisimi": NaN,
+    "alt_sinif": NaN,
+    "durum": "ölçüldü"
+   },
+   {
+    "cik": "1414767",
+    "sembol": "NCPL",
+    "tarih": "2020-11-05",
+    "oran": 0.0005,
+    "kaynak": "yahoo",
+    "tur": "ters bölünme",
+    "asiri_oran": true,
+    "yeni_rapor_ayni_hafta": false,
+    "duz_fiyat_getirisi": -0.9995000000156108,
+    "tarih_hatasi": 9.9253938401489e-14,
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": 0.0,
+    "c_kapak_farki": -0.008735487716203139,
+    "ilk_rapor": "2020-12-15",
+    "satis_belgesi": NaN,
+    "kayit_beyani": NaN,
+    "rapordan_rapora_hisse_degisimi": NaN,
+    "alt_sinif": NaN,
+    "durum": "ölçüldü"
+   },
+   {
+    "cik": "1437925",
+    "sembol": "MRDN",
+    "tarih": "2015-10-15",
+    "oran": 0.0005,
+    "kaynak": "yahoo",
+    "tur": "ters bölünme",
+    "asiri_oran": true,
+    "yeni_rapor_ayni_hafta": false,
+    "duz_fiyat_getirisi": -0.995,
+    "tarih_hatasi": -8.881784197001252e-16,
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": 0.0,
+    "c_kapak_farki": -0.998841063165957,
+    "ilk_rapor": "2015-11-13",
+    "satis_belgesi": "8-K 3.02",
+    "kayit_beyani": NaN,
+    "rapordan_rapora_hisse_degisimi": NaN,
+    "alt_sinif": NaN,
+    "durum": "ölçüldü"
+   },
+   {
+    "cik": "1437925",
+    "sembol": "MRDN",
+    "tarih": "2016-04-07",
+    "oran": 0.0006666666666666666,
+    "kaynak": "yahoo",
+    "tur": "ters bölünme",
+    "asiri_oran": true,
+    "yeni_rapor_ayni_hafta": false,
+    "duz_fiyat_getirisi": -0.9733333333333334,
+    "tarih_hatasi": 1.7763568394002505e-15,
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": 0.0,
+    "c_kapak_farki": -0.9635402913530813,
+    "ilk_rapor": "2016-06-20",
+    "satis_belgesi": NaN,
+    "kayit_beyani": NaN,
+    "rapordan_rapora_hisse_degisimi": NaN,
+    "alt_sinif": NaN,
+    "durum": "ölçüldü"
+   },
+   {
+    "cik": "1505497",
+    "sembol": "BRTX",
+    "tarih": "2021-10-27",
+    "oran": 0.00025,
+    "kaynak": "yahoo",
+    "tur": "ters bölünme",
+    "asiri_oran": true,
+    "yeni_rapor_ayni_hafta": false,
+    "duz_fiyat_getirisi": 0.09531251944135843,
+    "tarih_hatasi": -2.220446049250313e-16,
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -2.220446049250313e-16,
+    "c_kapak_farki": -0.04041564959670718,
+    "ilk_rapor": "2021-11-15",
+    "satis_belgesi": "424B4,8-K 3.02",
+    "kayit_beyani": "S-1/A",
+    "rapordan_rapora_hisse_degisimi": NaN,
+    "alt_sinif": NaN,
+    "durum": "ölçüldü"
+   },
+   {
+    "cik": "748268",
+    "sembol": "RCAT",
+    "tarih": "2019-08-01",
+    "oran": 0.0008333333333333334,
+    "kaynak": "yahoo",
+    "tur": "ters bölünme",
+    "asiri_oran": true,
+    "yeni_rapor_ayni_hafta": false,
+    "duz_fiyat_getirisi": -0.16666664459087177,
+    "tarih_hatasi": 2.220446049250313e-16,
+    "a_oran_hatasi": -1.1102230246251565e-16,
+    "b_sureklilik_puan": -1.1102230246251565e-16,
+    "c_kapak_farki": -0.9995838101583928,
+    "ilk_rapor": "2019-08-19",
+    "satis_belgesi": "8-K 3.02",
+    "kayit_beyani": NaN,
+    "rapordan_rapora_hisse_degisimi": NaN,
+    "alt_sinif": NaN,
+    "durum": "ölçüldü"
+   }
+  ],
+  "a_b_basarisiz_olaylar": [
+   {
+    "cik": "313616",
+    "sembol": "DHR",
+    "tarih": "2016-07-05",
+    "oran": 1.319,
+    "tur": "bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.5790467793527727,
+    "duz_fiyat_getirisi": 0.621407428295931
+   },
+   {
+    "cik": "1043219",
+    "sembol": "NLY",
+    "tarih": "2022-09-26",
+    "oran": 0.25,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.03603979198501017,
+    "duz_fiyat_getirisi": -0.20466819218467158
+   },
+   {
+    "cik": "1054274",
+    "sembol": "ADYX",
+    "tarih": "2019-05-06",
+    "oran": 0.16666666666666666,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo_cikan",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.2814137355514925,
+    "duz_fiyat_getirisi": -0.27993075975768533
+   },
+   {
+    "cik": "1104038",
+    "sembol": "OPNW",
+    "tarih": "2026-09-29",
+    "oran": 0.1,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.11281255427274905,
+    "duz_fiyat_getirisi": -0.3246288345965731
+   },
+   {
+    "cik": "1124105",
+    "sembol": "GYRE",
+    "tarih": "2015-08-21",
+    "oran": 0.14285714285714285,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.18251623957185203,
+    "duz_fiyat_getirisi": -0.2911055742989245
+   },
+   {
+    "cik": "1236275",
+    "sembol": "QXO",
+    "tarih": "2024-06-06",
+    "oran": 0.125,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.2963650755684384,
+    "duz_fiyat_getirisi": 0.7756550042547359
+   },
+   {
+    "cik": "1283699",
+    "sembol": "TMUS",
+    "tarih": "2013-05-01",
+    "oran": 0.5,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.15228366796761317,
+    "duz_fiyat_getirisi": -0.11180382174269043
+   },
+   {
+    "cik": "1324424",
+    "sembol": "EXPE",
+    "tarih": "2011-12-21",
+    "oran": 0.5,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.1934313407705851,
+    "duz_fiyat_getirisi": -0.26975662550901747
+   },
+   {
+    "cik": "1372920",
+    "sembol": "EDU",
+    "tarih": "2022-04-07",
+    "oran": 0.1,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": -0.9,
+    "b_sureklilik_puan": -4.2297559010862074e-08,
+    "duz_fiyat_getirisi": -0.005785135081917581
+   },
+   {
+    "cik": "1372920",
+    "sembol": "EDU",
+    "tarih": "2022-04-08",
+    "oran": 0.1,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": -0.9,
+    "b_sureklilik_puan": -4.2297559010862074e-08,
+    "duz_fiyat_getirisi": -0.005785135081917581
+   },
+   {
+    "cik": "1546296",
+    "sembol": "IPDN",
+    "tarih": "2026-09-14",
+    "oran": 0.03333333333333333,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -9.388890193890365,
+    "duz_fiyat_getirisi": 36.555558443805445
+   },
+   {
+    "cik": "1683553",
+    "sembol": "SPRB",
+    "tarih": "2025-08-05",
+    "oran": 0.013333333333333334,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": -0.9866666666666667,
+    "b_sureklilik_puan": 0.0,
+    "duz_fiyat_getirisi": -0.9837145775222389
+   },
+   {
+    "cik": "1683553",
+    "sembol": "SPRB",
+    "tarih": "2025-08-07",
+    "oran": 0.013333333333333334,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": -0.9866666666666667,
+    "b_sureklilik_puan": 0.0,
+    "duz_fiyat_getirisi": -0.9837145775222389
+   },
+   {
+    "cik": "1683825",
+    "sembol": "TRVG",
+    "tarih": "2023-11-17",
+    "oran": 0.2,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.6104585942888298,
+    "duz_fiyat_getirisi": 0.1560896410352588
+   },
+   {
+    "cik": "1743905",
+    "sembol": "RVSN",
+    "tarih": "2026-02-03",
+    "oran": 0.03333333333333333,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": -0.9666666666666667,
+    "b_sureklilik_puan": 0.0,
+    "duz_fiyat_getirisi": -0.9798200067605575
+   },
+   {
+    "cik": "1743905",
+    "sembol": "RVSN",
+    "tarih": "2026-02-04",
+    "oran": 0.03333333333333333,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": -0.9666666666666667,
+    "b_sureklilik_puan": 0.0,
+    "duz_fiyat_getirisi": -0.9798200067605575
+   },
+   {
+    "cik": "1815776",
+    "sembol": "LENZ",
+    "tarih": "2024-03-22",
+    "oran": 0.14285714285714285,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.33194744359374373,
+    "duz_fiyat_getirisi": 0.024847415554575703
+   },
+   {
+    "cik": "1869467",
+    "sembol": "SVRN",
+    "tarih": "2022-12-21",
+    "oran": 0.1,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": -0.9,
+    "b_sureklilik_puan": 0.0,
+    "duz_fiyat_getirisi": -0.9161490683229814
+   },
+   {
+    "cik": "1869467",
+    "sembol": "SVRN",
+    "tarih": "2022-12-22",
+    "oran": 0.1,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": -0.9,
+    "b_sureklilik_puan": 0.0,
+    "duz_fiyat_getirisi": -0.9161490683229814
+   },
+   {
+    "cik": "890821",
+    "sembol": "ENVB",
+    "tarih": "2025-01-27",
+    "oran": 0.06666666666666667,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": -0.9333333333333333,
+    "b_sureklilik_puan": 0.0,
+    "duz_fiyat_getirisi": -0.9704175509733193
+   },
+   {
+    "cik": "890821",
+    "sembol": "ENVB",
+    "tarih": "2025-01-29",
+    "oran": 0.06666666666666667,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": -0.9333333333333333,
+    "b_sureklilik_puan": 0.0,
+    "duz_fiyat_getirisi": -0.9704175509733193
+   },
+   {
+    "cik": "908311",
+    "sembol": "CMCT",
+    "tarih": "2019-09-03",
+    "oran": 0.3333333333333333,
+    "tur": "ters bölünme",
+    "kaynak": "yahoo",
+    "a_oran_hatasi": 0.0,
+    "b_sureklilik_puan": -0.08135702895239216,
+    "duz_fiyat_getirisi": -0.656476310490316
+   }
+  ]
  },
  "on_uc": {
-  "hata": "FileNotFoundError: [Errno 2] No such file or directory: '/home/user/firsat-radari-v2/reports/research/asama1_v12_bolunme.csv'",
-  "iz": "Traceback (most recent call last):\n  File \"/home/user/firsat-radari-v2/radar/research/asama1_v12.py\", line 311, in main\n    res[k] = on_uc(p, d)\n             ~~~~~^^^^^^\n  File \"/home/user/firsat-radari-v2/radar/research/asama1_v12.py\", line 184, in on_uc\n    d = pd.read_csv(R / \"asama1_v12_bolunme.csv\", dtype={\"cik\": str})\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py\", line 873, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py\", line 300, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py\", line 1645, in __init__\n    self._engine = self._make_engine(f, self.engine)\n                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py\", line 1904, in _make_engine\n    self.handles = get_handle(\n                   ~~~~~~~~~~^\n        f,\n        ^^\n    ...<6 lines>...\n        storage_options=self.options.get(\"storage_options\", None),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/io/common.py\", line 930, in get_handle\n    handle = open(\n        handle,\n    ...<3 lines>...\n        newline=\"\",\n    )\nFileNotFoundError: [Errno 2] No such file or directory: '/home/user/firsat-radari-v2/reports/research/asama1_v12_bolunme.csv'\n"
+  "olaylar": [
+   {
+    "cik": "1518461",
+    "tarih": "2021-02-17",
+    "sembol_sec": [
+     "AMPG"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "1518461",
+      "date": "2021-02-17",
+      "ratio": 0.05,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.05,
+    "v11": [
+     {
+      "a_oran_hatasi": 19.0,
+      "b_sureklilik_puan": 12.5268,
+      "c_kapak_farki": 9.6601
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": -0.467,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "424B4,8-K 3.02"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     0.6340000152587891,
+     8.359999656677246
+    ],
+    "raporlar": [
+     {
+      "kabul": "2020-08-14",
+      "gecerlilik": "2020-06-30",
+      "hisse": 49086326.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2020-11-16",
+      "gecerlilik": "2020-09-30",
+      "hisse": 51588958.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2021-03-31",
+      "gecerlilik": "2020-12-31",
+      "hisse": 4839448.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     },
+     {
+      "kabul": "2021-05-17",
+      "gecerlilik": "2021-03-31",
+      "hisse": 6579771.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     },
+     {
+      "kabul": "2021-08-16",
+      "gecerlilik": "2021-06-30",
+      "hisse": 9343671.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   },
+   {
+    "cik": "1734342",
+    "tarih": "2018-10-24",
+    "sembol_sec": [
+     "AMTB"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "1734342",
+      "date": "2018-10-24",
+      "ratio": 0.3333333333333333,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.3333333333333333,
+    "v11": [
+     {
+      "a_oran_hatasi": 2.0,
+      "b_sureklilik_puan": 1.9048,
+      "c_kapak_farki": 2.0
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": -0.0,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": NaN
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     8.75,
+     25.0
+    ],
+    "raporlar": [
+     {
+      "kabul": "2018-09-21",
+      "gecerlilik": "2018-06-30",
+      "hisse": 127465565.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2018-11-13",
+      "gecerlilik": "2018-09-30",
+      "hisse": 42488523.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     },
+     {
+      "kabul": "2019-04-01",
+      "gecerlilik": "2018-12-31",
+      "hisse": 44602885.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     },
+     {
+      "kabul": "2019-05-10",
+      "gecerlilik": "2019-03-31",
+      "hisse": 43204592.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   },
+   {
+    "cik": "2003977",
+    "tarih": "2026-02-13",
+    "sembol_sec": [
+     "CRE"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "2003977",
+      "date": "2026-02-13",
+      "ratio": 0.08333333333333333,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.08333333333333333,
+    "v11": [
+     {
+      "a_oran_hatasi": 11.0,
+      "b_sureklilik_puan": 8.7017,
+      "c_kapak_farki": 10.172
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": -0.069,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "424B4"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     0.27600000301996863,
+     2.619999885559082
+    ],
+    "raporlar": [
+     {
+      "kabul": "2026-04-24",
+      "gecerlilik": "2025-12-31",
+      "hisse": 2013959.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   },
+   {
+    "cik": "2023796",
+    "tarih": "2026-03-23",
+    "sembol_sec": [
+     "FCHL"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "2023796",
+      "date": "2026-03-23",
+      "ratio": 0.06666666666666667,
+      "source": "yahoo"
+     },
+     {
+      "cik": "2023796",
+      "date": "2026-05-04",
+      "ratio": 0.03333333333333333,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.06666666666666667,
+    "v11": [
+     {
+      "a_oran_hatasi": 14.0,
+      "b_sureklilik_puan": 10.6827,
+      "c_kapak_farki": 396.0588
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": -0.1176,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "424B4,424B5"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     0.16599999321831596,
+     1.9
+    ],
+    "raporlar": [
+     {
+      "kabul": "2026-05-15",
+      "gecerlilik": "2025-12-31",
+      "hisse": 37777.78,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   },
+   {
+    "cik": "2023796",
+    "tarih": "2026-05-04",
+    "sembol_sec": [
+     "FCHL"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "2023796",
+      "date": "2026-03-23",
+      "ratio": 0.06666666666666667,
+      "source": "yahoo"
+     },
+     {
+      "cik": "2023796",
+      "date": "2026-05-04",
+      "ratio": 0.03333333333333333,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.03333333333333333,
+    "v11": [
+     {
+      "a_oran_hatasi": 29.0,
+      "b_sureklilik_puan": 19.2222,
+      "c_kapak_farki": 396.0588
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": -0.1176,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "424B4,424B5"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     0.08699999650319418,
+     1.7300000190734863
+    ],
+    "raporlar": [
+     {
+      "kabul": "2026-05-15",
+      "gecerlilik": "2025-12-31",
+      "hisse": 37777.78,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   },
+   {
+    "cik": "1928581",
+    "tarih": "2025-09-23",
+    "sembol_sec": [
+     "GMEX"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "1928581",
+      "date": "2025-09-23",
+      "ratio": 0.0625,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-01-08",
+      "ratio": 0.125,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-05-01",
+      "ratio": 0.14285714285714285,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-07-02",
+      "ratio": 0.1111111111111111,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-09-28",
+      "ratio": 0.1111111111111111,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.0625,
+    "v11": [
+     {
+      "a_oran_hatasi": 15.0,
+      "b_sureklilik_puan": 11.7138,
+      "c_kapak_farki": -0.0427
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": -0.0,
+      "c_kapak_farki": -0.9402,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "424B5"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     0.052111112671974893,
+     0.6511110981936177
+    ],
+    "raporlar": [
+     {
+      "kabul": "2025-11-14",
+      "gecerlilik": "2025-06-30",
+      "hisse": 21020597.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   },
+   {
+    "cik": "1928581",
+    "tarih": "2026-01-08",
+    "sembol_sec": [
+     "GMEX"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "1928581",
+      "date": "2025-09-23",
+      "ratio": 0.0625,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-01-08",
+      "ratio": 0.125,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-05-01",
+      "ratio": 0.14285714285714285,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-07-02",
+      "ratio": 0.1111111111111111,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-09-28",
+      "ratio": 0.1111111111111111,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.125,
+    "v11": [
+     {
+      "a_oran_hatasi": 7.0,
+      "b_sureklilik_puan": 5.6069,
+      "c_kapak_farki": NaN
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": NaN,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "424B5"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     0.061555556309076,
+     0.3944444336798666
+    ],
+    "raporlar": [
+     {
+      "kabul": "2025-11-14",
+      "gecerlilik": "2025-06-30",
+      "hisse": 21020597.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   },
+   {
+    "cik": "1928581",
+    "tarih": "2026-05-01",
+    "sembol_sec": [
+     "GMEX"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "1928581",
+      "date": "2025-09-23",
+      "ratio": 0.0625,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-01-08",
+      "ratio": 0.125,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-05-01",
+      "ratio": 0.14285714285714285,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-07-02",
+      "ratio": 0.1111111111111111,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-09-28",
+      "ratio": 0.1111111111111111,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.14285714285714285,
+    "v11": [
+     {
+      "a_oran_hatasi": 6.0,
+      "b_sureklilik_puan": 3.9194,
+      "c_kapak_farki": NaN
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": NaN,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "424B5"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     0.05199999868133921,
+     0.23777778060347945
+    ],
+    "raporlar": [
+     {
+      "kabul": "2025-11-14",
+      "gecerlilik": "2025-06-30",
+      "hisse": 21020597.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   },
+   {
+    "cik": "1928581",
+    "tarih": "2026-07-02",
+    "sembol_sec": [
+     "GMEX"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "1928581",
+      "date": "2025-09-23",
+      "ratio": 0.0625,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-01-08",
+      "ratio": 0.125,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-05-01",
+      "ratio": 0.14285714285714285,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-07-02",
+      "ratio": 0.1111111111111111,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-09-28",
+      "ratio": 0.1111111111111111,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.1111111111111111,
+    "v11": [
+     {
+      "a_oran_hatasi": 8.0,
+      "b_sureklilik_puan": 6.5241,
+      "c_kapak_farki": NaN
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": NaN,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "424B5"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     0.05888888865341375,
+     0.4322222338782416
+    ],
+    "raporlar": []
+   },
+   {
+    "cik": "1928581",
+    "tarih": "2026-09-28",
+    "sembol_sec": [
+     "GMEX"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "1928581",
+      "date": "2025-09-23",
+      "ratio": 0.0625,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-01-08",
+      "ratio": 0.125,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-05-01",
+      "ratio": 0.14285714285714285,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-07-02",
+      "ratio": 0.1111111111111111,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1928581",
+      "date": "2026-09-28",
+      "ratio": 0.1111111111111111,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.1111111111111111,
+    "v11": [
+     {
+      "a_oran_hatasi": 8.0,
+      "b_sureklilik_puan": 53.5519,
+      "c_kapak_farki": NaN
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": NaN,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "424B5"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     0.04066666629579332,
+     2.450000047683716
+    ],
+    "raporlar": []
+   },
+   {
+    "cik": "1491419",
+    "tarih": "2017-10-17",
+    "sembol_sec": [
+     "LVO"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "1491419",
+      "date": "2017-10-17",
+      "ratio": 0.3333333333333333,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1491419",
+      "date": "2025-09-26",
+      "ratio": 0.1,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.3333333333333333,
+    "v11": [
+     {
+      "a_oran_hatasi": 2.0,
+      "b_sureklilik_puan": 2.0,
+      "c_kapak_farki": 1.9953
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": -0.0016,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "8-K 3.02"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     30.0,
+     90.0
+    ],
+    "raporlar": [
+     {
+      "kabul": "2017-06-14",
+      "gecerlilik": "2017-03-31",
+      "hisse": 103996974.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2017-08-14",
+      "gecerlilik": "2017-06-30",
+      "hisse": 107948639.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     },
+     {
+      "kabul": "2017-11-14",
+      "gecerlilik": "2017-09-30",
+      "hisse": 36039547.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     },
+     {
+      "kabul": "2018-02-14",
+      "gecerlilik": "2017-12-31",
+      "hisse": 49542633.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   },
+   {
+    "cik": "1673481",
+    "tarih": "2023-08-10",
+    "sembol_sec": [
+     "SEGG"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "1673481",
+      "date": "2023-08-10",
+      "ratio": 0.05,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1673481",
+      "date": "2025-08-29",
+      "ratio": 0.1,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1673481",
+      "date": "2026-08-03",
+      "ratio": 0.14285714285714285,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 0.05,
+    "v11": [
+     {
+      "a_oran_hatasi": 19.0,
+      "b_sureklilik_puan": 21.1,
+      "c_kapak_farki": 19.0
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": 0.0,
+      "c_kapak_farki": 0.0,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": NaN
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     0.285,
+     6.33000008719308
+    ],
+    "raporlar": [
+     {
+      "kabul": "2023-05-09",
+      "gecerlilik": "2021-12-31",
+      "hisse": 50256317.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2023-05-15",
+      "gecerlilik": "2022-03-31",
+      "hisse": 50376433.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2023-05-22",
+      "gecerlilik": "2022-06-30",
+      "hisse": 50540906.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2023-05-24",
+      "gecerlilik": "2022-09-30",
+      "hisse": 50540906.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2023-06-15",
+      "gecerlilik": "2022-12-31",
+      "hisse": 50540906.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     },
+     {
+      "kabul": "2023-08-21",
+      "gecerlilik": "2023-06-30",
+      "hisse": 2527045.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   },
+   {
+    "cik": "1430723",
+    "tarih": "2014-07-17",
+    "sembol_sec": [
+     "SFBS"
+    ],
+    "olay_kayitlari": [
+     {
+      "cik": "1430723",
+      "date": "2014-07-17",
+      "ratio": 3.0,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1430723",
+      "date": "2016-12-21",
+      "ratio": 2.0,
+      "source": "yahoo"
+     },
+     {
+      "cik": "1430723",
+      "date": "2026-08-21",
+      "ratio": 2.0,
+      "source": "yahoo"
+     }
+    ],
+    "oran": 3.0,
+    "v11": [
+     {
+      "a_oran_hatasi": -0.6667,
+      "b_sureklilik_puan": -0.6766,
+      "c_kapak_farki": -0.696
+     }
+    ],
+    "v12": [
+     {
+      "a_oran_hatasi": 0.0,
+      "b_sureklilik_puan": -0.0,
+      "c_kapak_farki": -0.0879,
+      "yeni_rapor_ayni_hafta": false,
+      "satis_belgesi": "424B4"
+     }
+    ],
+    "bolunme_haftasi_ham_fiyat": [
+     84.27000045776367,
+     28.510000228881836
+    ],
+    "raporlar": [
+     {
+      "kabul": "2014-03-07",
+      "gecerlilik": "2013-12-31",
+      "hisse": 7350012.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2014-03-17",
+      "gecerlilik": "2013-12-31",
+      "hisse": 7350012.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2014-04-25",
+      "gecerlilik": "2014-03-31",
+      "hisse": 7524812.0,
+      "rapor_haftasi_ham_fiyat_var": false
+     },
+     {
+      "kabul": "2014-07-30",
+      "gecerlilik": "2014-06-30",
+      "hisse": 24749436.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     },
+     {
+      "kabul": "2014-10-29",
+      "gecerlilik": "2014-09-30",
+      "hisse": 24791436.0,
+      "rapor_haftasi_ham_fiyat_var": true
+     }
+    ]
+   }
+  ]
+ },
+ "c_siniflari": {
+  "bölünme / belge yok": {
+   "sayı bölünmeden önceye ait": 35,
+   "kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)": 27,
+   "ilk rapordaki sayı az (geri alım vb.)": 11,
+   "birim/ölçek hatası olası": 5,
+   "ilk rapordaki sayı fazla (ihraç vb.)": 4
+  },
+  "bölünme / satış belgesi var": {
+   "sayı bölünmeden önceye ait": 13,
+   "ilk rapordaki sayı fazla (ihraç vb.)": 7,
+   "kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)": 6,
+   "ilk rapordaki sayı az (geri alım vb.)": 2,
+   "birim/ölçek hatası olası": 2
+  },
+  "ters bölünme / belge yok": {
+   "sayı bölünmeden önceye ait": 192,
+   "ilk rapordaki sayı fazla (ihraç vb.)": 95,
+   "birim/ölçek hatası olası": 37,
+   "kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)": 22,
+   "ilk rapordaki sayı az (geri alım vb.)": 5
+  },
+  "ters bölünme / satış belgesi var": {
+   "sayı bölünmeden önceye ait": 381,
+   "ilk rapordaki sayı fazla (ihraç vb.)": 333,
+   "birim/ölçek hatası olası": 127,
+   "kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)": 11,
+   "ilk rapordaki sayı az (geri alım vb.)": 10
+  }
+ },
+ "c_tanima_uygun": {
+  "bölünme / belgesiz": {
+   "olcum": 279,
+   "basarisiz": 139,
+   "saglayan_pay": 0.5018,
+   "ilk_rapor_fazla": 6,
+   "ilk_rapor_az": 133,
+   "medyan": 0.0101
+  },
+  "bölünme / belgeli": {
+   "olcum": 49,
+   "basarisiz": 32,
+   "saglayan_pay": 0.3469,
+   "ilk_rapor_fazla": 10,
+   "ilk_rapor_az": 22,
+   "medyan": 0.0063
+  },
+  "ters bölünme / belgesiz": {
+   "olcum": 562,
+   "basarisiz": 422,
+   "saglayan_pay": 0.2491,
+   "ilk_rapor_fazla": 415,
+   "ilk_rapor_az": 7,
+   "medyan": -0.8018
+  },
+  "ters bölünme / belgeli": {
+   "olcum": 979,
+   "basarisiz": 892,
+   "saglayan_pay": 0.0889,
+   "ilk_rapor_fazla": 878,
+   "ilk_rapor_az": 14,
+   "medyan": -0.8791
+  }
  }
 }

@@ -1,0 +1,1326 @@
+cik,sembol,tarih,oran,tur,belge,c_kapak_farki,ilk_rapor,sayi_tarihi,kapak_sayfasi,sinif
+1002638,OTEX,2014-02-19,2.0,bölünme,belge yok,-0.0290690660895864,2014-04-24,2014-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1002638,OTEX,2017-01-25,2.0,bölünme,satış belgesi var,-0.0761091019248847,2017-02-02,2016-12-31,False,sayı bölünmeden önceye ait
+1006028,PURE,2012-08-15,0.125,ters bölünme,satış belgesi var,-0.4532094214817357,2012-12-11,2012-10-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1009829,JAKK,2020-07-10,0.1,ters bölünme,belge yok,-0.1615095653388143,2020-08-04,2020-06-30,False,sayı bölünmeden önceye ait
+1011509,AUMN,2023-06-09,0.04,ters bölünme,satış belgesi var,-0.1279428806533541,2023-08-08,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1014763,AIMD,2022-08-09,0.0666666666666666,ters bölünme,satış belgesi var,-0.9333333333333332,2022-08-15,2022-06-30,False,sayı bölünmeden önceye ait
+1014763,AIMD,2023-12-14,0.2,ters bölünme,satış belgesi var,-0.8,2024-02-15,2023-09-30,False,sayı bölünmeden önceye ait
+1014763,AIMD,2025-06-30,0.2,ters bölünme,belge yok,-0.1932893938364428,2025-08-13,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1019034,BKYI,2016-12-29,0.0833333333333333,ters bölünme,satış belgesi var,-0.0922920478916178,2017-03-31,2016-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1019034,BKYI,2023-12-21,0.0555555555555555,ters bölünme,satış belgesi var,-0.4888824015252082,2024-06-05,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1019034,BKYI,2026-04-30,0.1,ters bölünme,satış belgesi var,-0.32617537038402,2026-06-12,2025-12-31,False,sayı bölünmeden önceye ait
+1022899,PTIX,2025-05-05,0.0714285714285714,ters bölünme,belge yok,-0.0377697129537427,2025-05-13,2025-03-31,False,sayı bölünmeden önceye ait
+1023024,ANIP,2013-07-18,0.1666666666666666,ters bölünme,belge yok,-0.5725081711113162,2013-08-09,2013-06-30,False,sayı bölünmeden önceye ait
+1023994,OLOX,2020-02-06,0.05,ters bölünme,satış belgesi var,-0.7405716000656366,2020-03-30,2019-12-31,False,sayı bölünmeden önceye ait
+1023994,OLOX,2023-09-28,2.133,bölünme,satış belgesi var,1.133,2023-11-14,2023-09-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1023994,OLOX,2024-05-02,0.05,ters bölünme,satış belgesi var,-0.0215094684583093,2024-05-07,2023-12-31,False,sayı bölünmeden önceye ait
+1023994,OLOX,2025-09-08,0.015625,ters bölünme,satış belgesi var,-0.7519819697084815,2025-11-13,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1023994,OLOX,2026-05-08,0.1,ters bölünme,satış belgesi var,-0.8819741122339175,2026-06-30,2025-12-31,False,sayı bölünmeden önceye ait
+1029125,PBLA,2023-01-13,0.025,ters bölünme,satış belgesi var,-0.504833019576161,2023-03-16,2022-12-31,False,sayı bölünmeden önceye ait
+1029125,PBLA,2023-06-01,0.0333333333333333,ters bölünme,satış belgesi var,-0.7946773617637518,2023-08-10,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1029125,PBLA,2024-01-18,0.05,ters bölünme,satış belgesi var,-0.6878981303057132,2024-03-26,2023-12-31,False,sayı bölünmeden önceye ait
+1030192,IDR,2021-12-06,0.0714285714285714,ters bölünme,satış belgesi var,-0.0624827132378703,2022-03-31,2021-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1030471,UTSI,2013-03-22,0.3333333333333333,ters bölünme,belge yok,0.0618879749314531,2013-04-26,2012-12-31,False,sayı bölünmeden önceye ait
+1036044,INVE,2014-05-27,0.1,ters bölünme,satış belgesi var,-0.0282438963936051,2014-08-14,2014-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1038773,SMBK,2015-09-23,0.25,ters bölünme,satış belgesi var,-0.7102592782489899,2015-11-16,2015-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1043219,NLY,2022-09-26,0.25,ters bölünme,satış belgesi var,-0.1402130951384222,2022-11-03,2022-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1043961,PRPO,2019-04-29,0.0666666666666666,ters bölünme,belge yok,-0.466021654093095,2019-05-16,2019-03-31,False,sayı bölünmeden önceye ait
+1050446,MSTR,2024-08-08,10.0,bölünme,satış belgesi var,-0.0590702724042637,2024-10-31,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1053691,CRVO,2014-03-10,0.01,ters bölünme,satış belgesi var,-0.2759170626364751,2014-04-23,2013-12-31,False,sayı bölünmeden önceye ait
+1053691,CRVO,2023-08-17,0.6666666666666666,ters bölünme,belge yok,-0.7602914211321089,2023-11-13,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1054274,ADYX,2019-05-06,0.1666666666666666,ters bölünme,satış belgesi var,-0.8563671659483606,2019-08-14,2019-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1055160,MFA,2022-04-05,0.25,ters bölünme,belge yok,0.0295303514985338,2022-05-04,2022-03-31,False,sayı bölünmeden önceye ait
+1055726,INO,2024-01-25,0.0833333333333333,ters bölünme,belge yok,-0.0746775829939575,2024-03-06,2023-12-31,False,sayı bölünmeden önceye ait
+1058307,NXPL,2018-03-08,0.0066666666666666,ters bölünme,satış belgesi var,-0.4662709886291681,2018-04-02,2017-12-31,False,sayı bölünmeden önceye ait
+1058307,NXPL,2019-08-19,0.0666666666666666,ters bölünme,belge yok,-0.0291463173178457,2019-11-14,2019-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+106040,WDC,2025-02-24,1.323,bölünme,belge yok,0.3192091690544412,2025-05-02,2025-03-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1061630,BXMT,2013-05-07,0.1,ters bölünme,satış belgesi var,-0.9898387230053468,2013-07-30,2013-06-30,False,birim/ölçek hatası olası
+1061983,CYTK,2013-06-25,0.1666666666666666,ters bölünme,satış belgesi var,-0.1490188179985172,2013-08-07,2013-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1063537,RIBT,2013-11-18,0.005,ters bölünme,satış belgesi var,-0.6103137131384238,2014-03-31,2013-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1065088,EBAY,2015-07-20,2.376,bölünme,belge yok,1.4056259351620946,2015-10-27,2015-09-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1066923,FTFT,2025-04-04,0.1,ters bölünme,belge yok,-0.9152153190956552,2025-04-15,2024-12-31,False,sayı bölünmeden önceye ait
+1066923,FTFT,2026-07-13,0.25,ters bölünme,satış belgesi var,-0.2987088482515307,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+1069878,TREX,2014-05-08,2.0,bölünme,belge yok,0.049374470083368,2014-08-04,2014-06-30,False,ilk rapordaki sayı az (geri alım vb.)
+1072627,KWY,2012-07-05,0.25,ters bölünme,belge yok,998.9967297893376,2012-08-13,2012-06-30,False,birim/ölçek hatası olası
+1074871,MODD,2026-03-31,0.0333333333333333,ters bölünme,satış belgesi var,-0.4443037974683544,2026-06-29,2026-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1080657,SQFT,2025-05-19,0.1,ters bölünme,satış belgesi var,0.1974991602597597,2025-08-14,2025-06-30,False,ilk rapordaki sayı az (geri alım vb.)
+1081745,INLX,2014-09-03,0.1428571428571428,ters bölünme,satış belgesi var,-0.0501282572263445,2014-11-12,2014-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1084554,LTBR,2016-07-20,0.2,ters bölünme,satış belgesi var,-0.1321097954834947,2016-08-11,2016-06-30,False,sayı bölünmeden önceye ait
+1084554,LTBR,2019-10-21,0.0833333333333333,ters bölünme,belge yok,-0.0355537958890073,2019-11-05,2019-09-30,False,sayı bölünmeden önceye ait
+108516,WOR,2023-12-01,1.622,bölünme,belge yok,0.6109424797613976,2024-01-09,2023-11-30,False,sayı bölünmeden önceye ait
+1086745,FABC,2015-04-20,0.0454545454545454,ters bölünme,satış belgesi var,-0.3286698626918032,2015-07-29,2015-04-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1086745,FABC,2018-01-31,0.25,ters bölünme,satış belgesi var,-0.4333393744787286,2018-05-21,2018-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1086745,FABC,2019-03-11,0.1666666666666666,ters bölünme,satış belgesi var,-0.279185671412454,2019-04-12,2018-12-31,False,sayı bölünmeden önceye ait
+1086745,FABC,2020-05-29,0.2,ters bölünme,satış belgesi var,-0.9448589712248918,2020-08-14,2020-06-30,False,birim/ölçek hatası olası
+1086745,FABC,2023-09-18,0.125,ters bölünme,belge yok,-0.0405150970207992,2023-11-20,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1086745,FABC,2025-06-26,0.0625,ters bölünme,satış belgesi var,-0.0954611805530846,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1090872,A,2014-11-03,1.398,bölünme,belge yok,0.3911133004926108,2015-03-09,2015-01-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+109177,SPB,2018-07-16,0.162,ters bölünme,satış belgesi var,-0.3908645280898877,2018-11-23,2018-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1092796,SWBI,2020-08-25,1.301,bölünme,belge yok,0.2931059934180979,2020-09-03,2020-07-31,False,sayı bölünmeden önceye ait
+1094038,MRKR,2014-02-25,0.01,ters bölünme,satış belgesi var,0.8887807415939166,2014-04-16,2013-12-31,False,sayı bölünmeden önceye ait
+1094038,MRKR,2016-09-16,0.0833333333333333,ters bölünme,satış belgesi var,-0.2911481514655162,2016-11-04,2016-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1094831,BGC,2018-12-03,1.555,bölünme,satış belgesi var,0.5135193999496916,2019-03-01,2018-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1095651,SAFE,2023-03-31,0.16,ters bölünme,satış belgesi var,-0.7829899438544908,2023-04-28,2023-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1095981,CNSY,2016-05-12,0.0666666666666666,ters bölünme,satış belgesi var,-0.9566974115844706,2016-08-05,2016-06-30,False,birim/ölçek hatası olası
+1095981,CNSY,2023-05-01,0.0666666666666666,ters bölünme,belge yok,-0.1636898155543671,2023-08-14,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1095981,CNSY,2026-04-02,0.04,ters bölünme,belge yok,-0.1916332827020354,2026-05-15,2026-03-31,False,sayı bölünmeden önceye ait
+1096275,WKSP,2021-08-04,0.05,ters bölünme,satış belgesi var,-0.95,2021-08-16,2021-06-30,False,sayı bölünmeden önceye ait
+1096275,WKSP,2025-03-18,0.1,ters bölünme,satış belgesi var,-0.2301090955267472,2025-03-27,2024-12-31,False,sayı bölünmeden önceye ait
+109657,GTBP,2021-02-11,0.0588235294117647,ters bölünme,satış belgesi var,-0.1261380108421698,2021-04-16,2020-12-31,False,sayı bölünmeden önceye ait
+1104038,OPNW,2015-07-23,0.0117647058823529,ters bölünme,satış belgesi var,-0.3423306532401358,2015-08-19,2015-06-30,False,sayı bölünmeden önceye ait
+1104038,OPNW,2020-06-18,0.02,ters bölünme,satış belgesi var,-0.5786552182326542,2020-08-14,2020-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1104485,NOG,2020-09-21,0.1,ters bölünme,satış belgesi var,-0.0419773644608654,2020-11-06,2020-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1106644,CPHI,2023-03-06,0.1,ters bölünme,satış belgesi var,-0.3265201786274965,2023-03-30,2022-12-31,False,sayı bölünmeden önceye ait
+1106644,CPHI,2024-03-06,0.2,ters bölünme,satış belgesi var,-0.4593601152215721,2024-04-01,2023-12-31,False,sayı bölünmeden önceye ait
+1108205,CRIS,2018-05-30,0.2,ters bölünme,belge yok,-0.8,2018-08-02,2018-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1108205,CRIS,2026-07-06,0.05,ters bölünme,satış belgesi var,0.0255990766741183,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+1109242,HAFC,2011-12-19,0.125,ters bölünme,satış belgesi var,-0.3995624484089005,2012-03-14,2011-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1109357,EXC,2022-02-02,1.402,bölünme,belge yok,0.4005679264555668,2022-02-25,2021-12-31,False,sayı bölünmeden önceye ait
+1111711,NI,2015-07-02,2.545,bölünme,belge yok,1.541901598466518,2015-08-03,2015-06-30,False,sayı bölünmeden önceye ait
+1117057,PLAG,2018-10-01,0.04,ters bölünme,satış belgesi var,-0.1750355456532175,2018-11-19,2018-09-30,False,sayı bölünmeden önceye ait
+1120970,LODE,2017-11-10,0.2,ters bölünme,satış belgesi var,-0.0513043169543431,2018-02-20,2017-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1120970,LODE,2019-11-29,0.2,ters bölünme,belge yok,-0.1465111160252702,2020-03-30,2019-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1120970,LODE,2025-02-25,0.1,ters bölünme,satış belgesi var,-0.1209864461998784,2025-03-06,2024-12-31,False,sayı bölünmeden önceye ait
+1121484,OIS,2014-06-02,1.75,bölünme,belge yok,0.7096498371455475,2014-08-01,2014-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1122904,NTGR,2019-01-02,1.612,bölünme,belge yok,0.5996003763723865,2019-02-22,2018-12-31,False,sayı bölünmeden önceye ait
+1123494,HBIO,2013-11-04,1.319,bölünme,belge yok,0.2921451644679151,2013-11-08,2013-09-30,False,sayı bölünmeden önceye ait
+1124105,GYRE,2015-08-21,0.1428571428571428,ters bölünme,belge yok,-0.575423213008827,2015-11-05,2015-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1124105,GYRE,2023-10-31,0.0666666666666666,ters bölünme,satış belgesi var,-0.966944894948905,2024-03-27,2023-12-31,False,birim/ölçek hatası olası
+1124524,CYRX,2015-05-19,0.0833333333333333,ters bölünme,satış belgesi var,-0.917328326028464,2015-08-06,2015-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1125376,ENSG,2014-06-03,1.833,bölünme,belge yok,0.8187500670181396,2014-08-07,2014-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1130166,BGMS,2023-12-18,0.0666666666666666,ters bölünme,satış belgesi var,-0.2040219399145523,2024-03-21,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1130166,BGMS,2025-05-12,0.0625,ters bölünme,satış belgesi var,-0.4545955113696746,2025-08-13,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1130166,BGMS,2025-07-07,0.0666666666666666,ters bölünme,satış belgesi var,-0.4545955113696746,2025-08-13,2025-06-30,False,sayı bölünmeden önceye ait
+1130598,TRAW,2024-09-23,0.04,ters bölünme,satış belgesi var,-0.6654297493946564,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1133818,BPTH,2018-02-09,0.1,ters bölünme,belge yok,881.4146750154334,2018-04-02,2017-12-31,False,birim/ölçek hatası olası
+1133818,BPTH,2019-01-18,0.05,ters bölünme,satış belgesi var,977.6764705882356,2019-03-19,2018-12-31,False,birim/ölçek hatası olası
+1133818,BPTH,2024-02-23,0.05,ters bölünme,belge yok,-0.0728155339805824,2024-03-07,2023-12-31,False,sayı bölünmeden önceye ait
+1133869,CAPR,2013-11-21,0.02,ters bölünme,satış belgesi var,-0.9255278831754314,2014-03-31,2013-12-31,False,birim/ölçek hatası olası
+1133869,CAPR,2019-06-05,0.1,ters bölünme,satış belgesi var,-0.0292215135059996,2019-08-08,2019-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1138978,NVOS,2023-11-07,0.1,ters bölünme,satış belgesi var,-0.0808139434905999,2023-12-14,2023-08-31,False,sayı bölünmeden önceye ait
+1140215,REED,2023-01-27,0.02,ters bölünme,satış belgesi var,-0.1049539886127521,2023-05-15,2022-12-31,False,sayı bölünmeden önceye ait
+1140215,REED,2025-11-03,0.1666666666666666,ters bölünme,satış belgesi var,-0.8738701446453424,2026-03-25,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1141197,PED,2012-08-03,0.0089285714285714,ters bölünme,satış belgesi var,-0.548300956445191,2012-08-24,2012-07-31,False,sayı bölünmeden önceye ait
+1141197,PED,2013-05-09,0.3333333333333333,ters bölünme,belge yok,-0.827901999288082,2013-05-17,2013-03-31,False,sayı bölünmeden önceye ait
+1141197,PED,2026-03-13,0.05,ters bölünme,satış belgesi var,-0.0357020777993341,2026-03-31,2025-12-31,False,sayı bölünmeden önceye ait
+1141284,ASNS,2025-11-18,0.1,ters bölünme,satış belgesi var,-0.7832402543832566,2026-03-18,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1143513,GLAD,2024-04-05,0.5,ters bölünme,belge yok,-0.5,2024-05-01,2024-03-31,False,sayı bölünmeden önceye ait
+1156041,AGIG,2020-08-03,0.08,ters bölünme,belge yok,-0.2560684173263822,2020-08-14,2020-06-30,False,sayı bölünmeden önceye ait
+1156041,AGIG,2025-06-09,0.1,ters bölünme,satış belgesi var,-0.1780205252084877,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1157075,PMCB,2021-07-12,0.0006451612903225,ters bölünme,satış belgesi var,-0.0499952467514193,2021-08-10,2021-04-30,False,sayı bölünmeden önceye ait
+1157601,MDGL,2016-07-25,0.0285714285714285,ters bölünme,satış belgesi var,-0.6597037625506317,2016-11-14,2016-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1158780,PLUR,2019-07-25,0.1,ters bölünme,belge yok,-0.2089051858362065,2019-09-12,2019-06-30,False,sayı bölünmeden önceye ait
+1162896,PROP,2023-10-16,0.034,ters bölünme,satış belgesi var,-0.154349330314864,2023-11-14,2023-09-30,False,sayı bölünmeden önceye ait
+1166003,XPO,2021-08-02,1.718,bölünme,satış belgesi var,0.6731826086956523,2021-11-03,2021-09-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1166003,XPO,2022-11-01,1.683,bölünme,belge yok,0.683,2023-02-13,2022-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1173204,CNVS,2023-06-09,0.05,ters bölünme,satış belgesi var,-0.0430401629045533,2023-06-29,2023-03-31,False,sayı bölünmeden önceye ait
+1173313,ABVC,2015-08-13,0.0002,ters bölünme,belge yok,-0.9998,2015-08-19,2015-06-30,False,sayı bölünmeden önceye ait
+1173313,ABVC,2019-05-08,0.0555555555555555,ters bölünme,belge yok,-0.3283002117052517,2019-05-28,2019-03-31,False,sayı bölünmeden önceye ait
+1174940,OGEN,2023-01-23,0.0166666666666666,ters bölünme,satış belgesi var,-0.983203029265756,2023-04-14,2022-03-31,False,sayı bölünmeden önceye ait
+1174940,OGEN,2025-06-03,0.0333333333333333,ters bölünme,satış belgesi var,-0.1301257989266767,2025-08-08,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1175151,CTSO,2014-12-05,0.04,ters bölünme,satış belgesi var,-0.4459893428948055,2015-03-31,2014-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1178253,SCYX,2020-07-17,0.1,ters bölünme,belge yok,-0.0659726706751558,2020-08-10,2020-06-30,False,sayı bölünmeden önceye ait
+1178253,SCYX,2026-06-01,0.125,ters bölünme,belge yok,-0.2204300440348963,2026-08-10,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1178697,SONM,2021-09-16,0.1,ters bölünme,satış belgesi var,-0.2764337521632968,2021-11-10,2021-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1178697,SONM,2024-07-18,0.1,ters bölünme,satış belgesi var,-0.1049252220591608,2024-08-09,2024-06-30,False,sayı bölünmeden önceye ait
+1178697,SONM,2025-10-27,0.0555555555555555,ters bölünme,belge yok,-0.4344680942772612,2025-10-31,2025-09-30,False,sayı bölünmeden önceye ait
+1178727,COMS,2021-01-22,0.3333333333333333,ters bölünme,satış belgesi var,-0.0304478471557043,2021-03-30,2020-12-31,False,sayı bölünmeden önceye ait
+1178727,COMS,2023-02-10,0.01,ters bölünme,belge yok,-0.1544604360899305,2023-02-24,2022-09-30,False,sayı bölünmeden önceye ait
+1180262,HLF,2018-05-15,2.0,bölünme,belge yok,0.1298436437797416,2018-08-01,2018-06-30,False,ilk rapordaki sayı az (geri alım vb.)
+1185348,PRAA,2013-08-02,3.0,bölünme,belge yok,2.0,2013-08-02,2013-06-30,False,sayı bölünmeden önceye ait
+1187953,CELZ,2020-02-03,0.0066666666666666,ters bölünme,belge yok,-0.374962581338488,2020-04-06,2019-12-31,False,sayı bölünmeden önceye ait
+1187953,CELZ,2021-11-10,0.002,ters bölünme,belge yok,0.5878240899471141,2021-11-15,2021-09-30,False,sayı bölünmeden önceye ait
+1191070,NEUP,2024-12-24,0.0833333333333333,ters bölünme,satış belgesi var,158.5209547650347,2025-02-14,2024-12-31,False,birim/ölçek hatası olası
+1196298,NEPH,2019-07-10,0.1111111111111111,ters bölünme,satış belgesi var,-0.0643548166236056,2019-08-07,2019-06-30,False,sayı bölünmeden önceye ait
+1211805,MYSZ,2022-12-09,0.04,ters bölünme,satış belgesi var,-0.2971522357844353,2023-04-14,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1211805,MYSZ,2024-04-23,0.125,ters bölünme,belge yok,-0.2942276903122413,2024-05-15,2024-03-31,False,sayı bölünmeden önceye ait
+1213037,CRDF,2012-05-30,0.1666666666666666,ters bölünme,satış belgesi var,-0.2105047291980892,2012-08-14,2012-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1213037,CRDF,2018-06-04,0.0833333333333333,ters bölünme,satış belgesi var,-0.7166862207409295,2018-08-03,2018-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1213660,BIMI,2022-02-03,0.2,ters bölünme,satış belgesi var,-0.2372970265890492,2022-04-15,2021-12-31,False,sayı bölünmeden önceye ait
+1213660,BIMI,2022-12-12,0.1,ters bölünme,satış belgesi var,0.020903240029962,2023-05-04,2022-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+1218683,BGDE,2018-03-05,0.0416666666666666,ters bölünme,belge yok,-0.9000019939741756,2018-03-29,2017-12-31,False,birim/ölçek hatası olası
+1218683,BGDE,2021-08-13,0.1,ters bölünme,satış belgesi var,-0.2185734566351874,2021-11-15,2021-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1218683,BGDE,2025-11-21,0.05,ters bölünme,satış belgesi var,0.1130492391588924,2026-03-31,2025-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+12239,DOMH,2016-03-04,0.0526315789473684,ters bölünme,satış belgesi var,-0.2870941687266575,2016-03-29,2015-12-31,False,sayı bölünmeden önceye ait
+12239,DOMH,2022-06-07,0.0588235294117647,ters bölünme,belge yok,0.0602762382721333,2022-08-12,2022-06-30,False,ilk rapordaki sayı az (geri alım vb.)
+1228627,IRD,2017-05-05,0.1,ters bölünme,satış belgesi var,-0.138953687583484,2017-08-04,2017-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1228627,IRD,2019-04-12,0.0833333333333333,ters bölünme,belge yok,-0.2219021427713036,2019-05-10,2019-03-31,False,sayı bölünmeden önceye ait
+1228627,IRD,2020-11-06,0.25,ters bölünme,satış belgesi var,-0.8970089579641434,2021-03-10,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1232582,AHT,2013-11-20,1.49,bölünme,belge yok,0.49,2014-03-03,2013-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1232582,AHT,2021-07-19,0.1,ters bölünme,satış belgesi var,-0.5065591612365064,2021-08-06,2021-06-30,False,sayı bölünmeden önceye ait
+1232582,AHT,2024-10-28,0.1,ters bölünme,satış belgesi var,-0.141095298319864,2024-11-12,2024-09-30,False,sayı bölünmeden önceye ait
+1253689,CBIO,2025-06-16,0.01,ters bölünme,belge yok,-0.9535491790499118,2025-07-31,2025-06-30,False,birim/ölçek hatası olası
+1262104,LITS,2012-12-19,0.1666666666666666,ters bölünme,satış belgesi var,-0.7594313831603093,2013-02-12,2012-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1266806,VANI,2022-08-19,0.3333333333333333,ters bölünme,belge yok,-0.7410845684852307,2022-11-14,2022-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1269026,SINT,2016-01-25,0.0666666666666666,ters bölünme,belge yok,-0.5165988502191021,2016-03-23,2015-12-31,False,sayı bölünmeden önceye ait
+1269026,SINT,2019-07-29,0.0333333333333333,ters bölünme,satış belgesi var,-0.6083586806390433,2019-08-14,2019-06-30,False,sayı bölünmeden önceye ait
+1269026,SINT,2022-12-20,0.01,ters bölünme,satış belgesi var,-0.5438620848665947,2023-03-29,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1269026,SINT,2024-05-28,0.005,ters bölünme,satış belgesi var,-0.6587108149894232,2024-08-13,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1272550,RTNB,2016-12-05,0.0666666666666666,ters bölünme,satış belgesi var,-0.0780527655199793,2017-04-17,2016-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1277902,MVBF,2014-04-02,2.0,bölünme,satış belgesi var,0.951598436848283,2014-05-15,2014-03-31,False,sayı bölünmeden önceye ait
+1279704,CLRB,2016-03-07,0.1,ters bölünme,belge yok,-0.1185432446920082,2016-03-11,2015-12-31,False,sayı bölünmeden önceye ait
+1279704,CLRB,2018-07-17,0.1,ters bölünme,satış belgesi var,-0.0365209533338741,2018-08-10,2018-06-30,False,sayı bölünmeden önceye ait
+1279704,CLRB,2025-06-24,0.0333333333333333,ters bölünme,satış belgesi var,-0.152338892445347,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1280776,IMUX,2019-04-15,0.025,ters bölünme,satış belgesi var,-0.8939315012348295,2019-08-08,2019-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1280776,IMUX,2026-04-27,0.1,ters bölünme,belge yok,-0.3381714090895975,2026-05-13,2026-03-31,False,sayı bölünmeden önceye ait
+1282224,DLPN,2024-10-16,0.5,ters bölünme,belge yok,-0.0912742164403808,2024-11-14,2024-09-30,False,sayı bölünmeden önceye ait
+1283699,TMUS,2013-05-01,0.5,ters bölünme,satış belgesi var,-0.7481856877170191,2013-08-08,2013-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1285550,CLPT,2016-07-27,0.025,ters bölünme,satış belgesi var,-0.0430936565779725,2016-08-15,2016-06-30,False,sayı bölünmeden önceye ait
+1286043,KRG,2014-08-12,0.25,ters bölünme,belge yok,-0.6059545288117663,2014-11-10,2014-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1288855,OPHC,2016-01-12,0.1,ters bölünme,belge yok,-0.9003635320182664,2016-03-25,2015-12-31,False,sayı bölünmeden önceye ait
+1291855,SPCB,2022-11-23,0.1,ters bölünme,satış belgesi var,-0.9993286453478296,2023-04-20,2022-12-31,False,birim/ölçek hatası olası
+1296484,TOPS,2016-02-22,0.1,ters bölünme,belge yok,-0.0870573825915168,2016-04-26,2015-12-31,False,sayı bölünmeden önceye ait
+1296484,TOPS,2017-10-06,0.5,ters bölünme,satış belgesi var,-0.99996458124672,2018-03-29,2017-12-31,False,birim/ölçek hatası olası
+1296484,TOPS,2022-09-23,0.05,ters bölünme,satış belgesi var,-0.8065452370327616,2023-03-31,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1296484,TOPS,2023-09-29,0.0833333333333333,ters bölünme,belge yok,-0.8145541935777199,2024-03-29,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1296774,NCTY,2020-10-19,0.1,ters bölünme,satış belgesi var,-0.9565709048168396,2021-03-30,2020-12-31,False,birim/ölçek hatası olası
+1296774,NCTY,2023-10-02,0.1,ters bölünme,belge yok,-0.948602959639263,2024-04-15,2024-03-31,False,birim/ölçek hatası olası
+1300734,SISI,2024-02-16,0.1,ters bölünme,belge yok,-0.9005128946598049,2024-05-15,2024-03-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1300734,SISI,2024-11-12,0.0416666666666666,ters bölünme,satış belgesi var,-0.9716876337633948,2025-02-14,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1314052,AVXL,2015-10-07,0.25,ters bölünme,satış belgesi var,-0.3273620965507875,2015-12-29,2015-09-30,False,sayı bölünmeden önceye ait
+1314102,EYPT,2020-12-09,0.1,ters bölünme,satış belgesi var,-0.2755127692801882,2021-03-12,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1314196,OLB,2019-11-12,0.0333333333333333,ters bölünme,belge yok,-0.9666667221000124,2020-04-29,2019-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1314196,OLB,2024-05-06,0.1,ters bölünme,belge yok,-0.1534240699873107,2024-05-20,2024-03-31,False,sayı bölünmeden önceye ait
+1321834,QCLS,2019-11-25,0.0416666666666666,ters bölünme,satış belgesi var,-0.7000759223933392,2020-03-24,2019-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1321834,QCLS,2021-04-19,0.5,ters bölünme,satış belgesi var,0.0559523966791284,2021-05-18,2021-03-31,False,sayı bölünmeden önceye ait
+1321834,QCLS,2024-02-15,0.0333333333333333,ters bölünme,belge yok,-0.2239773132354925,2024-04-01,2023-12-31,False,sayı bölünmeden önceye ait
+1321834,QCLS,2025-09-02,0.01,ters bölünme,satış belgesi var,-0.901319745761118,2025-11-19,2025-09-30,False,birim/ölçek hatası olası
+1326190,ALT,2018-09-14,0.0333333333333333,ters bölünme,satış belgesi var,-0.2782546084618371,2018-11-13,2018-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1326205,IGC,2013-04-19,0.1,ters bölünme,belge yok,-0.139528743006187,2013-07-16,2013-03-31,False,sayı bölünmeden önceye ait
+1329606,CETY,2025-10-06,0.0666666666666666,ters bölünme,belge yok,-0.0969193009963221,2025-11-19,2025-09-30,False,sayı bölünmeden önceye ait
+1331875,FNF,2017-10-02,1.385,bölünme,belge yok,0.3847323989226072,2017-11-02,2017-09-30,False,sayı bölünmeden önceye ait
+1332551,ACR,2015-09-01,0.25,ters bölünme,belge yok,0.0269932547466293,2015-11-06,2015-09-30,False,ilk rapordaki sayı az (geri alım vb.)
+1332551,ACR,2021-02-17,0.3333333333333333,ters bölünme,belge yok,0.0526934433767825,2021-03-11,2020-12-31,False,sayı bölünmeden önceye ait
+1333141,FMS,2012-12-04,2.0,bölünme,belge yok,1.0,2013-02-26,2012-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1334325,CODA,2017-01-11,0.0714285714285714,ters bölünme,satış belgesi var,-0.418979304263036,2017-06-14,2017-04-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1336917,UAA,2012-07-10,2.0,bölünme,belge yok,-0.9990018907580652,2012-08-03,2012-06-30,False,birim/ölçek hatası olası
+1336920,LDOS,2013-09-30,0.405,ters bölünme,belge yok,0.6152906976744186,2013-12-10,2013-10-31,False,ilk rapordaki sayı az (geri alım vb.)
+1339970,ATYR,2019-07-01,0.0714285714285714,ters bölünme,satış belgesi var,-0.3814809226204804,2019-08-14,2019-06-30,False,sayı bölünmeden önceye ait
+1341170,ESEA,2019-12-19,0.125,ters bölünme,satış belgesi var,-0.7206458442368469,2020-04-30,2019-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1346610,SOS,2019-12-03,0.1,ters bölünme,belge yok,-0.9420399811356204,2020-06-15,2019-12-31,False,birim/ölçek hatası olası
+1346610,SOS,2024-11-19,0.0666666666666666,ters bölünme,belge yok,-0.0339922514926126,2025-05-15,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1347242,LIPO,2024-11-08,0.125,ters bölünme,belge yok,-0.1287571996096058,2024-11-14,2024-09-30,False,sayı bölünmeden önceye ait
+1347858,XXII,2023-07-05,0.0666666666666666,ters bölünme,satış belgesi var,-0.091435458411417,2023-08-14,2023-06-30,False,sayı bölünmeden önceye ait
+1347858,XXII,2024-04-02,0.0625,ters bölünme,satış belgesi var,-0.2445388836510517,2024-05-15,2024-03-31,False,sayı bölünmeden önceye ait
+1347858,XXII,2024-12-17,0.0074074074074074,ters bölünme,belge yok,-0.7019546823485203,2025-03-20,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1347858,XXII,2025-06-20,0.0434782608695652,ters bölünme,satış belgesi var,-0.7409000895823755,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1347858,XXII,2026-01-26,0.0666666666666666,ters bölünme,satış belgesi var,-0.9400908596925712,2026-03-26,2025-12-31,False,sayı bölünmeden önceye ait
+1347858,XXII,2026-06-12,0.05,ters bölünme,satış belgesi var,-0.923455817866156,2026-08-14,2026-06-30,False,birim/ölçek hatası olası
+1350102,ASTI,2023-09-12,0.005,ters bölünme,satış belgesi var,-0.490734160113183,2023-11-14,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1350102,ASTI,2024-08-15,0.01,ters bölünme,satış belgesi var,-0.225162074878335,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1350653,ATEC,2016-08-25,0.0833333333333333,ters bölünme,belge yok,-0.0305051078320091,2016-11-09,2016-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1354866,BYRN,2021-04-27,0.1,ters bölünme,belge yok,-0.2789961263721142,2021-07-01,2021-05-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1355839,IPM,2017-01-06,0.0285714285714285,ters bölünme,belge yok,-0.8226003456484557,2017-03-28,2016-12-31,False,sayı bölünmeden önceye ait
+1355848,TOON,2014-04-07,0.01,ters bölünme,satış belgesi var,-0.8521432952213863,2014-04-15,2013-12-31,False,sayı bölünmeden önceye ait
+1356093,CREX,2012-12-17,0.2,ters bölünme,belge yok,-0.9990017186251,2013-03-01,2012-12-31,False,birim/ölçek hatası olası
+1356093,CREX,2018-10-31,0.0333333333333333,ters bölünme,belge yok,-0.0561557506189511,2018-11-14,2018-09-30,False,sayı bölünmeden önceye ait
+1356093,CREX,2023-03-27,0.3333333333333333,ters bölünme,belge yok,-0.67243711117122,2023-05-15,2023-03-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1357459,PALI,2017-01-09,0.0769230769230769,ters bölünme,satış belgesi var,-0.1994301162804918,2017-03-23,2016-12-31,False,sayı bölünmeden önceye ait
+1357459,PALI,2019-07-18,0.05,ters bölünme,satış belgesi var,-0.0913806975058844,2019-08-14,2019-06-30,False,sayı bölünmeden önceye ait
+1357459,PALI,2022-11-16,0.02,ters bölünme,satış belgesi var,-0.4764119694080709,2023-03-22,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1357459,PALI,2024-04-08,0.0666666666666666,ters bölünme,satış belgesi var,-0.2739831458166433,2024-05-13,2024-03-31,False,sayı bölünmeden önceye ait
+1357874,DTIL,2024-02-14,0.0333333333333333,ters bölünme,satış belgesi var,-0.0739757258058964,2024-03-27,2023-12-31,False,sayı bölünmeden önceye ait
+1358190,ITP,2022-07-08,0.1,ters bölünme,belge yok,-0.9,2022-08-09,2022-06-30,False,sayı bölünmeden önceye ait
+1359931,TARA,2020-01-10,0.025,ters bölünme,satış belgesi var,-0.1219375357539304,2020-03-19,2019-12-31,False,sayı bölünmeden önceye ait
+1360214,HROW,2012-02-24,0.125,ters bölünme,satış belgesi var,-0.8221230599537768,2012-05-10,2012-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1360565,WFCF,2020-12-01,0.25,ters bölünme,belge yok,-0.7479057698594311,2021-02-18,2020-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1360565,WFCF,2020-12-07,0.25,ters bölünme,belge yok,-0.7479057698594311,2021-02-18,2020-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1360604,HR,2014-12-16,0.5,ters bölünme,satış belgesi var,-0.0448877618783711,2015-02-23,2014-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1361113,VRNS,2021-03-15,3.0,bölünme,satış belgesi var,-0.1007140401325911,2021-05-04,2021-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1364479,HRI,2016-07-01,0.3333333333333333,ters bölünme,belge yok,3.994110718492343,2016-08-09,2016-06-30,False,sayı bölünmeden önceye ait
+1367083,SNOA,2013-04-01,0.1428571428571428,ters bölünme,satış belgesi var,-0.1897086175636718,2013-06-25,2013-03-31,False,sayı bölünmeden önceye ait
+1367083,SNOA,2024-08-30,0.05,ters bölünme,satış belgesi var,-0.2901471670345841,2024-11-07,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1368365,MARK,2022-12-22,0.1,ters bölünme,satış belgesi var,-0.0778874401147218,2023-04-17,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1370053,ANAB,2026-04-20,1.5,bölünme,belge yok,0.4477138302568748,2026-05-12,2026-03-31,False,sayı bölünmeden önceye ait
+1372299,OCGN,2019-09-30,0.0166666666666666,ters bölünme,satış belgesi var,-0.842548211491599,2019-11-12,2019-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1372514,KPRX,2022-09-27,0.025,ters bölünme,belge yok,-0.6972455736322396,2022-11-09,2022-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1372920,EDU,2022-04-07,0.1,ters bölünme,belge yok,-0.9900405667070384,2022-09-29,2022-05-31,False,birim/ölçek hatası olası
+1372920,EDU,2022-04-08,0.1,ters bölünme,belge yok,-0.9900405667070384,2022-09-29,2022-05-31,False,birim/ölçek hatası olası
+1373670,GRBK,2014-09-24,1.532,bölünme,satış belgesi var,0.5320000000000003,2014-10-22,2014-09-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1376321,CNET,2024-09-30,0.25,ters bölünme,satış belgesi var,-0.1723574392763943,2024-11-19,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1377630,NCMI,2023-08-04,0.1,ters bölünme,satış belgesi var,-0.9000302166902142,2023-11-07,2023-07-31,False,sayı bölünmeden önceye ait
+1378590,BLIN,2019-05-02,0.02,ters bölünme,satış belgesi var,-0.1329968044429941,2019-05-15,2019-03-31,False,sayı bölünmeden önceye ait
+1385818,AYTU,2015-06-10,0.082,ters bölünme,satış belgesi var,-0.9664436417616916,2015-09-29,2015-06-30,False,birim/ölçek hatası olası
+1385818,AYTU,2016-07-01,0.0833333333333333,ters bölünme,satış belgesi var,-0.6339875205561679,2016-11-07,2016-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1385818,AYTU,2017-08-29,0.05,ters bölünme,satış belgesi var,-0.9902383167173194,2017-11-09,2017-09-30,False,birim/ölçek hatası olası
+1385818,AYTU,2020-12-09,0.1,ters bölünme,satış belgesi var,-0.2963255050511122,2021-02-11,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1386716,SBLK,2012-10-15,0.0666666666666666,ters bölünme,belge yok,-0.9380045734441098,2013-03-19,2012-09-30,False,sayı bölünmeden önceye ait
+1388320,ATNM,2020-08-11,0.0333333333333333,ters bölünme,belge yok,-0.557541572576939,2020-08-14,2020-06-30,False,sayı bölünmeden önceye ait
+1389545,SDEV,2015-12-21,0.04,ters bölünme,satış belgesi var,-0.143798049340218,2016-03-04,2015-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1389545,SDEV,2022-11-16,0.0285714285714285,ters bölünme,satış belgesi var,-0.0875675675675674,2023-03-31,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1389545,SDEV,2024-05-31,0.0285714285714285,ters bölünme,satış belgesi var,-0.3212166172106824,2024-08-13,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1389545,SDEV,2026-02-23,0.2,ters bölünme,satış belgesi var,-0.9523239213197968,2026-03-19,2025-12-31,False,birim/ölçek hatası olası
+1390478,SLS,2016-11-14,0.05,ters bölünme,satış belgesi var,-0.293958901082277,2017-03-15,2016-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1390478,SLS,2018-01-02,0.0333333333333333,ters bölünme,satış belgesi var,-0.7582985644546891,2018-04-13,2017-12-31,False,sayı bölünmeden önceye ait
+1390478,SLS,2019-11-08,0.02,ters bölünme,satış belgesi var,-0.5597687553525801,2019-11-14,2019-09-30,False,sayı bölünmeden önceye ait
+1392380,GEVO,2015-04-21,0.0666666666666666,ters bölünme,satış belgesi var,-0.3188922125702151,2015-05-12,2015-03-31,False,sayı bölünmeden önceye ait
+1392380,GEVO,2017-01-06,0.05,ters bölünme,satış belgesi var,-0.0686641092209685,2017-03-30,2016-12-31,False,sayı bölünmeden önceye ait
+1392380,GEVO,2018-06-04,0.05,ters bölünme,satış belgesi var,-0.8579726534877754,2018-08-08,2018-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1395942,OPLN,2019-06-28,2.642,bölünme,belge yok,1.6383647347060235,2019-08-07,2019-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1397016,OPXS,2015-10-07,0.001,ters bölünme,belge yok,-0.4444830896854862,2015-12-15,2015-09-30,False,sayı bölünmeden önceye ait
+1397183,IVDA,2022-04-01,0.125,ters bölünme,satış belgesi var,-0.1637550644817299,2022-05-16,2022-03-31,False,sayı bölünmeden önceye ait
+1397183,IVDA,2024-09-17,0.125,ters bölünme,satış belgesi var,-0.1554499950375217,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1402328,SBFM,2024-04-17,0.01,ters bölünme,belge yok,-0.7182154567639556,2024-05-20,2024-03-31,False,sayı bölünmeden önceye ait
+1402328,SBFM,2024-08-08,0.05,ters bölünme,belge yok,-0.99957517278793,2024-08-16,2024-06-30,False,birim/ölçek hatası olası
+1402328,SBFM,2026-06-01,0.1,ters bölünme,satış belgesi var,-0.7946027993951056,2026-08-13,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1403161,V,2015-03-19,4.0,bölünme,belge yok,0.3638402871242709,2015-04-30,2015-03-31,False,ilk rapordaki sayı az (geri alım vb.)
+1404281,ELDN,2017-05-11,0.1111111111111111,ters bölünme,satış belgesi var,-0.6377016321823454,2017-08-09,2017-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1404281,ELDN,2020-10-05,0.0555555555555555,ters bölünme,satış belgesi var,-0.1553301831405847,2020-11-16,2020-09-30,False,sayı bölünmeden önceye ait
+1404644,NGNE,2023-12-19,0.25,ters bölünme,belge yok,-0.8283391682487027,2024-03-18,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1409375,OESX,2025-08-22,0.1,ters bölünme,belge yok,-0.0497063896433456,2025-11-05,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1410098,CRMD,2019-03-26,0.2,ters bölünme,satış belgesi var,-0.1699262805736052,2019-05-13,2019-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1410428,XWEL,2015-11-30,0.1,ters bölünme,satış belgesi var,-0.1631872421057408,2016-03-10,2015-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1410428,XWEL,2019-02-25,0.05,ters bölünme,belge yok,-0.0941232045371726,2019-04-01,2018-12-31,False,sayı bölünmeden önceye ait
+1410428,XWEL,2020-06-11,0.3333333333333333,ters bölünme,satış belgesi var,-0.8861309047147233,2020-07-06,2020-03-31,False,sayı bölünmeden önceye ait
+1411579,AMC,2023-08-24,0.1,ters bölünme,satış belgesi var,-0.7382534238864735,2023-11-08,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1411690,BNGO,2023-08-07,0.1,ters bölünme,satış belgesi var,-0.9059662225239752,2023-11-08,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1411690,BNGO,2025-01-27,0.0166666666666666,ters bölünme,satış belgesi var,-0.2095707801722597,2025-03-31,2024-12-31,False,sayı bölünmeden önceye ait
+1412095,TROO,2016-01-25,0.25,ters bölünme,belge yok,-0.0262791545474775,2016-05-16,2015-12-31,False,sayı bölünmeden önceye ait
+1413745,YDKG,2019-04-11,0.2,ters bölünme,belge yok,-0.800055700572325,2019-04-30,2018-12-31,False,sayı bölünmeden önceye ait
+1413745,YDKG,2022-12-12,0.25,ters bölünme,belge yok,4.014559817035268,2023-04-28,2022-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+1413745,YDKG,2025-11-14,0.01,ters bölünme,satış belgesi var,-0.9740782092997724,2026-04-30,2025-12-31,False,birim/ölçek hatası olası
+1414767,NCPL,2024-08-02,0.0142857142857142,ters bölünme,satış belgesi var,-0.4356122524741179,2024-09-16,2024-07-31,False,sayı bölünmeden önceye ait
+1417926,IVF,2023-07-28,0.05,ters bölünme,satış belgesi var,-0.1551868697740679,2023-08-14,2023-06-30,False,sayı bölünmeden önceye ait
+1417926,IVF,2025-03-18,0.0833333333333333,ters bölünme,satış belgesi var,-0.1273788875157162,2025-04-29,2024-12-31,False,sayı bölünmeden önceye ait
+1417926,IVF,2025-07-21,0.3333333333333333,ters bölünme,satış belgesi var,-0.699626458642773,2025-08-14,2025-06-30,False,sayı bölünmeden önceye ait
+1417926,IVF,2025-11-28,0.125,ters bölünme,satış belgesi var,-0.7159516492586402,2026-06-02,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1417926,IVF,2026-03-27,0.2,ters bölünme,satış belgesi var,-0.7159516492586402,2026-06-02,2025-12-31,False,sayı bölünmeden önceye ait
+1419275,RTB,2021-02-17,0.1666666666666666,ters bölünme,satış belgesi var,8.858417056200423,2021-03-30,2020-12-31,False,sayı bölünmeden önceye ait
+1419275,RTB,2026-01-02,0.0285714285714285,ters bölünme,satış belgesi var,-0.1148046480136388,2026-04-15,2025-12-31,False,sayı bölünmeden önceye ait
+1419554,BBLG,2023-06-07,0.0333333333333333,ters bölünme,satış belgesi var,-0.822369406582225,2023-08-14,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1419554,BBLG,2023-12-20,0.125,ters bölünme,satış belgesi var,-0.2666211033284791,2024-02-21,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1419554,BBLG,2025-06-10,0.1666666666666666,ters bölünme,satış belgesi var,-0.6765047134171187,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1419945,TNK,2019-11-25,0.125,ters bölünme,belge yok,-0.5003720238095238,2020-04-14,2019-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1420720,IBIO,2018-06-11,0.1,ters bölünme,satış belgesi var,-0.2773216993432595,2018-09-18,2018-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1420720,IBIO,2022-10-10,0.04,ters bölünme,satış belgesi var,-0.9612409768766886,2022-11-14,2022-09-30,False,sayı bölünmeden önceye ait
+1420720,IBIO,2023-11-29,0.05,ters bölünme,satış belgesi var,-0.5737372619442154,2024-02-09,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1420800,ENOV,2022-04-05,0.581,ters bölünme,belge yok,0.6801652120787223,2022-05-10,2022-03-31,False,sayı bölünmeden önceye ait
+1422142,WHWK,2021-08-27,0.0666666666666666,ters bölünme,satış belgesi var,-0.8484379579482717,2021-11-10,2021-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1422892,SGLY,2020-07-07,0.2,ters bölünme,satış belgesi var,-0.0244651214320363,2020-10-13,2020-06-30,False,sayı bölünmeden önceye ait
+1422892,SGLY,2024-02-12,0.1,ters bölünme,satış belgesi var,-0.5000552020669662,2024-05-15,2024-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1424657,CUEN,2023-03-24,0.0769230769230769,ters bölünme,satış belgesi var,-0.1271935078822083,2023-03-31,2022-12-31,False,sayı bölünmeden önceye ait
+1425287,WKHS,2015-12-11,0.1,ters bölünme,belge yok,-0.0332384377566441,2016-03-25,2015-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1425287,WKHS,2024-06-17,0.05,ters bölünme,satış belgesi var,-0.2024531573325624,2024-08-19,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1425287,WKHS,2025-03-17,0.08,ters bölünme,satış belgesi var,1.2282662834244236,2025-03-31,2024-12-31,False,sayı bölünmeden önceye ait
+1425287,WKHS,2025-12-08,0.0833333333333333,ters bölünme,satış belgesi var,-0.8172049099412934,2026-03-31,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1426800,ASMB,2024-02-12,0.0833333333333333,ters bölünme,belge yok,-0.2003074064508725,2024-03-28,2023-12-31,False,sayı bölünmeden önceye ait
+1427570,HIND,2019-07-25,0.1,ters bölünme,satış belgesi var,-0.5393299672453749,2019-11-08,2019-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1427570,HIND,2022-12-23,0.02,ters bölünme,satış belgesi var,-0.1296255337343201,2023-04-17,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1427570,HIND,2024-09-23,0.0172413793103448,ters bölünme,satış belgesi var,-0.2810037750144804,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1427570,HIND,2025-05-09,0.04,ters bölünme,belge yok,-0.7805907680284939,2025-05-20,2025-03-31,False,sayı bölünmeden önceye ait
+1428205,ARR,2015-08-03,0.125,ters bölünme,satış belgesi var,0.0417786951556105,2015-11-06,2015-09-30,False,ilk rapordaki sayı az (geri alım vb.)
+1428205,ARR,2023-10-02,0.2,ters bölünme,satış belgesi var,-0.1557914072864578,2023-10-25,2023-09-30,False,sayı bölünmeden önceye ait
+1429560,TRVN,2022-11-10,0.04,ters bölünme,satış belgesi var,-0.1029408632389771,2023-03-30,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1429764,BLNK,2017-08-29,0.02,ters bölünme,belge yok,-0.6611632803006754,2017-11-20,2017-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1430306,TNXP,2017-03-17,0.1,ters bölünme,satış belgesi var,-0.2508451649276907,2017-04-13,2016-12-31,False,sayı bölünmeden önceye ait
+1430306,TNXP,2018-11-28,0.1,ters bölünme,satış belgesi var,-0.677719782162812,2019-03-18,2018-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1430306,TNXP,2019-11-01,0.1,ters bölünme,satış belgesi var,-0.5976298305153608,2019-11-08,2019-09-30,False,sayı bölünmeden önceye ait
+1430306,TNXP,2022-05-17,0.03125,ters bölünme,satış belgesi var,-0.4548831207893191,2022-08-08,2022-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1430306,TNXP,2023-05-10,0.16,ters bölünme,satış belgesi var,-0.0531769249831425,2023-08-10,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1430306,TNXP,2024-06-10,0.03125,ters bölünme,satış belgesi var,-0.7656892204462569,2024-08-16,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1430306,TNXP,2025-02-05,0.01,ters bölünme,satış belgesi var,-0.6451583028361836,2025-03-18,2024-12-31,False,sayı bölünmeden önceye ait
+1430723,SFBS,2014-07-17,3.0,bölünme,satış belgesi var,-0.0878807904955895,2014-07-30,2014-06-30,False,sayı bölünmeden önceye ait
+1430725,GSL,2019-03-25,0.125,ters bölünme,belge yok,-0.3083580577192886,2019-03-29,2018-12-31,False,sayı bölünmeden önceye ait
+1433607,NSPR,2012-12-21,0.25,ters bölünme,satış belgesi var,-0.0486753107061311,2013-02-04,2012-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1433607,NSPR,2016-10-10,0.04,ters bölünme,belge yok,-0.6813790530538179,2016-11-14,2016-09-30,False,sayı bölünmeden önceye ait
+1433607,NSPR,2019-04-01,0.02,ters bölünme,satış belgesi var,-0.1189313798355721,2019-05-13,2019-03-31,False,sayı bölünmeden önceye ait
+1433607,NSPR,2021-04-27,0.0666666666666666,ters bölünme,satış belgesi var,-0.5817637321558666,2021-05-10,2021-03-31,False,sayı bölünmeden önceye ait
+1435064,CETX,2019-06-13,0.125,ters bölünme,satış belgesi var,-0.3019492421476972,2019-08-19,2019-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1435064,CETX,2023-01-25,0.0285714285714285,ters bölünme,belge yok,-0.0492126386024414,2023-02-14,2022-12-31,False,sayı bölünmeden önceye ait
+1435064,CETX,2024-10-03,0.0166666666666666,ters bölünme,satış belgesi var,-0.4507057535203698,2024-12-30,2024-09-30,False,sayı bölünmeden önceye ait
+1435064,CETX,2024-11-26,0.0285714285714285,ters bölünme,satış belgesi var,-0.4507057535203698,2024-12-30,2024-09-30,False,sayı bölünmeden önceye ait
+1435064,CETX,2025-09-29,0.0666666666666666,ters bölünme,satış belgesi var,-0.718309603670894,2025-12-29,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1435064,CETX,2026-06-05,0.1,ters bölünme,satış belgesi var,-0.1999713427470953,2026-08-14,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1436229,BTCS,2019-04-10,0.0333333333333333,ters bölünme,satış belgesi var,-0.0547978509298116,2019-05-08,2019-03-31,False,sayı bölünmeden önceye ait
+1437925,MRDN,2015-10-15,0.0005,ters bölünme,satış belgesi var,-0.998841063165957,2015-11-13,2015-07-31,False,birim/ölçek hatası olası
+1437925,MRDN,2016-04-07,0.0006666666666666,ters bölünme,belge yok,-0.9635402913530812,2016-06-20,2016-04-30,False,birim/ölçek hatası olası
+1437925,MRDN,2017-01-09,0.0066666666666666,ters bölünme,belge yok,-0.8330407727387963,2017-03-16,2017-01-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1437925,MRDN,2026-03-03,0.0833333333333333,ters bölünme,satış belgesi var,-0.0727250080946771,2026-03-31,2025-12-31,False,sayı bölünmeden önceye ait
+1438133,TNDM,2017-10-10,0.1,ters bölünme,satış belgesi var,-0.0845817386550027,2017-10-26,2017-09-30,False,sayı bölünmeden önceye ait
+1439725,BDSX,2025-09-15,0.05,ters bölünme,belge yok,-0.0786136497379296,2025-11-03,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1442236,QRHC,2012-11-13,0.2,ters bölünme,satış belgesi var,-0.9701362727198014,2013-04-15,2012-12-31,False,birim/ölçek hatası olası
+1442620,RCON,2024-05-01,0.0555555555555555,ters bölünme,belge yok,-0.6662081429814577,2024-05-24,2024-04-30,False,sayı bölünmeden önceye ait
+1442620,RCON,2026-08-18,0.005,ters bölünme,satış belgesi var,-0.9924760000341962,2026-09-30,2026-06-30,False,birim/ölçek hatası olası
+1446159,AGPU,2016-10-28,0.04,ters bölünme,satış belgesi var,-0.0872060172811803,2016-11-14,2016-09-30,False,sayı bölünmeden önceye ait
+1446159,AGPU,2025-09-30,0.0666666666666666,ters bölünme,satış belgesi var,-0.1659268703713843,2025-11-14,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1448397,SHIP,2016-01-08,0.2,ters bölünme,belge yok,-0.7962416736086876,2016-04-20,2015-12-31,False,sayı bölünmeden önceye ait
+1448397,SHIP,2019-03-20,0.0666666666666666,ters bölünme,belge yok,-0.0753625134381732,2019-03-22,2018-12-31,False,sayı bölünmeden önceye ait
+1448397,SHIP,2023-02-16,0.1,ters bölünme,belge yok,-0.049088569051652,2023-03-31,2022-12-31,False,sayı bölünmeden önceye ait
+1448431,OPRX,2018-05-14,0.3333333333333333,ters bölünme,satış belgesi var,-0.1451877606641298,2018-08-07,2018-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1450704,VIVK,2026-03-24,0.005,ters bölünme,satış belgesi var,-0.8474199843426029,2026-04-15,2025-12-31,False,sayı bölünmeden önceye ait
+1450704,VIVK,2026-07-17,0.05,ters bölünme,satış belgesi var,-0.6232777886497064,2026-08-19,2026-06-30,False,sayı bölünmeden önceye ait
+1453593,XTNT,2018-02-14,0.0833333333333333,ters bölünme,satış belgesi var,-0.9162963311580982,2018-03-30,2017-03-31,False,sayı bölünmeden önceye ait
+1453687,RNAC,2024-04-05,0.0333333333333333,ters bölünme,belge yok,-0.0214368169515313,2024-05-08,2024-03-31,False,sayı bölünmeden önceye ait
+1460329,FLNT,2015-03-20,0.2,ters bölünme,satış belgesi var,-0.0234601711652402,2015-04-15,2014-12-31,False,sayı bölünmeden önceye ait
+1460602,ORGS,2017-11-16,0.0833333333333333,ters bölünme,belge yok,-0.0369323586820261,2018-02-28,2017-11-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1460702,FFR,2020-05-26,0.04,ters bölünme,satış belgesi var,-0.8654312775044454,2020-08-14,2020-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1460702,FFR,2024-11-05,0.02,ters bölünme,satış belgesi var,-0.6493095184247579,2024-11-14,2024-09-30,False,sayı bölünmeden önceye ait
+1462223,NIXX,2019-08-22,0.0125,ters bölünme,belge yok,-0.9875,2019-11-14,2019-06-30,False,sayı bölünmeden önceye ait
+1462223,NIXX,2021-06-18,0.4,ters bölünme,satış belgesi var,-0.227223660482046,2021-08-16,2021-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1462223,NIXX,2023-08-25,0.0666666666666666,ters bölünme,satış belgesi var,-0.1727868621517634,2023-11-20,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1464790,RILY,2014-06-03,0.05,ters bölünme,satış belgesi var,-0.9061085626633784,2014-08-14,2014-06-30,False,birim/ölçek hatası olası
+1468492,HSCS,2024-05-17,0.01,ters bölünme,satış belgesi var,-0.0598312439587465,2024-07-29,2024-04-30,False,sayı bölünmeden önceye ait
+1471727,SRXH,2019-03-18,0.0384615384615384,ters bölünme,satış belgesi var,-0.2532477072836738,2019-04-15,2019-02-28,False,sayı bölünmeden önceye ait
+1471727,SRXH,2021-06-29,0.1666666666666666,ters bölünme,satış belgesi var,-0.304700335367288,2021-08-12,2021-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1471727,SRXH,2024-03-21,0.025,ters bölünme,belge yok,0.1000001371693191,2024-04-12,2023-12-31,False,sayı bölünmeden önceye ait
+1471727,SRXH,2026-07-06,0.0166666666666666,ters bölünme,satış belgesi var,-0.6447956515774254,2026-08-13,2026-06-30,False,sayı bölünmeden önceye ait
+1472091,PDSB,2019-03-18,0.05,ters bölünme,belge yok,-0.6960142476093856,2019-05-14,2019-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1474627,NEGG,2020-10-26,0.125,ters bölünme,satış belgesi var,-0.3816420762363071,2021-03-31,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1474627,NEGG,2025-04-07,0.05,ters bölünme,belge yok,-0.0234803367902248,2025-04-28,2024-12-31,False,sayı bölünmeden önceye ait
+1477641,DQ,2012-12-21,0.2,ters bölünme,belge yok,-0.7967182876899843,2013-05-14,2012-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1477641,DQ,2020-11-17,5.0,bölünme,belge yok,3.756099081545222,2021-04-22,2020-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+1479419,KALA,2026-05-11,0.02,ters bölünme,belge yok,-0.9700376797380418,2026-05-15,2026-03-31,False,sayı bölünmeden önceye ait
+1479681,NUTX,2024-04-10,0.0666666666666666,ters bölünme,belge yok,-0.0926677162239738,2024-05-08,2024-03-31,False,sayı bölünmeden önceye ait
+1479681,NUTX,2024-07-03,0.1,ters bölünme,belge yok,-0.9335382618299236,2024-08-08,2024-06-30,False,birim/ölçek hatası olası
+1481241,PSHG,2017-09-25,0.3333333333333333,ters bölünme,satış belgesi var,-0.9996257364155724,2018-03-16,2017-12-31,False,birim/ölçek hatası olası
+1481241,PSHG,2017-11-02,0.1428571428571428,ters bölünme,satış belgesi var,-0.9996257364155724,2018-03-16,2017-12-31,False,birim/ölçek hatası olası
+1481241,PSHG,2022-11-15,0.0666666666666666,ters bölünme,satış belgesi var,-0.9190826795759276,2023-04-27,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1482541,BNC,2024-06-07,0.0833333333333333,ters bölünme,belge yok,-0.1354067182091513,2024-08-14,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1484612,OM,2025-03-20,0.0666666666666666,ters bölünme,belge yok,-0.8008351201895949,2025-05-07,2025-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1488039,ATOS,2016-08-26,0.0666666666666666,ters bölünme,satış belgesi var,-0.3035928419298971,2016-11-14,2016-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1490161,SOWG,2026-04-24,0.0666666666666666,ters bölünme,satış belgesi var,-0.0829227394830692,2026-05-20,2026-03-31,False,sayı bölünmeden önceye ait
+1491419,LVO,2025-09-26,0.1,ters bölünme,belge yok,-0.1582046048121532,2025-11-14,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1492674,TTOO,2023-10-13,0.01,ters bölünme,belge yok,-0.3827899739641153,2023-11-14,2023-09-30,False,sayı bölünmeden önceye ait
+1493761,TBCH,2012-03-22,0.2,ters bölünme,satış belgesi var,-0.3093556452440895,2012-05-07,2012-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1493761,TBCH,2018-04-09,0.25,ters bölünme,satış belgesi var,-0.7500040496646008,2018-05-09,2018-03-31,False,sayı bölünmeden önceye ait
+1494558,AMBO,2024-02-20,0.1,ters bölünme,belge yok,-0.9087523485176776,2024-04-25,2023-12-31,False,sayı bölünmeden önceye ait
+1495231,IZEA,2012-08-02,0.025,ters bölünme,satış belgesi var,-0.3999859269005666,2012-09-13,2012-06-30,False,sayı bölünmeden önceye ait
+1495932,AGNT,2021-02-16,2.0,bölünme,belge yok,-0.029408666481684,2021-03-10,2020-12-31,False,sayı bölünmeden önceye ait
+1496671,CALA,2022-06-15,0.05,ters bölünme,belge yok,-0.1909763617677287,2022-08-16,2022-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1497253,VIVS,2020-08-19,0.05,ters bölünme,belge yok,-0.029883713675842,2020-11-05,2020-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1497253,VIVS,2025-03-21,0.0833333333333333,ters bölünme,satış belgesi var,-0.2477725596062242,2025-06-05,2025-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1500198,NMTC,2021-04-01,0.3333333333333333,ters bölünme,satış belgesi var,-0.353780116291895,2021-05-14,2021-03-31,False,sayı bölünmeden önceye ait
+1500198,NMTC,2026-04-16,0.1666666666666666,ters bölünme,belge yok,-0.0247623323396243,2026-05-12,2026-03-31,False,sayı bölünmeden önceye ait
+1501697,XFOR,2019-03-14,0.1666666666666666,ters bölünme,satış belgesi var,-0.6388276163624884,2019-05-15,2019-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1501697,XFOR,2025-04-28,0.0333333333333333,ters bölünme,satış belgesi var,-0.9757588628835512,2025-08-08,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1505497,BRTX,2013-04-15,0.02,ters bölünme,belge yok,-0.09309822763817,2013-05-15,2013-03-31,False,sayı bölünmeden önceye ait
+1505497,BRTX,2015-07-07,0.05,ters bölünme,satış belgesi var,-0.3335876787492684,2015-08-14,2015-06-30,False,sayı bölünmeden önceye ait
+1505497,BRTX,2021-10-27,0.00025,ters bölünme,satış belgesi var,-0.0404156495967071,2021-11-15,2021-09-30,False,sayı bölünmeden önceye ait
+1506492,NUWE,2017-01-13,0.0333333333333333,ters bölünme,satış belgesi var,-0.1051125052214808,2017-03-08,2016-12-31,False,sayı bölünmeden önceye ait
+1506492,NUWE,2020-10-19,0.0333333333333333,ters bölünme,satış belgesi var,-0.4737345794073717,2020-11-12,2020-09-30,False,sayı bölünmeden önceye ait
+1506492,NUWE,2022-12-12,0.01,ters bölünme,satış belgesi var,-0.8035472805437793,2023-03-03,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1506492,NUWE,2024-06-28,0.0285714285714285,ters bölünme,satış belgesi var,-0.6232104632198477,2024-08-13,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1506492,NUWE,2025-07-07,0.0238095238095238,ters bölünme,satış belgesi var,-0.8024461447268272,2025-08-14,2025-06-30,False,sayı bölünmeden önceye ait
+1506492,NUWE,2026-06-26,0.0285714285714285,ters bölünme,satış belgesi var,-0.8689083939187081,2026-08-13,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1506983,GCTK,2021-08-13,0.0769230769230769,ters bölünme,belge yok,-0.9989999999850584,2021-08-16,2021-06-30,False,birim/ölçek hatası olası
+1506983,GCTK,2024-05-20,0.2,ters bölünme,satış belgesi var,-0.0232114055909385,2024-08-13,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1506983,GCTK,2025-02-04,0.05,ters bölünme,satış belgesi var,-0.635424433021858,2025-03-31,2024-12-31,False,sayı bölünmeden önceye ait
+1506983,GCTK,2025-06-16,0.0166666666666666,ters bölünme,belge yok,-0.5258770935020365,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1507605,MARA,2013-07-22,0.0769230769230769,ters bölünme,satış belgesi var,-0.3220640218204841,2013-08-14,2013-06-30,False,sayı bölünmeden önceye ait
+1507605,MARA,2014-12-23,2.0,bölünme,satış belgesi var,-0.1666368375685982,2015-03-26,2014-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1507605,MARA,2017-10-30,0.25,ters bölünme,satış belgesi var,-0.245839000331275,2017-11-20,2017-09-30,False,sayı bölünmeden önceye ait
+1509261,RZLT,2014-05-01,0.1666666666666666,ters bölünme,satış belgesi var,-0.5439296847206434,2014-05-14,2014-03-31,False,sayı bölünmeden önceye ait
+1509261,RZLT,2020-10-13,0.02,ters bölünme,satış belgesi var,-0.98,2020-11-12,2020-09-30,False,sayı bölünmeden önceye ait
+1509745,CYPH,2023-06-21,0.1,ters bölünme,satış belgesi var,-0.5329197798244143,2023-08-14,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1512922,PETV,2020-12-30,0.25,ters bölünme,belge yok,-0.0744059104813394,2021-02-11,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1513525,ADIL,2023-08-07,0.04,ters bölünme,satış belgesi var,-0.0475668111186259,2023-08-21,2023-06-30,False,sayı bölünmeden önceye ait
+1513525,ADIL,2026-02-06,0.04,ters bölünme,satış belgesi var,-0.141812116902638,2026-03-05,2025-12-31,False,sayı bölünmeden önceye ait
+1514183,SILO,2022-09-15,0.02,ters bölünme,satış belgesi var,-0.366666248247338,2022-11-10,2022-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1514183,SILO,2026-06-03,0.0666666666666666,ters bölünme,satış belgesi var,-0.0391370505902541,2026-08-13,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1514281,MITT,2021-07-23,0.3333333333333333,ters bölünme,satış belgesi var,-0.0410170749814402,2021-08-02,2021-06-30,False,sayı bölünmeden önceye ait
+1516551,SKYE,2023-09-08,0.004,ters bölünme,satış belgesi var,-0.6850452404628934,2023-11-13,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1517681,PPCB,2017-04-20,0.004,ters bölünme,satış belgesi var,-0.0734404613130809,2017-05-08,2017-03-31,False,sayı bölünmeden önceye ait
+1517681,PPCB,2019-06-24,0.002,ters bölünme,satış belgesi var,-0.2041492221534659,2019-10-15,2019-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1517681,PPCB,2020-11-19,0.001,ters bölünme,satış belgesi var,-0.5054047900450225,2021-02-12,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1517681,PPCB,2025-01-29,0.5,ters bölünme,satış belgesi var,23710.814757375243,2025-02-14,2024-12-31,False,birim/ölçek hatası olası
+1517681,PPCB,2026-05-18,0.04,ters bölünme,belge yok,-0.7359054882662247,2026-09-25,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1518461,AMPG,2021-02-17,0.05,ters bölünme,satış belgesi var,-0.4669954300573122,2021-03-31,2020-12-31,False,sayı bölünmeden önceye ait
+1522540,MQ,2026-07-01,0.25,ters bölünme,belge yok,0.0224201031670556,2026-08-04,2026-06-30,False,sayı bölünmeden önceye ait
+1525221,VTOL,2020-06-12,0.5,ters bölünme,satış belgesi var,-0.6408548959667565,2020-08-06,2020-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1526119,VSTM,2023-06-01,0.0833333333333333,ters bölünme,satış belgesi var,-0.3379387528721971,2023-08-08,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1527541,WHLR,2024-05-17,0.0416666666666666,ters bölünme,satış belgesi var,-0.8333185381604704,2024-08-06,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1527541,WHLR,2024-06-20,0.1666666666666666,ters bölünme,satış belgesi var,-0.8333185381604704,2024-08-06,2024-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1527541,WHLR,2024-06-28,0.2,ters bölünme,satış belgesi var,-0.8333185381604704,2024-08-06,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1527541,WHLR,2024-09-20,0.3333333333333333,ters bölünme,satış belgesi var,-0.7105587283690378,2024-11-07,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1527541,WHLR,2024-11-19,0.5,ters bölünme,satış belgesi var,-0.7513166235919442,2025-03-04,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1527541,WHLR,2025-01-28,0.25,ters bölünme,satış belgesi var,-0.7513166235919442,2025-03-04,2024-12-31,False,sayı bölünmeden önceye ait
+1527541,WHLR,2025-03-27,0.2,ters bölünme,satış belgesi var,-0.9721703138252756,2025-05-06,2025-03-31,False,birim/ölçek hatası olası
+1527541,WHLR,2025-05-27,0.1428571428571428,ters bölünme,satış belgesi var,-0.9230699162003664,2025-08-05,2025-06-30,False,birim/ölçek hatası olası
+1527541,WHLR,2025-09-23,0.2,ters bölünme,satış belgesi var,-0.768801658347123,2025-11-06,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1527541,WHLR,2025-12-01,0.5,ters bölünme,satış belgesi var,-0.7502194558128886,2026-03-05,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1527541,WHLR,2026-01-20,0.3333333333333333,ters bölünme,satış belgesi var,-0.7502194558128886,2026-03-05,2025-12-31,False,sayı bölünmeden önceye ait
+1527541,WHLR,2026-04-20,0.3333333333333333,ters bölünme,satış belgesi var,-0.8688541942971855,2026-05-08,2026-03-31,False,sayı bölünmeden önceye ait
+1527541,WHLR,2026-06-18,0.25,ters bölünme,satış belgesi var,-0.9468217497809645,2026-08-06,2026-06-30,False,birim/ölçek hatası olası
+1527541,WHLR,2026-07-28,0.2,ters bölünme,satış belgesi var,-0.9468217497809645,2026-08-06,2026-06-30,False,birim/ölçek hatası olası
+1527702,IQST,2025-05-02,0.0125,ters bölünme,belge yok,-0.0380718727204897,2025-05-15,2025-03-31,False,sayı bölünmeden önceye ait
+1527728,LNAI,2025-09-30,0.1,ters bölünme,satış belgesi var,-0.2347248179993708,2025-11-14,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1527762,CD,2020-05-19,0.5,ters bölünme,belge yok,-0.6499999999051624,2020-06-12,2019-12-31,False,sayı bölünmeden önceye ait
+1528393,ZAZA,2014-08-20,0.1,ters bölünme,belge yok,-0.0732344895102636,2014-11-12,2014-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1529113,XTIA,2017-03-01,0.0666666666666666,ters bölünme,satış belgesi var,-0.174090723840163,2017-04-17,2016-12-31,False,sayı bölünmeden önceye ait
+1529113,XTIA,2018-02-06,0.0333333333333333,ters bölünme,satış belgesi var,-0.4662787634514824,2018-03-27,2017-12-31,False,sayı bölünmeden önceye ait
+1529113,XTIA,2018-11-02,0.025,ters bölünme,satış belgesi var,-0.2535321045060037,2018-11-05,2018-09-30,False,sayı bölünmeden önceye ait
+1529113,XTIA,2020-01-07,0.0222222222222222,ters bölünme,satış belgesi var,-0.7349105052387426,2020-03-03,2019-12-31,False,sayı bölünmeden önceye ait
+1529113,XTIA,2022-10-07,0.0133333333333333,ters bölünme,satış belgesi var,-0.0810969716466215,2022-11-14,2022-09-30,False,sayı bölünmeden önceye ait
+1529113,XTIA,2024-03-13,0.01,ters bölünme,satış belgesi var,-0.4251513290896889,2024-04-16,2023-12-31,False,sayı bölünmeden önceye ait
+1529113,XTIA,2025-01-10,0.004,ters bölünme,satış belgesi var,-0.9097720562533048,2025-04-15,2024-12-31,False,birim/ölçek hatası olası
+1529192,VIPS,2014-11-04,10.0,bölünme,belge yok,8.749193879251543,2015-04-24,2014-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1530766,STEX,2018-09-11,0.4,ters bölünme,satış belgesi var,-0.1012499498100616,2018-11-02,2018-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1530766,STEX,2024-02-02,0.1,ters bölünme,satış belgesi var,-0.123413096596996,2024-04-16,2023-12-31,False,sayı bölünmeden önceye ait
+1533040,PHIO,2013-07-24,0.0333333333333333,ters bölünme,satış belgesi var,-0.0628567723937866,2013-08-14,2013-06-30,False,sayı bölünmeden önceye ait
+1533040,PHIO,2018-01-08,0.1,ters bölünme,belge yok,0.0749295547205142,2018-03-26,2017-03-31,False,sayı bölünmeden önceye ait
+1533040,PHIO,2020-01-15,0.0181818181818181,ters bölünme,satış belgesi var,-0.3032184767489122,2020-03-26,2019-12-31,False,sayı bölünmeden önceye ait
+1533743,PCSA,2017-12-08,0.1428571428571428,ters bölünme,belge yok,-0.9000001952141098,2018-04-16,2017-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1533743,PCSA,2024-01-22,0.05,ters bölünme,satış belgesi var,-0.0423221617418352,2024-03-29,2023-12-31,False,sayı bölünmeden önceye ait
+1533743,PCSA,2025-12-17,0.04,ters bölünme,belge yok,-0.1778430227449284,2026-03-18,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1533924,AMPY,2015-08-04,0.1,ters bölünme,satış belgesi var,-0.9342136591967696,2015-11-05,2015-09-30,False,birim/ölçek hatası olası
+1533998,DRIO,2025-08-28,0.05,ters bölünme,satış belgesi var,-0.6640536442271664,2025-11-13,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1534154,AUID,2023-07-10,0.125,ters bölünme,satış belgesi var,-0.5894513998924693,2023-08-10,2023-06-30,False,sayı bölünmeden önceye ait
+1534248,CMMB,2021-03-17,0.0625,ters bölünme,satış belgesi var,-0.9891628802101926,2021-05-13,2021-03-31,False,birim/ölçek hatası olası
+1534525,XBIO,2019-06-25,0.0833333333333333,ters bölünme,satış belgesi var,-0.0562799795133592,2019-08-14,2019-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1534708,BLNE,2017-06-15,0.3333333333333333,ters bölünme,satış belgesi var,-0.1012172394761489,2017-08-14,2017-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1534708,BLNE,2023-05-15,0.05,ters bölünme,belge yok,-0.1396104117433193,2023-08-14,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1534708,BLNE,2025-03-12,0.1,ters bölünme,satış belgesi var,-0.3302857447489071,2025-04-15,2024-12-31,False,sayı bölünmeden önceye ait
+1536196,CANF,2023-01-09,0.1,ters bölünme,satış belgesi var,-0.9,2023-03-30,2022-12-31,False,sayı bölünmeden önceye ait
+1536196,CANF,2026-01-05,0.05,ters bölünme,satış belgesi var,55.96519459216896,2026-03-26,2025-12-31,False,birim/ölçek hatası olası
+1538217,SRAX,2016-09-20,0.2,ters bölünme,satış belgesi var,0.0664406874927516,2016-11-14,2016-09-30,False,ilk rapordaki sayı az (geri alım vb.)
+1540159,EDSA,2018-05-07,0.1428571428571428,ters bölünme,satış belgesi var,-0.9597247809560792,2018-08-08,2018-06-30,False,birim/ölçek hatası olası
+1540159,EDSA,2019-06-10,0.1666666666666666,ters bölünme,satış belgesi var,-0.8816101954195821,2019-08-14,2019-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1540159,EDSA,2023-10-11,0.1428571428571428,ters bölünme,belge yok,0.2523599864601764,2023-12-15,2023-09-30,False,sayı bölünmeden önceye ait
+1541157,AKTX,2015-09-17,0.1,ters bölünme,satış belgesi var,-0.9952758261358085,2015-11-23,2015-09-30,False,birim/ölçek hatası olası
+1541157,AKTX,2026-03-31,0.025,ters bölünme,satış belgesi var,-0.9752812503119992,2026-05-19,2026-03-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1544227,TPST,2018-12-10,0.0666666666666666,ters bölünme,satış belgesi var,-0.8211986241352466,2019-03-29,2018-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1544227,TPST,2021-06-28,0.0666666666666666,ters bölünme,satış belgesi var,-0.808720791564846,2021-08-12,2021-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1544227,TPST,2025-04-09,0.0769230769230769,ters bölünme,belge yok,-0.038973025490251,2025-05-13,2025-03-31,False,sayı bölünmeden önceye ait
+1546296,IPDN,2023-01-05,0.5,ters bölünme,satış belgesi var,-0.1121580167738758,2023-03-31,2022-12-31,False,sayı bölünmeden önceye ait
+1546296,IPDN,2025-03-13,0.1,ters bölünme,satış belgesi var,-0.2793212214284735,2025-03-31,2024-12-31,False,sayı bölünmeden önceye ait
+1549084,CHRN,2016-05-05,0.1428571428571428,ters bölünme,belge yok,-0.0369593877027869,2016-05-10,2016-03-31,False,sayı bölünmeden önceye ait
+1549084,CHRN,2025-06-02,0.0666666666666666,ters bölünme,belge yok,-0.278387715930902,2025-07-28,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1553788,EDVA,2021-06-11,0.3333333333333333,ters bölünme,satış belgesi var,-0.1240178931009454,2021-08-16,2021-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1553788,EDVA,2025-03-28,0.025,ters bölünme,satış belgesi var,-0.3363101893300835,2025-07-11,2024-12-31,False,sayı bölünmeden önceye ait
+1554818,AUUD,2024-02-27,0.04,ters bölünme,satış belgesi var,-0.0658810389598225,2024-04-01,2023-12-31,False,sayı bölünmeden önceye ait
+1554818,AUUD,2025-03-31,0.0588235294117647,ters bölünme,belge yok,-0.220404331054381,2025-05-08,2025-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1554818,AUUD,2026-04-01,0.129,ters bölünme,satış belgesi var,-0.2012929025740945,2026-05-15,2026-03-31,False,sayı bölünmeden önceye ait
+1557798,CIIT,2015-07-02,0.4,ters bölünme,satış belgesi var,-0.2123427119039057,2015-11-12,2015-07-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1557798,CIIT,2017-04-06,0.025,ters bölünme,satış belgesi var,-0.56594699709166,2017-06-19,2017-04-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1558569,ISPC,2024-09-16,0.05,ters bölünme,satış belgesi var,-0.2109299212000631,2024-11-07,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1558569,ISPC,2026-04-28,0.025,ters bölünme,satış belgesi var,-0.714161944613758,2026-05-15,2026-03-31,False,sayı bölünmeden önceye ait
+1559998,VINO,2021-02-17,0.0666666666666666,ters bölünme,satış belgesi var,-0.1343417121053945,2021-04-12,2020-12-31,False,sayı bölünmeden önceye ait
+1559998,VINO,2022-11-04,0.0833333333333333,ters bölünme,satış belgesi var,-0.4972483131478502,2022-11-18,2022-09-30,False,sayı bölünmeden önceye ait
+1559998,VINO,2023-09-25,0.1,ters bölünme,satış belgesi var,-0.3573732879815169,2023-11-17,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1559998,VINO,2024-05-01,0.1,ters bölünme,satış belgesi var,-0.3795870201160586,2024-05-20,2024-03-31,False,sayı bölünmeden önceye ait
+1560293,TNON,2023-11-02,0.1,ters bölünme,satış belgesi var,-0.124903015523182,2023-11-14,2023-09-30,False,sayı bölünmeden önceye ait
+1560293,TNON,2024-09-06,0.125,ters bölünme,satış belgesi var,-0.8492980178972472,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1560385,FWONK,2014-11-05,1.323,bölünme,belge yok,0.3224510358390602,2015-02-26,2014-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1560385,FWONK,2016-04-18,1.365941,bölünme,belge yok,0.3647705137930592,2016-05-09,2016-03-31,False,sayı bölünmeden önceye ait
+1563568,AZIO,2025-08-08,0.1,ters bölünme,satış belgesi var,-0.2824231116333927,2025-08-18,2025-06-30,False,sayı bölünmeden önceye ait
+1566044,YARW,2021-02-16,0.25,ters bölünme,satış belgesi var,-0.0287084690528489,2021-03-04,2020-12-31,False,sayı bölünmeden önceye ait
+1566610,TONX,2019-02-04,0.0666666666666666,ters bölünme,satış belgesi var,-0.9348938725586096,2019-05-15,2019-03-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1566610,TONX,2023-04-19,0.025,ters bölünme,satış belgesi var,-0.2518064936053924,2023-05-22,2023-03-31,False,sayı bölünmeden önceye ait
+1566610,TONX,2024-10-09,0.005,ters bölünme,belge yok,-0.160110202691194,2024-11-05,2024-09-30,False,sayı bölünmeden önceye ait
+1567264,INTS,2026-02-19,0.04,ters bölünme,satış belgesi var,-0.2225136553144713,2026-03-27,2025-12-31,False,sayı bölünmeden önceye ait
+1567900,ALOY,2023-04-11,0.25,ters bölünme,belge yok,-0.75,2023-04-14,2022-12-31,False,sayı bölünmeden önceye ait
+1570585,LBTYA,2014-03-04,1.957,bölünme,satış belgesi var,-0.0246200321252058,2014-05-06,2014-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1570585,LBTYA,2024-11-13,1.941,bölünme,belge yok,1.0004021031067,2025-02-18,2024-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+1571934,TAOX,2021-05-19,0.25,ters bölünme,satış belgesi var,-0.4190683311480199,2021-08-13,2021-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1571934,TAOX,2024-04-05,0.04,ters bölünme,belge yok,-0.1120963992197096,2024-05-15,2024-03-31,False,sayı bölünmeden önceye ait
+1574235,PULM,2015-06-16,0.4,ters bölünme,satış belgesi var,-0.8730038041505634,2015-08-14,2015-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1574235,PULM,2019-02-06,0.1,ters bölünme,satış belgesi var,-0.0486548504750823,2019-02-19,2018-12-31,False,sayı bölünmeden önceye ait
+1574235,PULM,2022-03-01,0.05,ters bölünme,satış belgesi var,-0.1271195520101103,2022-03-29,2021-12-31,False,sayı bölünmeden önceye ait
+1575793,WATT,2023-08-16,0.05,ters bölünme,satış belgesi var,-0.0881673724993531,2023-11-13,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1575793,WATT,2025-08-11,0.0333333333333333,ters bölünme,satış belgesi var,-0.282850643671459,2025-11-13,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1576873,ABAT,2023-09-11,0.0666666666666666,ters bölünme,satış belgesi var,-0.0280956804858029,2023-09-27,2023-06-30,False,sayı bölünmeden önceye ait
+1577445,ODYS,2021-08-11,0.1111111111111111,ters bölünme,belge yok,-0.8889047630111402,2021-11-15,2021-09-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1579157,VNCE,2017-10-24,0.1,ters bölünme,satış belgesi var,-0.5740587969129434,2017-12-07,2017-10-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1580149,BIVI,2025-07-07,0.1,ters bölünme,satış belgesi var,-0.0326432016315748,2025-08-15,2025-06-30,False,sayı bölünmeden önceye ait
+1583771,HEPA,2019-06-03,0.0142857142857142,ters bölünme,satış belgesi var,-0.9140026846512628,2019-08-14,2019-06-30,False,birim/ölçek hatası olası
+1584509,ARMK,2023-10-02,1.385,bölünme,satış belgesi var,0.3824568056554274,2023-11-21,2023-09-30,False,sayı bölünmeden önceye ait
+1585689,HLT,2017-01-04,0.4873294346978557,ters bölünme,satış belgesi var,0.4645867705322484,2017-02-15,2016-12-31,False,sayı bölünmeden önceye ait
+1588084,TANH,2022-11-09,0.0416666666666666,ters bölünme,belge yok,-0.9958333333333332,2023-01-17,2021-12-31,False,birim/ölçek hatası olası
+1588084,TANH,2025-02-13,0.025,ters bölünme,satış belgesi var,-0.9161907433664884,2025-05-15,2024-12-31,False,birim/ölçek hatası olası
+1589149,GWAV,2022-02-28,0.0033333333333333,ters bölünme,belge yok,-0.4999160272948058,2022-04-14,2021-12-31,False,sayı bölünmeden önceye ait
+1589149,GWAV,2024-06-03,0.0066666666666666,ters bölünme,satış belgesi var,-0.9770652551388056,2024-08-16,2024-06-30,False,birim/ölçek hatası olası
+1589149,GWAV,2025-08-25,0.009090909090909,ters bölünme,belge yok,-0.5436200542491778,2025-11-19,2025-03-31,False,sayı bölünmeden önceye ait
+1590418,FCUV,2023-03-24,1.5,bölünme,satış belgesi var,0.49993108346103,2023-03-31,2022-12-31,False,sayı bölünmeden önceye ait
+1590418,FCUV,2026-02-09,0.1,ters bölünme,satış belgesi var,-0.192795408574173,2026-03-31,2025-12-31,False,sayı bölünmeden önceye ait
+1590418,FCUV,2026-06-23,0.25,ters bölünme,satış belgesi var,-0.6353104611203211,2026-08-14,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1590750,VRDN,2016-11-07,0.0666666666666666,ters bölünme,satış belgesi var,-0.0308928325248026,2017-03-24,2016-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1590750,VRDN,2020-11-13,0.0666666666666666,ters bölünme,satış belgesi var,-0.1007223357326108,2021-03-26,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1591890,FGC,2024-11-01,0.04,ters bölünme,belge yok,-0.0976521602941246,2024-11-14,2024-09-30,False,sayı bölünmeden önceye ait
+1591890,FGC,2026-02-13,0.2,ters bölünme,satış belgesi var,0.1251408361292953,2026-03-26,2025-12-31,False,sayı bölünmeden önceye ait
+1591956,DRK,2018-11-06,0.125,ters bölünme,belge yok,-0.8911741074586969,2019-03-29,2018-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1591956,DRK,2023-06-29,0.1428571428571428,ters bölünme,satış belgesi var,-0.0752653502856377,2023-08-14,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1591956,DRK,2026-02-10,0.1,ters bölünme,satış belgesi var,-0.1345438713931532,2026-03-27,2025-12-31,False,sayı bölünmeden önceye ait
+1592560,VSA,2021-12-23,0.2,ters bölünme,belge yok,-0.8036993466320265,2022-04-26,2021-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1592560,VSA,2025-12-22,0.02,ters bölünme,satış belgesi var,-0.9981975830215644,2026-05-11,2025-12-31,False,birim/ölçek hatası olası
+1595248,GNPX,2025-10-21,0.02,ters bölünme,satış belgesi var,-0.3399024741921062,2025-11-14,2025-09-30,False,sayı bölünmeden önceye ait
+1595248,GNPX,2026-07-16,0.0454545454545454,ters bölünme,belge yok,-0.1878403806624454,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+1596812,ENLV,2019-03-06,0.125,ters bölünme,belge yok,-0.880948729200534,2019-04-30,2018-12-31,False,sayı bölünmeden önceye ait
+1600983,KSCP,2024-09-16,0.02,ters bölünme,satış belgesi var,-0.2515571152179608,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1601485,ELTX,2023-06-02,0.1,ters bölünme,belge yok,-0.6402243034512156,2023-08-11,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1603978,AQB,2023-10-16,0.05,ters bölünme,belge yok,-0.0726556057910372,2023-11-07,2023-09-30,False,sayı bölünmeden önceye ait
+1604191,GRDX,2021-09-13,0.1,ters bölünme,satış belgesi var,-0.257009617796414,2021-11-16,2021-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1604191,GRDX,2022-08-26,0.0333333333333333,ters bölünme,satış belgesi var,-0.6720165686464893,2022-11-14,2022-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1604191,GRDX,2023-01-18,0.1428571428571428,ters bölünme,satış belgesi var,-0.6687722836729423,2023-03-20,2022-12-31,False,sayı bölünmeden önceye ait
+1604191,GRDX,2023-12-18,0.05,ters bölünme,satış belgesi var,-0.5687541239642844,2024-03-29,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1604191,GRDX,2025-08-18,0.3333333333333333,ters bölünme,satış belgesi var,-0.3763311134640704,2025-11-19,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1605888,CIRC,2023-08-31,0.025,ters bölünme,belge yok,-0.0879776722851557,2023-11-20,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1606698,ALPP,2023-05-15,0.125,ters bölünme,belge yok,-0.9570908980511516,2023-06-21,2023-03-31,False,birim/ölçek hatası olası
+1607962,LFWD,2019-04-01,0.04,ters bölünme,satış belgesi var,-0.2387079471765064,2019-05-08,2019-03-31,False,sayı bölünmeden önceye ait
+1607962,LFWD,2026-02-24,0.0833333333333333,ters bölünme,satış belgesi var,-0.0781883535561793,2026-03-18,2025-12-31,False,sayı bölünmeden önceye ait
+1610590,MBAI,2022-11-25,0.05,ters bölünme,belge yok,-0.1751855645249187,2023-03-31,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1610820,BCTX,2025-08-25,0.1,ters bölünme,satış belgesi var,-0.6518885761816141,2025-10-15,2025-07-31,False,sayı bölünmeden önceye ait
+1610853,HSDT,2018-01-23,0.2,ters bölünme,belge yok,-0.0444114066320794,2018-03-12,2017-12-31,False,sayı bölünmeden önceye ait
+1610853,HSDT,2021-01-04,0.0285714285714285,ters bölünme,satış belgesi var,-0.1270013263995865,2021-03-10,2020-12-31,False,sayı bölünmeden önceye ait
+1610853,HSDT,2023-08-17,0.02,ters bölünme,belge yok,-0.1779353561142136,2023-11-09,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1610853,HSDT,2025-05-02,0.0666666666666666,ters bölünme,satış belgesi var,-0.9879950955827425,2025-08-14,2025-06-30,False,birim/ölçek hatası olası
+1610853,HSDT,2025-07-01,0.02,ters bölünme,satış belgesi var,-0.9879950955827425,2025-08-14,2025-06-30,False,birim/ölçek hatası olası
+1611842,PYPD,2023-09-21,0.0333333333333333,ters bölünme,satış belgesi var,-0.5998160533330431,2024-03-06,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1615219,DCOY,2019-07-22,0.04,ters bölünme,satış belgesi var,-0.8075851236254667,2019-11-12,2019-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1615219,DCOY,2024-06-17,0.125,ters bölünme,satış belgesi var,-0.1588841692699519,2024-08-09,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1615219,DCOY,2025-08-18,0.0666666666666666,ters bölünme,satış belgesi var,-0.8498460370012348,2025-11-14,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1615219,DCOY,2026-03-09,0.0833333333333333,ters bölünme,belge yok,-0.8520445152089349,2026-03-31,2025-12-31,False,sayı bölünmeden önceye ait
+1617867,AMIX,2024-10-25,0.05,ters bölünme,belge yok,-0.1649272211227996,2024-11-08,2024-09-30,False,sayı bölünmeden önceye ait
+1619544,JFU,2023-01-18,0.05,ters bölünme,belge yok,-0.9508797391953494,2023-05-16,2022-12-31,False,sayı bölünmeden önceye ait
+1621221,ARTL,2025-06-13,0.1666666666666666,ters bölünme,satış belgesi var,-0.2237091717831328,2025-08-13,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1621672,SLE,2023-09-11,0.05,ters bölünme,satış belgesi var,-0.4204576405516914,2023-11-14,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1621672,SLE,2025-06-23,0.025,ters bölünme,satış belgesi var,-0.4961705902233414,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1621672,SLE,2026-01-23,0.0833333333333333,ters bölünme,belge yok,-0.8857492824592597,2026-03-31,2025-12-31,False,sayı bölünmeden önceye ait
+1621832,AQMS,2024-11-05,0.05,ters bölünme,satış belgesi var,-0.0200019350854279,2024-11-14,2024-09-30,False,sayı bölünmeden önceye ait
+1621832,AQMS,2025-08-04,0.1,ters bölünme,satış belgesi var,-0.1862857971336019,2025-08-13,2025-06-30,False,sayı bölünmeden önceye ait
+1622194,DEA,2025-04-28,0.4,ters bölünme,belge yok,-0.6057469978192718,2025-08-05,2025-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1622229,COGT,2020-11-09,0.25,ters bölünme,satış belgesi var,-0.9174808615890272,2021-03-16,2020-12-31,False,birim/ölçek hatası olası
+1624326,PAVM,2023-12-07,0.0666666666666666,ters bölünme,belge yok,-0.0697527599505974,2024-03-25,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1624326,PAVM,2026-01-02,0.0333333333333333,ters bölünme,satış belgesi var,-0.1718700539765399,2026-03-27,2025-12-31,False,sayı bölünmeden önceye ait
+1624512,BOXL,2025-12-23,0.1666666666666666,ters bölünme,belge yok,-0.3294064763517541,2026-04-15,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1624512,BOXL,2026-06-22,0.1666666666666666,ters bölünme,satış belgesi var,-0.1504414987882384,2026-08-14,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1627282,CWD,2025-05-02,0.05,ters bölünme,satış belgesi var,-0.3492199686649681,2025-05-15,2025-03-31,False,sayı bölünmeden önceye ait
+1630113,BTCY,2023-07-03,0.1666666666666666,ters bölünme,satış belgesi var,-0.8333333333333334,2023-08-14,2023-06-30,False,sayı bölünmeden önceye ait
+1630212,CHGA,2024-10-28,0.0666666666666666,ters bölünme,belge yok,-0.2989512478131323,2024-11-12,2024-09-30,False,sayı bölünmeden önceye ait
+1635077,ACON,2024-01-04,0.0625,ters bölünme,satış belgesi var,-0.3768232280464566,2024-03-28,2023-12-31,False,sayı bölünmeden önceye ait
+1635077,ACON,2025-01-30,0.0029850746268656,ters bölünme,satış belgesi var,-0.9980929833745168,2025-05-15,2025-03-31,False,birim/ölçek hatası olası
+1635077,ACON,2025-03-28,0.037037037037037,ters bölünme,satış belgesi var,-0.9980929833745168,2025-05-15,2025-03-31,False,birim/ölçek hatası olası
+1636282,SYRE,2023-09-08,0.04,ters bölünme,belge yok,-0.1997239994101791,2023-11-09,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1636519,MSGS,2020-04-20,1.402,bölünme,belge yok,0.3958642047349114,2020-05-08,2020-03-31,False,sayı bölünmeden önceye ait
+1638287,MTVA,2019-12-31,0.04,ters bölünme,belge yok,-0.961847803570872,2020-03-30,2019-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1638287,MTVA,2023-12-21,0.125,ters bölünme,belge yok,-0.0208689782292492,2024-03-28,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1638287,MTVA,2025-12-05,0.0909090909090909,ters bölünme,satış belgesi var,-0.0463244125905815,2026-03-26,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1640384,PWCM,2021-05-07,0.2,ters bölünme,belge yok,-0.4304411506131175,2021-05-14,2021-03-31,False,sayı bölünmeden önceye ait
+1640384,PWCM,2024-03-12,0.1666666666666666,ters bölünme,belge yok,-0.0204509571738701,2024-04-01,2023-12-31,False,sayı bölünmeden önceye ait
+1640384,PWCM,2026-07-13,0.04,ters bölünme,belge yok,-0.3085033092176636,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+1641398,GDC,2018-06-21,2.0,bölünme,satış belgesi var,-0.0548329214484416,2018-08-14,2018-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1641398,GDC,2022-11-09,0.0333333333333333,ters bölünme,satış belgesi var,-0.1633786321027222,2022-11-14,2022-09-30,False,sayı bölünmeden önceye ait
+1641398,GDC,2026-06-29,0.004,ters bölünme,satış belgesi var,-0.9416122897297298,2026-08-14,2026-06-30,False,birim/ölçek hatası olası
+1641631,XAIR,2025-07-14,0.05,ters bölünme,belge yok,-0.1203310304682179,2025-08-12,2025-06-30,False,sayı bölünmeden önceye ait
+1641631,XAIR,2026-07-13,0.05,ters bölünme,satış belgesi var,-0.2068604741881416,2026-08-13,2026-06-30,False,sayı bölünmeden önceye ait
+1642380,IMDX,2023-07-25,0.05,ters bölünme,belge yok,-0.2763022501834744,2023-08-10,2023-06-30,False,sayı bölünmeden önceye ait
+1644903,YCBD,2023-04-25,0.0222222222222222,ters bölünme,satış belgesi var,-0.0738190011362875,2023-05-15,2023-03-31,False,sayı bölünmeden önceye ait
+1644903,YCBD,2025-05-07,0.125,ters bölünme,belge yok,-0.1154834015229365,2025-05-15,2025-03-31,False,sayı bölünmeden önceye ait
+1644963,ATXI,2024-04-26,0.0133333333333333,ters bölünme,satış belgesi var,-0.4217069363208559,2024-05-15,2024-03-31,False,sayı bölünmeden önceye ait
+1645590,HPE,2017-04-03,1.3348,bölünme,satış belgesi var,0.3485859052247873,2017-06-08,2017-04-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1648087,AREB,2025-03-31,0.04,ters bölünme,satış belgesi var,3.913630090438601,2025-04-09,2024-12-31,False,sayı bölünmeden önceye ait
+1648087,AREB,2025-10-03,0.05,ters bölünme,satış belgesi var,-0.351220561238862,2025-11-10,2025-09-30,False,sayı bölünmeden önceye ait
+1648087,AREB,2026-02-02,0.05,ters bölünme,satış belgesi var,-0.9960667980368828,2026-03-31,2025-12-31,False,birim/ölçek hatası olası
+1648087,AREB,2026-03-23,0.01,ters bölünme,satış belgesi var,-0.9960667980368828,2026-03-31,2025-12-31,False,birim/ölçek hatası olası
+1649989,OTLK,2019-03-18,0.125,ters bölünme,satış belgesi var,-0.0955095313372954,2019-05-15,2019-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1649989,OTLK,2024-03-14,0.05,ters bölünme,satış belgesi var,-0.4088503103213412,2024-05-15,2024-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1651721,GIPR,2026-07-10,0.1,ters bölünme,satış belgesi var,-0.2349848893926835,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+1659166,FTV,2025-06-30,1.327,bölünme,belge yok,0.3336703134240095,2025-07-30,2025-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1659494,COE,2022-12-15,0.25,ters bölünme,satış belgesi var,-0.7531336537720836,2023-04-06,2022-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1659617,MBRX,2021-02-01,0.1666666666666666,ters bölünme,satış belgesi var,-0.1077154078455574,2021-03-24,2020-12-31,False,sayı bölünmeden önceye ait
+1659617,MBRX,2024-03-22,0.0666666666666666,ters bölünme,satış belgesi var,-0.1078120800628742,2024-03-22,2023-12-31,False,sayı bölünmeden önceye ait
+1659617,MBRX,2025-12-01,0.04,ters bölünme,satış belgesi var,-0.3811184948368794,2026-03-18,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1661053,NVNO,2020-11-30,0.04,ters bölünme,satış belgesi var,-0.3666374218039613,2021-03-31,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1661053,NVNO,2026-01-20,0.0285714285714285,ters bölünme,belge yok,-0.1195121951219512,2026-03-26,2025-12-31,False,sayı bölünmeden önceye ait
+1661998,QTTB,2024-03-26,0.0555555555555555,ters bölünme,satış belgesi var,-0.7298139777999822,2024-05-09,2024-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1662684,KULR,2025-06-23,0.125,ters bölünme,satış belgesi var,-0.0985508446291376,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1662774,QNCX,2026-04-13,0.1,ters bölünme,belge yok,-0.5959239837822246,2026-05-11,2026-03-31,False,sayı bölünmeden önceye ait
+1662774,QNCX,2026-06-30,0.05,ters bölünme,satış belgesi var,-0.9322028527239709,2026-08-14,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1665300,PHUN,2024-02-27,0.02,ters bölünme,satış belgesi var,-0.3324295485749775,2024-03-15,2023-12-31,False,sayı bölünmeden önceye ait
+1668010,DBGI,2022-11-04,0.01,ters bölünme,satış belgesi var,-0.9971128175685374,2022-11-14,2022-09-30,False,birim/ölçek hatası olası
+1668010,DBGI,2023-08-22,0.04,ters bölünme,satış belgesi var,-0.4514661038938573,2023-11-14,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1668010,DBGI,2024-12-13,0.02,ters bölünme,satış belgesi var,-0.9100898896234604,2025-04-09,2024-12-31,False,birim/ölçek hatası olası
+1668010,DBGI,2026-07-24,0.025,ters bölünme,satış belgesi var,-0.3109195045421836,2026-08-19,2026-06-30,False,sayı bölünmeden önceye ait
+1671502,QNRX,2023-07-18,0.0833333333333333,ters bölünme,satış belgesi var,-0.9166666666666666,2023-08-03,2023-06-30,False,sayı bölünmeden önceye ait
+1671502,QNRX,2025-04-09,0.0285714285714285,ters bölünme,belge yok,-0.9875806888247192,2025-05-13,2025-03-31,False,birim/ölçek hatası olası
+1671584,APVO,2024-03-06,0.0227272727272727,ters bölünme,satış belgesi var,-0.3429775383282059,2024-05-08,2024-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1671584,APVO,2024-12-04,0.027027027027027,ters bölünme,satış belgesi var,-0.6840292714234993,2025-02-14,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1671584,APVO,2025-05-27,0.05,ters bölünme,satış belgesi var,-0.9773816155297697,2025-08-11,2025-06-30,False,birim/ölçek hatası olası
+1671584,APVO,2025-12-30,0.0555555555555555,ters bölünme,satış belgesi var,-0.2311668542960446,2026-03-26,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1673481,SEGG,2025-08-29,0.1,ters bölünme,belge yok,-0.8785432167568162,2025-10-15,2025-03-31,False,sayı bölünmeden önceye ait
+1674227,WORX,2019-02-04,0.0526315789473684,ters bölünme,belge yok,-0.9512627486074188,2019-04-01,2018-12-31,False,sayı bölünmeden önceye ait
+1674227,WORX,2023-10-11,0.0666666666666666,ters bölünme,belge yok,-0.9398384874566766,2023-11-14,2023-09-30,False,sayı bölünmeden önceye ait
+1674227,WORX,2026-08-04,0.0833333333333333,ters bölünme,belge yok,-0.9336015613233908,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+1674440,YYAI,2023-09-25,0.025,ters bölünme,belge yok,-0.3591126298275402,2023-10-05,2023-07-31,False,sayı bölünmeden önceye ait
+1674440,YYAI,2024-06-27,0.05,ters bölünme,belge yok,-0.9907418298249808,2024-07-24,2024-04-30,False,birim/ölçek hatası olası
+1674440,YYAI,2025-10-27,0.02,ters bölünme,satış belgesi var,-0.984655593975935,2025-12-23,2025-10-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1674862,ASH,2017-05-15,2.044,bölünme,belge yok,1.044,2017-11-20,2017-09-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1677077,ALZN,2024-07-16,0.1,ters bölünme,satış belgesi var,-0.0379686598381682,2024-07-30,2024-04-30,False,sayı bölünmeden önceye ait
+1677077,ALZN,2025-05-12,0.1111111111111111,ters bölünme,satış belgesi var,-0.1728966582042026,2025-07-22,2025-04-30,False,sayı bölünmeden önceye ait
+1679628,JUNS,2026-08-07,0.0133333333333333,ters bölünme,satış belgesi var,-0.2721931785698165,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+1680048,MBIO,2025-01-16,0.02,ters bölünme,satış belgesi var,-0.5885776940268883,2025-03-28,2024-12-31,False,sayı bölünmeden önceye ait
+1680378,SNES,2022-11-16,0.05,ters bölünme,satış belgesi var,-0.2457864405272413,2023-03-16,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1680378,SNES,2023-11-17,0.0833333333333333,ters bölünme,satış belgesi var,-0.946830906496416,2024-02-21,2023-12-31,False,birim/ölçek hatası olası
+1681087,TECX,2024-06-21,0.0833333333333333,ters bölünme,satış belgesi var,-0.7461595848912321,2024-08-14,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1681459,FTI,2021-02-16,1.344,bölünme,belge yok,0.3437010011123471,2021-03-05,2020-12-31,False,sayı bölünmeden önceye ait
+1681682,NDRA,2024-08-20,0.02,ters bölünme,belge yok,-0.9226081915235436,2024-11-21,2024-09-30,False,birim/ölçek hatası olası
+1681682,NDRA,2024-11-07,0.0285714285714285,ters bölünme,belge yok,-0.9226081915235436,2024-11-21,2024-09-30,False,birim/ölçek hatası olası
+1682149,DVLT,2020-04-09,0.05,ters bölünme,satış belgesi var,-0.0709272652160498,2020-05-27,2020-03-31,False,sayı bölünmeden önceye ait
+1682149,DVLT,2023-01-27,0.01,ters bölünme,satış belgesi var,-0.7597499593019013,2023-03-16,2022-12-31,False,sayı bölünmeden önceye ait
+1682149,DVLT,2024-04-15,0.0066666666666666,ters bölünme,satış belgesi var,-0.8734465820052223,2024-05-20,2024-03-31,False,sayı bölünmeden önceye ait
+1682639,HYPD,2025-02-03,0.0125,ters bölünme,satış belgesi var,-0.2832436972614279,2025-04-15,2024-12-31,False,sayı bölünmeden önceye ait
+1683553,SPRB,2025-08-05,0.0133333333333333,ters bölünme,satış belgesi var,-0.986665676805638,2025-08-14,2025-06-30,False,sayı bölünmeden önceye ait
+1683553,SPRB,2025-08-07,0.0133333333333333,ters bölünme,satış belgesi var,-0.986665676805638,2025-08-14,2025-06-30,False,sayı bölünmeden önceye ait
+1683825,TRVG,2023-11-17,0.2,ters bölünme,belge yok,-0.8037968529303415,2024-03-01,2023-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1686850,MOTS,2023-11-02,0.0666666666666666,ters bölünme,satış belgesi var,-0.3332138119467345,2023-11-13,2023-09-30,False,sayı bölünmeden önceye ait
+1687277,RETO,2024-03-01,0.1,ters bölünme,satış belgesi var,-0.9639899459669364,2024-05-15,2023-12-31,False,birim/ölçek hatası olası
+1687277,RETO,2025-11-03,0.2,ters bölünme,satış belgesi var,-0.7953290316974081,2026-05-01,2025-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1687542,FRGT,2022-02-15,0.454,ters bölünme,satış belgesi var,-0.6140618317898985,2022-04-29,2021-12-31,False,sayı bölünmeden önceye ait
+1687542,FRGT,2023-03-24,0.1,ters bölünme,satış belgesi var,-0.7922562053284903,2023-04-21,2022-12-31,False,sayı bölünmeden önceye ait
+1687542,FRGT,2024-02-05,0.1,ters bölünme,belge yok,-0.992486587126196,2024-05-09,2023-12-31,False,birim/ölçek hatası olası
+1687542,FRGT,2025-05-27,0.25,ters bölünme,satış belgesi var,-0.7865008471822048,2025-08-18,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1687542,FRGT,2025-12-15,0.2,ters bölünme,belge yok,-0.6805637870515173,2026-05-14,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1687932,JILL,2020-11-10,0.2,ters bölünme,satış belgesi var,-0.0685554724876652,2020-12-11,2020-10-31,False,sayı bölünmeden önceye ait
+1689548,PRAX,2023-11-29,0.0666666666666666,ters bölünme,satış belgesi var,-0.025256791012886,2024-03-05,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1690080,FRMM,2022-12-19,0.05,ters bölünme,satış belgesi var,-0.4762877558177333,2023-03-31,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1690080,FRMM,2024-02-28,0.0526315789473684,ters bölünme,satış belgesi var,-0.3367440114389644,2024-03-22,2023-12-31,False,sayı bölünmeden önceye ait
+1690080,FRMM,2025-10-20,0.1,ters bölünme,satış belgesi var,-0.9637660984517816,2025-11-14,2025-09-30,False,birim/ölçek hatası olası
+1691221,FRSX,2026-02-26,0.3333333333333333,ters bölünme,belge yok,-0.8277497167130737,2026-03-25,2025-12-31,False,sayı bölünmeden önceye ait
+1692415,CODX,2026-01-02,0.0333333333333333,ters bölünme,satış belgesi var,-0.2340195761621983,2026-03-31,2025-12-31,False,sayı bölünmeden önceye ait
+1697818,AMBR,2022-11-14,0.1,ters bölünme,belge yok,-0.901786475419483,2023-05-11,2022-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1698530,XCUR,2022-06-30,0.0333333333333333,ters bölünme,satış belgesi var,-0.1751500685881007,2022-08-15,2022-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1698530,XCUR,2024-08-28,0.2,ters bölünme,satış belgesi var,-0.2035118166129069,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1701261,FAMI,2023-09-25,0.125,ters bölünme,belge yok,-0.5096267023493957,2024-01-29,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1701478,AZTR,2025-08-21,0.15,ters bölünme,belge yok,-0.5189147319738416,2025-11-12,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1701756,SDOT,2024-10-18,0.1,ters bölünme,belge yok,-0.0844274917421474,2024-11-12,2024-09-30,False,sayı bölünmeden önceye ait
+1701756,SDOT,2025-09-15,0.1,ters bölünme,satış belgesi var,-0.3459591599193684,2025-11-19,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1701756,SDOT,2026-05-27,0.05,ters bölünme,satış belgesi var,-0.9071809446820702,2026-08-14,2026-06-30,False,birim/ölçek hatası olası
+1703647,KRRO,2023-11-06,0.02,ters bölünme,satış belgesi var,-0.9078744806347296,2024-03-26,2023-12-31,False,birim/ölçek hatası olası
+1704287,BJDX,2024-06-20,0.125,ters bölünme,satış belgesi var,-0.869950287493547,2024-08-14,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1704287,BJDX,2024-11-18,0.02,ters bölünme,belge yok,-0.3564298246247372,2025-03-31,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1704287,BJDX,2026-01-29,0.25,ters bölünme,satış belgesi var,-0.3221502016429183,2026-03-06,2025-12-31,False,sayı bölünmeden önceye ait
+1705843,CBUS,2023-06-01,0.2,ters bölünme,satış belgesi var,-0.9953192344669548,2023-08-10,2023-06-30,False,birim/ölçek hatası olası
+1706946,SPCE,2024-06-17,0.05,ters bölünme,belge yok,-0.1551266061602169,2024-08-07,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1707910,REBN,2024-01-22,0.125,ters bölünme,satış belgesi var,-0.8889545805287423,2024-03-28,2023-12-31,False,sayı bölünmeden önceye ait
+1707919,CENN,2023-12-01,0.1,ters bölünme,belge yok,-0.9012451641774448,2024-04-01,2023-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1707919,CENN,2023-12-08,0.1,ters bölünme,belge yok,-0.9012451641774448,2024-04-01,2023-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1707919,CENN,2026-04-13,0.0166666666666666,ters bölünme,belge yok,-0.9833333333333332,2026-05-14,2026-03-31,False,sayı bölünmeden önceye ait
+1708341,AIFA,2026-06-12,0.1666666666666666,ters bölünme,satış belgesi var,-0.0404618596686288,2026-06-15,2026-03-31,False,sayı bölünmeden önceye ait
+1708441,MYND,2023-11-01,2.0,bölünme,satış belgesi var,-0.876441948482842,2024-03-26,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1709819,FEDU,2022-06-21,0.05,ters bölünme,belge yok,-0.9455449731967042,2022-06-30,2022-02-28,False,sayı bölünmeden önceye ait
+1711012,VAI,2025-07-29,0.1,ters bölünme,belge yok,-0.0509856430319257,2025-08-19,2025-06-30,False,sayı bölünmeden önceye ait
+1712184,LILAK,2026-06-17,1.472,bölünme,belge yok,0.483056584877316,2026-08-05,2026-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1712762,BIAF,2025-09-19,0.0333333333333333,ters bölünme,satış belgesi var,-0.7263184623580843,2025-11-14,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1713210,ATPC,2024-08-30,0.05,ters bölünme,belge yok,-0.0351704388206131,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1713539,KXIN,2024-10-25,0.0166666666666666,ters bölünme,satış belgesi var,-0.8740189926022965,2025-03-31,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1713539,KXIN,2025-12-01,0.0333333333333333,ters bölünme,belge yok,-0.9993755773357051,2026-04-07,2025-12-31,False,birim/ölçek hatası olası
+1713539,KXIN,2026-03-13,0.0666666666666666,ters bölünme,belge yok,-0.9993755773357051,2026-04-07,2025-12-31,False,birim/ölçek hatası olası
+1715497,BORR,2021-12-14,0.5,ters bölünme,satış belgesi var,-0.2001460297566931,2022-04-11,2021-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1716621,VJET,2020-11-17,0.04,ters bölünme,belge yok,-0.0909296671129329,2021-03-16,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1716621,VJET,2022-10-03,0.02,ters bölünme,satış belgesi var,-0.5463246661981729,2022-11-14,2022-09-30,False,sayı bölünmeden önceye ait
+1716621,VJET,2025-08-15,0.0526315789473684,ters bölünme,satış belgesi var,-0.3972972675023594,2025-11-13,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1716947,ENSC,2022-10-28,0.05,ters bölünme,satış belgesi var,-0.1952218569956936,2022-11-14,2022-09-30,False,sayı bölünmeden önceye ait
+1716947,ENSC,2023-03-31,0.0833333333333333,ters bölünme,satış belgesi var,-0.5839068657559172,2023-05-15,2023-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1716947,ENSC,2024-12-06,0.0666666666666666,ters bölünme,belge yok,-0.3179531775107879,2025-03-10,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1718405,HYMC,2023-11-15,0.1,ters bölünme,belge yok,-0.0252369143040337,2024-03-13,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1719406,NRXP,2024-04-02,0.1,ters bölünme,satış belgesi var,-0.1412834279099922,2024-05-14,2024-03-31,False,sayı bölünmeden önceye ait
+1720580,ACET,2020-09-16,0.1428571428571428,ters bölünme,satış belgesi var,-0.7342273220420427,2020-11-05,2020-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1720580,ACET,2025-12-30,0.0625,ters bölünme,belge yok,-0.4572352119118327,2026-03-12,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1723980,SXTC,2021-02-22,0.25,ters bölünme,belge yok,-0.4417472287124316,2021-08-13,2021-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1723980,SXTC,2026-02-03,0.0066666666666666,ters bölünme,satış belgesi var,-0.9042299105395496,2026-07-01,2026-03-31,False,birim/ölçek hatası olası
+1725033,XYF,2020-11-19,0.3333333333333333,ters bölünme,belge yok,-0.6691941235422716,2021-05-14,2020-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1725123,CANG,2025-11-17,2.0,bölünme,belge yok,0.1682833695839334,2026-04-10,2025-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+1725430,INBS,2023-02-10,0.05,ters bölünme,satış belgesi var,-0.1886937285457417,2023-02-14,2022-12-31,False,sayı bölünmeden önceye ait
+1725430,INBS,2024-01-29,0.0833333333333333,ters bölünme,satış belgesi var,-0.8684319845460585,2024-02-09,2023-12-31,False,sayı bölünmeden önceye ait
+1725430,INBS,2025-12-16,0.1,ters bölünme,satış belgesi var,-0.2653337198429629,2026-02-12,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1726711,ADTX,2022-09-14,0.02,ters bölünme,satış belgesi var,-0.7032075117209831,2022-11-14,2022-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1726711,ADTX,2023-08-18,0.025,ters bölünme,satış belgesi var,-0.5404570736521037,2023-11-14,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1726711,ADTX,2024-10-02,0.025,ters bölünme,satış belgesi var,-0.9061971276990164,2024-11-18,2024-09-30,False,birim/ölçek hatası olası
+1726711,ADTX,2025-03-17,0.004,ters bölünme,belge yok,-0.9995902567108012,2025-03-31,2024-12-31,False,birim/ölçek hatası olası
+1726711,ADTX,2025-11-03,0.0088495575221238,ters bölünme,satış belgesi var,-0.447849170642925,2025-11-17,2025-09-30,False,sayı bölünmeden önceye ait
+1726711,ADTX,2026-03-09,0.125,ters bölünme,satış belgesi var,-0.9998631218514772,2026-03-31,2025-12-31,False,birim/ölçek hatası olası
+1728328,INM,2022-09-07,0.04,ters bölünme,satış belgesi var,-0.1218950400127868,2022-09-23,2022-06-30,False,sayı bölünmeden önceye ait
+1728328,INM,2024-11-14,0.05,ters bölünme,satış belgesi var,-0.9539452352544768,2025-02-12,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1729173,UXIN,2024-01-16,0.1,ters bölünme,belge yok,-0.9987488565571594,2024-07-31,2024-03-31,False,birim/ölçek hatası olası
+1729427,CNSP,2022-11-29,0.0333333333333333,ters bölünme,satış belgesi var,-0.1749240051731512,2023-03-31,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1729427,CNSP,2024-06-05,0.02,ters bölünme,satış belgesi var,-0.8521565274507821,2024-08-14,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1729427,CNSP,2025-02-21,0.02,ters bölünme,satış belgesi var,-0.5267763993785884,2025-03-31,2024-12-31,False,sayı bölünmeden önceye ait
+1729427,CNSP,2025-07-22,0.0833333333333333,ters bölünme,belge yok,-0.5135631251904029,2025-08-14,2025-06-30,False,sayı bölünmeden önceye ait
+1731348,TLRY,2025-12-02,0.1,ters bölünme,belge yok,-0.0402796032700951,2026-01-08,2025-11-30,False,sayı bölünmeden önceye ait
+1734750,MOVE,2026-04-07,1.358,bölünme,belge yok,-0.360866772920722,2026-05-19,2026-03-31,False,sayı bölünmeden önceye ait
+1735556,SGRX,2026-08-21,0.2,ters bölünme,belge yok,-0.7368326858909315,2026-09-18,2026-06-30,False,sayı bölünmeden önceye ait
+1736243,ACXP,2025-08-05,0.05,ters bölünme,satış belgesi var,-0.2383622765160995,2025-08-11,2025-06-30,False,sayı bölünmeden önceye ait
+1737339,JG,2023-12-11,0.05,ters bölünme,belge yok,-0.9494290271321744,2024-04-12,2023-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1737523,BGLC,2025-04-07,0.1,ters bölünme,satış belgesi var,-0.9,2025-04-15,2024-12-31,False,sayı bölünmeden önceye ait
+1737995,SKYA,2024-10-16,0.0454545454545454,ters bölünme,satış belgesi var,-0.2328900774394278,2024-11-14,2024-09-30,False,sayı bölünmeden önceye ait
+1737995,SKYA,2025-04-28,0.0033333333333333,ters bölünme,belge yok,-0.9859475082039872,2025-05-15,2025-03-31,False,birim/ölçek hatası olası
+1738758,CHR,2023-11-27,0.1,ters bölünme,belge yok,-0.3234923453914454,2024-03-14,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1738758,CHR,2025-12-23,0.02,ters bölünme,satış belgesi var,-0.9584070487951984,2026-03-20,2025-12-31,False,birim/ölçek hatası olası
+1739174,HLSQ,2024-08-26,0.1,ters bölünme,belge yok,-0.6159543626470998,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1739174,HLSQ,2025-11-25,0.0526315789473684,ters bölünme,satış belgesi var,-0.1149054154150164,2026-02-19,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1740279,INAB,2025-06-06,0.0333333333333333,ters bölünme,belge yok,-0.3358182657988525,2025-08-07,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1740332,REZI,2026-08-04,1.437,bölünme,belge yok,0.4275460526315788,2026-08-12,2026-06-30,False,sayı bölünmeden önceye ait
+1741534,UOKAF,2026-03-16,0.0285714285714285,ters bölünme,satış belgesi var,22.58955162446093,2026-04-01,2025-12-31,False,birim/ölçek hatası olası
+1742692,INMD,2021-10-01,2.0,bölünme,belge yok,-0.0893074155757815,2022-02-10,2021-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1742927,RVPH,2026-03-09,0.05,ters bölünme,satış belgesi var,-0.1798115655646774,2026-03-27,2025-12-31,False,sayı bölünmeden önceye ait
+1743340,TC,2024-01-26,0.0666666666666666,ters bölünme,belge yok,-0.93673773630955,2024-03-28,2023-12-31,False,sayı bölünmeden önceye ait
+1743745,GNLN,2022-08-10,0.05,ters bölünme,satış belgesi var,-0.1329153824600728,2022-08-15,2022-06-30,False,sayı bölünmeden önceye ait
+1743745,GNLN,2024-08-05,0.0909090909090909,ters bölünme,belge yok,-0.2569169960474308,2024-08-14,2024-06-30,False,sayı bölünmeden önceye ait
+1743745,GNLN,2025-06-27,0.0013333333333333,ters bölünme,belge yok,-0.9919830303152692,2025-08-14,2025-06-30,False,birim/ölçek hatası olası
+1743745,GNLN,2026-04-06,0.125,ters bölünme,belge yok,-0.0416712305499201,2026-05-15,2026-03-31,False,sayı bölünmeden önceye ait
+1743905,RVSN,2023-11-15,0.125,ters bölünme,satış belgesi var,-0.3372846013611813,2024-03-28,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1743905,RVSN,2026-02-03,0.0333333333333333,ters bölünme,satış belgesi var,-0.979069327645452,2026-03-31,2025-12-31,False,birim/ölçek hatası olası
+1743905,RVSN,2026-02-04,0.0333333333333333,ters bölünme,satış belgesi var,-0.979069327645452,2026-03-31,2025-12-31,False,birim/ölçek hatası olası
+1743971,MOGU,2022-03-28,0.0833333333333333,ters bölünme,belge yok,-0.915854518318411,2022-07-15,2022-03-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1747661,ZNB,2022-09-26,0.025,ters bölünme,satış belgesi var,-0.4275752173371786,2022-11-14,2022-06-30,False,sayı bölünmeden önceye ait
+1747661,ZNB,2025-08-22,0.04,ters bölünme,satış belgesi var,-0.9808781097880764,2025-11-12,2025-06-30,False,birim/ölçek hatası olası
+1750149,IKT,2023-06-30,0.1666666666666666,ters bölünme,belge yok,-0.0216953521687036,2023-08-14,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1750264,MAAS,2025-04-14,0.0166666666666666,ters bölünme,satış belgesi var,-0.6114604284541296,2025-10-29,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1750735,MRBK,2023-03-21,2.0,bölünme,belge yok,1.0516365704897046,2023-05-10,2023-03-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1751783,RBKB,2026-07-22,1.397,bölünme,satış belgesi var,0.3935248631894037,2026-08-13,2026-06-30,False,sayı bölünmeden önceye ait
+1751876,PAVS,2022-10-11,0.05,ters bölünme,belge yok,-0.95,2023-04-03,2022-03-31,False,sayı bölünmeden önceye ait
+1751876,PAVS,2026-03-31,0.0833333333333333,ters bölünme,satış belgesi var,-0.999408472129984,2026-08-14,2026-03-31,False,birim/ölçek hatası olası
+1751876,PAVS,2026-06-29,0.01,ters bölünme,satış belgesi var,-0.999408472129984,2026-08-14,2026-03-31,False,birim/ölçek hatası olası
+1753539,BKSY,2024-09-09,0.125,ters bölünme,satış belgesi var,-0.3991125910373335,2024-11-07,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1755058,AUC,2025-08-08,0.0555555555555555,ters bölünme,satış belgesi var,-0.2674733935700927,2025-12-09,2025-07-31,False,sayı bölünmeden önceye ait
+1755237,KRSA,2023-05-16,0.05,ters bölünme,satış belgesi var,-0.0961673248065865,2023-07-28,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1755953,ABTC,2022-11-08,0.05,ters bölünme,satış belgesi var,-0.6147201273384445,2022-11-14,2022-09-30,False,sayı bölünmeden önceye ait
+1755953,ABTC,2024-02-09,0.05,ters bölünme,satış belgesi var,-0.0338174863071258,2024-04-01,2023-12-31,False,sayı bölünmeden önceye ait
+1755953,ABTC,2025-09-03,0.2,ters bölünme,satış belgesi var,-0.983903002203212,2025-11-14,2025-09-30,False,birim/ölçek hatası olası
+1755953,ABTC,2026-07-06,0.0666666666666666,ters bölünme,belge yok,-0.0302667221681739,2026-08-03,2026-06-30,False,sayı bölünmeden önceye ait
+1756180,NCRA,2026-07-07,0.0333333333333333,ters bölünme,satış belgesi var,-0.673118511824263,2026-08-05,2026-06-30,False,sayı bölünmeden önceye ait
+1757499,SHPH,2024-08-13,0.125,ters bölünme,belge yok,0.0466959419800676,2024-09-03,2023-12-31,False,sayı bölünmeden önceye ait
+1757499,SHPH,2025-06-16,0.04,ters bölünme,satış belgesi var,-0.7615668680476627,2025-08-12,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1757499,SHPH,2026-06-11,0.1,ters bölünme,satış belgesi var,-0.4455169727267732,2026-09-24,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1759186,ZSQR,2024-12-31,0.05,ters bölünme,satış belgesi var,-0.0556477888810602,2025-03-27,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1760903,BNKK,2025-12-11,0.0285714285714285,ters bölünme,satış belgesi var,-0.3680959082394921,2026-03-31,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1762417,DOYU,2024-03-28,0.1,ters bölünme,belge yok,-0.9,2024-04-29,2023-12-31,False,sayı bölünmeden önceye ait
+1766140,UNCY,2025-06-20,0.1,ters bölünme,satış belgesi var,-0.1514243275793991,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1769256,XHG,2023-12-07,0.025,ters bölünme,belge yok,-0.9997720233888316,2024-02-09,2023-09-30,False,birim/ölçek hatası olası
+1769256,XHG,2024-11-08,0.05,ters bölünme,satış belgesi var,-0.999955385050017,2025-01-22,2024-09-30,False,birim/ölçek hatası olası
+1769768,EJH,2022-10-04,0.05,ters bölünme,satış belgesi var,-0.241046755500913,2022-11-04,2022-06-30,False,sayı bölünmeden önceye ait
+1769768,EJH,2023-09-25,0.1,ters bölünme,satış belgesi var,-0.9995940468920648,2023-11-06,2023-06-30,False,birim/ölçek hatası olası
+1769768,EJH,2024-09-24,0.1,ters bölünme,satış belgesi var,-0.9973342346735878,2024-10-29,2024-06-30,False,birim/ölçek hatası olası
+1769768,EJH,2025-05-30,0.02,ters bölünme,satış belgesi var,-0.9989788036991312,2025-10-30,2025-06-30,False,birim/ölçek hatası olası
+1770088,WIMI,2025-04-03,2.0,bölünme,belge yok,0.7951737459403787,2025-04-22,2024-12-31,False,sayı bölünmeden önceye ait
+1770088,WIMI,2025-04-14,0.05,ters bölünme,belge yok,0.7951737459403787,2025-04-22,2024-12-31,False,sayı bölünmeden önceye ait
+1775194,UPXI,2024-10-03,0.05,ters bölünme,belge yok,0.0341304238145785,2024-12-16,2024-06-30,False,sayı bölünmeden önceye ait
+1775734,BENF,2024-04-18,0.0125,ters bölünme,satış belgesi var,-0.036451928451649,2024-07-09,2024-03-31,False,sayı bölünmeden önceye ait
+1775734,BENF,2025-12-15,0.125,ters bölünme,satış belgesi var,-0.9141913899313177,2026-02-17,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1776067,OCG,2026-01-16,0.0045454545454545,ters bölünme,satış belgesi var,-0.8111213504540572,2026-05-14,2025-12-31,False,sayı bölünmeden önceye ait
+1776067,OCG,2026-04-27,0.3333333333333333,ters bölünme,satış belgesi var,-0.8111213504540572,2026-05-14,2025-12-31,False,sayı bölünmeden önceye ait
+1778982,HUIZ,2024-12-09,0.2,ters bölünme,belge yok,-0.802834534759718,2025-04-23,2024-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1779476,KRKR,2024-10-03,0.05,ters bölünme,belge yok,-0.9505107387746972,2025-04-17,2024-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1780785,CNEY,2024-01-19,0.0333333333333333,ters bölünme,satış belgesi var,-0.9895994784732716,2024-02-15,2023-09-30,False,birim/ölçek hatası olası
+1781162,MNTS,2023-08-24,0.02,ters bölünme,satış belgesi var,-0.2753154512055015,2023-11-14,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1781162,MNTS,2024-12-13,0.0714285714285714,ters bölünme,satış belgesi var,-0.4444723818045447,2025-04-01,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1781162,MNTS,2025-12-18,0.056,ters bölünme,satış belgesi var,-0.682254028636486,2026-03-31,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1782107,ONCO,2024-09-24,0.025,ters bölünme,satış belgesi var,-0.9328445059492884,2024-12-09,2024-09-30,False,birim/ölçek hatası olası
+1782107,ONCO,2025-06-13,0.0117647058823529,ters bölünme,belge yok,-0.5713633849831611,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1782107,ONCO,2026-03-25,0.2,ters bölünme,satış belgesi var,-0.8867576186303924,2026-05-13,2026-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1782107,ONCO,2026-05-21,0.1,ters bölünme,satış belgesi var,-0.9273750267880232,2026-08-13,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1783036,NCEL,2025-10-31,0.1,ters bölünme,satış belgesi var,-0.9341421217903888,2026-04-29,2025-12-31,False,birim/ölçek hatası olası
+1784970,NXTT,2025-09-16,0.005,ters bölünme,satış belgesi var,-0.2388237290323932,2025-10-08,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1785056,TRNR,2024-06-14,0.025,ters bölünme,satış belgesi var,-0.5857311108590977,2024-08-14,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1785056,TRNR,2024-11-11,0.01,ters bölünme,satış belgesi var,-0.8775377540293074,2025-03-31,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1785056,TRNR,2025-06-27,0.1,ters bölünme,satış belgesi var,-0.4355343055291388,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1785056,TRNR,2026-02-24,0.1,ters bölünme,satış belgesi var,-0.3237717712249118,2026-03-31,2025-12-31,False,sayı bölünmeden önceye ait
+1785056,TRNR,2026-06-30,0.1428571428571428,ters bölünme,satış belgesi var,-0.428807456482701,2026-08-14,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1785566,ZCMD,2026-03-02,0.125,ters bölünme,belge yok,-0.1780574992236694,2026-04-03,2025-12-31,False,sayı bölünmeden önceye ait
+1787297,PASG,2025-07-14,0.05,ters bölünme,belge yok,-0.0224293188117191,2025-08-12,2025-06-30,False,sayı bölünmeden önceye ait
+1787518,DFNS,2024-10-24,0.125,ters bölünme,satış belgesi var,-0.1184837391537585,2025-02-10,2024-09-30,False,sayı bölünmeden önceye ait
+1787518,DFNS,2026-07-20,0.008,ters bölünme,satış belgesi var,-0.5970250810639812,2026-08-18,2026-06-30,False,sayı bölünmeden önceye ait
+1787740,VBIO,2023-08-23,0.01,ters bölünme,belge yok,-0.7975724988609173,2023-11-14,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1787740,VBIO,2025-03-07,0.0588235294117647,ters bölünme,satış belgesi var,-0.3406220712487745,2025-03-21,2024-12-31,False,sayı bölünmeden önceye ait
+1787803,WNW,2023-12-20,0.0285714285714285,ters bölünme,belge yok,-0.9714285714285714,2023-12-27,2022-12-31,False,sayı bölünmeden önceye ait
+1787803,WNW,2025-04-01,0.05,ters bölünme,satış belgesi var,-0.9976931495484276,2025-05-14,2024-12-31,False,birim/ölçek hatası olası
+1787803,WNW,2026-04-06,0.01,ters bölünme,satış belgesi var,-0.7974806531828119,2026-04-17,2025-12-31,False,sayı bölünmeden önceye ait
+1788230,IPST,2025-11-05,0.05,ters bölünme,satış belgesi var,-0.9304332232213882,2025-11-17,2025-09-30,False,sayı bölünmeden önceye ait
+1788230,IPST,2026-04-23,0.05,ters bölünme,belge yok,-0.0614911187134239,2026-05-20,2026-03-31,False,sayı bölünmeden önceye ait
+1789192,NXTS,2023-10-06,0.1428571428571428,ters bölünme,satış belgesi var,-0.2316812706828188,2023-11-14,2023-09-30,False,sayı bölünmeden önceye ait
+1789192,NXTS,2025-09-22,0.0285714285714285,ters bölünme,satış belgesi var,-0.3730428140943029,2025-11-13,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1789192,NXTS,2026-04-08,0.1428571428571428,ters bölünme,belge yok,-0.4577024270258251,2026-05-14,2026-03-31,False,sayı bölünmeden önceye ait
+1789299,FXHO,2025-03-31,0.1,ters bölünme,satış belgesi var,-0.5648031953252137,2025-08-11,2025-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1789299,FXHO,2026-02-17,0.2,ters bölünme,satış belgesi var,-0.9957409921887002,2026-08-10,2026-03-31,False,birim/ölçek hatası olası
+1789299,FXHO,2026-06-22,0.1,ters bölünme,satış belgesi var,-0.9957409921887002,2026-08-10,2026-03-31,False,birim/ölçek hatası olası
+1790169,ZSTK,2023-06-09,0.05,ters bölünme,belge yok,-0.9990017641055547,2023-08-10,2023-06-30,False,birim/ölçek hatası olası
+1790169,ZSTK,2025-08-04,0.0256410256410256,ters bölünme,satış belgesi var,-0.1872299049265342,2025-11-05,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1795250,SPHR,2023-04-21,2.165,bölünme,belge yok,1.1646867675569317,2023-05-10,2023-03-31,False,sayı bölünmeden önceye ait
+1798270,IONM,2023-03-06,0.05,ters bölünme,satış belgesi var,-0.1193682701327564,2023-03-31,2022-12-31,False,sayı bölünmeden önceye ait
+1798270,IONM,2024-07-09,0.0555555555555555,ters bölünme,satış belgesi var,-0.2354216067829082,2024-09-27,2024-06-30,False,sayı bölünmeden önceye ait
+1798749,JBIO,2025-04-29,0.0285714285714285,ters bölünme,belge yok,-0.974617640198696,2025-08-13,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1799448,ALGS,2024-08-19,0.04,ters bölünme,belge yok,-0.0401061363458634,2024-11-06,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1800227,PPLI,2021-05-25,1.503,bölünme,belge yok,13.951674885128318,2021-08-06,2021-06-30,False,birim/ölçek hatası olası
+1800315,DMRA,2024-08-30,0.04,ters bölünme,satış belgesi var,-0.1347870506913545,2024-11-01,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1800392,MLGO,2024-03-22,0.1,ters bölünme,satış belgesi var,-0.1501743474831082,2024-04-11,2023-12-31,False,sayı bölünmeden önceye ait
+1800392,MLGO,2024-12-13,0.05,ters bölünme,satış belgesi var,-0.999442368039724,2025-04-28,2024-12-31,False,birim/ölçek hatası olası
+1800637,RYM,2023-07-05,0.05,ters bölünme,satış belgesi var,-0.8986162725861627,2023-10-02,2022-03-31,False,sayı bölünmeden önceye ait
+1800637,RYM,2024-10-08,0.0666666666666666,ters bölünme,satış belgesi var,-0.2876929341711823,2024-11-14,2024-09-30,False,sayı bölünmeden önceye ait
+1801834,PRFX,2026-02-06,0.2,ters bölünme,satış belgesi var,-0.6457045579590013,2026-03-26,2025-12-31,False,sayı bölünmeden önceye ait
+1802450,MSPR,2023-10-13,0.04,ters bölünme,satış belgesi var,-0.0616366617263205,2023-11-14,2023-09-30,False,sayı bölünmeden önceye ait
+1802450,MSPR,2024-11-18,0.04,ters bölünme,satış belgesi var,0.5619670879792582,2025-04-15,2024-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+1802450,MSPR,2025-09-02,0.1428571428571428,ters bölünme,satış belgesi var,-0.6604174324301557,2025-11-19,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1803407,OST,2024-12-31,0.1,ters bölünme,satış belgesi var,-0.2896844817137336,2025-01-27,2024-09-30,False,sayı bölünmeden önceye ait
+1803407,OST,2025-08-05,0.04,ters bölünme,satış belgesi var,-0.998683670676511,2026-01-26,2025-09-30,False,birim/ölçek hatası olası
+1805521,FFAI,2023-08-28,0.0125,ters bölünme,satış belgesi var,-0.4289140778061091,2023-11-13,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1805521,FFAI,2024-03-01,0.3333333333333333,ters bölünme,satış belgesi var,-0.7457897454927176,2024-05-28,2023-12-31,False,sayı bölünmeden önceye ait
+1805521,FFAI,2024-08-19,0.025,ters bölünme,satış belgesi var,-0.6406855432462524,2024-11-07,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1805521,FFAI,2026-07-24,0.0066666666666666,ters bölünme,satış belgesi var,-0.2117326627866844,2026-08-13,2026-06-30,False,sayı bölünmeden önceye ait
+1805526,DFDV,2024-12-30,0.125,ters bölünme,belge yok,-0.0245587858203962,2025-03-27,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1805526,DFDV,2025-05-21,7.0,bölünme,satış belgesi var,-0.4246993457588564,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1805833,SST,2025-06-12,0.1,ters bölünme,belge yok,-0.0530465587044534,2025-08-07,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1806524,LGHL,2025-03-26,0.02,ters bölünme,satış belgesi var,-0.997796032334921,2025-04-30,2024-12-31,False,birim/ölçek hatası olası
+1806524,LGHL,2025-11-26,0.0769230769230769,ters bölünme,satış belgesi var,-0.9999813043210484,2026-04-30,2025-12-31,False,birim/ölçek hatası olası
+1806904,EZGO,2025-11-21,0.04,ters bölünme,belge yok,-0.8538219283063149,2025-12-29,2025-09-30,False,sayı bölünmeden önceye ait
+1808110,DDC,2025-04-21,0.04,ters bölünme,belge yok,-0.9894997502298842,2025-05-15,2024-12-31,False,birim/ölçek hatası olası
+1808377,LUCY,2024-07-18,0.05,ters bölünme,satış belgesi var,-0.5666912459054612,2024-08-12,2024-06-30,False,sayı bölünmeden önceye ait
+1809750,EDBL,2023-01-26,0.0333333333333333,ters bölünme,satış belgesi var,-0.1752811141927963,2023-03-22,2022-12-31,False,sayı bölünmeden önceye ait
+1809750,EDBL,2024-04-05,0.05,ters bölünme,satış belgesi var,-0.0732176271847182,2024-05-15,2024-03-31,False,sayı bölünmeden önceye ait
+1809750,EDBL,2025-03-03,0.04,ters bölünme,satış belgesi var,-0.7661580511393822,2025-03-31,2024-12-31,False,sayı bölünmeden önceye ait
+1809750,EDBL,2026-02-03,0.1,ters bölünme,satış belgesi var,-0.4803202774412181,2026-03-31,2025-12-31,False,sayı bölünmeden önceye ait
+1809750,EDBL,2026-07-13,0.0222222222222222,ters bölünme,satış belgesi var,-0.9338345654867672,2026-08-14,2026-06-30,False,birim/ölçek hatası olası
+1810560,REVB,2024-01-25,0.0333333333333333,ters bölünme,satış belgesi var,-0.2065000359118005,2024-03-22,2023-12-31,False,sayı bölünmeden önceye ait
+1810560,REVB,2025-01-28,0.0625,ters bölünme,satış belgesi var,-0.4862760975675142,2025-03-06,2024-12-31,False,sayı bölünmeden önceye ait
+1810560,REVB,2025-07-07,0.3333333333333333,ters bölünme,satış belgesi var,-0.7906571173943198,2025-08-07,2025-06-30,False,sayı bölünmeden önceye ait
+1810560,REVB,2026-01-28,0.25,ters bölünme,satış belgesi var,-0.4340211203628353,2026-02-26,2025-12-31,False,sayı bölünmeden önceye ait
+1811109,AUVI,2023-05-31,0.2,ters bölünme,satış belgesi var,-0.5675260141530647,2023-08-18,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1811109,AUVI,2023-12-12,0.04,ters bölünme,satış belgesi var,-0.7652004264735418,2024-04-16,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1811210,LCID,2025-09-02,0.1,ters bölünme,belge yok,-0.0522257056790284,2025-11-05,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1811216,BAOS,2023-03-22,0.1666666666666666,ters bölünme,belge yok,2.178128803524131,2023-05-08,2022-12-31,False,sayı bölünmeden önceye ait
+1811623,PXMD,2023-10-31,0.0588235294117647,ters bölünme,belge yok,-0.1580608555915672,2023-11-15,2023-09-30,False,sayı bölünmeden önceye ait
+1812447,SKYQ,2026-03-16,0.125,ters bölünme,satış belgesi var,-0.1452245889607893,2026-03-31,2025-12-31,False,sayı bölünmeden önceye ait
+1812727,EZRA,2024-07-01,0.0588235294117647,ters bölünme,satış belgesi var,-0.6771093769808818,2024-07-25,2024-06-30,False,sayı bölünmeden önceye ait
+1812727,EZRA,2026-05-18,0.025,ters bölünme,belge yok,-0.3527905238821459,2026-07-30,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1813814,DFTX,2022-08-29,0.0666666666666666,ters bölünme,satış belgesi var,-0.2422721505918689,2022-11-10,2022-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1814067,LXEH,2024-01-03,0.5,ters bölünme,satış belgesi var,-0.7142851020425656,2024-05-15,2023-12-31,False,sayı bölünmeden önceye ait
+1814067,LXEH,2026-04-20,0.1,ters bölünme,belge yok,-0.9939130271455604,2026-05-12,2025-12-31,False,birim/ölçek hatası olası
+1814215,BURU,2024-07-24,0.025,ters bölünme,satış belgesi var,-0.9738900189332652,2024-08-12,2023-12-31,False,sayı bölünmeden önceye ait
+1814215,BURU,2026-03-02,0.2,ters bölünme,satış belgesi var,-0.5505395227905503,2026-03-31,2025-12-31,False,sayı bölünmeden önceye ait
+1814963,ILAG,2025-12-30,0.1,ters bölünme,belge yok,-0.1304657641357089,2026-04-24,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1815021,BQ,2025-01-21,0.1,ters bölünme,belge yok,-0.9651141313331452,2025-07-18,2025-03-31,False,birim/ölçek hatası olası
+1815776,LENZ,2024-03-22,0.1428571428571428,ters bölünme,satış belgesi var,-0.6750246483337257,2024-05-08,2024-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1815903,PTPI,2025-05-01,0.04,ters bölünme,belge yok,-0.7948500020947387,2025-05-15,2025-03-31,False,sayı bölünmeden önceye ait
+1816172,JZXN,2025-12-11,0.025,ters bölünme,satış belgesi var,-0.7807867389720373,2026-02-24,2025-10-31,False,sayı bölünmeden önceye ait
+1816581,OUST,2023-04-21,0.1,ters bölünme,belge yok,-0.5180721634996639,2023-05-12,2023-03-31,False,sayı bölünmeden önceye ait
+1816736,IRON,2022-12-30,0.0333333333333333,ters bölünme,satış belgesi var,-0.9170666565536508,2023-03-31,2022-12-31,False,birim/ölçek hatası olası
+1816815,BON,2024-04-11,0.1,ters bölünme,belge yok,-0.8601912097173182,2024-10-10,2022-09-30,False,sayı bölünmeden önceye ait
+1817004,NXXT,2024-07-25,0.4,ters bölünme,satış belgesi var,-0.1248315211380444,2024-08-14,2024-06-30,False,sayı bölünmeden önceye ait
+1817229,VOR,2025-09-19,0.05,ters bölünme,satış belgesi var,-0.3040487554894125,2025-11-13,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1818331,WGS,2023-05-04,0.0303030303030303,ters bölünme,belge yok,-0.5133777282450169,2023-05-09,2023-03-31,False,sayı bölünmeden önceye ait
+1819580,YSG,2024-03-18,0.2,ters bölünme,belge yok,-0.7923744926308649,2024-04-26,2023-12-31,False,sayı bölünmeden önceye ait
+1820190,SCLX,2025-04-15,0.0285714285714285,ters bölünme,satış belgesi var,-0.0469307706684692,2025-05-14,2025-03-31,False,sayı bölünmeden önceye ait
+1820190,SCLX,2026-06-16,1.606,bölünme,satış belgesi var,0.9385194929106804,2026-08-14,2026-06-30,False,ilk rapordaki sayı az (geri alım vb.)
+1820302,BKKT,2024-04-29,0.04,ters bölünme,belge yok,-0.1587427093317646,2024-05-15,2024-03-31,False,sayı bölünmeden önceye ait
+1821424,UK,2022-04-22,0.05,ters bölünme,belge yok,-0.0794010373636754,2022-05-10,2021-12-31,False,sayı bölünmeden önceye ait
+1821424,UK,2023-11-30,0.0833333333333333,ters bölünme,belge yok,-0.4080508268513613,2024-04-24,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1821468,YQ,2021-11-17,0.25,ters bölünme,belge yok,-0.75,2022-04-27,2021-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1821468,YQ,2023-12-18,0.2,ters bölünme,belge yok,-0.7483262558147479,2024-04-25,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1822523,AFCG,2024-07-10,1.461,bölünme,belge yok,0.4610000000000001,2024-08-07,2024-06-30,False,sayı bölünmeden önceye ait
+1823466,NOTE,2025-09-02,0.0833333333333333,ters bölünme,satış belgesi var,-0.074189686923241,2025-11-10,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1824293,GRI,2024-01-30,0.1428571428571428,ters bölünme,satış belgesi var,-0.3459634004591867,2024-03-28,2023-12-31,False,sayı bölünmeden önceye ait
+1824293,GRI,2024-06-18,0.0769230769230769,ters bölünme,satış belgesi var,-0.6933789754167001,2024-08-13,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1824293,GRI,2025-02-24,0.0588235294117647,ters bölünme,satış belgesi var,-0.437729402921335,2025-03-14,2024-12-31,False,sayı bölünmeden önceye ait
+1824293,GRI,2026-01-26,0.0357142857142857,ters bölünme,satış belgesi var,-0.7654372273670716,2026-01-30,2025-12-31,False,sayı bölünmeden önceye ait
+1825024,OPAD,2023-06-13,0.0666666666666666,ters bölünme,belge yok,-0.0263609785873772,2023-08-02,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1825024,OPAD,2026-06-09,0.1,ters bölünme,belge yok,-0.0214015497215078,2026-08-03,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1825079,VELO,2024-06-13,0.0285714285714285,ters bölünme,satış belgesi var,-0.1316822889501973,2024-08-14,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1825452,ONFO,2026-08-10,0.02,ters bölünme,belge yok,-0.2206385665483643,2026-08-19,2026-06-30,False,sayı bölünmeden önceye ait
+1825875,RAYA,2026-04-20,0.1,ters bölünme,satış belgesi var,-0.7430678986700417,2026-04-29,2025-12-31,False,sayı bölünmeden önceye ait
+1826011,PARA,2024-09-19,0.02,ters bölünme,satış belgesi var,-0.8283005723556696,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1826011,PARA,2025-07-08,0.1,ters bölünme,satış belgesi var,-0.4074537226250279,2025-08-14,2025-06-30,False,sayı bölünmeden önceye ait
+1826011,PARA,2026-05-08,0.05,ters bölünme,satış belgesi var,-0.3920405716229225,2026-05-15,2026-03-31,False,sayı bölünmeden önceye ait
+1826397,AVX,2023-10-11,0.02,ters bölünme,satış belgesi var,-0.5759883006879971,2023-11-02,2023-09-30,False,sayı bölünmeden önceye ait
+1826397,AVX,2024-12-05,0.01,ters bölünme,satış belgesi var,-0.3591976370963996,2025-04-07,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1826397,AVX,2025-07-28,0.1111111111111111,ters bölünme,satış belgesi var,-0.5406510213935238,2025-08-14,2025-06-30,False,sayı bölünmeden önceye ait
+1826889,BODI,2023-11-22,0.02,ters bölünme,satış belgesi var,-0.0675461862112941,2024-03-11,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1828522,EFTR,2024-01-12,0.04,ters bölünme,satış belgesi var,-0.1618990042173494,2024-03-26,2023-12-31,False,sayı bölünmeden önceye ait
+1828937,FOA,2024-07-26,0.1,ters bölünme,belge yok,-0.0264191474911597,2024-08-09,2024-06-30,False,sayı bölünmeden önceye ait
+1829635,RNAZ,2023-05-23,0.05,ters bölünme,satış belgesi var,-0.5944085480198126,2023-08-14,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1829635,RNAZ,2024-01-16,0.025,ters bölünme,satış belgesi var,-0.5741589741301271,2024-04-01,2023-12-31,False,sayı bölünmeden önceye ait
+1829635,RNAZ,2024-12-04,0.0303030303030303,ters bölünme,satış belgesi var,-0.4915904191782512,2025-04-15,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1829794,EMPD,2023-10-16,0.2,ters bölünme,satış belgesi var,-0.0437505758869908,2023-11-01,2023-09-30,False,sayı bölünmeden önceye ait
+1829794,EMPD,2024-02-05,0.0222222222222222,ters bölünme,satış belgesi var,-0.9723722508610526,2024-03-28,2023-12-31,False,sayı bölünmeden önceye ait
+1829794,EMPD,2024-06-07,0.01,ters bölünme,satış belgesi var,-0.8858639666156323,2024-08-06,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1829794,EMPD,2024-11-11,0.125,ters bölünme,satış belgesi var,-0.8696769514872437,2025-03-31,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1829794,EMPD,2025-06-12,0.125,ters bölünme,satış belgesi var,-0.096912241467295,2025-08-12,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1829966,EBET,2023-10-02,0.0333333333333333,ters bölünme,satış belgesi var,-0.9238561842799714,2024-01-12,2023-09-30,False,birim/ölçek hatası olası
+1830214,DNA,2024-08-20,0.025,ters bölünme,belge yok,-0.020978391921932,2024-11-12,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1831868,ICU,2024-06-10,0.04,ters bölünme,satış belgesi var,0.5839341051794829,2024-08-13,2024-06-30,False,ilk rapordaki sayı az (geri alım vb.)
+1831868,ICU,2026-01-05,0.1,ters bölünme,satış belgesi var,-0.1131377852595306,2026-03-25,2025-12-31,False,sayı bölünmeden önceye ait
+1831979,SDST,2025-09-08,0.1,ters bölünme,satış belgesi var,-0.058838409473481,2025-11-13,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1832511,PIII,2025-04-14,0.02,ters bölünme,belge yok,1.1993686791296354,2025-05-15,2025-03-31,False,sayı bölünmeden önceye ait
+1833214,SABS,2024-01-05,0.1,ters bölünme,satış belgesi var,-0.432885046589375,2024-03-28,2023-12-31,False,sayı bölünmeden önceye ait
+1835385,MBBC,2025-04-22,1.372,bölünme,satış belgesi var,0.3711815900749196,2025-05-14,2025-03-31,False,sayı bölünmeden önceye ait
+1835579,IMA,2025-07-28,0.0833333333333333,ters bölünme,satış belgesi var,-0.6403481295105061,2025-11-12,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1836875,NVVE,2024-01-22,0.025,ters bölünme,satış belgesi var,-0.3481209524550593,2024-03-28,2023-12-31,False,sayı bölünmeden önceye ait
+1836875,NVVE,2024-09-17,0.1,ters bölünme,satış belgesi var,-0.2539877181412858,2024-11-12,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1836875,NVVE,2025-12-15,0.025,ters bölünme,satış belgesi var,-0.7284482133884744,2026-03-31,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1836875,NVVE,2026-07-06,0.0555555555555555,ters bölünme,satış belgesi var,-0.6701013839280734,2026-07-15,2026-03-31,False,sayı bölünmeden önceye ait
+1837429,BNT,2025-10-10,1.5,bölünme,belge yok,0.0851381957936301,2026-03-25,2025-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+1838163,BNAI,2025-12-12,0.1,ters bölünme,satış belgesi var,-0.2239887826176566,2026-04-16,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1839285,HCTI,2023-05-26,0.1,ters bölünme,belge yok,-0.0214850031429243,2023-08-10,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1839285,HCTI,2025-08-01,0.0040160642570281,ters bölünme,satış belgesi var,-0.9889552405267066,2025-08-14,2025-06-30,False,birim/ölçek hatası olası
+1839285,HCTI,2026-02-10,0.0166666666666666,ters bölünme,satış belgesi var,-0.4799886724802119,2026-04-15,2025-12-31,False,sayı bölünmeden önceye ait
+1840229,INKT,2025-01-28,0.1,ters bölünme,satış belgesi var,-0.1269561915143531,2025-03-18,2024-12-31,False,sayı bölünmeden önceye ait
+1840233,XLO,2026-03-16,0.0714285714285714,ters bölünme,satış belgesi var,-0.1828811072996389,2026-03-23,2025-12-31,False,sayı bölünmeden önceye ait
+1840563,ELAB,2024-11-27,0.005,ters bölünme,satış belgesi var,-0.9196591259292092,2025-03-27,2024-12-31,False,birim/ölçek hatası olası
+1840563,ELAB,2025-03-10,0.1428571428571428,ters bölünme,satış belgesi var,-0.9196591259292092,2025-03-27,2024-12-31,False,birim/ölçek hatası olası
+1840563,ELAB,2025-09-02,0.285,ters bölünme,satış belgesi var,-0.4340854847531518,2025-11-14,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1840563,ELAB,2026-01-06,0.25,ters bölünme,satış belgesi var,-0.6157939792727709,2026-03-30,2025-12-31,False,sayı bölünmeden önceye ait
+1840563,ELAB,2026-03-10,0.1666666666666666,ters bölünme,satış belgesi var,-0.6157939792727709,2026-03-30,2025-12-31,False,sayı bölünmeden önceye ait
+1840780,LOCL,2023-06-15,0.0769230769230769,ters bölünme,belge yok,-0.0208216006738435,2023-08-14,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1841209,HOLO,2024-10-09,0.05,ters bölünme,satış belgesi var,-0.9994549729147078,2025-03-21,2024-12-31,False,birim/ölçek hatası olası
+1843165,YHC,2023-11-30,0.0166666666666666,ters bölünme,belge yok,-0.9157420283685184,2024-04-01,2023-12-31,False,birim/ölçek hatası olası
+1843165,YHC,2024-03-04,1.5,bölünme,belge yok,-0.9157420283685184,2024-04-01,2023-12-31,False,birim/ölçek hatası olası
+1843165,YHC,2025-04-21,0.0285714285714285,ters bölünme,satış belgesi var,-0.5945342438888872,2025-05-13,2025-03-31,False,sayı bölünmeden önceye ait
+1844392,MRAI,2023-06-29,0.25,ters bölünme,belge yok,-0.7460824110796017,2023-07-27,2022-12-31,False,sayı bölünmeden önceye ait
+1844505,QTI,2025-10-24,0.3333333333333333,ters bölünme,satış belgesi var,-0.8024567356746195,2025-11-12,2025-09-30,False,sayı bölünmeden önceye ait
+1844505,QTI,2025-10-27,0.2,ters bölünme,satış belgesi var,-0.8024567356746195,2025-11-12,2025-09-30,False,sayı bölünmeden önceye ait
+1844971,VIP,2023-05-16,0.1,ters bölünme,belge yok,-0.1736725628864548,2023-08-14,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1847064,PSQH,2026-07-13,0.0666666666666666,ters bölünme,belge yok,-0.0314340644727316,2026-08-04,2026-06-30,False,sayı bölünmeden önceye ait
+1847075,SAIH,2025-03-17,0.0666666666666666,ters bölünme,belge yok,-0.0855820949447122,2025-04-28,2024-12-31,False,sayı bölünmeden önceye ait
+1847345,ASBP,2026-01-16,0.025,ters bölünme,satış belgesi var,-0.6495878058803286,2026-03-30,2025-12-31,False,sayı bölünmeden önceye ait
+1847398,NECB,2021-07-13,1.34,bölünme,belge yok,0.3400000000000001,2021-08-13,2021-06-30,False,sayı bölünmeden önceye ait
+1847986,DFLI,2024-11-22,0.1111111111111111,ters bölünme,satış belgesi var,-0.0357309945563214,2025-03-31,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1847986,DFLI,2025-12-18,0.1,ters bölünme,satış belgesi var,-0.4888354082094673,2026-03-30,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1848275,TOP,2026-08-03,0.2,ters bölünme,satış belgesi var,-0.1483014148934912,2026-08-17,2026-06-30,False,sayı bölünmeden önceye ait
+1849820,KITT,2024-07-23,0.0277777777777777,ters bölünme,satış belgesi var,-0.6146271085738113,2024-08-13,2024-06-30,False,sayı bölünmeden önceye ait
+1849820,KITT,2025-09-05,0.1111111111111111,ters bölünme,satış belgesi var,-0.3533665344337856,2025-11-13,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1851860,SMFL,2023-04-24,0.02,ters bölünme,satış belgesi var,-0.0940873014877285,2023-05-22,2023-03-31,False,sayı bölünmeden önceye ait
+1851860,SMFL,2023-08-02,0.3333333333333333,ters bölünme,satış belgesi var,-0.9963249010049816,2023-08-23,2023-06-30,False,birim/ölçek hatası olası
+1851860,SMFL,2023-10-27,0.3333333333333333,ters bölünme,belge yok,-0.7456435155865175,2023-11-20,2023-09-30,False,sayı bölünmeden önceye ait
+1851860,SMFL,2024-04-22,0.1428571428571428,ters bölünme,satış belgesi var,-0.9194803294116328,2024-09-20,2023-12-31,False,birim/ölçek hatası olası
+1852440,JZ,2024-02-20,0.3333333333333333,ters bölünme,belge yok,-0.6666666666666667,2024-04-09,2023-12-31,False,sayı bölünmeden önceye ait
+1853044,AERT,2026-06-12,0.125,ters bölünme,satış belgesi var,0.0742936005381618,2026-08-10,2026-06-30,False,ilk rapordaki sayı az (geri alım vb.)
+1853070,SOAR,2025-02-24,0.04,ters bölünme,satış belgesi var,-0.3592904636597731,2025-03-31,2024-12-31,False,sayı bölünmeden önceye ait
+1853816,DRMA,2023-03-14,0.0625,ters bölünme,satış belgesi var,-0.6775272731231656,2023-05-11,2023-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1853816,DRMA,2024-05-16,0.0666666666666666,ters bölünme,satış belgesi var,-0.359388321852346,2024-08-07,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1853816,DRMA,2025-08-01,0.1,ters bölünme,belge yok,-0.0540836086471806,2025-08-13,2025-06-30,False,sayı bölünmeden önceye ait
+1854275,ZCAR,2025-03-24,0.05,ters bölünme,satış belgesi var,-0.8624997461844415,2025-06-30,2025-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1855467,MOBX,2026-04-07,0.1,ters bölünme,satış belgesi var,-0.3495827497798411,2026-05-20,2026-03-31,False,sayı bölünmeden önceye ait
+1855485,CLDI,2024-07-15,0.1,ters bölünme,satış belgesi var,-0.4477330515843356,2024-08-13,2024-06-30,False,sayı bölünmeden önceye ait
+1855485,CLDI,2025-08-05,0.0833333333333333,ters bölünme,satış belgesi var,-0.0790387694662195,2025-08-08,2025-06-30,False,sayı bölünmeden önceye ait
+1855485,CLDI,2026-07-31,0.0625,ters bölünme,satış belgesi var,-0.6462818908908274,2026-08-13,2026-06-30,False,sayı bölünmeden önceye ait
+1855509,VEEE,2026-05-04,0.027027027027027,ters bölünme,satış belgesi var,-0.9749523930796812,2026-08-06,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1856084,RDGT,2026-04-08,0.0066666666666666,ters bölünme,satış belgesi var,-0.9560073603968424,2026-07-31,2026-03-31,False,birim/ölçek hatası olası
+1857044,INDP,2025-06-27,0.0357142857142857,ters bölünme,satış belgesi var,-0.0533987792878007,2025-08-13,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1857086,TRUG,2025-06-23,0.02,ters bölünme,satış belgesi var,-0.388456259888761,2025-08-19,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1857086,TRUG,2026-03-27,0.1,ters bölünme,belge yok,-0.5270877267452099,2026-04-15,2025-12-31,False,sayı bölünmeden önceye ait
+1858685,BFRI,2023-07-05,0.05,ters bölünme,belge yok,-0.0238938512519485,2023-08-11,2023-06-30,False,sayı bölünmeden önceye ait
+1859007,ZVSA,2023-12-05,0.0285714285714285,ters bölünme,satış belgesi var,-0.6931688839943339,2024-03-25,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1859007,ZVSA,2024-04-26,0.1,ters bölünme,belge yok,-0.5146632634483816,2024-05-15,2024-03-31,False,sayı bölünmeden önceye ait
+1859807,PFSA,2026-02-09,0.0133333333333333,ters bölünme,satış belgesi var,-0.548379494804873,2026-04-15,2025-12-31,False,sayı bölünmeden önceye ait
+1859807,PFSA,2026-07-07,0.04,ters bölünme,satış belgesi var,-0.280459836139916,2026-08-19,2026-06-30,False,sayı bölünmeden önceye ait
+1860657,ALLR,2023-03-27,0.0285714285714285,ters bölünme,satış belgesi var,-0.6177809561555765,2023-05-11,2023-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1860657,ALLR,2023-06-29,0.025,ters bölünme,satış belgesi var,-0.9410054110405084,2023-08-14,2023-06-30,False,birim/ölçek hatası olası
+1860657,ALLR,2024-04-09,0.05,ters bölünme,satış belgesi var,-0.1412805522005752,2024-05-14,2024-03-31,False,sayı bölünmeden önceye ait
+1860657,ALLR,2024-09-11,0.0333333333333333,ters bölünme,satış belgesi var,-0.5766786634626886,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1861622,JTAI,2024-11-12,0.0044444444444444,ters bölünme,satış belgesi var,-0.9999993864507464,2025-03-26,2024-12-31,False,birim/ölçek hatası olası
+1861622,JTAI,2026-04-08,0.005,ters bölünme,belge yok,-0.9508967342880992,2026-05-14,2026-03-31,False,birim/ölçek hatası olası
+1861622,JTAI,2026-07-15,10.548,bölünme,belge yok,-0.9804516304395688,2026-08-14,2026-06-30,False,birim/ölçek hatası olası
+1861657,CNTN,2023-11-21,0.04,ters bölünme,satış belgesi var,-0.9403328030518048,2024-02-23,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1861657,CNTN,2024-05-28,0.0666666666666666,ters bölünme,satış belgesi var,-0.2822770523239887,2024-08-09,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1862150,CING,2023-11-30,0.05,ters bölünme,satış belgesi var,-0.2557387453748115,2024-04-01,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1862150,CING,2024-08-09,0.0833333333333333,ters bölünme,satış belgesi var,-0.4652158190758942,2024-08-13,2024-06-30,False,sayı bölünmeden önceye ait
+1862463,AMOD,2026-06-15,0.025,ters bölünme,satış belgesi var,-0.7394662089144514,2026-08-14,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1868419,CYCU,2025-10-27,0.0333333333333333,ters bölünme,belge yok,-0.4947837280579689,2025-11-14,2025-09-30,False,sayı bölünmeden önceye ait
+1869467,SVRN,2022-12-21,0.1,ters bölünme,satış belgesi var,-0.99133911678677,2023-03-30,2022-12-31,False,birim/ölçek hatası olası
+1869467,SVRN,2022-12-22,0.1,ters bölünme,satış belgesi var,-0.99133911678677,2023-03-30,2022-12-31,False,birim/ölçek hatası olası
+1870144,CDIO,2025-05-13,0.0333333333333333,ters bölünme,satış belgesi var,-0.9666970451119912,2025-08-14,2025-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+1870600,SBDS,2025-07-09,0.025,ters bölünme,satış belgesi var,-0.0583829353539039,2025-08-06,2025-06-30,False,sayı bölünmeden önceye ait
+1872302,,2024-11-04,0.1,ters bölünme,satış belgesi var,-0.7750537640171157,2025-04-11,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1873875,IXHL,2026-02-27,0.0333333333333333,ters bölünme,satış belgesi var,-0.1249099992124116,2026-05-15,2026-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1874097,CYN,2024-07-05,0.01,ters bölünme,belge yok,-0.500240945203978,2024-08-08,2024-06-30,False,sayı bölünmeden önceye ait
+1874097,CYN,2025-02-18,0.0066666666666666,ters bölünme,satış belgesi var,-0.932145547687208,2025-03-06,2024-12-31,False,birim/ölçek hatası olası
+1879403,LRHC,2025-07-07,0.0125,ters bölünme,satış belgesi var,-0.3585395027931198,2025-08-18,2025-06-30,False,sayı bölünmeden önceye ait
+1879403,LRHC,2026-01-26,0.1,ters bölünme,satış belgesi var,-0.4157882936602585,2026-06-04,2025-12-31,False,sayı bölünmeden önceye ait
+1879403,LRHC,2026-04-20,0.1,ters bölünme,satış belgesi var,-0.4157882936602585,2026-06-04,2025-12-31,False,sayı bölünmeden önceye ait
+1879726,SIDU,2023-12-20,0.01,ters bölünme,satış belgesi var,-0.2525149814480235,2024-03-27,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1879754,EHGO,2026-04-20,0.0625,ters bölünme,satış belgesi var,-0.2676915681676488,2026-07-31,2026-03-31,False,sayı bölünmeden önceye ait
+1880343,AMZE,2025-06-13,0.0434782608695652,ters bölünme,satış belgesi var,-0.8577570159427924,2025-08-14,2024-12-31,False,sayı bölünmeden önceye ait
+1880343,AMZE,2026-07-27,0.125,ters bölünme,belge yok,-0.5091274339032394,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+1881551,STI,2025-05-12,0.02,ters bölünme,belge yok,-0.0304583418301427,2025-05-20,2025-03-31,False,sayı bölünmeden önceye ait
+1885408,NEXR,2023-11-03,0.1428571428571428,ters bölünme,belge yok,-0.0510504450564277,2024-04-01,2023-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1885408,NEXR,2026-02-17,0.0714285714285714,ters bölünme,satış belgesi var,-0.9712463550951816,2026-04-01,2025-12-31,False,birim/ölçek hatası olası
+1886894,SNAL,2026-07-06,0.2,ters bölünme,satış belgesi var,-0.1448182358692162,2026-08-11,2026-06-30,False,sayı bölünmeden önceye ait
+1887673,WLDS,2024-10-10,0.05,ters bölünme,satış belgesi var,0.4408829861066938,2025-03-20,2024-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+1888654,FEAM,2025-02-18,0.0434782608695652,ters bölünme,satış belgesi var,-0.8335596316089566,2025-05-15,2025-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1892492,ORBS,2024-08-16,0.2,ters bölünme,satış belgesi var,-0.2632161871286349,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1893645,PLRZ,2025-11-28,0.1666666666666666,ters bölünme,satış belgesi var,-0.9982612971568964,2026-03-25,2025-12-31,False,birim/ölçek hatası olası
+1894525,APUS,2026-07-24,0.1,ters bölünme,belge yok,-0.1666666887546235,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+1894954,XPON,2024-10-09,0.01,ters bölünme,belge yok,-0.9177170728096796,2024-11-14,2024-09-30,False,birim/ölçek hatası olası
+1896212,CDT,2025-01-27,0.01,ters bölünme,satış belgesi var,-0.3067256667203446,2025-03-28,2024-12-31,False,sayı bölünmeden önceye ait
+1896212,CDT,2025-05-20,0.0666666666666666,ters bölünme,satış belgesi var,-0.9333333333333332,2025-08-14,2025-03-31,False,sayı bölünmeden önceye ait
+1896212,CDT,2025-10-13,0.125,ters bölünme,belge yok,-0.7656406914131104,2025-11-13,2025-09-30,False,sayı bölünmeden önceye ait
+1896212,CDT,2026-03-27,0.04,ters bölünme,satış belgesi var,-0.9307263946168872,2026-04-15,2025-12-31,False,birim/ölçek hatası olası
+1896212,CDT,2026-07-20,0.1,ters bölünme,satış belgesi var,-0.2516864739811117,2026-08-12,2026-06-30,False,sayı bölünmeden önceye ait
+1897245,ESYN,2025-02-24,0.2,ters bölünme,satış belgesi var,-0.2042132172072535,2025-03-31,2024-12-31,False,sayı bölünmeden önceye ait
+1898604,VSTD,2025-07-31,4.0,bölünme,satış belgesi var,1.6424356166438163,2025-08-19,2025-06-30,False,sayı bölünmeden önceye ait
+1898766,TPET,2024-11-15,0.05,ters bölünme,satış belgesi var,-0.2143730947953649,2025-01-17,2024-10-31,False,sayı bölünmeden önceye ait
+1898766,TPET,2026-08-31,0.1111111111111111,ters bölünme,belge yok,-0.1404014005203429,2026-09-09,2026-07-31,False,sayı bölünmeden önceye ait
+1901215,BRNX,2026-01-26,0.1428571428571428,ters bölünme,satış belgesi var,-0.676916816804112,2026-03-25,2025-12-31,False,sayı bölünmeden önceye ait
+1905956,TGL,2024-02-27,0.0142857142857142,ters bölünme,satış belgesi var,-0.2418688251356936,2024-05-14,2024-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1905956,TGL,2025-04-07,0.02,ters bölünme,satış belgesi var,-0.5964145075174927,2025-05-15,2025-03-31,False,sayı bölünmeden önceye ait
+1905956,TGL,2025-12-05,0.05,ters bölünme,satış belgesi var,-0.7688952841307494,2026-02-23,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1916416,INTJ,2026-02-17,0.05,ters bölünme,satış belgesi var,-0.5731701764815305,2026-03-31,2025-11-30,False,sayı bölünmeden önceye ait
+1919246,PTHS,2025-07-02,0.1,ters bölünme,satış belgesi var,-0.081631022396483,2025-08-13,2025-06-30,False,sayı bölünmeden önceye ait
+1920406,ASST,2024-07-02,0.2,ters bölünme,satış belgesi var,0.91507601536372,2024-08-14,2024-06-30,False,sayı bölünmeden önceye ait
+1920406,ASST,2026-02-06,0.05,ters bölünme,satış belgesi var,-0.2543009644672717,2026-03-19,2025-12-31,False,sayı bölünmeden önceye ait
+1926792,SFHG,2026-02-27,0.2,ters bölünme,belge yok,-0.8,2026-03-27,2025-12-31,False,sayı bölünmeden önceye ait
+1928581,GMEX,2025-09-23,0.0625,ters bölünme,satış belgesi var,-0.9401676543725186,2025-11-14,2025-06-30,False,sayı bölünmeden önceye ait
+1928948,HTCO,2025-08-08,0.04,ters bölünme,belge yok,-0.2995973911988236,2026-01-23,2025-10-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1929783,WOK,2025-10-21,0.01,ters bölünme,satış belgesi var,-0.9999859139277328,2026-01-30,2025-09-30,False,birim/ölçek hatası olası
+1929783,WOK,2025-12-29,0.01,ters bölünme,satış belgesi var,-0.9999859139277328,2026-01-30,2025-09-30,False,birim/ölçek hatası olası
+1931717,CCTG,2026-01-23,0.1,ters bölünme,satış belgesi var,-0.7040707598274699,2026-07-17,2026-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1932737,AIIO,2026-04-06,0.05,ters bölünme,satış belgesi var,-0.9605874205650902,2026-04-30,2025-12-31,False,sayı bölünmeden önceye ait
+1934245,NWTG,2025-03-17,0.0333333333333333,ters bölünme,satış belgesi var,-0.8362869468073652,2025-04-04,2024-12-31,False,sayı bölünmeden önceye ait
+1935172,AIXI,2026-05-11,0.05,ters bölünme,satış belgesi var,-0.971079140282867,2026-05-15,2025-12-31,False,birim/ölçek hatası olası
+1936224,SRFM,2024-08-19,0.1428571428571428,ters bölünme,satış belgesi var,-0.0783513391538678,2024-11-14,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1937993,CVKD,2024-08-20,0.0666666666666666,ters bölünme,satış belgesi var,-0.1356155588960739,2024-11-07,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1938046,MGRX,2024-10-16,0.0666666666666666,ters bölünme,satış belgesi var,-0.090068091585173,2024-11-14,2024-09-30,False,sayı bölünmeden önceye ait
+1938109,PAPL,2025-07-16,0.05,ters bölünme,satış belgesi var,-0.2508236753145738,2025-12-03,2025-08-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1938186,JYD,2025-10-13,0.02,ters bölünme,satış belgesi var,-0.4268754879501512,2026-04-20,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1939780,UCAR,2026-04-01,0.1,ters bölünme,satış belgesi var,-0.9320487001466764,2026-05-15,2025-12-31,False,sayı bölünmeden önceye ait
+1941029,ADVB,2026-02-20,0.05,ters bölünme,satış belgesi var,-0.2171520396372852,2026-05-15,2026-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1941500,MWG,2026-02-23,0.1,ters bölünme,satış belgesi var,-0.8919260700389104,2026-05-08,2023-12-31,False,sayı bölünmeden önceye ait
+1944399,PDC,2024-05-16,0.2,ters bölünme,belge yok,-0.8164158414528185,2024-08-26,2024-04-30,False,sayı bölünmeden önceye ait
+1944712,BIYA,2025-12-30,0.04,ters bölünme,satış belgesi var,-0.9164200186592308,2026-04-30,2025-12-31,False,birim/ölçek hatası olası
+1946563,SXTP,2024-08-12,0.0833333333333333,ters bölünme,satış belgesi var,-0.9544734611802692,2024-11-14,2024-09-30,False,birim/ölçek hatası olası
+1946563,SXTP,2025-02-24,0.2,ters bölünme,satış belgesi var,-0.3431336301481015,2025-03-27,2024-12-31,False,sayı bölünmeden önceye ait
+1946563,SXTP,2026-01-20,0.25,ters bölünme,satış belgesi var,-0.1178056935438665,2026-03-30,2025-12-31,False,sayı bölünmeden önceye ait
+1946573,NAKA,2026-05-22,0.025,ters bölünme,belge yok,-0.0360150155270122,2026-08-13,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1946703,WBUY,2025-04-10,0.0083333333333333,ters bölünme,satış belgesi var,-0.9952080083674584,2025-04-22,2024-12-31,False,birim/ölçek hatası olası
+1947861,NMHI,2024-11-21,0.0333333333333333,ters bölünme,satış belgesi var,-0.5687518095465542,2025-04-15,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1948099,MTEN,2026-01-26,0.005,ters bölünme,satış belgesi var,-0.6939228497270205,2026-04-30,2025-12-31,False,sayı bölünmeden önceye ait
+1948436,JL,2024-12-10,0.1,ters bölünme,belge yok,-0.9,2025-04-03,2024-03-31,False,sayı bölünmeden önceye ait
+1949478,DTCKF,2026-03-09,0.05,ters bölünme,satış belgesi var,-0.1048600475252387,2026-05-15,2025-12-31,False,sayı bölünmeden önceye ait
+1951067,CISS,2025-01-02,0.4,ters bölünme,satış belgesi var,-0.9999175060155696,2025-04-28,2024-12-31,False,birim/ölçek hatası olası
+1951067,CISS,2025-04-04,0.1666666666666666,ters bölünme,satış belgesi var,-0.9999175060155696,2025-04-28,2024-12-31,False,birim/ölçek hatası olası
+1951067,CISS,2026-01-26,0.05,ters bölünme,satış belgesi var,-0.9964300223748916,2026-04-22,2025-12-31,False,birim/ölçek hatası olası
+1951294,VSME,2026-01-12,0.05,ters bölünme,satış belgesi var,-0.8547037122267216,2026-04-30,2025-12-31,False,sayı bölünmeden önceye ait
+1951667,CTNT,2024-10-24,0.0625,ters bölünme,belge yok,-0.1923332869981289,2024-11-13,2024-09-30,False,sayı bölünmeden önceye ait
+1951667,CTNT,2026-04-29,0.005,ters bölünme,satış belgesi var,-0.9999563809512498,2026-05-14,2026-04-30,False,birim/ölçek hatası olası
+1954269,GSIW,2026-03-06,0.005,ters bölünme,satış belgesi var,-0.9927070490932984,2026-07-31,2026-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1954594,HAO,2026-05-21,0.0078125,ters bölünme,satış belgesi var,-0.9898181142127924,2026-09-30,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1954594,HAO,2026-08-14,0.05,ters bölünme,satış belgesi var,-0.9898181142127924,2026-09-30,2026-06-30,False,birim/ölçek hatası olası
+1954694,LGCL,2025-10-13,0.025,ters bölünme,satış belgesi var,-0.2880326916819213,2026-04-20,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1957413,DCX,2025-11-03,0.01,ters bölünme,satış belgesi var,-0.7151180134574923,2026-04-30,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1957413,DCX,2026-01-22,0.0833333333333333,ters bölünme,satış belgesi var,-0.7151180134574923,2026-04-30,2025-12-31,False,sayı bölünmeden önceye ait
+1958399,HCAI,2026-04-13,0.0333333333333333,ters bölünme,belge yok,-0.1403587798596377,2026-05-13,2025-12-31,False,sayı bölünmeden önceye ait
+1958777,FBLG,2026-03-30,0.05,ters bölünme,satış belgesi var,-0.0532852079892132,2026-04-30,2026-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1959023,RENX,2024-10-08,0.05,ters bölünme,satış belgesi var,-0.1181086297862891,2024-11-14,2024-09-30,False,sayı bölünmeden önceye ait
+1959023,RENX,2026-03-26,0.05,ters bölünme,satış belgesi var,-0.7401589031696462,2026-04-01,2025-12-31,False,sayı bölünmeden önceye ait
+1959726,AZI,2025-12-12,0.02,ters bölünme,belge yok,-0.1440238085531412,2026-02-11,2025-09-30,False,sayı bölünmeden önceye ait
+1961847,INHD,2024-10-10,0.1,ters bölünme,satış belgesi var,-0.0898206108879102,2024-12-09,2024-09-30,False,sayı bölünmeden önceye ait
+1961847,INHD,2025-12-22,0.0416666666666666,ters bölünme,satış belgesi var,-0.9238097820376816,2026-02-03,2025-12-31,False,birim/ölçek hatası olası
+1961847,INHD,2026-05-04,0.05,ters bölünme,satış belgesi var,-0.833109429929052,2026-08-18,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1963088,ATCH,2025-01-02,0.0166666666666666,ters bölünme,satış belgesi var,-0.0444361684488694,2025-02-19,2024-12-31,False,sayı bölünmeden önceye ait
+1964946,YAAS,2025-09-30,0.0125,ters bölünme,satış belgesi var,-0.965342032109892,2026-01-28,2025-09-30,False,birim/ölçek hatası olası
+1966678,ZDAI,2026-02-19,0.0625,ters bölünme,satış belgesi var,-0.8033015067223797,2026-08-17,2026-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1968043,NCEW,2025-11-14,0.125,ters bölünme,belge yok,-0.21875,2026-02-17,2025-09-30,False,sayı bölünmeden önceye ait
+1969863,SUGP,2025-08-25,0.1,ters bölünme,belge yok,-0.0682850300251506,2026-01-16,2025-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+1975940,FLYE,2025-11-04,0.05,ters bölünme,satış belgesi var,-0.9348387019703482,2025-12-18,2025-09-30,False,sayı bölünmeden önceye ait
+1976695,MNDR,2025-09-25,0.2,ters bölünme,satış belgesi var,-0.1715971601771526,2025-10-31,2025-06-30,False,sayı bölünmeden önceye ait
+1976908,JDZG,2026-03-23,0.04,ters bölünme,satış belgesi var,-0.86876184918413,2026-04-10,2025-12-31,False,sayı bölünmeden önceye ait
+1980210,WFF,2026-04-13,0.2,ters bölünme,belge yok,-0.0889274313827381,2026-04-30,2025-12-31,False,sayı bölünmeden önceye ait
+1981535,SBET,2025-05-06,0.0833333333333333,ters bölünme,belge yok,-0.291976167091116,2025-05-15,2025-03-31,False,sayı bölünmeden önceye ait
+1981662,NIVF,2025-05-05,0.1,ters bölünme,belge yok,-0.9,2025-05-15,2024-12-31,False,sayı bölünmeden önceye ait
+1981662,NIVF,2025-12-01,0.2,ters bölünme,satış belgesi var,-0.9984228111588578,2026-03-31,2025-12-31,False,birim/ölçek hatası olası
+1981662,NIVF,2026-01-26,0.3333333333333333,ters bölünme,satış belgesi var,-0.9984228111588578,2026-03-31,2025-12-31,False,birim/ölçek hatası olası
+1981662,NIVF,2026-03-16,0.25,ters bölünme,satış belgesi var,-0.9984228111588578,2026-03-31,2025-12-31,False,birim/ölçek hatası olası
+1983550,TDTH,2026-04-24,0.0333333333333333,ters bölünme,belge yok,-0.981011900154813,2026-04-28,2025-12-31,False,birim/ölçek hatası olası
+1986247,BYAH,2026-02-20,0.02,ters bölünme,satış belgesi var,-0.2619795479772335,2026-03-02,2025-10-31,False,sayı bölünmeden önceye ait
+1990251,WCT,2026-03-06,0.02,ters bölünme,satış belgesi var,-0.8612533846605552,2026-05-13,2025-12-31,False,sayı bölünmeden önceye ait
+1991261,SKK,2026-04-06,0.1,ters bölünme,belge yok,-0.9166666666666666,2026-04-10,2025-12-31,False,sayı bölünmeden önceye ait
+1991332,MKDW,2026-01-26,0.0333333333333333,ters bölünme,satış belgesi var,-0.8794286811261683,2026-04-29,2025-12-31,False,sayı bölünmeden önceye ait
+1995574,ICON,2026-01-08,0.2,ters bölünme,satış belgesi var,-0.999738069328894,2026-02-24,2025-12-31,False,birim/ölçek hatası olası
+1997201,PSIG,2025-10-13,0.125,ters bölünme,belge yok,-0.6234398015934405,2026-04-30,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+1998056,PC,2025-07-22,0.1111111111111111,ters bölünme,satış belgesi var,-0.8888888888888888,2025-10-31,2025-06-30,False,sayı bölünmeden önceye ait
+1998560,MIMI,2026-05-06,0.1,ters bölünme,belge yok,-0.0799699513488509,2026-08-14,2026-03-31,False,sayı bölünmeden önceye ait
+2002236,SPHL,2025-12-02,0.125,ters bölünme,belge yok,-0.7693573347028001,2026-04-28,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+2003977,CRE,2026-02-13,0.0833333333333333,ters bölünme,satış belgesi var,-0.0689979289548595,2026-04-24,2025-12-31,False,sayı bölünmeden önceye ait
+2004024,LHSW,2026-06-22,0.0625,ters bölünme,belge yok,-0.0566037735849056,2026-08-13,2026-03-31,False,sayı bölünmeden önceye ait
+2015691,ELPW,2025-12-26,0.0625,ters bölünme,satış belgesi var,0.1794160725926021,2026-04-20,2025-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+2015691,ELPW,2026-03-12,0.0125,ters bölünme,satış belgesi var,0.1794160725926021,2026-04-20,2025-12-31,False,sayı bölünmeden önceye ait
+2016337,PTLE,2026-02-27,0.0125,ters bölünme,satış belgesi var,-0.998373188870368,2026-04-30,2025-12-31,False,birim/ölçek hatası olası
+2018462,PCLA,2026-01-26,0.0333333333333333,ters bölünme,satış belgesi var,-0.3374432096903639,2026-02-13,2025-09-30,False,sayı bölünmeden önceye ait
+2020795,UNIT,2025-08-04,0.602,ters bölünme,belge yok,-0.9999997427350428,2025-11-07,2025-09-30,False,birim/ölçek hatası olası
+20212,CHDN,2019-01-28,3.0,bölünme,belge yok,0.1435643564356434,2019-02-27,2018-12-31,False,sayı bölünmeden önceye ait
+2022308,KIDZ,2026-03-10,0.02,ters bölünme,satış belgesi var,-0.2147627863219243,2026-04-01,2025-12-31,False,sayı bölünmeden önceye ait
+2022308,KIDZ,2026-06-08,0.1,ters bölünme,satış belgesi var,-0.9462329421610962,2026-08-12,2026-06-30,False,birim/ölçek hatası olası
+2022416,SLXN,2026-05-29,0.1,ters bölünme,satış belgesi var,-0.7349945416512691,2026-08-14,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+2023796,FCHL,2026-03-23,0.0666666666666666,ters bölünme,satış belgesi var,-0.1176471107266404,2026-05-15,2025-12-31,False,sayı bölünmeden önceye ait
+2023796,FCHL,2026-05-04,0.0333333333333333,ters bölünme,satış belgesi var,-0.1176471107266404,2026-05-15,2025-12-31,False,sayı bölünmeden önceye ait
+2024876,EDHL,2026-02-09,0.0625,ters bölünme,satış belgesi var,-0.0622655663915978,2026-05-04,2025-12-31,False,sayı bölünmeden önceye ait
+2030617,PMI,2026-08-03,0.02,ters bölünme,satış belgesi var,-0.2676019339485626,2026-08-19,2026-06-30,False,sayı bölünmeden önceye ait
+2030763,MEDS,2026-05-26,0.02,ters bölünme,satış belgesi var,-0.1581268429506388,2026-08-17,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+2030954,XHLD,2025-12-02,0.0666666666666666,ters bölünme,satış belgesi var,-0.38590955713675,2026-03-18,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+2033770,DAIC,2026-06-01,0.04,ters bölünme,satış belgesi var,-0.3970978442983416,2026-09-25,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+2036307,OFAL,2026-07-31,0.1,ters bölünme,belge yok,-0.7993107583089882,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+2039060,RBNE,2025-12-24,0.2,ters bölünme,satış belgesi var,-0.9999279244215484,2026-04-10,2025-12-31,False,birim/ölçek hatası olası
+2079272,LABT,2026-06-22,0.1,ters bölünme,satış belgesi var,-0.6753027269512848,2026-08-13,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+216228,ITT,2011-11-01,3.0156815440289506,bölünme,belge yok,4.979757842384679,2012-02-29,2011-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+2186,BKTI,2023-04-24,0.2,ters bölünme,belge yok,-0.8001634291939488,2023-05-04,2023-03-31,False,sayı bölünmeden önceye ait
+22701,SUNE,2022-03-21,0.25,ters bölünme,satış belgesi var,-0.6731721279264338,2022-05-23,2022-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+22701,SUNE,2024-06-12,0.0666666666666666,ters bölünme,satış belgesi var,-0.4095264313379421,2024-08-19,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+22701,SUNE,2024-10-17,0.02,ters bölünme,satış belgesi var,-0.8459512221058396,2024-11-14,2024-09-30,False,sayı bölünmeden önceye ait
+22701,SUNE,2025-04-21,0.005,ters bölünme,belge yok,-0.8852061038689781,2025-05-15,2025-03-31,False,sayı bölünmeden önceye ait
+23194,CRK,2016-08-01,0.2,ters bölünme,satış belgesi var,-0.8131278928456784,2016-11-09,2016-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+23795,CTO,2022-07-01,3.0,bölünme,belge yok,1.9649748315941171,2022-07-28,2022-06-30,False,sayı bölünmeden önceye ait
+25445,CXT,2023-04-04,2.879,bölünme,belge yok,1.85870246198932,2023-05-10,2023-03-31,False,sayı bölünmeden önceye ait
+25743,TXMD,2011-10-03,0.01,ters bölünme,satış belgesi var,-0.99,2011-11-07,2011-09-30,False,sayı bölünmeden önceye ait
+27093,USAU,2016-07-11,0.3333333333333333,ters bölünme,belge yok,-0.0343793283572582,2016-07-29,2016-04-30,False,sayı bölünmeden önceye ait
+27093,USAU,2017-05-08,0.25,ters bölünme,satış belgesi var,-0.1601496513144296,2017-07-31,2017-04-30,False,sayı bölünmeden önceye ait
+27093,USAU,2020-03-20,0.1,ters bölünme,satış belgesi var,-0.1582442335570829,2020-07-13,2020-04-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+313616,DHR,2016-07-05,1.319,bölünme,belge yok,0.3153706010137582,2016-07-25,2016-06-30,False,sayı bölünmeden önceye ait
+314203,MUX,2022-07-28,0.1,ters bölünme,satış belgesi var,-0.0318208653116303,2022-08-10,2022-06-30,False,sayı bölünmeden önceye ait
+314227,TOMZ,2026-07-20,0.3333333333333333,ters bölünme,belge yok,-0.1527380909835629,2026-08-14,2026-06-30,False,sayı bölünmeden önceye ait
+317788,APPS,2013-04-15,0.2,ters bölünme,satış belgesi var,-0.0531346779443285,2013-07-01,2013-03-31,False,sayı bölünmeden önceye ait
+319458,ENSV,2020-11-23,0.0666666666666666,ters bölünme,satış belgesi var,-0.2595290041206942,2021-03-23,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+320017,LSTA,2013-07-16,0.1,ters bölünme,belge yok,-0.1305378343705121,2013-08-08,2013-06-30,False,sayı bölünmeden önceye ait
+320017,LSTA,2022-09-15,0.0666666666666666,ters bölünme,satış belgesi var,-0.4863172183118684,2022-11-10,2022-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+320193,AAPL,2014-06-09,7.0,bölünme,satış belgesi var,-0.9989928130287148,2014-07-23,2014-06-30,False,birim/ölçek hatası olası
+34956,TENX,2013-05-13,0.05,ters bölünme,satış belgesi var,-0.1282606454246926,2013-06-26,2013-04-30,False,sayı bölünmeden önceye ait
+34956,TENX,2023-01-05,0.05,ters bölünme,satış belgesi var,-0.3459275402095025,2023-03-30,2022-12-31,False,sayı bölünmeden önceye ait
+353184,AIRT,2019-06-11,1.5,bölünme,satış belgesi var,0.5012562807859244,2019-06-28,2019-03-31,False,sayı bölünmeden önceye ait
+356037,CSPI,2024-03-21,2.0,bölünme,belge yok,-0.0305515685872462,2024-05-09,2024-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+38264,FWDI,2024-06-18,0.1,ters bölünme,satış belgesi var,-0.0862348317862005,2024-08-14,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+40570,JOB,2015-10-09,0.1,ters bölünme,satış belgesi var,-0.6370655496433828,2015-12-29,2015-09-30,False,sayı bölünmeden önceye ait
+46129,ALNT,2021-05-03,1.5,bölünme,belge yok,0.5008154389779831,2021-08-04,2021-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+47217,HPQ,2015-11-02,2.202,bölünme,satış belgesi var,1.198338137472284,2015-12-16,2015-10-31,False,sayı bölünmeden önceye ait
+52827,RYN,2014-06-30,1.339,bölünme,belge yok,0.3381725757842466,2014-08-08,2014-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+61004,LGL,2013-08-07,1.641,bölünme,satış belgesi var,0.6470205280399659,2013-08-14,2013-06-30,False,sayı bölünmeden önceye ait
+61986,MTW,2016-03-04,4.41584,bölünme,belge yok,3.4029630796441825,2016-05-10,2016-03-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+64463,SLNH,2023-10-16,0.04,ters bölünme,belge yok,-0.1805456518924397,2023-11-14,2023-09-30,False,sayı bölünmeden önceye ait
+64472,GENC,2016-08-02,1.5,bölünme,belge yok,0.4987051877242379,2016-08-09,2016-06-30,False,sayı bölünmeden önceye ait
+65770,MVIS,2012-02-21,0.125,ters bölünme,satış belgesi var,-0.1348419413596568,2012-03-08,2011-12-31,False,sayı bölünmeden önceye ait
+68505,MSI,2011-01-04,0.2473716759431045,ters bölünme,belge yok,0.7281445597999694,2011-02-18,2010-12-31,False,sayı bölünmeden önceye ait
+706129,HBNC,2012-11-13,1.5,bölünme,belge yok,0.5000468235093705,2013-03-12,2012-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+706129,HBNC,2016-11-15,1.5,bölünme,belge yok,0.4980807876888971,2017-02-28,2016-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+70866,VYX,2023-10-17,1.63,bölünme,belge yok,0.6242157558552162,2023-11-14,2023-09-30,False,sayı bölünmeden önceye ait
+709283,QMCO,2024-08-27,0.05,ters bölünme,belge yok,-0.95,2024-09-05,2023-12-31,False,sayı bölünmeden önceye ait
+721693,CREG,2020-04-15,0.1,ters bölünme,satış belgesi var,-0.1877636921151499,2020-05-14,2019-12-31,False,sayı bölünmeden önceye ait
+721693,CREG,2025-07-18,0.1,ters bölünme,belge yok,-0.9,2025-08-14,2025-06-30,False,sayı bölünmeden önceye ait
+721994,LKFN,2016-08-08,1.5,bölünme,belge yok,0.4982266272407292,2016-11-09,2016-09-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+72444,VXRT,2018-02-14,0.0909090909090909,ters bölünme,satış belgesi var,-0.5079857149838773,2018-05-15,2018-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+725363,CVM,2017-06-15,0.04,ters bölünme,satış belgesi var,-0.0607002171995628,2017-08-09,2017-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+725363,CVM,2025-05-20,0.0333333333333333,ters bölünme,satış belgesi var,-0.4716259429092528,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+728387,CATX,2024-06-17,0.1,ters bölünme,satış belgesi var,-0.1295298134003879,2024-08-13,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+730708,SBCF,2013-12-13,0.2,ters bölünme,belge yok,-0.1969388132400495,2014-03-17,2013-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+736012,INTZ,2024-03-25,0.05,ters bölünme,satış belgesi var,-0.3125698324022347,2024-04-01,2023-12-31,False,sayı bölünmeden önceye ait
+738214,AMTX,2014-05-15,0.1,ters bölünme,belge yok,-0.901262972390836,2014-08-06,2014-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+738214,AMTX,2016-06-15,4.0,bölünme,satış belgesi var,2.9987845024056723,2016-08-11,2016-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+744218,CLDX,2019-02-11,0.0666666666666666,ters bölünme,belge yok,-0.0601513649368513,2019-03-07,2018-12-31,False,sayı bölünmeden önceye ait
+745732,ROST,2011-12-16,2.0,bölünme,belge yok,0.0408262218774244,2012-03-27,2012-01-31,False,ilk rapordaki sayı az (geri alım vb.)
+746210,TWAV,2024-08-26,0.025,ters bölünme,satış belgesi var,-0.3409656080705199,2024-11-07,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+748268,RCAT,2014-07-23,0.0066666666666666,ters bölünme,satış belgesi var,-0.9933333333333332,2014-08-06,2014-06-30,False,sayı bölünmeden önceye ait
+748268,RCAT,2019-08-01,0.0008333333333333,ters bölünme,satış belgesi var,-0.9995838101583928,2019-08-19,2019-06-30,False,birim/ölçek hatası olası
+748592,ERNA,2021-03-26,0.5,ters bölünme,satış belgesi var,-0.964270224269755,2021-05-17,2021-03-31,False,birim/ölçek hatası olası
+748592,ERNA,2022-10-17,0.05,ters bölünme,belge yok,-0.0233004758667573,2022-11-14,2022-09-30,False,sayı bölünmeden önceye ait
+748592,ERNA,2025-06-12,0.0666666666666666,ters bölünme,satış belgesi var,-0.5345004231814334,2025-08-13,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+748592,ERNA,2026-05-04,0.04,ters bölünme,belge yok,-0.730566037735849,2026-05-11,2026-03-31,False,sayı bölünmeden önceye ait
+749647,IMNN,2013-10-29,0.222,ters bölünme,belge yok,-0.7782389876092479,2013-11-12,2013-10-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+749647,IMNN,2017-05-30,0.0714285714285714,ters bölünme,satış belgesi var,-0.330108067274689,2017-08-14,2017-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+749647,IMNN,2025-07-25,0.0666666666666666,ters bölünme,satış belgesi var,-0.4324800776322174,2025-08-05,2025-06-30,False,sayı bölünmeden önceye ait
+771999,DSS,2020-05-08,0.0333333333333333,ters bölünme,belge yok,-0.4170996294506203,2020-05-14,2020-03-31,False,sayı bölünmeden önceye ait
+778164,ALTO,2013-05-14,0.0666666666666666,ters bölünme,satış belgesi var,-0.9412911257777616,2013-08-07,2013-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+786947,ACUR,2015-08-28,0.2,ters bölünme,belge yok,-0.1658842470977035,2015-11-04,2015-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+788611,NTRP,2023-09-22,0.05,ters bölünme,belge yok,-0.17328336423467,2023-11-13,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+789933,NC,2012-10-01,3.048780487804878,bölünme,belge yok,2.04705639601227,2012-11-01,2012-09-30,False,sayı bölünmeden önceye ait
+789933,NC,2017-10-02,4.377,bölünme,belge yok,3.3709378449177194,2017-11-01,2017-09-30,False,sayı bölünmeden önceye ait
+797542,QXL,2022-09-06,0.0357142857142857,ters bölünme,satış belgesi var,-0.9160440011700708,2022-11-21,2021-12-31,False,birim/ölçek hatası olası
+798287,PAMT,2021-08-17,2.0,bölünme,belge yok,0.0255734150030164,2021-11-05,2021-09-30,False,ilk rapordaki sayı az (geri alım vb.)
+803578,AIFF,2023-10-18,0.1,ters bölünme,belge yok,-0.0277652643683498,2023-11-13,2023-09-30,False,sayı bölünmeden önceye ait
+810332,RJET,2025-11-25,0.0666666666666666,ters bölünme,satış belgesi var,-0.9389238699663812,2026-03-18,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+811212,THMO,2022-12-22,0.0222222222222222,ters bölünme,satış belgesi var,-0.3288932941742886,2023-03-30,2022-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+812796,SNGX,2016-10-07,0.1,ters bölünme,satış belgesi var,-0.1247290784993115,2016-11-10,2016-09-30,False,sayı bölünmeden önceye ait
+812796,SNGX,2024-06-06,0.0625,ters bölünme,satış belgesi var,-0.573558611781028,2024-08-09,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+818033,HRTX,2014-01-13,0.05,ters bölünme,satış belgesi var,-0.3589163859664007,2014-03-07,2013-12-31,False,sayı bölünmeden önceye ait
+820313,APH,2014-10-10,2.0,bölünme,satış belgesi var,0.0210642672463823,2015-02-20,2014-12-31,False,ilk rapordaki sayı az (geri alım vb.)
+822370,EMMA,2019-07-18,0.1666666666666666,ters bölünme,satış belgesi var,-0.8827322279002214,2019-08-14,2019-06-30,False,sayı bölünmeden önceye ait
+826675,DX,2019-06-21,0.3333333333333333,ters bölünme,satış belgesi var,-0.0228935025560688,2019-08-06,2019-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+828146,LINK,2024-03-25,1.5,bölünme,belge yok,0.499944018316558,2024-05-09,2024-03-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+832428,SSP,2025-12-08,1.33,bölünme,belge yok,0.3268364823243195,2026-02-27,2025-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+832489,GOVX,2024-01-31,0.0666666666666666,ters bölünme,satış belgesi var,-0.0998740612760171,2024-02-29,2023-12-31,False,sayı bölünmeden önceye ait
+832489,GOVX,2026-01-12,0.04,ters bölünme,satış belgesi var,-0.3140221932665067,2026-04-15,2025-12-31,False,sayı bölünmeden önceye ait
+839470,WWR,2016-03-08,0.0833333333333333,ters bölünme,satış belgesi var,-0.4469116263683095,2016-03-18,2015-12-31,False,sayı bölünmeden önceye ait
+839470,WWR,2019-04-23,0.02,ters bölünme,belge yok,-0.0424037599999999,2019-05-07,2019-04-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+842717,BRBS,2021-05-03,1.5,bölünme,belge yok,-0.5393541218495944,2021-05-11,2021-03-31,False,sayı bölünmeden önceye ait
+843006,ACCS,2011-10-31,0.1,ters bölünme,satış belgesi var,-0.9009385190307662,2012-03-01,2011-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+8504,UAVS,2018-03-27,0.04,ters bölünme,satış belgesi var,-0.93370703234972,2018-05-18,2018-03-31,False,birim/ölçek hatası olası
+8504,UAVS,2024-02-09,0.05,ters bölünme,satış belgesi var,-0.958056257378523,2024-04-01,2023-12-31,False,sayı bölünmeden önceye ait
+8504,UAVS,2024-10-15,0.02,ters bölünme,satış belgesi var,-0.984020397377391,2024-11-19,2024-09-30,False,sayı bölünmeden önceye ait
+851205,CGNX,2017-12-04,2.0,bölünme,belge yok,1.0,2018-02-15,2017-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+863894,VERU,2025-08-11,0.1,ters bölünme,satış belgesi var,-0.8999995085431581,2025-12-17,2025-09-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+866374,FLEX,2024-01-03,1.327,bölünme,belge yok,0.3599010222152385,2024-02-02,2023-12-31,False,sayı bölünmeden önceye ait
+867840,POCI,2022-11-02,0.3333333333333333,ters bölünme,belge yok,-0.6666666666666667,2022-11-14,2022-09-30,False,sayı bölünmeden önceye ait
+868278,PRPH,2025-12-22,0.1,ters bölünme,satış belgesi var,-0.5367017174997429,2026-06-01,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+872912,DCTH,2019-12-24,0.0014285714285714,ters bölünme,satış belgesi var,-0.6108099021158895,2020-03-25,2019-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+876167,PRGS,2011-01-31,1.5,bölünme,belge yok,1489.39856176352,2011-04-11,2011-02-28,False,birim/ölçek hatası olası
+876883,STGW,2013-11-29,1.5,bölünme,belge yok,-0.0385741400420912,2014-03-10,2013-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+879407,ARWR,2011-11-17,0.1,ters bölünme,satış belgesi var,-0.3178526253774265,2012-02-09,2011-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+879682,VIVE,2019-09-19,0.01,ters bölünme,satış belgesi var,-0.6831180666068395,2019-11-07,2019-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+88205,SPXC,2015-09-28,3.971,bölünme,belge yok,3.003982327469074,2015-11-05,2015-09-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+882291,AEMD,2019-10-15,0.0666666666666666,ters bölünme,satış belgesi var,-0.0476255285376032,2019-11-01,2019-09-30,False,sayı bölünmeden önceye ait
+882291,AEMD,2025-06-09,0.125,ters bölünme,satış belgesi var,-0.1305019572405966,2025-06-26,2025-03-31,False,sayı bölünmeden önceye ait
+882291,AEMD,2025-10-20,0.1,ters bölünme,satış belgesi var,-0.6586563039360688,2025-11-12,2025-09-30,False,sayı bölünmeden önceye ait
+882291,AEMD,2026-08-04,0.2,ters bölünme,satış belgesi var,-0.3420852866137972,2026-08-13,2026-06-30,False,sayı bölünmeden önceye ait
+883975,MBOT,2016-05-09,0.0833333333333333,ters bölünme,satış belgesi var,-0.9175697357159776,2016-08-15,2016-06-30,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+883975,MBOT,2016-11-29,0.1111111111111111,ters bölünme,satış belgesi var,-0.8860041332305578,2017-03-21,2016-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+883975,MBOT,2018-09-05,0.0666666666666666,ters bölünme,belge yok,-0.0236836397555363,2018-11-14,2018-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+884144,ASUR,2012-05-01,1.5,bölünme,belge yok,-0.0703673961051996,2012-05-15,2012-03-31,False,sayı bölünmeden önceye ait
+886128,FCEL,2015-12-04,0.0833333333333333,ters bölünme,belge yok,-0.0209232775306689,2016-01-08,2015-10-31,False,sayı bölünmeden önceye ait
+886128,FCEL,2019-05-09,0.0833333333333333,ters bölünme,belge yok,-0.3409885883068927,2019-06-17,2019-04-30,False,sayı bölünmeden önceye ait
+886128,FCEL,2024-11-11,0.0333333333333333,ters bölünme,belge yok,-0.0939621919298383,2024-12-27,2024-10-31,False,sayı bölünmeden önceye ait
+886163,LGND,2022-11-02,1.603,bölünme,belge yok,0.6018613709009115,2022-11-08,2022-09-30,False,sayı bölünmeden önceye ait
+887359,VCEL,2013-10-16,0.05,ters bölünme,satış belgesi var,-0.9735872193237162,2013-11-12,2013-09-30,False,birim/ölçek hatası olası
+887396,EP,2022-03-08,0.25,ters bölünme,satış belgesi var,-0.0634912226657112,2022-03-31,2021-12-31,False,sayı bölünmeden önceye ait
+890394,PRSO,2024-01-03,0.025,ters bölünme,satış belgesi var,-0.0598811292719168,2024-03-29,2023-12-31,False,sayı bölünmeden önceye ait
+890821,ENVB,2020-12-31,0.25,ters bölünme,satış belgesi var,-0.8579262244716723,2021-04-01,2020-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+890821,ENVB,2025-01-27,0.0666666666666666,ters bölünme,satış belgesi var,-0.9410364243435532,2025-03-28,2024-12-31,False,sayı bölünmeden önceye ait
+890821,ENVB,2025-01-29,0.0666666666666666,ters bölünme,satış belgesi var,-0.9410364243435532,2025-03-28,2024-12-31,False,sayı bölünmeden önceye ait
+890821,ENVB,2025-10-28,0.0833333333333333,ters bölünme,satış belgesi var,-0.5134652785280998,2025-11-14,2025-09-30,False,sayı bölünmeden önceye ait
+891103,MTCH,2020-07-01,3.502,bölünme,satış belgesi var,0.2312804305867495,2020-08-10,2020-06-30,False,sayı bölünmeden önceye ait
+894158,TOVX,2018-08-13,0.0285714285714285,ters bölünme,satış belgesi var,-0.3034063876638441,2018-11-08,2018-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+894158,TOVX,2024-08-26,0.04,ters bölünme,satış belgesi var,-0.6577882238596013,2024-11-12,2024-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+89439,MLI,2023-10-23,2.0,bölünme,belge yok,0.9889642696532008,2024-02-28,2023-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+894871,PAAI,2022-02-09,0.0454545454545454,ters bölünme,satış belgesi var,-0.0492149506869904,2022-03-31,2021-12-31,False,sayı bölünmeden önceye ait
+896493,GPUS,2019-03-15,0.05,ters bölünme,satış belgesi var,-0.1410493788163581,2019-04-16,2018-12-31,False,sayı bölünmeden önceye ait
+896493,GPUS,2019-08-06,0.025,ters bölünme,satış belgesi var,-0.7768087690236885,2019-08-19,2019-06-30,False,sayı bölünmeden önceye ait
+896493,GPUS,2023-05-18,0.0033333333333333,ters bölünme,satış belgesi var,-0.9966666666666668,2023-05-22,2022-12-31,False,sayı bölünmeden önceye ait
+896493,GPUS,2023-06-23,1.318,bölünme,satış belgesi var,-0.996011311510028,2023-08-21,2023-06-30,False,birim/ölçek hatası olası
+896493,GPUS,2024-01-17,0.04,ters bölünme,satış belgesi var,-0.8895524816888032,2024-04-16,2023-12-31,False,sayı bölünmeden önceye ait
+896493,GPUS,2024-11-25,0.0285714285714285,ters bölünme,satış belgesi var,-0.822657733734495,2025-04-15,2024-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+897448,AMRN,2025-04-11,0.05,ters bölünme,belge yok,-0.95033549367488,2025-05-07,2025-03-31,False,sayı bölünmeden önceye ait
+90498,SFNC,2018-02-09,2.0,bölünme,belge yok,-0.2999554336704607,2018-02-28,2017-12-31,False,sayı bölünmeden önceye ait
+907471,CASH,2018-10-05,3.0,bölünme,belge yok,-0.2570642383132042,2018-11-29,2018-09-30,False,sayı bölünmeden önceye ait
+907654,ORKA,2013-03-05,0.1666666666666666,ters bölünme,satış belgesi var,-0.0840935503251808,2013-03-21,2012-12-31,False,sayı bölünmeden önceye ait
+907654,ORKA,2019-04-04,0.0555555555555555,ters bölünme,satış belgesi var,-0.2960050729489205,2019-05-08,2019-03-31,False,sayı bölünmeden önceye ait
+907654,ORKA,2024-09-03,0.0833333333333333,ters bölünme,satış belgesi var,-0.9654577522973572,2024-11-13,2024-09-30,False,birim/ölçek hatası olası
+908311,CMCT,2014-04-29,0.2,ters bölünme,satış belgesi var,-0.9360374051476626,2014-05-12,2014-03-31,False,birim/ölçek hatası olası
+908311,CMCT,2025-04-15,0.04,ters bölünme,satış belgesi var,-0.382221156177984,2025-05-09,2025-03-31,False,sayı bölünmeden önceye ait
+908311,CMCT,2026-03-26,0.1,ters bölünme,satış belgesi var,-0.9908407382137971,2026-08-14,2026-06-30,False,birim/ölçek hatası olası
+908311,CMCT,2026-04-20,0.1,ters bölünme,satış belgesi var,-0.9908407382137971,2026-08-14,2026-06-30,False,birim/ölçek hatası olası
+908937,SIRI,2024-09-10,0.1,ters bölünme,belge yok,0.1359882005899704,2024-10-31,2024-09-30,False,ilk rapordaki sayı az (geri alım vb.)
+910073,FLG,2024-07-12,0.3333333333333333,ters bölünme,belge yok,-0.2368577598047335,2024-08-09,2024-06-30,False,sayı bölünmeden önceye ait
+911216,PTN,2025-08-12,0.02,ters bölünme,satış belgesi var,-0.3855994371754642,2025-09-23,2025-06-30,False,sayı bölünmeden önceye ait
+912093,VIAV,2015-08-04,1.758,bölünme,belge yok,0.7505191489361702,2015-08-25,2015-06-30,False,sayı bölünmeden önceye ait
+913241,SHOO,2018-10-12,1.5,bölünme,belge yok,0.4945313298579168,2018-11-09,2017-12-31,False,sayı bölünmeden önceye ait
+913290,FRO,2016-02-03,0.2,ters bölünme,satış belgesi var,-0.9712654866679784,2016-03-21,2015-12-31,False,birim/ölçek hatası olası
+914139,PRKR,2016-03-30,0.1,ters bölünme,satış belgesi var,-0.9039762677497164,2016-05-16,2016-03-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+915840,BZH,2012-10-12,0.2,ters bölünme,belge yok,0.3377294093888354,2012-11-13,2012-09-30,False,sayı bölünmeden önceye ait
+921114,ARMP,2015-08-07,0.02,ters bölünme,belge yok,-0.0551650164876265,2015-11-16,2015-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+921114,ARMP,2019-05-10,0.0714285714285714,ters bölünme,satış belgesi var,-0.7649205731726012,2019-08-14,2019-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+922864,AIV,2020-12-15,9.295,bölünme,belge yok,8.284377838734457,2021-03-12,2020-12-31,False,"kayıtta bölünme var, hisse sayısı değişmedi (ayrılma olası)"
+923601,RIME,2025-02-10,0.005,ters bölünme,satış belgesi var,-0.8964290872404821,2025-04-15,2024-12-31,False,sayı bölünmeden önceye ait
+923796,GEO,2017-04-25,1.5,bölünme,satış belgesi var,-0.0893832816248715,2017-05-04,2017-03-31,False,sayı bölünmeden önceye ait
+924168,EFOI,2014-07-18,0.1,ters bölünme,satış belgesi var,-0.0245901976933179,2014-08-13,2014-06-30,False,sayı bölünmeden önceye ait
+924168,EFOI,2023-06-20,0.1428571428571428,ters bölünme,satış belgesi var,-0.2136307474484162,2023-08-10,2023-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+925741,BCDA,2024-05-30,0.0666666666666666,ters bölünme,belge yok,-0.1576285056189721,2024-08-13,2024-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+928054,FTK,2023-09-26,0.1666666666666666,ters bölünme,belge yok,-0.1475872020546451,2023-11-08,2023-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+928876,TSEM,2012-08-06,0.0666666666666666,ters bölünme,belge yok,-0.9333333333333332,2012-08-10,2011-12-31,False,sayı bölünmeden önceye ait
+93314,VNRX,2026-04-28,0.05,ters bölünme,belge yok,-0.2069983438856925,2026-05-14,2026-03-31,False,sayı bölünmeden önceye ait
+933972,SCWO,2025-12-26,0.1,ters bölünme,satış belgesi var,-0.1001913697983949,2026-03-31,2025-12-31,False,ilk rapordaki sayı fazla (ihraç vb.)
+945394,SVC,2026-07-07,0.2,ters bölünme,belge yok,-0.7405112320878002,2026-08-05,2026-06-30,False,sayı bölünmeden önceye ait
+946644,AIM,2016-08-29,0.0833333333333333,ters bölünme,satış belgesi var,-0.1397917219875623,2016-11-14,2016-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+946644,AIM,2019-06-11,0.0227272727272727,ters bölünme,satış belgesi var,-0.3545833584726461,2019-08-14,2019-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+946644,AIM,2025-06-12,0.01,ters bölünme,satış belgesi var,-0.0540281972498912,2025-08-14,2025-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+948320,LFMD,2020-10-14,0.2,ters bölünme,satış belgesi var,-0.0915709208428936,2020-11-16,2020-09-30,False,sayı bölünmeden önceye ait
+948708,SMSI,2016-08-17,0.25,ters bölünme,satış belgesi var,-0.0489743456713562,2016-10-28,2016-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+948708,SMSI,2024-04-11,0.125,ters bölünme,belge yok,-0.0264046913900155,2024-05-08,2024-03-31,False,sayı bölünmeden önceye ait
+948708,SMSI,2026-06-05,0.2,ters bölünme,satış belgesi var,-0.0837096324071356,2026-08-14,2026-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+949858,ACHV,2017-08-03,0.0909090909090909,ters bölünme,satış belgesi var,-0.7616642676333893,2017-11-09,2017-09-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+949858,ACHV,2018-05-24,0.1,ters bölünme,satış belgesi var,-0.6992366685965828,2018-08-08,2018-06-30,False,ilk rapordaki sayı fazla (ihraç vb.)
+949858,ACHV,2020-07-31,0.05,ters bölünme,satış belgesi var,-0.1909811771979502,2020-08-06,2020-06-30,False,sayı bölünmeden önceye ait
+95029,RGR,2025-10-24,0.374,ters bölünme,belge yok,-0.9996192050316812,2025-11-05,2025-09-30,False,birim/ölçek hatası olası
+99780,TRN,2018-11-01,1.389,bölünme,belge yok,0.5723938484621156,2019-02-21,2018-12-31,False,ilk rapordaki sayı az (geri alım vb.)

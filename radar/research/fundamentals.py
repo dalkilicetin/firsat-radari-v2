@@ -58,8 +58,12 @@ def shares_wide(sh: pd.DataFrame, price: pd.DataFrame, raw: pd.DataFrame | None 
     max_age = max_age or FUNDAMENTAL_MAX_AGE
     dates, cols = price.index, price.columns
     events = panel.split_events() if events is None else events
+    import os
     sh = sh.assign(cik=sh.cik.astype(str))
-    asof = sh["asof"] if "asof" in sh else sh["accepted"]
+    # Karşılaştırma için (1. aşama, karar bekliyor): RADAR_HISSE_CAPA=kabul → düzeltme raporun kabul tarihinden başlar.
+    # Bilanço sayısı, dönem sonundan sonra ama rapor yayımlanmadan önceki bölünmeye göre geriye dönük düzeltilir (SAB Topic 4C).
+    anchor = os.environ.get("RADAR_HISSE_CAPA", "gecerlilik")
+    asof = sh["asof"] if ("asof" in sh and anchor == "gecerlilik") else sh["accepted"]
     asof = pd.to_datetime(asof)
     if getattr(asof.dt, "tz", None) is not None:
         asof = asof.dt.tz_convert("America/New_York").dt.tz_localize(None)

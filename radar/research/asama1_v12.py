@@ -17,8 +17,11 @@ from radar import archive, config
 from radar.research import fundamentals, panel
 from radar.research.pit import FUNDAMENTAL_MAX_AGE, pit, to_friday
 
+import os
+
 R = config.ROOT / "reports" / "research"
-OUT = R / "asama1_v12.json"
+SUF = "_kabul" if os.environ.get("RADAR_HISSE_CAPA") == "kabul" else ""
+OUT = R / f"asama1_v12{SUF}.json"
 V11_CSV = R / "asama1_bolunme_v11.csv"  # v1.1 olay tablosunun kopyası (commit a483c14)
 ON_UC = [("1518461", "2021-02-17"), ("1734342", "2018-10-24"), ("2003977", "2026-02-13"), ("2023796", "2026-03-23"),
          ("2023796", "2026-05-04"), ("1928581", "2025-09-23"), ("1928581", "2026-01-08"), ("1928581", "2026-05-01"),
@@ -114,7 +117,7 @@ def splits(p: dict) -> tuple[dict, pd.DataFrame]:
         row["durum"] = "ölçüldü"
         rows.append(row)
     d = pd.DataFrame(rows)
-    d.to_csv(R / "asama1_v12_bolunme.csv", index=False)
+    d.to_csv(R / f"asama1_v12_bolunme{SUF}.csv", index=False)
     return summarize(d), d
 
 
@@ -181,7 +184,7 @@ def summarize(d: pd.DataFrame) -> dict:
 def on_uc(p: dict, d: pd.DataFrame | None = None) -> dict:
     """v1.1'de hisse sayısı düzeltmesi hiç tetiklenmeyen 13 olay: tarih, sembol, oran yönü, hisse sayısı serisi."""
     if d is None:
-        d = pd.read_csv(R / "asama1_v12_bolunme.csv", dtype={"cik": str})
+        d = pd.read_csv(R / f"asama1_v12_bolunme{SUF}.csv", dtype={"cik": str})
     v11 = pd.read_csv(V11_CSV, dtype={"cik": str})
     sh = _sh_long()
     ev = panel.split_events()
@@ -270,7 +273,7 @@ def hucre(p: dict) -> dict:
             why = "temettü kayması (oran yavaş değişti)" if jump < np.log(1.1) else "olay kaydı yok, fiyat oranında sıçrama"
         rows.append({"cik": c, "hucre": int(n), "neden": why, "kaynak": s})
     t = pd.DataFrame(rows)
-    t.to_csv(R / "asama1_v12_hucre.csv", index=False)
+    t.to_csv(R / f"asama1_v12_hucre{SUF}.csv", index=False)
     # yeni yöntem: olay kaydı (eşik üstü) olmayan hisselerde değişen hücre
     no_ev = pd.Index([c for c in price.columns if c not in set(big.cik)])
     new = fundamentals.shares_wide(sh, price[no_ev], raw[no_ev], events=ev)
