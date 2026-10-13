@@ -34,5 +34,13 @@
    "2025": 0.0029,
    "2026": 0.0032
   }
+ },
+ "bolunme": {
+  "hata": "AttributeError: 'DataFrame' object has no attribute 'form'",
+  "iz": "Traceback (most recent call last):\n  File \"/home/user/firsat-radari-v2/radar/research/asama1_v12.py\", line 309, in main\n    res[k], d = splits(p)\n                ~~~~~~^^^\n  File \"/home/user/firsat-radari-v2/radar/research/asama1_v12.py\", line 104, in splits\n    row[\"satis_belgesi\"] = \",\".join(sorted(set(win[win.satis].form))) or None\n                                               ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/generic.py\", line 6194, in __getattr__\n    return object.__getattribute__(self, name)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAttributeError: 'DataFrame' object has no attribute 'form'\n"
+ },
+ "on_uc": {
+  "hata": "FileNotFoundError: [Errno 2] No such file or directory: '/home/user/firsat-radari-v2/reports/research/asama1_v12_bolunme.csv'",
+  "iz": "Traceback (most recent call last):\n  File \"/home/user/firsat-radari-v2/radar/research/asama1_v12.py\", line 311, in main\n    res[k] = on_uc(p, d)\n             ~~~~~^^^^^^\n  File \"/home/user/firsat-radari-v2/radar/research/asama1_v12.py\", line 184, in on_uc\n    d = pd.read_csv(R / \"asama1_v12_bolunme.csv\", dtype={\"cik\": str})\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py\", line 873, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py\", line 300, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py\", line 1645, in __init__\n    self._engine = self._make_engine(f, self.engine)\n                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py\", line 1904, in _make_engine\n    self.handles = get_handle(\n                   ~~~~~~~~~~^\n        f,\n        ^^\n    ...<6 lines>...\n        storage_options=self.options.get(\"storage_options\", None),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/io/common.py\", line 930, in get_handle\n    handle = open(\n        handle,\n    ...<3 lines>...\n        newline=\"\",\n    )\nFileNotFoundError: [Errno 2] No such file or directory: '/home/user/firsat-radari-v2/reports/research/asama1_v12_bolunme.csv'\n"
  }
 }

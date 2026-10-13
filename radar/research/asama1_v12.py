@@ -100,9 +100,9 @@ def splits(p: dict) -> tuple[dict, pd.DataFrame]:
         lo = pd.Timestamp(prev.accepted.iloc[0]).normalize() if len(prev) else r.date - pd.Timedelta(days=120)
         hi = pd.Timestamp(nxt.accepted.iloc[0]).normalize() if len(nxt) else r.date + pd.Timedelta(days=120)
         dc = docs.get(c)
-        win = dc[(dc.date > lo) & (dc.date <= hi)] if dc is not None else pd.DataFrame(columns=["form", "satis", "kayit"])
-        row["satis_belgesi"] = ",".join(sorted(set(win[win.satis].form))) or None
-        row["kayit_beyani"] = ",".join(sorted(set(win[win.kayit].form))) or None
+        win = dc[(dc.date > lo) & (dc.date <= hi)] if dc is not None else None
+        row["satis_belgesi"] = (",".join(sorted(set(win.form[win.satis.to_numpy(bool)]))) or None) if win is not None else None
+        row["kayit_beyani"] = (",".join(sorted(set(win.form[win.kayit.to_numpy(bool)]))) or None) if win is not None else None
         # ayrılma / hisse temettüsü alt sınıfı: önceki rapordan sonraki rapora dönem sonu sayısının değişimi
         if row["tur"] == "ayrılma / hisse temettüsü":
             if len(prev) and len(nxt) and prev.value.iloc[0] > 0:
