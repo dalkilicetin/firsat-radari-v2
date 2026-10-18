@@ -30,5 +30,6 @@ Unutulmaması gereken, bekleyen işler.
 | 24 | Haber verisi (GDELT) — ileride | Kullanıcı kararı (18 Ekim): çok önemli ama çok zor; şimdilik modelden çıkarılacak, ileride daha iyi şirket eşleştirmesi ve tam akışla yeniden ele alınacak | Kullanıcı kararı | İleride |
 | 25 | Önemli yatırımcıların işlemleri | 13F (fon bazında: Berkshire vb.), 13D/13G, Form 4, Kongre işlemleri; bkz. `reports/research/kullanici_kararlari_2026-10-18.md` | Claude | Plan |
 | 26 | 18 Ekim veri kararları | Hisse sayısı tamamlanacak; FTD fiyatları, 10-K metni, Wikipedia/Reddit çıkarılacak; bölünmeler düzeltilecek; ön kayıt v1.3'e işlenecek | Claude | Not alındı, uygulanmadı |
+| 27 | sue_fiyat sızıntısı | Kâr değişimi düzeltilmiş fiyata bölünüyor (sonraki bölünmeleri içerir → geleceği taşır). Ham fiyata bölünecek; bu belirtiyi kullanan eski sonuçlar kısmen şişik. Düzeltilmiş fiyatla hesaplanan başka oran var mı taranacak | Claude | Bulundu, düzeltilmedi |
 
 Secret ekleme: GitHub repo → Settings → Secrets and variables → Actions → New repository secret.
