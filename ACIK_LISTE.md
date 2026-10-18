@@ -27,5 +27,8 @@ Unutulmaması gereken, bekleyen işler.
 | 21 | Ad düzeltmeleri | 8k_1.01 "önemli anlaşma" → çoğunlukla finansman anlaşması; aktivist_13d (yeni 13D var mı) ile aktivist_13d_degisiklik (13D/A sayısı) farkı haritada yazılmalı | Claude | Bekliyor |
 | 22 | Analist beklentisi, iş ilanı, ürün kullanımı verisi | Zaman damgalı geçmiş verisi ücretsiz yok (I/B/E/S vb. ücretli); kaynak bulunursa eklenecek | Kullanıcı kararı | Bekliyor |
 | 23 | Çıkmış hisselerin günlük fiyatı | %92'si seyrek FTD fiyatı; ücretli kaynak (EODHD ~20 $/ay) önerildi | Kullanıcı kararı | Bekliyor |
+| 24 | Haber verisi (GDELT) — ileride | Kullanıcı kararı (18 Ekim): çok önemli ama çok zor; şimdilik modelden çıkarılacak, ileride daha iyi şirket eşleştirmesi ve tam akışla yeniden ele alınacak | Kullanıcı kararı | İleride |
+| 25 | Önemli yatırımcıların işlemleri | 13F (fon bazında: Berkshire vb.), 13D/13G, Form 4, Kongre işlemleri; bkz. `reports/research/kullanici_kararlari_2026-10-18.md` | Claude | Plan |
+| 26 | 18 Ekim veri kararları | Hisse sayısı tamamlanacak; FTD fiyatları, 10-K metni, Wikipedia/Reddit çıkarılacak; bölünmeler düzeltilecek; ön kayıt v1.3'e işlenecek | Claude | Not alındı, uygulanmadı |
 
 Secret ekleme: GitHub repo → Settings → Secrets and variables → Actions → New repository secret.
