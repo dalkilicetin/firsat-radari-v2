@@ -102,7 +102,7 @@ def main() -> dict:
                      "buyuk_kazanan_orani": float(p.buyuk_kazanan_orani.mean()), "buyuk_kaybeden_orani": float(p.buyuk_kaybeden_orani.mean()),
                      "piyango_buyuk_kazanan": float(p.piyango_buyuk_kazanan.mean()), "piyango_buyuk_kaybeden": float(p.piyango_buyuk_kaybeden.mean()),
                      "ortalama_secilen": float(p.secilen.mean())}
-        ann = p.groupby("yil")[["pattern", "spy", "evren", "piyango"]].apply(lambda x: np.prod(1 + x.fillna(0)) - 1)
+        ann = (1 + p[["yil", "pattern", "spy", "evren", "piyango"]].fillna(0).set_index("yil")).groupby(level=0).prod() - 1
         res[name]["yil_yil"] = {int(k): {c: round(float(v), 4) for c, v in r.items()} for k, r in ann.iterrows()}
     pd.concat(rows).to_csv(R / "pattern_testi_donemler.csv", index=False)
     pd.DataFrame(picks_all).to_csv(R / "pattern_testi_secimler.csv", index=False)
