@@ -1,0 +1,816 @@
+{
+ "kayit": "Pattern canlı test kaydı #1",
+ "olusturma_zamani_utc": "2026-10-19T05:15:15Z",
+ "veri_kesim": "2026-10-09 (Cuma kapanışı; fiyat arşivi 10 Ekim 2026)",
+ "kural": "52 haftalık dibin ≥ 2,15 katı VE günlük işlem tutarı evrenin en likit %30'unda VE gelir büyümesi evrenin alt %30'unda değil; evren: finans dışı, fiyat ≥ 1 $, günlük işlem ≥ 1 M$",
+ "portfoy": "Bütün hisseler eşit ağırlık; 13 hafta tutma; değerlendirme tarihi 2027-01-08 (13 hafta sonra, Cuma kapanışı); kıyas SPY (temettü dahil)",
+ "kod_commit": "d86a32ad887f9c1538e3d2d3bf04e044ab7dfb56",
+ "kod": "radar/research/pattern_bugun.py",
+ "spy_baslangic": 778.5700073242188,
+ "spy_tarih": "2026-10-16",
+ "hisse_sayisi": 89,
+ "hisseler": [
+  {
+   "cik": "1051627",
+   "sembol": "AXTI",
+   "fiyat": 68.46,
+   "dipten_kat": 15.18,
+   "zirveden": -0.514,
+   "gunluk_islem_milyon": 576.9,
+   "gelir_buyumesi": 1.648
+  },
+  {
+   "cik": "2023554",
+   "sembol": "SNDK",
+   "fiyat": 1581.82,
+   "dipten_kat": 11.29,
+   "zirveden": -0.276,
+   "gunluk_islem_milyon": 16922.1,
+   "gelir_buyumesi": 1.753
+  },
+  {
+   "cik": "1425205",
+   "sembol": "IOVA",
+   "fiyat": 14.62,
+   "dipten_kat": 7.42,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 108.8,
+   "gelir_buyumesi": 0.657
+  },
+  {
+   "cik": "1288469",
+   "sembol": "MXL",
+   "fiyat": 96.16,
+   "dipten_kat": 7.07,
+   "zirveden": -0.092,
+   "gunluk_islem_milyon": 201.8,
+   "gelir_buyumesi": 0.552
+  },
+  {
+   "cik": "1633978",
+   "sembol": "LITE",
+   "fiyat": 1103.35,
+   "dipten_kat": 6.7,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 3726.7,
+   "gelir_buyumesi": 0.832
+  },
+  {
+   "cik": "1581280",
+   "sembol": "TWST",
+   "fiyat": 159.78,
+   "dipten_kat": 5.95,
+   "zirveden": -0.153,
+   "gunluk_islem_milyon": 200.6,
+   "gelir_buyumesi": 0.232
+  },
+  {
+   "cik": "1158114",
+   "sembol": "AAOI",
+   "fiyat": 109.64,
+   "dipten_kat": 5.33,
+   "zirveden": -0.424,
+   "gunluk_islem_milyon": 944.7,
+   "gelir_buyumesi": 0.864
+  },
+  {
+   "cik": "1571996",
+   "sembol": "DELL",
+   "fiyat": 586.06,
+   "dipten_kat": 5.15,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 3061.9,
+   "gelir_buyumesi": 0.577
+  },
+  {
+   "cik": "723125",
+   "sembol": "MU",
+   "fiyat": 1029.0,
+   "dipten_kat": 5.09,
+   "zirveden": -0.092,
+   "gunluk_islem_milyon": 29398.9,
+   "gelir_buyumesi": 3.457
+  },
+  {
+   "cik": "751978",
+   "sembol": "VICR",
+   "fiyat": 266.07,
+   "dipten_kat": 4.63,
+   "zirveden": -0.205,
+   "gunluk_islem_milyon": 186.9,
+   "gelir_buyumesi": 0.493
+  },
+  {
+   "cik": "1616533",
+   "sembol": "PENG",
+   "fiyat": 76.28,
+   "dipten_kat": 4.57,
+   "zirveden": -0.026,
+   "gunluk_islem_milyon": 93.2,
+   "gelir_buyumesi": 0.476
+  },
+  {
+   "cik": "1088856",
+   "sembol": "CORT",
+   "fiyat": 121.19,
+   "dipten_kat": 3.77,
+   "zirveden": -0.009,
+   "gunluk_islem_milyon": 100.9,
+   "gelir_buyumesi": 0.317
+  },
+  {
+   "cik": "1517413",
+   "sembol": "FSLY",
+   "fiyat": 29.3,
+   "dipten_kat": 3.73,
+   "zirveden": -0.125,
+   "gunluk_islem_milyon": 126.4,
+   "gelir_buyumesi": 0.233
+  },
+  {
+   "cik": "1660134",
+   "sembol": "OKTA",
+   "fiyat": 232.13,
+   "dipten_kat": 3.69,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 472.9,
+   "gelir_buyumesi": 0.106
+  },
+  {
+   "cik": "1645590",
+   "sembol": "HPE",
+   "fiyat": 73.46,
+   "dipten_kat": 3.64,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 955.9,
+   "gelir_buyumesi": 0.337
+  },
+  {
+   "cik": "1650372",
+   "sembol": "TEAM",
+   "fiyat": 206.79,
+   "dipten_kat": 3.62,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 538.1,
+   "gelir_buyumesi": 0.26
+  },
+  {
+   "cik": "1835632",
+   "sembol": "MRVL",
+   "fiyat": 275.28,
+   "dipten_kat": 3.56,
+   "zirveden": -0.113,
+   "gunluk_islem_milyon": 4627.3,
+   "gelir_buyumesi": 0.365
+  },
+  {
+   "cik": "1920406",
+   "sembol": "ASST",
+   "fiyat": 27.8,
+   "dipten_kat": 3.5,
+   "zirveden": -0.079,
+   "gunluk_islem_milyon": 148.3,
+   "gelir_buyumesi": 0.946
+  },
+  {
+   "cik": "1137789",
+   "sembol": "STX",
+   "fiyat": 783.0,
+   "dipten_kat": 3.49,
+   "zirveden": -0.267,
+   "gunluk_islem_milyon": 3732.2,
+   "gelir_buyumesi": 0.341
+  },
+  {
+   "cik": "912093",
+   "sembol": "VIAV",
+   "fiyat": 45.46,
+   "dipten_kat": 3.49,
+   "zirveden": -0.178,
+   "gunluk_islem_milyon": 172.6,
+   "gelir_buyumesi": 0.4
+  },
+  {
+   "cik": "1582961",
+   "sembol": "DOCN",
+   "fiyat": 134.82,
+   "dipten_kat": 3.42,
+   "zirveden": -0.222,
+   "gunluk_islem_milyon": 291.4,
+   "gelir_buyumesi": 0.286
+  },
+  {
+   "cik": "1039399",
+   "sembol": "FORM",
+   "fiyat": 139.67,
+   "dipten_kat": 3.32,
+   "zirveden": -0.099,
+   "gunluk_islem_milyon": 130.8,
+   "gelir_buyumesi": 0.319
+  },
+  {
+   "cik": "1673743",
+   "sembol": "HNGE",
+   "fiyat": 102.9,
+   "dipten_kat": 3.3,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 152.4,
+   "gelir_buyumesi": 0.53
+  },
+  {
+   "cik": "1329394",
+   "sembol": "SIMO",
+   "fiyat": 263.9,
+   "dipten_kat": 3.28,
+   "zirveden": -0.19,
+   "gunluk_islem_milyon": 204.4,
+   "gelir_buyumesi": 0.102
+  },
+  {
+   "cik": "1534504",
+   "sembol": "PBF",
+   "fiyat": 84.27,
+   "dipten_kat": 3.28,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 208.1,
+   "gelir_buyumesi": 0.562
+  },
+  {
+   "cik": "2488",
+   "sembol": "AMD",
+   "fiyat": 608.1,
+   "dipten_kat": 3.16,
+   "zirveden": -0.041,
+   "gunluk_islem_milyon": 11712.6,
+   "gelir_buyumesi": 0.501
+  },
+  {
+   "cik": "1664703",
+   "sembol": "BE",
+   "fiyat": 280.5,
+   "dipten_kat": 3.16,
+   "zirveden": -0.147,
+   "gunluk_islem_milyon": 3213.9,
+   "gelir_buyumesi": 1.655
+  },
+  {
+   "cik": "106040",
+   "sembol": "WDC",
+   "fiyat": 397.28,
+   "dipten_kat": 3.15,
+   "zirveden": -0.467,
+   "gunluk_islem_milyon": 3177.7,
+   "gelir_buyumesi": 0.357
+  },
+  {
+   "cik": "928876",
+   "sembol": "TSEM",
+   "fiyat": 228.71,
+   "dipten_kat": 3.1,
+   "zirveden": -0.202,
+   "gunluk_islem_milyon": 354.4,
+   "gelir_buyumesi": 0.091
+  },
+  {
+   "cik": "1384905",
+   "sembol": "RNG",
+   "fiyat": 79.27,
+   "dipten_kat": 3.08,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 106.6,
+   "gelir_buyumesi": 0.059
+  },
+  {
+   "cik": "1640147",
+   "sembol": "SNOW",
+   "fiyat": 368.89,
+   "dipten_kat": 3.05,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 1345.2,
+   "gelir_buyumesi": 0.351
+  },
+  {
+   "cik": "1736297",
+   "sembol": "ALAB",
+   "fiyat": 342.21,
+   "dipten_kat": 3.04,
+   "zirveden": -0.179,
+   "gunluk_islem_milyon": 1206.4,
+   "gelir_buyumesi": 1.045
+  },
+  {
+   "cik": "50863",
+   "sembol": "INTC",
+   "fiyat": 104.7,
+   "dipten_kat": 3.03,
+   "zirveden": -0.219,
+   "gunluk_islem_milyon": 10290.9,
+   "gelir_buyumesi": 0.254
+  },
+  {
+   "cik": "1535527",
+   "sembol": "CRWD",
+   "fiyat": 275.04,
+   "dipten_kat": 2.98,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 1818.2,
+   "gelir_buyumesi": 0.258
+  },
+  {
+   "cik": "88941",
+   "sembol": "SMTC",
+   "fiyat": 187.3,
+   "dipten_kat": 2.93,
+   "zirveden": -0.039,
+   "gunluk_islem_milyon": 374.7,
+   "gelir_buyumesi": 0.327
+  },
+  {
+   "cik": "97210",
+   "sembol": "TER",
+   "fiyat": 402.68,
+   "dipten_kat": 2.92,
+   "zirveden": -0.103,
+   "gunluk_islem_milyon": 913.7,
+   "gelir_buyumesi": 1.039
+  },
+  {
+   "cik": "1110803",
+   "sembol": "ILMN",
+   "fiyat": 278.17,
+   "dipten_kat": 2.91,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 428.8,
+   "gelir_buyumesi": 0.094
+  },
+  {
+   "cik": "1943896",
+   "sembol": "RBRK",
+   "fiyat": 125.14,
+   "dipten_kat": 2.86,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 289.9,
+   "gelir_buyumesi": 0.379
+  },
+  {
+   "cik": "1327567",
+   "sembol": "PANW",
+   "fiyat": 418.78,
+   "dipten_kat": 2.85,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 2017.3,
+   "gelir_buyumesi": 0.245
+  },
+  {
+   "cik": "1653482",
+   "sembol": "GTLB",
+   "fiyat": 55.09,
+   "dipten_kat": 2.84,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 166.6,
+   "gelir_buyumesi": 0.213
+  },
+  {
+   "cik": "1070235",
+   "sembol": "BB",
+   "fiyat": 8.91,
+   "dipten_kat": 2.82,
+   "zirveden": -0.226,
+   "gunluk_islem_milyon": 107.9,
+   "gelir_buyumesi": 0.26
+  },
+  {
+   "cik": "1035002",
+   "sembol": "VLO",
+   "fiyat": 433.75,
+   "dipten_kat": 2.81,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 986.4,
+   "gelir_buyumesi": 0.488
+  },
+  {
+   "cik": "1510295",
+   "sembol": "MPC",
+   "fiyat": 455.03,
+   "dipten_kat": 2.81,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 800.6,
+   "gelir_buyumesi": 0.538
+  },
+  {
+   "cik": "1561550",
+   "sembol": "DDOG",
+   "fiyat": 293.26,
+   "dipten_kat": 2.78,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 909.2,
+   "gelir_buyumesi": 0.356
+  },
+  {
+   "cik": "103730",
+   "sembol": "VSH",
+   "fiyat": 34.04,
+   "dipten_kat": 2.77,
+   "zirveden": -0.474,
+   "gunluk_islem_milyon": 125.3,
+   "gelir_buyumesi": 0.166
+  },
+  {
+   "cik": "1856437",
+   "sembol": "VSXY",
+   "fiyat": 82.87,
+   "dipten_kat": 2.74,
+   "zirveden": -0.159,
+   "gunluk_islem_milyon": 130.4,
+   "gelir_buyumesi": 0.104
+  },
+  {
+   "cik": "1694426",
+   "sembol": "DK",
+   "fiyat": 74.51,
+   "dipten_kat": 2.74,
+   "zirveden": -0.046,
+   "gunluk_islem_milyon": 102.5,
+   "gelir_buyumesi": 0.478
+  },
+  {
+   "cik": "1915657",
+   "sembol": "DINO",
+   "fiyat": 121.3,
+   "dipten_kat": 2.71,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 264.0,
+   "gelir_buyumesi": 0.532
+  },
+  {
+   "cik": "1447669",
+   "sembol": "TWLO",
+   "fiyat": 289.47,
+   "dipten_kat": 2.71,
+   "zirveden": -0.017,
+   "gunluk_islem_milyon": 460.9,
+   "gelir_buyumesi": 0.22
+  },
+  {
+   "cik": "1800667",
+   "sembol": "FROG",
+   "fiyat": 102.23,
+   "dipten_kat": 2.71,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 168.0,
+   "gelir_buyumesi": 0.287
+  },
+  {
+   "cik": "820318",
+   "sembol": "COHR",
+   "fiyat": 312.62,
+   "dipten_kat": 2.69,
+   "zirveden": -0.198,
+   "gunluk_islem_milyon": 1684.3,
+   "gelir_buyumesi": 0.225
+  },
+  {
+   "cik": "2063196",
+   "sembol": "NTSK",
+   "fiyat": 20.75,
+   "dipten_kat": 2.68,
+   "zirveden": -0.122,
+   "gunluk_islem_milyon": 80.6,
+   "gelir_buyumesi": 0.292
+  },
+  {
+   "cik": "1107843",
+   "sembol": "QLYS",
+   "fiyat": 202.42,
+   "dipten_kat": 2.66,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 115.9,
+   "gelir_buyumesi": 0.11
+  },
+  {
+   "cik": "1513845",
+   "sembol": "NBIS",
+   "fiyat": 221.07,
+   "dipten_kat": 2.66,
+   "zirveden": -0.229,
+   "gunluk_islem_milyon": 3597.1,
+   "gelir_buyumesi": 4.79
+  },
+  {
+   "cik": "936395",
+   "sembol": "CIEN",
+   "fiyat": 449.77,
+   "dipten_kat": 2.63,
+   "zirveden": -0.23,
+   "gunluk_islem_milyon": 802.1,
+   "gelir_buyumesi": 0.37
+  },
+  {
+   "cik": "1474432",
+   "sembol": "P",
+   "fiyat": 154.49,
+   "dipten_kat": 2.62,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 305.3,
+   "gelir_buyumesi": 0.377
+  },
+  {
+   "cik": "1660280",
+   "sembol": "TENB",
+   "fiyat": 41.59,
+   "dipten_kat": 2.59,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 113.7,
+   "gelir_buyumesi": 0.086
+  },
+  {
+   "cik": "1262039",
+   "sembol": "FTNT",
+   "fiyat": 194.75,
+   "dipten_kat": 2.58,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 684.3,
+   "gelir_buyumesi": 0.256
+  },
+  {
+   "cik": "1810806",
+   "sembol": "U",
+   "fiyat": 46.88,
+   "dipten_kat": 2.57,
+   "zirveden": -0.001,
+   "gunluk_islem_milyon": 398.2,
+   "gelir_buyumesi": 0.239
+  },
+  {
+   "cik": "1576280",
+   "sembol": "GH",
+   "fiyat": 167.47,
+   "dipten_kat": 2.56,
+   "zirveden": -0.066,
+   "gunluk_islem_milyon": 295.0,
+   "gelir_buyumesi": 0.443
+  },
+  {
+   "cik": "1973239",
+   "sembol": "ARM",
+   "fiyat": 266.28,
+   "dipten_kat": 2.53,
+   "zirveden": -0.394,
+   "gunluk_islem_milyon": 1212.8,
+   "gelir_buyumesi": 0.228
+  },
+  {
+   "cik": "1002047",
+   "sembol": "NTAP",
+   "fiyat": 237.15,
+   "dipten_kat": 2.49,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 434.4,
+   "gelir_buyumesi": 0.299
+  },
+  {
+   "cik": "1964789",
+   "sembol": "HUT",
+   "fiyat": 84.27,
+   "dipten_kat": 2.45,
+   "zirveden": -0.325,
+   "gunluk_islem_milyon": 415.5,
+   "gelir_buyumesi": 0.814
+  },
+  {
+   "cik": "887596",
+   "sembol": "CAKE",
+   "fiyat": 108.45,
+   "dipten_kat": 2.44,
+   "zirveden": -0.043,
+   "gunluk_islem_milyon": 149.9,
+   "gelir_buyumesi": 0.077
+  },
+  {
+   "cik": "1493594",
+   "sembol": "MTSI",
+   "fiyat": 330.06,
+   "dipten_kat": 2.41,
+   "zirveden": -0.157,
+   "gunluk_islem_milyon": 353.5,
+   "gelir_buyumesi": 0.358
+  },
+  {
+   "cik": "1018963",
+   "sembol": "ATI",
+   "fiyat": 191.84,
+   "dipten_kat": 2.39,
+   "zirveden": -0.16,
+   "gunluk_islem_milyon": 283.1,
+   "gelir_buyumesi": 0.106
+  },
+  {
+   "cik": "1601046",
+   "sembol": "KEYS",
+   "fiyat": 382.75,
+   "dipten_kat": 2.36,
+   "zirveden": -0.005,
+   "gunluk_islem_milyon": 362.7,
+   "gelir_buyumesi": 0.365
+  },
+  {
+   "cik": "704532",
+   "sembol": "ONTO",
+   "fiyat": 294.53,
+   "dipten_kat": 2.32,
+   "zirveden": -0.118,
+   "gunluk_islem_milyon": 250.4,
+   "gelir_buyumesi": 0.353
+  },
+  {
+   "cik": "1451809",
+   "sembol": "SITM",
+   "fiyat": 612.37,
+   "dipten_kat": 2.29,
+   "zirveden": -0.265,
+   "gunluk_islem_milyon": 237.6,
+   "gelir_buyumesi": 1.265
+  },
+  {
+   "cik": "1707753",
+   "sembol": "ESTC",
+   "fiyat": 98.23,
+   "dipten_kat": 2.27,
+   "zirveden": -0.017,
+   "gunluk_islem_milyon": 152.2,
+   "gelir_buyumesi": 0.151
+  },
+  {
+   "cik": "1851003",
+   "sembol": "ZETA",
+   "fiyat": 33.09,
+   "dipten_kat": 2.27,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 167.3,
+   "gelir_buyumesi": 0.435
+  },
+  {
+   "cik": "6951",
+   "sembol": "AMAT",
+   "fiyat": 507.03,
+   "dipten_kat": 2.27,
+   "zirveden": -0.19,
+   "gunluk_islem_milyon": 3207.9,
+   "gelir_buyumesi": 0.248
+  },
+  {
+   "cik": "1807794",
+   "sembol": "CRDO",
+   "fiyat": 216.55,
+   "dipten_kat": 2.27,
+   "zirveden": -0.203,
+   "gunluk_islem_milyon": 1273.8,
+   "gelir_buyumesi": 1.147
+  },
+  {
+   "cik": "1101302",
+   "sembol": "ENTG",
+   "fiyat": 165.79,
+   "dipten_kat": 2.26,
+   "zirveden": -0.072,
+   "gunluk_islem_milyon": 296.8,
+   "gelir_buyumesi": 0.115
+  },
+  {
+   "cik": "707549",
+   "sembol": "LRCX",
+   "fiyat": 318.84,
+   "dipten_kat": 2.26,
+   "zirveden": -0.18,
+   "gunluk_islem_milyon": 2651.8,
+   "gelir_buyumesi": 0.26
+  },
+  {
+   "cik": "1816581",
+   "sembol": "OUST",
+   "fiyat": 39.9,
+   "dipten_kat": 2.26,
+   "zirveden": -0.199,
+   "gunluk_islem_milyon": 102.9,
+   "gelir_buyumesi": 0.559
+  },
+  {
+   "cik": "1841408",
+   "sembol": "DAVE",
+   "fiyat": 368.42,
+   "dipten_kat": 2.25,
+   "zirveden": -0.163,
+   "gunluk_islem_milyon": 126.0,
+   "gelir_buyumesi": 0.296
+  },
+  {
+   "cik": "1192448",
+   "sembol": "GKOS",
+   "fiyat": 165.69,
+   "dipten_kat": 2.22,
+   "zirveden": -0.104,
+   "gunluk_islem_milyon": 118.9,
+   "gelir_buyumesi": 0.495
+  },
+  {
+   "cik": "1534701",
+   "sembol": "PSX",
+   "fiyat": 278.18,
+   "dipten_kat": 2.22,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 631.9,
+   "gelir_buyumesi": 0.531
+  },
+  {
+   "cik": "8858",
+   "sembol": "AVT",
+   "fiyat": 99.36,
+   "dipten_kat": 2.21,
+   "zirveden": -0.071,
+   "gunluk_islem_milyon": 105.0,
+   "gelir_buyumesi": 0.245
+  },
+  {
+   "cik": "1604821",
+   "sembol": "NTRA",
+   "fiyat": 400.71,
+   "dipten_kat": 2.21,
+   "zirveden": -0.029,
+   "gunluk_islem_milyon": 399.5,
+   "gelir_buyumesi": 0.377
+  },
+  {
+   "cik": "1600033",
+   "sembol": "ELF",
+   "fiyat": 109.23,
+   "dipten_kat": 2.2,
+   "zirveden": -0.202,
+   "gunluk_islem_milyon": 154.5,
+   "gelir_buyumesi": 0.355
+  },
+  {
+   "cik": "1583708",
+   "sembol": "S",
+   "fiyat": 26.27,
+   "dipten_kat": 2.2,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 145.5,
+   "gelir_buyumesi": 0.206
+  },
+  {
+   "cik": "1618732",
+   "sembol": "NTNX",
+   "fiyat": 74.63,
+   "dipten_kat": 2.17,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 153.4,
+   "gelir_buyumesi": 0.124
+  },
+  {
+   "cik": "866374",
+   "sembol": "FLEX",
+   "fiyat": 119.83,
+   "dipten_kat": 2.17,
+   "zirveden": -0.211,
+   "gunluk_islem_milyon": 351.0,
+   "gelir_buyumesi": 0.206
+  },
+  {
+   "cik": "1477333",
+   "sembol": "NET",
+   "fiyat": 360.93,
+   "dipten_kat": 2.16,
+   "zirveden": 0.0,
+   "gunluk_islem_milyon": 916.7,
+   "gelir_buyumesi": 0.359
+  },
+  {
+   "cik": "1957132",
+   "sembol": "SN",
+   "fiyat": 184.98,
+   "dipten_kat": 2.16,
+   "zirveden": -0.033,
+   "gunluk_islem_milyon": 254.8,
+   "gelir_buyumesi": 0.222
+  },
+  {
+   "cik": "7536",
+   "sembol": "ARW",
+   "fiyat": 227.9,
+   "dipten_kat": 2.16,
+   "zirveden": -0.058,
+   "gunluk_islem_milyon": 107.1,
+   "gelir_buyumesi": 0.318
+  },
+  {
+   "cik": "2007855",
+   "sembol": "VG",
+   "fiyat": 13.16,
+   "dipten_kat": 2.16,
+   "zirveden": -0.246,
+   "gunluk_islem_milyon": 184.4,
+   "gelir_buyumesi": 0.476
+  }
+ ],
+ "kural_degisirse": "Kural ya da liste değiştirilmez. Değişiklik yeni kayıt numarasıyla yapılır; bu kaydın sonucu olduğu gibi raporlanır."
+}
