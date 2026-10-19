@@ -1,0 +1,101 @@
+{
+ "tarih": "2026-10-19",
+ "durum": "Kilitli dönem (2025–2026) AÇILMADAN önce yalnızca 2013–2024 yürüyen sonuçlarıyla sabitlendi.",
+ "secim_kurallari": {
+  "ilk3_3a": "İlk 3 ort. 3 ay en yüksek VE S&P farkı %90 GA alt sınırı > 0",
+  "ilk3_6a": "İlk 3 ort. 6 ay en yüksek VE S&P farkı %90 GA alt sınırı > 0",
+  "ilk10_portfoy": "İlk 10 maliyet sonrası bileşik yıllık en yüksek"
+ },
+ "secilen": {
+  "ilk3_3a": "topluluk",
+  "ilk3_6a": "lgb_sirala_6a",
+  "ilk10_portfoy": "lgb_sinif5",
+  "meta": "her yıl önceki yılların görülmemiş sonucuna göre (meta)"
+ },
+ "kiyas": [
+  "momentum_buyuk",
+  "rastgele",
+  "kural_ogrenici"
+ ],
+ "gelistirme_degerleri": {
+  "topluluk": {
+   "ilk3_3a": 0.15952197612585542,
+   "ilk3_6a": 0.32531220123943005,
+   "ilk3_ust5_orani": 0.24305555555555555,
+   "ilk10_net_yillik_bilesik": 0.3387007713317871,
+   "ilk10_en_kotu_dusus": -0.42014604806900024,
+   "ilk3_spy_farki_ci90": [
+    0.03839860661292228,
+    0.21490722124453118
+   ]
+  },
+  "lgb_sirala_6a": {
+   "ilk3_3a": 0.1583623179480323,
+   "ilk3_6a": 0.33947061960552,
+   "ilk3_ust5_orani": 0.2569444444444444,
+   "ilk10_net_yillik_bilesik": 0.24550306797027588,
+   "ilk10_en_kotu_dusus": -0.7561346292495728,
+   "ilk3_spy_farki_ci90": [
+    0.04814917336166131,
+    0.1999400432732957
+   ]
+  },
+  "lgb_sinif5": {
+   "ilk3_3a": 0.109797093778921,
+   "ilk3_6a": 0.17644235432762526,
+   "ilk3_ust5_orani": 0.1875,
+   "ilk10_net_yillik_bilesik": 0.4169429540634155,
+   "ilk10_en_kotu_dusus": -0.42529296875,
+   "ilk3_spy_farki_ci90": [
+    0.0033014026163692227,
+    0.14921252654884198
+   ]
+  },
+  "momentum_buyuk": {
+   "ilk3_3a": 0.10296698481534479,
+   "ilk3_6a": 0.23046264911754555,
+   "ilk3_ust5_orani": 0.18055555555555555,
+   "ilk10_net_yillik_bilesik": 0.2294774055480957,
+   "ilk10_en_kotu_dusus": -0.5383734703063965,
+   "ilk3_spy_farki_ci90": [
+    0.013626481648609624,
+    0.12595589067700522
+   ]
+  },
+  "kural_ogrenici": {
+   "ilk3_3a": 0.09820089953103549,
+   "ilk3_6a": 0.1594141865453701,
+   "ilk3_ust5_orani": 0.15217391304347827,
+   "ilk10_net_yillik_bilesik": 0.33006834983825684,
+   "ilk10_en_kotu_dusus": -0.27205538749694824,
+   "ilk3_spy_farki_ci90": [
+    0.036592182829447685,
+    0.08451972781867406
+   ]
+  }
+ },
+ "basari_olcutleri_gelistirmede": {
+  "ilk3_spy_ustu_GA>0": [
+   "momentum_buyuk",
+   "kural_ogrenici",
+   "lgb_sinif5",
+   "lgb_sirala_6a",
+   "topluluk"
+  ],
+  "ilk3_momentum_ustu_GA>0": [],
+  "en_iyi5_yakalama>=%15": [
+   "momentum_buyuk",
+   "kural_ogrenici",
+   "lgb_sinif5",
+   "lgb_sinif1",
+   "lgb_sirala",
+   "lgb_sirala_6a",
+   "kuyruk_q90",
+   "topluluk",
+   "kural_A_gordu",
+   "kural_B_gordu"
+  ],
+  "PBO": 0.3142857142857143
+ },
+ "kilitli_donem_kurali": "2025–2026 bir kez açılır; sonuca göre model ya da ayar DEĞİŞTİRİLMEZ. Değişiklik gerekirse yeni bir doğrulama dönemi (canlı kayıt) gerekir."
+}
