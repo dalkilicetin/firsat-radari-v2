@@ -98,6 +98,9 @@ def backtest(d: pd.DataFrame, mask: pd.Series) -> dict:
         res = {}
         for ch, mm in CHAINS.items():
             sl = np.isin(month, mm) & np.isfinite(spy) & (dates >= lo)
+            if not sl.any():
+                res[ch] = None
+                continue
             inv = n[sl] >= 1
             r = np.where(inv, s[sl] / np.maximum(n[sl], 1), spy[sl])
             yrs = sl.sum() / 4
