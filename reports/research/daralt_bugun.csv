@@ -1,0 +1,31 @@
+cik,sembol,sektor,kat,gelir,sektor_mom_sira,ort_10_40,islem_M,B
+723125,MU,Yarı iletken,5.09,346.0,0.982,38.0,29399.0,True
+2488,AMD,Yarı iletken,3.16,50.0,0.982,36.0,11713.0,True
+50863,INTC,Yarı iletken,3.03,25.0,0.982,22.0,10291.0,True
+1835632,MRVL,Yarı iletken,3.56,37.0,0.982,37.0,4627.0,True
+6951,AMAT,Yarı iletken,2.27,25.0,0.982,11.0,3208.0,False
+707549,LRCX,Yarı iletken,2.26,26.0,0.982,11.0,2652.0,False
+1807794,CRDO,Yarı iletken,2.27,115.0,0.982,17.0,1274.0,False
+1736297,ALAB,Yarı iletken,3.04,104.0,0.982,27.0,1206.0,True
+1973239,ARM,Yarı iletken,2.53,23.0,0.982,20.0,1213.0,True
+97210,TER,Yarı iletken,2.92,104.0,0.982,12.0,914.0,False
+1158114,AAOI,Yarı iletken,5.33,86.0,0.982,2.0,945.0,False
+1035002,VLO,Enerji,2.81,49.0,0.94,38.0,986.0,True
+1510295,MPC,Enerji,2.81,54.0,0.94,41.0,801.0,True
+1051627,AXTI,Yarı iletken,15.18,165.0,0.982,13.0,577.0,False
+1534701,PSX,Enerji,2.22,53.0,0.94,33.0,632.0,True
+866374,FLEX,Yarı iletken,2.17,21.0,0.982,12.0,351.0,False
+1493594,MTSI,Yarı iletken,2.41,36.0,0.982,3.0,354.0,False
+1116942,TTMI,Yarı iletken,2.12,37.0,0.982,-3.0,269.0,False
+88941,SMTC,Yarı iletken,2.93,33.0,0.982,30.0,375.0,True
+1451809,SITM,Yarı iletken,2.29,127.0,0.982,18.0,238.0,False
+912093,VIAV,Yarı iletken,3.49,40.0,0.982,4.0,173.0,False
+2007855,VG,Enerji,2.16,48.0,0.94,11.0,184.0,False
+1039399,FORM,Yarı iletken,3.32,32.0,0.982,8.0,131.0,False
+1534504,PBF,Enerji,3.28,56.0,0.94,47.0,208.0,True
+893538,SM,Enerji,2.13,215.0,0.94,22.0,118.0,True
+1581280,TWST,Biyoteknoloji,5.95,23.0,0.901,78.0,201.0,True
+1694426,DK,Enerji,2.74,48.0,0.94,41.0,102.0,True
+1616533,PENG,Yarı iletken,4.57,48.0,0.982,36.0,93.0,True
+1425205,IOVA,Biyoteknoloji,7.42,66.0,0.901,87.0,109.0,True
+1288469,MXL,Yarı iletken,7.07,55.0,0.982,37.0,202.0,True

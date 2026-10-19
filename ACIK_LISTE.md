@@ -31,5 +31,6 @@ Unutulmaması gereken, bekleyen işler.
 | 25 | Önemli yatırımcıların işlemleri | 13F (fon bazında: Berkshire vb.), 13D/13G, Form 4, Kongre işlemleri; bkz. `reports/research/kullanici_kararlari_2026-10-18.md` | Claude | Plan |
 | 26 | 18 Ekim veri kararları | Hisse sayısı tamamlanacak; FTD fiyatları, 10-K metni, Wikipedia/Reddit çıkarılacak; bölünmeler düzeltilecek; ön kayıt v1.3'e işlenecek | Claude | Not alındı, uygulanmadı |
 | 27 | sue_fiyat sızıntısı | Kâr değişimi düzeltilmiş fiyata bölünüyor (sonraki bölünmeleri içerir → geleceği taşır). Ham fiyata bölünecek; bu belirtiyi kullanan eski sonuçlar kısmen şişik. Düzeltilmiş fiyatla hesaplanan başka oran var mı taranacak | Claude | Bulundu, düzeltilmedi |
+| 28 | Satır sırası sızıntısı | identity_securities ve çerçeve satırları bugünkü büyüklüğe göre sıralı (NVDA, TSLA, MU…); eşitlikte "ilk gelen" seçimi geleceği taşıyor (ilk 5 %14,3 / rastgele %9,2). Eşitlik bozma rastgele olmalı; çerçeve satırları karıştırılmalı | Claude | Bulundu; daralt.py düzeltildi |
 
 Secret ekleme: GitHub repo → Settings → Secrets and variables → Actions → New repository secret.
