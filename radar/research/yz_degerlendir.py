@@ -211,6 +211,17 @@ def write(q, res, models):
           f"- Aşırı uyum olasılığı (PBO, öğrenen modeller arasında): {pct(res['pbo_ilk3']) if res['pbo_ilk3'] is not None else '—'}.",
           f"- Meta seçim (her yıl yalnızca geçmiş sonuçlara göre model seçimi, 2016–2024): ilk 3 ort. 3 ay {pct(res['meta_ilk3_3a'])}, 6 ay {pct(res['meta_ilk3_6a'])}. Seçimler: {res['meta_secimleri']}",
           "- 'kural_A_gordu' / 'kural_B_gordu': geçmişin tamamına bakılarak bulunmuş kurallar; yalnızca kıyas, görülmemiş sayılmaz.", ""]
+    if "kilitli_2025_2026" in res:
+        sec = json.loads((R / "yz_secim.json").read_text())
+        L += ["## Kilitli dönem 2025–2026 (seçim yz_secim.json ile sabitlendikten sonra bir kez açıldı)", "",
+              f"Sabitlenen seçim: {', '.join(f'{k} = {v}' for k, v in sec['secilen'].items() if k.startswith('ilk'))}. Sonuca göre model ya da ayar değiştirilmez.", "",
+              "| Model | Çeyrek | İlk 3: ort. 3 ay | İlk 3: ort. 6 ay | İlk 3: S&P'yi geçen çeyrek | İlk 3 en iyi %5'te | İlk 10: ort. 3 ay | İlk 10: net bileşik yıllık | İlk 3 − S&P (%90 GA) |",
+              "|---|---|---|---|---|---|---|---|---|"]
+        for m, r in res["kilitli_2025_2026"].items():
+            ci = r["ilk3_spy_farki_ci90"]
+            L.append(f"| {m} | {r['donem']} | {pct(r['ilk3_3a'])} | {pct(r['ilk3_6a'])} | {pct(r['ilk3_spy_ustu'])} | {pct(r['ilk3_ust5_orani'])} | "
+                     f"{pct(r['ilk10_3a'])} | {pct(r['ilk10_net_yillik_bilesik'])} | {pct(ci[0])} … {pct(ci[1])} |")
+        L += ["", "- Yalnızca 7 çeyrek (6 aylıkta daha az); güven aralıkları geniş, tek başına karar için yetersiz.", ""]
     (R / "yz_sonuc.md").write_text("\n".join(L))
     print("\n".join(L))
 
