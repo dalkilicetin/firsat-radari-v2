@@ -1,0 +1,485 @@
+{
+ "K1": {
+  "tanim": "Dibin ≥ 2 katı · zirveden ≥ %40 düşmüş · gelir ≥ %60 artmış",
+  "test": {
+   "tumu": {
+    "ocak": {
+     "yillik": -0.18685843437423455,
+     "spy": 0.13962564117324816,
+     "yatirimda": 0.6417910447761194,
+     "medyan_hisse": 4.0,
+     "en_kotu_dusus": -0.9934204022671915
+    },
+    "subat": {
+     "yillik": -0.11922163468953884,
+     "spy": 0.1462814620832893,
+     "yatirimda": 0.6060606060606061,
+     "medyan_hisse": 4.5,
+     "en_kotu_dusus": -0.976644771253569
+    },
+    "mart": {
+     "yillik": -0.20656819823022432,
+     "spy": 0.13734439333803627,
+     "yatirimda": 0.696969696969697,
+     "medyan_hisse": 3.5,
+     "en_kotu_dusus": -0.9949443362609014
+    },
+    "secim": {
+     "adet": 824,
+     "farkli_hisse": 298,
+     "ortalama_3ay": 0.011688916358217434,
+     "medyan_3ay": -0.11918854340910912,
+     "spy_ustu_pay": 0.35558252427184467,
+     "yuzde50_ustu_pay": 0.13106796116504854,
+     "yuzde50_kayip_pay": 0.09587378640776699,
+     "spy_ortalama_3ay": 0.04630593955516815
+    }
+   },
+   "son5": {
+    "ocak": {
+     "yillik": -0.25942830992791843,
+     "spy": 0.13441724967724977,
+     "yatirimda": 1.0,
+     "medyan_hisse": 6.0,
+     "en_kotu_dusus": -0.8229354283290538
+    },
+    "subat": {
+     "yillik": 0.020166592820749063,
+     "spy": 0.12703317577948248,
+     "yatirimda": 1.0,
+     "medyan_hisse": 7.0,
+     "en_kotu_dusus": -0.3134063292020728
+    },
+    "mart": {
+     "yillik": -0.19538520030947049,
+     "spy": 0.13028017335791953,
+     "yatirimda": 1.0,
+     "medyan_hisse": 6.0,
+     "en_kotu_dusus": -0.7696305777905612
+    },
+    "secim": {
+     "adet": 526,
+     "farkli_hisse": 200,
+     "ortalama_3ay": 0.022632396896591078,
+     "medyan_3ay": -0.11737987771630287,
+     "spy_ustu_pay": 0.38022813688212925,
+     "yuzde50_ustu_pay": 0.15019011406844107,
+     "yuzde50_kayip_pay": 0.11026615969581749,
+     "spy_ortalama_3ay": 0.04070911556482315
+    }
+   }
+  },
+  "bugun": [
+   "AXTI",
+   "AAOI",
+   "BNAI",
+   "SATL",
+   "EVC",
+   "PRLD",
+   "IPSC",
+   "WATT",
+   "MOVE",
+   "HYLN",
+   "NAKA",
+   "ZSQR",
+   "ATOM"
+  ]
+ },
+ "K2": {
+  "tanim": "Dibin ≥ 2 katı · zirveden ≥ %60 düşmüş · gelir ≥ %100 artmış",
+  "test": {
+   "tumu": {
+    "ocak": {
+     "yillik": -0.1144225487004833,
+     "spy": 0.13962564117324816,
+     "yatirimda": 0.3880597014925373,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.9375651978823004
+    },
+    "subat": {
+     "yillik": -0.17846176761290067,
+     "spy": 0.1462814620832893,
+     "yatirimda": 0.42424242424242425,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.9802337776821647
+    },
+    "mart": {
+     "yillik": -0.23647264490230213,
+     "spy": 0.13734439333803627,
+     "yatirimda": 0.45454545454545453,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.9946814713641384
+    },
+    "secim": {
+     "adet": 207,
+     "farkli_hisse": 93,
+     "ortalama_3ay": -0.046454543838893844,
+     "medyan_3ay": -0.18231195211410522,
+     "spy_ustu_pay": 0.2946859903381642,
+     "yuzde50_ustu_pay": 0.12077294685990338,
+     "yuzde50_kayip_pay": 0.13043478260869565,
+     "spy_ortalama_3ay": 0.04137672111392021
+    }
+   },
+   "son5": {
+    "ocak": {
+     "yillik": -0.3683149625591927,
+     "spy": 0.13441724967724977,
+     "yatirimda": 0.85,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.8630166943697231
+    },
+    "subat": {
+     "yillik": -0.18769612339692998,
+     "spy": 0.12703317577948248,
+     "yatirimda": 0.8421052631578947,
+     "medyan_hisse": 3.0,
+     "en_kotu_dusus": -0.654267819694965
+    },
+    "mart": {
+     "yillik": -0.2689388195576572,
+     "spy": 0.13028017335791953,
+     "yatirimda": 0.8947368421052632,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.830783796125225
+    },
+    "secim": {
+     "adet": 147,
+     "farkli_hisse": 67,
+     "ortalama_3ay": -0.030017317127005585,
+     "medyan_3ay": -0.16349384188652039,
+     "spy_ustu_pay": 0.3401360544217687,
+     "yuzde50_ustu_pay": 0.1292517006802721,
+     "yuzde50_kayip_pay": 0.12244897959183673,
+     "spy_ortalama_3ay": 0.03787076473236084
+    }
+   }
+  },
+  "bugun": [
+   "BNAI",
+   "WATT",
+   "NAKA",
+   "ATOM"
+  ]
+ },
+ "K3": {
+  "tanim": "Zirveden ≥ %50 düşmüş · gelir ≥ %30 artmış · yıllık gelir ≥ 5 milyar $",
+  "test": {
+   "tumu": {
+    "ocak": {
+     "yillik": 0.027997576470950136,
+     "spy": 0.13962564117324816,
+     "yatirimda": 0.3283582089552239,
+     "medyan_hisse": 1.5,
+     "en_kotu_dusus": -0.9217183980351373
+    },
+    "subat": {
+     "yillik": -0.000813934688473128,
+     "spy": 0.1462814620832893,
+     "yatirimda": 0.36363636363636365,
+     "medyan_hisse": 1.0,
+     "en_kotu_dusus": -0.8386609346880153
+    },
+    "mart": {
+     "yillik": 0.10236767171186556,
+     "spy": 0.13734439333803627,
+     "yatirimda": 0.3333333333333333,
+     "medyan_hisse": 1.0,
+     "en_kotu_dusus": -0.7174628253105164
+    },
+    "secim": {
+     "adet": 162,
+     "farkli_hisse": 56,
+     "ortalama_3ay": 0.0948912830194056,
+     "medyan_3ay": 0.013642316684126854,
+     "spy_ustu_pay": 0.48148148148148145,
+     "yuzde50_ustu_pay": 0.1419753086419753,
+     "yuzde50_kayip_pay": 0.07407407407407407,
+     "spy_ortalama_3ay": 0.03056512586772442
+    }
+   },
+   "son5": {
+    "ocak": {
+     "yillik": 0.355304671960615,
+     "spy": 0.13441724967724977,
+     "yatirimda": 0.65,
+     "medyan_hisse": 3.0,
+     "en_kotu_dusus": -0.4352340003613707
+    },
+    "subat": {
+     "yillik": -0.04282526017252164,
+     "spy": 0.12703317577948248,
+     "yatirimda": 0.7368421052631579,
+     "medyan_hisse": 1.0,
+     "en_kotu_dusus": -0.8089305002494329
+    },
+    "mart": {
+     "yillik": 0.35914018516105717,
+     "spy": 0.13028017335791953,
+     "yatirimda": 0.6842105263157895,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.37221003114154383
+    },
+    "secim": {
+     "adet": 119,
+     "farkli_hisse": 40,
+     "ortalama_3ay": 0.041673836582966396,
+     "medyan_3ay": 0.012711652554571629,
+     "spy_ustu_pay": 0.4957983193277311,
+     "yuzde50_ustu_pay": 0.11764705882352941,
+     "yuzde50_kayip_pay": 0.07563025210084033,
+     "spy_ortalama_3ay": 0.007259252481162548
+    }
+   }
+  },
+  "bugun": [
+   "APP",
+   "QXO"
+  ]
+ },
+ "K3b": {
+  "tanim": "K3, yıllık gelir ≥ 1 milyar $ ile",
+  "test": {
+   "tumu": {
+    "ocak": {
+     "yillik": 0.056319926705750145,
+     "spy": 0.13962564117324816,
+     "yatirimda": 0.7164179104477612,
+     "medyan_hisse": 4.0,
+     "en_kotu_dusus": -0.84429695572386
+    },
+    "subat": {
+     "yillik": 0.10707583206919802,
+     "spy": 0.1462814620832893,
+     "yatirimda": 0.7121212121212122,
+     "medyan_hisse": 3.0,
+     "en_kotu_dusus": -0.7190429490741175
+    },
+    "mart": {
+     "yillik": 0.07552711855948369,
+     "spy": 0.13734439333803627,
+     "yatirimda": 0.7121212121212122,
+     "medyan_hisse": 3.0,
+     "en_kotu_dusus": -0.7537653900599315
+    },
+    "secim": {
+     "adet": 1064,
+     "farkli_hisse": 245,
+     "ortalama_3ay": 0.046823069751225466,
+     "medyan_3ay": 0.009577915538102388,
+     "spy_ustu_pay": 0.47274436090225563,
+     "yuzde50_ustu_pay": 0.10526315789473684,
+     "yuzde50_kayip_pay": 0.047932330827067667,
+     "spy_ortalama_3ay": 0.030845699831843376
+    }
+   },
+   "son5": {
+    "ocak": {
+     "yillik": -0.05278156468596873,
+     "spy": 0.13441724967724977,
+     "yatirimda": 1.0,
+     "medyan_hisse": 9.5,
+     "en_kotu_dusus": -0.5858099933870377
+    },
+    "subat": {
+     "yillik": -0.0281361504892349,
+     "spy": 0.12703317577948248,
+     "yatirimda": 1.0,
+     "medyan_hisse": 8.0,
+     "en_kotu_dusus": -0.48697728098804116
+    },
+    "mart": {
+     "yillik": -0.0773857645950845,
+     "spy": 0.13028017335791953,
+     "yatirimda": 1.0,
+     "medyan_hisse": 8.0,
+     "en_kotu_dusus": -0.5290241266860309
+    },
+    "secim": {
+     "adet": 812,
+     "farkli_hisse": 182,
+     "ortalama_3ay": 0.009030111868888153,
+     "medyan_3ay": -0.024112450890243053,
+     "spy_ustu_pay": 0.4433497536945813,
+     "yuzde50_ustu_pay": 0.08866995073891626,
+     "yuzde50_kayip_pay": 0.04556650246305419,
+     "spy_ortalama_3ay": 0.018719296902418137
+    }
+   }
+  },
+  "bugun": [
+   "RBLX",
+   "FIG",
+   "ALNY",
+   "STUB",
+   "UPST",
+   "APP",
+   "KTOS",
+   "QXO",
+   "RUN",
+   "LCID",
+   "PSNY"
+  ]
+ },
+ "K4": {
+  "tanim": "Dibin ≥ 10 katı · gelir ≥ %200 artmış",
+  "test": {
+   "tumu": {
+    "ocak": {
+     "yillik": 0.02939074082431148,
+     "spy": 0.13962564117324816,
+     "yatirimda": 0.2537313432835821,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.8674061786519197
+    },
+    "subat": {
+     "yillik": -0.050463948347647225,
+     "spy": 0.1462814620832893,
+     "yatirimda": 0.22727272727272727,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.8860867136289416
+    },
+    "mart": {
+     "yillik": -0.016041320432672923,
+     "spy": 0.13734439333803627,
+     "yatirimda": 0.25757575757575757,
+     "medyan_hisse": 3.0,
+     "en_kotu_dusus": -0.7521839948732663
+    },
+    "secim": {
+     "adet": 120,
+     "farkli_hisse": 38,
+     "ortalama_3ay": -0.00043488419614732263,
+     "medyan_3ay": -0.1409364566206932,
+     "spy_ustu_pay": 0.3333333333333333,
+     "yuzde50_ustu_pay": 0.14166666666666666,
+     "yuzde50_kayip_pay": 0.11666666666666667,
+     "spy_ortalama_3ay": 0.061171457171440125
+    }
+   },
+   "son5": {
+    "ocak": {
+     "yillik": -0.11619464384853784,
+     "spy": 0.13441724967724977,
+     "yatirimda": 0.45,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.7172783714401691
+    },
+    "subat": {
+     "yillik": -0.31077481160502785,
+     "spy": 0.12703317577948248,
+     "yatirimda": 0.3684210526315789,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.6683529371643764
+    },
+    "mart": {
+     "yillik": -0.13034912393100184,
+     "spy": 0.13028017335791953,
+     "yatirimda": 0.42105263157894735,
+     "medyan_hisse": 2.0,
+     "en_kotu_dusus": -0.7203026087176314
+    },
+    "secim": {
+     "adet": 54,
+     "farkli_hisse": 20,
+     "ortalama_3ay": -0.0041510041596161,
+     "medyan_3ay": -0.0788179337978363,
+     "spy_ustu_pay": 0.3333333333333333,
+     "yuzde50_ustu_pay": 0.12962962962962962,
+     "yuzde50_kayip_pay": 0.16666666666666666,
+     "spy_ortalama_3ay": 0.05122397094964981
+    }
+   }
+  },
+  "bugun": [
+   "MGRT"
+  ]
+ },
+ "K5": {
+  "tanim": "Dibin ≥ 2 katı · gelir ≥ %62 artmış · zirveye en fazla %10 uzak",
+  "test": {
+   "tumu": {
+    "ocak": {
+     "yillik": 0.16310347322934327,
+     "spy": 0.13962564117324816,
+     "yatirimda": 0.9104477611940298,
+     "medyan_hisse": 9.0,
+     "en_kotu_dusus": -0.5569935610659655
+    },
+    "subat": {
+     "yillik": 0.11295100572950534,
+     "spy": 0.1462814620832893,
+     "yatirimda": 0.9242424242424242,
+     "medyan_hisse": 9.0,
+     "en_kotu_dusus": -0.5474993881895774
+    },
+    "mart": {
+     "yillik": -0.01948495367325276,
+     "spy": 0.13734439333803627,
+     "yatirimda": 0.9696969696969697,
+     "medyan_hisse": 10.0,
+     "en_kotu_dusus": -0.8726442280754625
+    },
+    "secim": {
+     "adet": 2488,
+     "farkli_hisse": 665,
+     "ortalama_3ay": 0.026535677093541783,
+     "medyan_3ay": -0.023020438849925995,
+     "spy_ustu_pay": 0.42483922829581994,
+     "yuzde50_ustu_pay": 0.07194533762057878,
+     "yuzde50_kayip_pay": 0.03215434083601286,
+     "spy_ortalama_3ay": 0.029227465391159058
+    }
+   },
+   "son5": {
+    "ocak": {
+     "yillik": 0.2904385066054591,
+     "spy": 0.13441724967724977,
+     "yatirimda": 1.0,
+     "medyan_hisse": 15.5,
+     "en_kotu_dusus": -0.4032245334237814
+    },
+    "subat": {
+     "yillik": 0.10383772780974532,
+     "spy": 0.12703317577948248,
+     "yatirimda": 1.0,
+     "medyan_hisse": 16.0,
+     "en_kotu_dusus": -0.24935148305525068
+    },
+    "mart": {
+     "yillik": -0.02552723639066312,
+     "spy": 0.13028017335791953,
+     "yatirimda": 1.0,
+     "medyan_hisse": 19.0,
+     "en_kotu_dusus": -0.36822326935708094
+    },
+    "secim": {
+     "adet": 1161,
+     "farkli_hisse": 381,
+     "ortalama_3ay": -0.0018869908593596432,
+     "medyan_3ay": -0.054627224802970886,
+     "spy_ustu_pay": 0.40223944875107664,
+     "yuzde50_ustu_pay": 0.06718346253229975,
+     "yuzde50_kayip_pay": 0.047372954349698536,
+     "spy_ortalama_3ay": 0.018270909786224365
+    }
+   }
+  },
+  "bugun": [
+   "AGPU",
+   "IOVA",
+   "LITE",
+   "IBRX",
+   "MU",
+   "ASST",
+   "OABI",
+   "INSW",
+   "LPG",
+   "FRD",
+   "PGEN",
+   "CMBT",
+   "VIR",
+   "SM"
+  ]
+ }
+}
