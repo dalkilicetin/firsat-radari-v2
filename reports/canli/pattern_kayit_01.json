@@ -815,7 +815,7 @@
  "kural_degisirse": "Kural ya da liste değiştirilmez. Değişiklik yeni kayıt numarasıyla yapılır; bu kaydın sonucu olduğu gibi raporlanır.",
  "duzeltme_1": {
   "tarih": "2026-10-19",
-  "neden": "SPY başlangıcı yanlışlıkla 16 Ekim kapanışından alınmıştı (778,57); hisselerle aynı tarih olan 9 Ekim kapanışı esas alınır. Hisse listesi ve kural değişmedi.",
+  "neden": "SPY başlangıç tarihi etiketi 16 Ekim yazılmıştı; haftalık seri 9 Ekim kapanışını (778,57) 16 Ekim'e taşıdığı için değer aynıdır. Etiket hisselerle aynı tarih olan 9 Ekim olarak düzeltildi; değer, hisse listesi ve kural değişmedi.",
   "spy_baslangic_eski": 778.5700073242188,
   "spy_tarih_eski": "2026-10-16"
  }
