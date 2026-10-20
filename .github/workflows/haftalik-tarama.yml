@@ -7,6 +7,10 @@ on:
   schedule:
     - cron: "15 5 * * 5"  # Cuma 05:15 UTC = 08:15 TR
   workflow_dispatch:
+  # Geliştirme branch'inde deneme: bu dosya (ya da tetik dosyası) değişip gönderilince çalışır.
+  push:
+    branches: [claude/yeni-firsat-radari-z71fl2]
+    paths: [".github/workflows/haftalik-tarama.yml", "tarama-tetik.txt"]
 
 permissions:
   contents: write
