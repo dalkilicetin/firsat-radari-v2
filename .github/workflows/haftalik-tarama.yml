@@ -1,7 +1,8 @@
 name: Haftalık Tarama
 
 # Her cuma: veriyi tazele (fiyatlar, SEC belgeleri, Form 4, companyfacts, FINRA, 10-K, FTD) → işaretleri hesapla →
-# listeyi kilitle → telefon sayfasını GitHub Pages'e yayımla. Sonuçlar cuma 14:00 (TR) öncesi hazır olur.
+# listeyi kilitle → Analiz Radarı'nı ana sitenin /analiz/ klasörüne yaz (Klasik Radar kökte, main'den yayımlanır).
+# Sonuçlar cuma 14:00 (TR) öncesi hazır olur.
 # Not: GitHub zamanlanmış çalışmayı yalnızca varsayılan branch'teki (main) iş akışı için başlatır; diğer branch'lerde elle çalıştırılır.
 on:
   schedule:
@@ -14,8 +15,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: haftalik-tarama
@@ -67,19 +66,16 @@ jobs:
             git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && break
             sleep 10
           done
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-  yayin:
-    needs: tarama
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - id: deploy
-        uses: actions/deploy-pages@v4
+      - name: Analiz Radarı'nı ana siteye yaz (main → analiz/)
+        run: |
+          git fetch -q origin main
+          git worktree add -q /tmp/ana origin/main --detach
+          rsync -a --delete --exclude .nojekyll site/ /tmp/ana/analiz/
+          cd /tmp/ana
+          git add analiz
+          git diff --cached --quiet && exit 0
+          git commit -m "Analiz Radarı: haftalık tarama $(date -u +%F)"
+          for i in 1 2 3 4; do
+            git pull --rebase -q origin main && git push origin HEAD:main && break
+            sleep 10
+          done

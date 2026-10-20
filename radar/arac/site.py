@@ -185,6 +185,9 @@ details summary{cursor:pointer;font-weight:600;padding:4px 0;min-height:32px}
 .yol .top{width:14px;height:14px;border-radius:999px;margin-top:4px;background:var(--mavi)}
 .yol .bag{flex:1;width:2px;background:var(--cizgi)}
 .yol .icerik{padding-bottom:14px}
+.radar{display:flex;gap:6px;padding:4px;border-radius:999px;background:var(--ince)}
+.radar a,.radar span{flex:1;text-align:center;padding:9px 4px;border-radius:999px;font-size:13.5px;min-height:40px;display:flex;align-items:center;justify-content:center}
+.radar a{color:var(--soluk);text-decoration:none}.radar span{background:var(--kart);font-weight:600}
 footer{font-size:12px;color:var(--soluk);line-height:1.6}
 @media (min-width:720px){.sayfa{max-width:760px}}
 """
@@ -202,7 +205,8 @@ def _sayfa(baslik: str, govde: str, kok: str = "") -> str:
 <meta name="theme-color" content="#F5F5F1"><title>{e(baslik)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{kok}stil.css"></head><body><main class="sayfa">{govde}
+<link rel="stylesheet" href="{kok}stil.css"></head><body><main class="sayfa">
+<nav class="radar"><a href="{kok}../">← Klasik Radar</a><span>Analiz Radarı</span></nav>{govde}
 <footer>Yatırım tavsiyesi değildir; bir analiz aracıdır. Veriler: SEC, FINRA, borsa fiyatları. Son karar her zaman sizindir.</footer>
 </main></body></html>"""
 
