@@ -6,6 +6,12 @@ on:
     branches: [claude/firsat-modeli]
     paths: ["backfill-request.json"]
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      istek:
+        description: "İstek listesi (JSON); boşsa backfill-request.json"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -35,6 +41,8 @@ jobs:
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
       - id: plan
+        env:
+          RADAR_ISTEK: ${{ inputs.istek }}
         run: |
           out=$(python -m radar.backfill.runner plan)
           echo "$out" | jq .

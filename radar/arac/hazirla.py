@@ -18,7 +18,10 @@ CACHE = isaretler.CACHE
 
 
 def main() -> dict:
+    import os
     t0 = time.time()
+    if os.environ.get("RADAR_ARAC_ORNEK"):
+        isaretler.CACHE = isaretler.CACHE.parent / "arac_ornek"
     d = Duzenek.yukle()
     k = isaretler.Kaynaklar.yukle(d)
     o = isaretler.hesapla(d, k)
@@ -32,7 +35,7 @@ def main() -> dict:
         kz = d.kiyas(v)
         tablo[f"sektor_{v}"] = kz["sektor"]
         tablo[f"kiyas_{v}"] = pd.DataFrame({"borsa": kz["borsa"], "esit": kz["esit"]})
-    path = CACHE / "duzenek"
+    path = isaretler.CACHE / "duzenek"
     path.mkdir(parents=True, exist_ok=True)
     for n, df in tablo.items():
         df.astype("float32").to_parquet(path / f"{n}.parquet")
@@ -48,7 +51,8 @@ def main() -> dict:
         "islem_bilinmeyen_ort": d.islem_bilinmeyen.sum(axis=1).groupby(yil).mean().round(0),
     })
     rep = {"sure_sn": round(time.time() - t0), "kapsam": kapsam.reset_index(names="yil").to_dict("records")}
-    (config.ROOT / "reports" / "research" / "arac_duzenek_kapsam.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1))
+    if not os.environ.get("RADAR_ARAC_ORNEK"):
+        (config.ROOT / "reports" / "research" / "arac_duzenek_kapsam.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1))
     print(kapsam.to_string())
     return rep
 

@@ -63,12 +63,22 @@ class Duzenek:
     persembe: dict      # perşembe kapanışları, Cuma etiketli (işaretler)
 
     @classmethod
-    def yukle(cls) -> "Duzenek":
+    def yukle(cls, daralt: bool = True) -> "Duzenek":
+        """daralt: yalnızca faaliyet şirketleri ve perşembe fiyatı bir kez olsun ≥ 5 $ olmuş hisseler (bellek için;
+        evrene giremeyecek sütunlar sonucu değiştirmez)."""
         cuma = panel.build()
         dates = cuma["price"].index
         thu = panel.build(dates=dates - pd.Timedelta(days=1), tag=PERSEMBE)
         persembe = {k: (v.reindex(dates - pd.Timedelta(days=1)).set_axis(dates, axis=0).reindex(columns=cuma["price"].columns)
                         if k != "securities" else v) for k, v in thu.items()}
+        if daralt:
+            keep = sectors.operating_mask(cuma).to_numpy() & (persembe["raw"] >= MIN_FIYAT).any().to_numpy()
+            cols = cuma["price"].columns[keep]
+            import os
+            if os.environ.get("RADAR_ARAC_ORNEK"):  # hızlı deneme: ilk N sütun (sonuç için kullanılmaz)
+                cols = cols[: int(os.environ["RADAR_ARAC_ORNEK"])]
+            cuma = {k: (v[cols].astype("float32") if k != "securities" else v) for k, v in cuma.items()}
+            persembe = {k: (v[cols].astype("float32") if k != "securities" else v) for k, v in persembe.items()}
         return cls(cuma, persembe)
 
     @property

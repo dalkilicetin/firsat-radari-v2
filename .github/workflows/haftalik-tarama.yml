@@ -1,0 +1,81 @@
+name: Haftalık Tarama
+
+# Her cuma: veriyi tazele (fiyatlar, SEC belgeleri, Form 4, companyfacts, FINRA, 10-K, FTD) → işaretleri hesapla →
+# listeyi kilitle → telefon sayfasını GitHub Pages'e yayımla. Sonuçlar cuma 14:00 (TR) öncesi hazır olur.
+# Not: GitHub zamanlanmış çalışmayı yalnızca varsayılan branch'teki (main) iş akışı için başlatır; diğer branch'lerde elle çalıştırılır.
+on:
+  schedule:
+    - cron: "15 5 * * 5"  # Cuma 05:15 UTC = 08:15 TR
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: haftalik-tarama
+  cancel-in-progress: false
+
+jobs:
+  veri:
+    uses: ./.github/workflows/backfill.yml
+    secrets: inherit
+    with:
+      istek: >-
+        [{"dataset":"prices"},{"dataset":"universe"},{"dataset":"filings"},{"dataset":"ihrac_belgeleri"},
+         {"dataset":"sirket_olgulari"},{"dataset":"insider"},{"dataset":"insider_guncel"},
+         {"dataset":"finra_aciga_satis","only":"{yil}","force":true},{"dataset":"ftd","only":"{yil}","force":true},
+         {"dataset":"tenk","only":"{yil}","force":true}]
+
+  tarama:
+    needs: veri
+    if: always() && needs.veri.result != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      RADAR_USER_AGENT: ${{ secrets.RADAR_USER_AGENT }}
+      RADAR_RELEASE: veri-arsivi-2009
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Veri yüklemesinin yazdığı manifestleri al
+        run: git pull --rebase origin "${{ github.ref_name }}"
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -r requirements.txt
+      - name: Birim testleri
+        run: python -m pytest -q tests/test_arac.py
+      - name: Düzenek ve işaretler (arşivden indirip hesaplar)
+        run: python -m radar.arac.hazirla
+      - name: Haftalık liste, kartlar, karne, otopsi → site/
+        run: python -m radar.arac.haftalik
+      - name: Kilitli listeyi branch'e yaz
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/canli/arac reports/research/arac_duzenek_kapsam.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Haftalık tarama $(date -u +%F): kilitli liste"
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && break
+            sleep 10
+          done
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  yayin:
+    needs: tarama
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

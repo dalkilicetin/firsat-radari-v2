@@ -25,9 +25,9 @@ def kabul_anlari() -> pd.DataFrame:
     return acc.assign(accepted=acc.accepted.dt.tz_localize(None))
 
 
-def companyfacts(acc: pd.DataFrame | None = None) -> pd.DataFrame:
+def companyfacts(acc: pd.DataFrame | None = None, tags: list[str] | None = None) -> pd.DataFrame:
     try:
-        cf = archive.load("sirket_olgulari")
+        cf = archive.load("sirket_olgulari", filters=[("tag", "in", tags)] if tags else None)
     except Exception:
         return pd.DataFrame()
     if cf.empty:
@@ -48,10 +48,23 @@ def companyfacts(acc: pd.DataFrame | None = None) -> pd.DataFrame:
     return out[out.qtrs.notna()].astype({"qtrs": "int64"})
 
 
-def finans(columns: list[str] | None = None) -> pd.DataFrame:
-    """Birleşik tablo. accepted: New York duvar saati (naive)."""
+def gerekli_etiketler() -> list[str]:
+    from radar.arac import isaretler
+    from radar.research.road1 import REVENUE
+    return sorted(set(fundamentals.SHARE_TAGS) | set(REVENUE) | set(isaretler.NET_INCOME) | set(isaretler.CASH)
+                  | set(isaretler.SHORT_INV) | set(isaretler.OCF))
+
+
+def finans(columns: list[str] | None = None, tags: list[str] | None = None) -> pd.DataFrame:
+    """Birleşik tablo (yalnızca analiz aracının kullandığı kalemler). accepted: New York duvar saati (naive)."""
+    tags = gerekli_etiketler() if tags is None else tags
     cols = ["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate", "uom", "segments"]
-    fs = fundamentals.load(cols).assign(kaynak="fsds")
+    try:
+        fs = archive.load("financials", columns=cols, filters=[("tag", "in", tags)])
+    except Exception:  # eski bölümlerde segments sütunu yok
+        fs = archive.load("financials", columns=cols[:-1], filters=[("tag", "in", tags)]).assign(segments="")
+    fs["segments"] = fs["segments"].fillna("")
+    fs = fs.assign(kaynak="fsds")
     fs["accepted"] = pd.to_datetime(fs.accepted)
     if getattr(fs.accepted.dt, "tz", None) is not None:
         fs["accepted"] = fs.accepted.dt.tz_localize(None)
@@ -60,10 +73,12 @@ def finans(columns: list[str] | None = None) -> pd.DataFrame:
     acc = kabul_anlari()
     later = pd.Series(fs.adsh.map(acc.set_index("accession").accepted).to_numpy(), index=fs.index).fillna(fs.accepted)
     fs["accepted"] = later.where(later > fs.accepted, fs.accepted)
-    cf = companyfacts(acc)
+    cf = companyfacts(acc, tags)
     if len(cf):
         key = ["adsh", "tag", "qtrs", "ddate"]
         seen = pd.MultiIndex.from_frame(fs[key].drop_duplicates())
         cf = cf[~pd.MultiIndex.from_frame(cf[key]).isin(seen)]
         fs = pd.concat([fs, cf[fs.columns]], ignore_index=True)
+    for c in ("tag", "uom", "segments", "kaynak"):
+        fs[c] = fs[c].astype("category")
     return fs if columns is None else fs[columns]

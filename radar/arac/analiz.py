@@ -227,7 +227,7 @@ def profil(v: Veri, yillar=AYAR, adim: int = 1) -> pd.DataFrame:
     %30'dan fazla kaybeden, medyan net (3/6 ay). Kartlardaki "Geçmişte buna benzeyenler" bu tablodan gelir."""
     dates = v.tarihler[(v.tarihler.year >= yillar[0]) & (v.tarihler.year <= yillar[1])][::adim]
     ok = (v.tablo["evren"] & ~v.isaret["kesin_ret"]).loc[dates]
-    code = sum(v.isaret[n].loc[dates].astype(int) << i for i, n in enumerate(isaretler.OLUMLU))
+    code = sum(v.isaret[n].loc[dates].astype(int) * (1 << i) for i, n in enumerate(isaretler.OLUMLU))
     long = {"kod": code.where(ok).stack()}
     for h in VADE:
         net = v.tablo[f"net_{h}"].loc[dates]
@@ -395,3 +395,33 @@ def ayar_kilitli_mi() -> bool:
 
 def secilen_ayar() -> dict:
     return json.loads(AYAR_DOSYA.read_text())["secilen"]
+
+
+def profil_kaydet(v: Veri) -> None:
+    p = profil(v).reset_index().rename(columns={"index": "kod"})
+    (R / "arac_profil.json").write_text(json.dumps(p.round(4).to_dict("records"), ensure_ascii=False))
+
+
+def sinav() -> dict:
+    """2023–2026: yalnızca sabitlenmiş ve commit edilmiş ayarla, bir kez."""
+    if not ayar_kilitli_mi():
+        raise SystemExit("Kilit: önce reports/research/arac_ayar.json commit edilmeli.")
+    v = Veri.yukle()
+    a = secilen_ayar()
+    dates = v.tarihler[(v.tarihler.year >= SINAV[0]) & (v.tarihler.year <= SINAV[1])]
+    k = karne(v, liste(v, a, dates), SINAV)
+    out = {"tarih": str(pd.Timestamp.today().date()), "ayar": a["ad"], "karne": {x: y for x, y in k.items() if not x.startswith("_")}}
+    (R / "arac_sinav.json").write_text(json.dumps(out, ensure_ascii=False, indent=1, default=_json))
+    return out
+
+
+if __name__ == "__main__":
+    import sys
+    if "--sinav" in sys.argv:
+        print(json.dumps(sinav(), ensure_ascii=False, indent=1, default=_json))
+    else:
+        s = ayarla()
+        profil_kaydet(Veri.yukle())
+        print(json.dumps({"secilen": s["secilen"]["ad"], "defter": [{"ad": d["ayar"]["ad"], **{k: d["karne"][k] for k in
+              ("fazla_borsa_3a", "medyan_3a", "kazanan_orani_3a", "tamamen_kacirilan", "zincir_yillik", "en_buyuk_dusus")}}
+              for d in s["defter"]]}, ensure_ascii=False, indent=1, default=_json))

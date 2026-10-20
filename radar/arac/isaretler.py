@@ -8,11 +8,12 @@ Olumlu işaretler (bool):
 2. is_iyilesiyor  — son raporda satışlar geçen yılın aynı dönemine göre ≥ %20 arttı VE büyüme bir önceki rapora göre hızlandı
 3. dipten_kalkti  — fiyat 52 haftalık dibin en az 2 katı
 4. sektor         — hissenin sektör ETF'i son 1 yılda (12-1 ay) S&P 500'den iyi gitti
-5. iceriden       — son 90 günde en az 2 farklı yönetici/ortak borsadan hisse aldı, ya da yeni 13D (aktivist) / yeni 13G (≥ %5 ortak)
+5. iceriden       — son 90 günde en az 2 farklı yönetici/ortak borsadan hisse aldı, ya da yeni 13D (aktivist yatırımcı)
 6. yakin_haber    — son periyodik rapordan bu yana 56–100 gün geçti (sonraki bilanço ~6 hafta içinde bekleniyor)
 
-Kesin ret (bool): devamlilik (son 10-K'da devamlılık şüphesi), gec_rapor (son 180 günde NT 10-K/10-Q),
-cikarilma (son 180 günde 8-K madde 3.01: borsa kotasyon uyarısı).
+Kesin ret (bool): devamlilik (son 10-K metninde devamlılık şüphesi ifadesi VE şirket zarar ediyor VE faaliyetleri nakit yakıyor;
+yalnızca metin bayrağı risk bölümündeki varsayımsal cümlelerle de tetiklenir), gec_rapor (son 180 günde NT 10-K/10-Q).
+cikarilma (8-K madde 3.01) yalnızca bilgi olarak hesaplanır: evrende (≥ 5 $, ≥ 500 M$) bu madde çoğunlukla borsa değiştirmedir.
 Dikkat (bool): hisse_basma (son 90 günde hisse satışı izahnamesi/kayıt beyanı ya da 12 ayda hisse sayısı ≥ %20 arttı),
 ters_bolunme (son 365 günde), nakit_sikintisi (faaliyetler nakit yakıyor ve nakit < 4 çeyreklik yakım),
 dusen_bicak (zirveden ≥ %70 aşağıda ve 26 haftalık ortalamanın altında), ucuzluk_tuzagi (satışlar ≥ %20 düşüyor ve zarar büyüyor).
@@ -33,7 +34,7 @@ from radar.research.road1 import REVENUE, by_filing, balance
 
 CACHE = config.DATA_DIR / "derived" / "arac"
 OLUMLU = ["yukselis", "is_iyilesiyor", "dipten_kalkti", "sektor", "iceriden", "yakin_haber"]
-KESIN_RET = ["devamlilik", "gec_rapor", "cikarilma"]
+KESIN_RET = ["devamlilik", "gec_rapor"]
 DIKKAT = ["hisse_basma", "ters_bolunme", "nakit_sikintisi", "dusen_bicak", "ucuzluk_tuzagi"]
 FIN_MAX_AGE = 200  # gün: iki çeyrekten eski rapor yok sayılır
 
@@ -119,7 +120,7 @@ def temel_olculer(k: Kaynaklar, dates, cols, hisse: pd.DataFrame) -> dict[str, p
     fin = fin[fin.uom.isin(["USD", "shares"])]
     rev = by_filing(fin, REVENUE, [1, 4])
     rev = rev.assign(cik=rev.cik.astype(str), g=(rev.cur / rev.prev - 1).where(rev.prev > 0).clip(-1, 10))
-    rev = rev.merge(fin.drop_duplicates("adsh")[["adsh", "gun"]], on="adsh").sort_values(["cik", "gun"])
+    rev = rev.merge(fin.drop_duplicates("adsh")[["adsh", "gun"]], on="adsh").sort_values(["cik", "gun", "accepted", "adsh"], kind="stable")
     prev_g = rev.groupby("cik").g.shift(1)
     prev_gun = rev.groupby("cik").gun.shift(1)
     rev["ivme"] = (rev.g - prev_g).where((rev.gun - prev_gun).dt.days <= 200)
@@ -198,15 +199,19 @@ def hesapla(d: Duzenek, k: Kaynaklar, etf: pd.DataFrame | None = None) -> dict[s
     o["is_iyilesiyor"] = (o["gelir_buyume"] >= 0.20) & (o["gelir_ivme"] > 0)
     o["dipten_kalkti"] = o["dip_kat"] >= 2.0
     o["sektor"] = o["sektor_12_1"] > o["spy_12_1"]
-    o["iceriden"] = (o["alici_sayisi_90g"] >= 2) | o["aktivist_13d"] | o["yeni_13g"]
-    o["yakin_haber"] = o["son_rapordan_gun"].between(56, 100)
+    # Yeni 13G'ler çoğunlukla pasif endeks fonlarından gelir (evrenin ~%20'si); "akıllı para" işaretine katılmaz, kartta bilgi olarak durur.
+    o["iceriden"] = (o["alici_sayisi_90g"] >= 2) | o["aktivist_13d"]
+    o["yakin_haber"] = (o["son_rapordan_gun"] >= 56) & (o["son_rapordan_gun"] <= 100)
     o["hisse_basma"] = o["ihrac_90g"] | (o["hisse_artisi_12a"] >= 0.20)
     burn = o["faaliyet_nakit_ceyrek"]
     o["nakit_sikintisi"] = (burn < 0) & (o["nakit"] < -4 * burn)
     o["dusen_bicak"] = (o["zirve_uzaklik"] <= -0.70) & (o["ort26_uzaklik"] < 0)
     o["ucuzluk_tuzagi"] = (o["gelir_buyume"] <= -0.20) & (o["net_kar"] < 0) & (o["net_kar"] < o["net_kar_once"])
+    for n in OLUMLU + KESIN_RET + DIKKAT + ["aktivist_13d", "yeni_13g", "cikarilma"]:
+        o[n] = o[n].fillna(False).astype(bool)
     o["olumlu_sayisi"] = sum(o[n].astype(int) for n in OLUMLU)
-    o["kesin_ret"] = o["devamlilik"] | o["gec_rapor"] | o["cikarilma"]
+    o["devamlilik"] = o["devamlilik"] & (o["net_kar"] < 0) & (o["faaliyet_nakit_ceyrek"] < 0)
+    o["kesin_ret"] = o["devamlilik"] | o["gec_rapor"]
     o["dikkat_sayisi"] = sum(o[n].astype(int) for n in DIKKAT)
     return o
 

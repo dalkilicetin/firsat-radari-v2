@@ -55,10 +55,15 @@ def plan(dataset: str, only: str = "", force: bool = False) -> list[str]:
 
 def cmd_plan(args) -> None:
     """İstek: komut satırı (--dataset) ya da backfill-request.json ([{"dataset", "only", "force"}, ...])."""
+    import os
     if args.dataset:
         requests = [{"dataset": args.dataset, "only": args.only or "", "force": args.force}]
+    elif os.environ.get("RADAR_ISTEK"):  # haftalık tarama gibi çağıran iş akışından gelen istek listesi
+        requests = json.loads(os.environ["RADAR_ISTEK"])
     else:
         requests = json.loads(REQUEST_FILE.read_text())["requests"]
+    # "{yil}" yer tutucusu: içinde bulunulan yılın bölümü (ör. FINRA, 10-K metinleri, FTD)
+    requests = [r | {"only": r.get("only", "").replace("{yil}", str(date.today().year))} for r in requests]
     include, datasets = [], []
     for r in requests:
         parts = plan(r["dataset"], r.get("only", ""), r.get("force", False))
