@@ -57,8 +57,8 @@ def ozellikler(v: Veri) -> dict[str, pd.DataFrame]:
     f["r13_sira"] = f["r13"].where(ev).rank(axis=1, pct=True)
     pi = (f["r13"].where(ev) > 0).sum(axis=1) / ev.sum(axis=1).replace(0, np.nan)
     f["piyasa_ilerleme"] = pd.DataFrame(np.repeat(pi.to_numpy()[:, None], P.shape[1], axis=1), index=P.index, columns=P.columns)
-    f["log_pd"] = np.log(tab["piyasa_degeri"].astype("float64"))
-    f["log_islem"] = np.log(isl)
+    f["log_pd"] = np.log(tab["piyasa_degeri"].astype("float64").where(lambda x: x > 0))
+    f["log_islem"] = np.log(isl.where(isl > 0))
     for n in isaretler.OLUMLU:
         f[n] = v.isaret[n].astype(float)
     f["dikkat_sayisi"] = v.isaret["dikkat_sayisi"].astype(float)
@@ -177,6 +177,8 @@ def degerlendir(v: Veri, X: pd.DataFrame, S: pd.DataFrame, yillar: tuple[int, in
     out = {}
     for a, rows in sonuc.items():
         d = pd.DataFrame(rows)
+        if not d.empty:
+            d = d.set_index("t", drop=False)
         if d.empty:
             continue
         zincir = d.iloc[:: H]                       # üst üste binmeyen 13 haftalık zincir
@@ -212,9 +214,13 @@ def main(sinav_da: bool = True) -> dict:
     son_t = v.tarihler.max()
     X_son = X[X.index.get_level_values(0) == son_t]
     son_yil = X[X["net"].notna()].index.get_level_values(0).max().year
-    print("yürüyen test...", flush=True)
-    S = yuruyen(X, son_yil)
     OUT.mkdir(parents=True, exist_ok=True)
+    if (OUT / "skorlar.parquet").exists() and "--yeniden" not in sys.argv:
+        S = pd.read_parquet(OUT / "skorlar.parquet")
+    else:
+        print("yürüyen test...", flush=True)
+        S = yuruyen(X, son_yil)
+        S.to_parquet(OUT / "skorlar.parquet")
     ayar = analiz.secilen_ayar()
     tar = pd.DatetimeIndex(S.index.get_level_values(0).unique())
     kural = analiz.liste(v, ayar, tar)
@@ -225,7 +231,6 @@ def main(sinav_da: bool = True) -> dict:
         sonuc["risk_kovalari_2023_2026"] = risk_kovalari(X, S, (2023, 2100))
     sonuc["not"] = ("Skorlar yüzdelik sıradır, olasılık değil. 2013–2015 yalnızca eğitimde. 2023–2026 bir kez hatalı veriyle açılmıştı; "
                     "temiz sınav canlı kayıttır.")
-    S.to_parquet(OUT / "skorlar.parquet")
     # canlı skorlar: en son perşembe, tam eğitim
     if len(X_son):
         sk = son_hafta(X_son, X)
