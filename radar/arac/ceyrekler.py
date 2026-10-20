@@ -33,6 +33,7 @@ def main() -> pd.DataFrame:
     son = v.tablo["brut_3a"].dropna(how="all").index.max()
     qs = analiz.ceyrek_baslari(v.tarihler, (son.year - YIL, son.year))
     qs = qs[qs >= son - pd.DateOffset(years=YIL)]
+    qs = pd.DatetimeIndex([t for t in qs if v.tablo["net_3a"].loc[t].notna().any()])  # 3 aylık sonucu henüz olmayan çeyrek yok
     ls = analiz.liste(v, ayar, qs)
     tab = v.tablo
     rows, L = [], [f"# Son {YIL} yıl, çeyrek çeyrek: model ne seçti, ne getirdi?", "",

@@ -1,0 +1,44 @@
+{
+ "pencere": "2023-07-10 … 2026-07-10",
+ "ayar": "lift_ceza0",
+ "sonuclar": {
+  "3a": {
+   "vade": "3a",
+   "ceyrek": 13,
+   "kazanan": 1233,
+   "yakalama_ceyrek_icinde": 0.08759124087591241,
+   "yakalama_ilk_hafta": 0.014598540145985401,
+   "yakalama_yarimdan_once": 0.0535279805352798,
+   "yakalanan_kazanc_payi_medyan": 0.36094097793102264,
+   "liste_hisse_hafta": 1570,
+   "liste_kazanan_orani": 0.14968152866242038,
+   "liste_borsayi_gecen": 0.4439490445859873,
+   "liste_sert_kayip": 0.12165605095541401,
+   "rastgele_kazanan_orani": 0.05021997841457285,
+   "rastgele_yakalama": 0.06218978102189781,
+   "rastgele_yakalama_ga90": [
+    0.05190592051905921,
+    0.072992700729927
+   ]
+  },
+  "6a": {
+   "vade": "6a",
+   "ceyrek": 12,
+   "kazanan": 1129,
+   "yakalama_ceyrek_icinde": 0.1550044286979628,
+   "yakalama_ilk_hafta": 0.015057573073516387,
+   "yakalama_yarimdan_once": 0.07528786536758193,
+   "yakalanan_kazanc_payi_medyan": 0.2354450225830078,
+   "liste_hisse_hafta": 1440,
+   "liste_kazanan_orani": 0.17916666666666667,
+   "liste_borsayi_gecen": 0.45416666666666666,
+   "liste_sert_kayip": 0.16111111111111112,
+   "rastgele_kazanan_orani": 0.05025246320669238,
+   "rastgele_yakalama": 0.11140832595217005,
+   "rastgele_yakalama_ga90": [
+    0.09738706820194862,
+    0.12847652790079717
+   ]
+  }
+ }
+}
