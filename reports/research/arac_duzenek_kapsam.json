@@ -1,0 +1,131 @@
+{
+ "sure_sn": 329,
+ "kapsam": [
+  {
+   "yil": 2009,
+   "evren_ort": 90.0,
+   "sonradan_cikan_ort": 2.0,
+   "finra_tahminli_ort": 0.0,
+   "islem_bilinmeyen_ort": 38.0
+  },
+  {
+   "yil": 2010,
+   "evren_ort": 559.0,
+   "sonradan_cikan_ort": 200.0,
+   "finra_tahminli_ort": 191.0,
+   "islem_bilinmeyen_ort": 14.0
+  },
+  {
+   "yil": 2011,
+   "evren_ort": 1077.0,
+   "sonradan_cikan_ort": 438.0,
+   "finra_tahminli_ort": 422.0,
+   "islem_bilinmeyen_ort": 8.0
+  },
+  {
+   "yil": 2012,
+   "evren_ort": 1209.0,
+   "sonradan_cikan_ort": 497.0,
+   "finra_tahminli_ort": 480.0,
+   "islem_bilinmeyen_ort": 21.0
+  },
+  {
+   "yil": 2013,
+   "evren_ort": 1324.0,
+   "sonradan_cikan_ort": 536.0,
+   "finra_tahminli_ort": 520.0,
+   "islem_bilinmeyen_ort": 22.0
+  },
+  {
+   "yil": 2014,
+   "evren_ort": 1480.0,
+   "sonradan_cikan_ort": 588.0,
+   "finra_tahminli_ort": 574.0,
+   "islem_bilinmeyen_ort": 21.0
+  },
+  {
+   "yil": 2015,
+   "evren_ort": 1527.0,
+   "sonradan_cikan_ort": 580.0,
+   "finra_tahminli_ort": 567.0,
+   "islem_bilinmeyen_ort": 17.0
+  },
+  {
+   "yil": 2016,
+   "evren_ort": 1458.0,
+   "sonradan_cikan_ort": 491.0,
+   "finra_tahminli_ort": 477.0,
+   "islem_bilinmeyen_ort": 15.0
+  },
+  {
+   "yil": 2017,
+   "evren_ort": 1503.0,
+   "sonradan_cikan_ort": 457.0,
+   "finra_tahminli_ort": 443.0,
+   "islem_bilinmeyen_ort": 21.0
+  },
+  {
+   "yil": 2018,
+   "evren_ort": 1640.0,
+   "sonradan_cikan_ort": 446.0,
+   "finra_tahminli_ort": 433.0,
+   "islem_bilinmeyen_ort": 24.0
+  },
+  {
+   "yil": 2019,
+   "evren_ort": 1620.0,
+   "sonradan_cikan_ort": 366.0,
+   "finra_tahminli_ort": 356.0,
+   "islem_bilinmeyen_ort": 20.0
+  },
+  {
+   "yil": 2020,
+   "evren_ort": 1658.0,
+   "sonradan_cikan_ort": 323.0,
+   "finra_tahminli_ort": 312.0,
+   "islem_bilinmeyen_ort": 17.0
+  },
+  {
+   "yil": 2021,
+   "evren_ort": 1979.0,
+   "sonradan_cikan_ort": 362.0,
+   "finra_tahminli_ort": 349.0,
+   "islem_bilinmeyen_ort": 16.0
+  },
+  {
+   "yil": 2022,
+   "evren_ort": 1892.0,
+   "sonradan_cikan_ort": 292.0,
+   "finra_tahminli_ort": 283.0,
+   "islem_bilinmeyen_ort": 12.0
+  },
+  {
+   "yil": 2023,
+   "evren_ort": 1803.0,
+   "sonradan_cikan_ort": 211.0,
+   "finra_tahminli_ort": 204.0,
+   "islem_bilinmeyen_ort": 9.0
+  },
+  {
+   "yil": 2024,
+   "evren_ort": 1833.0,
+   "sonradan_cikan_ort": 149.0,
+   "finra_tahminli_ort": 146.0,
+   "islem_bilinmeyen_ort": 4.0
+  },
+  {
+   "yil": 2025,
+   "evren_ort": 1916.0,
+   "sonradan_cikan_ort": 95.0,
+   "finra_tahminli_ort": 92.0,
+   "islem_bilinmeyen_ort": 2.0
+  },
+  {
+   "yil": 2026,
+   "evren_ort": 2054.0,
+   "sonradan_cikan_ort": 33.0,
+   "finra_tahminli_ort": 31.0,
+   "islem_bilinmeyen_ort": 0.0
+  }
+ ]
+}
