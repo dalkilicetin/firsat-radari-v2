@@ -79,6 +79,10 @@ def finans(columns: list[str] | None = None, tags: list[str] | None = None) -> p
         seen = pd.MultiIndex.from_frame(fs[key].drop_duplicates())
         cf = cf[~pd.MultiIndex.from_frame(cf[key]).isin(seen)]
         fs = pd.concat([fs, cf[fs.columns]], ignore_index=True)
+    # Aynı rapor (accession) iki kaynakta farklı kabul anıyla kayıtlı olabilir: raporun bütün satırlarına en geç olanı ver.
+    # Yoksa bir rapor bir kaynakta kesimden önce, diğerinde sonra görünür ve o gün hangi değerlerin bilindiği tutarsızlaşır
+    # (doğrulamadaki sızıntı testi bunu yakaladı).
+    fs["accepted"] = fs.groupby("adsh").accepted.transform("max")
     for c in ("tag", "uom", "segments", "kaynak"):
         fs[c] = fs[c].astype("category")
     return fs if columns is None else fs[columns]
