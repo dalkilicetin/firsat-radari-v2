@@ -161,3 +161,101 @@ class FinancialStatements(Dataset):
         rep.add("Doğrulanmış gerçek içeren çeyrekler", Status.OK if len(verified) == len(golden_parts) else Status.FAIL,
                 f"{len(verified)}/{len(golden_parts)} geçti")
         return {}
+
+
+COMPANYFACTS_ZIP = "https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip"
+# Hisse sayısı (kapak sayfası dahil; Aşama 1 K3) ve haftalık taramada güncel kalması gereken temel kalemler.
+FACT_TAGS = {
+    "dei": {"EntityCommonStockSharesOutstanding", "EntityPublicFloat"},
+    "us-gaap": {"CommonStockSharesOutstanding", "Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax",
+                "RevenueFromContractWithCustomerIncludingAssessedTax", "SalesRevenueNet", "NetIncomeLoss",
+                "NetCashProvidedByUsedInOperatingActivities", "CashAndCashEquivalentsAtCarryingValue",
+                "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents", "ShortTermInvestments",
+                "MarketableSecuritiesCurrent"},
+    "ifrs-full": {"Revenue", "ProfitLossAttributableToOwnersOfParent", "CashAndCashEquivalents"},
+}
+FACT_UNITS = {"USD", "shares"}
+
+
+class CompanyFacts(Dataset):
+    """SEC companyfacts toplu dosyası: şirket başına XBRL olguları (sınıf/segment ayrımı olmayanlar).
+
+    Financial Statement Data Sets çeyreklik yayımlanır ve kapak sayfası hisse sayısını çoğu raporda içermez; bu set
+    (her gece güncellenir) kapak sayısını ve son raporların temel kalemlerini tamamlar. Yayım anı: accession numarası
+    dosyalama geçmişindeki kabul anıyla eşleştirilir; eşleşmezse yalnızca dosyalama tarihi vardır (gün sonu sayılır)."""
+    name = "sirket_olgulari"
+    title = "SEC companyfacts: hisse sayısı (kapak dahil) ve temel kalemler"
+    max_parallel = 1
+
+    def partitions(self, client: HttpClient, today: date) -> list[str]:
+        return [f"snapshot-{today:%Y%m%d}"]
+
+    def load(self, client: HttpClient, partition: str) -> Loaded:
+        import json
+        import requests
+        from radar import config
+        path = config.DATA_DIR / "backfill" / "companyfacts.zip"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with requests.get(COMPANYFACTS_ZIP, headers={"User-Agent": config.USER_AGENT}, stream=True, timeout=900) as r:
+            r.raise_for_status()
+            with path.open("wb") as f:
+                for chunk in r.iter_content(1 << 22):
+                    f.write(chunk)
+        names = ["cik", "taxonomy", "tag", "unit", "start", "end", "value", "accn", "fy", "fp", "form", "filed"]
+        frames, batch, companies = [], [], 0
+
+        def flush():
+            if not batch:
+                return
+            df = pd.DataFrame(batch, columns=names)
+            batch.clear()
+            for c in ("start", "end", "filed"):
+                df[c] = pd.to_datetime(df[c], errors="coerce")
+            df["value"] = pd.to_numeric(df.value, errors="coerce")
+            df["fy"] = pd.to_numeric(df.fy, errors="coerce").astype("Int16")
+            df["cik"] = df.cik.astype("int64")
+            for c in ("taxonomy", "tag", "unit", "fp", "form"):
+                df[c] = df[c].astype("category")
+            frames.append(df)
+
+        with zipfile.ZipFile(path) as zf:
+            for name in zf.namelist():
+                if not name.endswith(".json"):
+                    continue
+                data = json.loads(zf.read(name))
+                cik = int(data.get("cik") or name[3:13])
+                facts = data.get("facts") or {}
+                n0 = len(batch)
+                for tax, tags in FACT_TAGS.items():
+                    for tag in tags & set(facts.get(tax, {})):
+                        for unit, rows in facts[tax][tag].get("units", {}).items():
+                            if unit not in FACT_UNITS:
+                                continue
+                            batch.extend((cik, tax, tag, unit, x.get("start"), x.get("end"), x.get("val"), x.get("accn"),
+                                          x.get("fy"), x.get("fp"), x.get("form"), x.get("filed"))
+                                         for x in rows if (x.get("filed") or "") >= "2009")
+                companies += len(batch) > n0
+                if len(batch) > 500_000:
+                    flush()
+        flush()
+        path.unlink()
+        df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame(columns=names)
+        for c in ("taxonomy", "tag", "unit", "fp", "form"):
+            df[c] = df[c].astype(str).astype("category")
+        return Loaded(df, [COMPANYFACTS_ZIP], {"companies": companies})
+
+    def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
+        df = loaded.df
+        rep.expect_range("Olgusu olan şirket", loaded.notes["companies"], 6_000, 40_000)
+        rep.expect_range("Satır", len(df), 1_000_000, 80_000_000)
+        rep.expect_min_ratio("Dosyalama tarihi okunabilen", int(df.filed.notna().sum()), len(df), 0.999, 0.99)
+        cover = df[df.tag == "EntityCommonStockSharesOutstanding"]
+        rep.add("Kapak sayfası hisse sayısı", Status.INFO, f"{cover.cik.nunique():,} şirket, {len(cover):,} satır")
+        # Doğrulanmış gerçekler: kapak sayfası hisse sayıları (10-K kapakları)
+        for cik, label, filed, lo, hi in ((320193, "AAPL 10-K 2023-11-03", "2023-11-03", 15.5e9, 15.6e9),
+                                          (59478, "LLY 10-K 2024-02-21", "2024-02-21", 0.94e9, 0.96e9),
+                                          (200406, "JNJ 10-K 2024-02-16", "2024-02-16", 2.40e9, 2.42e9)):
+            v = cover[(cover.cik == cik) & (cover.filed == filed)].value
+            ok = len(v) and lo <= float(v.iloc[0]) <= hi
+            rep.add(f"Doğrulanmış gerçek: {label} kapak hisse sayısı", Status.OK if ok else Status.WARN,
+                    f"{float(v.iloc[0]):,.0f}" if len(v) else "yok")

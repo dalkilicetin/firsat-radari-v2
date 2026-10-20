@@ -63,17 +63,18 @@ def weekly_last(df: pd.DataFrame, value: str, dates: pd.DatetimeIndex) -> pd.Dat
     return filled.mask(age_days > STALE_DAYS).reindex(dates)
 
 
-def build(force: bool = False) -> dict[str, pd.DataFrame]:
+def build(force: bool = False, dates: pd.DatetimeIndex | None = None, tag: str = "") -> dict[str, pd.DataFrame]:
     """price: düzeltilmiş kapanış (getiri için); raw: ham kapanış (düşük fiyat riski için);
-    dollar_volume: 13 haftalık medyan günlük işlem tutarı (Yahoo serisi olanlar; FTD'de hacim yok)."""
+    dollar_volume: 13 haftalık medyan günlük işlem tutarı (Yahoo serisi olanlar; FTD'de hacim yok).
+    dates/tag: başka bir tarih ızgarası (ör. perşembe kapanışları) ve onun önbellek eki; varsayılan Cuma ızgarası."""
     names = ["price", "raw", "dollar_volume"]
-    paths = {n: CACHE / f"panel_{n}.parquet" for n in names}
+    paths = {n: CACHE / f"panel_{n}{tag}.parquet" for n in names}
     ident = build_identity()
     sec = ident["securities"]
     if all(p.exists() for p in paths.values()) and not force:
         return {n: pd.read_parquet(p) for n, p in paths.items()} | {"securities": sec}
 
-    dates = fridays()
+    dates = fridays() if dates is None else dates
     active = sec[sec.status == "aktif"]
     daily = archive.load("prices", columns=["symbol", "date", "adjclose", "close", "volume", "split_ratio"])
     daily = daily.merge(active[["symbol", "cik"]], on="symbol")

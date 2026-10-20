@@ -18,7 +18,7 @@ from datetime import date
 from radar.backfill import storage
 from radar.backfill.delisted import FailsToDeliver
 from radar.backfill.filings import Filings, GdeltHistory, IssuanceFilings, GdeltThemes, GdeltWords
-from radar.backfill.financials import FinancialStatements
+from radar.backfill.financials import CompanyFacts, FinancialStatements
 from radar.backfill.holdings import InstitutionalHoldings
 from radar.backfill.insider import InsiderTransactions
 from radar.backfill.macro import FredSeries
@@ -33,7 +33,7 @@ from radar.quality import SourceReport, Status
 
 DATASETS = {d.name: d for d in [InsiderTransactions(), FinancialStatements(), FailsToDeliver(), FredSeries(),
                                          DailyPrices(), WikipediaViews(), InstitutionalHoldings(),
-                                         Filings(), GdeltHistory(), TenKTexts(), GdeltThemes(), ListedUniverse(), ExitedPrices(), GdeltWords(), RedditArchive(), ShortVolume(), EarningsReleases(), IssuanceFilings()]}
+                                         Filings(), GdeltHistory(), TenKTexts(), GdeltThemes(), ListedUniverse(), ExitedPrices(), GdeltWords(), RedditArchive(), ShortVolume(), EarningsReleases(), IssuanceFilings(), CompanyFacts()]}
 PARTS_DIR = storage.MANIFEST_DIR / "parts"
 REPORT_DIR = storage.config.ROOT / "reports" / "backfill"
 
