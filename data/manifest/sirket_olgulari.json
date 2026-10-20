@@ -3,16 +3,70 @@
  "partitions": {
   "snapshot-20261020": {
    "partition": "snapshot-20261020",
-   "fetched_at": "2026-10-20T09:07:32+00:00",
-   "rows": 0,
-   "status": "fail",
-   "duration_s": 85.5,
+   "fetched_at": "2026-10-20T09:11:39+00:00",
+   "rows": 6459642,
+   "bytes": 47289702,
+   "sha256": "d4338a69a28666f93d5865b7012451d40d7f94c90b1a0d458806f8ff8dc06257",
+   "columns": {
+    "cik": "int64",
+    "taxonomy": "category",
+    "tag": "category",
+    "unit": "category",
+    "start": "datetime64[us]",
+    "end": "datetime64[us]",
+    "value": "float64",
+    "accn": "str",
+    "fy": "float32",
+    "fp": "category",
+    "form": "category",
+    "filed": "datetime64[us]"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip"
+   ],
+   "notes": {
+    "companies": 17040
+   },
+   "asset": "sirket_olgulari__snapshot-20261020.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 242.4,
    "requests": 0,
    "checks": [
     {
-     "name": "Çalışma hatası",
-     "status": "fail",
-     "detail": "TypeError: cannot safely cast non-equivalent float64 to int16"
+     "name": "Olgusu olan şirket",
+     "status": "ok",
+     "detail": "17,040 (beklenen 6,000–40,000)"
+    },
+    {
+     "name": "Satır",
+     "status": "ok",
+     "detail": "6,459,642 (beklenen 1,000,000–80,000,000)"
+    },
+    {
+     "name": "Dosyalama tarihi okunabilen",
+     "status": "ok",
+     "detail": "6459642/6459642 = %100.0"
+    },
+    {
+     "name": "Kapak sayfası hisse sayısı",
+     "status": "info",
+     "detail": "15,206 şirket, 381,239 satır"
+    },
+    {
+     "name": "Doğrulanmış gerçek: AAPL 10-K 2023-11-03 kapak hisse sayısı",
+     "status": "ok",
+     "detail": "15,552,752,000"
+    },
+    {
+     "name": "Doğrulanmış gerçek: LLY 10-K 2024-02-21 kapak hisse sayısı",
+     "status": "ok",
+     "detail": "950,164,452"
+    },
+    {
+     "name": "Doğrulanmış gerçek: JNJ 10-K 2024-02-16 kapak hisse sayısı",
+     "status": "ok",
+     "detail": "2,408,767,228"
     }
    ]
   }
@@ -21,5 +75,5 @@
  "title": "SEC companyfacts: hisse sayısı (kapak dahil) ve temel kalemler",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-20T09:09:25+00:00"
+ "finalized_at": "2026-10-20T09:16:11+00:00"
 }
