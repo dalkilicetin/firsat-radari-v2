@@ -1,0 +1,694 @@
+{
+ "dataset": "insider_guncel",
+ "partitions": {
+  "20261001": {
+   "partition": "20261001",
+   "fetched_at": "2026-10-20T09:21:52+00:00",
+   "rows": 812,
+   "bytes": 37123,
+   "sha256": "a5259801678d27e1f28bc367f701a6a4a0ef5862ef61e5f9dd9c22b87e8bc957",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261001.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 714,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261001.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 92.8,
+   "requests": 715,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "714/714 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "812"
+    }
+   ]
+  },
+  "20261002": {
+   "partition": "20261002",
+   "fetched_at": "2026-10-20T09:21:56+00:00",
+   "rows": 1671,
+   "bytes": 66571,
+   "sha256": "5af2a856655425d89e9d5ed504861c24387fb1d7d17ec08689bac7c618190127",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261002.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 1405,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261002.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 177.6,
+   "requests": 1406,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "1405/1405 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "1,671"
+    }
+   ]
+  },
+  "20261005": {
+   "partition": "20261005",
+   "fetched_at": "2026-10-20T09:23:50+00:00",
+   "rows": 1735,
+   "bytes": 64570,
+   "sha256": "df2cbe77bdac6b2c5f49bd0819f62250f9d6df120b6a8cec45a0f32cd295d1ec",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261005.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 1156,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261005.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 150.4,
+   "requests": 1157,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "1156/1156 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "1,735"
+    }
+   ]
+  },
+  "20261006": {
+   "partition": "20261006",
+   "fetched_at": "2026-10-20T09:25:21+00:00",
+   "rows": 634,
+   "bytes": 32407,
+   "sha256": "dabade07ac52ae34a22ceb8a28bad35add4a18f7c640fdafbf6ffde0c9729049",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261006.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 380,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261006.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 48.1,
+   "requests": 381,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "380/380 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "634"
+    }
+   ]
+  },
+  "20261007": {
+   "partition": "20261007",
+   "fetched_at": "2026-10-20T09:26:34+00:00",
+   "rows": 723,
+   "bytes": 32970,
+   "sha256": "cf067eaae067ae0a72fbb54f6c4fd3f53d781bcc21560938aded82e557915b28",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261007.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 317,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261007.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 41.1,
+   "requests": 318,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "317/317 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "723"
+    }
+   ]
+  },
+  "20261008": {
+   "partition": "20261008",
+   "fetched_at": "2026-10-20T09:26:43+00:00",
+   "rows": 477,
+   "bytes": 25706,
+   "sha256": "3b840f7e3cc2389b3436cacbb1ed56c2052277250dbb7ebe619660783230492e",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261008.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 270,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261008.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 34.3,
+   "requests": 271,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "270/270 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "477"
+    }
+   ]
+  },
+  "20261009": {
+   "partition": "20261009",
+   "fetched_at": "2026-10-20T09:27:35+00:00",
+   "rows": 379,
+   "bytes": 24743,
+   "sha256": "ce45ec2adbfbacfa3c13ed3d5e09ff6bdb3ef0da020cbd1e20bec00c840687fd",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261009.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 274,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261009.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 35.1,
+   "requests": 275,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "274/274 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "379"
+    }
+   ]
+  },
+  "20261012": {
+   "partition": "20261012",
+   "fetched_at": "2026-10-20T09:27:41+00:00",
+   "rows": 0,
+   "bytes": 8661,
+   "sha256": "123291aac454ba3fa29074ae7f8e875e18a2e7ecac17cec48ae8ba0ece850e30",
+   "columns": {
+    "accession": "object",
+    "form": "object",
+    "filing_date": "object",
+    "available_date": "object",
+    "issuer_cik": "object",
+    "ticker": "object",
+    "owner_cik": "object",
+    "owner_name": "object",
+    "relationship": "object",
+    "owner_title": "object",
+    "n_owners": "object",
+    "trans_date": "object",
+    "code": "object",
+    "shares": "object",
+    "price": "object",
+    "acq_disp": "object",
+    "owned_after": "object",
+    "direct": "object",
+    "security": "object"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261012.idx"
+   ],
+   "notes": {
+    "filings": 0,
+    "failed": 0,
+    "holiday": true
+   },
+   "asset": "insider_guncel__20261012.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "warn",
+   "duration_s": 0.3,
+   "requests": 1,
+   "checks": [
+    {
+     "name": "Günlük indeks",
+     "status": "info",
+     "detail": "yok (tatil)"
+    }
+   ]
+  },
+  "20261013": {
+   "partition": "20261013",
+   "fetched_at": "2026-10-20T09:28:01+00:00",
+   "rows": 735,
+   "bytes": 35939,
+   "sha256": "167a7dcb502bb73a4fcb479c850e7df824a043c8b1c21372b21e01dd08b2d4be",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261013.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 501,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261013.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 63.4,
+   "requests": 502,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "501/501 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "735"
+    }
+   ]
+  },
+  "20261014": {
+   "partition": "20261014",
+   "fetched_at": "2026-10-20T09:28:30+00:00",
+   "rows": 604,
+   "bytes": 28082,
+   "sha256": "f40faf09d7998cedd7a79e539d50c15d3a8eecbdea288ede385c1472c0faa692",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261014.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 293,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261014.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 37.2,
+   "requests": 294,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "293/293 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "604"
+    }
+   ]
+  },
+  "20261015": {
+   "partition": "20261015",
+   "fetched_at": "2026-10-20T09:29:35+00:00",
+   "rows": 576,
+   "bytes": 28048,
+   "sha256": "70b4f0fc0d2b0b781aafd28f889c1813c04aa6ac1ca3e628c19d834803c5bb83",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261015.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 287,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261015.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 36.3,
+   "requests": 288,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "287/287 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "576"
+    }
+   ]
+  },
+  "20261016": {
+   "partition": "20261016",
+   "fetched_at": "2026-10-20T09:29:31+00:00",
+   "rows": 755,
+   "bytes": 34869,
+   "sha256": "94a01026ee137d32349d6efad5b0990c71f50097a40298fc590817efb86e6dad",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261016.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 425,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261016.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 54.1,
+   "requests": 426,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "425/425 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "755"
+    }
+   ]
+  },
+  "20261019": {
+   "partition": "20261019",
+   "fetched_at": "2026-10-20T09:30:41+00:00",
+   "rows": 791,
+   "bytes": 34706,
+   "sha256": "a3c33be38de4d71457f1e190a8f5a52e2bfb5d85e4ee1e95406a42930e1cc2ee",
+   "columns": {
+    "accession": "str",
+    "form": "str",
+    "filing_date": "datetime64[us]",
+    "available_date": "datetime64[us]",
+    "issuer_cik": "Int64",
+    "ticker": "str",
+    "owner_cik": "Int64",
+    "owner_name": "str",
+    "relationship": "str",
+    "owner_title": "str",
+    "n_owners": "Int64",
+    "trans_date": "datetime64[s]",
+    "code": "str",
+    "shares": "float64",
+    "price": "float64",
+    "acq_disp": "str",
+    "owned_after": "float64",
+    "direct": "str",
+    "security": "str"
+   },
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261019.idx",
+    "https://www.sec.gov/Archives/<form4>"
+   ],
+   "notes": {
+    "filings": 449,
+    "failed": 0
+   },
+   "asset": "insider_guncel__20261019.parquet",
+   "release": "veri-arsivi-2009",
+   "status": "ok",
+   "duration_s": 58.3,
+   "requests": 450,
+   "checks": [
+    {
+     "name": "Okunan Form 4",
+     "status": "ok",
+     "detail": "449/449 = %100.0"
+    },
+    {
+     "name": "İşlem satırı",
+     "status": "info",
+     "detail": "791"
+    }
+   ]
+  }
+ },
+ "dataset_checks": [],
+ "title": "SEC Form 4 (toplu dosyası henüz çıkmamış günler, günlük indeksten)",
+ "removed_assets": [],
+ "derived": {},
+ "finalized_at": "2026-10-20T09:32:12+00:00"
+}
