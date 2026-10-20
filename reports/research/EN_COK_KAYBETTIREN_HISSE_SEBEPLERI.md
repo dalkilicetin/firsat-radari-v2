@@ -25,11 +25,11 @@
 
 ## 2. Ne öne çıkıyor?
 
-1. **12 kaybedenin 9'u en iyilerle aynı görünüyordu (tipik 4 işaret).** Model ikisini ayıramadı; en kötü seçim 3 çeyrekte listenin ilk 5'indeydi, birinde 1.'ydi (VAL).
+1. **12 kaybedenin 9'unda tipik 4 işaretin hepsi vardı; yani en iyilerle aynı görünüyorlardı.** Model ikisini ayıramadı; en kötü seçim 3 çeyrekte listenin ilk 5'indeydi, birinde 1.'ydi (VAL).
 2. **Küçük şirket ağırlığı:** 12 kaybedenin 6'sı 2 Mr$'ın altında (AEHR, ML, ACMR, TSSI, IDR, LINC); ortadaki 2,3 Mr$. 120 seçimin ortadaki büyüklüğü yaklaşık 4,4 Mr$. Büyüklük ile 3 aylık getiri arasındaki sıra ilişkisi +0,13 (büyük şirketler biraz daha iyi).
 3. **Aşırı yükselmiş hisseler:** LUNR (+%429), LIF (+%193), IDR (+%209), TSSI (+%105), LINC (+%117), ACMR (+%77) son 6 ayda zaten çok yükselmişti. 120 seçimde son 26 haftalık getiri ile sonraki 3 ay arasındaki sıra ilişkisi −0,17: önceki yükseliş büyüdükçe sonrası biraz daha kötü. Ama en iyi seçimlerde de aynı ölçüde yükselmiş hisseler vardı (üst yarının ortadaki 26 haftalık getirisi +%66, alt yarının +%75).
 4. **Kötü genel hava:** Ocak 2025'te borsa da −%14'tü (LUNR −%69). Çip sektörü hisseleri (AEHR, ACMR) sektör güçlüyken bile düştü.
-5. **Uyarılar kaybedeni ayırmadı:** 12 kaybedenin 6'sında uyarı vardı (hisse satışı: ML, LUNR, IDR; geç rapor: LUNR, TSSI; nakit sıkıntısı: BBIO). Ama uyarı taşıyan 43 seçimin ortalama getirisi +%8,8, taşımayan 77'ninki +%4,7; yani uyarılı seçimler daha iyiydi. Hisse satışı olan 35 seçimin %20'si −%20'den fazla kaybetti (tüm seçimlerde %25).
+5. **Uyarılar kaybedeni ayırmadı:** 12 kaybedenin 5'inde uyarı vardı (hisse satışı: ML, LUNR, IDR; geç rapor: LUNR, TSSI; nakit sıkıntısı: BBIO). Ama uyarı taşıyan 43 seçimin ortalama getirisi +%8,8, taşımayan 77'ninki +%4,7; yani uyarılı seçimler daha iyiydi. Hisse satışı olan 35 seçimin %20'si −%20'den fazla kaybetti (tüm seçimlerde %25).
 
 ## 3. 120 seçimin tamamında hangi özellik getiri ile ilişkili?
 
