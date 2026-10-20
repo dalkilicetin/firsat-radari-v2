@@ -212,7 +212,7 @@ class CompanyFacts(Dataset):
             for c in ("start", "end", "filed"):
                 df[c] = pd.to_datetime(df[c], errors="coerce")
             df["value"] = pd.to_numeric(df.value, errors="coerce")
-            df["fy"] = pd.to_numeric(df.fy, errors="coerce").astype("Int16")
+            df["fy"] = pd.to_numeric(df.fy, errors="coerce").astype("float32")
             df["cik"] = df.cik.astype("int64")
             for c in ("taxonomy", "tag", "unit", "fp", "form"):
                 df[c] = df[c].astype("category")
