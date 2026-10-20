@@ -301,3 +301,7 @@ def rapor_yaz() -> None:
     md += ["", EK]
     (R / "klasik_radar_test.md").write_text("\n".join(md) + "\n")
     print("\n".join(md))
+
+
+if __name__ == "__main__":
+    main()
