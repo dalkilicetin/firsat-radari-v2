@@ -1,12 +1,12 @@
 {
  "dataset": "ihrac_belgeleri",
  "partitions": {
-  "snapshot-20261013": {
-   "partition": "snapshot-20261013",
-   "fetched_at": "2026-10-13T06:18:37+00:00",
-   "rows": 1004731,
-   "bytes": 15701971,
-   "sha256": "98d15bb0444efdc01874deb782755b6c0dd842cdbc28baddf8f25aa1b5563d47",
+  "snapshot-20261020": {
+   "partition": "snapshot-20261020",
+   "fetched_at": "2026-10-20T10:05:03+00:00",
+   "rows": 1007191,
+   "bytes": 15776543,
+   "sha256": "d3a92976d701619287b122e40dedadfe0940a28117d788e23fd94c299efee132",
    "columns": {
     "form": "str",
     "filing_date": "datetime64[us]",
@@ -26,55 +26,57 @@
     "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip"
    ],
    "notes": {
-    "companies": 24902
+    "companies": 24903
    },
-   "asset": "ihrac_belgeleri__snapshot-20261013.parquet",
+   "asset": "ihrac_belgeleri__snapshot-20261020.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 112.7,
+   "duration_s": 117.1,
    "requests": 0,
    "checks": [
     {
      "name": "Faaliyet gösteren şirket",
      "status": "ok",
-     "detail": "24,902 (beklenen 8,000–60,000)"
+     "detail": "24,903 (beklenen 8,000–60,000)"
     },
     {
      "name": "Dosya satırı",
      "status": "ok",
-     "detail": "1,004,731 (beklenen 50,000–5,000,000)"
+     "detail": "1,007,191 (beklenen 50,000–5,000,000)"
     },
     {
      "name": "Kabul anı okunabilen",
      "status": "ok",
-     "detail": "1004731/1004731 = %100.0"
+     "detail": "1007191/1007191 = %100.0"
     },
     {
      "name": "Form dağılımı",
      "status": "info",
-     "detail": "{'424B2': 709242, '424B3': 135177, '424B5': 49092, 'S-1/A': 36187, 'S-1': 16398, 'S-3': 14944, 'S-3ASR': 10642, '424B4': 8205, 'S-3/A': 7288, 'F-1/A': 5704, '424B7': 4005, 'F-1': 2267, 'F-3': 2166, 'F-3/A': 1322, '424B1': 1184, 'F-3ASR': 908}"
+     "detail": "{'424B2': 711453, '424B3': 135332, '424B5': 49129, 'S-1/A': 36194, 'S-1': 16404, 'S-3': 14960, 'S-3ASR': 10653, '424B4': 8208, 'S-3/A': 7291, 'F-1/A': 5707, '424B7': 4008, 'F-1': 2270, 'F-3': 2166, 'F-3/A': 1324, '424B1': 1184, 'F-3ASR': 908}"
     },
     {
      "name": "424B5 kaydı var",
      "status": "ok",
-     "detail": "49,092"
+     "detail": "49,129"
     },
     {
      "name": "S-3 kaydı var",
      "status": "ok",
-     "detail": "14,944"
+     "detail": "14,960"
     },
     {
      "name": "424B3 kaydı var",
      "status": "ok",
-     "detail": "135,177"
+     "detail": "135,332"
     }
    ]
   }
  },
  "dataset_checks": [],
  "title": "SEC hisse satışı izahnameleri ve kayıt beyanları (424B*, S-1/S-3/F-1/F-3)",
- "removed_assets": [],
+ "removed_assets": [
+  "ihrac_belgeleri__snapshot-20261013.parquet"
+ ],
  "derived": {},
- "finalized_at": "2026-10-13T06:21:04+00:00"
+ "finalized_at": "2026-10-20T10:45:54+00:00"
 }

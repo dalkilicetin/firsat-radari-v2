@@ -1,6 +1,6 @@
 # 🟢 Hisse evreni anlık görüntüsü (Nasdaq + NYSE + NYSE American)
 
-Son güncelleme: 2026-10-10T16:50:21+00:00 · 1 bölüm · 8,831 satır
+Son güncelleme: 2026-10-20T10:45:48+00:00 · 1 bölüm · 8,808 satır
 
 ## Veri seti kontrolleri
 
@@ -11,4 +11,4 @@ Son güncelleme: 2026-10-10T16:50:21+00:00 · 1 bölüm · 8,831 satır
 
 | Bölüm | Durum | Satır | Uyarı / hata |
 |---|---|---|---|
-| snapshot-20261010 | 🟢 Kullanılabilir | 8,831 |  |
+| snapshot-20261020 | 🟢 Kullanılabilir | 8,808 |  |

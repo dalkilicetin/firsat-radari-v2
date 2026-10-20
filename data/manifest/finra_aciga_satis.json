@@ -734,10 +734,10 @@
   },
   "2026": {
    "partition": "2026",
-   "fetched_at": "2026-10-12T10:10:25+00:00",
-   "rows": 127419,
-   "bytes": 2580505,
-   "sha256": "e031979dd2f49c8df5cddd21b268802abdf0c229b299509a20dd477e9f600f57",
+   "fetched_at": "2026-10-20T10:05:12+00:00",
+   "rows": 127588,
+   "bytes": 2587966,
+   "sha256": "d07e5dcfd8a3f410b43ec9dc0d67a31e2f94450c38c4e4ec75303e03c16a9ddc",
    "columns": {
     "date": "datetime64[s]",
     "symbol": "str",
@@ -749,19 +749,19 @@
     "https://cdn.finra.org/equity/regsho/daily/<tesis>shvol20260102.txt"
    ],
    "notes": {
-    "days": 202,
-    "ok_days": 194
+    "days": 208,
+    "ok_days": 200
    },
    "asset": "finra_aciga_satis__2026.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 56.0,
-   "requests": 202,
+   "duration_s": 59.3,
+   "requests": 208,
    "checks": [
     {
      "name": "Dosyası gelen işlem günü",
      "status": "ok",
-     "detail": "194/202 = %96.0"
+     "detail": "200/208 = %96.2"
     },
     {
      "name": "Açığa satış payı (toplam)",
@@ -771,7 +771,7 @@
     {
      "name": "Sembol sayısı",
      "status": "info",
-     "detail": "14,342"
+     "detail": "14,393"
     }
    ]
   }
@@ -780,5 +780,5 @@
  "title": "FINRA günlük açığa satış hacmi — ay × sembol (2009→)",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-12T14:07:20+00:00"
+ "finalized_at": "2026-10-20T10:46:09+00:00"
 }

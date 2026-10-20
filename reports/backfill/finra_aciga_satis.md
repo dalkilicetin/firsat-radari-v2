@@ -1,6 +1,6 @@
 # 🔴 FINRA günlük açığa satış hacmi — ay × sembol (2009→)
 
-Son güncelleme: 2026-10-12T14:07:20+00:00 · 18 bölüm · 2,653,271 satır
+Son güncelleme: 2026-10-20T10:46:09+00:00 · 18 bölüm · 2,653,440 satır
 
 ## Veri seti kontrolleri
 
@@ -28,4 +28,4 @@ Son güncelleme: 2026-10-12T14:07:20+00:00 · 18 bölüm · 2,653,271 satır
 | 2023 | 🟢 Kullanılabilir | 134,986 |  |
 | 2024 | 🟢 Kullanılabilir | 131,584 |  |
 | 2025 | 🟢 Kullanılabilir | 139,156 |  |
-| 2026 | 🟢 Kullanılabilir | 127,419 |  |
+| 2026 | 🟢 Kullanılabilir | 127,588 |  |

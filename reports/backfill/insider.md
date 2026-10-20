@@ -1,6 +1,6 @@
 # 🟢 SEC içeriden işlemler (Form 4, 2009→)
 
-Son güncelleme: 2026-10-10T16:28:32+00:00 · 71 bölüm · 5,508,615 satır
+Son güncelleme: 2026-10-20T10:46:04+00:00 · 71 bölüm · 5,508,615 satır
 
 ## Veri seti kontrolleri
 

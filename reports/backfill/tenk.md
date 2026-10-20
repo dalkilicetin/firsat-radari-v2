@@ -1,6 +1,6 @@
 # 🟡 10-K metinleri (Madde 1, 1A, 7; 2008→)
 
-Son güncelleme: 2026-10-10T21:26:29+00:00 · 19 bölüm · 84,845 satır
+Son güncelleme: 2026-10-20T10:46:49+00:00 · 19 bölüm · 84,845 satır
 
 ## Veri seti kontrolleri
 

@@ -1,6 +1,6 @@
 # 🟡 SEC Form 4 (toplu dosyası henüz çıkmamış günler, günlük indeksten)
 
-Son güncelleme: 2026-10-20T09:32:12+00:00 · 13 bölüm · 9,892 satır
+Son güncelleme: 2026-10-20T10:46:07+00:00 · 13 bölüm · 9,892 satır
 
 ## Veri seti kontrolleri
 

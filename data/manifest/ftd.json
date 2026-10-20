@@ -1491,10 +1491,10 @@
   },
   "2026": {
    "partition": "2026",
-   "fetched_at": "2026-10-09T23:28:33+00:00",
-   "rows": 995071,
-   "bytes": 10032916,
-   "sha256": "c6f88d3cff7f2c61023d1d1d5d5b23772c57799131652cf1a275ae1c6b74471d",
+   "fetched_at": "2026-10-20T10:06:38+00:00",
+   "rows": 1061764,
+   "bytes": 10842824,
+   "sha256": "bc452476af96ec20aa979b3c12db2d80a1ef32d9bcfc149bf305f018946dfaaf",
    "columns": {
     "settle_date": "datetime64[us]",
     "cusip": "str",
@@ -1519,11 +1519,12 @@
     "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202608a.zip",
     "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202608b.zip",
     "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202609a.zip",
+    "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202609b.zip",
     "https://www.sec.gov/files/data/other/fails-deliver-data/cnsfails202605a.zip",
     "https://www.sec.gov/files/data/other/fails-deliver-data/cnsfails202605b.zip"
    ],
    "notes": {
-    "files": 17,
+    "files": 18,
     "columns": [
      "SETTLE",
      "CUSIP",
@@ -1534,39 +1535,40 @@
     ]
    },
    "asset": "ftd__2026.parquet",
+   "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 4.5,
-   "requests": 18,
+   "duration_s": 5.7,
+   "requests": 19,
    "checks": [
     {
      "name": "Dosya sayısı (ayda 2)",
      "status": "ok",
-     "detail": "17 (beklenen 2–24)"
+     "detail": "18 (beklenen 2–24)"
     },
     {
      "name": "Satır sayısı",
      "status": "ok",
-     "detail": "995,071 (beklenen 50,000–5,000,000)"
+     "detail": "1,061,764 (beklenen 50,000–5,000,000)"
     },
     {
      "name": "Takas tarihi yıl içinde",
      "status": "ok",
-     "detail": "995071/995071 = %100.0"
+     "detail": "1061764/1061764 = %100.0"
     },
     {
      "name": "Geçerli CUSIP",
      "status": "ok",
-     "detail": "995071/995071 = %100.0"
+     "detail": "1061764/1061764 = %100.0"
     },
     {
      "name": "Fiyat sayısal ve > 0",
      "status": "ok",
-     "detail": "988559/995071 = %99.3"
+     "detail": "1054869/1061764 = %99.4"
     },
     {
      "name": "Özet",
      "status": "info",
-     "detail": "19,289 CUSIP, 19,297 sembol, 175 işlem günü"
+     "detail": "19,535 CUSIP, 19,536 sembol, 187 işlem günü"
     }
    ]
   }
@@ -1580,7 +1582,7 @@
   {
    "name": "Fiyat doğruluğu: AAPL FTD fiyatı ↔ Yahoo önceki gün kapanışı (%0,5)",
    "status": "ok",
-   "detail": "858/858 = %100.0; aynı gün eşleşmesi: %29"
+   "detail": "862/862 = %100.0; aynı gün eşleşmesi: %29"
   },
   {
    "name": "Borsadan çıkmış hisseler: çıkıştan önceki 12 ayda fiyatlı gün (~250 işlem günü)",
@@ -1590,18 +1592,18 @@
   {
    "name": "CUSIP → sembol eşleştirmesi",
    "status": "info",
-   "detail": "58,571 CUSIP; birden çok sembole bağlanan (sembol değişikliği): 14,315"
+   "detail": "58,756 CUSIP; birden çok sembole bağlanan (sembol değişikliği): 14,362"
   }
  ],
  "title": "SEC fails-to-deliver (fiyat + CUSIP eşleştirmesi, 2009→)",
  "derived": {
   "cusip_map": {
    "asset": "ftd__cusip_map.parquet",
-   "rows": 74830,
-   "sha256": "67c46083a9159dfe9d6de89072f9259a4fc982f9a3e7303bcd1dcbe8d7c77966",
+   "rows": 75075,
+   "sha256": "ff1f14ae8322a10b4d5048d275b0efbcb516ef50d59351492011d27a90a1961c",
    "release": "veri-arsivi-2009"
   }
  },
- "finalized_at": "2026-10-10T16:28:19+00:00",
+ "finalized_at": "2026-10-20T10:46:23+00:00",
  "removed_assets": []
 }

@@ -1,15 +1,15 @@
 # 🟡 SEC fails-to-deliver (fiyat + CUSIP eşleştirmesi, 2009→)
 
-Son güncelleme: 2026-10-10T16:28:19+00:00 · 18 bölüm · 23,460,027 satır
+Son güncelleme: 2026-10-20T10:46:23+00:00 · 18 bölüm · 23,526,720 satır
 
 ## Veri seti kontrolleri
 
 | Kontrol | Durum | Detay |
 |---|---|---|
 | Yüklenen yıl | 🟢 | 18 yıl: ['2009'] … ['2026'] |
-| Fiyat doğruluğu: AAPL FTD fiyatı ↔ Yahoo önceki gün kapanışı (%0,5) | 🟢 | 858/858 = %100.0; aynı gün eşleşmesi: %29 |
+| Fiyat doğruluğu: AAPL FTD fiyatı ↔ Yahoo önceki gün kapanışı (%0,5) | 🟢 | 862/862 = %100.0; aynı gün eşleşmesi: %29 |
 | Borsadan çıkmış hisseler: çıkıştan önceki 12 ayda fiyatlı gün (~250 işlem günü) | ℹ️ | SIVB: 94 gün (son 2023-03-10); ATVI: 128 gün (son 2023-10-16); SGEN: 80 gün (son 2023-12-15) |
-| CUSIP → sembol eşleştirmesi | ℹ️ | 58,571 CUSIP; birden çok sembole bağlanan (sembol değişikliği): 14,315 |
+| CUSIP → sembol eşleştirmesi | ℹ️ | 58,756 CUSIP; birden çok sembole bağlanan (sembol değişikliği): 14,362 |
 
 ## Bölümler
 
@@ -32,4 +32,4 @@ Son güncelleme: 2026-10-10T16:28:19+00:00 · 18 bölüm · 23,460,027 satır
 | 2023 | 🟢 Kullanılabilir | 1,321,877 |  |
 | 2024 | 🟢 Kullanılabilir | 1,285,064 |  |
 | 2025 | 🟢 Kullanılabilir | 1,326,583 |  |
-| 2026 | 🟢 Kullanılabilir | 995,071 |  |
+| 2026 | 🟢 Kullanılabilir | 1,061,764 |  |

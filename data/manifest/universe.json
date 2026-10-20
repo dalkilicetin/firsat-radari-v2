@@ -1,12 +1,12 @@
 {
  "dataset": "universe",
  "partitions": {
-  "snapshot-20261010": {
-   "partition": "snapshot-20261010",
-   "fetched_at": "2026-10-10T16:32:37+00:00",
-   "rows": 8831,
-   "bytes": 212050,
-   "sha256": "e2a130c3654e96fa8da65c67185b205ea6f18099291d2d9dc7c8abbfec796d33",
+  "snapshot-20261020": {
+   "partition": "snapshot-20261020",
+   "fetched_at": "2026-10-20T10:04:43+00:00",
+   "rows": 8808,
+   "bytes": 211563,
+   "sha256": "e23a90741a6a19e29893d04a54c34f291d0efb174592a5de3fe88f089efc3f4b",
    "columns": {
     "symbol": "str",
     "name": "str",
@@ -22,7 +22,7 @@
     "https://www.sec.gov/files/company_tickers_exchange.json"
    ],
    "notes": {},
-   "asset": "universe__snapshot-20261010.parquet",
+   "asset": "universe__snapshot-20261020.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
    "duration_s": 0.6,
@@ -31,12 +31,12 @@
     {
      "name": "Nasdaq adi hisse sayısı",
      "status": "ok",
-     "detail": "3,434 (beklenen 2,500–4,500)"
+     "detail": "3,438 (beklenen 2,500–4,500)"
     },
     {
      "name": "NYSE adi hisse sayısı",
      "status": "ok",
-     "detail": "2,194 (beklenen 1,300–3,000)"
+     "detail": "2,186 (beklenen 1,300–3,000)"
     },
     {
      "name": "NYSE American adi hisse sayısı",
@@ -46,7 +46,7 @@
     {
      "name": "SEC CIK eşleşme oranı",
      "status": "ok",
-     "detail": "5886/5897 = %99.8"
+     "detail": "5884/5893 = %99.8"
     },
     {
      "name": "Doğrulanmış gerçekler: AAPL/PLTR Nasdaq, JPM/KO NYSE (CIK ile)",
@@ -58,7 +58,9 @@
  },
  "dataset_checks": [],
  "title": "Hisse evreni anlık görüntüsü (Nasdaq + NYSE + NYSE American)",
- "removed_assets": [],
+ "removed_assets": [
+  "universe__snapshot-20261010.parquet"
+ ],
  "derived": {},
- "finalized_at": "2026-10-10T16:50:21+00:00"
+ "finalized_at": "2026-10-20T10:45:48+00:00"
 }

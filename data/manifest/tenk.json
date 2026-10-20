@@ -1299,7 +1299,7 @@
   },
   "2026": {
    "partition": "2026",
-   "fetched_at": "2026-10-10T20:02:46+00:00",
+   "fetched_at": "2026-10-20T10:06:38+00:00",
    "rows": 4222,
    "bytes": 245610450,
    "sha256": "a1472588ec83d142cd2333e5f04713059716f276c799efd6c788e09919d8676e",
@@ -1324,7 +1324,7 @@
    "asset": "tenk__2026.parquet",
    "release": "veri-arsivi-2009",
    "status": "warn",
-   "duration_s": 1273.6,
+   "duration_s": 2294.5,
    "requests": 4222,
    "checks": [
     {
@@ -1369,5 +1369,5 @@
  "title": "10-K metinleri (Madde 1, 1A, 7; 2008→)",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-10T21:26:29+00:00"
+ "finalized_at": "2026-10-20T10:46:49+00:00"
 }
