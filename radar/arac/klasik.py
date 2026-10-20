@@ -162,6 +162,11 @@ def p(x) -> str:
     return "—" if x is None or pd.isna(x) else f"{'+' if x > 0 else '−' if x < 0 else ''}%{abs(x) * 100:.0f}"
 
 
+def o(x) -> str:
+    """Oran (işaretsiz): %53."""
+    return "—" if x is None or pd.isna(x) else f"%{x * 100:.0f}"
+
+
 def olc(d: Duzenek, k: dict, listeler: dict, bas: pd.Timestamp, son: pd.Timestamp) -> dict:
     v = analiz.Veri.yukle()  # analiz aracının evreni (ortak kıyas için)
     out = {}
@@ -240,30 +245,47 @@ def main() -> dict:
         sonuc_ceyrek[var + "_6"] = res["6a"]["ceyrek"]
         sonuc_ceyrek[var + "_liste"] = ls
     (R / "klasik_radar_test.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1, default=str))
-    # ---- rapor ----
-    for var, ad in (("A", "A · yalnızca Trend+Düzeltme"), ("B", "B · Trend + Şok (kodda yazıldığı gibi)"), ("C", "C · Trend + yalnızca günlük şok")):
-        r = rep["varyantlar"][var]
-        md += [f"## {ad}", "", "| Ölçü | 3 ay (tümü) | 3 ay (kural öğrenilmeden önceki) | 6 ay (tümü) | 6 ay (kural öğrenilmeden önceki) |", "|---|---|---|---|---|"]
-        rows = [("Hafta sayısı", "hafta", lambda x: str(x)), ("Ortadaki hissenin getirisi", "medyan", p), ("Ortalama getiri", "ort", p),
-                ("Borsa (SPY)", "spy", p), ("Borsadan fazla", "fazla", p), ("Listenin borsayı geçtiği hafta oranı", "gecen_hafta", p),
-                ("Listedeki hissenin kazanan çıkma oranı (kendi evreninde en iyi %5)", "kazanan_orani", p),
-                ("Listedeki hissenin borsayı geçme oranı", "borsayi_gecen", p), ("Listedeki hissenin %30'dan fazla kaybetme oranı", "sert_kayip", p)]
-        for adl, key, f in rows:
-            md.append(f"| {adl} | {f(r['3a']['tumu'][key])} | {f(r['3a']['temiz'][key])} | {f(r['6a']['tumu'][key])} | {f(r['6a']['temiz'][key])} |")
-        md.append(f"| **Yakalama oranı** (çeyrek içinde listeye giren kazanan) | {p(r['3a']['yakalama'])} | {p(r['3a']['yakalama_temiz'])} | {p(r['6a']['yakalama'])} | {p(r['6a']['yakalama_temiz'])} |")
-        md.append(f"| Analiz Radarı'nın evrenindeki kazananları yakalama | {p(r['3a']['yakalama_ortak_evren'])} | | {p(r['6a']['yakalama_ortak_evren'])} | |")
-        md.append("")
-    sym = d.sec.assign(cik=d.sec.cik.astype(str)).drop_duplicates("cik").set_index("cik").symbol
-    md += ["## Çeyrek çeyrek (varyant B, kodda yazıldığı gibi): 10 hisse ve 3 ay getirisi", "",
-           "| Çeyrek başı | 10 hisse ort. 3 ay | Borsa | Kural öğrenilmeden önce mi | Seçilenler |", "|---|---|---|---|---|"]
-    for r in sonuc_ceyrek["B"].itertuples():
-        md.append(f"| {r.tarih:%d.%m.%Y} | {p(r.ort)} | {p(r.spy)} | {'evet' if r.temiz else 'hayır (kural bu dönemden öğrenildi)'} | "
-                  f"{', '.join(sym.get(c, c) for c in r.secim)} |")
-    (R / "klasik_radar_test.md").write_text("\n".join(md) + "\n")
-    pd.concat({v_: sonuc_ceyrek[v_].assign(secim=lambda x: x.secim.apply(lambda s: ", ".join(sym.get(c, c) for c in s))) for v_ in ("A", "B", "C")}).to_csv(R / "klasik_radar_ceyrekler.csv")
-    print("\n".join(md[:60]))
+    pd.concat({v_: sonuc_ceyrek[v_].assign(secim=lambda x: x.secim.apply(lambda s: ", ".join(d.sec.assign(cik=d.sec.cik.astype(str)).drop_duplicates("cik").set_index("cik").symbol.get(c, c) for c in s))) for v_ in ("A", "B", "C")}).to_csv(R / "klasik_radar_ceyrekler.csv")
+    rapor_yaz()
     return rep
 
 
-if __name__ == "__main__":
-    main()
+EK = """## Nasıl okunmalı
+
+**Ne test edildi:** Klasik radarın "★ 10'u" listesinin fiyat ve bilançodan o güne kadar bilinen veriyle yeniden kurulabilen çekirdeği (v5.16: Trend+Düzeltme ana kural, Şok listesi, zayıf trend cezası, aynı sektörden en fazla 3). Aynı düzenek: perşembe kesimi, cuma kapanışı alış, masraflar düşülmüş, batan ve çıkan şirketler dahil (iflasta −%100), 13 / 26 hafta, aynı 3 yıl.
+
+**Ne test EDİLMEDİ (geçmiş verisi yok):** haber analizi, skandal ve "enkaz" uyarıları, analist verileri, Finnhub'ın o günkü bilanço anlık görüntüsü (marj dönüşü, EPS sürprizi, içeriden alım tetiği), "aday / conviction" puanları ve fitil listesi. Gerçek radarın listesi bunlarla puanlanıyor; bu test bütün radarı değil, fiyat tabanlı çekirdeğini ölçüyor.
+
+**Yaklaşıklıklar:** (1) Evren: geçmiş endeks üyeliği yok; her tarihte piyasa değeri en yüksek 1.100 hisse. (2) Ay başı fiyatı haftalık perşembe kapanışından alındı (birkaç gün sapma olabilir). (3) "F/K var" = son 12 ay net kâr > 0. (4) Sektör: Finnhub sektörü yerine SIC'ten sektör ETF'i. (5) Şok: yalnızca kesim günü (perşembe) günlük değişim görülüyor; uygulama her gün baktığı için gerçekte daha çok şok görür. (6) Şok listesindeki endeks bonusu (+20) geçmiş üyelik listesi olmadığından yok.
+
+**Görmediği veri:** v5.16 kuralı 12.07–10.10.2026 gece verisinden çıkarıldı. Sonuçları bu yüzden "tümü" ve "kural öğrenilmeden önceki" (sonuç penceresi 12.07.2026'dan önce biten haftalar) diye ikiye ayırdım. 03.07.2026 çeyreği kuralın öğrenildiği döneme denk geliyor. Kuralı öğrenmeden önceki sonuçlar ile tümü neredeyse aynı.
+
+**Üç varyant:** B ve C neredeyse aynı çıktı: aylık düşüş kayıtları (yorumda "çıkarıldı" yazıyor, kod hâlâ puan veriyor) 10'luk listeye çok az giriyor, çünkü trend listesinin ilk 10'u (10 → 8,6 puan) onların puanından (yaklaşık 7–7,5) yüksek. Şok'un listeye katkısı bu test düzeninde (haftalık kesim) küçük.
+
+**Analiz Radarı ile karşılaştırma (dikkat: evrenler ve pencereler farklı):** Analiz Radarı'nın 2023–2026 sınavı (kilitli ayar): 3 ayda borsadan fazla +%3,6, 6 ayda +%10,7; haftaların %54'ünde (3 ay) ve %71'inde (6 ay) borsayı geçti. Yakalama (aynı 3 yıl): %8,8 (3 ay) / %15,5 (6 ay). Klasik çekirdek: 3 ayda A +%4 / B +%2, 6 ayda A %0 / B −%1; yakalama (kendi büyük şirket evreninde) A %7 / %11, B %9 / %15. Klasik radar yalnızca büyük şirketlerden seçtiği için küçük ve orta şirketlerdeki kazananları (Analiz Radarı'nın evreni) yakalayamıyor: o evrende A %3 / %5, B %4 / %8.
+"""
+
+
+def rapor_yaz() -> None:
+    rep = json.loads((R / "klasik_radar_test.json").read_text())
+    cq = pd.read_csv(R / "klasik_radar_ceyrekler.csv", index_col=[0, 1], parse_dates=["tarih"])
+    md = [f"# Klasik Radar (v5.16) — son 3 yılın her haftası, görmediği verilerle ({rep['pencere']})", ""]
+    for var, ad in (("A", "A · yalnızca Trend+Düzeltme"), ("B", "B · Trend + Şok (kodda yazıldığı gibi)"), ("C", "C · Trend + yalnızca günlük şok")):
+        r = rep["varyantlar"][var]
+        md += [f"## {ad}", "", "| Ölçü | 3 ay (tümü) | 3 ay (kural öğrenilmeden önceki) | 6 ay (tümü) | 6 ay (kural öğrenilmeden önceki) |", "|---|---|---|---|---|"]
+        rows = [("Hafta sayısı", "hafta", str), ("Ortadaki hissenin getirisi", "medyan", p), ("Ortalama getiri", "ort", p),
+                ("Borsa (SPY)", "spy", p), ("Borsadan fazla", "fazla", p), ("Listenin borsayı geçtiği hafta oranı", "gecen_hafta", o),
+                ("Listedeki hissenin kazanan çıkma oranı (kendi evreninde en iyi %5; rastgele %5)", "kazanan_orani", o),
+                ("Listedeki hissenin borsayı geçme oranı", "borsayi_gecen", o), ("Listedeki hissenin %30'dan fazla kaybetme oranı", "sert_kayip", o)]
+        for adl, key, f in rows:
+            md.append(f"| {adl} | {f(r['3a']['tumu'][key])} | {f(r['3a']['temiz'][key])} | {f(r['6a']['tumu'][key])} | {f(r['6a']['temiz'][key])} |")
+        md.append(f"| **Yakalama oranı** (çeyrek içinde listeye giren kazanan) | {o(r['3a']['yakalama'])} | {o(r['3a']['yakalama_temiz'])} | {o(r['6a']['yakalama'])} | {o(r['6a']['yakalama_temiz'])} |")
+        md.append(f"| Analiz Radarı'nın evrenindeki kazananları yakalama | {o(r['3a']['yakalama_ortak_evren'])} | | {o(r['6a']['yakalama_ortak_evren'])} | |")
+        md.append("")
+    md += ["## Çeyrek çeyrek (varyant B, kodda yazıldığı gibi): 10 hisse ve 3 ay getirisi", "",
+           "| Çeyrek başı | 10 hisse ort. 3 ay | Borsa | Kural öğrenilmeden önce mi | Seçilenler |", "|---|---|---|---|---|"]
+    for _, r in cq.loc["B"].reset_index(drop=True).iterrows():
+        md.append(f"| {r.tarih:%d.%m.%Y} | {p(r.ort)} | {p(r.spy)} | {'evet' if r.temiz else 'hayır (kural bu dönemden öğrenildi)'} | {r.secim} |")
+    md += ["", EK]
+    (R / "klasik_radar_test.md").write_text("\n".join(md) + "\n")
+    print("\n".join(md))
