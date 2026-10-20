@@ -5,15 +5,15 @@
 | Ölçü | 3 ay (tümü) | 3 ay (kural öğrenilmeden önceki) | 6 ay (tümü) | 6 ay (kural öğrenilmeden önceki) |
 |---|---|---|---|---|
 | Hafta sayısı | 157 | 144 | 144 | 131 |
-| Ortadaki hissenin getirisi | +%5 | +%6 | +%6 | +%6 |
-| Ortalama getiri | +%9 | +%9 | +%11 | +%11 |
+| Ortadaki hissenin getirisi | +%6 | +%7 | +%6 | +%6 |
+| Ortalama getiri | +%9 | +%9 | +%12 | +%11 |
 | Borsa (SPY) | +%5 | +%5 | +%11 | +%10 |
-| Borsadan fazla | +%4 | +%4 | +%0 | +%0 |
-| Listenin borsayı geçtiği hafta oranı | %57 | %58 | %40 | %38 |
-| Listedeki hissenin kazanan çıkma oranı (kendi evreninde en iyi %5; rastgele %5) | %13 | %14 | %11 | %10 |
-| Listedeki hissenin borsayı geçme oranı | %49 | %50 | %39 | %40 |
+| Borsadan fazla | +%4 | +%4 | +%1 | +%1 |
+| Listenin borsayı geçtiği hafta oranı | %57 | %58 | %46 | %44 |
+| Listedeki hissenin kazanan çıkma oranı (kendi evreninde en iyi %5; rastgele %5) | %15 | %15 | %11 | %11 |
+| Listedeki hissenin borsayı geçme oranı | %51 | %51 | %40 | %40 |
 | Listedeki hissenin %30'dan fazla kaybetme oranı | %8 | %8 | %12 | %12 |
-| **Yakalama oranı** (çeyrek içinde listeye giren kazanan) | %7 | %8 | %11 | %11 |
+| **Yakalama oranı** (çeyrek içinde listeye giren kazanan) | %7 | %8 | %10 | %9 |
 | Analiz Radarı'nın evrenindeki kazananları yakalama | %3 | | %5 | |
 
 ## B · Trend + Şok (kodda yazıldığı gibi)
@@ -21,15 +21,15 @@
 | Ölçü | 3 ay (tümü) | 3 ay (kural öğrenilmeden önceki) | 6 ay (tümü) | 6 ay (kural öğrenilmeden önceki) |
 |---|---|---|---|---|
 | Hafta sayısı | 157 | 144 | 144 | 131 |
-| Ortadaki hissenin getirisi | +%4 | +%4 | +%4 | +%5 |
-| Ortalama getiri | +%7 | +%8 | +%10 | +%10 |
+| Ortadaki hissenin getirisi | +%5 | +%5 | +%6 | +%5 |
+| Ortalama getiri | +%9 | +%9 | +%13 | +%13 |
 | Borsa (SPY) | +%5 | +%5 | +%11 | +%10 |
-| Borsadan fazla | +%2 | +%3 | −%1 | −%1 |
-| Listenin borsayı geçtiği hafta oranı | %53 | %56 | %44 | %43 |
-| Listedeki hissenin kazanan çıkma oranı (kendi evreninde en iyi %5; rastgele %5) | %14 | %15 | %11 | %11 |
-| Listedeki hissenin borsayı geçme oranı | %47 | %47 | %40 | %41 |
-| Listedeki hissenin %30'dan fazla kaybetme oranı | %10 | %11 | %16 | %16 |
-| **Yakalama oranı** (çeyrek içinde listeye giren kazanan) | %9 | %9 | %15 | %14 |
+| Borsadan fazla | +%3 | +%4 | +%2 | +%2 |
+| Listenin borsayı geçtiği hafta oranı | %52 | %55 | %43 | %42 |
+| Listedeki hissenin kazanan çıkma oranı (kendi evreninde en iyi %5; rastgele %5) | %15 | %16 | %13 | %12 |
+| Listedeki hissenin borsayı geçme oranı | %49 | %48 | %42 | %42 |
+| Listedeki hissenin %30'dan fazla kaybetme oranı | %9 | %10 | %14 | %14 |
+| **Yakalama oranı** (çeyrek içinde listeye giren kazanan) | %9 | %9 | %16 | %15 |
 | Analiz Radarı'nın evrenindeki kazananları yakalama | %4 | | %8 | |
 
 ## C · Trend + yalnızca günlük şok
@@ -37,34 +37,34 @@
 | Ölçü | 3 ay (tümü) | 3 ay (kural öğrenilmeden önceki) | 6 ay (tümü) | 6 ay (kural öğrenilmeden önceki) |
 |---|---|---|---|---|
 | Hafta sayısı | 157 | 144 | 144 | 131 |
-| Ortadaki hissenin getirisi | +%4 | +%4 | +%4 | +%5 |
-| Ortalama getiri | +%7 | +%8 | +%10 | +%10 |
+| Ortadaki hissenin getirisi | +%5 | +%5 | +%6 | +%6 |
+| Ortalama getiri | +%9 | +%9 | +%13 | +%13 |
 | Borsa (SPY) | +%5 | +%5 | +%11 | +%10 |
-| Borsadan fazla | +%2 | +%3 | −%1 | −%1 |
-| Listenin borsayı geçtiği hafta oranı | %53 | %56 | %44 | %43 |
-| Listedeki hissenin kazanan çıkma oranı (kendi evreninde en iyi %5; rastgele %5) | %14 | %15 | %11 | %11 |
-| Listedeki hissenin borsayı geçme oranı | %47 | %47 | %40 | %41 |
-| Listedeki hissenin %30'dan fazla kaybetme oranı | %10 | %10 | %16 | %15 |
-| **Yakalama oranı** (çeyrek içinde listeye giren kazanan) | %9 | %9 | %15 | %14 |
+| Borsadan fazla | +%3 | +%4 | +%2 | +%2 |
+| Listenin borsayı geçtiği hafta oranı | %52 | %54 | %43 | %42 |
+| Listedeki hissenin kazanan çıkma oranı (kendi evreninde en iyi %5; rastgele %5) | %15 | %16 | %12 | %12 |
+| Listedeki hissenin borsayı geçme oranı | %49 | %49 | %42 | %42 |
+| Listedeki hissenin %30'dan fazla kaybetme oranı | %9 | %9 | %14 | %14 |
+| **Yakalama oranı** (çeyrek içinde listeye giren kazanan) | %9 | %9 | %16 | %15 |
 | Analiz Radarı'nın evrenindeki kazananları yakalama | %4 | | %8 | |
 
 ## Çeyrek çeyrek (varyant B, kodda yazıldığı gibi): 10 hisse ve 3 ay getirisi
 
 | Çeyrek başı | 10 hisse ort. 3 ay | Borsa | Kural öğrenilmeden önce mi | Seçilenler |
 |---|---|---|---|---|
-| 14.07.2023 | −%2 | −%4 | evet | CROX, FSLR, AXON, PGR, GFI, FOUR, VAL, XHG, AIFU, MPC |
-| 06.10.2023 | +%7 | +%9 | evet | ALGM, RIVN, PEN, UAL, DAL, UHS, NFLX, AAL, IPG, CROX |
-| 05.01.2024 | +%38 | +%11 | evet | KNSL, TTD, TSLA, WST, JBL, SMCI, APP, ON, TNET, FDX |
-| 05.04.2024 | +%14 | +%7 | evet | PDD, LW, X, PBR, ADBE, HURA, GLOB, SIRI, EXPE, MSC |
-| 05.07.2024 | −%3 | +%4 | evet | MPC, IBP, CELH, SAIA, PSX, XPO, BLDR, CNM, INFA, TREX |
-| 04.10.2024 | +%7 | +%4 | evet | SMCI, ANF, DUO, CRWD, COIN, NCTY, P, ARM, XHG, AMKR |
-| 03.01.2025 | −%3 | −%14 | evet | FUTU, WING, BEKE, MPWR, CEG, MHK, HALO, CACI, ERIE, BABA |
+| 14.07.2023 | −%6 | −%4 | evet | CROX, ASO, FSLR, PGR, AXON, VAL, FOUR, IPAR, MPC, MTD |
+| 06.10.2023 | +%9 | +%9 | evet | ALGM, RIVN, PEN, UAL, DAL, EEFT, IPGP, UHS, NFLX, YETI |
+| 05.01.2024 | +%34 | +%11 | evet | KNSL, TTD, TSLA, WST, JBL, SMCI, LNTH, APP, ON, FRHC |
+| 05.04.2024 | +%18 | +%7 | evet | MARA, LW, X, AMR, ADBE, HURA, ESTC, EXPE, SIRI, CCL |
+| 05.07.2024 | +%0 | +%4 | evet | MPC, IBP, BCC, CELH, PSX, SAIA, XPO, BLDR, PBF, CNM |
+| 04.10.2024 | +%12 | +%4 | evet | SMCI, ANF, ELF, CRWD, COIN, MARA, P, AMKR, LRCX, PPC |
+| 03.01.2025 | −%10 | −%14 | evet | WING, MPWR, CEG, MHK, HALO, CACI, ERIE, TOL, CROX, BFAM |
 | 04.04.2025 | +%60 | +%24 | evet | ANET, CRDO, DELL, SHOP, MU, KKR, NKE, GME, TSLA, APO |
-| 04.07.2025 | +%6 | +%7 | evet | VNET, YUMC, BMY, FISV, BABA, TPL, G, TMUS, PPC, CORT |
-| 03.10.2025 | −%3 | +%2 | evet | MSTR, BROS, ICL, CRS, COIN, RDHL, TWLO, TRU, EXEL, SIM |
-| 02.01.2026 | −%20 | −%4 | evet | HIMS, VNET, CELH, BABA, HOOD, KTOS, SMCI, SE, ORCL, UI |
-| 03.04.2026 | +%56 | +%14 | evet | APP, HOOD, CRDO, RDDT, SOFI, ALAB, AFRM, CVNA, SHOP, RGC |
-| 03.07.2026 | −%11 | +%4 | hayır (kural bu dönemden öğrenildi) | UI, DXF, UXIN, TC, KRMN, SNDK, TER, AG, HL, AA |
+| 04.07.2025 | −%5 | +%7 | evet | YUMC, BMY, FISV, TPL, G, TMUS, PPC, CORT, ACIW, BRO |
+| 03.10.2025 | +%1 | +%2 | evet | MSTR, EAT, BROS, SFM, COIN, CRS, TRU, TWLO, EXEL, SLM |
+| 02.01.2026 | −%19 | −%4 | evet | LIF, HIMS, CELH, RIOT, SMCI, HOOD, ORCL, KTOS, UI, CPNG |
+| 03.04.2026 | +%66 | +%14 | evet | APP, HOOD, CRDO, SOFI, RDDT, ALAB, AFRM, CVNA, SHOP, EL |
+| 03.07.2026 | +%0 | +%4 | hayır (kural bu dönemden öğrenildi) | HL, VICR, MXL, ACMR, UI, SNDK, TER, KRMN, AA, VAL |
 
 ## Nasıl okunmalı
 
@@ -78,5 +78,7 @@
 
 **Üç varyant:** B ve C neredeyse aynı çıktı: aylık düşüş kayıtları (yorumda "çıkarıldı" yazıyor, kod hâlâ puan veriyor) 10'luk listeye çok az giriyor, çünkü trend listesinin ilk 10'u (10 → 8,6 puan) onların puanından (yaklaşık 7–7,5) yüksek. Şok'un listeye katkısı bu test düzeninde (haftalık kesim) küçük.
 
-**Analiz Radarı ile karşılaştırma (dikkat: evrenler ve pencereler farklı):** Analiz Radarı'nın 2023–2026 sınavı (kilitli ayar): 3 ayda borsadan fazla +%3,6, 6 ayda +%10,7; haftaların %54'ünde (3 ay) ve %71'inde (6 ay) borsayı geçti. Yakalama (aynı 3 yıl): %8,8 (3 ay) / %15,5 (6 ay). Klasik çekirdek: 3 ayda A +%4 / B +%2, 6 ayda A %0 / B −%1; yakalama (kendi büyük şirket evreninde) A %7 / %11, B %9 / %15. Klasik radar yalnızca büyük şirketlerden seçtiği için küçük ve orta şirketlerdeki kazananları (Analiz Radarı'nın evreni) yakalayamıyor: o evrende A %3 / %5, B %4 / %8.
+**Analiz Radarı ile karşılaştırma (dikkat: evrenler ve pencereler farklı):** Analiz Radarı'nın 2023–2026 sınavı (kilitli ayar): 3 ayda borsadan fazla +%3,6, 6 ayda +%10,7; haftaların %54'ünde (3 ay) ve %71'inde (6 ay) borsayı geçti. Yakalama (aynı 3 yıl): %8,8 (3 ay) / %15,5 (6 ay). Klasik çekirdek (yabancı şirketler hariç, düzeltilmiş): 3 ayda borsadan fazla A +%4 / B +%3, 6 ayda A +%1 / B +%2; yakalama (kendi büyük şirket evreninde) A %7 / %10, B %9 / %16. Klasik radar yalnızca büyük şirketlerden seçtiği için küçük ve orta şirketlerdeki kazananları (Analiz Radarı'nın evreni) yakalayamıyor: o evrende A %3 / %5, B %4 / %8.
+
+**Düzeltme notu:** İlk çalışmada 20-F / 40-F dosyalayan yabancı şirketlerin (ADR) piyasa değeri yanlış çıkıyordu (adi hisse sayısı × ADR fiyatı) ve küçük yabancı şirketler (XHG, RGC, TC vb.) büyük şirket gibi görünüp listeye giriyordu (130 seçimin 27'si yabancıydı, ortalama 3 ay −%6; yerli seçimler +%16). Bu şirketler evrenden çıkarıldı. Aynı hata Analiz Radarı'nın evrenini de etkiliyor (yabancı payı %9–12) ama son 3 yılda seçilen 120 hissenin yalnızca 1'i yabancı (ARM). Ters bölünme geçiren bazı küçük şirketlerde de piyasa değeri hatalı olabilir (ör. HURA, önceki adıyla Kintara): düzeltilmedi, kalan bir veri sınırı.
 
