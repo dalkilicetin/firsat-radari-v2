@@ -734,7 +734,7 @@
   },
   "2026": {
    "partition": "2026",
-   "fetched_at": "2026-10-20T10:05:12+00:00",
+   "fetched_at": "2026-10-20T19:27:39+00:00",
    "rows": 127588,
    "bytes": 2587966,
    "sha256": "d07e5dcfd8a3f410b43ec9dc0d67a31e2f94450c38c4e4ec75303e03c16a9ddc",
@@ -755,7 +755,7 @@
    "asset": "finra_aciga_satis__2026.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 59.3,
+   "duration_s": 52.4,
    "requests": 208,
    "checks": [
     {
@@ -780,5 +780,5 @@
  "title": "FINRA günlük açığa satış hacmi — ay × sembol (2009→)",
  "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-20T10:46:09+00:00"
+ "finalized_at": "2026-10-20T19:58:31+00:00"
 }

@@ -1491,7 +1491,7 @@
   },
   "2026": {
    "partition": "2026",
-   "fetched_at": "2026-10-20T10:06:38+00:00",
+   "fetched_at": "2026-10-20T19:27:39+00:00",
    "rows": 1061764,
    "bytes": 10842824,
    "sha256": "bc452476af96ec20aa979b3c12db2d80a1ef32d9bcfc149bf305f018946dfaaf",
@@ -1537,7 +1537,7 @@
    "asset": "ftd__2026.parquet",
    "release": "veri-arsivi-2009",
    "status": "ok",
-   "duration_s": 5.7,
+   "duration_s": 10.9,
    "requests": 19,
    "checks": [
     {
@@ -1604,6 +1604,6 @@
    "release": "veri-arsivi-2009"
   }
  },
- "finalized_at": "2026-10-20T10:46:23+00:00",
+ "finalized_at": "2026-10-20T19:58:45+00:00",
  "removed_assets": []
 }

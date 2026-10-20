@@ -1,6 +1,6 @@
 # 🟡 SEC fails-to-deliver (fiyat + CUSIP eşleştirmesi, 2009→)
 
-Son güncelleme: 2026-10-20T10:46:23+00:00 · 18 bölüm · 23,526,720 satır
+Son güncelleme: 2026-10-20T19:58:45+00:00 · 18 bölüm · 23,526,720 satır
 
 ## Veri seti kontrolleri
 

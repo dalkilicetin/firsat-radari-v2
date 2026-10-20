@@ -1,6 +1,6 @@
 # 🟡 10-K metinleri (Madde 1, 1A, 7; 2008→)
 
-Son güncelleme: 2026-10-20T10:46:49+00:00 · 19 bölüm · 84,845 satır
+Son güncelleme: 2026-10-20T19:59:10+00:00 · 19 bölüm · 84,852 satır
 
 ## Veri seti kontrolleri
 
@@ -29,4 +29,4 @@ Son güncelleme: 2026-10-20T10:46:49+00:00 · 19 bölüm · 84,845 satır
 | 2023 | 🟡 Dikkat | 4,848 | item1 bulundu (>2.000 karakter): 4235/4848 = %87.4 |
 | 2024 | 🟡 Dikkat | 4,553 | item1 bulundu (>2.000 karakter): 3957/4553 = %86.9 |
 | 2025 | 🟡 Dikkat | 4,427 | item1 bulundu (>2.000 karakter): 3860/4427 = %87.2 |
-| 2026 | 🟡 Dikkat | 4,222 | item1 bulundu (>2.000 karakter): 3698/4222 = %87.6; item7 bulundu (>2.000 karakter): 3560/4222 = %84.3 |
+| 2026 | 🟡 Dikkat | 4,229 | item1 bulundu (>2.000 karakter): 3705/4229 = %87.6; item7 bulundu (>2.000 karakter): 3565/4229 = %84.3 |

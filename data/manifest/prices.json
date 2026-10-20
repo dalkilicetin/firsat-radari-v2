@@ -1311,27 +1311,6 @@
  "dataset_checks": [],
  "title": "Günlük fiyat geçmişi (Yahoo, 2009→; Nasdaq ile çapraz kontrol)",
  "derived": {},
- "finalized_at": "2026-10-20T10:45:30+00:00",
- "removed_assets": [
-  "prices__A-20261010.parquet",
-  "prices__B-20261010.parquet",
-  "prices__C-20261010.parquet",
-  "prices__D-20261010.parquet",
-  "prices__E-20261010.parquet",
-  "prices__F-20261010.parquet",
-  "prices__G-20261010.parquet",
-  "prices__H-20261010.parquet",
-  "prices__I-20261010.parquet",
-  "prices__J-K-20261010.parquet",
-  "prices__L-20261010.parquet",
-  "prices__M-20261010.parquet",
-  "prices__N-20261010.parquet",
-  "prices__O-20261010.parquet",
-  "prices__P-20261010.parquet",
-  "prices__Q-R-20261010.parquet",
-  "prices__S-20261010.parquet",
-  "prices__T-20261010.parquet",
-  "prices__U-V-20261010.parquet",
-  "prices__W-Z-20261010.parquet"
- ]
+ "finalized_at": "2026-10-20T19:58:07+00:00",
+ "removed_assets": []
 }

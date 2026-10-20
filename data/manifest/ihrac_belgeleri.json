@@ -74,9 +74,7 @@
  },
  "dataset_checks": [],
  "title": "SEC hisse satışı izahnameleri ve kayıt beyanları (424B*, S-1/S-3/F-1/F-3)",
- "removed_assets": [
-  "ihrac_belgeleri__snapshot-20261013.parquet"
- ],
+ "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-20T10:45:54+00:00"
+ "finalized_at": "2026-10-20T19:58:15+00:00"
 }

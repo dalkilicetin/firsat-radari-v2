@@ -1,6 +1,6 @@
 # 🟢 Günlük fiyat geçmişi (Yahoo, 2009→; Nasdaq ile çapraz kontrol)
 
-Son güncelleme: 2026-10-20T10:45:30+00:00 · 20 bölüm · 16,540,651 satır
+Son güncelleme: 2026-10-20T19:58:07+00:00 · 20 bölüm · 16,540,651 satır
 
 ## Veri seti kontrolleri
 

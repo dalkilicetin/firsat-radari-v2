@@ -58,9 +58,7 @@
  },
  "dataset_checks": [],
  "title": "Hisse evreni anlık görüntüsü (Nasdaq + NYSE + NYSE American)",
- "removed_assets": [
-  "universe__snapshot-20261010.parquet"
- ],
+ "removed_assets": [],
  "derived": {},
- "finalized_at": "2026-10-20T10:45:48+00:00"
+ "finalized_at": "2026-10-20T19:58:09+00:00"
 }
