@@ -1,0 +1,20 @@
+# Tarihi dusus katalogu (S&P 500 kapanis bazli; karsi ornekler ayri piyasalarda).
+# Kaynak: model bilgisi (Opus), YAKLASIK. guven=orta satirlari bir grafikte kontrol edilmeli.
+# vix_zirve: o donemdeki en yuksek VIX kapanisi (1987 icin VIX yok; VXO yaklasik 150).
+# tur_on_kabul: sonradan bilinen sonuca gore etiket (panik=hizli geri donus, bozulma=uzun/kalici, karma). TEST ICIN DEGIL, KARSILASTIRMA ICIN.
+kimlik,piyasa,ad,zirve_tarih,zirve,dip_tarih,dip,toparlanma_tarih,vix_zirve,vix_zirve_tarih,resesyon,kredi_stresi,politika_tepkisi,tur_on_kabul,neden,guven
+1987,SPX,Kara Pazartesi,1987-08-25,336.77,1987-12-04,223.92,1989-07-26,,1987-10-19,H,dusuk,faiz_indirimi_likidite,panik,portfoy sigortasi ve program satislari,yuksek
+1990,SPX,Korfez Savasi resesyonu,1990-07-16,368.95,1990-10-11,295.46,1991-02-13,36.5,1990-08-23,E,orta,faiz_indirimi,karma,petrol soku ve resesyon,orta
+1998,SPX,LTCM ve Rusya,1998-07-17,1186.75,1998-08-31,957.28,1998-11-23,45.7,1998-10-08,H,yuksek,faiz_indirimi_kurtarma,panik,fon iflasi ve likidite krizi,yuksek
+2000,SPX,Dot-com cokusu,2000-03-24,1527.46,2002-10-09,776.76,2007-05-30,45.1,2002-08-05,E,yuksek,faiz_indirimi,bozulma,degerleme balonu ve kar dususu,yuksek
+2007,SPX,Kuresel finans krizi,2007-10-09,1565.15,2009-03-09,676.53,2013-03-28,80.9,2008-11-20,E,cok_yuksek,QE_ve_kurtarma,bozulma,konut ve banka sistemi,yuksek
+2010,SPX,Flash crash ve Avrupa borc,2010-04-23,1217.28,2010-07-02,1022.58,2010-11-04,45.8,2010-05-20,H,orta,QE2,panik,Yunanistan ve flash crash,orta
+2011,SPX,ABD not indirimi ve Avrupa,2011-04-29,1363.61,2011-10-03,1099.23,2012-02-24,48.0,2011-08-08,H,orta,operation_twist,panik,ABD kredi notu ve euro krizi,orta
+2015,SPX,Cin devalue ve petrol,2015-05-21,2130.82,2016-02-11,1829.08,2016-07-11,40.7,2015-08-24,H,orta_yuksek,faiz_artisi_erteleme,karma,Cin yuan ve enerji kredi stresi,orta
+2018,SPX,4. ceyrek Fed sikilasmasi,2018-09-20,2930.75,2018-12-24,2351.10,2019-04-23,36.1,2018-12-24,H,orta,Fed_donusu,panik,faiz artisi ve bilanco kucultme,yuksek
+2020,SPX,COVID,2020-02-19,3386.15,2020-03-23,2237.40,2020-08-18,82.7,2020-03-16,E,yuksek,sinirsiz_QE_ve_tesvik,panik,salgin ve kapanmalar,yuksek
+2022,SPX,Enflasyon ve faiz soku,2022-01-03,4796.56,2022-10-12,3577.03,2024-01-19,36.5,2022-03-07,H,orta,sikilastirma_devam,bozulma,enflasyon ve hizli faiz artisi,yuksek
+2023,SPX,Tahvil faizi duzeltmesi,2023-07-31,4588.96,2023-10-27,4117.37,2023-12-01,21.7,2023-10-20,H,dusuk,faiz_zirvesi,panik,10 yillik faiz %5,orta
+2025,SPX,Gumruk tarifesi soku,2025-02-19,6144.15,2025-04-08,4982.77,2025-06-27,52.3,2025-04-08,H,orta,tarife_ertelemesi,panik,genis tarifeler,orta
+N1989,N225,Japon balonu (KARSI ORNEK),1989-12-29,38915.87,2009-03-10,7054.98,2024-02-22,,,E,cok_yuksek,yetersiz,bozulma,emlak ve banka balonu,yuksek
+NDX2000,IXIC,Nasdaq dot-com (KARSI ORNEK),2000-03-10,5048.62,2002-10-09,1114.11,2015-04-23,,,E,yuksek,faiz_indirimi,bozulma,degerleme balonu,yuksek

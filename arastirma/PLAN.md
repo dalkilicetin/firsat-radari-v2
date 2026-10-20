@@ -2,6 +2,8 @@
 
 > Bu belge **ne** yapılacağını ve **neden** yapılacağını anlatır.
 > **Nasıl** yapılacağı adım adım `GOREVLER.md` dosyasında yazıyor. Kod yazacak model önce `CLAUDE.md` dosyasını, sonra ilgili görevi okumalı.
+>
+> **Güncel durum (karar):** Günlük veri indirilmeyecek, Actions kullanılmayacak. İlk aşama bir **laboratuvar**: tarihî kriz kataloğu + simülasyon + repodaki örnek veri (`GOREVLER.md`, L0–L8). Aşağıdaki mekanizma kataloğu ve araştırma disiplini geçerliliğini koruyor. Gerçek veriyle tam test (`ILERIDE-GERCEK-VERI.md`) laboratuvar sonuçlarına göre sonra yapılacak.
 
 ## 0. Tek cümlede amaç
 
@@ -16,9 +18,9 @@ Bu bir al-sat botu değil, bir **keşif ve doğrulama** sistemidir. Bir mekanizm
 | | Klasik Radar (`scanner.mjs`) | Analiz Radarı (`/analiz/`) | **Mekanizma Motoru (yeni)** |
 |---|---|---|---|
 | Soru | Bugün hangi hisse ilginç? | Bu hissenin 3 aylık görünümü ne? | Hangi piyasa **durumu** geçmişte işe yaradı ve şu an o durumda mıyız? |
-| Veri | ~5 yıl aylık kapanış + anlık temel veri | — | 30+ yıl **günlük** fiyat + makro + (sonra) SEC temel veri |
+| Veri | ~5 yıl aylık kapanış + anlık temel veri | — | Laboratuvar: kriz kataloğu + simülasyon + repodaki aylık/günlük örnekler. İleride: 30+ yıl günlük |
 | Dil | Node | — | **Python** (pandas/numpy/scipy). İstatistik işi için doğru araç |
-| Çalışma | Her gece | Haftalık | Haftalık (Actions), elle tetiklenebilir |
+| Çalışma | Her gece | Haftalık | Yerelde / Claude oturumunda (`python calistir.py ...`), Actions gerekmez |
 
 Mevcut sistemlere **dokunulmaz**. Yeni her şey `arastirma/` altına yazılır. Sonuç sayfası `/mekanizma/` altına konur ve Analiz Radarı'nın `stil.css` dosyasını kullanır. Tek ortak nokta, iki radarın üst menüsüne konacak bir bağlantıdır (son faz).
 
@@ -225,24 +227,26 @@ Canlı panoda sadece ✅ ve 🟡 mekanizmalar sinyal üretir. ⚪/🔴 olanlar "
 
 ---
 
-## 4. Veri katmanı
+## 4. Veri — laboratuvar aşaması
 
-Bu konteynerde Yahoo/FRED/Stooq erişimi engelli. Veri **GitHub Actions'ta** çekilir. Yerel geliştirmede sentetik veri ve `testler/ornek/` altındaki küçük CSV'ler kullanılır.
+İnternetten veri çekilmez. Üç kaynak kullanılır:
 
-| Ne | Kaynak (sırayla dener) | Geçmiş |
+| Kaynak | İçerik | Ne için |
 |---|---|---|
-| Günlük OHLCV + düzeltilmiş kapanış | Yahoo chart v8 (anahtarsız) → Stooq CSV → TwelveData (mevcut `TWELVEDATA_KEY`) | Hisse ömrü boyunca |
-| Endeksler | `^GSPC ^NDX ^RUT ^VIX ^VIX3M ^GDAXI ^N225 ^FTSE XU100.IS` | 1950/1985/1990… |
-| ETF'ler | `SPY QQQ IWM RSP` + sektörler `XLK XLF XLE XLV XLI XLY XLP XLU XLB` (1998), `XLRE` (2015), `XLC` (2018) | |
-| Makro (FRED CSV) | `VIXCLS BAA10Y T10Y3M T10Y2Y NFCI WALCL DFII10 SAHMREALTIME DTWEXBGS` | |
-| Temel veri (Faz 3) | SEC EDGAR `company_tickers.json` + `companyfacts`. User-Agent zorunlu, `SEC_UA` secret'ından alınır | 2009+ |
-| Evren | Mevcut `data/sonuclar.json` ekran listesi ∪ `universe-fallback.txt` ∪ `dead` | bugünkü üyeler |
+| `tarih/kriz_katalogu.csv` | 13 S&P 500 düşüşü (1987–2025) + 2 karşı örnek (Nikkei 1989, Nasdaq 2000). Zirve/dip/toparlanma tarihleri, VIX zirvesi, resesyon, kredi stresi, politika tepkisi | Yayların "anatomisi": hız ↔ toparlanma, panik ↔ bozulma. Hipotez **üretir**, kanıtlamaz (n=13) |
+| Simülatör (`mekanizma/sim/`) | Temel değer (F) + sapma (m = yay gerilimi, OU süreci) + panik ve bozulma şokları + VIX/kredi/Sahm vekilleri + 200 hisse (beta, kalite, aşırı tepki). Katalog istatistiklerine kalibre edilir | Ölçüm aletini ayarlamak. Doğru cevap bilinir. Dedektör yayı tanıyor mu, yanlış alarm veriyor mu, 13 krizle neyi görebiliriz? |
+| `data/sonuclar.json` | 154 hisse + 26 ETF, 61 aylık kapanış (2021-10 → 2026-10): **2022 ayı piyasası**, 2025 tarife düşüşü, 2026 Mart düşüşü | Gerçeklik kontrolü: iki doğal deney (2022 = bozulma, 2025 = panik) |
+| Git geçmişi (103 gece) | ~600 hisse günlük fiyat + `r13w r52w mtd` (2026-07 → 2026-10) | Günlük şok yayı kontrolü |
 
-- **Depolama:** `arastirma/onbellek/` klasörü git'e girmez (`.gitignore`). Actions'ta `actions/cache` ile haftalar arasında taşınır ve artımlı güncellenir. Önbellek kaybolursa ~15 dakikada sıfırdan çekilir.
-- **Git'e girenler:** Sadece küçük sonuç dosyaları (`arastirma/sonuclar/*.json`, `*.md`) ve `mekanizma/` sayfaları.
-- **Veri sağlığı:** Her çalışmada şunlar kontrol edilir: eksik gün, ≥%50'lik tek günlük sıçrama (bölünme hatası), sabit fiyat serisi, kaynak uyuşmazlığı. Sorunlu hisse karantinaya alınır, loga ve rapora yazılır.
+Katalog değerleri model bilgisinden **yaklaşık** yazıldı. `guven=orta` satırları bir grafikte kontrol edilmeli.
+Örnek verideki hisseler küratörlü (teknoloji ağırlıklı) ve hayatta kalanlardan oluşuyor. Raporlar bunu açıkça yazar.
 
----
+**Laboratuvarın mantığı:**
+- Tarih "neye bakmalıyız" der.
+- Simülasyon "baktığımız aletle görebilir miyiz" der.
+- Örnek veri "gerçekte, küçük ölçekte, öyle mi" der.
+
+Üçü aynı yönü gösterirse gerçek günlük veriye yatırım yapmaya değer.
 
 ## 5. Mimari
 
@@ -254,8 +258,10 @@ arastirma/
   calistir.py            ← CLI:  veri | test <mekanizma|hepsi> | pano | saglik
   hipotezler/*.yaml      ← önceden kayıtlı hipotezler
   deneme_gunlugu.csv
+  tarih/     kriz_katalogu.csv  inceleme.py          ← laboratuvar
   mekanizma/
-    veri/      kaynaklar.py  onbellek.py  evren.py  saglik.py
+    sim/       piyasa.py  deneyler.py                 ← laboratuvar
+    veri/      ornek.py  katalog.py  (ileride: kaynaklar.py onbellek.py evren.py saglik.py)
     ozellik/   fiyat.py  genislik.py  korelasyon.py  rejim.py  makro.py  temel.py
     motor/     sonuc.py  olay.py  kesit.py  istatistik.py  ileri.py  karar.py  kontrol.py
     mekanizmalar/  taban.py  yay.py  hisse_yay.py  kirilma.py  kenetlenme.py  gelgit.py
@@ -264,7 +270,7 @@ arastirma/
   testler/   (pytest; sentetik veri + ornek/)
   sonuclar/  (git'e girer)
 mekanizma/   (yayın sayfaları: index.html + her mekanizma için bir sayfa; ../analiz/stil.css kullanır)
-.github/workflows/mekanizma.yml
+(ileride) .github/workflows/mekanizma.yml
 ```
 
 **Ortak sözleşme** (her mekanizma bunu uygular, `taban.py`):
@@ -289,17 +295,15 @@ Motor iki test türünü tek tip çalıştırır:
 
 ## 6. Fazlar ve teslimatlar
 
-| Faz | İçerik | Bitti sayılması için |
+| Faz | İçerik | Görevler |
 |---|---|---|
-| **0 — Altyapı** | Veri katmanı, önbellek, sağlık, motor (olay+kesit+istatistik+karar), kontroller, Actions iş akışı | Sentetik veride bilinen etki bulunuyor. Rastgele sinyalde yanlış alarm ≤ %10. Actions'ta veri çekimi + sağlık raporu yeşil |
-| **1 — Çekirdek** | Yay (endeks), Hisse yayı ⟷ Gizli güç, Kırılma noktası, Mıknatıs (kontrol) | 4 rapor + karar etiketleri + ısı haritası + kriz bölüm tablosu |
-| **2 — Genişleme** | Kenetlenme, Gelgit, Baraj, Çığ + etkileşimler (Yay×Gelgit, Gizli güç×Kenetlenme) | Her biri için karar etiketi |
-| **3 — Temel veri** | EDGAR katmanı, Gerilmiş lastik, Sarkaç, Domino | Aynı |
-| **4 — Canlı pano** | `/mekanizma/` sayfası, haftalık durum, analoglar, hisse listeleri, mekanizma karnesi, iki radardan bağlantı, (isteğe bağlı) Telegram özeti | Sayfa yayında. Karne her hafta güncelleniyor |
-
-**Faz 1'den sonra dur ve bak.** Yay ve Gizli güç sonuçları sonraki önceliği belirler. Örneğin G3 doğrulanırsa Faz 2'de Kenetlenme ve Gelgit, "hangi krizde ne oynanır" sorusunu güçlendirmek için öne alınır.
-
----
+| **Lab-0** | İskelet + örnek veri yükleyici | L0, L1 |
+| **Lab-1 — Tarih** | Kriz kataloğu incelemesi → hipotez listesi | L2 ⛔ |
+| **Lab-2 — Alet** | Ortak özellikler + motor + Yay dedektörü + simülatör | L3, L4, L5 |
+| **Lab-3 — Deney** | Kalibrasyon, ayırt edilebilirlik, boşalma/MAE, sahte yay, güç analizi, hisse yayı ⟷ gizli güç | L6 ⛔ |
+| **Lab-4 — Gerçeklik** | 2022/2025/2026 doğal deneyleri, günlük şok yayı | L7 |
+| **Lab-5 — Rapor** | `sonuclar/LAB-RAPORU.md` + karar tablosu + sonraki adım önerisi | L8 ⛔ |
+| Sonra | Diğer mekanizmalar laboratuvara; gerçek günlük veri (`ILERIDE-GERCEK-VERI.md`); canlı pano | — |
 
 ## 7. Riskler ve dürüst beklenti
 
@@ -313,7 +317,8 @@ Motor iki test türünü tek tip çalıştırır:
 
 ## 8. Sonnet ile çalışma yöntemi (token tasarrufu)
 
-- Her oturumda tek görev verin: *"arastirma/GOREVLER.md içindeki G3'ü yap. Önce arastirma/CLAUDE.md'yi oku."*
-- Görevler bağımsız ve küçük tutuldu. Her birinde dosya listesi, fonksiyon imzaları, formüller ve kabul testleri var. Model plan yapmaya değil uygulamaya odaklanır.
-- Gerçek veri gerektiren adımlar Actions'ta çalışır: Repo → Actions → "Mekanizma Arastirma" → Run workflow. Çıktıyı Sonnet'e geri vermek için `arastirma/sonuclar/` dosyalarını okutun.
-- Bir sonuç beklenmedik çıkarsa (ör. her şey ✅), önce Opus ile "bu sonuç gerçek mi, bir sızıntı mı var?" incelemesi yapın.
+- Her oturumda tek görev verin: *"arastirma/CLAUDE.md ve arastirma/GOREVLER.md içindeki L3'ü uygula."*
+- Görevler bağımsız ve küçük tutuldu. Her birinde dosya listesi, formüller, parametreler ve kabul testleri var. Model planlamaya değil uygulamaya odaklanır.
+- Her şey Claude oturumunda çalışır (`pip install -r requirements.txt` yeterli). Actions ve API anahtarı gerekmez.
+- ⛔ noktalarında Opus'a şunu söyleyin: *"sonuclar/ içindeki son raporları oku, yorumla, sızıntı/hata var mı bak."*
+- Bir sonuç fazla iyi çıkarsa (ör. her şey 🟢), önce sızıntı şüphesiyle inceleyin.
