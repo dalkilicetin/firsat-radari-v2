@@ -8,7 +8,7 @@ Takvim (her hafta, Cuma t):
 - Masraf: alışta ve satışta ayrı ayrı, perşembe itibarıyla 13 haftalık medyan günlük işlem tutarına göre (backtest.COSTS).
 - Hayatta kalma yanlılığı yok: o gün borsada olan her hisse (sonradan çıkanlar dahil). Arada çıkan hisse için çıkış değeri:
   iflasta 0, değilse çıkıştan önceki son geçerli fiyat (panel.forward_returns).
-- Evren (o günkü değerlerle): finans dışı faaliyet şirketi, perşembe fiyatı ≥ 5 $, piyasa değeri ≥ 500 M$, işlem tutarı
+- Evren (o günkü değerlerle): finans dışı faaliyet şirketi (yalnızca 20-F/40-F dosyalayan yabancılar hariç), perşembe fiyatı ≥ 5 $, piyasa değeri ≥ 500 M$, işlem tutarı
   ≥ 5 M$/gün. Borsadan çıkmış hisselerin çoğunda günlük hacim yoktur (yalnızca FTD fiyatı): işlem tutarı FINRA aylık
   hacminden tahmin edilir (son tamamlanmış ay, hisse/gün × perşembe fiyatı × o hafta Yahoo/FINRA oranının medyanı).
   Bunu yapmazsak sonradan çıkan hisseler evrenden düşer ve hayatta kalma yanlılığı geri gelir.
@@ -99,7 +99,16 @@ class Duzenek:
 
     @cached_property
     def faaliyet(self) -> pd.Series:
-        return sectors.operating_mask(self.cuma)
+        return sectors.operating_mask(self.cuma) & ~self.yabanci
+
+    @cached_property
+    def yabanci(self) -> pd.Series:
+        """Yalnızca 20-F / 40-F dosyalayan (hiç 10-K vermemiş) şirketler. Bunlarda piyasa değeri (adi hisse sayısı × ADR fiyatı)
+        ADR oranı yüzünden yanlış çıkıyor; küçük yabancı şirketler büyük görünüyor, bu yüzden evrene alınmaz."""
+        f = archive.load("filings", columns=["cik", "form"])
+        forms = f.assign(cik=f.cik.astype(str)).groupby("cik").form.agg(set)
+        yab = {c for c, st in forms.items() if ("20-F" in st or "40-F" in st) and "10-K" not in st}
+        return pd.Series([c in yab for c in self.sutunlar], index=self.sutunlar)
 
     @cached_property
     def finans(self) -> pd.DataFrame:
