@@ -6,7 +6,9 @@ o güne kadar bilinen veriyle yeniden kurulabilenler vardır; haber, analist, sk
 
 Kurulanlar (scanner.mjs + app.js, aynen):
 - Evren: klasik evren = S&P 500 ∪ Nasdaq-100 ∪ Russell 1000 (≈1.000–1.100 hisse). Geçmiş üyelik listesi yok; her tarihte piyasa
-  değeri en yüksek 1.100 hisse (o günkü değerle, banka/sigorta/GYO dahil, sonradan çıkanlar dahil) kullanılır.
+  değeri en yüksek 1.100 hisse (o günkü değerle, banka/sigorta/GYO dahil, sonradan çıkanlar dahil) kullanılır. Yalnızca 20-F / 40-F
+  dosyalayan yabancı şirketler (ADR) HARİÇ: onlarda adi hisse sayısı × ADR fiyatı piyasa değerini yanlış veriyor (ilk çalışmada
+  130 seçimin 27'si yabancıydı, küçük yabancı şirketler büyük görünüp şok listesine giriyordu; düzeltildi).
 - mom = 12-3 ay getirisi (52 hafta önce → 13 hafta önce), pull = 3-1 ay (13 hafta önce → ay başı). mom yüzdeliği ≥ 0,7 VE
   pull yüzdeliği ≤ 0,5 (düzeltme yapmış) VE sağlam (piyasa değeri ≥ 2 Mr$ ve F/K var = son 12 ay net kâr > 0).
   Sıra: (mom yüzdeliği + düzeltme yüzdeliği) azalan; ilk 15 hisse 10 − 0,15·sıra puan alır.
@@ -87,10 +89,20 @@ def gunluk_degisim(d: Duzenek) -> pd.DataFrame:
     return w.reindex(columns=d.sutunlar)
 
 
+def yabanci_mask(d: Duzenek) -> np.ndarray:
+    """Yalnızca 20-F / 40-F dosyalayan (hiç 10-K vermemiş) şirketler. Bunlarda piyasa değeri (adi hisse sayısı × ADR fiyatı) ADR oranı
+    yüzünden yanlış çıkıyor (ör. BABA ≈ 8×, XHG bir tarihte 6 → 837 Mr$) ve küçük yabancı şirketler büyük şirket gibi görünüyor."""
+    f = archive.load("filings", columns=["cik", "form"])
+    f["cik"] = f.cik.astype(str)
+    forms = f.groupby("cik").form.agg(lambda s: set(s))
+    yab = {c for c, st in forms.items() if (("20-F" in st) or ("40-F" in st)) and "10-K" not in st}
+    return np.array([c in yab for c in d.sutunlar])
+
+
 def kur(d: Duzenek) -> dict:
     P = d.persembe["price"]
     mcap = d.piyasa_degeri
-    ok = d.uye & P.notna() & d.cuma["price"].notna() & mcap.notna()
+    ok = d.uye & P.notna() & d.cuma["price"].notna() & mcap.notna() & ~yabanci_mask(d)[None, :]
     sira = mcap.where(ok).rank(axis=1, ascending=False, method="first")
     evren = ok & (sira <= EVREN_N)
     bar = P.index - pd.Timedelta(days=1)
