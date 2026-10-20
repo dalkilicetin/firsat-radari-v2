@@ -9,8 +9,9 @@ Takvim (her hafta, Cuma t):
 - Hayatta kalma yanlılığı yok: o gün borsada olan her hisse (sonradan çıkanlar dahil). Arada çıkan hisse için çıkış değeri:
   iflasta 0, değilse çıkıştan önceki son geçerli fiyat (panel.forward_returns).
 - Evren (o günkü değerlerle): finans dışı faaliyet şirketi, perşembe fiyatı ≥ 5 $, piyasa değeri ≥ 500 M$, işlem tutarı
-  ≥ 5 M$/gün. İşlem tutarı bilinmeyen (yalnızca FTD fiyatlı, çoğu sonradan çıkmış) hisseler ayrıca sayılır; varsayılan
-  evrene girmez, kapsam raporunda gösterilir.
+  ≥ 5 M$/gün. Borsadan çıkmış hisselerin çoğunda günlük hacim yoktur (yalnızca FTD fiyatı): işlem tutarı FINRA aylık
+  hacminden tahmin edilir (son tamamlanmış ay, hisse/gün × perşembe fiyatı × o hafta Yahoo/FINRA oranının medyanı).
+  Bunu yapmazsak sonradan çıkan hisseler evrenden düşer ve hayatta kalma yanlılığı geri gelir.
 - Karşılaştırma: S&P 500 (SPY), hissenin sektör ETF'i, evrenin eşit ağırlıklı ortalaması — aynı cuma kapanışları arasında.
 """
 
@@ -22,6 +23,8 @@ from functools import cached_property
 import numpy as np
 import pandas as pd
 
+from radar import archive
+from radar.identity import build as build_identity
 from radar.research import backtest, context, fundamentals, panel, sectors
 from radar.research.pit import FUNDAMENTAL_MAX_AGE, pit
 
@@ -89,11 +92,15 @@ class Duzenek:
         return sectors.operating_mask(self.cuma)
 
     @cached_property
+    def finans(self) -> pd.DataFrame:
+        from radar.arac import temel
+        return temel.finans()
+
+    @cached_property
     def hisse_sayisi(self) -> pd.DataFrame:
         """Perşembe 16:00'ya kadar yayımlanmış son rapordaki hisse sayısı; rapordan sonraki bölünmelere göre düzeltilir
         (bölünme ölçüsü perşembe itibarıyla). Sayı, raporun yayım tarihinden itibaren geçerlidir (K1: yayım tarihi)."""
-        fin = fundamentals.load(["adsh", "cik", "tag", "value", "accepted", "qtrs", "ddate", "segments"])
-        sh = fundamentals.shares_outstanding(fin)
+        sh = fundamentals.shares_outstanding(self.finans)
         sh = sh.assign(cik=sh.cik.astype(str), gun=kullanilabilir(sh.accepted).to_numpy())
         events = panel.split_events()
         # Bölünme ölçüsü: raporun yayımlandığı gün ve perşembe (Cuma t − 1 gün).
@@ -106,6 +113,33 @@ class Duzenek:
         return n * (now / rep).fillna(1.0)
 
     @cached_property
+    def finra_hisse_gun(self) -> pd.DataFrame:
+        """FINRA aylık hacmi (hisse/gün), ay bittikten sonraki ilk Cuma'dan itibaren; sembol → CIK, sembolün geçerli aralığına göre."""
+        f = archive.load("finra_aciga_satis")
+        f = f[f.days > 0].assign(value=lambda x: x.total / x.days)
+        tk = build_identity()["tickers"]
+        tk = tk.assign(cik=tk.cik.astype(str))
+        m = f.merge(tk, left_on="symbol", right_on="ticker")
+        m = m[(m.date >= m.first_seen - pd.Timedelta(days=31)) & (m.date <= m.last_seen + pd.Timedelta(days=31))]
+        m = m[m.groupby(["symbol", "date"]).cik.transform("nunique") == 1]  # aynı sembol iki şirkete çıkıyorsa atla
+        m = m.assign(date=m.date + pd.offsets.MonthBegin(1) - pd.Timedelta(days=1))  # ayın son günü biter
+        return pit(m[["cik", "date", "value"]], self.tarihler, self.sutunlar, 45)
+
+    @cached_property
+    def islem_tutari(self) -> pd.DataFrame:
+        """Günlük işlem tutarı ($): Yahoo 13 haftalık medyan; yoksa FINRA tahmini."""
+        yahoo = self.persembe["dollar_volume"]
+        finra = self.finra_hisse_gun * self.persembe["raw"]
+        oran = (yahoo / finra).where(yahoo >= 1e6).replace([np.inf, -np.inf], np.nan).median(axis=1)
+        return yahoo.fillna(finra.mul(oran, axis=0))
+
+    @cached_property
+    def islem_kaynagi(self) -> pd.DataFrame:
+        y = self.persembe["dollar_volume"].notna()
+        return pd.DataFrame(np.where(y, "yahoo", np.where(self.islem_tutari.notna(), "finra", "yok")),
+                            index=y.index, columns=y.columns)
+
+    @cached_property
     def piyasa_degeri(self) -> pd.DataFrame:
         return self.hisse_sayisi * self.persembe["raw"]
 
@@ -114,15 +148,15 @@ class Duzenek:
         """O gün alınabilir hisseler (Cuma t kararı için): yukarıdaki kurallar + Cuma kapanış fiyatı var."""
         th = self.persembe
         ok = (self.uye & self.faaliyet.to_numpy()[None, :] & self.cuma["price"].notna() & th["price"].notna()
-              & (th["raw"] >= MIN_FIYAT) & (self.piyasa_degeri >= MIN_PD) & (th["dollar_volume"] >= MIN_ISLEM))
+              & (th["raw"] >= MIN_FIYAT) & (self.piyasa_degeri >= MIN_PD) & (self.islem_tutari >= MIN_ISLEM))
         return ok
 
     @cached_property
     def islem_bilinmeyen(self) -> pd.DataFrame:
-        """Kapsam raporu için: diğer şartları geçip işlem tutarı bilinmeyenler."""
+        """Kapsam raporu için: diğer şartları geçip işlem tutarı hiç bilinmeyenler."""
         th = self.persembe
         return (self.uye & self.faaliyet.to_numpy()[None, :] & self.cuma["price"].notna() & (th["raw"] >= MIN_FIYAT)
-                & (self.piyasa_degeri >= MIN_PD) & th["dollar_volume"].isna())
+                & (self.piyasa_degeri >= MIN_PD) & self.islem_tutari.isna())
 
     def brut(self, vade: str) -> pd.DataFrame:
         """Cuma t kapanışından vade sonu Cuma kapanışına brüt getiri (arada çıkana çıkış değeri, iflasta −%100)."""
@@ -131,7 +165,7 @@ class Duzenek:
 
     @cached_property
     def masraf_orani(self) -> pd.DataFrame:
-        dv = self.persembe["dollar_volume"]
+        dv = self.islem_tutari
         out = np.full(dv.shape, backtest.UNKNOWN_COST)
         for floor, rate in reversed(backtest.COSTS):
             out[dv.to_numpy() >= floor] = rate
@@ -143,6 +177,10 @@ class Duzenek:
     @cached_property
     def etf(self) -> pd.DataFrame:
         return context.etf_prices(self.tarihler)
+
+    @cached_property
+    def etf_persembe(self) -> pd.DataFrame:
+        return context.etf_prices(self.tarihler - pd.Timedelta(days=1)).set_axis(self.tarihler, axis=0)
 
     @cached_property
     def sektor_etf(self) -> pd.Series:

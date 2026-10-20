@@ -1,9 +1,9 @@
 {
  "note": "Bu dosya değiştirilip gönderildiğinde 'Geçmiş Veri Yükleme' iş akışı çalışır. only boşsa eksik bölümlerin hepsi yüklenir.",
- "rev": 28,
+ "rev": 29,
  "requests": [
   {
-   "dataset": "sirket_olgulari"
+   "dataset": "insider_guncel"
   }
  ]
 }

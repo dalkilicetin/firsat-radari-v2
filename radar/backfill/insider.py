@@ -132,3 +132,82 @@ class InsiderTransactions(Dataset):
         if diffs:
             check.detail += f"; farklar: {diffs[:3]}"
         return {}
+
+
+RECENT_COLUMNS = ["accession", "form", "filing_date", "available_date", "issuer_cik", "ticker", "owner_cik", "owner_name",
+                  "relationship", "owner_title", "n_owners", "trans_date", "code", "shares", "price", "acq_disp", "owned_after",
+                  "direct", "security"]
+
+
+class InsiderRecent(Dataset):
+    """Çeyreklik toplu dosyası henüz yayımlanmamış günlerin Form 4'leri (haftalık tarama için).
+
+    Kaynak: SEC günlük dosya indeksi → her Form 4'ün özgün XML'i. Yalnızca bugün borsada olan şirketlerin (universe veri
+    seti) işlemleri. Bilinme tarihi toplu setle aynı kural: dosyalama tarihinden 1 iş günü sonra."""
+    name = "insider_guncel"
+    title = "SEC Form 4 (toplu dosyası henüz çıkmamış günler, günlük indeksten)"
+    max_parallel = 2
+
+    def partitions(self, client: HttpClient, today: date) -> list[str]:
+        quarters = InsiderTransactions()._links(client)
+        last = max(quarters) if quarters else f"{today.year}q1"
+        start = quarter_bounds(last)[1] + pd.Timedelta(days=1)
+        days = pd.bdate_range(start, pd.Timestamp(today) - pd.Timedelta(days=1))
+        return [f"{d:%Y%m%d}" for d in days]
+
+    def load(self, client: HttpClient, partition: str) -> Loaded:
+        import re
+        from radar import archive
+        from radar.sources import sec_index
+        d = pd.Timestamp(partition)
+        url = sec_index.URL.format(y=d.year, q=(d.month - 1) // 3 + 1, d=d)
+        try:
+            rows = sec_index.parse_form_index(client.get(url).text)
+        except Exception:  # tatil günü: indeks yok
+            return Loaded(pd.DataFrame(columns=RECENT_COLUMNS), [url], {"filings": 0, "failed": 0, "holiday": True})
+        listed = set(archive.load("universe", columns=["cik"]).cik.dropna().astype(int))
+        paths = {}
+        for r in rows:
+            if r.form in ("4", "4/A"):
+                paths.setdefault(r.path, (r.form, set()))[1].add(r.cik)
+        todo = {p: f for p, (f, ciks) in paths.items() if ciks & listed}
+        out, failed = [], 0
+        for path, form in todo.items():
+            try:
+                text = client.get(sec_form4.ARCHIVE + path).text
+            except Exception:
+                failed += 1
+                continue
+            xml = sec_form4.extract_xml(text, "ownershipDocument")
+            if not xml:
+                failed += 1
+                continue
+            try:
+                txs = sec_form4.parse_form4(xml)
+            except Exception:
+                failed += 1
+                continue
+            ten = bool(re.search(r"<isTenPercentOwner>\s*(1|true)\s*</isTenPercentOwner>", xml, re.I))
+            owner_cik = re.search(r"<rptOwnerCik>\s*0*(\d+)\s*</rptOwnerCik>", xml)
+            acc = path.rsplit("/", 1)[-1].replace(".txt", "")
+            for t in txs:
+                rel = ",".join(x for x, on in (("Director", t.is_director), ("Officer", t.is_officer), ("TenPercentOwner", ten)) if on)
+                out.append({"accession": acc, "form": form, "filing_date": d, "available_date": d + pd.offsets.BDay(1),
+                            "issuer_cik": t.issuer_cik, "ticker": t.ticker, "owner_cik": int(owner_cik.group(1)) if owner_cik else None,
+                            "owner_name": t.owner, "relationship": rel, "owner_title": t.officer_title, "n_owners": 1,
+                            "trans_date": pd.Timestamp(t.date) if t.date else pd.NaT, "code": t.code, "shares": t.shares,
+                            "price": t.price, "acq_disp": t.acquired, "owned_after": t.owned_after, "direct": "", "security": ""})
+        df = pd.DataFrame(out, columns=RECENT_COLUMNS)
+        if len(df):
+            df["issuer_cik"] = df.issuer_cik.astype("Int64")
+            df["owner_cik"] = df.owner_cik.astype("Int64")
+            df["n_owners"] = df.n_owners.astype("Int64")
+        return Loaded(df, [url, sec_form4.ARCHIVE + "<form4>"], {"filings": len(todo), "failed": failed})
+
+    def check_partition(self, loaded: Loaded, partition: str, rep: SourceReport) -> None:
+        n = loaded.notes
+        if n.get("holiday"):
+            rep.add("Günlük indeks", Status.INFO, "yok (tatil)")
+            return
+        rep.expect_min_ratio("Okunan Form 4", n["filings"] - n["failed"], max(n["filings"], 1), 0.97, 0.9)
+        rep.add("İşlem satırı", Status.INFO, f"{len(loaded.df):,}")
