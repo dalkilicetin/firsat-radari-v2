@@ -100,6 +100,10 @@ def _son_gunlerde(ev: pd.DataFrame, dates, cols, gun_sayisi: int) -> pd.DataFram
 def _deger(long: pd.DataFrame, dates, cols, max_age=FIN_MAX_AGE) -> pd.DataFrame:
     """(cik, gun, value) → Cuma t itibarıyla son değer (gun: kullanılabilir Cuma)."""
     x = long.assign(cik=long.cik.astype(str), date=long.gun - pd.Timedelta(days=1))
+    # Aynı Cuma'ya düşen birden çok rapor: en geç kabul edilen kazanır (kesin kural; satır sırasına bağlı kalma —
+    # veri kesildiğinde sıra değişiyor ve sızıntı testi bunu yakaladı).
+    by = ["cik", "date"] + [c for c in ("accepted", "adsh") if c in x]
+    x = x.sort_values(by, kind="stable")
     return pit(x[["cik", "date", "value"]], dates, cols, max_age)
 
 
@@ -211,7 +215,8 @@ def hesapla(d: Duzenek, k: Kaynaklar, etf: pd.DataFrame | None = None) -> dict[s
         o[n] = o[n].fillna(False).astype(bool)
     o["olumlu_sayisi"] = sum(o[n].astype(int) for n in OLUMLU)
     o["devamlilik"] = o["devamlilik"] & (o["net_kar"] < 0) & (o["faaliyet_nakit_ceyrek"] < 0)
-    o["kesin_ret"] = o["devamlilik"] | o["gec_rapor"]
+    o["devamlilik"] = o["devamlilik"].fillna(False).astype(bool)
+    o["kesin_ret"] = (o["devamlilik"] | o["gec_rapor"]).fillna(False).astype(bool)
     o["dikkat_sayisi"] = sum(o[n].astype(int) for n in DIKKAT)
     return o
 

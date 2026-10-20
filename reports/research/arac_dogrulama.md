@@ -4,10 +4,10 @@
 
 | Tarih | Karşılaştırılan değer | Farklı |
 |---|---|---|
-| 2014-09-05 | 288,785 | 41 ['gelir_buyume', 'gelir_ivme', 'net_kar', 'net_kar_once', 'devamlilik'] |
-| 2018-03-02 | 288,785 | 97 ['net_kar', 'net_kar_once', 'devamlilik', 'ucuzluk_tuzagi', 'kesin_ret'] |
-| 2021-11-05 | 288,785 | 14 ['net_kar', 'net_kar_once', 'devamlilik'] |
-| 2025-05-02 | 288,785 | 6 ['net_kar', 'net_kar_once'] |
+| 2014-09-05 | 288,785 | 23 ['gelir_buyume', 'gelir_ivme', 'net_kar', 'net_kar_once', 'devamlilik'] |
+| 2018-03-02 | 288,785 | 66 ['devamlilik', 'kesin_ret'] |
+| 2021-11-05 | 288,785 | 0  |
+| 2025-05-02 | 288,785 | 0  |
 
 Sonuç: KALDI — yukarıdaki işaretler incelenmeli.
 

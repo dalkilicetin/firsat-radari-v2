@@ -27,7 +27,7 @@ def by_filing(fin: pd.DataFrame, tags: list[str], qtrs: list[int]) -> pd.DataFra
     """Her rapor için ilk bulunan etiketin cari dönem ve geçen yıl aynı dönem değeri."""
     d = fin[fin.tag.isin(tags) & fin.qtrs.isin(qtrs)].copy()
     d["prio"] = d.tag.map({t: i for i, t in enumerate(tags)})
-    d = d.sort_values(["adsh", "prio"])
+    d = d.sort_values(["adsh", "prio"], kind="stable")
     first_tag = d.groupby("adsh").tag.transform("first")
     d = d[d.tag == first_tag]
     cur_date = d.groupby(["adsh", "qtrs"]).ddate.transform("max")
@@ -39,7 +39,7 @@ def by_filing(fin: pd.DataFrame, tags: list[str], qtrs: list[int]) -> pd.DataFra
     prev = prev.groupby(keys).value.first().rename("prev")
     out = pd.concat([cur, prev], axis=1).reset_index()
     # Çeyreklik değer varsa onu, yoksa yıllığı kullan (10-K'larda çoğunlukla yalnızca yıllık vardır).
-    out = out.sort_values("qtrs").drop_duplicates("adsh", keep="first")
+    out = out.sort_values("qtrs", kind="stable").drop_duplicates("adsh", keep="first")
     return out
 
 
