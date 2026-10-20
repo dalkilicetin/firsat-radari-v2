@@ -1,0 +1,374 @@
+{
+ "tarih": "2026-10-20",
+ "durum": "Sınav dönemi (2023–2026) AÇILMADAN, yalnızca 2013–2022 verisiyle seçildi.",
+ "secim_kurali": "Ayar döneminde haftalık ilk 10'un borsadan ortalama fazla getirisi (3 ay, masraf sonrası) en yüksek varyant.",
+ "secilen": {
+  "ad": "lift_ceza0",
+  "agirlik": {
+   "yukselis": 0.3401529826594992,
+   "is_iyilesiyor": 0.3561171692831055,
+   "dipten_kalkti": 0.7690332472874879,
+   "sektor": 0.07524109748676427,
+   "iceriden": 0.22676160477049073,
+   "yakin_haber": -0.009497876603840397
+  },
+  "dikkat_cezasi": 0.0,
+  "ret": [],
+  "en_az_puan": 0.0
+ },
+ "deneme_sayisi": 4,
+ "defter": [
+  {
+   "ayar": {
+    "ad": "esit_ceza1",
+    "agirlik": {
+     "yukselis": 1.0,
+     "is_iyilesiyor": 1.0,
+     "dipten_kalkti": 1.0,
+     "sektor": 1.0,
+     "iceriden": 1.0,
+     "yakin_haber": 1.0
+    },
+    "dikkat_cezasi": 1.0,
+    "ret": [],
+    "en_az_puan": 1
+   },
+   "karne": {
+    "donem": "2013–2022",
+    "hafta": 522,
+    "medyan_3a": 0.029615575447678566,
+    "medyan_6a": 0.05636190250515938,
+    "ort_3a": 0.04877866432070732,
+    "ort_6a": 0.0922577977180481,
+    "borsa_3a": 0.03124445304274559,
+    "borsa_6a": 0.06258503347635269,
+    "fazla_borsa_3a": 0.01753421500325203,
+    "fazla_borsa_6a": 0.029672758653759956,
+    "fazla_sektor_3a": 0.009430290199816227,
+    "fazla_esit_3a": 0.02079388126730919,
+    "fazla_sektor_6a": 0.016198202967643738,
+    "fazla_esit_6a": 0.03765685856342316,
+    "kazanan_orani_3a": 0.13256704980842912,
+    "kazanan_orani_6a": 0.13275862068965516,
+    "rastgele_kazanan_orani": 0.050000000000000044,
+    "borsayi_gecen_3a": 0.5689655172413793,
+    "borsayi_gecen_6a": 0.5574712643678161,
+    "tamamen_kacirilan": 0.9111179931867451,
+    "yakalanan_pay_medyan": 0.37758558988571167,
+    "zincir_yillik": 0.11593735218048096,
+    "zincir_borsa_yillik": 0.12276947498321533,
+    "en_buyuk_dusus": -0.4267432689666748,
+    "masraf_yillik": 0.011969761922955513,
+    "haftalik_yeni_hisse": 3.55278310940499,
+    "ceyreklik_yeni_hisse": 8.307692307692308,
+    "ga90_fazla_borsa_3a": [
+     -0.0038073351606726646,
+     0.0390997976064682
+    ]
+   }
+  },
+  {
+   "ayar": {
+    "ad": "esit_ceza0",
+    "agirlik": {
+     "yukselis": 1.0,
+     "is_iyilesiyor": 1.0,
+     "dipten_kalkti": 1.0,
+     "sektor": 1.0,
+     "iceriden": 1.0,
+     "yakin_haber": 1.0
+    },
+    "dikkat_cezasi": 0.0,
+    "ret": [],
+    "en_az_puan": 1
+   },
+   "karne": {
+    "donem": "2013–2022",
+    "hafta": 522,
+    "medyan_3a": 0.024246076121926308,
+    "medyan_6a": 0.04528525844216347,
+    "ort_3a": 0.04630281403660774,
+    "ort_6a": 0.09484788775444031,
+    "borsa_3a": 0.03124445304274559,
+    "borsa_6a": 0.06258503347635269,
+    "fazla_borsa_3a": 0.015058358199894428,
+    "fazla_borsa_6a": 0.03226285055279732,
+    "fazla_sektor_3a": 0.0083085335791111,
+    "fazla_esit_3a": 0.018318025395274162,
+    "fazla_sektor_6a": 0.022615652531385422,
+    "fazla_esit_6a": 0.04024695232510567,
+    "kazanan_orani_3a": 0.14080459770114942,
+    "kazanan_orani_6a": 0.1417624521072797,
+    "rastgele_kazanan_orani": 0.050000000000000044,
+    "borsayi_gecen_3a": 0.5708812260536399,
+    "borsayi_gecen_6a": 0.5287356321839081,
+    "tamamen_kacirilan": 0.9120470733973366,
+    "yakalanan_pay_medyan": 0.47132188081741333,
+    "zincir_yillik": 0.06281471252441406,
+    "zincir_borsa_yillik": 0.12276947498321533,
+    "en_buyuk_dusus": -0.4236609935760498,
+    "masraf_yillik": 0.012093465775251389,
+    "haftalik_yeni_hisse": 3.692898272552783,
+    "ceyreklik_yeni_hisse": 8.307692307692308,
+    "ga90_fazla_borsa_3a": [
+     -0.007639401126652956,
+     0.036632247269153595
+    ]
+   }
+  },
+  {
+   "ayar": {
+    "ad": "lift_ceza1",
+    "agirlik": {
+     "yukselis": 0.3401529826594992,
+     "is_iyilesiyor": 0.3561171692831055,
+     "dipten_kalkti": 0.7690332472874879,
+     "sektor": 0.07524109748676427,
+     "iceriden": 0.22676160477049073,
+     "yakin_haber": -0.009497876603840397
+    },
+    "dikkat_cezasi": 1.0,
+    "ret": [],
+    "en_az_puan": 0.0
+   },
+   "karne": {
+    "donem": "2013–2022",
+    "hafta": 522,
+    "medyan_3a": 0.03573265299201012,
+    "medyan_6a": 0.06115579232573509,
+    "ort_3a": 0.055797308683395386,
+    "ort_6a": 0.10673142224550247,
+    "borsa_3a": 0.03124445304274559,
+    "borsa_6a": 0.06258503347635269,
+    "fazla_borsa_3a": 0.024552855640649796,
+    "fazla_borsa_6a": 0.04414638504385948,
+    "fazla_sektor_3a": 0.01590217649936676,
+    "fazla_esit_3a": 0.027812523767352104,
+    "fazla_sektor_6a": 0.029465634375810623,
+    "fazla_esit_6a": 0.05213048309087753,
+    "kazanan_orani_3a": 0.13007662835249043,
+    "kazanan_orani_6a": 0.14827586206896554,
+    "rastgele_kazanan_orani": 0.050000000000000044,
+    "borsayi_gecen_3a": 0.5747126436781609,
+    "borsayi_gecen_6a": 0.6226053639846744,
+    "tamamen_kacirilan": 0.9219572623103128,
+    "yakalanan_pay_medyan": 0.361014723777771,
+    "zincir_yillik": 0.12049078941345215,
+    "zincir_borsa_yillik": 0.12276947498321533,
+    "en_buyuk_dusus": -0.3307480216026306,
+    "masraf_yillik": 0.012108588591217995,
+    "haftalik_yeni_hisse": 2.8809980806142033,
+    "ceyreklik_yeni_hisse": 8.564102564102564,
+    "ga90_fazla_borsa_3a": [
+     0.005320750176906586,
+     0.04392322525382042
+    ]
+   }
+  },
+  {
+   "ayar": {
+    "ad": "lift_ceza0",
+    "agirlik": {
+     "yukselis": 0.3401529826594992,
+     "is_iyilesiyor": 0.3561171692831055,
+     "dipten_kalkti": 0.7690332472874879,
+     "sektor": 0.07524109748676427,
+     "iceriden": 0.22676160477049073,
+     "yakin_haber": -0.009497876603840397
+    },
+    "dikkat_cezasi": 0.0,
+    "ret": [],
+    "en_az_puan": 0.0
+   },
+   "karne": {
+    "donem": "2013–2022",
+    "hafta": 522,
+    "medyan_3a": 0.031598806381225586,
+    "medyan_6a": 0.043455008417367935,
+    "ort_3a": 0.05988029018044472,
+    "ort_6a": 0.09890928864479065,
+    "borsa_3a": 0.03124445304274559,
+    "borsa_6a": 0.06258503347635269,
+    "fazla_borsa_3a": 0.028635837137699127,
+    "fazla_borsa_6a": 0.03632424771785736,
+    "fazla_sektor_3a": 0.018747549504041672,
+    "fazla_esit_3a": 0.03189550340175629,
+    "fazla_sektor_6a": 0.020035089924931526,
+    "fazla_esit_6a": 0.04430835321545601,
+    "kazanan_orani_3a": 0.13850574712643676,
+    "kazanan_orani_6a": 0.1417624521072797,
+    "rastgele_kazanan_orani": 0.050000000000000044,
+    "borsayi_gecen_3a": 0.6187739463601533,
+    "borsayi_gecen_6a": 0.5670498084291188,
+    "tamamen_kacirilan": 0.9173118612573552,
+    "yakalanan_pay_medyan": 0.37771934270858765,
+    "zincir_yillik": 0.19098210334777832,
+    "zincir_borsa_yillik": 0.12276947498321533,
+    "en_buyuk_dusus": -0.3083399534225464,
+    "masraf_yillik": 0.012372085824608803,
+    "haftalik_yeni_hisse": 2.9404990403071016,
+    "ceyreklik_yeni_hisse": 8.564102564102564,
+    "ga90_fazla_borsa_3a": [
+     0.0022898318711668253,
+     0.05443587526679039
+    ]
+   }
+  }
+ ],
+ "suzgec": [
+  {
+   "isaret": "devamlilik",
+   "vade": "3a",
+   "grup": "kesin_ret",
+   "evrende_gorulme": 0.0053,
+   "kazanani_koruma": 0.9894,
+   "kaybedeni_eleme": 0.007,
+   "oran": 0.6565,
+   "isaretli_ort_net": -0.08699999749660492,
+   "isaretsiz_ort_net": 0.021700000390410423
+  },
+  {
+   "isaret": "gec_rapor",
+   "vade": "3a",
+   "grup": "kesin_ret",
+   "evrende_gorulme": 0.0121,
+   "kazanani_koruma": 0.9841,
+   "kaybedeni_eleme": 0.0129,
+   "oran": 0.8133,
+   "isaretli_ort_net": -0.002099999925121665,
+   "isaretsiz_ort_net": 0.021400000900030136
+  },
+  {
+   "isaret": "hisse_basma",
+   "vade": "3a",
+   "grup": "dikkat",
+   "evrende_gorulme": 0.1698,
+   "kazanani_koruma": 0.7939,
+   "kaybedeni_eleme": 0.1779,
+   "oran": 0.8632,
+   "isaretli_ort_net": 0.012199999764561653,
+   "isaretsiz_ort_net": 0.023000000044703484
+  },
+  {
+   "isaret": "ters_bolunme",
+   "vade": "3a",
+   "grup": "dikkat",
+   "evrende_gorulme": 0.0029,
+   "kazanani_koruma": 0.9936,
+   "kaybedeni_eleme": 0.0029,
+   "oran": 0.4462,
+   "isaretli_ort_net": 0.05510000139474869,
+   "isaretsiz_ort_net": 0.0210999995470047
+  },
+  {
+   "isaret": "nakit_sikintisi",
+   "vade": "3a",
+   "grup": "dikkat",
+   "evrende_gorulme": 0.0466,
+   "kazanani_koruma": 0.9274,
+   "kaybedeni_eleme": 0.0483,
+   "oran": 0.6647,
+   "isaretli_ort_net": 0.015300000086426735,
+   "isaretsiz_ort_net": 0.021400000900030136
+  },
+  {
+   "isaret": "dusen_bicak",
+   "vade": "3a",
+   "grup": "dikkat",
+   "evrende_gorulme": 0.0105,
+   "kazanani_koruma": 0.9671,
+   "kaybedeni_eleme": 0.0108,
+   "oran": 0.329,
+   "isaretli_ort_net": 0.05689999833703041,
+   "isaretsiz_ort_net": 0.020800000056624413
+  },
+  {
+   "isaret": "ucuzluk_tuzagi",
+   "vade": "3a",
+   "grup": "dikkat",
+   "evrende_gorulme": 0.024,
+   "kazanani_koruma": 0.9505,
+   "kaybedeni_eleme": 0.022,
+   "oran": 0.4439,
+   "isaretli_ort_net": 0.07509999722242355,
+   "isaretsiz_ort_net": 0.01979999989271164
+  },
+  {
+   "isaret": "devamlilik",
+   "vade": "6a",
+   "grup": "kesin_ret",
+   "evrende_gorulme": 0.0053,
+   "kazanani_koruma": 0.9914,
+   "kaybedeni_eleme": 0.007,
+   "oran": 0.8173,
+   "isaretli_ort_net": -0.14869999885559082,
+   "isaretsiz_ort_net": 0.04879999905824661
+  },
+  {
+   "isaret": "gec_rapor",
+   "vade": "6a",
+   "grup": "kesin_ret",
+   "evrende_gorulme": 0.0121,
+   "kazanani_koruma": 0.9886,
+   "kaybedeni_eleme": 0.0133,
+   "oran": 1.1606,
+   "isaretli_ort_net": 0.0027000000700354576,
+   "isaretsiz_ort_net": 0.04830000177025795
+  },
+  {
+   "isaret": "hisse_basma",
+   "vade": "6a",
+   "grup": "dikkat",
+   "evrende_gorulme": 0.1698,
+   "kazanani_koruma": 0.8013,
+   "kaybedeni_eleme": 0.1795,
+   "oran": 0.903,
+   "isaretli_ort_net": 0.02889999933540821,
+   "isaretsiz_ort_net": 0.051600001752376556
+  },
+  {
+   "isaret": "ters_bolunme",
+   "vade": "6a",
+   "grup": "dikkat",
+   "evrende_gorulme": 0.0029,
+   "kazanani_koruma": 0.993,
+   "kaybedeni_eleme": 0.0029,
+   "oran": 0.4189,
+   "isaretli_ort_net": 0.08240000158548355,
+   "isaretsiz_ort_net": 0.04769999906420708
+  },
+  {
+   "isaret": "nakit_sikintisi",
+   "vade": "6a",
+   "grup": "dikkat",
+   "evrende_gorulme": 0.0466,
+   "kazanani_koruma": 0.9262,
+   "kaybedeni_eleme": 0.0479,
+   "oran": 0.6487,
+   "isaretli_ort_net": 0.04699999839067459,
+   "isaretsiz_ort_net": 0.04780000075697899
+  },
+  {
+   "isaret": "dusen_bicak",
+   "vade": "6a",
+   "grup": "dikkat",
+   "evrende_gorulme": 0.0105,
+   "kazanani_koruma": 0.97,
+   "kaybedeni_eleme": 0.0113,
+   "oran": 0.3772,
+   "isaretli_ort_net": 0.05719999969005585,
+   "isaretsiz_ort_net": 0.04769999906420708
+  },
+  {
+   "isaret": "ucuzluk_tuzagi",
+   "vade": "6a",
+   "grup": "dikkat",
+   "evrende_gorulme": 0.024,
+   "kazanani_koruma": 0.9482,
+   "kaybedeni_eleme": 0.0217,
+   "oran": 0.4177,
+   "isaretli_ort_net": 0.16539999842643738,
+   "isaretsiz_ort_net": 0.04490000009536743
+  }
+ ]
+}
