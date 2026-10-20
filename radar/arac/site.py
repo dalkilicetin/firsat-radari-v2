@@ -84,6 +84,15 @@ def bulunma(n: int) -> str:
     return f"{n}'{'t' if sert else 'd'}{unlu}"
 
 
+def ayrilma(n: int) -> str:
+    """Sayıya ayrılma eki (iyelikten sonra): %99'undan, %40'ından, %3'ünden → iyelik + 'nden/ndan'."""
+    k = _son_kelime(n)
+    u = _son_unlu(k)
+    v = {"a": "ı", "ı": "ı", "o": "u", "u": "u", "e": "i", "i": "i", "ö": "ü", "ü": "ü"}[u]
+    d = "a" if u in "aıou" else "e"
+    return f"{n}'{'s' if k[-1] in 'aeıioöuü' else ''}{v}nd{d}n"
+
+
 def iyelik(n: int) -> str:
     """Sayıya 3. tekil iyelik eki: 1'i, 2'si, 3'ü, 6'sı, 10'u."""
     k = _son_kelime(n)
@@ -237,7 +246,9 @@ def liste_sayfasi(v: dict) -> str:
     g.append("</section>")
     a = v["alinmaz"]
     blk = f'<section class="kart"><h2>{ikon("ret")}Alınmaz ve dikkat</h2>'
-    blk += f'<div class="kucuk" style="font-weight:700;color:var(--turuncu-koyu)">Kesin ret · şirket güvenilirliği</div>'
+    blk += ('<div class="kucuk" style="font-size:14px">Geçmiş testte (2013–2022) bu uyarıların hiçbiri kaybettirenleri kazandıranlardan '
+            'yeterince ayıramadı; bu yüzden hisseler listeden otomatik çıkarılmıyor, uyarı olarak gösteriliyor.</div>')
+    blk += f'<div class="kucuk" style="font-weight:700;color:var(--turuncu-koyu)">Ciddi uyarı · şirket güvenilirliği</div>'
     blk += "".join(f'<div class="madde cizgili"><div style="min-width:52px;font-weight:700">{e(x["sembol"])}</div><div style="font-size:14px">{e(x["neden"])}</div></div>'
                    for x in a["kesin"]) or '<div class="kucuk">Bu hafta yok.</div>'
     blk += f'<div class="kucuk" style="font-weight:700;color:var(--sari);padding-top:6px">Dikkat · tek başına ret sebebi değil</div>'
@@ -318,6 +329,8 @@ def karne_sayfasi(v: dict) -> str:
             ("Masraflar", f'<span class="sayi">yılda {yuzde(s.get("masraf_yillik"), False, 1)}</span>', "Getiriden düşüldü"),
             ("Liste ne kadar değişiyor", f'<span class="sayi">haftada {s.get("haftalik_yeni_hisse") or 0:.1f}</span>'.replace(".", ","), f"Çeyrekte {s.get('ceyreklik_yeni_hisse') or 0:.1f} hisse".replace(".", ",")),
             ("Borsayı geçen hafta", f'<span class="sayi">{e(oran_metni(s.get("borsayi_gecen_3a")))}</span>', "3 aylık sonuçlar"),
+            ("Çeyrek başında alıp tutsaydık", _sayi(s.get("zincir_yillik")), f"Yıllık; borsa {yuzde(s.get('zincir_borsa_yillik'))}"),
+            ("Kazananların yakalanan kısmı", f'<span class="sayi">{yuzde(s.get("yakalanan_pay_medyan"), False)}</span>', "Listeye girdikten sonraki pay (orta değer)"),
         ]
         g.append(f'<section class="kart"><h2>{e(blok["baslik"])}</h2><div class="kucuk" style="font-size:14px">{e(blok["aciklama"])}</div><div class="izgara">' +
                  "".join(f'<div class="kutu"><div class="kucuk">{e(a)}</div>{b}<div class="kucuk">{e(c)}</div></div>' for a, b, c in kutular) +

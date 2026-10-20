@@ -1,0 +1,56 @@
+{
+ "tarih": "2026-10-09",
+ "ayar": "lift_ceza0",
+ "liste": [
+  {
+   "sira": 1,
+   "cik": "1451809",
+   "sembol": "SITM"
+  },
+  {
+   "sira": 2,
+   "cik": "723125",
+   "sembol": "MU"
+  },
+  {
+   "sira": 3,
+   "cik": "1710340",
+   "sembol": "ETON"
+  },
+  {
+   "sira": 4,
+   "cik": "1835632",
+   "sembol": "MRVL"
+  },
+  {
+   "sira": 5,
+   "cik": "1601046",
+   "sembol": "KEYS"
+  },
+  {
+   "sira": 6,
+   "cik": "1581280",
+   "sembol": "TWST"
+  },
+  {
+   "sira": 7,
+   "cik": "1425205",
+   "sembol": "IOVA"
+  },
+  {
+   "sira": 8,
+   "cik": "1217234",
+   "sembol": "CDNA"
+  },
+  {
+   "sira": 9,
+   "cik": "751978",
+   "sembol": "VICR"
+  },
+  {
+   "sira": 10,
+   "cik": "2013745",
+   "sembol": "CLMT"
+  }
+ ]
+}

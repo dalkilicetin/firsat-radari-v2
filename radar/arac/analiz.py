@@ -252,7 +252,8 @@ ISARET_METNI = {
 }
 
 
-def otopsi(v: Veri, listeler: dict, yillar: tuple[int, int], vade: str = "3a", adet: int = 20) -> list[dict]:
+def otopsi(v: Veri, listeler: dict, yillar: tuple[int, int], vade: str = "3a", adet: int = 20,
+           ret: list[str] | None = None) -> list[dict]:
     tab, isa = v.tablo, v.isaret
     h = VADE[vade]
     pos = {t: i for i, t in enumerate(v.tarihler)}
@@ -266,7 +267,10 @@ def otopsi(v: Veri, listeler: dict, yillar: tuple[int, int], vade: str = "3a", a
         if b.empty:
             continue
         weeks = v.tarihler[pos[t0]: pos[t0] + h]
-        ok = (isa["olumlu_sayisi"] >= ISARET_ESIK) & ~isa["kesin_ret"] & tab["evren"]
+        ret_ = isaretler.KESIN_RET if ret is None else ret
+        ok = (isa["olumlu_sayisi"] >= ISARET_ESIK) & tab["evren"]
+        for r_ in ret_:
+            ok = ok & ~isa[r_]
         for c in b.sort_values(ascending=False).index[:adet]:
             total = float(b[c])
             end = px.at[t0, c] * (1 + total)
@@ -296,10 +300,10 @@ def otopsi(v: Veri, listeler: dict, yillar: tuple[int, int], vade: str = "3a", a
                 rec |= _benzerler(v, s, c, ok, vade)
             else:
                 ev_ok = bool(tab["evren"].loc[weeks, c].any())
-                ret = bool(isa["kesin_ret"].loc[weeks, c].any())
+                reddedildi = any(bool(isa[r_].loc[weeks, c].any()) for r_ in ret_)
                 best = int(isa["olumlu_sayisi"].loc[weeks, c].max()) if ev_ok else None
                 rec |= {"ilk_isaret": None, "neden": "evren dışı (küçük ya da az işlem)" if not ev_ok else
-                        ("kesin ret işareti" if ret else f"en fazla {best} işaret (en az {ISARET_ESIK} gerekir)")}
+                        ("kesin ret işareti" if reddedildi else f"en fazla {best} işaret (en az {ISARET_ESIK} gerekir)")}
             out.append(rec)
     return out
 

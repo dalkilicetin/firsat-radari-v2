@@ -88,7 +88,7 @@ class Hafta:
         alici = g("alici_sayisi_90g")
         gun = g("son_rapordan_gun")
         metin = {
-            "yukselis": f"Son 1 yılda evrendeki hisselerin %{round(mom * 100) if pd.notna(mom) else '—'}'sinden çok yükseldi; "
+            "yukselis": f"Son 1 yılda evrendeki hisselerin %{site.ayrilma(round(mom * 100)) if pd.notna(mom) else '—'} çok yükseldi; "
                         f"52 haftalık zirvesine uzaklığı {_y(zir)}.",
             "is_iyilesiyor": (f"Son raporda satışlar geçen yılın aynı dönemine göre {_y(gel)}; önceki rapora göre büyüme "
                               f"{'hızlandı' if pd.notna(ivm) and ivm > 0 else 'yavaşladı'}." if pd.notna(gel) else "Satış verisi yok."),
@@ -97,12 +97,13 @@ class Hafta:
             "iceriden": ("; ".join(x for x in [f"son 90 günde {int(alici)} yönetici/ortak borsadan hisse aldı" if pd.notna(alici) and alici > 0 else "",
                                                 "yeni aktivist yatırımcı (13D)" if g("aktivist_13d") else "",
                                                 "büyük bir yatırımcı yeni %5+ ortak oldu (13G)" if g("yeni_13g") else ""] if x)
-                         or "Son 90 günde yönetici alımı ya da yeni büyük ortak yok.").capitalize(),
+                         or "son 90 günde yönetici alımı ya da yeni büyük ortak yok."),
             "yakin_haber": (f"Son rapordan bu yana {int(gun)} gün geçti; sonraki bilanço yaklaşık {max(0, round((91 - gun) / 7))} hafta içinde bekleniyor."
                             if pd.notna(gun) else "Rapor takvimi bilinmiyor."),
         }
         yok = {"yukselis": "Yükseliş zayıf", "is_iyilesiyor": "İşlerde belirgin iyileşme yok", "dipten_kalkti": "Dibe yakın",
                "sektor": "Sektörü borsanın gerisinde", "iceriden": "İçeriden alım yok", "yakin_haber": "Yakında bilanço yok"}
+        metin["iceriden"] = metin["iceriden"][:1].upper() + metin["iceriden"][1:]
         return metin, yok
 
     def aciklamalar(self, t, c, gun=30) -> list[dict]:
@@ -139,6 +140,10 @@ class Hafta:
                "dusen_bicak": "Zirvesinden %70'ten fazla aşağıda ve düşüşü sürüyor.",
                "ucuzluk_tuzagi": "Satışları düşüyor ve zararı büyüyor: ucuz görünse de tuzak olabilir."}
         out += [txt[n] for n in isaretler.DIKKAT if i[n].at[t, c]]
+        if i["devamlilik"].at[t, c]:
+            out.append("Son yıllık raporunda ayakta kalma şüphesi dile getirildi; şirket zarar ediyor ve nakit yakıyor.")
+        if i["gec_rapor"].at[t, c]:
+            out.append("Son 6 ayda mali tablolarını zamanında açıklayamadığını bildirdi.")
         if not i["is_iyilesiyor"].at[t, c]:
             out.append("Satışlarda belirgin bir hızlanma yok; yükseliş beklentiye dayanıyor olabilir.")
         return out or ["Belirgin bir risk işareti yok; yine de her hisse beklenmedik haberle sert düşebilir."]
@@ -157,7 +162,13 @@ class Hafta:
         oz = {"yukselis": "yükselişi sürüyor", "is_iyilesiyor": "satışları hızlanarak artıyor", "dipten_kalkti": "dipten güçlü kalktı",
               "sektor": "sektörünün rüzgârı arkasında", "iceriden": "yöneticileri ya da büyük yatırımcılar alıyor",
               "yakin_haber": "bilançosu yaklaşıyor"}
-        neden = ", ".join(oz[n] for n in var[:3])
+        g = lambda n: i[n].at[t, c]
+        somut = {"yukselis": f"1 yılda hisselerin %{site.ayrilma(round(g('momentum_sira') * 100))} çok yükseldi" if pd.notna(g("momentum_sira")) else oz["yukselis"],
+                 "is_iyilesiyor": f"satışları {_y(g('gelir_buyume'))} arttı ve hızlanıyor" if pd.notna(g("gelir_buyume")) else oz["is_iyilesiyor"],
+                 "dipten_kalkti": f"dibinin {g('dip_kat'):.1f} katında".replace(".", ",") if pd.notna(g("dip_kat")) else oz["dipten_kalkti"],
+                 "sektor": f"sektörü 1 yılda {_y(g('sektor_12_1'))}", "iceriden": oz["iceriden"], "yakin_haber": oz["yakin_haber"]}
+        sira_w = sorted(var, key=lambda n: -self.ayar["agirlik"].get(n, 0))
+        neden = "; ".join(somut[n] for n in sira_w[:3])
         neden = neden[:1].upper() + neden[1:] if neden else "İşaret sayısı düşük"
         b = self.benzer(t, c)
         pdg = v.tablo["piyasa_degeri"].at[t, c]
@@ -175,7 +186,7 @@ class Hafta:
         return {"sira": sira, "cik": c, "sembol": self.sembol(c), "ad": ad, "sektor": sek, "buyukluk": _buyukluk(pdg),
                 "neden": neden + ".", "ozet": f"{ad}: {neden.lower()}.", "isaretler": isa, "olumlu": len(var),
                 "isaret_metni": metin, "isaret_yok": yok, "benzer": b, "vade_3a": self.vade(b, "3a"), "vade_6a": self.vade(b, "6a"),
-                "degisim": degisim, "dikkat": [n for n in isaretler.DIKKAT if i[n].at[t, c]], "yeni_aciklama": bool(ac),
+                "degisim": degisim, "dikkat": [n for n in isaretler.DIKKAT + isaretler.KESIN_RET if i[n].at[t, c]], "yeni_aciklama": bool(ac),
                 "aciklamalar": ac, "almamali": self.almamali(t, c), "ayrinti": ayr.replace("nan", "—")}
 
     def alinmaz(self, t, n=5) -> dict:
@@ -247,7 +258,7 @@ def otopsi_verisi(v: Veri, ayar: dict, h: Hafta) -> dict:
     pos = {t: i for i, t in enumerate(v.tarihler)}
     weeks = v.tarihler[pos[q0]: pos[q0] + 13]
     ls = analiz.liste(v, ayar, weeks)
-    rows = analiz.otopsi(v, ls, (q0.year, q0.year), "3a", adet=10)
+    rows = analiz.otopsi(v, ls, (q0.year, q0.year), "3a", adet=10, ret=ayar.get("ret", []))
     rows = [r for r in rows if r["tarih"] == str(q0.date())]
     kartlar = []
     for k, r in enumerate(rows):
