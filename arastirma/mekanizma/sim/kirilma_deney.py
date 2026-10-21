@@ -23,6 +23,8 @@ def _isci(a):
     e = d.endeks
     oz = K.ozellikler(e["adj"], d.hisseler, e["vix"], e["kredi"], H)
     rj = K.rejim(e["adj"], H["rejim"])
+    from mekanizma.ozellik import likidite as _lk
+    oz["_lik"] = _lk.likidite_degisim(e["likidite"], 63)
     out = {}
     for gad, g in H["gorevler"].items():
         for u in H["hedef_ufuklar"]:

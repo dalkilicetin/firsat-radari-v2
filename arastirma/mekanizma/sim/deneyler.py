@@ -402,6 +402,9 @@ def _s5_isci(a):
     bol = bolumle(ol, adj.index, 126) if len(ol) else pd.Series(dtype=int)
     ilk = ol[~bol.duplicated().to_numpy()] if len(ol) else ol
     lr_h, lr_e = np.log(H).diff(), np.log(adj).diff()
+    from mekanizma.ozellik import fiyat as _fy, korelasyon as _kor, likidite as _lk
+    kor_p = _fy.yuzdelik_genisleyen(_kor.ort_ikili_korelasyon(lr_h, 63), 252)
+    lik_p = _fy.yuzdelik_genisleyen(_lk.likidite_degisim(d.endeks["likidite"], 63), 252)
     n = len(adj)
     rng = np.random.default_rng(7000 + tohum)
     sakin = np.flatnonzero((oz["dd"] > -0.03).to_numpy())
@@ -424,7 +427,8 @@ def _s5_isci(a):
         gt, pk = gercek_tur(d, i)
         if gt is None or pk < 130 or i + 2 + max(S5_UFUK) >= n:
             continue
-        r = dict(tohum=tohum, tarih=str(t.date()), gercek=gt, olay=_olay_etiketi(d, pk, i), tahmin=sg.loc[t, "tur"])
+        r = dict(tohum=tohum, tarih=str(t.date()), gercek=gt, olay=_olay_etiketi(d, pk, i), tahmin=sg.loc[t, "tur"],
+                 kor_p=float(kor_p.loc[t]) if pd.notna(kor_p.loc[t]) else None, lik_p=float(lik_p.loc[t]) if pd.notna(lik_p.loc[t]) else None)
         r.update(sirala(i, pk))
         L = i - pk
         adaylar = sakin[(sakin - L >= 130) & (sakin + 2 + max(S5_UFUK) < n)]

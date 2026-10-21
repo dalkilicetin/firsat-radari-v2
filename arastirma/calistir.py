@@ -37,6 +37,10 @@ def main(argv=None):
         from mekanizma.sim import kirilma_deney
         kirilma_deney.kirilma()
         return 0
+    if a.komut == "kosullar":
+        from mekanizma.sim import kosullar
+        kosullar.kosullar()
+        return 0
     if a.komut == "katalog":
         from tarih import inceleme
         print(inceleme.uret())
