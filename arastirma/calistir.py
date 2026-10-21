@@ -33,6 +33,10 @@ def main(argv=None):
     if a.komut == "gercek":
         from mekanizma import gercek
         return gercek.calistir(a.ad)
+    if a.komut == "kirilma":
+        from mekanizma.sim import kirilma_deney
+        kirilma_deney.kirilma()
+        return 0
     if a.komut == "katalog":
         from tarih import inceleme
         print(inceleme.uret())

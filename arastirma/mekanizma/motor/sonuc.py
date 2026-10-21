@@ -37,3 +37,12 @@ def toparlanma_suresi(adj, tarihler, n=252):
         k = np.flatnonzero(ileri >= zirve)
         out[t] = float(k[0]) if len(k) else np.nan
     return pd.Series(out, dtype=float)
+
+
+def gecis_hedefi(rejim, ufuk, kaynak, hedef):
+    """t'de rejim `kaynak` kumesindeyse: sonraki `ufuk` bar (t+1..t+ufuk) icinde `hedef` kumesine gecis oldu mu (1.0/0.0).
+    Kaynakta degilse ya da pencere dolmadiysa NaN."""
+    h = rejim.isin(list(hedef)).astype(float)
+    h[rejim.isna()] = np.nan
+    ileri = h.iloc[::-1].rolling(ufuk, min_periods=ufuk).max().iloc[::-1].shift(-1)
+    return ileri.where(rejim.isin(list(kaynak)))

@@ -3,7 +3,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from mekanizma.ozellik import fiyat
+from mekanizma.mekanizmalar import kirilma
+from mekanizma.ozellik import fiyat, korelasyon
 
 rng = np.random.default_rng(5)
 N = 700
@@ -19,6 +20,9 @@ VAKALAR = {
     "ust_oran": lambda s, g: fiyat.ust_oran(g, 50),
     "beta": lambda s, g: fiyat.beta(g["S0"], s, 100),
     "yuzdelik": lambda s, g: fiyat.yuzdelik_genisleyen(fiyat.getiri(s, 20), 50),
+    "ort_kor": lambda s, g: korelasyon.ort_ikili_korelasyon(np.log(g).diff(), 63),
+    "kesitsel": lambda s, g: korelasyon.kesitsel_dagilim(np.log(g).diff(), 21),
+    "momentum_farki": lambda s, g: kirilma.momentum_farki(pd.concat([g] * 5, axis=1).set_axis(range(40), axis=1), 21),
 }
 
 

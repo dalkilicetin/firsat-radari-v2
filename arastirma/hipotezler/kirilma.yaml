@@ -1,0 +1,14 @@
+# Onceden kayitli (L9)
+rejim: {vol_n: 63, vol_esik: 0.70, trend_n: 200, min_sure: 10}
+genislik_n: 200
+hedef_ufuklar: [21, 63]
+gorevler:
+  panikten_normale: {kaynak: [oynak_dusus], hedef: [sakin_yukselis, oynak_yukselis]}
+  yukselisten_dususe: {kaynak: [sakin_yukselis, oynak_yukselis], hedef: [sakin_dusus, oynak_dusus]}
+egitim_tohum: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+test_tohum: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+inceltme: 5          # her 5. bar (ardisik barlar bagimli)
+ridge: 0.01
+aylik:
+  rejim: {vol_n: 6, vol_esik: 0.70, trend_n: 10, min_sure: 2}
+  min_gecmis: 12
