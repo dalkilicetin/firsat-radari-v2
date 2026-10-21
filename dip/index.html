@@ -64,6 +64,22 @@ button.daha{font:inherit;font-weight:600;padding:12px;border-radius:12px;border:
   <div class="kucuk" id="sayac"></div>
 </section>
 
+<section class="kart" aria-label="Yapay zekâya sor">
+  <h2>Yapay zekâya sor</h2>
+  <div class="kucuk">Aşağıdaki metin hazır bir istem (prompt) ve filtrene göre seçilen hisselerin düşme oranlarını içerir. Tek seferde kopyalayıp başka bir yapay zekâya yapıştırabilirsin. Veri hatalı olabilir; cevabı mutlaka kaynaklarından doğrula.</div>
+  <div class="satir2">
+    <select id="aiSayi" aria-label="Kaç hisse">
+      <option value="10">İlk 10 hisse</option>
+      <option value="25" selected>İlk 25 hisse</option>
+      <option value="50">İlk 50 hisse</option>
+      <option value="0">Filtredeki tümü</option>
+    </select>
+    <button class="daha" id="aiKopyala" type="button">Kopyala</button>
+  </div>
+  <textarea id="aiMetin" readonly rows="10" aria-label="Kopyalanacak metin" style="font:12.5px/1.5 'IBM Plex Mono',ui-monospace,monospace;padding:10px;border-radius:10px;border:1px solid var(--cizgi);background:var(--zemin);color:var(--yazi);width:100%;resize:vertical"></textarea>
+  <div class="kucuk" id="aiDurum" role="status"></div>
+</section>
+
 <div id="liste" style="display:flex;flex-direction:column;gap:12px"></div>
 <button class="daha" id="daha" hidden>Daha fazla göster</button>
 
@@ -172,12 +188,25 @@ button.daha{font:inherit;font-weight:600;padding:12px;border-radius:12px;border:
     return l;
   }
 
+  function aiGuncelle(l) {
+    var n = parseInt($("aiSayi").value, 10);
+    var secim = n ? l.slice(0, n) : l;
+    $("aiMetin").value = secim.length ? DipKontrol.aiMetni(secim, S.sonuc.tarih) : "Bu filtreyle eşleşen hisse yok.";
+    $("aiDurum").textContent = secim.length + " hisse metne eklendi (filtre ve sıralama uygulanır).";
+  }
+  function kopyala() {
+    var t = $("aiMetin"), ok = function () { $("aiDurum").textContent = "Kopyalandı. Şimdi yapay zekâya yapıştırabilirsin."; };
+    var yedek = function () { t.focus(); t.select(); try { if (document.execCommand("copy")) ok(); else $("aiDurum").textContent = "Otomatik kopyalama olmadı; metni seçip elle kopyala."; } catch (e) { $("aiDurum").textContent = "Otomatik kopyalama olmadı; metni seçip elle kopyala."; } };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t.value).then(ok, yedek); else yedek();
+  }
+
   function ciz() {
     var l = filtrele(), liste = $("liste");
     liste.textContent = "";
     l.slice(0, S.gorunen).forEach(function (h) { liste.appendChild(kart(h)); });
     $("sayac").textContent = l.length + " hisse gösterilecek (toplam " + S.sonuc.adaylar.length + " düşmüş hisse)";
     $("daha").hidden = l.length <= S.gorunen;
+    aiGuncelle(l);
     if (!l.length) liste.appendChild(el("div", "kart", "Bu filtreyle eşleşen hisse yok."));
   }
 
@@ -189,6 +218,8 @@ button.daha{font:inherit;font-weight:600;padding:12px;border-radius:12px;border:
     $("altBilgi").textContent = "Veri tarihi " + S.sonuc.tarih + " · " + S.sonuc.adaylar.length + " düşmüş hisse · " + temiz + " tanesinde kırmızı bayrak yok · " + S.sonuc.tutarsiz.length + " hissede veri tutarsız";
     ["ara", "sirala", "sektor", "temiz"].forEach(function (id) { $(id).addEventListener(id === "ara" ? "input" : "change", function () { S.gorunen = 30; ciz(); }); });
     $("daha").addEventListener("click", function () { S.gorunen += 30; ciz(); });
+    $("aiSayi").addEventListener("change", function () { aiGuncelle(filtrele()); });
+    $("aiKopyala").addEventListener("click", kopyala);
     ciz();
     if (S.sonuc.tutarsiz.length) { var tb = $("tutarsizBolum"); tb.hidden = false; S.sonuc.tutarsiz.forEach(function (h) { $("tutarsizListe").appendChild(kart(h)); }); }
   }

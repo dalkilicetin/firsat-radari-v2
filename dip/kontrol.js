@@ -8,7 +8,7 @@
   function g(x) { return typeof x === "number" && !isNaN(x); }
   function has(o, k) { return Object.prototype.hasOwnProperty.call(o, k); }
   function pick(f, s, k) { return has(f, k) ? f[k] : s[k]; }
-  function sg(x, d) { return (x >= 0 ? "+" : "−") + Math.abs(x).toFixed(d || 0); }
+  function sg(x, d) { var t = Math.abs(x).toFixed(d || 0); return (x < 0 && Number(t) !== 0 ? "−" : "+") + t; }
   function median(a) { a = a.slice().sort(function (x, y) { return x - y; }); var n = a.length; return n % 2 ? a[(n - 1) / 2] : (a[n / 2 - 1] + a[n / 2]) / 2; }
 
   function veriTutarli(s, q) {
@@ -155,17 +155,56 @@
       var uzak = (q && s.hi52) ? (q.price / s.hi52 - 1) * 100 : null;
       var m = degerlendir({ s: s, q: q, f: d.fin[t], sek: sek[ind] });
       var haber = ((d.fin[t] && d.fin[t].news) || []).slice(0, 3);
+      var f_ = d.fin[t] || {};
+      var metrik = { revG: pick(f_, s, "revG"), gmT: pick(f_, s, "gmT"), netM: pick(f_, s, "netM"), pe: pick(f_, s, "pe"), mcap: pick(f_, s, "mcap") };
+      var kirmiziAd = m.filter(function (x) { return x[2] === "kirmizi"; }).map(function (x) { return x[1]; });
       if (!veriTutarli(s, q)) {
-        tutarsiz.push({ sembol: t, ad: ad, sektor: ind || "", zirveden: uzak, mtd: s.mtd, maddeler: m, sorular: kontrolSorulari(m, true), haber: haber, tutarsiz: true });
+        tutarsiz.push({ sembol: t, ad: ad, sektor: ind || "", zirveden: uzak, mtd: s.mtd, maddeler: m, sorular: kontrolSorulari(m, true), haber: haber, metrik: metrik, kirmiziAd: kirmiziAd, tutarsiz: true });
         return;
       }
       var oz = ozet(m);
-      adaylar.push({ sembol: t, ad: ad, sektor: ind || "", zirveden: uzak, mtd: s.mtd, maddeler: m, yesil: oz.yesil, kirmizi: oz.kirmizi, sari: oz.sari, bilinmiyor: oz.bilinmiyor, olculen: oz.olculen, skor: oz.skor, baslik: oz.baslik, sorular: kontrolSorulari(m, false), haber: haber });
+      adaylar.push({ sembol: t, ad: ad, sektor: ind || "", zirveden: uzak, mtd: s.mtd, maddeler: m, yesil: oz.yesil, kirmizi: oz.kirmizi, sari: oz.sari, bilinmiyor: oz.bilinmiyor, olculen: oz.olculen, skor: oz.skor, baslik: oz.baslik, sorular: kontrolSorulari(m, false), haber: haber, metrik: metrik, kirmiziAd: kirmiziAd });
     });
     adaylar.sort(function (a, b) { return (b.skor - a.skor) || (b.olculen - a.olculen) || (a.kirmizi - b.kirmizi); });
     return { tarih: (d.generatedAt || "").slice(0, 10), adaylar: adaylar, tutarsiz: tutarsiz };
   }
 
-  var API = { hesapla: hesapla, degerlendir: degerlendir, ozet: ozet, kontrolSorulari: kontrolSorulari, adayMi: adayMi, veriTutarli: veriTutarli, sektorIstatistik: sektorIstatistik, BASLIKLAR: BASLIKLAR };
+  /* Başka bir yapay zekâya tek seferde yapıştırılacak metin: prompt + hisse listesi. */
+  function aiMetni(liste, tarih) {
+    var p = function (x) { return g(x) ? sg(x, 0) + "%" : "yok"; };
+    var satirlar = liste.map(function (h) {
+      var m = h.metrik || {};
+      var bay = h.kirmiziAd && h.kirmiziAd.length ? h.kirmiziAd.join(", ") : "yok";
+      return h.sembol + " | " + h.ad + " | " + (h.sektor || "sektör bilinmiyor") +
+        " | zirveden " + p(h.zirveden) + " | ay başından " + p(h.mtd) +
+        " | satış büyümesi " + p(m.revG) + " | brüt marj " + (g(m.gmT) ? m.gmT.toFixed(0) + "%" : "yok") + " | net marj " + (g(m.netM) ? m.netM.toFixed(0) + "%" : "yok") +
+        " | F/K " + (g(m.pe) ? m.pe.toFixed(0) : "yok") + " | piyasa değeri " + (g(m.mcap) ? (m.mcap / 1000).toFixed(1) + " milyar $" : "yok") +
+        " | araçta kırmızı bayrak: " + bay;
+    });
+    return [
+      "Sen titiz bir hisse araştırma asistanısın. Aşağıda " + (tarih || "bugünkü") + " tarihli verilere göre zirvesinden sert düşmüş " + liste.length + " ABD hissesi var. Bu liste yatırım tavsiyesi değil, incelenecek adayların listesidir.",
+      "",
+      "GÖREV: Her hisse için güncel haberlere ve resmî açıklamalara (SEC 8-K, bilanço, şirket duyuruları) bakarak aşağıdaki soruları cevapla. Bulamadığın ya da emin olmadığın bilgiyi UYDURMA; \"bulamadım\" yaz. Her bilginin kaynağını ve tarihini belirt.",
+      "1. Neden düştü? Şirkete özgü mü, sektör ya da piyasa kaynaklı mı? Haberin tarihi ve kaynağı ne?",
+      "2. Kötü günü atlatır mı? Nakit ömrü (kasa ÷ aylık nakit yakımı), borç vadesi ve son yıllardaki hisse seyrelmesi.",
+      "3. Kâr gerçek mi? İşletme nakit akışı pozitif mi, tek seferlik kalem var mı?",
+      "4. Satış ve marjdaki düşüşün nedeni geçici mi, kalıcı mı?",
+      "5. Düşüşe rağmen hâlâ pahalı mı? Analist beklentileri düşüşten beri nasıl değişti?",
+      "6. Yeni ve olumlu bir gelişme var mı (sözleşme, onay, içeriden alım)? Piyasanın beklediğinden daha mı iyi?",
+      "",
+      "ÇIKTI BİÇİMİ:",
+      "- Önce tek bir tablo: Sembol | Düşüş nedeni | Şirkete özgü mü | Nakit/borç riski | Toparlanma işareti | Güven (düşük/orta/yüksek).",
+      "- Sonra her hisse için en fazla 3 cümlelik gerekçe ve baktığın kaynaklar.",
+      "- En sonda iki liste: \"Daha fazla araştırmaya değer\" ve \"Uzak dur\", her birinde kısa gerekçe.",
+      "- Belirsiz olduğun yerde belirsizliğini açıkça söyle.",
+      "",
+      "HİSSELER (sembol | şirket | sektör | zirveden düşüş | ay başından | satış büyümesi | brüt marj | net marj | F/K | piyasa değeri | araçta kırmızı bayrak):",
+      satirlar.join("\n"),
+      "",
+      "NOT: Rakamlar bir tarama aracının anlık verisidir ve hatalı olabilir; çelişen bilgi bulursan belirt."
+    ].join("\n");
+  }
+
+  var API = { aiMetni: aiMetni, hesapla: hesapla, degerlendir: degerlendir, ozet: ozet, kontrolSorulari: kontrolSorulari, adayMi: adayMi, veriTutarli: veriTutarli, sektorIstatistik: sektorIstatistik, BASLIKLAR: BASLIKLAR };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.DipKontrol = API;
 })(typeof window !== "undefined" ? window : globalThis);
