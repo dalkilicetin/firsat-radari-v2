@@ -78,3 +78,100 @@ Fırtınada her ağaç eğilir, ama sağlam olan geri kalkar, çürük olan kır
 
 ## Özet
 Düşüşün sebebini anladım, şirket kötü günü atlatır, işleri gerçek, fiyat hâlâ cazip, toparlanma işareti var ve kaybım sınırlı. Bunların çoğu birden varsa, dipten almak mantıklı bir bahis. Biri ciddi eksikse "ucuz diye aldım ama dönmedi" riski büyür.
+
+---
+
+# Dipten toparlanma dışında bakılabilecek hikâyeler
+
+Dipten toparlanma piyasadaki tekrar eden hikâyelerden yalnızca biri. Aşağıda diğer hikâyeler var. Her biri için: repoda var mı, ölçüldü mü, veri hazır mı.
+
+## 1. Şirketin kendi hikâyesi (en güçlü aday)
+
+**İşler iyileşiyor**
+- Satışlar hızlanıyor, marj düzeliyor, zarar küçülüyor.
+- Analiz Radarı bunu zaten işaret olarak kullanıyor ("işleri iyileşiyor"). Çeyreğin kazananlarında sık görülen bir tür.
+
+**Beklentiler yukarı çekiliyor**
+- Analistler kâr tahminini yükseltiyor ya da şirket gelecek için beklentisini yükseltiyor.
+- Fiyat çoğu zaman bu haberi birkaç hafta boyunca yavaş yavaş yansıtıyor.
+- Repoda **yok**. Geçmiş tahmin verisini ücretsiz bulmak zor.
+
+**Bilanço sonrası kayma**
+- Beklentiyi büyük aşan bilanço sonrası hisse günlerce yükselmeye devam edebilir.
+- Klasik Radar'da vardı ama ölçümde **işe yaramadı**: son rapordaki sürpriz aylar önceden fiyatlanmıştı. Bunun için bilançonun *hemen ardındaki* döneme bakmak gerekir.
+
+**Tetikleyici olay**
+- Sözleşme, ilaç onayı, yeni ürün, büyük müşteri.
+- Haber ve resmî açıklama verisi gerekir, repoda yok.
+
+## 2. Fiyatın kendi hikâyesi (veri hazır)
+
+**Sıkışma sonrası kırılım ("baraj")**
+- Hisse haftalarca dar bir aralıkta kalıyor, sonra yukarı kırıyor.
+- Planlandı ama laboratuvarda **yapılmadı**. Fiyat verisi yeter.
+
+**Yükselirken soluklanma**
+- Klasik Radar'da ölçüldü ve **işe yaradı**: güçlü trendde kısa süre soluklanan hisse iyi çıktı.
+
+**Zirveye yaklaşma**
+- Yatırımcı "52 haftalık zirve" seviyesine takılıyor. Zirveye yakın hisseler bazen daha da yükseliyor.
+- Planlandı, yapılmadı.
+
+**Sektörün öncüsü hareket etti, takipçiler geride kaldı ("domino")**
+- Sektörün büyük hissesi iyi bilanço açıklıyor, aynı sektördeki diğerleri henüz tepki vermedi.
+- Planlandı, yapılmadı.
+
+## 3. Yatırımcıların hikâyesi
+
+**İçeriden alım**
+- Klasik Radar'da **işe yarayan tek tetik** oldu, ama vaka az.
+
+**Büyük fonların alımı**
+- Büyük fonlar çeyrek sonunda ne aldıklarını açıklıyor (13F). Gecikmeli ama ücretsiz.
+- Repoda **yok**.
+
+**Şirketin kendi hisse geri alımı**
+- Şirket kendi hissesini alıyorsa kasası sağlam ve yönetim hisseyi ucuz buluyor olabilir.
+- Repoda **yok**.
+
+**Aşırı kalabalık ya da boş hisse**
+- Çok kişi açığa satış yapıyorsa kötü haberde sert düşer, iyi haberde sert yükselir ("sıkışma").
+- Veri aralıklı ve gecikmeli, kalitesi sınırlı.
+
+## 4. Piyasanın hikâyesi
+
+**Hangi sektör modada? ("sarkaç")**
+- Para bir sektörden diğerine akıyor. Bir sektör fazla sevilince pahalılaşır, sonra soğur.
+- Planlandı, yapılmadı.
+
+**Genel korku ve rahatlama ("yay")**
+- Üzerinde çalışıldı. Endekste tek başına kanıtlanamadı, hisse düzeyinde umut verici çıktı.
+
+**Rejim değişimi**
+- Piyasa sakinden gergine geçiyor. Çalışıldı ama sonuç çoğunlukla mekanikti.
+
+## 5. Takvim hikâyeleri
+- **Bilanço öncesi sıkışma:** Bilanço yaklaşırken hisse nasıl davranıyor?
+- **Şirketin bölünmesi ("spin-off"):** Bölünen şirketler ilk aylarda sık sık zorlanır, sonra toparlar. Klasik Radar bunun için izleme listesi tutuyor.
+- **Endekse girme/çıkma:** Endekse yeni giren hisseye zorunlu alım gelir.
+- **Kilitli hisselerin açılması:** Halka arz sonrası kilitli hisseler serbest kalınca satış baskısı oluşur.
+- **Yıl sonu vergi satışı:** Yıl sonu kaybettiren hisseler satılır, ocakta toparlayabilir.
+
+Hiçbiri repoda ölçülmedi.
+
+## 6. Kaçınılacak hikâyeler
+- **Kovalamak:** Çok sıçramış hisseyi ortada kalkmadan almak.
+- **Enkaz sıçraması:** İflastan çıkmış şirketin %300 yükselişi. Klasik Radar bunu uyarıyla işaretliyor.
+- **Tek seferlik kâr.**
+
+## Öncelik önerisi
+
+Sıralama iki şeye göre: gerçekten işe yarama ihtimali ve elimizdeki veriyle test edilebilirlik.
+
+1. **Sıkışma sonrası kırılım + zirveye yaklaşma.** Fiyat verisi yeter, hemen test edilebilir.
+2. **İşler iyileşiyor + beklenti yukarı.** Çeyreğin kazananlarında en sık görülen tür, ama tahmin verisi gerek.
+3. **Tetikleyici olay (sözleşme, onay).** En ilginç ama veri ve haber okuyucu gerek.
+4. **Büyük fon alımı ve geri alım.** Ücretsiz resmî veriyle kurulabilir, gecikmeli.
+5. **Takvim hikâyeleri.** Kolay test edilir ama etkileri genelde küçük.
+
+**Dürüst uyarı:** Bu hikâyelerin hiçbiri tek başına garanti değil. Analiz Radarı'nın karnesine göre çeyreğin kazananlarının çoğu zaten listeye hiç girmiyor, çünkü her kazananın hikâyesi farklı. Gerçekçi hedef "her kazananı bulmak" değil, birkaç hikâye türünü iyi tanımak.
