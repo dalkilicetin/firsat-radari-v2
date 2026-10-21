@@ -484,8 +484,82 @@ def s5():
     yaz("sim_S5", "\n".join(md) + "\n", js)
 
 
+# ---------------------------------------------------------------- S7) Dibi bilmeden girme: kademeli alim
+S7_STRATEJI = ["A: tek seferde Y1'de", "B: tek seferde Y2'de", "D: 3 kademe, 21'er bar arayla (Y1'den)", "E: Y1 + %5 daha düşünce + Y2 (3 kademe)",
+               "F: 3 kademe, 21'er bar arayla (Y2'den)", "ORACLE: sinyalden sonraki gerçek dip (bilinemez)", "RASTGELE gün, tek seferde (taban)"]
+
+
+def _s7_isci(a):
+    kw, tohum = a
+    P = ortak.yay_p()
+    d = simule(ortak.ayar_yukle(n_hisse=20, **kw), tohum)
+    adj = d.endeks["adj"].to_numpy()
+    n = len(adj)
+    _, sg = ortak.yay_calistir(d, P)
+    ol = ayikla(sg["Y1"], P["bekleme"])
+    bol = bolumle(ol, d.endeks.index, 126) if len(ol) else pd.Series(dtype=int)
+    ilk = ol[~bol.duplicated().to_numpy()] if len(ol) else ol
+    y2 = np.flatnonzero(sg["Y2"].to_numpy())
+    rng = np.random.default_rng(500 + tohum)
+    satir = []
+    for t in ilk:
+        i = d.endeks.index.get_loc(t)
+        son = i + 252
+        if son >= n:
+            continue
+        g = lambda k: min(max(k, 0), son - 1)          # giris: sinyal gununden sonraki kapanis (k+1)
+        e0 = i + 1
+        y2g = y2[(y2 >= i) & (y2 <= i + 126)]
+        t2 = (int(y2g[0]) + 1) if len(y2g) else None
+        dip = e0 + int(np.argmin(adj[e0:i + 127]))
+        dusen = np.flatnonzero(adj[e0:i + 127] <= 0.95 * adj[e0])
+        t_d = e0 + int(dusen[0]) if len(dusen) else i + 127
+        girisler = {S7_STRATEJI[0]: [e0], S7_STRATEJI[1]: [t2] if t2 else None,
+                    S7_STRATEJI[2]: [e0, e0 + 21, e0 + 42],
+                    S7_STRATEJI[3]: [e0, t_d, t2 if t2 else i + 127],
+                    S7_STRATEJI[4]: [t2, t2 + 21, t2 + 42] if t2 else None,
+                    S7_STRATEJI[5]: [dip]}
+        r = rng.integers(300, n - 300)
+        girisler[S7_STRATEJI[6]] = [r + 1]
+        sonr = r + 253
+        for ad, gl in girisler.items():
+            if gl is None:
+                continue
+            bitis = sonr if ad == S7_STRATEJI[6] else son
+            W = float(np.mean([adj[bitis] / adj[k] for k in gl]))
+            uzak = float(np.mean([adj[k] / adj[dip] - 1 for k in gl]))
+            satir.append(dict(strateji=ad, W=W - 1, uzak=uzak, tohum=tohum, ay=str(t.date())))
+    return satir
+
+
+def s7():
+    satir = sum(_harita(_s7_isci, [({}, t) for t in range(20)]), [])
+    df = pd.DataFrame(satir)
+    md = ["# S7 — Dibi bilmeden girmek: kademeli alım", "", BASLIK,
+          "Soru: dibi gerçek zamanda bulamıyorsak, tek seferde değil **kademe kademe** alarak ne kadarını kurtarırız? "
+          "Her Y1 krizinde (bölüm başına bir) 252 bar sonraki değer ölçülür; kademeler eşit ağırlıklı. **ORACLE** sinyalden sonraki 126 barın gerçek dibine girer (bilinemez, üst sınır).",
+          "'Dibe uzaklık' = ortalama giriş fiyatının oracle diplerinden yüzde kaç yukarıda olduğu. RASTGELE: aynı yapıda rastgele bir günde tek seferlik giriş (piyasanın kendiliğinden yükselmesi tabanı).", "",
+          "| Strateji | n kriz | 252 bar getiri (ort.) [%90 GA] | medyan | pozitif oranı | dibe uzaklık |", "|---|---|---|---|---|---|"]
+    js = {}
+    for ad in S7_STRATEJI:
+        g = df[df.strateji == ad]
+        if len(g) < 5:
+            continue
+        o = ozet(g["W"].to_numpy())
+        js[ad] = dict(ozet=o, uzak=float(g["uzak"].mean()))
+        md.append(f"| {ad} | {o['n']} | {ortak.ga_str(o)} | {pct(o['medyan'])} | {pct(o['isabet'],0)} | {'–' if ad.startswith('RASTGELE') else pct(g['uzak'].mean())} |")
+    r0, a_, b_, d_, e_, o_ = (js.get(S7_STRATEJI[k]) for k in (6, 0, 1, 2, 3, 5))
+    if all([r0, a_, b_, d_, e_, o_]):
+        kaz = lambda x: x["ozet"]["ort"] - r0["ozet"]["ort"]
+        md += ["", "## Okuma",
+               f"- Tabana (rastgele gün) göre kazanç: Y1'de tek seferde {pct(kaz(a_))}, Y2'de {pct(kaz(b_))}, 3 kademe {pct(kaz(d_))}, düşüşe duyarlı kademe {pct(kaz(e_))}, **oracle {pct(kaz(o_))}**.",
+               f"- Dibi bilmenin değeri (oracle − en iyi kural tabanlı) ≈ {pct(kaz(o_) - max(kaz(x) for x in (a_, b_, d_, e_)))}. Kademeli alım bunun ne kadarını kapatıyor, yukarıdaki satırlardan okunur.",
+               f"- Ortalama giriş oracle dibinden Y1'de {pct(a_['uzak'])}, 3 kademede {pct(d_['uzak'])}, Y2'de {pct(b_['uzak'])} yukarıda: kademeli alım dibe yaklaşmayı **neredeyse hiç sağlamıyor**. Fiyat/VIX/genişlik işaretleriyle dibi gerçek zamanda yakalamak bu simülatörde de çözülmüyor; dibi bilmenin değeri başka bilgiye (şirket/sektör) bağlı olmalı."]
+    yaz("sim_S7", "\n".join(md) + "\n", js)
+
+
 def calistir(ad):
-    f = {"kalibre": kalibre, "S1": s1, "S2": s2, "S3": s3, "S4": s4, "S5": s5}.get(ad)
+    f = {"kalibre": kalibre, "S1": s1, "S2": s2, "S3": s3, "S4": s4, "S5": s5, "S7": s7}.get(ad)
     if f is None:
         print(f"'{ad}' henuz yok")
         return 0
