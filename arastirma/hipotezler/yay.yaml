@@ -1,0 +1,45 @@
+# Onceden kayitli parametreler (L5). Degisiklik -> deneme_gunlugu.csv'ye satir.
+gunluk:
+  dd_n: 252
+  dd_esik: -0.10
+  bilesik_yuzdelik: 0.90
+  min_gecmis: 252
+  genislik_n: 200
+  vix_z_n: 252
+  hiz_n: 20
+  kredi_n: 60
+  kredi_esik: 0.5          # bozulma = kredi60 > esik VEYA sahm == 1
+  vix_dusus: 0.20          # VIX son vix_dusus_n bar zirvesinden en az %20 geriledi
+  vix_dusus_n: 20
+  itki_ma: 20
+  itki_alt: 0.15
+  itki_ust: 0.50
+  itki_n: 10
+  teyit_n: 10              # endeks onceki 10 bar zirvesinin ustunde kapandi
+  pencere: 20              # Y2: gerilim son 20 bar icinde yasandi
+  basit_dd: -0.15          # basit rakip
+  ufuklar: [21, 63, 126, 252]
+  ana_ufuk: 63
+  bekleme: 63
+aylik:
+  dd_n: 12
+  dd_esik: -0.10
+  bilesik_yuzdelik: 0.80
+  min_gecmis: 12
+  genislik_n: 10
+  vix_z_n: 12
+  hiz_n: 3
+  kredi_n: 3
+  kredi_esik: 0.5
+  vix_dusus: 0.20
+  vix_dusus_n: 3
+  itki_ma: 3
+  itki_alt: 0.15
+  itki_ust: 0.50
+  itki_n: 3
+  teyit_n: 3
+  pencere: 3
+  basit_dd: -0.15
+  ufuklar: [3, 6, 12]
+  ana_ufuk: 6
+  bekleme: 3
