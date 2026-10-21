@@ -41,6 +41,10 @@ def main(argv=None):
         from mekanizma.sim import kosullar
         kosullar.kosullar()
         return 0
+    if a.komut == "rapor":
+        from mekanizma.rapor import lab_raporu
+        print(lab_raporu.uret())
+        return 0
     if a.komut == "katalog":
         from tarih import inceleme
         print(inceleme.uret())

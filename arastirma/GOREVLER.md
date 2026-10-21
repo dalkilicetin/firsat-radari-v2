@@ -1,5 +1,7 @@
 # Görevler — Laboratuvar aşaması (L0–L8)
 
+> **DURUM: L0–L10 tamamlandı, rapor üretildi** → `sonuclar/LAB-RAPORU.md` (özet, karar tablosu, sonraki adım önerisi, Opus inceleme listesi). Yeniden üretmek için: `python calistir.py rapor`. Deneyler: `python calistir.py sim kalibre|S1..S5`, `gercek R1|R2|R3`, `kirilma`, `kosullar`, `katalog`.
+
 **İnternetten veri çekilmez, Actions kullanılmaz.** Üç kaynakla çalışılır:
 1. **Tarih** — `tarih/kriz_katalogu.csv`: 13 S&P 500 düşüşü + 2 karşı örnek (Japonya 1989, Nasdaq 2000).
 2. **Simülasyon** — yay mekanizması bilinçli olarak eklenmiş yapay piyasalar. Kesin doğru cevap bilindiği için ölçüm aletleri bunlarla ayarlanır.
