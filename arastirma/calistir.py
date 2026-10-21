@@ -30,6 +30,9 @@ def main(argv=None):
     if a.komut == "sim":
         from mekanizma.sim import deneyler
         return deneyler.calistir(a.deney)
+    if a.komut == "gercek":
+        from mekanizma import gercek
+        return gercek.calistir(a.ad)
     if a.komut == "katalog":
         from tarih import inceleme
         print(inceleme.uret())
