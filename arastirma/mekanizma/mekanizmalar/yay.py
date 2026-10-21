@@ -66,8 +66,11 @@ def sinyaller(oz, p):
             bosalma |= oz[c].fillna(False).astype(bool)
     yakin = y1.rolling(p["pencere"] + 1, min_periods=1).max().astype(bool)
     y2 = (yakin & bosalma & (oz["dd"] <= p["dd_esik"])).fillna(False)
-    out = pd.DataFrame({"skor": skor, "Y1": y1, "Y2": y2, "bosalma": bosalma,
+    out = pd.DataFrame({"skor": skor, "Y1": y1, "Y2": y2, "bosalma": bosalma, "yakin": yakin,
                         "basit": (oz["dd"] <= p["basit_dd"]).fillna(False), "tur": tur_tahmini(oz, p)})
+    dd_ok = (oz["dd"] <= p["dd_esik"]).fillna(False)
+    for c in ("vix_dusus", "itki", "teyit"):     # tek tek bosalma isaretli Y2 varyantlari (S2)
+        out["Y2_" + c] = (yakin & dd_ok & (oz[c].fillna(False).astype(bool) if c in oz else False))
     return out
 
 
