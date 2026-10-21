@@ -86,7 +86,7 @@ Testler: Türetilen sütunlar için 1–2 elle hesaplanmış satır kontrolü.
 `mekanizma/sim/piyasa.py`. Yapı: `Ayar` dataclass'ı ve `simule(ayar, tohum) -> Dunya` fonksiyonu. Günlük adım, 252 gün = 1 yıl.
 
 **Piyasa** (log fiyat = temel değer + sapma):
-- `F` (temel değer): sürüklenme `mu=0.07/252`, oynaklık `sF=0.10/√252`.
+- `F` (temel değer): sürüklenme `mu=0.10/252` (bozulmalar yılda ~%2,7 götürür), oynaklık `sF=0.10/√252`.
   - **Bozulma olayları**: Poisson oranı `lam_B=1/12` (yılda). Büyüklük `s_B~U(0.20,0.45)` (log kayıp), `D_B~U(120,400)` gün boyunca doğrusal dağıtılır.
   - Bozulmanın `rho_B=0.3` katı ayrıca sapmaya (`m`) şok olarak eklenir: gerçek bozulmada da aşırı tepki olur.
 - `m` (sapma = yay gerilimi): OU süreci `m[t+1]=m[t]*(1-kappa)+sm*eps+sok`. `kappa=ln2/yarilanma`, `yarilanma=60` gün, `sm=0.004`.
@@ -94,15 +94,15 @@ Testler: Türetilen sütunlar için 1–2 elle hesaplanmış satır kontrolü.
 - Stres oynaklığı: `sigma_t = 0.008*(1 + 4*max(-m,0) + 1.5*bozulma_aktif)`. Günlük getiri = `ΔF + Δm + sigma_t*eps2`. Fiyat bundan birikimli hesaplanır. Not: `eps2` gürültüsü F'ye eklenir, yani kalıcıdır.
 - `vix = clip(100*√252*ewm_std(getiri, halflife=10)*1.15 + korku*100*max(-m,0), 9, 90)`, `korku=0.5`.
 - `kredi`: AR(1) `c[t+1]=c[t]+0.05*(hedef-c[t])+0.03*eps`. `hedef = 1.8 + 8*bozulma_birikimi + panik_kredi*max(-m,0)`. `bozulma_birikimi` = aktif ve son 1 yılda biten bozulmaların gerçekleşmiş kaybı, 1 yıl yarılanmayla söner. `panik_kredi=2` (duyarlılık testinde 0–8; 1998/2020 gibi kredi spread'i açılan panikler için).
-- `likidite` (Gelgit vekili, NFCI gibi; yüksek = sıkı): AR(1), yarılanma 120 gün, `sl=0.03`. Panik ve bozulma şokları değeri yükseltir. `mu`'ya `-0.02*likidite` eklenir (gevşek likidite biraz daha yüksek sürüklenme). Gelgit etkisi **ayrıca** yaylanma hızını değiştirir: `kappa *= (1 - 0.4*clip(-likidite_degisim_63, -1, 1))` (likidite gevşerken yay daha hızlı toparlar). Bu varsayım `ayar.gelgit_etkisi` ile kapatılabilir (kontrol deneyi için).
+- `likidite` (Gelgit vekili, NFCI gibi; yüksek = sıkı): AR(1), yarılanma 120 gün, `sl=0.03`. Panik ve bozulma şokları değeri yükseltir. `mu`'ya `-0.02*likidite` eklenir (gevşek likidite biraz daha yüksek sürüklenme). Gelgit etkisi **ayrıca** yaylanma hızını değiştirir: `kappa *= (1 + 0.4*clip(-likidite_degisim_63, -1, 1))` (likidite gevşerken, yani değişim negatifken, yay daha hızlı toparlar). Bu varsayım `ayar.gelgit_etkisi` ile kapatılabilir (kontrol deneyi için).
 - `sahm`: Bozulma başladıktan `U(60,150)` gün sonra 1 olur, bittikten 120 gün sonra 0 olur.
 
 **Ortak faktör ve korelasyon** (Kenetlenme için): hisse günlük gürültüsü `sigma_i*(sqrt(c_t)*z_ortak + sqrt(1-c_t)*eps_i)`. `c_t = 0.15 + 0.6*stres_t`, `stres_t = clip(max(-m,0)*3 + 0.5*bozulma_aktif, 0, 1)`. Böylece stres arttıkça hisseler kenetlenir.
 
 **Hisseler** (`n_hisse=200`):
 - `beta~U(0.6,1.6)`, `kalite~U(0,1)`, `asiri=beta*U(0.7,1.3)`
-- `F_i`: günlük `mu + beta*(ΔF_genel - mu - bozulma_akisi) - (0.4+1.2*(1-kalite))*bozulma_akisi + 0.015*eps`
-  - Bozulmada kalitesiz şirket kalıcı olarak daha çok kaybeder.
+- `F_i`: günlük `mu_t + beta*(ΔF_genel - mu_t) + 0.8*(kalite-0.5)*bozulma_akisi + gürültü`
+  - Bozulmada kalitesiz şirket kalıcı olarak daha çok, kaliteli şirket daha az kaybeder (ortalama etki sıfır, endeks toplamı bozulmaz).
 - `m_i = asiri*m + OU_idio`: kendi OU'su, yarılanma 40, `sm=0.01`.
   - Panikte aşırı tepki veren hisse daha çok düşer ama tamamen geri döner.
 - Fiyat `P_i = exp(F_i + m_i)`.
