@@ -27,6 +27,10 @@ def main(argv=None):
     if a.komut == "ornek":
         from mekanizma.veri import ornek
         return ornek.ozet_yaz()
+    if a.komut == "katalog":
+        from tarih import inceleme
+        print(inceleme.uret())
+        return 0
     return henuz_yok(a.komut)
 
 
