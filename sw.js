@@ -1,4 +1,4 @@
-const CACHE = "firsat-radari-v5.18";
+const CACHE = "firsat-radari-v5.19";
 const SHELL = [
   "./",
   "./index.html",
@@ -27,8 +27,8 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
 
-  // Analiz Radarı (/analiz/): ayrı site; her zaman ağdan, çevrimdışıysa kendi önbelleğinden (Klasik Radar'a düşmez)
-  if (url.pathname.includes("/analiz/")) {
+  // Analiz Radarı (/analiz/) ve Dip Radarı (/dip/): ayrı siteler; her zaman ağdan, çevrimdışıysa kendi önbelleğinden (Klasik Radar'a düşmez)
+  if (url.pathname.includes("/analiz/") || url.pathname.includes("/dip/")) {
     e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
     return;
   }

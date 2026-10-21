@@ -1,0 +1,201 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F5F1"><title>Dip Radarı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../analiz/stil.css">
+<style>
+.kontrol{background:var(--turuncu-zemin);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.kontrol h3{margin:0;font-size:15px;color:var(--turuncu-koyu)}
+.kontrol ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.kontrol li label{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.45;cursor:pointer;color:var(--yazi)}
+.kontrol input[type=checkbox]{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--turuncu)}
+.kontrol li.ozel label{font-weight:600}
+.kontrol li.bitti label{text-decoration:line-through;color:var(--soluk);font-weight:400}
+.kontrol .alt-baslik{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--turuncu-koyu)}
+.linkler{display:flex;gap:8px;flex-wrap:wrap}
+.linkler a{font-size:13px;font-weight:600;padding:9px 12px;border-radius:999px;background:var(--kart);border:1px solid var(--cizgi);text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.sert{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:12.5px;padding:4px 9px;border-radius:999px;background:var(--gri-zemin);color:var(--soluk);white-space:nowrap}
+.chip.yesil{background:var(--mavi-zemin);color:var(--mavi-koyu)}.chip.kirmizi{background:var(--turuncu-zemin);color:var(--turuncu-koyu)}.chip.sari{background:var(--sari-zemin);color:var(--sari)}
+.kontrol-bar{display:flex;flex-direction:column;gap:10px}
+.kontrol-bar input[type=search],.kontrol-bar select{font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--cizgi);background:var(--zemin);color:var(--yazi);min-height:44px;width:100%}
+.satir2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.onay{display:flex;gap:10px;align-items:center;font-size:14px;min-height:36px}.onay input{width:20px;height:20px}
+.bolum{margin:2px 0 0;font-size:13px;font-weight:600;color:var(--soluk)}
+.madde-satir{display:flex;gap:8px;font-size:13.5px;line-height:1.45;padding:3px 0}
+.madde-satir b{font-weight:600}
+button.daha{font:inherit;font-weight:600;padding:12px;border-radius:12px;border:1px solid var(--cizgi);background:var(--kart);color:var(--yazi);min-height:48px;cursor:pointer}
+.haber{font-size:13px;color:var(--soluk);margin:0;padding-left:18px}
+@media (max-width:420px){.satir2{grid-template-columns:1fr}}
+</style></head>
+<body><main class="sayfa">
+<nav class="radar" aria-label="Radar seçimi"><a href="../">Klasik</a><a href="../analiz/">Analiz</a><span>Dip Radarı</span></nav>
+<header class="ust"><div class="etiket">Dip Radarı</div><h1>Dipten toparlanma kontrol listesi</h1><div class="alt" id="altBilgi">Yükleniyor…</div></header>
+
+<section class="kart uyari" role="note">
+  <strong>Bu bir kontrol listesidir, doğrulanmış bir sinyal değildir; yatırım tavsiyesi değildir.</strong>
+  <span>Haber, nakit, borç ve hisse seyrelmesi gibi en önemli maddeler eldeki veriyle ölçülemiyor. Her hissenin altındaki <b>“Kontrol etmen gerekenler”</b> kutusunu okumadan karar verme. Puan “al” demek değil, “önce şuraya bak” demektir.</span>
+</section>
+
+<details class="kart">
+  <summary>Nasıl okunur?</summary>
+  <div class="kucuk" style="display:flex;flex-direction:column;gap:6px;margin-top:8px">
+    <div>🟢 olumlu · 🟡 belirsiz · 🔴 sorun · ⚪ <b>bilinmiyor</b> (bu veriyle ölçülemiyor, elle bakılmalı).</div>
+    <div>Altı başlık: 1 Neden düştü · 2 Kötü günü atlatır mı · 3 İşler nasıl · 4 Fiyat cazip mi · 5 Toparlanma işareti · 6 Kaybım sınırlı mı.</div>
+    <div>Puan = (🟢 − 2×🔴) / ölçülen madde. Düşmüş hisse: zirveden ≥%25 aşağıda, ya da ay başından ≥%12 düşmüş, ya da tek günde ≥%8 düşmüş.</div>
+    <div>Kutuları işaretleyebilirsin; işaretlerin yalnızca bu tarayıcıda saklanır.</div>
+    <div><a href="https://github.com/dalkilicetin/firsat-radari-v2/blob/main/DIPTEN-TOPARLANMA-BELIRTILERI.md">Belirtilerin tam açıklaması</a></div>
+  </div>
+</details>
+
+<section class="kart kontrol-bar" aria-label="Filtre">
+  <input type="search" id="ara" placeholder="Sembol ya da şirket ara" aria-label="Ara" autocomplete="off">
+  <div class="satir2">
+    <select id="sirala" aria-label="Sıralama">
+      <option value="skor">Sırala: puan</option>
+      <option value="dusus">Sırala: en çok düşen</option>
+      <option value="kirmizi">Sırala: en az kırmızı</option>
+      <option value="alfa">Sırala: A–Z</option>
+    </select>
+    <select id="sektor" aria-label="Sektör"><option value="">Tüm sektörler</option></select>
+  </div>
+  <label class="onay"><input type="checkbox" id="temiz"> Yalnızca kırmızı bayrağı olmayanlar</label>
+  <div class="kucuk" id="sayac"></div>
+</section>
+
+<div id="liste" style="display:flex;flex-direction:column;gap:12px"></div>
+<button class="daha" id="daha" hidden>Daha fazla göster</button>
+
+<section id="tutarsizBolum" hidden style="display:flex;flex-direction:column;gap:12px">
+  <h2>Veri tutarsız: puanlanmadı</h2>
+  <div class="kart bilgi">Bu hisselerde 52 haftalık zirve ile fiyat uyuşmuyor (yerel para birimi ya da çift listeleme olabilir). Yanlış aday üretmemek için puanlanmadı; önce veriyi doğrula.</div>
+  <div id="tutarsizListe" style="display:flex;flex-direction:column;gap:12px"></div>
+</section>
+
+<footer>Veri: <code>data/sonuclar.json</code> (gece taraması). Hesaplama tarayıcıda yapılır; kurallar <code>dip/kontrol.js</code> içindedir. Bu sayfa Klasik Radar ve Analiz Radarı’ndan bağımsızdır. Doğrulanmamış bir kontrol listesidir; yatırım tavsiyesi değildir.</footer>
+</main>
+
+<script src="kontrol.js"></script>
+<script>
+(function () {
+  "use strict";
+  var IKON = { yesil: "🟢", kirmizi: "🔴", sari: "🟡", bilinmiyor: "⚪", bilgi: "ℹ️" };
+  var B = DipKontrol.BASLIKLAR;
+  var S = { sonuc: null, gorunen: 30 };
+  var $ = function (id) { return document.getElementById(id); };
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
+  function depo(k, v) { try { if (v === undefined) return localStorage.getItem(k); if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { return null; } }
+  function yuzde(x) { return x === null || x === undefined || isNaN(x) ? "–" : (x < 0 ? "−" : "+") + Math.abs(x).toFixed(0) + "%"; }
+  function tk(s) { return s.replace(/\./g, "-"); }
+
+  function linkler(s) {
+    var d = el("div", "linkler");
+    [["Haberler", "https://finviz.com/quote.ashx?t=" + encodeURIComponent(tk(s))],
+     ["Resmî açıklamalar (8-K)", "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=" + encodeURIComponent(s) + "&type=8-K&dateb=&owner=include&count=40"],
+     ["Nakit akışı", "https://finance.yahoo.com/quote/" + encodeURIComponent(tk(s)) + "/cash-flow"],
+     ["İçeriden işlemler (Form 4)", "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=" + encodeURIComponent(s) + "&type=4&dateb=&owner=include&count=40"]
+    ].forEach(function (l) { var a = el("a", "", l[0]); a.href = l[1]; a.target = "_blank"; a.rel = "noopener noreferrer"; d.appendChild(a); });
+    return d;
+  }
+
+  function kontrolKutusu(h) {
+    var kutu = el("div", "kontrol");
+    kutu.appendChild(el("h3", "", "Kontrol etmen gerekenler"));
+    var ul = el("ul");
+    var ozel = h.sorular.filter(function (x) { return x.ozel; }), std = h.sorular.filter(function (x) { return !x.ozel; });
+    function ekle(x, i) {
+      var li = el("li", x.ozel ? "ozel" : "");
+      var lb = el("label"), cb = el("input"); cb.type = "checkbox";
+      var key = "dip:v1:" + h.sembol + ":" + x.t.slice(0, 40);
+      cb.checked = depo(key) === "1"; if (cb.checked) li.classList.add("bitti");
+      cb.addEventListener("change", function () { depo(key, cb.checked ? "1" : null); li.classList.toggle("bitti", cb.checked); });
+      lb.appendChild(cb); lb.appendChild(el("span", "", x.t)); li.appendChild(lb); ul.appendChild(li);
+    }
+    if (ozel.length) { ul.appendChild(el("div", "alt-baslik", "Bu hisse için özellikle")); ozel.forEach(ekle); ul.appendChild(el("div", "alt-baslik", "Her hisse için")); }
+    std.forEach(ekle);
+    kutu.appendChild(ul);
+    if (h.haber && h.haber.length) {
+      kutu.appendChild(el("div", "alt-baslik", "Son haber başlıkları (Finnhub)"));
+      var hu = el("ul", "haber"); hu.style.listStyle = "disc";
+      h.haber.forEach(function (n) { hu.appendChild(el("li", "", n.h + (n.dt ? " (" + n.dt + ")" : ""))); });
+      kutu.appendChild(hu);
+    }
+    kutu.appendChild(linkler(h.sembol));
+    return kutu;
+  }
+
+  function olculenler(h) {
+    var d = el("details"), sm = el("summary", "", "Ölçülen maddeler" + (h.tutarsiz ? "" : " · " + h.olculen + " ölçüldü, " + h.bilinmiyor + " bilinmiyor"));
+    d.appendChild(sm);
+    for (var b = 1; b <= 6; b++) {
+      var ms = h.maddeler.filter(function (m) { return m[0] === b; });
+      if (!ms.length) continue;
+      d.appendChild(el("div", "bolum", B[b - 1] + (h.baslik ? " " + IKON[h.baslik[b]] : "")));
+      ms.forEach(function (m) { var r = el("div", "madde-satir"); r.appendChild(el("span", "", IKON[m[2]])); var t = el("span"); var bb = el("b", "", m[1] + ": "); t.appendChild(bb); t.appendChild(document.createTextNode(m[3])); r.appendChild(t); d.appendChild(r); });
+    }
+    return d;
+  }
+
+  function kart(h) {
+    var k = el("article", "kart");
+    k.setAttribute("data-s", h.sembol);
+    var ust = el("div", "satir");
+    var sol = el("div"); sol.style.minWidth = "0";
+    sol.appendChild(el("div", "sembol", h.sembol));
+    sol.appendChild(el("div", "alt", h.ad + (h.sektor ? " · " + h.sektor : "")));
+    ust.appendChild(sol);
+    var sag = el("div", "", ""); sag.style.cssText = "margin-left:auto;display:flex;flex-direction:column;gap:4px;align-items:flex-end";
+    sag.appendChild(el("span", "rozet r-turuncu", "Zirveden " + yuzde(h.zirveden)));
+    if (h.tutarsiz) sag.appendChild(el("span", "rozet r-sari", "Veri tutarsız")); else sag.appendChild(el("span", "rozet r-gri", "Puan " + (h.skor >= 0 ? "+" : "−") + Math.abs(h.skor).toFixed(2)));
+    ust.appendChild(sag); k.appendChild(ust);
+    if (!h.tutarsiz) {
+      var s = el("div", "sert");
+      for (var b = 1; b <= 6; b++) { var c = el("span", "chip " + h.baslik[b], b + " " + IKON[h.baslik[b]]); c.title = B[b - 1]; s.appendChild(c); }
+      s.appendChild(el("span", "chip", "🟢" + h.yesil + " 🔴" + h.kirmizi + " ⚪" + h.bilinmiyor));
+      k.appendChild(s);
+    }
+    k.appendChild(kontrolKutusu(h));
+    k.appendChild(olculenler(h));
+    return k;
+  }
+
+  function filtrele() {
+    var q = $("ara").value.trim().toLowerCase(), sek = $("sektor").value, temiz = $("temiz").checked, sr = $("sirala").value;
+    var l = S.sonuc.adaylar.filter(function (h) {
+      return (!q || h.sembol.toLowerCase().indexOf(q) >= 0 || h.ad.toLowerCase().indexOf(q) >= 0) && (!sek || h.sektor === sek) && (!temiz || h.kirmizi === 0);
+    });
+    if (sr === "dusus") l.sort(function (a, b) { return (a.zirveden === null) - (b.zirveden === null) || a.zirveden - b.zirveden; });
+    else if (sr === "kirmizi") l.sort(function (a, b) { return a.kirmizi - b.kirmizi || b.skor - a.skor; });
+    else if (sr === "alfa") l.sort(function (a, b) { return a.sembol < b.sembol ? -1 : 1; });
+    return l;
+  }
+
+  function ciz() {
+    var l = filtrele(), liste = $("liste");
+    liste.textContent = "";
+    l.slice(0, S.gorunen).forEach(function (h) { liste.appendChild(kart(h)); });
+    $("sayac").textContent = l.length + " hisse gösterilecek (toplam " + S.sonuc.adaylar.length + " düşmüş hisse)";
+    $("daha").hidden = l.length <= S.gorunen;
+    if (!l.length) liste.appendChild(el("div", "kart", "Bu filtreyle eşleşen hisse yok."));
+  }
+
+  function basla(d) {
+    S.sonuc = DipKontrol.hesapla(d);
+    var sek = {}; S.sonuc.adaylar.forEach(function (h) { if (h.sektor) sek[h.sektor] = 1; });
+    Object.keys(sek).sort().forEach(function (s) { var o = el("option", "", s); o.value = s; $("sektor").appendChild(o); });
+    var temiz = S.sonuc.adaylar.filter(function (h) { return h.kirmizi === 0; }).length;
+    $("altBilgi").textContent = "Veri tarihi " + S.sonuc.tarih + " · " + S.sonuc.adaylar.length + " düşmüş hisse · " + temiz + " tanesinde kırmızı bayrak yok · " + S.sonuc.tutarsiz.length + " hissede veri tutarsız";
+    ["ara", "sirala", "sektor", "temiz"].forEach(function (id) { $(id).addEventListener(id === "ara" ? "input" : "change", function () { S.gorunen = 30; ciz(); }); });
+    $("daha").addEventListener("click", function () { S.gorunen += 30; ciz(); });
+    ciz();
+    if (S.sonuc.tutarsiz.length) { var tb = $("tutarsizBolum"); tb.hidden = false; S.sonuc.tutarsiz.forEach(function (h) { $("tutarsizListe").appendChild(kart(h)); }); }
+  }
+
+  fetch("../data/sonuclar.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(basla).catch(function (e) {
+    $("altBilgi").textContent = "Veri yüklenemedi (" + e.message + "). Sayfayı bir web sunucusundan açtığından emin ol.";
+  });
+})();
+</script>
+</body></html>
