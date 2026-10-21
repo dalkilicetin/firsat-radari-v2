@@ -47,9 +47,7 @@ def main(argv=None):
         print(lab_raporu.uret())
         return 0
     if a.komut == "dip":
-        from mekanizma.dip import kontrol
-        sonuc = kontrol.uret()
-        print(f"{len(sonuc)} aday; rapor: sonuclar/dip_adaylari.md")
+        print("Dip Radarı kuralları artık tek kaynakta: main dalında dip/kontrol.js (testler: node --test dip/kontrol.test.js).")
         return 0
     if a.komut == "katalog":
         from tarih import inceleme
