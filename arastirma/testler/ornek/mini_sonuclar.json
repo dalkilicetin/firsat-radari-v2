@@ -1,0 +1,5 @@
+{"generatedAt":"2026-10-20T08:00:00Z",
+ "series":{"AAA":{"closes":[50,40,30,20,10],"dateIso":"2026-10-20"},"BBB":{"closes":[5,6,7],"dateIso":"2026-10-20"}},
+ "etf":{"SPY":{"closes":[500,490,480,470,460],"date":"2026-10-20"}},
+ "prof":{"AAA":{"name":"Aaa Inc","ind":"Software","date":"2026-10-04"}},
+ "fin":{"AAA":{"name":"Aaa Inc","industry":"tech","mcap":1000.0},"BBB":{"name":"Bbb","industry":"health","mcap":50.0}}}

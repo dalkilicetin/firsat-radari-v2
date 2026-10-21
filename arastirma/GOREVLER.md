@@ -7,10 +7,19 @@
    - `data/sonuclar.json`: 154 hisse + 26 ETF, 61 aylık kapanış (2021-10 → 2026-10). Bu aralık 2022 ayı piyasasını, 2025 ve 2026 Mart düşüşlerini içerir.
    - Git geçmişindeki 103 gecelik tarama: ~600 hisse için günlük panel (2026-07 → 2026-10).
 
-Sonnet'e her görevi şu cümleyle verin:
+Görev sırası: L0 → L1 → L2 ⛔ → L3 → L4 → L5 → L6 ⛔ → L7 → L9 → L10 → L8 ⛔. Sonnet'e her görevi şu cümleyle verin:
 > `arastirma/CLAUDE.md` ve `arastirma/GOREVLER.md` içindeki **L<n>** bölümünü oku ve uygula. Bitince testleri çalıştır, `claude/mekanizma-arastirma` dalına commit + push yap.
 
 **⛔ DUR** = Opus ile sonuçlar birlikte incelenir. Sonraki adım buna göre ayarlanabilir.
+
+### Öncelik sırası (kullanıcı kararı)
+Sadece şu sırayla ilerlenir; 11 mekanizmanın geri kalanı bu aşamada **yapılmaz**:
+1. **Yay**: kriz sonrası toparlanma olasılığı ve ek düşüş riski (L3–L6, L7-R1)
+2. **Gizli güç**: toparlanmada hangi hisseler öne çıkıyor (L6-S5, L7-R2)
+3. **Kırılma noktası**: panikten normale / yükselişten düşüşe geçiş (L9)
+4. **Kenetlenme ve Gelgit**: ilk üçünün hangi koşullarda daha iyi çalıştığını gösteren **koşul değişkenleri** (L10). Bağımsız strateji değil.
+
+Amaç tek bir hisse sıralaması değil, "hangi piyasa koşulunda hangi yaklaşım işe yarar" haritası.
 
 ### Simülasyon ne işe yarar, ne işe yaramaz
 Simülatöre yay mekanizması **biz** koyuyoruz. Bu yüzden simülasyon "piyasada yay var" diye bir kanıt üretmez. Şu üç soruya cevap verir:
@@ -85,7 +94,10 @@ Testler: Türetilen sütunlar için 1–2 elle hesaplanmış satır kontrolü.
 - Stres oynaklığı: `sigma_t = 0.008*(1 + 4*max(-m,0) + 1.5*bozulma_aktif)`. Günlük getiri = `ΔF + Δm + sigma_t*eps2`. Fiyat bundan birikimli hesaplanır. Not: `eps2` gürültüsü F'ye eklenir, yani kalıcıdır.
 - `vix = clip(100*√252*ewm_std(getiri, halflife=10)*1.15 + korku*100*max(-m,0), 9, 90)`, `korku=0.5`.
 - `kredi`: AR(1) `c[t+1]=c[t]+0.05*(hedef-c[t])+0.03*eps`. `hedef = 1.8 + 8*bozulma_birikimi + panik_kredi*max(-m,0)`. `bozulma_birikimi` = aktif ve son 1 yılda biten bozulmaların gerçekleşmiş kaybı, 1 yıl yarılanmayla söner. `panik_kredi=2` (duyarlılık testinde 0–8; 1998/2020 gibi kredi spread'i açılan panikler için).
+- `likidite` (Gelgit vekili, NFCI gibi; yüksek = sıkı): AR(1), yarılanma 120 gün, `sl=0.03`. Panik ve bozulma şokları değeri yükseltir. `mu`'ya `-0.02*likidite` eklenir (gevşek likidite biraz daha yüksek sürüklenme). Gelgit etkisi **ayrıca** yaylanma hızını değiştirir: `kappa *= (1 - 0.4*clip(-likidite_degisim_63, -1, 1))` (likidite gevşerken yay daha hızlı toparlar). Bu varsayım `ayar.gelgit_etkisi` ile kapatılabilir (kontrol deneyi için).
 - `sahm`: Bozulma başladıktan `U(60,150)` gün sonra 1 olur, bittikten 120 gün sonra 0 olur.
+
+**Ortak faktör ve korelasyon** (Kenetlenme için): hisse günlük gürültüsü `sigma_i*(sqrt(c_t)*z_ortak + sqrt(1-c_t)*eps_i)`. `c_t = 0.15 + 0.6*stres_t`, `stres_t = clip(max(-m,0)*3 + 0.5*bozulma_aktif, 0, 1)`. Böylece stres arttıkça hisseler kenetlenir.
 
 **Hisseler** (`n_hisse=200`):
 - `beta~U(0.6,1.6)`, `kalite~U(0,1)`, `asiri=beta*U(0.7,1.3)`
@@ -201,12 +213,33 @@ Testler: Simülasyonda panik olaylarının ≥ %70'i Y1 ile yakalanır. Sızınt
 2. Tarih: katalogdan üretilen hipotezler.
 3. Simülasyon: ölçüm aleti çalışıyor mu, kaç krizle neyi görebiliriz?
 4. Gerçek örnek: 2022 / 2025 / 2026 ne söylüyor?
+4b. Koşul haritası: satırlar Yay / Gizli güç / Kırılma noktası, sütunlar kenetlenme düşük-yüksek ve likidite gevşek-sıkı. Hücre = hangi koşulda daha iyi çalıştığı.
 5. Karar tablosu: her hipotez için 🟢 umut verici / 🟡 belirsiz / ⚪ desteklenmiyor + tek cümle gerekçe.
 6. Sonraki adım önerisi: gerçek günlük veriye (ILERIDE-GERCEK-VERI.md) geçmeye değer mi, hangi mekanizmayla?
 
 **⛔ DUR — Opus son inceleme.**
 
 ---
+
+## L9 · ⚡ Kırılma noktası (üçüncü öncelik)
+Hedef: panikten normale geçişi ve yükselişten düşüşe geçişi öncüllerle tahmin etmek.
+- `hipotezler/kirilma.yaml`: `rejim: {vol_n: 63, vol_esik: 0.70, trend_n: 200, min_sure: 10}`, `hedef_ufuklar: [21, 63]`, `modeller: [lojistik]`, `egitim_tohum: [0..9]`, `test_tohum: [10..19]`.
+- `ozellik/rejim.py`: `kural_rejim(adj, vol_n, vol_esik, trend_n, min_sure)` → 4 rejim (`sakin_yukselis, oynak_yukselis, sakin_dusus, oynak_dusus`). Vol yüzdeliği **genişleyen** pencereyle. Histerezis: yeni rejim `min_sure` bar sürmedikçe eski korunur.
+- `mekanizmalar/kirilma.py`: öncüller `genislik_ayrisma` (endeks 63g getiri > 0 iken 200g üstü oran 63 günde 10+ puan düştü), `vix_degisim_21`, `vix_vol_21`, `kredi_egim_60`, `ort_korelasyon_63` ve `korelasyon_degisim_21` (L10 ile ortak), `momentum_farki` (12-1 Q5−Q1 son 21g getirisi), `dd`.
+- Hedefler: (a) 21/63 bar içinde `oynak_dusus → sakin_yukselis|oynak_yukselis` geçişi (panikten normale), (b) `sakin_yukselis|oynak_yukselis → *_dusus` geçişi.
+- Model: sklearn yerine `statsmodels` Logit (sklearn kurulu değil). Eğitim tohumlarında eğitilir, test tohumlarında ölçülür. Ölçümler: AUC (Mann-Whitney ile elle), Brier, üst %10 tahminde gerçekleşme oranı / koşulsuz oran, katsayı işaretleri (tohumlar arası kararlılık).
+- Simülasyon kontrolü: `lam_P=0, lam_B=0` dünyada AUC ≈ 0.5 olmalı (negatif kontrol).
+- Gerçek örnek: aylık SPY serisinde 2022 sonu ve 2025-04 sonrası geçişlerin dedektörde görünüp görünmediği (R1 ile birleşik tablo).
+- Çıktı: `sonuclar/kirilma.md` + `.json`.
+
+## L10 · 🔗 Kenetlenme + 🌊 Gelgit: koşul değişkenleri (dördüncü öncelik)
+Bunlar ayrı strateji değil. Soru: **Yay, Gizli güç ve Kırılma noktası hangi Kenetlenme/Gelgit koşulunda daha iyi çalışır?**
+- `ozellik/korelasyon.py`: `ort_ikili_korelasyon(getiri_genis, n=63)` (ortalama ikili korelasyon, hız için eşit bölünmüş rastgele olmayan 60 hisse alt kümesi), `kesitsel_dagilim(getiri_genis, n=21)`.
+- `ozellik/likidite.py`: `likidite_degisim(seri, n=63)` (sim `likidite` serisi; gerçekte NFCI olurdu).
+- `mekanizmalar/kosullar.py`: iki koşul değişkenini **genişleyen** üçte birlik dilimlere ayırır (düşük/orta/yüksek).
+- `sim/deneyler.py` → `S6`: Yay Y2 olaylarının 63g getirisi ve MAE'si, olay günündeki korelasyon üçte biri ve likidite değişimi işaretine göre kırılım. Gizli güç Q5−Q1 farkı korelasyon üçte birine göre. Kırılma AUC'si koşullara göre. Kontrol: `gelgit_etkisi=False` ve `c_t` sabit iken kırılımın farksız çıkması.
+- Gerçek örnek (aylık, 154 hisse): ortalama ikili korelasyon (12 aylık pencere) 2022 ve 2025'te yükseliyor mu? Likidite için veri yok, bu kısım "yapılamadı" diye açıkça yazılır.
+- Çıktı: `sonuclar/kosullar.md` + `.json`.
 
 ## Sonra (laboratuvar başarılı olursa)
 - Aynı laboratuvara diğer mekanizmaları ekle:
