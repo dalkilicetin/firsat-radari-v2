@@ -20,6 +20,7 @@ def main(argv=None):
     alt.add_parser("kirilma", help="kirilma noktasi")
     alt.add_parser("kosullar", help="kenetlenme + gelgit kosullari")
     alt.add_parser("rapor", help="laboratuvar raporu")
+    alt.add_parser("dip", help="dipten toparlanma kontrol listesi taramasi")
     a = ap.parse_args(argv)
     if a.komut is None:
         ap.print_help()
@@ -44,6 +45,11 @@ def main(argv=None):
     if a.komut == "rapor":
         from mekanizma.rapor import lab_raporu
         print(lab_raporu.uret())
+        return 0
+    if a.komut == "dip":
+        from mekanizma.dip import kontrol
+        sonuc = kontrol.uret()
+        print(f"{len(sonuc)} aday; rapor: sonuclar/dip_adaylari.md")
         return 0
     if a.komut == "katalog":
         from tarih import inceleme
