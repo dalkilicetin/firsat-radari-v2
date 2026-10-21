@@ -61,6 +61,13 @@ test("AI metni: '-0%' yazmaz, her hisse için bir satır", () => {
   assert.strictEqual(t.split("\n").filter((l) => /^[XY] \|/.test(l)).length, 2);
 });
 
+test("görünüm: öncelikli liste daraltır, 'tum' hepsini gösterir", () => {
+  const temiz = { kirmizi: 0, olculen: 8 }, azVeri = { kirmizi: 0, olculen: 5 }, birKirmizi = { kirmizi: 1, olculen: 9 };
+  assert.ok(K.gorunumdeMi(temiz, "oncelikli") && !K.gorunumdeMi(azVeri, "oncelikli") && !K.gorunumdeMi(birKirmizi, "oncelikli"));
+  assert.ok(K.gorunumdeMi(birKirmizi, "bir") && !K.gorunumdeMi(azVeri, "bir"));
+  assert.ok([temiz, azVeri, birKirmizi].every((h) => K.gorunumdeMi(h, "tum")));
+});
+
 test("gerçek veriyle duman testi", { skip: !fs.existsSync(path.join(__dirname, "..", "data", "sonuclar.json")) }, () => {
   const d = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "sonuclar.json"), "utf8"));
   const r = K.hesapla(d);

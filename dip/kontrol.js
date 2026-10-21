@@ -179,6 +179,14 @@
     return { tarih: (d.generatedAt || "").slice(0, 10), adaylar: adaylar, tutarsiz: tutarsiz };
   }
 
+  /* Görünüm filtresi: varsayılan 'oncelikli' listeyi daraltır; diğerleri her zaman seçilebilir. */
+  var MIN_OLCULEN = 7;
+  function gorunumdeMi(h, mod) {
+    if (mod === "tum") return true;
+    if (mod === "bir") return h.kirmizi <= 1 && h.olculen >= MIN_OLCULEN;
+    return h.kirmizi === 0 && h.olculen >= MIN_OLCULEN;          // "oncelikli"
+  }
+
   /* Başka bir yapay zekâya tek seferde yapıştırılacak metin: prompt + hisse listesi. */
   function aiMetni(liste, tarih) {
     var p = function (x) { return g(x) ? sg(x, 0) + "%" : "yok"; };
@@ -215,6 +223,6 @@
     ].join("\n");
   }
 
-  var API = { aiMetni: aiMetni, PAY: PAY, hesapla: hesapla, degerlendir: degerlendir, ozet: ozet, kontrolSorulari: kontrolSorulari, adayMi: adayMi, veriTutarli: veriTutarli, sektorIstatistik: sektorIstatistik, BASLIKLAR: BASLIKLAR };
+  var API = { aiMetni: aiMetni, PAY: PAY, gorunumdeMi: gorunumdeMi, MIN_OLCULEN: MIN_OLCULEN, hesapla: hesapla, degerlendir: degerlendir, ozet: ozet, kontrolSorulari: kontrolSorulari, adayMi: adayMi, veriTutarli: veriTutarli, sektorIstatistik: sektorIstatistik, BASLIKLAR: BASLIKLAR };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.DipKontrol = API;
 })(typeof window !== "undefined" ? window : globalThis);
