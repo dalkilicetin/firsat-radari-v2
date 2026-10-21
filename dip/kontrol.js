@@ -169,11 +169,11 @@
       var metrik = { revG: pick(f_, s, "revG"), gmT: pick(f_, s, "gmT"), netM: pick(f_, s, "netM"), pe: pick(f_, s, "pe"), mcap: pick(f_, s, "mcap") };
       var kirmiziAd = m.filter(function (x) { return x[2] === "kirmizi"; }).map(function (x) { return x[1]; });
       if (!veriTutarli(s, q)) {
-        tutarsiz.push({ sembol: t, ad: ad, sektor: ind || "", zirveden: uzak, mtd: s.mtd, maddeler: m, sorular: kontrolSorulari(m, true), haber: haber, metrik: metrik, kirmiziAd: kirmiziAd, tutarsiz: true });
+        tutarsiz.push({ sembol: t, ad: ad, sektor: ind || "", zirveden: uzak, mtd: s.mtd, r13w: s.r13w, maddeler: m, sorular: kontrolSorulari(m, true), haber: haber, metrik: metrik, kirmiziAd: kirmiziAd, tutarsiz: true });
         return;
       }
       var oz = ozet(m);
-      adaylar.push({ sembol: t, ad: ad, sektor: ind || "", zirveden: uzak, mtd: s.mtd, maddeler: m, yesil: oz.yesil, kirmizi: oz.kirmizi, sari: oz.sari, bilinmiyor: oz.bilinmiyor, olculen: oz.olculen, skor: oz.skor, baslik: oz.baslik, sorular: kontrolSorulari(m, false), haber: haber, metrik: metrik, kirmiziAd: kirmiziAd });
+      adaylar.push({ sembol: t, ad: ad, sektor: ind || "", zirveden: uzak, mtd: s.mtd, r13w: s.r13w, maddeler: m, yesil: oz.yesil, kirmizi: oz.kirmizi, sari: oz.sari, bilinmiyor: oz.bilinmiyor, olculen: oz.olculen, skor: oz.skor, baslik: oz.baslik, sorular: kontrolSorulari(m, false), haber: haber, metrik: metrik, kirmiziAd: kirmiziAd });
     });
     adaylar.sort(function (a, b) { return (b.skor - a.skor) || (b.olculen - a.olculen) || (a.kirmizi - b.kirmizi); });
     return { tarih: (d.generatedAt || "").slice(0, 10), adaylar: adaylar, tutarsiz: tutarsiz };
@@ -181,6 +181,8 @@
 
   /* Görünüm filtresi: varsayılan 'oncelikli' listeyi daraltır; diğerleri her zaman seçilebilir. */
   var MIN_OLCULEN = 7;
+  var SON3AY = -10;   // "hâlâ düşüyor": son 3 ayda en az %10 düşmüş (zirveden düşmüş ama toparlayıp sakinleşenleri ayıklar)
+  function sonDususMu(h) { return g(h.r13w) && h.r13w <= SON3AY; }
   function gorunumdeMi(h, mod) {
     if (mod === "tum") return true;
     if (mod === "bir") return h.kirmizi <= 1 && h.olculen >= MIN_OLCULEN;
@@ -194,7 +196,7 @@
       var m = h.metrik || {};
       var bay = h.kirmiziAd && h.kirmiziAd.length ? h.kirmiziAd.join(", ") : "yok";
       return h.sembol + " | " + h.ad + " | " + (h.sektor || "sektör bilinmiyor") +
-        " | zirveden " + p(h.zirveden) + " | ay başından " + p(h.mtd) +
+        " | zirveden " + p(h.zirveden) + " | son 3 ay " + p(h.r13w) + " | ay başından " + p(h.mtd) +
         " | satış büyümesi " + p(m.revG) + " | brüt marj " + (g(m.gmT) ? m.gmT.toFixed(0) + "%" : "yok") + " | net marj " + (g(m.netM) ? m.netM.toFixed(0) + "%" : "yok") +
         " | F/K " + (g(m.pe) ? m.pe.toFixed(0) : "yok") + " | piyasa değeri " + (g(m.mcap) ? (m.mcap / 1000).toFixed(1) + " milyar $" : "yok") +
         " | araçta kırmızı bayrak: " + bay;
@@ -216,13 +218,13 @@
       "- En sonda iki liste: \"Daha fazla araştırmaya değer\" ve \"Uzak dur\", her birinde kısa gerekçe.",
       "- Belirsiz olduğun yerde belirsizliğini açıkça söyle.",
       "",
-      "HİSSELER (sembol | şirket | sektör | zirveden düşüş | ay başından | satış büyümesi | brüt marj | net marj | F/K | piyasa değeri | araçta kırmızı bayrak):",
+      "HİSSELER (sembol | şirket | sektör | zirveden düşüş | son 3 ay | ay başından | satış büyümesi | brüt marj | net marj | F/K | piyasa değeri | araçta kırmızı bayrak):",
       satirlar.join("\n"),
       "",
       "NOT: Rakamlar bir tarama aracının anlık verisidir ve hatalı olabilir; çelişen bilgi bulursan belirt."
     ].join("\n");
   }
 
-  var API = { aiMetni: aiMetni, PAY: PAY, gorunumdeMi: gorunumdeMi, MIN_OLCULEN: MIN_OLCULEN, hesapla: hesapla, degerlendir: degerlendir, ozet: ozet, kontrolSorulari: kontrolSorulari, adayMi: adayMi, veriTutarli: veriTutarli, sektorIstatistik: sektorIstatistik, BASLIKLAR: BASLIKLAR };
+  var API = { aiMetni: aiMetni, PAY: PAY, gorunumdeMi: gorunumdeMi, sonDususMu: sonDususMu, SON3AY: SON3AY, MIN_OLCULEN: MIN_OLCULEN, hesapla: hesapla, degerlendir: degerlendir, ozet: ozet, kontrolSorulari: kontrolSorulari, adayMi: adayMi, veriTutarli: veriTutarli, sektorIstatistik: sektorIstatistik, BASLIKLAR: BASLIKLAR };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.DipKontrol = API;
 })(typeof window !== "undefined" ? window : globalThis);

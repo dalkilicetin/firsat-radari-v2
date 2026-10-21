@@ -45,6 +45,7 @@ button.daha{font:inherit;font-weight:600;padding:12px;border-radius:12px;border:
     <div>“Sektör mü, şirket mi?”: hissenin 52 haftalık zirvesinden düşüşü, aynı sektördeki hisselerin medyan düşüşüyle karşılaştırılır.</div>
     <div>Altı başlık: 1 Neden düştü · 2 Kötü günü atlatır mı · 3 İşler nasıl · 4 Fiyat cazip mi · 5 Toparlanma işareti · 6 Kaybım sınırlı mı.</div>
     <div>Puan = (🟢 − 2×🔴) / (ölçülen madde + 3). Az maddesi ölçülebilen hisse, sırf veri az diye yüksek puan almaz. Düşmüş hisse: zirveden ≥%25 aşağıda, ya da ay başından ≥%12 düşmüş, ya da tek günde ≥%8 düşmüş.</div>
+    <div><b>Son 3 ayda da düşenler</b> (varsayılan açık): zirveden düşmüş olup son 3 ayda en az %10 daha düşen hisseler. Zirveden düşüp sonra toparlanıp sakinleşenleri ayıklar; kutuyu kapatırsan onlar da görünür.</div>
     <div><b>Öncelikli görünüm</b> (varsayılan): hiç kırmızı bayrağı olmayan ve en az 7 maddesi ölçülebilen hisseler. Şirkete özgü düşüş, zarar, küçülen satış, daralan marj, aşırı pahalılık, çok küçük şirket ya da düşük hacim varsa hisse burada görünmez; “Tüm düşmüş hisseler” seçilince görünür.</div>
     <div>Kutuları işaretleyebilirsin; işaretlerin yalnızca bu tarayıcıda saklanır.</div>
     <div><a href="https://github.com/dalkilicetin/firsat-radari-v2/blob/main/DIPTEN-TOPARLANMA-BELIRTILERI.md">Belirtilerin tam açıklaması</a></div>
@@ -67,6 +68,7 @@ button.daha{font:inherit;font-weight:600;padding:12px;border-radius:12px;border:
     <option value="bir">Genişletilmiş: en fazla 1 kırmızı bayrak</option>
     <option value="tum">Tüm düşmüş hisseler</option>
   </select>
+  <label class="onay"><input type="checkbox" id="son3" checked> Son 3 ayda da düşenler (en az %10)</label>
   <div class="kucuk" id="sayac"></div>
 </section>
 
@@ -170,6 +172,7 @@ button.daha{font:inherit;font-weight:600;padding:12px;border-radius:12px;border:
     ust.appendChild(sol);
     var sag = el("div", "", ""); sag.style.cssText = "margin-left:auto;display:flex;flex-direction:column;gap:4px;align-items:flex-end";
     sag.appendChild(el("span", "rozet r-turuncu", "Zirveden " + yuzde(h.zirveden)));
+    if (h.r13w !== undefined && h.r13w !== null) sag.appendChild(el("span", "rozet r-gri", "3 ay " + yuzde(h.r13w)));
     if (h.tutarsiz) sag.appendChild(el("span", "rozet r-sari", "Veri tutarsız")); else sag.appendChild(el("span", "rozet r-gri", "Puan " + (h.skor >= 0 ? "+" : "−") + Math.abs(h.skor).toFixed(2)));
     ust.appendChild(sag); k.appendChild(ust);
     if (!h.tutarsiz) {
@@ -184,9 +187,9 @@ button.daha{font:inherit;font-weight:600;padding:12px;border-radius:12px;border:
   }
 
   function filtrele() {
-    var q = $("ara").value.trim().toLowerCase(), sek = $("sektor").value, mod = $("gorunum").value, sr = $("sirala").value;
+    var q = $("ara").value.trim().toLowerCase(), sek = $("sektor").value, mod = $("gorunum").value, son3 = $("son3").checked, sr = $("sirala").value;
     var l = S.sonuc.adaylar.filter(function (h) {
-      return (!q || h.sembol.toLowerCase().indexOf(q) >= 0 || h.ad.toLowerCase().indexOf(q) >= 0) && (!sek || h.sektor === sek) && DipKontrol.gorunumdeMi(h, mod);
+      return (!q || h.sembol.toLowerCase().indexOf(q) >= 0 || h.ad.toLowerCase().indexOf(q) >= 0) && (!sek || h.sektor === sek) && DipKontrol.gorunumdeMi(h, mod) && (!son3 || DipKontrol.sonDususMu(h));
     });
     if (sr === "dusus") l.sort(function (a, b) { return (a.zirveden === null) - (b.zirveden === null) || a.zirveden - b.zirveden; });
     else if (sr === "kirmizi") l.sort(function (a, b) { return a.kirmizi - b.kirmizi || b.skor - a.skor; });
@@ -210,7 +213,7 @@ button.daha{font:inherit;font-weight:600;padding:12px;border-radius:12px;border:
     var l = filtrele(), liste = $("liste");
     liste.textContent = "";
     l.slice(0, S.gorunen).forEach(function (h) { liste.appendChild(kart(h)); });
-    $("sayac").textContent = l.length + " hisse gösteriliyor (toplam " + S.sonuc.adaylar.length + " düşmüş hisse; görünümü değiştirerek hepsini açabilirsin)";
+    $("sayac").textContent = l.length + " hisse gösteriliyor (toplam " + S.sonuc.adaylar.length + " düşmüş hisse; görünümü ya da “son 3 ay” kutusunu değiştirerek hepsini açabilirsin)";
     $("daha").hidden = l.length <= S.gorunen;
     aiGuncelle(l);
     if (!l.length) liste.appendChild(el("div", "kart", "Bu filtreyle eşleşen hisse yok."));
@@ -220,9 +223,10 @@ button.daha{font:inherit;font-weight:600;padding:12px;border-radius:12px;border:
     S.sonuc = DipKontrol.hesapla(d);
     var sek = {}; S.sonuc.adaylar.forEach(function (h) { if (h.sektor) sek[h.sektor] = 1; });
     Object.keys(sek).sort().forEach(function (s) { var o = el("option", "", s); o.value = s; $("sektor").appendChild(o); });
-    var onc = S.sonuc.adaylar.filter(function (h) { return DipKontrol.gorunumdeMi(h, "oncelikli"); }).length;
-    $("altBilgi").textContent = "Veri tarihi " + S.sonuc.tarih + " · " + S.sonuc.adaylar.length + " düşmüş hisse · " + onc + " öncelikli (kırmızı bayrak yok, yeterli veri) · " + S.sonuc.tutarsiz.length + " hissede veri tutarsız";
-    ["ara", "sirala", "sektor", "gorunum"].forEach(function (id) { $(id).addEventListener(id === "ara" ? "input" : "change", function () { S.gorunen = 30; ciz(); }); });
+    var onc = S.sonuc.adaylar.filter(function (h) { return DipKontrol.gorunumdeMi(h, "oncelikli"); });
+    var hala = onc.filter(DipKontrol.sonDususMu).length;
+    $("altBilgi").textContent = "Veri tarihi " + S.sonuc.tarih + " · " + S.sonuc.adaylar.length + " düşmüş hisse · " + onc.length + " öncelikli, " + hala + " tanesi son 3 ayda da düşmüş · " + S.sonuc.tutarsiz.length + " hissede veri tutarsız";
+    ["ara", "sirala", "sektor", "gorunum", "son3"].forEach(function (id) { $(id).addEventListener(id === "ara" ? "input" : "change", function () { S.gorunen = 30; ciz(); }); });
     $("daha").addEventListener("click", function () { S.gorunen += 30; ciz(); });
     $("aiSayi").addEventListener("change", function () { aiGuncelle(filtrele()); });
     $("aiKopyala").addEventListener("click", kopyala);

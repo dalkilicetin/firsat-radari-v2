@@ -68,6 +68,11 @@ test("görünüm: öncelikli liste daraltır, 'tum' hepsini gösterir", () => {
   assert.ok([temiz, azVeri, birKirmizi].every((h) => K.gorunumdeMi(h, "tum")));
 });
 
+test("son 3 ay filtresi: yalnızca hâlâ düşenler", () => {
+  assert.ok(K.sonDususMu({ r13w: -12 }) && K.sonDususMu({ r13w: -10 }));
+  assert.ok(!K.sonDususMu({ r13w: -9.9 }) && !K.sonDususMu({ r13w: 5 }) && !K.sonDususMu({}));
+});
+
 test("gerçek veriyle duman testi", { skip: !fs.existsSync(path.join(__dirname, "..", "data", "sonuclar.json")) }, () => {
   const d = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "sonuclar.json"), "utf8"));
   const r = K.hesapla(d);
