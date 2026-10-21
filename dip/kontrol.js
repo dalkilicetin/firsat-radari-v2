@@ -1,8 +1,9 @@
-/* Dip Radarı — kontrol listesi mantığı (arastirma/mekanizma/dip/kontrol.py ile birebir aynı kurallar).
+/* Dip Radarı — kontrol listesi mantığı. Kuralların TEK kaynağı bu dosyadır (testler: dip/kontrol.test.js).
    Bu bir KONTROL LİSTESİDİR; doğrulanmış sinyal değildir. */
 (function (root) {
   "use strict";
   var ESIK = { zirveden: -25, mtd: -12, gun: -8, sektorMin: 5, kucuk: 2000, orta: 10000, hacimDusuk: 0.3 };
+  var PAY = 3;   // puan paydasına eklenen sabit: az madde ölçülen hisse, sırf veri az diye yüksek puan almasın
   var BASLIKLAR = ["1. Neden düştü?", "2. Kötü günü atlatır mı?", "3. İşler nasıl?", "4. Fiyat cazip mi?", "5. Toparlanma işareti", "6. Kaybım sınırlı mı?"];
 
   function g(x) { return typeof x === "number" && !isNaN(x); }
@@ -26,7 +27,10 @@
     var gr = {};
     Object.keys(d.screen).forEach(function (t) {
       var i = d.prof[t] && d.prof[t].ind;
-      if (i) (gr[i] = gr[i] || []).push(d.screen[t]);
+      if (!i) return;
+      var s = d.screen[t], q = d.quotes && d.quotes[t];
+      var z = (q && s.hi52 && veriTutarli(s, q)) ? (q.price / s.hi52 - 1) * 100 : null;
+      (gr[i] = gr[i] || []).push({ r13w: s.r13w, pe: s.pe, ps: s.ps, mtd: s.mtd, zirveden: z });
     });
     var out = {};
     Object.keys(gr).forEach(function (i) {
@@ -36,7 +40,7 @@
         var v = lst.map(function (x) { return x[a]; }).filter(function (x) { return g(x) && (a !== "pe" || x > 0); });
         return v.length ? median(v) : null;
       };
-      out[i] = { n: lst.length, r13w: med("r13w"), pe: med("pe"), ps: med("ps") };
+      out[i] = { n: lst.length, r13w: med("r13w"), pe: med("pe"), ps: med("ps"), mtd: med("mtd"), zirveden: med("zirveden") };
     });
     return out;
   }
@@ -45,12 +49,18 @@
   function degerlendir(h) {
     var s = h.s, q = h.q, f = h.f || {}, sek = h.sek, o = [];
     var add = function (b, m, d, a) { o.push([b, m, d, a]); };
-    // 1. Neden düştü
-    if (sek && sek.r13w !== null && sek.r13w !== undefined && g(s.r13w)) {
-      var fark = s.r13w - sek.r13w;
-      if (sek.r13w <= -5 && fark > -10) add(1, "Sektör mü, şirket mi?", "yesil", "Sektör de düşmüş (3 ay medyan " + sg(sek.r13w) + "%); hisse sektörden çok farklı değil (" + sg(fark) + " puan)");
-      else if (fark <= -15) add(1, "Sektör mü, şirket mi?", "kirmizi", "Şirkete özgü görünüyor: sektörden " + sg(fark) + " puan kötü (3 ay)");
-      else add(1, "Sektör mü, şirket mi?", "sari", "Sektörden " + sg(fark) + " puan farklı (3 ay); net değil");
+    // 1. Neden düştü — hisse, aday seçildiği aynı ölçüyle (52 hafta zirvesinden düşüş) sektörüyle karşılaştırılır
+    var z = (q && s.hi52) ? (q.price / s.hi52 - 1) * 100 : null;
+    if (sek && g(z) && g(sek.zirveden)) {
+      var fark = z - sek.zirveden;
+      if (sek.zirveden <= -15 && fark > -10) add(1, "Sektör mü, şirket mi?", "yesil", "Sektör de zirvesinden çok uzak (medyan " + sg(sek.zirveden) + "%); hisse sektörden çok farklı değil (" + sg(fark) + " puan)");
+      else if (fark <= -15) add(1, "Sektör mü, şirket mi?", "kirmizi", "Şirkete özgü görünüyor: zirveden düşüşü sektör medyanından " + sg(fark) + " puan kötü (sektör medyanı " + sg(sek.zirveden) + "%)");
+      else add(1, "Sektör mü, şirket mi?", "sari", "Zirveden düşüşü sektör medyanından " + sg(fark) + " puan farklı (sektör medyanı " + sg(sek.zirveden) + "%); net değil");
+    } else if (sek && g(s.mtd) && g(sek.mtd)) {
+      var fm = s.mtd - sek.mtd;
+      if (sek.mtd <= -5 && fm > -5) add(1, "Sektör mü, şirket mi?", "yesil", "Bu ay sektör de düşmüş (medyan " + sg(sek.mtd) + "%); hisse sektörden çok farklı değil (" + sg(fm) + " puan)");
+      else if (fm <= -8) add(1, "Sektör mü, şirket mi?", "kirmizi", "Şirkete özgü görünüyor: bu ay sektör medyanından " + sg(fm) + " puan kötü");
+      else add(1, "Sektör mü, şirket mi?", "sari", "Bu ay sektör medyanından " + sg(fm) + " puan farklı; net değil");
     } else add(1, "Sektör mü, şirket mi?", "bilinmiyor", "Sektör karşılaştırması için yeterli veri yok");
     add(1, "Düşüşün haberi/nedeni", "bilinmiyor", "Haber verisi yok. ELLE BAK: bu düşüşün sebebi ne?");
     // 2. Kötü günü atlatır mı
@@ -114,7 +124,7 @@
       else if (ds.every(function (d) { return d === "yesil" || d === "bilinmiyor"; })) baslik[no] = "yesil";
       else baslik[no] = "sari";
     }
-    return { yesil: c.yesil, kirmizi: c.kirmizi, sari: c.sari, bilinmiyor: c.bilinmiyor, olculen: olculen, skor: olculen ? (c.yesil - 2 * c.kirmizi) / olculen : 0, baslik: baslik };
+    return { yesil: c.yesil, kirmizi: c.kirmizi, sari: c.sari, bilinmiyor: c.bilinmiyor, olculen: olculen, skor: (c.yesil - 2 * c.kirmizi) / (olculen + PAY), baslik: baslik };
   }
 
   /* HER hisse için elle bakılacaklar: önce bu hisseye özgü uyarılar, sonra ölçülemeyen standart maddeler. */
@@ -205,6 +215,6 @@
     ].join("\n");
   }
 
-  var API = { aiMetni: aiMetni, hesapla: hesapla, degerlendir: degerlendir, ozet: ozet, kontrolSorulari: kontrolSorulari, adayMi: adayMi, veriTutarli: veriTutarli, sektorIstatistik: sektorIstatistik, BASLIKLAR: BASLIKLAR };
+  var API = { aiMetni: aiMetni, PAY: PAY, hesapla: hesapla, degerlendir: degerlendir, ozet: ozet, kontrolSorulari: kontrolSorulari, adayMi: adayMi, veriTutarli: veriTutarli, sektorIstatistik: sektorIstatistik, BASLIKLAR: BASLIKLAR };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.DipKontrol = API;
 })(typeof window !== "undefined" ? window : globalThis);

@@ -15,7 +15,9 @@ Fırtınada her ağaç eğilir, ama sağlam olan geri kalkar, çürük olan kır
 - Savaş, gümrük vergisi, genel panik gibi bir olay herkesi aşağı çekmiş mi, yoksa bu şirket diğerlerinden daha mı çok düşmüş?
 - Olay şirketin işini gerçekten bozuyor mu? Gümrük vergisi herkesi düşürür, ama bu şirketin üretimini özellikle vuruyorsa sorun kalıcıdır.
 - Fiyat kötü haberin çoğunu zaten yansıtmış mı?
-- Mekanizma laboratuvarında panikte düşenler döndü, şirketi bozulanlar dönmedi. Ama fiyata bakarak bu ikisini ayıramadık. Ayıran şey haber.
+- Mekanizma laboratuvarında bu ayrımı simülasyonda **biz kurguladık**: panik kaynaklı düşüş geri dönecek, kalıcı bozulma dönmeyecek şekilde. Bu yüzden simülasyon bir kanıt değil, ölçüm aletinin denemesidir.
+- Gerçek veride destek zayıf: 2025 tarife düşüşünde en çok düşen hisseler sonra daha çok toparladı, ama bu tek bir vaka ve hisse listesi yanlı (bugün popüler adlar fazla). 2022'de sonuç karışıktı.
+- Fiyata bakarak panik ile bozulmayı ayıramadık. Ayıran şey haber.
 
 **2. Şirket kötü günü atlatabilmeli.**
 - **Nakit:** Kasadaki para, ayda harcadığı paraya bölününce kaç ay yetiyor? Aynı kasaya sahip iki şirketten biri hızlı harcıyorsa çok daha kırılgandır.
