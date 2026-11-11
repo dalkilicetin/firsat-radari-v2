@@ -21,7 +21,7 @@ import numpy as np
 import pandas as pd
 
 from radar import config
-from radar.arac import analiz, isaretler
+from radar.arac import analiz, isaretler, kazanc
 from radar.arac.analiz import Veri
 
 R = config.ROOT / "reports" / "research"
@@ -33,7 +33,7 @@ LGB = dict(n_estimators=300, learning_rate=0.05, num_leaves=31, min_child_sample
            subsample=0.7, subsample_freq=1, reg_lambda=10.0, n_jobs=4, verbose=-1, random_state=7)
 ILK_TEST = 2016
 OZELLIKLER = ["r4", "r13", "r26", "r52", "vol13", "vol26", "vol_daralma", "tepe_uzaklik", "kirilim", "dip_kat", "hacim_degisim",
-              "r26_sira", "r13_sira", "piyasa_ilerleme", "log_pd", "log_islem"] + isaretler.OLUMLU + ["dikkat_sayisi"]
+              "r26_sira", "r13_sira", "piyasa_ilerleme", "log_pd", "log_islem"] + isaretler.OLUMLU + ["dikkat_sayisi"] + kazanc.AD
 
 
 def ozellikler(v: Veri) -> dict[str, pd.DataFrame]:
@@ -62,6 +62,7 @@ def ozellikler(v: Veri) -> dict[str, pd.DataFrame]:
     for n in isaretler.OLUMLU:
         f[n] = v.isaret[n].astype(float)
     f["dikkat_sayisi"] = v.isaret["dikkat_sayisi"].astype(float)
+    f.update(kazanc.hesapla(P.index, P.columns))
     return f
 
 
