@@ -32,6 +32,8 @@ ET = "America/New_York"
 KESIM = pd.Timedelta(hours=8)  # 16:00 + 8 saat = gece yarısı: 16:00'dan sonraki kayıt ertesi güne kayar
 MIN_FIYAT, MIN_PD, MIN_ISLEM = 5.0, 5e8, 5e6
 VADE = {"3a": 13, "6a": 26}
+EK_VADE = {"1a": 4}     # yalnızca model denemeleri için (aylık yenileme); karne ve site 3a / 6a kullanır
+TUM_VADE = {**VADE, **EK_VADE}
 AYAR = (2013, 2022)   # eşik ve ağırlıklar yalnızca bu yıllarla ayarlanır
 SINAV = (2023, 2026)  # bir kez açılır
 PERSEMBE = "_persembe"
@@ -179,7 +181,7 @@ class Duzenek:
 
     def brut(self, vade: str) -> pd.DataFrame:
         """Cuma t kapanışından vade sonu Cuma kapanışına brüt getiri (arada çıkana çıkış değeri, iflasta −%100)."""
-        r = panel.forward_returns(self.cuma["price"], self.sec, VADE[vade])
+        r = panel.forward_returns(self.cuma["price"], self.sec, TUM_VADE[vade])
         return r.reindex(self.tarihler)
 
     @cached_property
@@ -208,7 +210,7 @@ class Duzenek:
 
     def kiyas(self, vade: str) -> dict[str, pd.DataFrame | pd.Series]:
         """Aynı Cuma kapanışları arasında: borsa (SPY), hissenin sektör ETF'i (hisse başına) ve eşit ağırlıklı evren."""
-        h = VADE[vade]
+        h = TUM_VADE[vade]
         e = self.etf.shift(-h) / self.etf - 1
         sek = pd.DataFrame({c: e[s] if s in e else np.nan for c, s in self.sektor_etf.items()}, index=self.tarihler)
         esit = self.brut(vade).where(self.evren).mean(axis=1)

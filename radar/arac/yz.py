@@ -15,6 +15,7 @@ python -m radar.arac.yz → reports/research/arac_yz.json / arac_yz.md, data/der
 from __future__ import annotations
 
 import json
+import os
 import sys
 
 import numpy as np
@@ -23,12 +24,14 @@ import pandas as pd
 from radar import config
 from radar.arac import analiz, isaretler, kazanc
 from radar.arac.analiz import Veri
+from radar.arac.duzenek import TUM_VADE
 
 R = config.ROOT / "reports" / "research"
-OUT = isaretler.CACHE / "yz"
-VADE = "3a"
-H = 13                 # hafta; etiket aralığı
-BUYUK_KAYIP = -0.20
+VADE = os.environ.get("RADAR_YZ_VADE", "3a")   # "3a" (13 hafta) ya da "1a" (4 hafta, aylık yenileme denemesi)
+H = TUM_VADE[VADE]     # hafta; etiket aralığı
+BUYUK_KAYIP = -0.20 if VADE == "3a" else -0.15
+EK = "" if VADE == "3a" else f"_{VADE}"
+OUT = isaretler.CACHE / f"yz{EK}"
 LGB = dict(n_estimators=300, learning_rate=0.05, num_leaves=31, min_child_samples=300, colsample_bytree=0.7,
            subsample=0.7, subsample_freq=1, reg_lambda=10.0, n_jobs=4, verbose=-1, random_state=7)
 ILK_TEST = 2016
@@ -194,7 +197,7 @@ def degerlendir(v: Veri, X: pd.DataFrame, S: pd.DataFrame, yillar: tuple[int, in
 def _sharpe(r: pd.Series) -> float:
     """13 haftalık zincir getirilerinden yıllıklandırılmış Sharpe (risksiz oran 0)."""
     r = r.dropna()
-    return float(r.mean() / r.std() * np.sqrt(4)) if len(r) > 3 and r.std() > 0 else float("nan")
+    return float(r.mean() / r.std() * np.sqrt(52 / H)) if len(r) > 3 and r.std() > 0 else float("nan")
 
 
 def risk_kovalari(X: pd.DataFrame, S: pd.DataFrame, yillar: tuple[int, int]) -> dict:
@@ -236,7 +239,7 @@ def main(sinav_da: bool = True) -> dict:
     if len(X_son):
         sk = son_hafta(X_son, X)
         sk.to_parquet(OUT / "son_hafta.parquet")
-    (R / "arac_yz.json").write_text(json.dumps(sonuc, indent=1, ensure_ascii=False, default=float))
+    (R / f"arac_yz{EK}.json").write_text(json.dumps(sonuc, indent=1, ensure_ascii=False, default=float))
     rapor_yaz(sonuc)
     return sonuc
 
@@ -250,7 +253,7 @@ ISIM = {"kural": "Kural radarı (mevcut)", "A": "Model A (getiri sırası)", "B"
 
 
 def rapor_yaz(s: dict | None = None) -> None:
-    s = s or json.loads((R / "arac_yz.json").read_text())
+    s = s or json.loads((R / f"arac_yz{EK}.json").read_text())
     L = ["# Yapay zekâ modelleri: A (getiri), B (büyük kazanan), C (risk) — yürüyen test", "",
          "Her yıl, yalnızca o yıldan önce sonucu bilinen satırlarla eğitilmiş model o yılı tahmin eder (sabit ayar, ayar yok). "
          "Her hafta 10 hisse (sektör başına en fazla 3), alış cuma kapanışı, masraflar düşülmüş, 3 ay. "
@@ -272,7 +275,7 @@ def rapor_yaz(s: dict | None = None) -> None:
             L += [f"| {k} | %{r['kayip_orani'] * 100:.1f} | {r['satir']:,} |" for k, r in s[key].items()]
             L.append("")
     L += [s["not"], ""]
-    (R / "arac_yz.md").write_text("\n".join(L))
+    (R / f"arac_yz{EK}.md").write_text("\n".join(L))
     print("\n".join(L))
 
 

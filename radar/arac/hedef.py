@@ -51,16 +51,20 @@ def secim(v: Veri, P: pd.DataFrame, S: pd.DataFrame, t, n: int, risk: bool, b: b
 def zincir(v: Veri, P, S, yillar, n, risk, b) -> dict:
     tab = v.tablo
     tar = pd.DatetimeIndex(S.index.get_level_values(0).unique())
-    qs = [t for t in analiz.ceyrek_baslari(tar, yillar) if tab["net_3a"].loc[t].notna().any()]
+    N, K = f"net_{yz.VADE}", f"kiyas_{yz.VADE}"
+    if yz.VADE == "3a":
+        qs = [t for t in analiz.ceyrek_baslari(tar, yillar) if tab[N].loc[t].notna().any()]
+    else:  # her H haftada bir yenileme
+        qs = [t for t in tar[(tar.year >= yillar[0]) & (tar.year <= yillar[1])][:: yz.H] if tab[N].loc[t].notna().any()]
     r, spy, kayip = [], [], []
     for t in qs:
         pk = secim(v, P, S, t, n, risk, b)
         if not pk:
-            r.append(0.0); spy.append(tab["kiyas_3a"].at[t, "borsa"]); continue
-        x = tab["net_3a"].loc[t, pk]
-        r.append(float(x.mean())); spy.append(float(tab["kiyas_3a"].at[t, "borsa"])); kayip.append(float((x < -0.2).mean()))
+            r.append(0.0); spy.append(tab[K].at[t, "borsa"]); continue
+        x = tab[N].loc[t, pk]
+        r.append(float(x.mean())); spy.append(float(tab[K].at[t, "borsa"])); kayip.append(float((x < yz.BUYUK_KAYIP).mean()))
     r, spy = np.array(r), np.array(spy)
-    yil = len(r) / 4
+    yil = len(r) * yz.H / 52
     deger = np.cumprod(1 + r)
     dusus = float((deger / np.maximum.accumulate(deger) - 1).min())
     yl = float(deger[-1] ** (1 / yil) - 1)
@@ -80,7 +84,7 @@ def main() -> dict:
         out["gelistirme_2016_2022"][ad] = zincir(v, P, S, (yz.ILK_TEST, 2022), n, risk, b)
         out["ikinci_bakis_2023_2026"][ad] = zincir(v, P, S, (2023, 2100), n, risk, b)
     out["deneme_sayisi"] = len(VARYANTLAR)
-    (R / "arac_hedef.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
+    (R / f"arac_hedef{yz.EK}.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
     rapor(out)
     return out
 
@@ -91,7 +95,7 @@ def p(x) -> str:
 
 def rapor(s: dict) -> None:
     L = ["# Hedef: S&P 500'ün 3 katı — dürüst testte nereye kadar?", "",
-         f"Önceden yazılmış {s['deneme_sayisi']} varyant; hepsi burada (seçilip gösterilen yok). Her çeyrek başı alınır, 3 ay tutulur, masraflar düşülür, batanlar dahil. "
+         f"Önceden yazılmış {s['deneme_sayisi']} varyant; hepsi burada (seçilip gösterilen yok). Her {yz.H} haftada bir alınır, {yz.H} hafta tutulur, masraflar düşülür, batanlar dahil. "
          "\"Kat\" = yıllık getiri ÷ borsanın yıllık getirisi. Kural ağırlıkları 2013–2022'de seçildiği için 2016–2022 sütunu kural lehine iyimserdir; "
          "2023–2026 daha önce açılmış bir dönemdir (ikinci bakış). Temiz sınav yalnızca bugünden sonraki canlı kayıttır.", ""]
     for bas, key in (("2016–2022", "gelistirme_2016_2022"), ("2023–2026", "ikinci_bakis_2023_2026")):
@@ -100,7 +104,7 @@ def rapor(s: dict) -> None:
             L.append(f"| {ISIM[ad]} | {p(r['yillik'])} | {p(r['borsa_yillik'])} | {r['kat']:.1f}× | {p(r['en_buyuk_dusus'])} | {p(r['en_kotu_ceyrek'])} | "
                      f"%{r['eksi_ceyrek'] * 100:.0f} | {r['bin_dolar']:,.0f} $ | {r['bin_dolar_borsa']:,.0f} $ |")
         L.append("")
-    (R / "arac_hedef.md").write_text("\n".join(L))
+    (R / f"arac_hedef{yz.EK}.md").write_text("\n".join(L))
     print("\n".join(L))
 
 

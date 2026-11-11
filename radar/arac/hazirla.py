@@ -12,7 +12,7 @@ import pandas as pd
 
 from radar import config
 from radar.arac import isaretler
-from radar.arac.duzenek import VADE, Duzenek
+from radar.arac.duzenek import TUM_VADE as VADE, Duzenek
 
 CACHE = isaretler.CACHE
 
