@@ -1,0 +1,163 @@
+{
+ "gelistirme_2016_2022": {
+  "kural_10_rejim": {
+   "donem": 28,
+   "nakit_donem": 9,
+   "ort_hisse": 6.785714285714286,
+   "yillik": 0.0019705265154834617,
+   "borsa_yillik": 0.11577920458648161,
+   "kat": 0.01701969297959351,
+   "en_buyuk_dusus": -0.5644552857085698,
+   "en_kotu_ceyrek": -0.2956070005893707,
+   "eksi_ceyrek": 0.21428571428571427,
+   "bin_dolar": 1013.8754964090972,
+   "bin_dolar_borsa": 2153.0188923252254
+  },
+  "kural_10_risk_rejim": {
+   "donem": 28,
+   "nakit_donem": 9,
+   "ort_hisse": 6.785714285714286,
+   "yillik": 0.05888450998569894,
+   "borsa_yillik": 0.11577920458648161,
+   "kat": 0.5085931467227777,
+   "en_buyuk_dusus": -0.5789333087333375,
+   "en_kotu_ceyrek": -0.30797135829925537,
+   "eksi_ceyrek": 0.25,
+   "bin_dolar": 1492.5887591308137,
+   "bin_dolar_borsa": 2153.0188923252254
+  },
+  "kural30_B_10_risk_rejim": {
+   "donem": 28,
+   "nakit_donem": 9,
+   "ort_hisse": 6.785714285714286,
+   "yillik": 0.05038395005393115,
+   "borsa_yillik": 0.11577920458648161,
+   "kat": 0.4351727085523093,
+   "en_buyuk_dusus": -0.5343898614502871,
+   "en_kotu_ceyrek": -0.2894366681575775,
+   "eksi_ceyrek": 0.25,
+   "bin_dolar": 1410.7060846943662,
+   "bin_dolar_borsa": 2153.0188923252254
+  },
+  "kazanc_kural_10": {
+   "donem": 28,
+   "nakit_donem": 0,
+   "ort_hisse": 9.535714285714286,
+   "yillik": 0.017834863884746754,
+   "borsa_yillik": 0.11577920458648161,
+   "kat": 0.15404203154138058,
+   "en_buyuk_dusus": -0.4616675182485318,
+   "en_kotu_ceyrek": -0.43601399660110474,
+   "eksi_ceyrek": 0.5357142857142857,
+   "bin_dolar": 1131.725909704141,
+   "bin_dolar_borsa": 2153.0188923252254
+  },
+  "kazanc_kural_10_rejim": {
+   "donem": 28,
+   "nakit_donem": 9,
+   "ort_hisse": 6.392857142857143,
+   "yillik": -0.09289982647695627,
+   "borsa_yillik": 0.11577920458648161,
+   "kat": -0.802387845112241,
+   "en_buyuk_dusus": -0.6194420388493167,
+   "en_kotu_ceyrek": -0.43601399660110474,
+   "eksi_ceyrek": 0.39285714285714285,
+   "bin_dolar": 505.3435770386012,
+   "bin_dolar_borsa": 2153.0188923252254
+  },
+  "kazanc_tepki_10": {
+   "donem": 28,
+   "nakit_donem": 0,
+   "ort_hisse": 9.535714285714286,
+   "yillik": 0.0834692788199396,
+   "borsa_yillik": 0.11577920458648161,
+   "kat": 0.7209349823922134,
+   "en_buyuk_dusus": -0.44751933468955585,
+   "en_kotu_ceyrek": -0.37752702832221985,
+   "eksi_ceyrek": 0.4642857142857143,
+   "bin_dolar": 1752.7348080865404,
+   "bin_dolar_borsa": 2153.0188923252254
+  }
+ },
+ "ikinci_bakis_2023_2026": {
+  "kural_10_rejim": {
+   "donem": 15,
+   "nakit_donem": 1,
+   "ort_hisse": 9.333333333333334,
+   "yillik": 0.2562680151933576,
+   "borsa_yillik": 0.21555292081830735,
+   "kat": 1.1888867672053938,
+   "en_buyuk_dusus": -0.3227379620075226,
+   "en_kotu_ceyrek": -0.3227379620075226,
+   "eksi_ceyrek": 0.13333333333333333,
+   "bin_dolar": 2352.6571097322853,
+   "bin_dolar_borsa": 2079.227531230448
+  },
+  "kural_10_risk_rejim": {
+   "donem": 15,
+   "nakit_donem": 1,
+   "ort_hisse": 9.333333333333334,
+   "yillik": 0.30551355315927076,
+   "borsa_yillik": 0.21555292081830735,
+   "kat": 1.4173482409769456,
+   "en_buyuk_dusus": -0.19014599919319153,
+   "en_kotu_ceyrek": -0.19014599919319153,
+   "eksi_ceyrek": 0.06666666666666667,
+   "bin_dolar": 2717.566579749083,
+   "bin_dolar_borsa": 2079.227531230448
+  },
+  "kural30_B_10_risk_rejim": {
+   "donem": 15,
+   "nakit_donem": 1,
+   "ort_hisse": 9.333333333333334,
+   "yillik": 0.24023603073273292,
+   "borsa_yillik": 0.21555292081830735,
+   "kat": 1.1145106724637301,
+   "en_buyuk_dusus": -0.2041057050228119,
+   "en_kotu_ceyrek": -0.2041057050228119,
+   "eksi_ceyrek": 0.26666666666666666,
+   "bin_dolar": 2242.0293336368277,
+   "bin_dolar_borsa": 2079.227531230448
+  },
+  "kazanc_kural_10": {
+   "donem": 15,
+   "nakit_donem": 0,
+   "ort_hisse": 10.0,
+   "yillik": 0.1374820752765611,
+   "borsa_yillik": 0.21555292081830735,
+   "kat": 0.637811237976435,
+   "en_buyuk_dusus": -0.28800324077902184,
+   "en_kotu_ceyrek": -0.2721847891807556,
+   "eksi_ceyrek": 0.4,
+   "bin_dolar": 1621.033933878251,
+   "bin_dolar_borsa": 2079.227531230448
+  },
+  "kazanc_kural_10_rejim": {
+   "donem": 15,
+   "nakit_donem": 1,
+   "ort_hisse": 9.333333333333334,
+   "yillik": -0.019912559581678813,
+   "borsa_yillik": 0.21555292081830735,
+   "kat": -0.09237898287847092,
+   "en_buyuk_dusus": -0.3051739314127443,
+   "en_kotu_ceyrek": -0.2721847891807556,
+   "eksi_ceyrek": 0.4,
+   "bin_dolar": 927.3487468889728,
+   "bin_dolar_borsa": 2079.227531230448
+  },
+  "kazanc_tepki_10": {
+   "donem": 15,
+   "nakit_donem": 0,
+   "ort_hisse": 10.0,
+   "yillik": 0.12363562837111552,
+   "borsa_yillik": 0.21555292081830735,
+   "kat": 0.5735743589173156,
+   "en_buyuk_dusus": -0.32711929082870483,
+   "en_kotu_ceyrek": -0.32711929082870483,
+   "eksi_ceyrek": 0.3333333333333333,
+   "bin_dolar": 1548.266190787545,
+   "bin_dolar_borsa": 2079.227531230448
+  }
+ },
+ "deneme_sayisi": 28
+}
